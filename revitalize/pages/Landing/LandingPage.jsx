@@ -6,7 +6,7 @@
 
  import React from 'react'
  
- export default function Card() {
+ export default function LandingPage() {
      return (
          <div>
              

@@ -1,12 +1,12 @@
 import React from 'react'
 import Link from 'next/link'
 import Head from 'next/head'
-import Nav from './components/Layout/nav'
+import Nav from '../components/Layout/Nav'
 
 const Home = () => (
   <div>
     <Head>
-      <title>Home</title>
+      <title>Revitalize</title>
     </Head>
 
     <Nav />
