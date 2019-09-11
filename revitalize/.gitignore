@@ -5,6 +5,9 @@
 /.pnp
 .pnp.js
 
+# Account for pnpm
+.yaml
+
 # testing
 /coverage
 
