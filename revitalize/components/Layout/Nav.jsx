@@ -1,9 +1,14 @@
 import React from 'react'
 import Link from 'next/link'
 
+
+
 const links = [
-  { href: 'https://zeit.co/now', label: 'ZEIT' },
-  { href: 'https://github.com/zeit/next.js', label: 'GitHub' }
+  { href: '#', label: 'About' },
+  { href: '#', label: 'Trades' },
+  { href: '#', label: 'Donate'},
+  { href: '#', label: 'Log In'},
+  { href: '#', label: 'Get Started'}
 ].map(link => {
   link.key = `nav-link-${link.href}-${link.label}`
   return link
@@ -11,10 +16,14 @@ const links = [
 
 const Nav = () => (
   <nav>
+    <div className="Logo">
+    <img src='../../static/assets/LandingPage/Logo.png' />
+    <h3> Revitalize</h3>
+    </div>
     <ul>
       <li>
         <Link href='/'>
-          <a>Home</a>
+          <a></a>
         </Link>
       </li>
       {links.map(({ key, href, label }) => (
@@ -35,7 +44,7 @@ const Nav = () => (
       }
       ul {
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-end;
       }
       nav > ul {
         padding: 4px 16px;
@@ -48,6 +57,9 @@ const Nav = () => (
         color: #067df7;
         text-decoration: none;
         font-size: 13px;
+      }
+      .Logo {
+        border: 3px solid black,
       }
     `}</style>
   </nav>
