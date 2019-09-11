@@ -72,24 +72,31 @@
            <div className="background-content">
              <div className="floated-tuition-cta">
                <h3 className="title">
-                 $0 Tuition upfront <span className='highlighted-text'>.</span>
+                 $0 Tuition upfront <span className="highlighted-text">.</span>
                </h3>
-               <p></p>
-               <button>Get Started!</button>
-               <img src="../../static/assets/LandingPage/Debt man.png"
-             alt="Debt man" />
+               <p>No additional loans to weigh you down!</p>
+               <p>
+                 No payment until you are hired! Once hired, pay 10% of your
+                 income for 3 years.
+               </p>
+               <button>Start Now!</button>
+               <img
+                 src="../../static/assets/LandingPage/Debt man.png"
+                 alt="Debt man"
+               />
              </div>
-             <h2></h2>
+             <h2>OUR PURPOSE</h2>
              <p className="title">
-               <span className="highlighted-text"></span>
+               Training next level professionals to
+               <span className="highlighted-text">empower communities</span>.
              </p>
            </div>
          </section>
 
          <section className="on-th-job-training">
-           <img src="" alt="" />
+           <img src="../../static/assets/LandingPage/You got this bud.png" alt="two buds" />
            <div className="training-cta">
-             <p></p>
+             <p>On the Job Training</p>
              <button>Let's Do This!</button>
            </div>
          </section>
@@ -97,9 +104,39 @@
          <section className="full-scale-applicatoin">
            <div className="full-scale-applicatoin-cta">
              <p></p>
-             <button>Let's Do This!</button>
+             <button>Apply Now!</button>
            </div>
            <img src="" alt="" />
+         </section>
+
+         <section className="featured-project">
+             
+           <div className="title-and-img user-story">
+             <img src="" alt="" />
+           </div>
+
+           <div className="user-story">
+             <img src="" alt="" />
+             <h2 className="user-info">
+
+             </h2>
+             <p>
+                 
+             </p>
+           </div>
+           <img src="" alt=""/>
+         </section>
+
+         <section className="search-projects-near-you">
+
+             <form onSubmit={()=>{}} className="search-projects">
+                 <p className="description">
+                 </p>
+                 <input type="text" placeholder="Enter Location"/>
+                 <button></button>
+             </form>
+
+             {/* This is where the map will go from our 3rd party solution */}
          </section>
          {/* <Footer /> */}
        </>
