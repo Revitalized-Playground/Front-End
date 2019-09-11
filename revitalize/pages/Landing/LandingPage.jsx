@@ -6,6 +6,7 @@
 
  import React from 'react'
  
+ import './LandingPage.scss';
  
  export default function LandingPage() {
      
@@ -63,26 +64,42 @@
            </div>
          </section>
 
-         <section className="our-promise">
-           <img src="../../static/assets/LandingPage/Debt man.png" alt="Debt man" />
+         <section className="our-purpose">
+           <img
+             src="../../static/assets/LandingPage/Gray rectangle with shapes.png"
+             alt="Gray background"
+           />
            <div className="background-content">
              <div className="floated-tuition-cta">
-                 <h3 className="title">
-
-                 </h3>
-                 <p>
-
-                 </p>
-                 <button>Get Started!</button>
-                 <img src="" alt=""/>
-            </div>
-            <h2>
-                
-            </h2>
+               <h3 className="title">
+                 $0 Tuition upfront <span className='highlighted-text'>.</span>
+               </h3>
+               <p></p>
+               <button>Get Started!</button>
+               <img src="../../static/assets/LandingPage/Debt man.png"
+             alt="Debt man" />
+             </div>
+             <h2></h2>
              <p className="title">
                <span className="highlighted-text"></span>
              </p>
            </div>
+         </section>
+
+         <section className="on-th-job-training">
+           <img src="" alt="" />
+           <div className="training-cta">
+             <p></p>
+             <button>Let's Do This!</button>
+           </div>
+         </section>
+
+         <section className="full-scale-applicatoin">
+           <div className="full-scale-applicatoin-cta">
+             <p></p>
+             <button>Let's Do This!</button>
+           </div>
+           <img src="" alt="" />
          </section>
          {/* <Footer /> */}
        </>
