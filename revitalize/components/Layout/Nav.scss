@@ -1,0 +1,44 @@
+@import "../../styles/mixins";
+nav {
+  display: flex;
+  justify-content: space-between;
+  max-height: 90px;
+  padding: 1.5% 4%;
+  @include fixedNav;
+  justify-content: space-around;
+  .logo {
+    display: flex;
+    max-width: 25%;
+    height: 80%;
+    position: absolute;
+    top: 0.75%;
+    position: absolute;
+    left: 4%;
+    top: 16.5%;
+
+    img {
+      max-height: 90px;
+    }
+
+    h2 {
+      align-self: center;
+      margin-bottom: 0.5%;
+    }
+  }
+  ul {
+    display: flex;
+    width: 90%;
+
+    li {
+      margin: auto;
+    }
+    button {
+      @include buttonStyler(#4840ba, #ffffff, solid);
+    }
+    .login {
+      color: #4840ba;
+      background: white;
+      border: 3px solid #4840ba;
+    }
+  }
+}

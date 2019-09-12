@@ -1,12 +1,18 @@
-$sky-blue: #2B56D3;
-$deep-blue: #0B096F;
+@import "reset";
+// Vars and Mixins
+@import "variables";
+@import "global";
+@import "mixins";
+// Pages Here
+@import "../pages/Landing/LandingPage.scss";
+@import "../pages/Dashboard/Dashboard.scss";
+@import "../pages/Login/Login.scss";
+@import "../pages/Register/Register.scss";
 
-body {
-    margin: 0
-}
-
-
-//LOGIN
-@import '../pages/Login/Login.scss';
-@import '../pages/Register/Register.scss';
-
+// Components Here
+@import "../components/Button/Button.scss";
+@import "../components/Card/Card.scss";
+@import "../components/Layout/footer.scss";
+@import "../components/Layout/Nav.scss";
+@import "../components/Project/Project.scss";
+@import "../components/ProjectList/ProjectList.scss";

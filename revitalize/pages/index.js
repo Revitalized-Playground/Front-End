@@ -2,28 +2,19 @@ import React from 'react'
 import Link from 'next/link'
 import Head from 'next/head'
 import Nav from '../components/Layout/Nav'
-import '../styles/base.scss'
-
-//Auth
-import Login from './Login/Login'
-import Register from './Register/Register'
-
+import LandingPage from "../pages/Landing/LandingPage"
+import "../styles/base.scss"
 
 const Home = () => (
   <div>
     <Head>
-      <title>Revitalize</title>
+
     </Head>
-    <Login />
-    <Register />
+    <Nav />
+    <LandingPage />
   </div>
 )
-
 export default Home
-
-
-
-
 
 {/* 
 <Nav />

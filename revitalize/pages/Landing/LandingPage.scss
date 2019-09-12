@@ -1,0 +1,338 @@
+@import "../../styles/mixins";
+
+.header {
+  // This is for fixed nav to be removed.
+  margin-top: 175px;
+  .cta-container {
+    display: flex;
+    justify-content: space-around;
+    margin: 3rem 0;
+
+    img {
+      max-width: 31%;
+      scale: both;
+    }
+    .cta {
+      max-width: 32%;
+      max-height: 33%;
+      text-align: left;
+      .cta-title {
+        color: #4840ba;
+        height: auto;
+      }
+      p {
+        margin: 2% auto;
+      }
+      button {
+        @include buttonStyler(#4840ba, #ffffff, none);
+      }
+    }
+  }
+  .values {
+    p {
+      text-align: center;
+      font-size: 1.5rem;
+    }
+    .value-tiles {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      width: 75%;
+      margin: 0 auto;
+      padding-bottom: 5rem;
+      padding-top: 1.25rem;
+      div {
+        padding: 1rem 2rem;
+        border-radius: 0.25rem;
+        color: white;
+        width: 6rem;
+        text-align: center;
+      }
+      .tenacity {
+        background: #d2405b;
+      }
+      .ingenuity {
+        background: #ffc100;
+      }
+      .growth {
+        background: #82c7b3;
+      }
+      .diligence {
+        background: #53a1a9;
+      }
+      .resilience {
+        background: #ab7b61;
+      }
+      .compassion {
+        background: #f7ad82;
+      }
+    }
+  }
+
+  .applicaton-links-container {
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    .img-container {
+      display: flex;
+      width: 34%;
+
+      text-align: center;
+      img {
+        width: 100%;
+      }
+    }
+    div {
+      display: flex;
+      justify-content: center;
+      p {
+        color: white;
+        position: absolute;
+        align-self: center;
+        font-weight: 1.4;
+        font-size: 2.1rem;
+      }
+      .donate-text {
+        color: black;
+      }
+    }
+    .donor {
+    }
+    .students {
+    }
+    .employers {
+    }
+    .img-container {
+    }
+  }
+}
+
+.our-purpose-wrapper {
+  height: 800px;
+  //   background-color: black;
+  width: 100%;
+  z-index: 2;
+  display: grid;
+  margin: 4% auto;
+  padding: auto 0;
+  .our-purpose {
+    height: 85%;
+    vertical-align: middle;
+    align-self: center;
+
+    .our-purpose-cta {
+      z-index: 1;
+      margin: -3% auto auto auto;
+      height: 760px;
+      width: 70%;
+      background: linear-gradient(125.97deg, #2041b6 -4.44%, #3366e9 131.53%);
+      box-shadow: 0px 0px 10px rgba(40, 95, 215, 0.25);
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      button {
+        @include buttonStyler(#4840ba, grey, none);
+      }
+
+      .floated-tuition-cta {
+        position: absolute;
+        height: 520px;
+        top: 11%;
+        left: -5%;
+        background-color: white;
+        width: 43%;
+
+        padding: 20px;
+        .title {
+          font-weight: 500;
+          font-size: 32px;
+          margin-bottom: 10px;
+          line-height: 15px;
+        }
+        p {
+          font-size: 16px;
+          line-height: 35px;
+        }
+        img {
+          position: absolute;
+          bottom: -11%;
+          right: 4%;
+          width: 42%;
+        }
+      }
+      .our-purpose-content {
+        width: 35%;
+        margin: 4% 4% auto auto;
+        color: white;
+
+        p {
+          margin: 3% auto;
+        }
+
+        .mission-statement {
+          font-weight: bold;
+          font-size: 1.2rem;
+        }
+        .highlighted-text {
+          color: rgb(218, 160, 0);
+        }
+      }
+    }
+  }
+}
+
+.on-the-job-training {
+  background: #4840ba;
+  margin: 4% auto;
+  display: flex;
+  justify-content: space-between;
+  color: white;
+
+  img {
+    scale: both;
+    width: 35%;
+    margin: 5% auto -3% 8%;
+  }
+  button {
+    @include buttonStyler(#ffffff, #4840ba, none);
+  }
+  .training-cta {
+    display: inline-block;
+    max-width: 28%;
+    margin: 10% auto;
+    h2 {
+      margin: 5% auto;
+    }
+  }
+}
+
+.full-scale-application {
+  display: flex;
+  justify-content: space-between;
+  margin: 4% auto;
+  img {
+    max-width: 55%;
+  }
+  .full-scale-application-cta {
+    max-width: 42%;
+    margin: 8% auto;
+    color: #4840ba;
+    font-size: 1.2rem;
+    h2 {
+      font-size: 1.4rem;
+      font-family: Futura;
+      line-height: 147.81%;
+      letter-spacing: 0.06em;
+      margin: 4% auto;
+    }
+    p {
+      margin: 4% auto;
+    }
+    button {
+      @include buttonStyler(#4840ba, #ffffff, none);
+    }
+  }
+}
+.featured-project {
+  display: flex;
+  justify-content: space-around;
+  background-color: #82c7b3;
+  margin: 4% auto;
+  max-height: 450px;
+  .phone {
+    margin-bottom: -6.5%;
+  }
+  .phone-left {
+    max-width: 28%;
+    // Rotate image
+    display: "inline-block";
+    transform: scale(-1, 1);
+  }
+  .user-story {
+    max-width: 31%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    text-align: center;
+    .user-photo {
+      max-width: 45%;
+      margin: auto;
+    }
+    p {
+      margin: auto;
+    }
+  }
+  .phone-right {
+    max-width: 28%;
+  }
+}
+
+.search-projects-near-you {
+  display: flex;
+  justify-content: space-around;
+  background-color: #0051be;
+  color: white;
+  margin: 4% auto;
+  height: 450px;
+
+  h2 {
+    font-family: Futura;
+    font-size: 32px;
+    margin: 4% auto 4% 0;
+    height: auto;
+  }
+
+  p {
+    line-height: 1.3;
+  }
+
+  .search-projects {
+    display: flex;
+    flex-direction: column;
+    width: 43%;
+    height: 43%;
+    margin: 2% auto auto 8%;
+    input {
+      margin: 4% auto 4% 0;
+      width: 43%;
+    }
+    button {
+      font-family: Futura;
+      margin: 3% 0;
+      background: white;
+      padding: 1% 2%;
+      border-radius: 0.25rem;
+      color: #4840ba;
+      border: 3px solid #4840ba;
+      width: 28%;
+    }
+  }
+
+  .fake-map {
+    width: 48%;
+    height: 400px;
+    margin: auto;
+    background-color: white;
+    color: black;
+  }
+}
+
+.testimonials {
+  margin: 4% auto;
+  display: flex;
+  justify-content: space-between;
+  background-color: #d2405b;
+  padding-top: 4%;
+  p {
+    margin: auto;
+    font-family: Futura;
+    display: inline-block;
+    font-weight: bold;
+    font-size: 1.3rem;
+    line-height: 1.3rem;
+    height: auto;
+  }
+  img {
+    max-width: 34%;
+  }
+}
