@@ -1,19 +1,29 @@
 .header {
     .cta-container {
+        display: flex;
+        justify-content: space-around;
         img {
             max-width: 31%;
             scale: both;
         }
         .cta {
+            max-width: 32%;
+            max-height: 28%;
+            text-align:left;
             .cta-title {
                 color: #4840BA;
             }
             p {
                 
             }
-            button {
+            div {
+                margin: 8%;
                 background: #4840BA;
-                color: #fff;
+                padding: 1rem 2rem;
+                border-radius: 0.25rem;
+                color: white;
+                border: none;
+                width: 11rem;
             }
         } 
     }
@@ -34,6 +44,8 @@
                 padding: 1rem 2rem;
                 border-radius: 0.25rem;
                 color: white;
+                width: 6rem;
+                text-align: center;
             }
             .tenacity {
                 background: #D2405B;
@@ -57,8 +69,9 @@
     }
     .img-container{
         display: flex;
-        width: 31%;
+        width: 33%;
         border: 2px solid green;
+        text-align: center;
         img{
             width:100%;
         }
@@ -69,6 +82,18 @@
         justify-content: space-around;
         border: 2px solid #4840BA;
         div {
+            display: flex;
+            justify-content: center;
+            p {
+                color: white;
+                position: absolute;
+                align-self: center;
+                font-weight: 1.4;
+                font-size: 2rem;
+            }
+            .donate-text {
+                color: black;
+            }
 
         }
         .donor {
@@ -86,6 +111,15 @@
     }
     
 }
-.our-promise {
-
+.our-purpose {
+    width: 100%;
+   img{
+       width: 100%;
+       position: absolute;
+   }
+   .background-content{
+       width: 40%;
+       background-color: white;
+       height: 90%;
+   }
 }

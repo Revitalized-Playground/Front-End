@@ -15,13 +15,13 @@
            <div className="cta-container">
              <div className="cta">
                <h2 className="cta-title">
-                 A Modern approach to become a licensed trades professional
+                 A Modern approach to become <br/>a licensed trades professional
                </h2>
                <p>
                  Debt free hands-on education to rebuilding local communities
                  through crowdfunding.
                </p>
-               <button>Start Your Journey Now!</button>
+               <div>Start Your Journey Now!</div>
              </div>
              <img src="../../static/assets/LandingPage/Hero Image.png" />
            </div>
@@ -47,7 +47,7 @@
              
              <div className="donor img-container" onClick={() => {}}>
                 <img src="../../static/assets/LandingPage/Donate Now.png" />
-                <p>Donate Now!</p>
+                <p className="donate-text">Donate Now!</p>
              </div>
 
              <div className="employers img-container" onClick={() => {}}>
