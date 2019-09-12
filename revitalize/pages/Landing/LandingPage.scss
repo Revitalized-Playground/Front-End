@@ -259,7 +259,29 @@ button{
             width: 11rem;
     }
     }
-
-
-    
+}
+.featured-project{
+    display: flex;
+    justify-content: space-around;
+    background-color: #82C7B3;
+    max-height:450px;
+    .phone{
+        margin-bottom:-6.5%;
+    }
+    .phone-left{
+        max-width:28%;
+    }
+    .user-story{
+        max-width:31%;
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        .user-photo{
+            max-width:45%;
+            margin: auto ;
+        }
+    }
+    .phone-right{
+        max-width:28%;
+    }
 }

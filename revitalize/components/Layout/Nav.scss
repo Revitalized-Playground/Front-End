@@ -3,19 +3,19 @@ nav{
     display: flex;
     justify-content: space-between;
     max-height: 90px;
-    padding: 2% 4%;
+    padding: 1.5% 4%;
     @include fixedNav;
     justify-content: space-around;
     .logo  {
         display: flex;
-        max-width: 12%;
+        max-width: 25%;
 
         
         h2{
            margin: auto;
         }
         img{
-            max-height:75px;
+            max-height:90px;
         }
         
     }
