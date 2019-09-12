@@ -27,10 +27,10 @@ export default function Footer() {
 				))}
 			</ul>
 			<div className="social-links-container">
-				<i></i>
-				<i></i>
-				<i></i>
-				<i></i>
+				<a href="#" class="fa fa-github"></a>
+				<a href="#" class="fa fa-facebook"></a>
+				<a href="#" class="fa fa-linkedin"></a>
+				<a href="#" class="fa fa-twitter"></a>
 			</div>
 			<span className="copyright">
 				Revitalize &copy; <span className="italics">2019 All Rights Reserved</span>{' '}
