@@ -1,18 +1,16 @@
-import React from 'react'
-import Link from 'next/link'
-import Head from 'next/head'
-import Nav from '../components/Layout/Nav'
-import LandingPage from "../pages/Landing/LandingPage"
-import "../styles/base.scss"
+import React from 'react';
+import Link from 'next/link';
+import Head from 'next/head';
+import Nav from '../components/Layout/Nav';
+import LandingPage from '../pages/Landing/LandingPage';
+import '../styles/base.scss';
 
 const Home = () => (
-  <div>
-    <Head>
+	<div>
+		<Head></Head>
+		<Nav />
+		<LandingPage />
+	</div>
+);
 
-    </Head>
-    <Nav />
-    <LandingPage />
-  </div>
-)
-
-export default Home
+export default Home;
