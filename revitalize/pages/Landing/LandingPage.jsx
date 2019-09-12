@@ -22,7 +22,7 @@
                  Debt free hands-on education to rebuilding local communities
                  through crowdfunding.
                </p>
-               <div>Start Your Journey Now!</div>
+               <button>Start Your Journey Now!</button>
              </div>
              <img src="../../static/assets/LandingPage/Hero Image.png" />
            </div>
@@ -88,11 +88,21 @@
                />
              </div>
              <div className="our-purpose-content">
-               <h2>OUR PURPOSE</h2>
-               <p className="title">
-                 Training next level professionals to
-                 <span className="highlighted-text">empower communities</span>.
-               </p>
+               <h3>OUR PURPOSE</h3>
+               <p className="">
+                 <p className="mission-statement"> Training next level professionals<br/>
+                  <span className="highlighted-text"> to empower communities.</span>
+                 </p>
+                 <p>
+                    Revitalize is a project-based apprenticeship program providing hands on 
+                    training and preparing our apprentices to transition to jobs in the industry.
+                 </p>
+                 <p>
+                    Our apprentices receive hands-on training daily from worldclass experts and 
+                    instructors. Revitalize partners with local colleges to ensure students are prepared 
+                    to enter the industry.
+                 </p>
+               </p> 
              </div>
            </div>
          </section>
@@ -105,7 +115,9 @@
            />
            <div className="training-cta">
              <h2>On the Job Training</h2>
-             <p></p>
+             <p>
+                Work under Licensed Professionals to qualify and log hours for state licensure requirements  
+             </p>
              <button>Let's Do This!</button>
            </div>
          </section>
