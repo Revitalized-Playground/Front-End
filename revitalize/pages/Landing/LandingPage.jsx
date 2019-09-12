@@ -122,11 +122,11 @@
            </div>
          </section>
 
-         {/* <section className="full-scale-applicatoin">
-           <div className="full-scale-applicatoin-cta">
+         <section className="full-scale-application">
+           <div className="full-scale-application-cta">
              <h2>Full Scale Application</h2>
              <p>
-               Log classroom and on-the-job-training hours all under one
+               Log classroom and on-the-job-training hours<br/> all under one
                streamlined application
              </p>
              <button>Apply Now!</button>
@@ -135,7 +135,7 @@
              src="../../static/assets/LandingPage/Classroom Training.png"
              alt="two people in a classroom"
            />
-         </section> */}
+         </section>
 
          {/* <section className="featured-project">
            <div className="title-and-img user-story">

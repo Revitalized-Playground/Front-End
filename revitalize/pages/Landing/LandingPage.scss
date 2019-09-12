@@ -191,7 +191,7 @@ padding: auto 0;
 }
 
 .on-the-job-training {
-background: linear-gradient(125.97deg, #2041B6 -4.44%, #3366E9 131.53%);
+background:#4840BA;
 margin: 25% auto;
 display: flex;
 justify-content: space-between;
@@ -204,10 +204,8 @@ img {
 }
 button{
         margin: 8% 0;
-        background: #4840ba;
         padding: 1rem 2rem;
         border-radius: 0.25rem;
-        color: white;
         border: none;
         width: 11rem;
 }
@@ -215,5 +213,46 @@ button{
     display: inline-block;
     max-width: 28%;
     margin: 10% auto;
+    h2{
+        margin: 5% auto;
+    }
 }
+}
+
+.full-scale-application{
+    
+    display: flex;
+    justify-content: space-between;
+    margin:4% auto;
+    img{
+        max-width:55%;
+    }
+    .full-scale-application-cta{
+        max-width: 42%;
+        margin: 8% auto;
+        color: #4840BA;                    
+        font-size: 1.2rem;
+        h2{
+            font-size: 1.4rem;
+            font-family: Futura;
+            line-height: 147.81%;
+            letter-spacing: 0.06em;
+            margin:4% auto;
+        }
+        p{
+            margin: 4% auto;
+        }
+        button{
+            margin: 8% 0;
+            background: #4840ba;
+            padding: 1rem 2rem;
+            border-radius: 0.25rem;
+            color: white;
+            border: none;
+            width: 11rem;
+    }
+    }
+
+
+    
 }
