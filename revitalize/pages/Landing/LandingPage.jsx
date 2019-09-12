@@ -180,34 +180,34 @@ export default function LandingPage() {
             <button>Search Now!</button>
           </form> 
           <div className="fake-map">My totally fake map</div>
-         
-        </section>
+        
+      </section>
 
-         {/* <section className="testimonials">
-           <img
-             src="../../static/assets/LandingPage/Lucas Bubble.png"
-             alt="quote bubble"
-           />
-           <img
-             src="../../static/assets/LandingPage/Lucas.png"
-             alt="Lucas"
-           />
-           <p>
-             Hear what our students, experts, and supporters are raving about...
-           </p>
-           <img
-             src="../../static/assets/LandingPage/Maxwell Bubble.png"
-             alt="quote bubble"
-           />
-           <img
-             src="../../static/assets/LandingPage/Maleescha Mclarin.png"
-             alt="Maleescha"
-           />
-         </section> */}
+        {/* <section className="testimonials">
+          <img
+            src="../../static/assets/LandingPage/Lucas Bubble.png"
+            alt="quote bubble"
+          />
+          <img
+            src="../../static/assets/LandingPage/Lucas.png"
+            alt="Lucas"
+          />
+          <p>
+            Hear what our students, experts, and supporters are raving about...
+          </p>
+          <img
+            src="../../static/assets/LandingPage/Maxwell Bubble.png"
+            alt="quote bubble"
+          />
+          <img
+            src="../../static/assets/LandingPage/Maleescha Mclarin.png"
+            alt="Maleescha"
+          />
+        </section> */}
 
-         {/* <Footer /> */}
-       </>
-     );
+        {/* <Footer /> */}
+      </>
+    );
 }
     
                 
