@@ -1,0 +1,32 @@
+.footer {
+	background-color: #0b096f;
+	height: 11rem;
+	color: white;
+	.links-container {
+		border: 2px solid red;
+		display: flex;
+		max-width: 85%;
+		justify-content: space-around;
+		margin: auto;
+		li {
+			display: inline-block;
+			max-height: 4rem;
+			margin: 4rem auto;
+			align-self: auto;
+			a {
+				color: white;
+				text-decoration: none;
+			}
+		}
+	}
+	.copyright {
+		border: 3px solid red;
+		font-size: 1.3rem;
+		position: absolute;
+		left: 41%;
+	}
+	.italics {
+		font-style: italic;
+		font-weight: lighter;
+	}
+}
