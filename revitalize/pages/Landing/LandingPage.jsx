@@ -140,10 +140,6 @@ export default function LandingPage() {
         <section className="featured-project">
             <img
               className="phone-left phone"
-              style={{border:0,
-                display:"inline-block",
-                transform:"scale(-1,1)",
-                }}
               src="../../static/assets/LandingPage/Rubicon phones.png"
               alt="cell phone"
             />
@@ -175,16 +171,16 @@ export default function LandingPage() {
 
         <section className="search-projects-near-you">
           <form onSubmit={() => {}} className="search-projects">
-            <h2>Search for Apprenticeship Projects Near You!</h2>
+            <h2>Search for Apprenticeship<br/> Projects Near You!</h2>
             <p className="description">
-              Explore various projects trending in your local area and be the
+              Explore various projects trending in your <br/>local area and be the
               first to see what's going on.
             </p>
             <input type="text" placeholder="Enter Location" />
             <button>Search Now!</button>
-          </form> */}
-
-          {/* This is where the map will go from our 3rd party solution */}
+          </form> 
+          <div className="fake-map">My totally fake map</div>
+         
         </section>
 
          {/* <section className="testimonials">

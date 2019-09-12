@@ -2,7 +2,7 @@
 
 .header {
     // This is for fixed nav to be removed.
-    margin-top: 275px;
+    margin-top: 175px;
 .cta-container {
     display: flex;
     justify-content: space-around;
@@ -121,7 +121,7 @@ height: 800px;
 width: 100%;
 z-index: 2;
 display: grid;
-margin: 120px auto;
+margin: 4% auto;
 padding: auto 0;
 .our-purpose {
     height: 85%;
@@ -199,7 +199,7 @@ padding: auto 0;
 
 .on-the-job-training {
 background:#4840BA;
-margin: 25% auto;
+margin: 4% auto;
 display: flex;
 justify-content: space-between;
 color:white;
@@ -264,24 +264,82 @@ button{
     display: flex;
     justify-content: space-around;
     background-color: #82C7B3;
+    margin: 4% auto;
     max-height:450px;
     .phone{
         margin-bottom:-6.5%;
     }
     .phone-left{
         max-width:28%;
+        // Rotate image
+        display:"inline-block";
+        transform:scale(-1,1);
     }
     .user-story{
         max-width:31%;
         display: flex;
         flex-direction: column;
         align-content: center;
+        text-align: center;
         .user-photo{
             max-width:45%;
             margin: auto ;
         }
+        p{
+            margin: auto;
+        }
     }
     .phone-right{
         max-width:28%;
+    }
+}
+
+.search-projects-near-you{
+    display: flex;
+    justify-content: space-around;
+    background-color: #0051BE;
+    color:white;
+    margin: 4% auto;
+    height: 450px;
+    
+    h2{
+        font-family: Futura;
+        font-size: 32px;
+        margin:4% auto 4% 0;
+        height:auto;
+    }
+
+    p{
+        line-height: 1.3;
+    }
+    
+    .search-projects{
+        display: flex;
+        flex-direction: column;
+        width: 43%;
+        height:43%;
+        margin: 2% auto auto 8%;
+        input{
+            margin: 4% auto 4% 0;
+            width:43%
+        }
+        button{
+            font-family: Futura;
+            margin: 3% 0;
+            background: white;
+            padding: 1% 2%;
+            border-radius: 0.25rem;
+            color: #4840BA;
+            border: 3px solid #4840ba;
+            width: 28%;
+        }
+    }
+
+    .fake-map{
+        width: 48%;
+        height: 400px;
+        margin: auto;
+        background-color: white;
+        color: black;
     }
 }
