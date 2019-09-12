@@ -103,10 +103,11 @@
 
          <section className="full-scale-applicatoin">
            <div className="full-scale-applicatoin-cta">
-             <p></p>
+             <h2>Full Scale Application</h2>
+             <p>Log classroom and on-the-job-training hours all under one streamlined application</p>
              <button>Apply Now!</button>
            </div>
-           <img src="" alt="" />
+           <img src="../../static/assets/LandingPage/Classroom Training.png" alt="two people in a classroom"/>
          </section>
 
          <section className="featured-project">
