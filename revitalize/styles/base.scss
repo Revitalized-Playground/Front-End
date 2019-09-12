@@ -1,10 +1,12 @@
+$sky-blue: #2B56D3;
+$deep-blue: #0B096F;
 
-// .loginContainer {
-//     background: black;
-//     height: 100px;
-//     width: 100px
-// }
-
-.blah {
-    background: black
+body {
+    margin: 0
 }
+
+
+//LOGIN
+@import '../pages/Login/Login.scss';
+@import '../pages/Register/Register.scss';
+

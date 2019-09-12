@@ -6,14 +6,16 @@ import '../styles/base.scss'
 
 //Auth
 import Login from './Login/Login'
+import Register from './Register/Register'
 
 
 const Home = () => (
-  <div className='blah'>
+  <div>
     <Head>
       <title>Revitalize</title>
     </Head>
     <Login />
+    <Register />
   </div>
 )
 
