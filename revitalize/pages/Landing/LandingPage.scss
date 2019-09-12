@@ -2,22 +2,24 @@
     .cta-container {
         display: flex;
         justify-content: space-around;
+        margin: 3rem 0;
         img {
             max-width: 31%;
             scale: both;
         }
         .cta {
             max-width: 32%;
-            max-height: 28%;
+            max-height: 33%;
             text-align:left;
             .cta-title {
                 color: #4840BA;
+                height: auto;
             }
             p {
-                
+                margin: 2% auto;
             }
             div {
-                margin: 8%;
+                margin: 8% 0;
                 background: #4840BA;
                 padding: 1rem 2rem;
                 border-radius: 0.25rem;
@@ -67,20 +69,20 @@
             }
         }
     }
-    .img-container{
-        display: flex;
-        width: 33%;
-        border: 2px solid green;
-        text-align: center;
-        img{
-            width:100%;
-        }
-    }
+  
     .applicaton-links-container {
         max-width: 100%;
         display: flex;
-        justify-content: space-around;
-        border: 2px solid #4840BA;
+        justify-content: center;
+        .img-container{
+            display: flex;
+            width: 34%;
+    
+            text-align: center;
+            img{
+                width:100%;
+            }
+        }
         div {
             display: flex;
             justify-content: center;
@@ -89,7 +91,7 @@
                 position: absolute;
                 align-self: center;
                 font-weight: 1.4;
-                font-size: 2rem;
+                font-size: 2.1rem;
             }
             .donate-text {
                 color: black;
@@ -113,13 +115,61 @@
 }
 .our-purpose {
     width: 100%;
+
+    position: absolute;
+    z-index: 2;
+    margin-top: 120px;
+    margin-bottom: 120px;
    img{
        width: 100%;
        position: absolute;
    }
    .background-content{
-       width: 40%;
-       background-color: white;
-       height: 90%;
+       position: relative;
+       z-index:1;
+       margin: 0 auto;
+       
+        width: 70%;
+        margin-top: -5%;
+        padding-top: 25%;
+        padding-bottom: 20%;
+       background-color: blue;
+       height: 10vh;
+       .floated-tuition-cta{
+        position: absolute;
+        top: 12%;
+        left: -5%;
+        height: 60%;
+        background-color: white;
+        width: 43%;
+       
+        padding: 20px;
+        .title{
+            font-weight: 500;
+            font-size: 32px;
+            margin-bottom: 10px;
+            line-height: 15px;
+            .highlighted-text{
+                
+            }
+        }
+        p{
+            font-size: 16px;
+            line-height: 35px;
+        }
+        img{
+            position: relative;
+            scale: both;
+            width: 42%;
+        }
+    }
    }
+   
+}
+
+.on-the-job-training{
+    img{
+        width: 100px;
+        height: 100px;
+    }
 }
