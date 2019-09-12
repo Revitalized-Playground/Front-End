@@ -69,12 +69,9 @@
            </div>
          </section>
 
-         <section className="our-purpose">
-           <img
-             src="../../static/assets/LandingPage/Gray rectangle with shapes.png"
-             alt="Gray background"
-           />
-           <div className="background-content">
+<div className="our-purpose-wrapper" >
+         <section className="our-purpose" style={{background: "url('../../static/assets/LandingPage/GreyRectangle.png')", backgroundPosition:"center", backgroundSize:"cover", backgroundRepeat:"no-repeat"}} >
+           <div className="our-purpose-cta">
              <div className="floated-tuition-cta">
                <h3 className="title">
                  $0 Tuition upfront <span className="highlighted-text">.</span>
@@ -90,15 +87,16 @@
                  alt="Debt man"
                />
              </div>
-             <div classname="zero-tuition-cta">
-             <h2>OUR PURPOSE</h2>
-             <p className="title">
-               Training next level professionals to
-               <span className="highlighted-text">empower communities</span>.
-             </p>
+             <div className="our-purpose-content">
+               <h2>OUR PURPOSE</h2>
+               <p className="title">
+                 Training next level professionals to
+                 <span className="highlighted-text">empower communities</span>.
+               </p>
              </div>
            </div>
          </section>
+         </div>
 
          <section className="on-the-job-training">
            <img
@@ -106,12 +104,13 @@
              alt="two buds"
            />
            <div className="training-cta">
-             <p>On the Job Training</p>
+             <h2>On the Job Training</h2>
+             <p></p>
              <button>Let's Do This!</button>
            </div>
          </section>
 
-         <section className="full-scale-applicatoin">
+         {/* <section className="full-scale-applicatoin">
            <div className="full-scale-applicatoin-cta">
              <h2>Full Scale Application</h2>
              <p>
@@ -124,9 +123,9 @@
              src="../../static/assets/LandingPage/Classroom Training.png"
              alt="two people in a classroom"
            />
-         </section>
+         </section> */}
 
-         <section className="featured-project">
+         {/* <section className="featured-project">
            <div className="title-and-img user-story">
              <img
                src="../../static/assets/LandingPage/Rubicon phones.png"
@@ -140,28 +139,55 @@
                alt="construction worker"
              />
              <h2 className="user-info">Team Rubicon - Flint, MI</h2>
-             <p>Come see the journey of our students and industry experts restore an abandoned school building to a modern state-of-the-art career school.  The new school year will be starting Fall of 2020.  Thank you to our amazing donors and partners for inspiring our apprentices.</p>
+             <p>
+               Come see the journey of our students and industry experts restore
+               an abandoned school building to a modern state-of-the-art career
+               school. The new school year will be starting Fall of 2020. Thank
+               you to our amazing donors and partners for inspiring our
+               apprentices.
+             </p>
            </div>
            <img
              src="../../static/assets/LandingPage/Rubicon phones.png"
              alt="cell phone"
            />
-         </section>
+         </section> */}
 
-         <section className="search-projects-near-you">
+         {/* <section className="search-projects-near-you">
            <form onSubmit={() => {}} className="search-projects">
              <h2>Search for Apprenticeship Projects Near You!</h2>
-             <p className="description">Explore various projects trending in your local area and be the first to see what's going on.</p>
+             <p className="description">
+               Explore various projects trending in your local area and be the
+               first to see what's going on.
+             </p>
              <input type="text" placeholder="Enter Location" />
              <button>Search Now!</button>
-           </form>
+           </form> */}
 
            {/* This is where the map will go from our 3rd party solution */}
-         </section>
+         {/* </section> */}
 
-         <section className='testimonials'>
-
-         </section>
+         {/* <section className="testimonials">
+           <img
+             src="../../static/assets/LandingPage/Lucas Bubble.png"
+             alt="quote bubble"
+           />
+           <img
+             src="../../static/assets/LandingPage/Lucas.png"
+             alt="Lucas"
+           />
+           <p>
+             Hear what our students, experts, and supporters are raving about...
+           </p>
+           <img
+             src="../../static/assets/LandingPage/Maxwell Bubble.png"
+             alt="quote bubble"
+           />
+           <img
+             src="../../static/assets/LandingPage/Maleescha Mclarin.png"
+             alt="Maleescha"
+           />
+         </section> */}
 
          {/* <Footer /> */}
        </>
