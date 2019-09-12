@@ -297,13 +297,10 @@
 			width: 43%;
 		}
 		button {
-			font-family: Futura;
+			@include buttonStyler(rgb(255, 255, 255), #4840ba, solid);
 			margin: 3% 0;
-			background: white;
 			padding: 1% 2%;
 			border-radius: 0.25rem;
-			color: #4840ba;
-			border: 3px solid #4840ba;
 			width: 28%;
 		}
 	}
