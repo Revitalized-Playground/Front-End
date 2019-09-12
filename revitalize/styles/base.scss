@@ -1,0 +1,12 @@
+$sky-blue: #2B56D3;
+$deep-blue: #0B096F;
+
+body {
+    margin: 0
+}
+
+
+//LOGIN
+@import '../pages/Login/Login.scss';
+@import '../pages/Register/Register.scss';
+
