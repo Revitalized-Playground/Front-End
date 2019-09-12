@@ -183,27 +183,19 @@ export default function LandingPage() {
         
       </section>
 
-        {/* <section className="testimonials">
+        <section className="testimonials">
           <img
-            src="../../static/assets/LandingPage/Lucas Bubble.png"
-            alt="quote bubble"
-          />
-          <img
-            src="../../static/assets/LandingPage/Lucas.png"
+            src="../../static/assets/LandingPage/Lucassona.png"
             alt="Lucas"
           />
           <p>
-            Hear what our students, experts, and supporters are raving about...
+            Hear what our students, experts,<br/> and supporters are raving about...
           </p>
           <img
-            src="../../static/assets/LandingPage/Maxwell Bubble.png"
-            alt="quote bubble"
-          />
-          <img
-            src="../../static/assets/LandingPage/Maleescha Mclarin.png"
+            src="../../static/assets/LandingPage/Mechalasona.png"
             alt="Maleescha"
           />
-        </section> */}
+        </section>
 
         {/* <Footer /> */}
       </>
