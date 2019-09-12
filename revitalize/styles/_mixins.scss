@@ -8,3 +8,29 @@
   left: 0;
   z-index: 100;
 }
+
+@mixin buttonStyler($bgc, $textColor, $borderStyle) {
+  font-family: Futura;
+  margin: 8% 0;
+  background: $bgc;
+  padding: 1rem 2rem;
+  border-radius: 0.25rem;
+  color: textColor;
+  border: 3px $borderStyle $textColor;
+  width: 11rem;
+  transition: 0.2s all ease-in-out;
+  box-shadow: 0px 0px 3px black, 3px 0px 3px black, 0px 3px 3px black,
+    3px 3px 3px black;
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.04);
+    color: $bgc;
+    background-color: $textColor;
+    box-shadow: 0px 0px 5px black, 5px 0px 5px black, 0px 5px 5px black,
+      5px 5px 5px black;
+  }
+  &:click {
+    box-shadow: none;
+    transform: scale(0.9);
+  }
+}
