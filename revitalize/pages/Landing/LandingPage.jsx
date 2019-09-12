@@ -25,39 +25,36 @@
              </div>
              <img src="../../static/assets/LandingPage/Hero Image.png" />
            </div>
+
            <div className="values">
              <p>Values that will direct you to a successful career</p>
              <div className="value-tiles">
-               <h4>Tenacity</h4>
-               <h4>Ingenuity</h4>
-               <h4>Growth</h4>
-               <h4>Diligence</h4>
-               <h4>Resilience</h4>
-               <h4>Compassion</h4>
+               <div className="tenacity"><h4>Tenacity</h4></div>
+               <div className="ingenuity"><h4>Ingenuity</h4></div>
+               <div className="growth"><h4>Growth</h4></div>
+               <div className="diligence"><h4>Diligence</h4></div>
+               <div className="resilience"><h4>Resilience</h4></div>
+               <div className="compassion"><h4>Compassion</h4></div>
              </div>
            </div>
+
            <div className="applicaton-links-container">
-             <div className="students" onClick={() => {}}>
-               <span></span>
-               <div className="img-container">
+
+             <div className="students img-container" onClick={() => {}}>
                  <img src="../../static/assets/LandingPage/Apply Now.png" />
                  <p>Apply Now!</p>
-               </div>
              </div>
-             <div className="donor" onClick={() => {}}>
-               <span></span>
-               <div className="img-container">
-                 <img src="../../static/assets/LandingPage/Donate Now.png" />
-                 <p>Donate Now!</p>
-               </div>
+             
+             <div className="donor img-container" onClick={() => {}}>
+                <img src="../../static/assets/LandingPage/Donate Now.png" />
+                <p>Donate Now!</p>
              </div>
-             <div className="employers" onClick={() => {}}>
-               <span></span>
-               <div className="img-container">
+
+             <div className="employers img-container" onClick={() => {}}>
                  <img src="../../static/assets/LandingPage/Search Now.png" />
                  <p>Search Now!</p>
-               </div>
              </div>
+
            </div>
          </section>
 

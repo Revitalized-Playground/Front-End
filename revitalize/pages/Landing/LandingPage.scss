@@ -1,7 +1,7 @@
 .header {
     .cta-container {
         img {
-            max-width: 35%;
+            max-width: 31%;
             scale: both;
         }
         .cta {
@@ -9,38 +9,82 @@
                 color: #4840BA;
             }
             p {
-
+                
             }
             button {
                 background: #4840BA;
                 color: #fff;
             }
-        }
+        } 
     }
     .values {
         p {
-            margin: 0 auto;
+            text-align: center;
+            font-size: 1.5rem;
         }
         .value-tiles {
-
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            width: 75%;
+            margin: 0 auto;
+            padding-bottom: 5rem;
+            padding-top: 1.25rem;
+            div {
+                padding: 1rem 2rem;
+                border-radius: 0.25rem;
+                color: white;
+            }
+            .tenacity {
+                background: #D2405B;
+            }
+            .ingenuity {
+                background: #FFC100;
+            }
+            .growth {
+                background: #82C7B3;
+            }
+            .diligence {
+                background: #53A1A9;
+            }
+            .resilience {
+                background: #AB7B61;
+            }
+            .compassion {
+                background: #F7AD82;
+            }
         }
     }
-    .application-links-container {
+    .img-container{
+        display: flex;
+        width: 31%;
+        border: 2px solid green;
+        img{
+            width:100%;
+        }
+    }
+    .applicaton-links-container {
+        max-width: 100%;
+        display: flex;
+        justify-content: space-around;
+        border: 2px solid #4840BA;
         div {
-            .donor {
 
-            }
-            .students {
+        }
+        .donor {
 
-            }
-            .employers {
-
-            }
-            .img-container {
-
-            }
+        }
+        .students {
+            
+        }
+        .employers {
+            
+        }
+        .img-container {
+            
         }
     }
+    
 }
 .our-promise {
 
