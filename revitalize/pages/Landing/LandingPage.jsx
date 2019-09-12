@@ -1,3 +1,4 @@
+import {useState} from 'react'
 /**
  * * Description of component
  * TODO: things to do
@@ -7,7 +8,7 @@
 import React from 'react'
 
 export default function LandingPage() {
-    
+    const [locationInput, setInput] = useState("")
     return (
       <>
         {/* <NavBar /> */}
@@ -176,7 +177,12 @@ export default function LandingPage() {
               Explore various projects trending in your <br/>local area and be the
               first to see what's going on.
             </p>
-            <input type="text" placeholder="Enter Location" />
+            <input 
+              type="text" 
+              placeholder="Enter Location" 
+              value={locationInput}
+              onChange = {e=> setInput(e.target.value)}
+            />
             <button>Search Now!</button>
           </form> 
           <div className="fake-map">My totally fake map</div>
