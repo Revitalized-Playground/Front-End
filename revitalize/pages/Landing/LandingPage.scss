@@ -1,49 +1,47 @@
-html{
-    background: red;   
+.header {
+    .cta-container {
+        img {
+            max-width: 35%;
+            scale: both;
+        }
+        .cta {
+            .cta-title {
+                color: #4840BA;
+            }
+            p {
+
+            }
+            button {
+                background: #4840BA;
+                color: #fff;
+            }
+        }
+    }
+    .values {
+        p {
+            margin: 0 auto;
+        }
+        .value-tiles {
+
+        }
+    }
+    .application-links-container {
+        div {
+            .donor {
+
+            }
+            .students {
+
+            }
+            .employers {
+
+            }
+            .img-container {
+
+            }
+        }
+    }
 }
-// .header {
-//     .cta-img {
-//         .cta {
-//             .cta-title {
-//                 color: #4840BA;
-//             }
-//             // p {
+.our-promise {
 
-//             // }
-//             button {
-//                 background: #4840BA;
-//             }
-//             img {
-//                 max-width: 45%;
-//                 scale: both;
-//             }
-//         }
-//     }
-    // .values {
-    //     p {
-
-    //     }
-    //     .value-tiles {
-
-    //     }
-    // }
-    // .application-links-container {
-    //     div {
-    //         .donor {
-
-    //         }
-    //         .students {
-
-    //         }
-    //         .employers {
-
-    //         }
-    //         .img-container {
-
-    //         }
-    //     }
-    // }
-// }
-// .our-promise {
-
-// }
+}

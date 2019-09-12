@@ -10,7 +10,7 @@ const Home = () => (
     <Head>
 
     </Head>
-    {/* <Nav /> */}
+    <Nav />
     <LandingPage />
   </div>
 )
