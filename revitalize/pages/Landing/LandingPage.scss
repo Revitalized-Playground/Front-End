@@ -1,11 +1,17 @@
+@import "../../styles/mixins";
+
 .header {
+    // This is for fixed nav to be removed.
+    margin-top: 275px;
 .cta-container {
     display: flex;
     justify-content: space-around;
     margin: 3rem 0;
+    
     img {
     max-width: 31%;
     scale: both;
+    
     }
     .cta {
     max-width: 32%;
@@ -106,6 +112,7 @@
     .img-container {
     }
 }
+
 }
 
 .our-purpose-wrapper {

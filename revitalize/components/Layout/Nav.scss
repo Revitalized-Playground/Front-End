@@ -1,9 +1,11 @@
+@import "../../styles/mixins";
 nav{
     display: flex;
     justify-content: space-between;
     max-height: 90px;
     padding: 2% 4%;
-
+    @include fixedNav;
+    justify-content: space-around;
     .logo  {
         display: flex;
         max-width: 12%;
@@ -19,13 +21,14 @@ nav{
     }
     ul{
         display: flex;
-        justify-content: space-between;
+        justify-content: space-evenly;
         width: 75%;
         li{
             margin:auto;
+
         }
         button{
-            margin: auto 4%;
+            margin: auto 2%;
             background: #4840ba;
             padding: 1rem 2rem;
             border-radius: 0.25rem;
@@ -38,6 +41,7 @@ nav{
                     background: white;
                     border: 3px solid #4840ba;
                 }
+                
     }
 }
 

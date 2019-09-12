@@ -33,35 +33,6 @@ const Nav = () => (
       <button className="register">Get Started!</button>
     </ul>
 
-    {/* <style jsx>{`
-      :global(body) {
-        margin: 0;
-        font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir,
-          Helvetica, sans-serif;
-      }
-      nav {
-        text-align: center;
-      }
-      ul {
-        display: flex;
-        justify-content: flex-end;
-      }
-      nav > ul {
-        padding: 4px 16px;
-      }
-      li {
-        display: flex;
-        padding: 6px 8px;
-      }
-      a {
-        color: #067df7;
-        text-decoration: none;
-        font-size: 13px;
-      }
-      .Logo {
-        border: 3px solid black,
-      }
-    `}</style> */}
   </nav>
 )
 
