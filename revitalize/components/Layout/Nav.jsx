@@ -33,7 +33,7 @@ const Nav = () => (
       <button className="register">Get Started!</button>
     </ul>
 
-    <style jsx>{`
+    {/* <style jsx>{`
       :global(body) {
         margin: 0;
         font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir,
@@ -61,7 +61,7 @@ const Nav = () => (
       .Logo {
         border: 3px solid black,
       }
-    `}</style>
+    `}</style> */}
   </nav>
 )
 
