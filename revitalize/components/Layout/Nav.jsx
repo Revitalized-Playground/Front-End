@@ -6,9 +6,7 @@ import './Nav.scss';
 const links = [
   { href: '#', label: 'About' },
   { href: '#', label: 'Trades' },
-  { href: '#', label: 'Donate'},
-  { href: '#', label: 'Log In'},
-  { href: '#', label: 'Get Started'}
+  { href: '#', label: 'Donate'}
 ].map(link => {
   link.key = `nav-link-${link.href}-${link.label}`
   return link
@@ -16,9 +14,9 @@ const links = [
 
 const Nav = () => (
   <nav>
-    <div className="Logo">
-    <img src='../../static/assets/LandingPage/Logo.png' />
-    <h3> Revitalize</h3>
+    <div className="logo">
+      <img src='../../static/assets/LandingPage/Logo.png' />
+      <h2> Revitalize</h2>
     </div>
     <ul>
       <li>
@@ -31,6 +29,8 @@ const Nav = () => (
           <a href={href}>{label}</a>
         </li>
       ))}
+      <button className="login">Login!</button>
+      <button className="register">Get Started!</button>
     </ul>
 
     <style jsx>{`
