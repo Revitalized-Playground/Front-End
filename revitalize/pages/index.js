@@ -17,14 +17,9 @@ const Home = () => (
 			></link>
 		</Head>
 		<Nav />
-<<<<<<< HEAD
-    {/* <LandingPage /> */}
-    <ProjectsHome />
-=======
 		{/* <LandingPage /> */}
 		<ProjectsHome />
 		<Footer />
->>>>>>> abdd8afa5d5fb519362fef9650499557ae3cf672
 	</div>
 );
 

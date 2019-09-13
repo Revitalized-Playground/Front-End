@@ -57,7 +57,6 @@ const FeaturedProjects = () => {
                     <div className='FPProjects' key={i}>
                         <img src={each.img} />
                         <h4>{each.title}</h4>
-                        {console.log(each.description.length)}
                         <p>{each.description.split('').map((eachLetter, letterLength) => {
                                 if(letterLength <= 118){
                                     return eachLetter

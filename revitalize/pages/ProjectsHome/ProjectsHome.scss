@@ -1,127 +1,79 @@
-<<<<<<< HEAD
-=======
-// h1 {
-//     background: black;
-//     width: 500px;
-//     height: 500px;
-//     color: white
-// }
 
->>>>>>> abdd8afa5d5fb519362fef9650499557ae3cf672
 .projects-home {
-	margin-top: 100px;
-	max-width: 1920px;
-	letter-spacing: 0.06em;
-	min-height: 100%;
-	display: block;
+    margin-top: 100px;
+    max-width: 1920px;
+    letter-spacing: 0.06em;
+    min-height: 100%;
+    display: block;
 
-	.FPContainer {
-		max-width: 1600px;
-		margin: 0 auto;
-		height: 100%;
+    .FPContainer {
+        max-width: 1600px;
+        margin: 0 auto;
+        height: 100%;
+        
+        .FPProjectList {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        
+        h1 {
+            width: 420px;
+            height: 70px;
+            font-size: 48px;
+            margin: 0 20px 20px 20px;
+            color: #4840BA;
+        }
 
-<<<<<<< HEAD
         .FPProjects {
             max-width: 480px;
             margin: 0 20px;
             margin-bottom: 60px;
             text-align: center;
             cursor: pointer;
-=======
-		.FPProjectList {
-			display: flex;
-			flex-wrap: wrap;
-			justify-content: space-between;
-		}
->>>>>>> abdd8afa5d5fb519362fef9650499557ae3cf672
 
-		h1 {
-			width: 420px;
-			height: 70px;
-			font-size: 48px;
-			margin: 0 20px 20px 20px;
-			color: #4840ba;
-		}
+            img{
+                width: 100%;
+                height: 660px;
+                border-radius: 10px
+            }
 
-		.FPProjects {
-			max-width: 480px;
-			margin: 0 20px;
-			margin-bottom: 60px;
-			text-align: center;
-			cursor: pointer;
+            h4 {
+                margin: 30px auto 0 auto;
+                max-width: 407px;
+                height: 80px;
+                font-size: 36px;
+            }
 
-			img {
-				width: 100%;
-				height: 660px;
-				border-radius: 10px;
-			}
-
-			h4 {
-				margin: 30px auto 0 auto;
-				max-width: 407px;
-				height: 80px;
-				font-size: 36px;
-			}
-
-			p {
-				font-size: 24px;
-				max-width: 405px;
-				height: 127px;
-				margin: 30px auto 0 auto;
-			}
-		}
-	}
-	.cta-container {
+            p {
+                font-size: 24px;
+                max-width: 405px;
+                height: 127px;
+                margin: 30px auto 0 auto;
+            }
+        }
+    }
+    .cta-container {
 		display: flex;
-		justify-content: space-between;
-		margin: 173px 0 0 0;
+		justify-content: space-around;
+		margin: 3rem 0;
 
 		img {
-			// border: 1px solid red;
-			max-width: 50%;
-			margin-right: 70px;
-			// height: 679px;
-			// width: 890px;
+			max-width: 31%;
 			scale: both;
 		}
 		.cta {
-			// border: 1px solid purple;
-			max-width: 50%;
-			width: 100%;
+			max-width: 32%;
 			max-height: 33%;
 			text-align: left;
 			.cta-title {
-<<<<<<< HEAD
 				color: $chillFi-purple;
-=======
-				// border: 1px solid blue;
-				font-size: 64px;
-				letter-spacing: 0.06em;
-				color: black;
->>>>>>> abdd8afa5d5fb519362fef9650499557ae3cf672
 				height: auto;
-				// height: 103px;
-				// width: 634px;
-				margin: 0 0 27px 109px;
-				// margin-left: 109px;
 			}
 			p {
-				// border: 1px solid green;
-				height: 191px;
-				letter-spacing: 0.06em;
-				width: 702px;
-				// margin: 0 auto;
-				font-size: 40px;
-				line-height: 1.6;
-				margin-left: 109px;
-			}
-			button {
-				@include buttonStyler(#4840ba, #ffffff, none);
-				margin-left: 109px;
-				color: #fff;
+				margin: 2% auto;
 			}
 		}
-<<<<<<< HEAD
     }
     .ft-container {
         display: flex;
@@ -178,35 +130,154 @@
         }
     }
 }
+    // position: absolute;
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // .projects-home {
+    //     margin-top: 100px;
+    //     max-width: 1920px;
+    //     letter-spacing: 0.06em;
+    //     min-height: 100%;
+    //     display: block;
+    
+    //     .FPContainer {
+    //         max-width: 1600px;
+    //         margin: 0 auto;
+    //         height: 100%;
+            
+    //         .FPProjectList {
+    //             display: flex;
+    //             flex-wrap: wrap;
+    //             justify-content: space-between;
+    //         }
+            
+    //         h1 {
+    //             width: 420px;
+    //             height: 70px;
+    //             font-size: 48px;
+    //             margin: 0 20px 20px 20px;
+    //             color: #4840BA;
+    //         }
+    
+    //         .FPProjects {
+    //             max-width: 480px;
+    //             margin: 0 20px;
+    //             margin-bottom: 60px;
+    //             text-align: center;
+    //             cursor: pointer;
+    
+    //             img{
+    //                 width: 100%;
+    //                 height: 660px;
+    //                 border-radius: 10px
+    //             }
+    
+    //             h4 {
+    //                 margin: 30px auto 0 auto;
+    //                 max-width: 407px;
+    //                 height: 80px;
+    //                 font-size: 36px;
+    //             }
+    
+    //             p {
+    //                 font-size: 24px;
+    //                 max-width: 405px;
+    //                 height: 127px;
+    //                 margin: 30px auto 0 auto;
+    //             }
+    //         }
+    //     }
+    //     .cta-container {
+    //         display: flex;
+    //         justify-content: space-around;
+    //         margin: 3rem 0;
+    
+    //         img {
+    //             max-width: 31%;
+    //             scale: both;
+    //         }
+    //         .cta {
+    //             max-width: 32%;
+    //             max-height: 33%;
+    //             text-align: left;
+    //             .cta-title {
+    //                 color: $chillFi-purple;
+    //                 height: auto;
+    //             }
+    //             p {
+    //                 margin: 2% auto;
+    //             }
+    //         }
+    //     }
+    //     .ft-container {
+    //         display: flex;
+    //         flex-direction: column;
+    //         justify-content: space-evenly;
+    //         margin: 5rem 0;
+    //         padding: 0 2rem;
+    //         h3, p, a, .featured-trades {
+    //             margin: 1rem 0;
+    //         }
+    //         h3 {
+    //             color: $chillFi-purple;
+    //             font-size: 3rem;
+    //         }
+    //         p {
+    //             font-size: 1.2rem;
+    //         }
+    //         a {
+    //             font-style: italic;
+    //             font-size: 1.2rem;
+    //             text-decoration: none;
+    //             &:hover {
+    //                 color: $ocean-blue;
+    //                 text-decoration: underline;
+    //             }
+    //         }
+    //         .featured-trades {
+    //             display: flex;
+    //             justify-content: space-between;
+    //             align-items: center;
+    //             flex-wrap: wrap;
+    //             .ft-box {
+    //                 display: flex;
+    //                 flex-direction: column;
+    //                 transition: 0.2s all ease-in-out;
+    //                 max-width: 40rem;
+    //                 &:hover{
+    //                     transform: scale(1.15);
+    //                     cursor: pointer;
+    //                     color: $ocean-blue;
+    //                 }
+    //                 img {
+    //                     border-radius: 0.5rem;
+    //                     width: 100%;
+    //                 }
+    //                 p {
+    //                     color: $chillFi-purple;
+    //                     text-align: center;
+    //                     font-size: 1.4rem;
+    //                     margin-top: 1rem;
+    //                 }
+    //             }
+    
+    //         }
+    //     }
+    // }
+    //     // position: absolute;
 	
 
 	
 
-=======
-	}
-	.ft-container {
-		display: flex;
-		flex-direction: column;
-		h3 {
-		}
-		a {
-		}
-		.featured-trades {
-			display: flex;
-			justify-content: space-evenly;
-			align-items: center;
-			.ft-box {
-				display: flex;
-				flex-direction: column;
-				img {
-					border-radius: 0.5rem;
-				}
-				p {
-					// color:
-				}
-			}
-		}
-	}
-}
-// position: absolute;
->>>>>>> abdd8afa5d5fb519362fef9650499557ae3cf672
