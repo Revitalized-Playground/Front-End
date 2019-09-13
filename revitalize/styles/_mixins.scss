@@ -1,7 +1,7 @@
 @mixin fixedNav {
 	position: fixed;
 	width: 100%;
-	max-height: 45px;
+	// max-height: 45px;
 	overflow: hidden;
 	background-color: #c4c4c4;
 	top: 0;
@@ -25,6 +25,7 @@
 		cursor: pointer;
 		transform: scale(1.04);
 		color: $bgc;
+		border: 2px solid $bgc;
 		background-color: $textColor;
 		box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.431), 5px 0px 5px rgba(0, 0, 0, 0.431), 0px 5px 5px rgba(0, 0, 0, 0.431),
 			5px 5px 5px rgba(0, 0, 0, 0.431);
