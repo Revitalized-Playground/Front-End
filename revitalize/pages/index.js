@@ -4,6 +4,8 @@ import Head from 'next/head';
 import Nav from '../components/Layout/Nav';
 import Footer from '../components/Layout/Footer';
 import LandingPage from '../pages/Landing/LandingPage';
+import ProjectsHome from '../pages/ProjectsHome/ProjectsHome';
+
 import '../styles/base.scss';
 import ProjectsHome from '../pages/ProjectsHome/ProjectsHome';
 
@@ -16,8 +18,8 @@ const Home = () => (
 			></link>
 		</Head>
 		<Nav />
-		<LandingPage />
-		{/* <ProjectsHome /> */}
+		{/* <LandingPage /> */}
+		<ProjectsHome />
 		<Footer />
 	</div>
 );
