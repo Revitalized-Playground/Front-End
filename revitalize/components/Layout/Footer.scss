@@ -1,0 +1,37 @@
+.footer {
+	background-color: #0b096f;
+	height: 11rem;
+	color: white;
+	a {
+		color: white;
+		text-decoration: none;
+	}
+	.links-container {
+		display: flex;
+		max-width: 85%;
+		justify-content: space-around;
+		margin: auto;
+		li {
+			display: inline-block;
+			max-height: 4rem;
+			margin: 4rem auto;
+			align-self: auto;
+		}
+	}
+	.copyright {
+		font-size: 1.3rem;
+		position: absolute;
+		left: 41%;
+	}
+	.italics {
+		font-style: italic;
+		font-weight: lighter;
+	}
+	.social-links-container {
+		position: absolute;
+		display: flex;
+		justify-content: space-around;
+		width: 4%;
+		right: 5%;
+	}
+}
