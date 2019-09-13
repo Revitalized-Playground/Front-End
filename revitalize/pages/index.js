@@ -7,7 +7,6 @@ import LandingPage from '../pages/Landing/LandingPage';
 import ProjectsHome from '../pages/ProjectsHome/ProjectsHome';
 
 import '../styles/base.scss';
-import ProjectsHome from '../pages/ProjectsHome/ProjectsHome';
 
 const Home = () => (
 	<div>
