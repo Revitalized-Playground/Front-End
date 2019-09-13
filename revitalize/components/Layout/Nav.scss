@@ -2,9 +2,10 @@
 nav {
   display: flex;
   justify-content: space-between;
-  max-height: 90px;
+  
   padding: 1.5% 4%;
   @include fixedNav;
+  max-height: 90px;
   justify-content: space-around;
   .logo {
     display: flex;

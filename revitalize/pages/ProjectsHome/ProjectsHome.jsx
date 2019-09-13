@@ -1,13 +1,14 @@
 import React from 'react';
+import FeaturedProjects from './FeaturedProjects'
 
-const FeaturedProjects = () => {
+const ProjectsHome = () => {
     return (
-        <div>
+        <div className='projects-home'>
             {/* top */}
             {/* featured trades */}
             {/* curvy part */}
             {/* featured projects */}
-
+            <FeaturedProjects />
             {/* top trending trades */}
             {/* featured trades */}
             {/* recommended projects */}
@@ -15,4 +16,4 @@ const FeaturedProjects = () => {
     );
 };
 
-export default FeaturedProjects;
+export default ProjectsHome;
