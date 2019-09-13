@@ -25,7 +25,7 @@
 		cursor: pointer;
 		transform: scale(1.04);
 		color: $bgc;
-		border: 2px solid $bgc;
+		border: 2px $borderStyle $bgc;
 		background-color: $textColor;
 		box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.431), 5px 0px 5px rgba(0, 0, 0, 0.431), 0px 5px 5px rgba(0, 0, 0, 0.431),
 			5px 5px 5px rgba(0, 0, 0, 0.431);
