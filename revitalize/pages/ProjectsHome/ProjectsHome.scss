@@ -46,4 +46,31 @@
             }
         }
     }
+    .cta-container {
+		display: flex;
+		justify-content: space-around;
+		margin: 3rem 0;
+
+		img {
+			max-width: 31%;
+			scale: both;
+		}
+		.cta {
+			max-width: 32%;
+			max-height: 33%;
+			text-align: left;
+			.cta-title {
+				color: #4840ba;
+				height: auto;
+			}
+			p {
+				margin: 2% auto;
+			}
+		}
+	}
 }
+	// position: absolute;
+	
+
+	
+
