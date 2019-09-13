@@ -7,6 +7,7 @@ import LandingPage from '../pages/Landing/LandingPage';
 import ProjectsHome from '../pages/ProjectsHome/ProjectsHome';
 
 import '../styles/base.scss';
+import ProjectsHome from '../pages/ProjectsHome/ProjectsHome';
 
 const Home = () => (
 	<div>
@@ -17,8 +18,13 @@ const Home = () => (
 			></link>
 		</Head>
 		<Nav />
+<<<<<<< HEAD
 		{/* <LandingPage /> */}
 		<ProjectsHome />
+=======
+		<LandingPage />
+		{/* <ProjectsHome /> */}
+>>>>>>> 7b5cab6cb59d8d616b3344bbd38c8128c8eb8396
 		<Footer />
 	</div>
 );

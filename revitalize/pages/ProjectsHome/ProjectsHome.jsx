@@ -1,4 +1,5 @@
 import React from 'react';
+import FeaturedProjects from './FeaturedProjects'
 
 const ProjectsHome = () => {
     return (
@@ -33,7 +34,7 @@ const ProjectsHome = () => {
             </section>
             {/* curvy part/thing */}
             {/* featured projects */}
-
+            <FeaturedProjects />
             {/* top trending trades */}
             {/* featured trades */}
             {/* recommended projects */}

@@ -2,16 +2,17 @@
 nav {
 	display: flex;
 	justify-content: space-between;
-	max-height: 90px;
-	padding: 1.5% 4%;
-	@include fixedNav;
+	height: 90px;
+	padding: 5px 5px;
+  @include fixedNav;
+  
 	justify-content: space-around;
 	.logo {
 		display: flex;
 		max-width: 25%;
 		height: 80%;
 		position: absolute;
-		top: 0.75%;
+		top: 0.72%;
 		position: absolute;
 		left: 4%;
 		top: 16.5%;
@@ -34,11 +35,15 @@ nav {
 		}
 		button {
 			@include buttonStyler(#4840ba, #ffffff, solid);
-			margin: 0 3% 0 0.4%;
+      margin: auto 0.4%;
+      height: 15px;
+      vertical-align: center;
+      padding-bottom: 30px
 		}
 		.login {
 			@include buttonStyler(#ffffff, #4840ba, solid);
-			margin: 0 3%;
+      margin: auto 0.4%;
+      padding-bottom: 30px
 		}
 	}
 }
