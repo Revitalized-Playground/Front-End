@@ -6,7 +6,6 @@ h1 {
 }
 
 .projects-home {
-	// position: absolute;
 	margin-top: 100px;
 
 	.cta-container {
@@ -49,6 +48,7 @@ h1 {
         }
         a {
             font-style: italic;
+            font-size: 1.2rem;
             text-decoration: none;
             &:hover {
                 color: $ocean-blue;
@@ -64,18 +64,15 @@ h1 {
                 display: flex;
                 flex-direction: column;
                 transition: 0.2s all ease-in-out;
+                max-width: 40rem;
                 &:hover{
                     transform: scale(1.15);
                     cursor: pointer;
                     color: $ocean-blue;
                 }
-                
-                // img, p {
-                // }
                 img {
                     border-radius: 0.5rem;
-                    height: 15rem;
-                    width: 20rem;
+                    width: 100%;
                 }
                 p {
                     color: $chillFi-purple;
