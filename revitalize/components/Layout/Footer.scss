@@ -19,13 +19,16 @@
 		}
 	}
 	.copyright {
+		display: inline-block;
 		font-size: 1.3rem;
-		position: absolute;
-		left: 41%;
+		height: auto;
+		width: auto;
+		margin: 0 44%;
 	}
 	.italics {
 		font-style: italic;
 		font-weight: lighter;
+		font-size: 10px;
 	}
 	.social-links-container {
 		position: absolute;

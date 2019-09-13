@@ -18,8 +18,8 @@ const Home = () => (
 			></link>
 		</Head>
 		<Nav />
-		<LandingPage />
-		{/* <ProjectsHome /> */}
+		{/* <LandingPage /> */}
+		<ProjectsHome />
 		<Footer />
 	</div>
 );
