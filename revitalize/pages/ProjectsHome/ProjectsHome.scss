@@ -1,16 +1,65 @@
-h1 {
-	background: black;
-	width: 500px;
-	height: 500px;
-	color: white;
-}
+// h1 {
+//     background: black;
+//     width: 500px;
+//     height: 500px;
+//     color: white
+// }
 
 .projects-home {
-	// position: absolute;
 	margin-top: 100px;
+	max-width: 1920px;
+	letter-spacing: 0.06em;
+	min-height: 100%;
+	display: block;
 
+	.FPContainer {
+		max-width: 1600px;
+		margin: 0 auto;
+		height: 100%;
+
+		.FPProjectList {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+		}
+
+		h1 {
+			width: 420px;
+			height: 70px;
+			font-size: 48px;
+			margin: 0 20px 20px 20px;
+			color: #4840ba;
+		}
+
+		.FPProjects {
+			max-width: 480px;
+			margin: 0 20px;
+			margin-bottom: 60px;
+			text-align: center;
+			cursor: pointer;
+
+			img {
+				width: 100%;
+				height: 660px;
+				border-radius: 10px;
+			}
+
+			h4 {
+				margin: 30px auto 0 auto;
+				max-width: 407px;
+				height: 80px;
+				font-size: 36px;
+			}
+
+			p {
+				font-size: 24px;
+				max-width: 405px;
+				height: 127px;
+				margin: 30px auto 0 auto;
+			}
+		}
+	}
 	.cta-container {
-		// border: 1px solid red;
 		display: flex;
 		justify-content: space-between;
 		margin: 173px 0 0 0;
@@ -81,3 +130,4 @@ h1 {
 		}
 	}
 }
+// position: absolute;
