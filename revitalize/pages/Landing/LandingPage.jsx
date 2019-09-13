@@ -50,17 +50,17 @@ export default function LandingPage() {
 				</div>
 
 				<div className="applicaton-links-container">
-					<div className="students img-container" onClick={() => {}}>
+					<div className="students img-container" onClick={() => { }}>
 						<img src="../../static/assets/LandingPage/Apply Now.png" />
 						<p>Apply Now!</p>
 					</div>
 
-					<div className="donor img-container" onClick={() => {}}>
+					<div className="donor img-container" onClick={() => { }}>
 						<img src="../../static/assets/LandingPage/Donate Now.png" />
 						<p className="donate-text">Donate Now!</p>
 					</div>
 
-					<div className="employers img-container" onClick={() => {}}>
+					<div className="employers img-container" onClick={() => { }}>
 						<img src="../../static/assets/LandingPage/Search Now.png" />
 						<p>Search Now!</p>
 					</div>
@@ -135,7 +135,7 @@ export default function LandingPage() {
 			<section className="featured-project">
 				<img
 					className="phone-left phone"
-					src="../../static/assets/LandingPage/Rubicon phones.png"
+					src="../../static/assets/LandingPage/e82c37b5ca54447737d88318e8618925.png"
 					alt="cell phone"
 				/>
 
