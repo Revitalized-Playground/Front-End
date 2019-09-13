@@ -30,7 +30,13 @@
             margin: 0 20px;
             margin-bottom: 60px;
             text-align: center;
-            cursor: pointer;
+            // cursor: pointer;
+            transition: 0.2s all ease-in-out;
+            &:hover{
+                transform: scale(1.07);
+                cursor: pointer;
+                color: $ocean-blue;
+            }
 
             img{
                 width: 100%;
@@ -54,27 +60,50 @@
         }
     }
     .cta-container {
-		display: flex;
-		justify-content: space-around;
-		margin: 3rem 0;
-
-		img {
-			max-width: 31%;
-			scale: both;
-		}
-		.cta {
-			max-width: 32%;
-			max-height: 33%;
-			text-align: left;
-			.cta-title {
-				color: $chillFi-purple;
-				height: auto;
-			}
-			p {
-				margin: 2% auto;
-			}
-		}
-    }
+        display: flex;
+        justify-content: space-between;
+        margin: 173px 0 0 0;
+        img {
+            // border: 1px solid red;
+            max-width: 50%;
+            margin-right: 70px;
+            // height: 679px;
+            // width: 890px;
+            scale: both;
+        }
+        .cta {
+            // border: 1px solid purple;
+            max-width: 50%;
+            width: 100%;
+            max-height: 33%;
+            text-align: left;
+            .cta-title {
+                // border: 1px solid blue;
+                font-size: 64px;
+                letter-spacing: 0.06em;
+                color: $black-void;
+                height: auto;
+                // height: 103px;
+                // width: 634px;
+                margin: 0 0 27px 32px;
+                // margin-left: 109px;
+            }
+            p {
+                // border: 1px solid green;
+                height: 191px;
+                letter-spacing: 0.06em;
+                width: 702px;
+                // margin: 0 auto;
+                font-size: 40px;
+                line-height: 1.6;
+                margin-left: 32px;
+            }
+            button {
+                @include buttonStyler($chillFi-purple, $snow-white, none);
+                margin-left: 32px;
+                color: $snow-white;
+            }
+        }}
     .ft-container {
         display: flex;
         flex-direction: column;

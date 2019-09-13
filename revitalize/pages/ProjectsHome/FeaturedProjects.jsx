@@ -4,32 +4,32 @@ const projects = [
     {
         title: 'Team Rubicon',
         description: 'Learn next to master trade professionals that are available during the day and after hours. Learn next to master trade Learn next to master trade professionals that are available during the day and after hours. Learn next to master trade',
-        img: '../static/assets/ProjectPage/TR.png'
+        img: 'static/assets/ProjectPage/TR.png'
     },
     {
         title: 'Heavy Metal Queen',
         description: 'Learn next to master trade professionals that are available during the day and after hours.',
-        img: '../static/assets/ProjectPage/HMQ.png'
+        img: 'static/assets/ProjectPage/HMQ.png'
     },
     {
         title: 'Jean Childs Project',
         description: 'Learn next to master trade professionals that are available during the day and after hours.',
-        img: '../static/assets/ProjectPage/JPP.png'
+        img: 'static/assets/ProjectPage/JPP.png'
     },
     {
         title: 'Mission One Project',
         description: 'Learn next to master trade professionals that are available during the day and after hours.',
-        img: '../static/assets/ProjectPage/M1p.png'
+        img: 'static/assets/ProjectPage/M1p.png'
     },
     {
         title: 'Guidr Project',
         description: 'Learn next to master trade professionals that are available during the day and after hours.',
-        img: '../static/assets/ProjectPage/GP.png'
+        img: 'static/assets/ProjectPage/GP.png'
     },
     {
         title: 'Clover 4',
         description: 'Learn next to master trade professionals that are available during the day and after hours.',
-        img: '../static/assets/ProjectPage/Clover4.png'
+        img: 'static/assets/ProjectPage/Clover4.png'
     },
     {
         title: 'Project 7',
