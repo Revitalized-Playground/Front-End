@@ -5,19 +5,19 @@ const ProjectsHome = () => {
     
     const featuredTrades = [
         {
-            image: "",
+            image: "../static/assets/ProjectPage/electronicsCard.png",
             trade: "Electronics"
         },
         {
-            image: "",
+            image: "../static/assets/ProjectPage/Construction.png",
             trade: "Construction"
         },
         {
-            image: "",
+            image: "../static/assets/ProjectPage/plumbingCard.png",
             trade: "Mechanics"
         },
         {
-            image: "",
+            image: "../static/assets/ProjectPage/weldingCard.png",
             trade: "Welding"
         }
     ]
@@ -42,12 +42,12 @@ const ProjectsHome = () => {
 				<p>Learn next to master trade professionals that are available during the day and after hours.</p>
 				<a href="">Show More Trades &rsaquo;</a>
 				<div className="featured-trades">
-                    {featuredTrades.map(trade => {
+                    {featuredTrades.map(trade => (
                         <div className="ft-box">
                             <img src={trade.image} alt="trade" />
                             <p>{trade.trade}</p>
                         </div>
-                    })}
+                    ))}
 				</div>
 			</section>
             {/* curvy part/thing */}

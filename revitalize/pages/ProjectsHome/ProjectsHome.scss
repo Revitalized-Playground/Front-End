@@ -1,8 +1,8 @@
 h1 {
-    background: black;
+    background: $black-void;
     width: 500px;
     height: 500px;
-    color: white
+    color: $snow-white;
 }
 
 .projects-home {
@@ -23,7 +23,7 @@ h1 {
 			max-height: 33%;
 			text-align: left;
 			.cta-title {
-				color: #4840ba;
+				color: $chillFi-purple;
 				height: auto;
 			}
 			p {
@@ -34,24 +34,54 @@ h1 {
     .ft-container {
         display: flex;
         flex-direction: column;
+        justify-content: space-evenly;
+        margin: 5rem 0;
+        padding: 0 2rem;
+        h3, p, a, .featured-trades {
+            margin: 1rem 0;
+        }
         h3 {
-
+            color: $chillFi-purple;
+            font-size: 3rem;
+        }
+        p {
+            font-size: 1.2rem;
         }
         a {
-
+            font-style: italic;
+            text-decoration: none;
+            &:hover {
+                color: $ocean-blue;
+                text-decoration: underline;
+            }
         }
         .featured-trades {
             display: flex;
-            justify-content: space-evenly;
+            justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
             .ft-box {
                 display: flex;
                 flex-direction: column;
+                transition: 0.2s all ease-in-out;
+                &:hover{
+                    transform: scale(1.15);
+                    cursor: pointer;
+                    color: $ocean-blue;
+                }
+                
+                // img, p {
+                // }
                 img {
                     border-radius: 0.5rem;
+                    height: 15rem;
+                    width: 20rem;
                 }
                 p {
-                    // color:
+                    color: $chillFi-purple;
+                    text-align: center;
+                    font-size: 1.4rem;
+                    margin-top: 1rem;
                 }
             }
 
