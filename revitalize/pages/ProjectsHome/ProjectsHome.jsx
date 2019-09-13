@@ -1,7 +1,28 @@
 import React from 'react';
+import FeaturedProjects from './FeaturedProjects'
 
 const ProjectsHome = () => {
-	return (
+    
+    const featuredTrades = [
+        {
+            image: "",
+            trade: "Electronics"
+        },
+        {
+            image: "",
+            trade: "Construction"
+        },
+        {
+            image: "",
+            trade: "Mechanics"
+        },
+        {
+            image: "",
+            trade: "Welding"
+        }
+    ]
+
+    return (
 		<div className="projects-home">
 			<section className="top">
 				<div className="cta-container">
@@ -21,34 +42,24 @@ const ProjectsHome = () => {
 			<section className="ft-container">
 				<h3 className="ft-title">Featured Trades</h3>
 				<p>Learn next to master trade professionals that are available during the day and after hours.</p>
-				<p href="">Show More Trades &rsaquo;</p>
+				<a href="">Show More Trades &rsaquo;</a>
 				<div className="featured-trades">
-					<div className="ft-box">
-						<img src="" />
-						<p>Electronics</p>
-					</div>
-					<div className="ft-box">
-						<img src="" />
-						<p>Construction</p>
-					</div>
-					<div className="ft-box">
-						<img src="" />
-						<p>Mechanics</p>
-					</div>
-					<div className="ft-box">
-						<img src="" />
-						<p>Welding</p>
-					</div>
+                    {featuredTrades.map(trade => {
+                        <div className="ft-box">
+                            <img src={trade.image} alt="trade" />
+                            <p>{trade.trade}</p>
+                        </div>
+                    })}
 				</div>
 			</section>
-			{/* curvy part/thing */}
-			{/* featured projects */}
-
-			{/* top trending trades */}
-			{/* featured trades */}
-			{/* recommended projects */}
-		</div>
-	);
+            {/* curvy part/thing */}
+            {/* featured projects */}
+            <FeaturedProjects />
+            {/* top trending trades */}
+            {/* featured trades */}
+            {/* recommended projects */}
+        </div>
+    );
 };
 
 export default ProjectsHome;

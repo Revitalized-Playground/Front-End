@@ -246,7 +246,7 @@
 		max-width: 28%;
 		// Rotate image
 		display: 'inline-block';
-		transform: scale(-1, 1);
+		// transform: scale(-1, 1);
 	}
 	.user-story {
 		max-width: 31%;
@@ -315,7 +315,7 @@
 }
 
 .testimonials {
-	margin: 4% auto;
+	margin: 4% auto 0 auto;
 	display: flex;
 	justify-content: space-between;
 	background-color: #d2405b;
