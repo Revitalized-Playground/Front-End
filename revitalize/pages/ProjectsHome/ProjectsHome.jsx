@@ -6,12 +6,14 @@ const ProjectsHome = () => {
 			<section className="top">
 				<div className="cta-container">
 					<div className="cta">
-						<h2 className="cta-title">See All of The Trades That We have to Offer!</h2>
+						<h2 className="cta-title">Project Experiences</h2>
 						<p>
-							See the trades we have to offer from many different industries. You have the ability to view
-							each trade and make a decision on a program that can change your life.
+							No missed opportunities!
+							<br />
+							Explore our trade pathways and <br /> choose one that best fits you.
 						</p>
-					</div>
+						<button>Create a Project</button>
+					</div>                    
 					<img src="../../static/assets/ProjectPage/top issue.png" />
 				</div>
 			</section>

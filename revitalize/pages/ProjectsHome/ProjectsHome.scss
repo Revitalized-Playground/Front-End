@@ -3,24 +3,42 @@
 	margin-top: 100px;
 
 	.cta-container {
+		border: 1px solid red;
 		display: flex;
-		justify-content: space-around;
-		margin: 3rem 0;
+		justify-content: space-between;
+		margin: 173px 0 0 0;
 
 		img {
-			max-width: 31%;
+			border: 1px solid red;
+			// max-width: 31%;
+			height: 679px;
+			width: 890px;
 			scale: both;
 		}
 		.cta {
-			max-width: 32%;
+			border: 1px solid purple;
+			max-width: 50%;
+			width: 100%;
 			max-height: 33%;
 			text-align: left;
 			.cta-title {
-				color: #4840ba;
-				height: auto;
+				border: 1px solid blue;
+				font-size: 64px;
+				color: black;
+				// height: auto;
+				height: 103px;
+				width: 634px;
+				// margin: 0 auto;
+				margin-left: 109px;
 			}
 			p {
-				margin: 2% auto;
+				border: 1px solid green;
+				height: 191px;
+				width: 702px;
+				// margin: 0 auto;
+				font-size: 40px;
+				line-height: 1.6;
+				margin-left: 109px;
 			}
 		}
 	}
