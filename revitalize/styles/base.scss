@@ -1,0 +1,19 @@
+@import "reset";
+// Vars and Mixins
+@import "variables";
+@import "global";
+@import "mixins";
+// Pages Here
+@import "../pages/Landing/LandingPage.scss";
+@import "../pages/ProjectsHome/ProjectsHome.scss";
+@import "../pages/Dashboard/Dashboard.scss";
+@import "../pages/Login/Login.scss";
+@import "../pages/Register/Register.scss";
+@import "../pages/ProjectsHome/ProjectsHome.scss";
+
+// Components Here
+@import "../components/Card/Card.scss";
+@import "../components/Layout/footer.scss";
+@import "../components/Layout/Nav.scss";
+@import "../components/Project/Project.scss";
+@import "../components/ProjectList/ProjectList.scss";
