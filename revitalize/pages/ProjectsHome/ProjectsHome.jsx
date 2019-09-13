@@ -3,7 +3,6 @@ import React from 'react';
 const ProjectsHome = () => {
 	return (
 		<div className="projects-home">
-			{/* top */}
 			<section className="top">
 				<div className="cta-container">
 					<div className="cta">
