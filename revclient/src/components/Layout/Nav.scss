@@ -1,16 +1,17 @@
+@import '../../styles/variables';
 @import '../../styles/mixins';
+
 nav {
 	display: flex;
 	justify-content: space-between;
 	height: 90px;
 	padding: 5px 5px;
-  @include fixedNav;
-  
-  justify-content: space-around;
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
+  	@include fixedNav;
+	justify-content: space-around;
+	a {
+		text-decoration: none;
+		color: inherit;
+	}
 	.logo {
 		display: flex;
 		max-width: 25%;
@@ -38,14 +39,14 @@ nav {
 			margin: auto;
 		}
 		button {
-			@include buttonStyler(#4840ba, #ffffff, solid);
+			@include buttonStyler($chillFi-purple, $snow-white, solid);
       margin: auto 0.4%;
       height: 15px;
       vertical-align: center;
       padding-bottom: 30px
 		}
 		.login {
-			@include buttonStyler(#ffffff, #4840ba, solid);
+			@include buttonStyler($snow-white, $chillFi-purple, solid);
       margin: auto 0.4%;
       padding-bottom: 30px
 		}

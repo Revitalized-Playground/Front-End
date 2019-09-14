@@ -5,7 +5,8 @@ import Nav from '../components/Layout/Nav.jsx';
 import Footer from "../components/Layout/Footer.jsx";
 
 import LandingPage from '../views/Landing/LandingPage.jsx';
-import ProjectList from "../components/ProjectList/ProjectList.jsx";
+import ProjectsHome from "../views/ProjectsHome/ProjectsHome.jsx";
+import Register from "../views/Register/Register.jsx";
 
 
 import '../styles/base.scss';
@@ -28,10 +29,17 @@ const App = () => (
 			// exact
 			path="/projects"
 			render={() => (
-				<ProjectList />
+				<ProjectsHome />
 			)}
 		/>
 
+		<Route 
+			// exact
+			path="/register"
+			render={() => (
+				<Register />
+			)}
+		/>
 
 		<Footer />
 

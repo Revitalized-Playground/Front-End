@@ -1,0 +1,60 @@
+h1 {
+	background: black;
+	width: 500px;
+	height: 500px;
+	color: white;
+}
+
+.projects-home {
+	// position: absolute;
+	margin-top: 100px;
+
+	.cta-container {
+		display: flex;
+		justify-content: space-around;
+		margin: 3rem 0;
+
+		img {
+			max-width: 31%;
+			scale: both;
+		}
+		.cta {
+			max-width: 32%;
+			max-height: 33%;
+			text-align: left;
+			.cta-title {
+				color: #4840ba;
+				height: auto;
+			}
+			p {
+				margin: 2% auto;
+			}
+		}
+    }
+    .ft-container {
+        display: flex;
+        flex-direction: column;
+        h3 {
+
+        }
+        a {
+
+        }
+        .featured-trades {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            .ft-box {
+                display: flex;
+                flex-direction: column;
+                img {
+                    border-radius: 0.5rem;
+                }
+                p {
+                    // color:
+                }
+            }
+
+        }
+    }
+}

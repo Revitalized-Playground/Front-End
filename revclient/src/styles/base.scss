@@ -5,14 +5,16 @@
 @import "mixins";
 // Pages Here
 @import "../views/Landing/LandingPage.scss";
+@import "../views/ProjectsHome/ProjectsHome.scss";
 @import "../views/Dashboard/Dashboard.scss";
 @import "../views/Login/Login.scss";
 @import "../views/Register/Register.scss";
+@import "../views/ProjectsHome/ProjectsHome.scss";
 
 // Components Here
-@import "../components/Button/Button.scss";
 @import "../components/Card/Card.scss";
-@import "../components/Layout/Footer.scss";
+@import "../components/Layout/footer.scss";
 @import "../components/Layout/Nav.scss";
 @import "../components/Project/Project.scss";
 @import "../components/ProjectList/ProjectList.scss";
+
