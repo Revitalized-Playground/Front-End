@@ -15,7 +15,7 @@ const ProjectsHome = () => {
 			<CurriculumOptions />
 			<FeaturedProjects />
 			<StudentCTA />
-			{/* <TrendingTrades /> */}
+			<TrendingTrades />
 		</div>
 	);
 };

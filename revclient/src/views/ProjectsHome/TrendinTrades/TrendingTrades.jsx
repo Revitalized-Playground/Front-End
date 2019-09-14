@@ -1,17 +1,26 @@
-import React, { useState } from 'react'
-// import whereDoWeGoFromHereImg from "../../../assets/ProjectPage/WHERE DO WE GO FROM HERE.png"
+import React from 'react'
+import Card from '../../../components/Card/Card';
+import wtt from "../../../assets/ProjectPage/WTT.png"
+import imm from "../../../assets/ProjectPage/IMM.png"
 
 const TrendingTrades = () => {
     const dummyTrades = [
         {
-            src: "",
-            title: "",
-            description: ""
+            img: imm,
+            title: "Industrial Machinery Mechanic",
+            description: " Learn next to master trade professionals that are available during the day and after hours."
+        },
+        {
+            img: wtt,
+            title: "Wind Turbine Technician",
+            description: "Learn next to master trade professionals that are available during the day and after hours"
         }
     ]
     return (
         <div className="trending-trades">
-            {/* <TradeCards /> */}
+            {dummyTrades.map(({ img, title, description }, i) =>
+                <Card className="trade-card" img={img} title={title} description={description} key={i} />
+            )}
         </div>
     );
 };
