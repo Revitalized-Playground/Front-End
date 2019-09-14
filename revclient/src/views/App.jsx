@@ -1,15 +1,43 @@
 import React from 'react';
-// import Link from 'next/link';
-// import Head from 'next/head';
-import Nav from '../components/Layout/Nav';
-import LandingPage from '../views/Landing/LandingPage';
+import { BrowserRouter, Route } from "react-router-dom";
+
+import Nav from '../components/Layout/Nav.jsx';
+import Footer from "../components/Layout/Footer.jsx";
+
+import LandingPage from '../views/Landing/LandingPage.jsx';
+import ProjectList from "../components/ProjectList/ProjectList.jsx";
+
+
 import '../styles/base.scss';
 
+
+
 const App = () => (
-	<>
+	<BrowserRouter>
 		<Nav />
-		<LandingPage />
-	</>
+
+		<Route 
+			exact
+			path="/"
+			render={() => (
+				<LandingPage />
+				)}
+		/>
+
+		<Route 
+			exact
+			path="/projects"
+			render={() => (
+				<ProjectList />
+			)}
+		/>
+
+
+		<Footer />
+
+	</BrowserRouter>
 );
 
+
 export default App;
+
