@@ -113,7 +113,7 @@ export default function LandingPage() {
             </div>
             <div className="our-purpose-content">
               <h3>OUR PURPOSE</h3>
-              <p className="">
+              <div className="">
                 <p className="mission-statement">
                   {" "}
                   Training next level professionals
@@ -134,7 +134,7 @@ export default function LandingPage() {
                   local colleges to ensure students are prepared to enter the
                   industry.
                 </p>
-              </p>
+              </div>
             </div>
           </div>
         </section>

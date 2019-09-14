@@ -25,7 +25,7 @@ const App = () => (
 		/>
 
 		<Route 
-			exact
+			// exact
 			path="/projects"
 			render={() => (
 				<ProjectList />
