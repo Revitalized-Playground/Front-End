@@ -13,7 +13,7 @@ const projects = [
     },
     {
         title: 'Jean Childs Project',
-        description: 'Learn next to master trade professionals that are available during the day and after hours.',
+        description: 'Learn next to master trade professionals that are available during the day and after hours. ',
         img: 'static/assets/ProjectPage/JPP.png'
     },
     {
@@ -55,13 +55,13 @@ const FeaturedProjects = () => {
                 if(i < 6){
                     return (
                     <div className='FPProjects' key={i}>
-                        <img src={each.img} />
+                        <img alt={`${each.title} cover`} src={each.img} />
                         <h4>{each.title}</h4>
                         <p>{each.description.split('').map((eachLetter, letterLength) => {
                                 if(letterLength <= 118){
                                     return eachLetter
                                 }
-                            }).join('')}{each.description.length > 118 ? "..." : null}
+                            }).join('')}{each.description.length > 118 ? "[read more...]" : null}
                         </p>
                     </div>
                     )

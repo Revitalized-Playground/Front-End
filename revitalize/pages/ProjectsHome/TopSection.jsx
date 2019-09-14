@@ -14,7 +14,7 @@ const TopSection = () => {
 					</p>
 					<button>Create a Project</button>
 				</div>
-				<img src="../../static/assets/ProjectPage/top issue.png" />
+				<img alt='Dashboard logo' src="../../static/assets/ProjectPage/top issue.png" />
 			</div>
 		</section>
 	);
