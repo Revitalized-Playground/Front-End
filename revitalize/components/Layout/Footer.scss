@@ -19,9 +19,11 @@
 		}
 	}
 	.copyright {
+		display: inline-block;
 		font-size: 1.3rem;
-		position: absolute;
-		left: 45%;
+		height: auto;
+		width: auto;
+		margin: 0 44%;
 	}
 	.italics {
 		font-style: italic;
