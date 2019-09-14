@@ -1,12 +1,12 @@
 import React from 'react'
 import Card from '../../../../components/Card/Card';
 import MOB from "../../../../assets/ProjectPage/MOB.png"
-import imm from "../../../../assets/ProjectPage/IMM.png"
+import RTS from "../../../../assets/ProjectPage/RTS.png"
 
 const Recommended = () => {
     const dummyProjects = [
         {
-            img: imm,
+            img: RTS,
             title: "Rebirth Tabernacle School",
             description: " Learn next to master trade professionals that are available during the day and after hours."
         },

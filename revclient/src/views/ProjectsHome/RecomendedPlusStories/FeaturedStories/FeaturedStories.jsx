@@ -1,6 +1,6 @@
 import React from 'react'
 import Card from '../../../../components/Card/Card';
-import wtt from "../../../../assets/ProjectPage/WTT.png"
+import Odisee from "../../../../assets/ProjectPage/Odisee.png"
 import RG from "../../../../assets/ProjectPage/RG.png"
 
 const FeaturedStories = () => {
@@ -11,7 +11,7 @@ const FeaturedStories = () => {
             description: " Learn next to master trade professionals that are available during the day and after hours."
         },
         {
-            img: wtt,
+            img: Odisee,
             title: "Wind Turbine Technician",
             description: "Learn next to master trade professionals that are available during the day and after hours"
         }
