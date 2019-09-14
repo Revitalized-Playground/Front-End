@@ -2,10 +2,18 @@
 	display: flex;
 	justify-content: space-around;
 	width: 100%;
-	margin: -16.5% auto;
+	margin: 0 auto;
 	clip-path: polygon(0 28%, 100% 0, 100% 100%, 0% 100%);
 	background-color: $saphire-mox;
-	.FPProjects {
+	padding-top: 15%;
+	h2 {
+		color: $snow-white;
+		margin: 0 auto;
+		position: relative;
+		left: 18%;
+		top: 10%;
+	}
+	.card {
 		max-width: 48%;
 		max-height: 50%;
 		color: $snow-white;
@@ -15,7 +23,7 @@
 		img {
 			object-fit: contain;
 			max-width: 65%;
-			margin: 15.5% auto 0.5%;
+			margin: auto auto 0.5%;
 		}
 		h4 {
 			margin: 1% auto;

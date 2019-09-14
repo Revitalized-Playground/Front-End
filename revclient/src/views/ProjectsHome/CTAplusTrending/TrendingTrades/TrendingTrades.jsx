@@ -18,6 +18,7 @@ const TrendingTrades = () => {
     ]
     return (
         <div className="trending-trades">
+            <h2>Top&nbsp;Trending&nbsp;Trades</h2>
             {dummyTrades.map(({ img, title, description }, i) =>
                 <Card className="trade-card" img={img} title={title} description={description} key={i} />
             )}

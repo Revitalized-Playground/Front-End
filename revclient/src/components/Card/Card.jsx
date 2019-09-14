@@ -9,7 +9,7 @@ import React from 'react'
 export default function Card({ img, title, description, key }) {
     console.log(img)
     return (
-        <div className='FPProjects' key={key}>
+        <div className='card' key={key}>
             <img alt={`${title} cover`} src={img} />
             <h4>{title}</h4>
             <p>{description.split('').map((eachLetter, letterLength) => {
