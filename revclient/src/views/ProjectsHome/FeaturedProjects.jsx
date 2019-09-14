@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Card from "../../components/Card/Card"
 import tr from "../../assets/ProjectPage/TR.png";
 import hmq from "../../assets/ProjectPage/HMQ.png";
 import jpp from "../../assets/ProjectPage/JPP.png";
@@ -55,29 +56,16 @@ const projects = [
 const FeaturedProjects = () => {
     const [featured] = useState(projects)
 
-    if(!projects) return <div>Loading</div>
+    if (!projects) return <div>Loading</div>
     return (
         <div className='FPContainer'>
             <h1>Featured Projects</h1>
             <div className='FPProjectList'>
-            {featured.map((each, i) => {
-                if (i < 6) {
-                    return (
-                        <div className='FPProjects' key={i}>
-                            <img alt={`${each.title} cover`} src={each.img} />
-                            <h4>{each.title}</h4>
-                            <p>{each.description.split('').map((eachLetter, letterLength) => {
-                                    if(letterLength <= 118){
-                                        return eachLetter;
-                                    } else {
-                                        return null;
-                                    }
-                                }).join('')}{each.description.length > 118 ? "[read more...]" : null}
-                            </p>
-                        </div>
-                    )
-                } else { return null; }
-            })}
+                {featured.map(({ img, title, description }, i) => {
+                    if (i < 6) {
+                        return <Card img={img} title={title} description={description} key={i} />
+                    }
+                })}
             </div>
         </div>
     );
