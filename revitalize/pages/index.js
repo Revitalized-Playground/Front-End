@@ -1,18 +1,26 @@
-import React from 'react'
-import Link from 'next/link'
-import Head from 'next/head'
-import Nav from '../components/Layout/Nav'
-import LandingPage from "../pages/Landing/LandingPage"
-import "../styles/base.scss"
+import React from 'react';
+import Link from 'next/link';
+import Head from 'next/head';
+import Nav from '../components/Layout/Nav';
+import Footer from '../components/Layout/Footer';
+import LandingPage from '../pages/Landing/LandingPage';
+import ProjectsHome from '../pages/ProjectsHome/ProjectsHome';
+
+import '../styles/base.scss';
 
 const Home = () => (
-  <div>
-    <Head>
+	<div>
+		<Head>
+			<link
+				rel="stylesheet"
+				href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+			></link>
+		</Head>
+		<Nav />
+		{/* <LandingPage /> */}
+		<ProjectsHome />
+		<Footer />
+	</div>
+);
 
-    </Head>
-    <Nav />
-    <LandingPage />
-  </div>
-)
-
-export default Home
+export default Home;

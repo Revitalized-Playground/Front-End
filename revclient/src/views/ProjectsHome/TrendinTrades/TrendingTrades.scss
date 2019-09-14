@@ -1,0 +1,27 @@
+.trending-trades {
+	display: flex;
+	justify-content: space-around;
+	width: 100%;
+	margin: -16.5% auto;
+	clip-path: polygon(0 28%, 100% 0, 100% 100%, 0% 100%);
+	background-color: $saphire-mox;
+	.FPProjects {
+		max-width: 48%;
+		max-height: 50%;
+		color: $snow-white;
+		&:hover {
+			color: black;
+		}
+		img {
+			object-fit: contain;
+			max-width: 65%;
+			margin: 15.5% auto 0.5%;
+		}
+		h4 {
+			margin: 1% auto;
+		}
+		p {
+			margin-top: 1%;
+		}
+	}
+}

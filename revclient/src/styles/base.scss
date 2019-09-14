@@ -1,0 +1,21 @@
+@import 'reset';
+// Vars and Mixins
+@import 'variables';
+@import 'global';
+@import 'mixins';
+// Pages Here
+@import '../views/Landing/LandingPage.scss';
+@import '../views/ProjectsHome/ProjectsHome.scss';
+@import '../views/Dashboard/Dashboard.scss';
+@import '../views/Login/Login.scss';
+@import '../views/Register/Register.scss';
+@import '../views/ProjectsHome/ProjectsHome.scss';
+@import '../views/ProjectsHome/StudentCTA/StudentCTA.scss';
+@import '../views/ProjectsHome/TrendinTrades/TrendingTrades.scss';
+
+// Components Here
+@import '../components/Card/Card.scss';
+@import '../components/Layout/footer.scss';
+@import '../components/Layout/Nav.scss';
+@import '../components/Project/Project.scss';
+@import '../components/ProjectList/ProjectList.scss';
