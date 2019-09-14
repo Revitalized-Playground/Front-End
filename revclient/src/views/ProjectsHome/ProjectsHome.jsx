@@ -4,6 +4,7 @@ import TopSection from './TopSection.jsx';
 import FeaturedTrades from './FeaturedTrades.jsx';
 import CurriculumOptions from './CurriculumOptions.jsx';
 import CTAPlusTrades from './CTAplusTrending';
+import SubscribeCTA from './SubscribeCTA/SubscribeCTA'
 
 const ProjectsHome = () => {
 	return (
@@ -13,6 +14,7 @@ const ProjectsHome = () => {
 			<CurriculumOptions />
 			<FeaturedProjects />
 			<CTAPlusTrades />
+			<SubscribeCTA />
 		</div>
 	);
 };
