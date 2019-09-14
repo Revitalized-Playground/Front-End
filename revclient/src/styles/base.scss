@@ -10,8 +10,9 @@
 @import '../views/Login/Login.scss';
 @import '../views/Register/Register.scss';
 @import '../views/ProjectsHome/ProjectsHome.scss';
-@import '../views/ProjectsHome/StudentCTA/StudentCTA.scss';
-@import '../views/ProjectsHome/TrendinTrades/TrendingTrades.scss';
+@import '../views/ProjectsHome/CTAplusTrending/StudentCTA/StudentCTA.scss';
+@import '../views/ProjectsHome/CTAplusTrending/TrendingTrades/TrendingTrades.scss';
+@import '../views/ProjectsHome/CTAplusTrending/CTAPlusTrades.scss';
 
 // Components Here
 @import '../components/Card/Card.scss';

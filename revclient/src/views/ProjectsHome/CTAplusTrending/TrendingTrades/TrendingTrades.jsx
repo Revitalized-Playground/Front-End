@@ -1,7 +1,7 @@
 import React from 'react'
-import Card from '../../../components/Card/Card';
-import wtt from "../../../assets/ProjectPage/WTT.png"
-import imm from "../../../assets/ProjectPage/IMM.png"
+import Card from '../../../../components/Card/Card';
+import wtt from "../../../../assets/ProjectPage/WTT.png"
+import imm from "../../../../assets/ProjectPage/IMM.png"
 
 const TrendingTrades = () => {
     const dummyTrades = [
