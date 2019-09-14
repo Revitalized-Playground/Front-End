@@ -15,7 +15,7 @@
 	background: $bgc;
 	padding: 1rem 2rem;
 	border-radius: 0.25rem;
-	color: textColor;
+	color: $textColor;
 	border: 3px $borderStyle $textColor;
 	width: 11rem;
 	transition: 0.2s all ease-in-out;
