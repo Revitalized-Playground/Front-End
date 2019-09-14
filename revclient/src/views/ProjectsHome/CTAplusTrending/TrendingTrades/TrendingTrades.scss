@@ -1,11 +1,11 @@
 .trending-trades {
 	display: flex;
-	justify-content: space-around;
+	justify-content: space-between;
 	width: 100%;
-	margin: 0 auto;
+	margin-top: -8% auto auto auto;
 	clip-path: polygon(0 28%, 100% 0, 100% 100%, 0% 100%);
 	background-color: $saphire-mox;
-	padding-top: 15%;
+	padding-top: 13%;
 	h2 {
 		color: $snow-white;
 		margin: 0 auto;
@@ -16,7 +16,9 @@
 	.card {
 		max-width: 48%;
 		max-height: 50%;
+		margin: 0 auto;
 		color: $snow-white;
+		margin-bottom: 3%;
 		&:hover {
 			color: black;
 		}

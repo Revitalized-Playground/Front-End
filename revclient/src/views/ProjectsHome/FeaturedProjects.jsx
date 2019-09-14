@@ -58,9 +58,9 @@ const FeaturedProjects = () => {
 	return (
 		<div className="FPContainer">
 			<h1>Featured Projects</h1>
-			<div className="FPProjectList">
+			<div className="FPProjectList" >
 				{featured.map(({ img, title, description }, i) =>
-					i < 6 ? <Card img={img} title={title} description={description} key={i} /> : null
+					i < 6 ? <Card className="card" img={img} title={title} description={description} key={i} /> : null
 
 				)}
 			</div>
