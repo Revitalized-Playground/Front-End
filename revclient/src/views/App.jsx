@@ -8,7 +8,7 @@ import LandingPage from '../views/Landing/LandingPage.jsx';
 import ProjectsHome from "../views/ProjectsHome/ProjectsHome.jsx";
 import Register from "../views/Register/Register.jsx";
 import Login from "../views/Login/Login"
-
+import CreateProjectWizard from './CreateProjForm/CreateProjectForm.jsx';
 import '../styles/base.scss';
 
 
@@ -45,6 +45,13 @@ const App = () => (
 			path="/login"
 			render={() => (
 				<Login />
+			)}
+		/>
+		<Route
+			// exact
+			path="/createproject"
+			render={() => (
+				<CreateProjectWizard />
 			)}
 		/>
 

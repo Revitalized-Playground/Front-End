@@ -12,10 +12,6 @@ import twitterLogo from '../../assets/AuthPages/twitter.png'
 import loginImg from '../../assets/AuthPages/Login.png'
 
 
-
-
-
-
 export default function Login() {
     return (
         <div className='loginContainer'>
