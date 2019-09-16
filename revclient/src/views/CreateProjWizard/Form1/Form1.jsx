@@ -4,7 +4,7 @@ const Form1 = ({ projName, projStartDate, projDescription, setProjectDetails, se
 
     return (
         <form onSubmit={() => setFormPosition(2)} className="Form-1" >
-            hello
+            Form 1
             <button className="next-step">Next Step!</button>
         </form >
     );
