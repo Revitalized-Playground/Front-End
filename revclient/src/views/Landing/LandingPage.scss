@@ -2,7 +2,7 @@
 
 .header {
 	// This is for fixed nav to be removed.
-	margin-top: 175px;
+	@include spaceForNav;
 	.cta-container {
 		display: flex;
 		justify-content: space-around;

@@ -1,0 +1,25 @@
+.subscription-cta {
+	display: flex;
+	justify-content: space-between;
+	color: $chillFi-purple;
+	margin-top: 25%;
+	img {
+		object-fit: scale-down;
+		margin-left: 18%;
+		width: 25%;
+		z-index: 50;
+		min-height: 280px;
+	}
+	.cta {
+		margin: 0 32% auto auto;
+		h2 {
+			margin-bottom: 7%;
+		}
+		button {
+			@include buttonStyler(#d91247, $snow-white, none);
+			&:hover {
+				color: $chillFi-purple;
+			}
+		}
+	}
+}
