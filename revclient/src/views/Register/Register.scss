@@ -5,6 +5,7 @@
     margin: 0 auto;
     display: flex;
     color: white;
+    @include spaceForNav;
 
     .registerForm {
         width: 40%;

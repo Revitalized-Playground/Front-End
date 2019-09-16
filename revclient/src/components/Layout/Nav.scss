@@ -6,8 +6,13 @@ nav {
 	justify-content: space-between;
 	height: 90px;
 	padding: 5px 5px;
-  	@include fixedNav;
+	@include fixedNav;
 	justify-content: space-around;
+
+	.dark-mode-emoji {
+		max-width: 45px;
+	}
+
 	a {
 		text-decoration: none;
 		color: inherit;
@@ -40,15 +45,15 @@ nav {
 		}
 		button {
 			@include buttonStyler($chillFi-purple, $snow-white, solid);
-      margin: auto 0.4%;
-      height: 15px;
-      vertical-align: center;
-      padding-bottom: 30px
+			margin: auto 0.4%;
+			height: 15px;
+			vertical-align: center;
+			padding-bottom: 30px;
 		}
 		.login {
 			@include buttonStyler($snow-white, $chillFi-purple, solid);
-      margin: auto 0.4%;
-      padding-bottom: 30px
+			margin: auto 0.4%;
+			padding-bottom: 30px;
 		}
 	}
 }
