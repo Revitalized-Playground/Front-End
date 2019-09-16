@@ -6,9 +6,15 @@ const CreateProjectWizard = () => {
     const [formPosition, setFormPosition] = useState(1)
     return (
         <div className="create-project-page">
+
             <div className="form-plus-quote-container">
-                <h2 className="quote">Random QUote</h2>
-                <div className="unknown">
+
+                <div className="quote">
+                    <h2>“Yesterday I was clever, so I wanted to change the world. Today I am wise, so I am changing myself.”</h2>
+                    <p>Jalal ad-Din Rumi PERSIAN POET</p>
+                </div>
+
+                <div className="ui-section">
                     <h1 className="title">Create Project</h1>
                     {formPosition === 1
                         ? <Form1
@@ -21,6 +27,7 @@ const CreateProjectWizard = () => {
                         : <h1> Hello</h1>
                     }
                 </div>
+
             </div>
         </div>
     );

@@ -2,4 +2,23 @@
 
 .create-project-page {
 	@include spaceForNav;
+	// z-index: -10;
+	background-image: url('../assets/CreateProjWizard/RocketManGradient.png');
+	margin-top: 100px;
+	height: 1080px;
+
+	.form-plus-quote-container {
+		display: flex;
+		justify-content: space-around;
+		width: 1780px;
+		background-color: #043558;
+		height: 906px;
+		border: 2px solid red;
+		z-index: 99;
+		margin-top: 100px;
+		.ui-section {
+			width: 1290px;
+			background-color: $snow-white;
+		}
+	}
 }
