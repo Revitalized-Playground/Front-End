@@ -7,7 +7,7 @@ import Footer from "../components/Layout/Footer.jsx";
 import LandingPage from '../views/Landing/LandingPage.jsx';
 import ProjectsHome from "../views/ProjectsHome/ProjectsHome.jsx";
 import Register from "../views/Register/Register.jsx";
-
+import Login from "../views/Login/Login"
 
 import '../styles/base.scss';
 
@@ -17,15 +17,15 @@ const App = () => (
 	<BrowserRouter>
 		<Nav />
 
-		<Route 
+		<Route
 			exact
 			path="/"
 			render={() => (
 				<LandingPage />
-				)}
+			)}
 		/>
 
-		<Route 
+		<Route
 			// exact
 			path="/projects"
 			render={() => (
@@ -33,11 +33,18 @@ const App = () => (
 			)}
 		/>
 
-		<Route 
+		<Route
 			// exact
 			path="/register"
 			render={() => (
 				<Register />
+			)}
+		/>
+		<Route
+			// exact
+			path="/login"
+			render={() => (
+				<Login />
 			)}
 		/>
 

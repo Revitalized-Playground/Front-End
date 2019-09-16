@@ -1,8 +1,10 @@
 @import 'reset';
 // Vars and Mixins
 @import 'variables';
+@import url('https://use.typekit.net/she4pxn.css');
 @import 'global';
 @import 'mixins';
+
 // Pages Here
 @import '../views/Landing/LandingPage.scss';
 @import '../views/ProjectsHome/ProjectsHome.scss';
@@ -10,7 +12,6 @@
 @import '../views/Login/Login.scss';
 @import '../views/Register/Register.scss';
 @import '../views/ProjectsHome/ProjectsHome.scss';
-
 @import '../views/ProjectsHome/CTAplusTrending/CTAPlusTrades.scss';
 @import '../views/ProjectsHome/SubscribeCTA/SubscribeCTA.scss';
 @import '../views/ProjectsHome/RecomendedPlusStories/RecommendedPlusStories.scss';
