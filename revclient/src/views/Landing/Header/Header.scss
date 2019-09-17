@@ -9,7 +9,7 @@
 		height: 79vh;
 		display: flex;
 		justify-content: space-between;
-		margin: 9.5rem 7rem 3.2rem 7rem;
+		margin: 10.5rem 7rem 3.2rem 7rem;
 
 		img {
 			max-width: 50%;
@@ -100,7 +100,9 @@
 		}
 	}
 
-	.applicaton-links-container {
+	.application-links-container {
+		margin-top: 98px;
+		border: 1px solid red;
 		max-width: 100%;
 		display: flex;
 		justify-content: center;

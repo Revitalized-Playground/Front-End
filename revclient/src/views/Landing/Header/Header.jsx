@@ -45,7 +45,7 @@ const Header = () => {
 				</div>
 			</div>
 
-			<div className="applicaton-links-container">
+			<div className="application-links-container">
 				<div className="students img-container" onClick={() => {}}>
 					<img src={applyNow} alt="Apply now" />
 					<p>Apply Now!</p>

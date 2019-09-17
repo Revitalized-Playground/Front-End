@@ -20,7 +20,7 @@ nav {
 	.logo {
 		display: flex;
 		max-width: 25%;
-		height: 80%;
+		// height: 80%;
 		position: absolute;
 		top: 0.72%;
 		position: absolute;
@@ -49,8 +49,12 @@ nav {
 
 		.navLinks {
 			// border: 1px solid red;
-			margin-right: 124px;
-			margin-top: 25px;
+			margin-right: 85px;
+			margin-top: 30px;
+
+			&:last-child {
+				margin-right: 300px;
+			}
 
 			a {
 				color: $chillFi-purple;
