@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Form1 from './Form1/Form1'
 import Form2 from './Form2/Form2'
+import Form3 from './Form3/Form3'
 import cloud from '../../assets/CreateProjWizard/bottom-cloud-layer.png'
 
 
@@ -9,16 +10,21 @@ import cloud from '../../assets/CreateProjWizard/bottom-cloud-layer.png'
 
 const CreateProjectWizard = () => {
     const [projectDetails, setProjectDetails] = useState({ projName: "", projStartDate: "", projDescription: "", projOwnerName: "", projAddress: "", city: "", state: "", zip: null, projectDuration: null, projBudget: null, difficultyLevel: null })
-    const [formPosition, setFormPosition] = useState(2)
+    const [formPosition, setFormPosition] = useState(3)
 
     const handleChanges = event => {
-        if(event.target.name === 'zip') {
+        console.log("event", event)
+        if (event.target.name === 'zip' || event.target.name === 'projBudget') {
             setProjectDetails({ ...projectDetails, [event.target.name]: Number(event.target.value) })
         } else {
             setProjectDetails({ ...projectDetails, [event.target.name]: event.target.value })
         }
-        
     }
+
+    const submitForm = (event) => { event.preventDefault(); console.log("submited") }
+
+
+
     console.log(projectDetails);
     return (
         <div className="create-project-page">
@@ -60,7 +66,13 @@ const CreateProjectWizard = () => {
                                 zip={projectDetails.zip}
                             />
                             : formPosition === 3
-                                ? 'form 3'
+                                ? <Form3
+                                    submitForm={submitForm}
+                                    setFormPosition={setFormPosition}
+                                    handleChanges={handleChanges}
+                                    projDuration={projectDetails.projectDuration}
+                                    projBudget={projectDetails.projBudget}
+                                />
                                 : null
                     }
                 </div>

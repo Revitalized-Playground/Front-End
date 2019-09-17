@@ -1,12 +1,15 @@
 @import './Form1/Form1.scss';
 @import './Form2/Form2.scss';
-
+@import './Form3/Form3.scss';
 .create-project-page {
 	@include spaceForNav;
 	// z-index: -10;
 	background-image: url('../assets/CreateProjWizard/RocketManGradient.png');
 	// margin-top: 100px;
 	height: 92.5vh;
+	.errorText {
+		color: red
+	}
 
 	.form-plus-quote-container {
 		display: flex;
@@ -83,6 +86,13 @@
 					@include buttonStyler(#4840ba, $snow-white, none);
 					border-radius: 3px;
 					align-self: flex-end;
+				}
+				.form-navigation {
+					display: flex;
+					justify-content: space-between;
+					.prev-step {
+						order: -1;
+					}
 				}
 				.description {
 					height: 11rem;

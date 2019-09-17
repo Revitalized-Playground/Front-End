@@ -9,6 +9,8 @@ import ProjectsHome from "../views/ProjectsHome/ProjectsHome.jsx";
 import Register from "../views/Register/Register.jsx";
 import Login from "../views/Login/Login"
 import CreateProjectWizard from './CreateProjWizard/CreateProjectWizard.jsx';
+import ProjectPage from './ProjectPage/ProjectPage'
+
 import '../styles/base.scss';
 
 
@@ -52,6 +54,13 @@ const App = () => (
 			path="/createproject"
 			render={() => (
 				<CreateProjectWizard />
+			)}
+		/>
+		<Route
+			// exact
+			path="/project"
+			render={() => (
+				<ProjectPage />
 			)}
 		/>
 
