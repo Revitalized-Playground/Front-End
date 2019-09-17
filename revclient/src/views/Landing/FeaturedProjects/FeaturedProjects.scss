@@ -1,0 +1,33 @@
+.featured-project {
+	display: flex;
+	justify-content: space-around;
+	background-color: #82c7b3;
+	margin: 4% auto;
+	max-height: 450px;
+	.phone {
+		margin-bottom: -6.5%;
+	}
+	.phone-left {
+		max-width: 28%;
+		// Rotate image
+		// display: inline-block;
+		transform: rotate(-32deg);
+	}
+	.user-story {
+		max-width: 31%;
+		display: flex;
+		flex-direction: column;
+		align-content: center;
+		text-align: center;
+		.user-photo {
+			max-width: 45%;
+			margin: auto;
+		}
+		p {
+			margin: auto;
+		}
+	}
+	.phone-right {
+		max-width: 28%;
+	}
+}

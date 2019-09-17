@@ -1,0 +1,19 @@
+.testimonials {
+	margin: 4% auto 0 auto;
+	display: flex;
+	justify-content: space-between;
+	background-color: #d2405b;
+	padding-top: 4%;
+	p {
+		margin: auto;
+		font-family: Futura;
+		display: inline-block;
+		font-weight: bold;
+		font-size: 1.3rem;
+		line-height: 1.3rem;
+		height: auto;
+	}
+	img {
+		max-width: 34%;
+	}
+}

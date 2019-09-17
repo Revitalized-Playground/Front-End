@@ -1,0 +1,27 @@
+.full-scale-application {
+	display: flex;
+	justify-content: space-between;
+	margin: 4% auto;
+	img {
+		max-width: 55%;
+	}
+	.full-scale-application-cta {
+		max-width: 42%;
+		margin: 8% auto;
+		color: #4840ba;
+		font-size: 1.2rem;
+		h2 {
+			font-size: 1.4rem;
+			font-family: Futura;
+			line-height: 147.81%;
+			letter-spacing: 0.06em;
+			margin: 4% auto;
+		}
+		p {
+			margin: 4% auto;
+		}
+		button {
+			@include buttonStyler(#4840ba, #ffffff, none);
+		}
+	}
+}

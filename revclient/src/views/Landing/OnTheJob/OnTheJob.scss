@@ -1,0 +1,24 @@
+.on-the-job-training {
+	background: #4840ba;
+	margin: 4% auto;
+	display: flex;
+	justify-content: space-between;
+	color: white;
+
+	img {
+		width: 43%;
+		margin: 5% auto -15% 6%;
+		object-fit: scale-down;
+	}
+	button {
+		@include buttonStyler(#ffffff, rgb(55, 48, 155), none);
+	}
+	.training-cta {
+		display: inline-block;
+		max-width: 28%;
+		margin: 10% auto;
+		h2 {
+			margin: 5% auto;
+		}
+	}
+}
