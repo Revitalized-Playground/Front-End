@@ -2,16 +2,28 @@
 	display: flex;
 	justify-content: space-around;
 	background-color: #82c7b3;
-	margin: 4% auto;
-	max-height: 450px;
+	margin: -29px auto 10% auto;
+	// max-height: 450px;
+	height: 730px;
+	.section-title {
+		position: absolute;
+		left: 110px;
+		margin-top: 50px;
+		font-size: 42px;
+		line-height: 152.31%;
+		letter-spacing: 0.03em;
+		// font-weight: 500;
+	}
 	.phone {
+		position: relative;
+		top: 190px;
 		margin-bottom: -6.5%;
+		width: 575px;
+		height: 683px;
 	}
 	.phone-left {
-		max-width: 28%;
-		// Rotate image
-		// display: inline-block;
-		transform: rotate(-32deg);
+		// max-width: 28%;
+		transform: rotate(-31deg);
 	}
 	.user-story {
 		max-width: 31%;
@@ -20,14 +32,28 @@
 		align-content: center;
 		text-align: center;
 		.user-photo {
-			max-width: 45%;
-			margin: auto;
+			// max-width: 70%;
+			width: 403px;
+			height: 403px;
+			margin: 55px auto 0 100px;
+		}
+		.user-info {
+			font-size: 42px;
+			margin: 4% 0 0 8%;
+			line-height: 48px;
+			letter-spacing: 0.05em;
+			// font-weight: bold;
 		}
 		p {
-			margin: auto;
+			margin: 5% auto 5% auto;
+			letter-spacing: 0.06em;
+			line-height: 180%;
+			font-size: 15px;
+			font-weight: bold;
 		}
 	}
 	.phone-right {
-		max-width: 28%;
+		// max-width: 28%;
+		position: relative;
 	}
 }
