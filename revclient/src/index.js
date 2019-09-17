@@ -3,13 +3,13 @@ import ReactDOM from 'react-dom';
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
 
-// import { createStore, applyMiddleware } from "redux";
-// import { Provider } from "react-redux";
-// import thunk from "redux-thunk";
-// import logger from "redux-logger";
+import { createStore, applyMiddleware } from "redux";
+import { Provider } from "react-redux";
+import thunk from "redux-thunk";
+import logger from "redux-logger";
 // import { composeWithDevTools } from "redux-devtools-extension";
 
-// import rootReducer from "./redux/reducers/index.js";
+import rootReducer from "./redux/reducers/index.js";
 import App from "./views/App.jsx";
 
 
@@ -22,21 +22,23 @@ const client = new ApolloClient({
 
 
 
-// const store=createStore(
-//     rootReducer,
-//     // composeWithDevTools(applyMiddleware(thunk, logger)));
-//     applyMiddleware(thunk, logger));
+const store=createStore(
+    rootReducer,
+    // composeWithDevTools(applyMiddleware(thunk, logger)));
+    applyMiddleware(thunk, logger)
+    // applyMiddleware(thunk)
+);
 
 const elRoot = document.getElementById('root');
 
 
 ReactDOM.render(
-    // <Provider store={store} >
-        // <App />
-    // </Provider>,
+    // <App />
     // <App />,
-    <ApolloProvider client={client}>
-        <App />
+    <ApolloProvider client={client} >
+        <Provider store={store} >
+            <App />
+        </Provider>,
     </ApolloProvider>,
     elRoot 
 );
