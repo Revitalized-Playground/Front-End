@@ -16,25 +16,24 @@ import App from "./views/App.jsx";
 
 import "./styles/base.scss";
 
+
 const client = new ApolloClient({
     uri: "https://revitalize-production.herokuapp.com/"
 });
 
 
-
-
-const store=createStore(
+const store = createStore(
     rootReducer,
     // composeWithDevTools(applyMiddleware(thunk, logger)));
     applyMiddleware(thunk, logger)
     // applyMiddleware(thunk)
 );
 
+
 const elRoot = document.getElementById('root');
 
 
 ReactDOM.render(
-    // <App />
     // <App />,
     <ApolloProvider client={client} >
         <Provider store={store} >
