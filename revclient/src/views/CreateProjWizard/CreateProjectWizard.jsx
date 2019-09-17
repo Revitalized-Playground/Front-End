@@ -9,12 +9,17 @@ import cloud from '../../assets/CreateProjWizard/bottom-cloud-layer.png'
 
 const CreateProjectWizard = () => {
     const [projectDetails, setProjectDetails] = useState({ projName: "", projStartDate: "", projDescription: "", projOwnerName: "", projAddress: "", city: "", state: "", zip: null, projectDuration: null, projBudget: null, difficultyLevel: null })
-    const [formPosition, setFormPosition] = useState(1)
+    const [formPosition, setFormPosition] = useState(2)
+    console.log()
 
 
     const handleChanges = event => {
-
-        setProjectDetails({ ...projectDetails, [event.target.name]: event.target.value })
+        if(event.target.name === 'zip') {
+            setProjectDetails({ ...projectDetails, [event.target.name]: Number(event.target.value) })
+        } else {
+            setProjectDetails({ ...projectDetails, [event.target.name]: event.target.value })
+        }
+        
     }
     console.log(projectDetails);
     return (
@@ -25,7 +30,7 @@ const CreateProjectWizard = () => {
                 <div className="quote">
                     <h2>“Yesterday I was clever, so I <br /> wanted to change the world.<br /> Today I am wise, so I am<br /> changing myself.”</h2>
                     <p>Jalal ad-Din Rumi PERSIAN POET</p>
-                    <img src={cloud} alt="cloud image" className="bottom-cloud" />
+                    <img src={cloud} alt="cloud" className="bottom-cloud" />
                 </div>
 
                 <div className="ui-section">
@@ -50,9 +55,11 @@ const CreateProjectWizard = () => {
                             ? <Form2
                                 setFormPosition={setFormPosition}
                                 handleChanges={handleChanges}
-                                projName={projectDetails.projName}
-                                projStartDate={projectDetails.projStartDate}
-                                projDescription={projectDetails.projDescription}
+                                projOwnerName={projectDetails.projOwnerName}
+                                projAddress={projectDetails.projAddress}
+                                city={projectDetails.city}
+                                state={projectDetails.state}
+                                zip={projectDetails.zip}
                             />
                             : formPosition === 3
                                 ? 'form 3'

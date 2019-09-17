@@ -1,7 +1,16 @@
-import React from 'react'
-import state from '../../../assets/CreateProjWizard/stateList'
-const Form2 = ({ projOwnerName, projStreetAddress, projCity, projState, projZip, handleChanges, setFormPosition }) => {
+import React, {useState} from 'react'
+import states from '../../../assets/CreateProjWizard/stateList'
+const Form2 = ({ projOwnerName, projAddress, city, state, zip, handleChanges, setFormPosition }) => {
+    const [err, setErr] = useState(true)
+    console.log(err)
 
+    const checker = (e) => {
+        if(e.target.value.length === 5 || e.target.value.length === 0 || e.target.value === null) {
+            setErr(true)
+        } else {
+            setErr(false)
+        }
+    }
     return (
         <form onSubmit={() => setFormPosition(3)} className="form-2" >
             <h2>Project Owner Name</h2>
@@ -17,10 +26,10 @@ const Form2 = ({ projOwnerName, projStreetAddress, projCity, projState, projZip,
             <h2>Project Street Address</h2>
             <input
                 required
-                name="projStreetAddress"
+                name="projAddress"
                 type="text"
                 className="proj-street-address"
-                value={projStreetAddress}
+                value={projAddress}
                 onChange={e => handleChanges(e)}
             />
 
@@ -29,10 +38,10 @@ const Form2 = ({ projOwnerName, projStreetAddress, projCity, projState, projZip,
                     <h2>Project City</h2>
                     <input
                         required
-                        name="projCity"
+                        name="city"
                         type="text"
                         className="proj-city"
-                        value={projCity}
+                        value={city}
                         onChange={e => handleChanges(e)}
                     />
                 </div>
@@ -44,7 +53,7 @@ const Form2 = ({ projOwnerName, projStreetAddress, projCity, projState, projZip,
                         onChange={e => handleChanges(e)}
                         name="state"
                     >
-                        {state.map(state => <option>{state}</option>)}
+                        {states.map(eachState => <option>{eachState}</option>)}
                     </select>
 
                 </div>
@@ -52,12 +61,13 @@ const Form2 = ({ projOwnerName, projStreetAddress, projCity, projState, projZip,
                     <h2>Project Zip Code</h2>
                     <input
                         required
-                        name="projZip"
+                        name="zip"
                         type="number"
                         className="proj-zip"
-                        value={projZip}
-                        onChange={e => handleChanges(e)}
+                        value={zip === 0 ? '' : zip}
+                        onChange={e => {handleChanges(e); checker(e)}}
                     />
+                    {!err && <p>Wrong Zip Number</p>}
 
                 </div>
             </div>
