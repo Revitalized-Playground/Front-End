@@ -20,12 +20,12 @@ nav {
 	.logo {
 		display: flex;
 		max-width: 25%;
-		height: 80%;
+		// height: 80%;
 		position: absolute;
 		top: 0.72%;
 		position: absolute;
-		left: 4%;
-		top: 16.5%;
+		left: 4.5%;
+		top: 16%;
 
 		img {
 			max-height: 90px;
@@ -36,28 +36,45 @@ nav {
 			margin-bottom: 0.5%;
 			font-size: 1.8rem;
 			font-weight: lighter;
-
-			letter-spacing: 0.04em;
+			letter-spacing: 0.06em;
 			color: $chillFi-purple;
 		}
 	}
 	ul {
+		// border: 1px solid red;
 		display: flex;
+		justify-content: flex-end;
 		width: 90%;
+		margin: auto;
 
-		li {
-			margin: auto;
+		.navLinks {
+			// border: 1px solid red;
+			margin-right: 85px;
+			margin-top: 30px;
+
+			&:last-child {
+				margin-right: 300px;
+			}
+
+			a {
+				color: $chillFi-purple;
+				font-size: 24px;
+				letter-spacing: 0.06em;
+			}
 		}
 		button {
 			@include buttonStyler($chillFi-purple, $snow-white, solid);
-			margin: auto 0.4%;
-			height: 15px;
+			font-size: 24px;
+			margin: auto 0.4% auto 1%;
+			height: 73px;
+			width: 225px;
 			vertical-align: center;
 			padding-bottom: 30px;
 		}
 		.login {
 			@include buttonStyler($snow-white, $chillFi-purple, solid);
-			margin: auto 0.4%;
+			margin: auto 0.4% auto 1%;
+			width: 225px;
 			padding-bottom: 30px;
 		}
 	}
