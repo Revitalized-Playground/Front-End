@@ -5,20 +5,20 @@ import classroomTraining from '../../../assets/LandingPage/Classroom Training.pn
 
 const FullScaleApp = () => {
     return (
-        <section className="full-scale-application">
+      <section className="full-scale-application">
         <div className="full-scale-application-cta">
           <h2>Full Scale Application</h2>
           <p>
             Log classroom and on-the-job-training hours
-            <br /> all under one streamlined application
+            all <br /> under one streamlined application
           </p>
-          <button>Apply Now!</button>
+          <button>Apply Now</button>
         </div>
         <img
           src={classroomTraining}
           alt="two people in a classroom"
         />
-      </section>
+    </section>
     );
 };
 
