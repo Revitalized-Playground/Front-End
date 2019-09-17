@@ -52,6 +52,7 @@
 		p {
 			color: $machiavellian;
 			font-size: 1.5rem;
+			font-weight: 500;
 			letter-spacing: 0.13em;
 			margin-bottom: 17px;
 			padding-left: 50px;
@@ -59,18 +60,23 @@
 		}
 		.value-tiles {
 			display: flex;
-			justify-content: space-evenly;
-			align-items: center;
-			width: 90%;
 
+			justify-content: space-between;
+			width: 86%;
 			margin: 0 auto;
+			text-align: center;
 			padding-bottom: 5rem;
 			padding-top: 1.25rem;
+
 			div {
-				padding: 2.1rem 4.2rem;
 				border-radius: 0.25rem;
+				padding: 1.8rem 0;
+				font-size: 24px;
+				letter-spacing: 0.12em;
 				color: white;
-				width: 6rem;
+				width: 15.3%;
+				height: 1.7rem;
+				margin: auto;
 				text-align: center;
 			}
 			.tenacity {
