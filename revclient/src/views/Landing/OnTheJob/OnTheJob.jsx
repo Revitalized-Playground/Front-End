@@ -13,7 +13,7 @@ const OnTheJob = () => {
           <h2>On the Job Training</h2>
           <p>
             Work under Licensed Professionals to qualify and log hours for state
-            licensure requirements
+            licensure requirements.
           </p>
           <button>Let's Do This!</button>
         </div>
