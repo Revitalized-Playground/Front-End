@@ -70,21 +70,9 @@ const Form2 = ({ projOwnerName, projAddress, city, state, zip, handleChanges, se
 
                 </div>
             </div>
-            {/* 
-            <h2>Project Difficutly</h2>
-            <textarea
-                required
-                name="projDifficutly" S
-                type="text"
-                className="Difficutly"
-                placeholder="Project Difficutly"
-                // value={projDifficutly}
-                onChange={e => handleChanges(e)}
-            /> */}
             <div className="form-navigation">
-                <button className="next-step">Next Step!</button>
+                <button type='submit' className="next-step">Next Step!</button>
                 <button className="prev-step">Previous Step!</button>
-
             </div>
         </form >
     );
