@@ -1,25 +1,28 @@
+@import "../../../styles/mixins";
+
 .featured-project {
 	display: flex;
 	justify-content: space-around;
 	background-color: #82c7b3;
-	margin: -29px auto 10% auto;
-	// max-height: 450px;
+	margin: 8.35% auto 10% auto;
 	height: 730px;
 	.section-title {
 		position: absolute;
-		left: 110px;
-		margin-top: 50px;
+		left: 5.75%;
+		margin-top: 2.45%;
 		font-size: 42px;
 		line-height: 152.31%;
 		letter-spacing: 0.03em;
-		// font-weight: 500;
 	}
 	.phone {
 		position: relative;
-		top: 190px;
+		top: 26%;
 		margin-bottom: -6.5%;
-		width: 575px;
-		height: 683px;
+		// figma specs below
+		// width: 575px;
+		// height: 683px;
+		width: 30%;
+		height: 93%;
 	}
 	.phone-left {
 		// max-width: 28%;
@@ -32,17 +35,19 @@
 		align-content: center;
 		text-align: center;
 		.user-photo {
-			// max-width: 70%;
-			width: 403px;
-			height: 403px;
-			margin: 55px auto 0 100px;
+			// figma specs below
+			// width: 403px;
+			// height: 403px;
+			width: 68%;
+			height: 68%;
+			object-fit: contain;
+			margin: 0 auto 0 18%;
 		}
 		.user-info {
 			font-size: 42px;
-			margin: 4% 0 0 8%;
+			margin: -3% 0 0 8%;
 			line-height: 48px;
 			letter-spacing: 0.05em;
-			// font-weight: bold;
 		}
 		p {
 			margin: 5% auto 5% auto;
@@ -50,10 +55,12 @@
 			line-height: 180%;
 			font-size: 15px;
 			font-weight: bold;
+			position: relative;
+			left: 5%;
 		}
 	}
 	.phone-right {
-		// max-width: 28%;
 		position: relative;
+		// bottom: 5%;
 	}
 }
