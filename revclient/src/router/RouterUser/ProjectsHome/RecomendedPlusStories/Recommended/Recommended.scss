@@ -1,0 +1,33 @@
+.recommended-wrapper {
+	color: white;
+	h2 {
+		display: block;
+		margin-top: 20%;
+		margin-left: 8%;
+	}
+	.recommendations {
+		display: flex;
+		justify-content: space-between;
+		width: 100%;
+		// margin-top: 13%;
+		.card {
+			max-width: 48%;
+			max-height: 50%;
+			color: $snow-white;
+			&:hover {
+				color: black;
+			}
+			img {
+				object-fit: contain;
+				max-width: 65%;
+				margin: auto auto 0.5%;
+			}
+			h4 {
+				margin: 1% auto;
+			}
+			p {
+				margin-top: 1%;
+			}
+		}
+	}
+}
