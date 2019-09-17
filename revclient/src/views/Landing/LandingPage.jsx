@@ -19,15 +19,13 @@ export default function LandingPage() {
 
   return (
     <>
-      {/* nav - jose */}
-      <Header /> {/* jose */}
-      <OurPurpose /> {/* jose */}
-      <OnTheJob /> {/* clark */}
-      <FullScaleApp /> {/* clark */}
-      <FeaturedProjects /> {/* clark */}
-      <SearchProjects /> {/* alex */}
-      <Testimonials /> {/* alex */}
-      {/* footer - alex */}
+      <Header /> 
+      <OurPurpose />
+      <OnTheJob /> 
+      <FullScaleApp /> 
+      <FeaturedProjects /> 
+      <SearchProjects />  
+      <Testimonials />  
     </>
   );
 }
