@@ -11,7 +11,11 @@ const CreateProjectWizard = () => {
     const [projectDetails, setProjectDetails] = useState({ projName: "", projStartDate: "", projDescription: "", projOwnerName: "", projAddress: "", city: "", state: "", zip: null, projectDuration: null, projBudget: null, difficultyLevel: null })
     const [formPosition, setFormPosition] = useState(1)
 
-    const handleChanges = event => setProjectDetails({ ...projectDetails, [event.target.name]: event.target.value })
+
+    const handleChanges = event => {
+
+        setProjectDetails({ ...projectDetails, [event.target.name]: event.target.value })
+    }
     console.log(projectDetails);
     return (
         <div className="create-project-page">

@@ -53,7 +53,7 @@ const Form2 = ({ projOwnerName, projStreetAddress, projCity, projState, projZip,
                     <input
                         required
                         name="projZip"
-                        type="text"
+                        type="number"
                         className="proj-zip"
                         value={projZip}
                         onChange={e => handleChanges(e)}
