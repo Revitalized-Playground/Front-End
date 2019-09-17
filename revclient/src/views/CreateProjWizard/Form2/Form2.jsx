@@ -2,10 +2,9 @@ import React, {useState} from 'react'
 import states from '../../../assets/CreateProjWizard/stateList'
 const Form2 = ({ projOwnerName, projAddress, city, state, zip, handleChanges, setFormPosition }) => {
     const [err, setErr] = useState(true)
-    console.log(err)
 
     const checker = (e) => {
-        if(e.target.value.length === 5 || e.target.value.length === 0 || e.target.value === null) {
+        if(e.target.value.length === 5 || e.target.value.length === 0) {
             setErr(true)
         } else {
             setErr(false)
