@@ -11,6 +11,7 @@ import logger from "redux-logger";
 
 import rootReducer from "./redux/reducers/index.js";
 import App from "./views/App.jsx";
+// import App from "./router/App.jsx";
 
 
 import "./styles/base.scss";
