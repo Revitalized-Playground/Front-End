@@ -1,0 +1,144 @@
+@import '../../../styles/mixins';
+
+.header {
+	// This is for fixed nav to be removed.
+	// border: 1px solid red;
+	@include spaceForNav;
+	.cta-container {
+		// border: 1px solid green;
+		height: 79vh;
+		display: flex;
+		justify-content: space-between;
+		margin: 10.5rem 7rem 3.2rem 7rem;
+
+		img {
+			max-width: 50%;
+			scale: both;
+		}
+		.cta {
+			// border: 1px solid blue;
+			max-width: 50%;
+			max-height: 33%;
+			text-align: left;
+			.cta-title {
+				margin-top: 85px;
+				// border: 1px solid red;
+				font-size: 42px;
+				font-weight: 500;
+				letter-spacing: 0.13em;
+				line-height: 1.4;
+				color: #4840ba;
+				height: auto;
+			}
+			p {
+				// border: 1px solid orangered;
+				margin: 5% 0 0 0;
+				font-size: 24px;
+				letter-spacing: 0.12em;
+				line-height: 1.8;
+				color: $erudite-purple;
+			}
+			button {
+				@include buttonStyler(#4840ba, #ffffff, none);
+				margin-top: 20px;
+				font-size: 20px;
+				height: 70px;
+				padding: 0.5rem 1rem;
+				width: 270px;
+			}
+		}
+	}
+	.values {
+		p {
+			color: $machiavellian;
+			font-size: 1.5rem;
+			font-weight: 500;
+			letter-spacing: 0.13em;
+			margin-bottom: 17px;
+			padding-left: 50px;
+			text-align: center;
+		}
+		.value-tiles {
+			display: flex;
+
+			justify-content: space-between;
+			width: 86%;
+			margin: 0 auto;
+			text-align: center;
+			padding-bottom: 5rem;
+			padding-top: 1.25rem;
+
+			div {
+				border-radius: 0.25rem;
+				padding: 1.8rem 0;
+				font-size: 24px;
+				letter-spacing: 0.12em;
+				color: white;
+				width: 15.3%;
+				height: 1.7rem;
+				margin: auto;
+				text-align: center;
+			}
+			.tenacity {
+				background: #d2405b;
+			}
+			.ingenuity {
+				background: #ffc100;
+			}
+			.growth {
+				background: #82c7b3;
+			}
+			.diligence {
+				background: #53a1a9;
+			}
+			.resilience {
+				background: #ab7b61;
+			}
+			.compassion {
+				background: #f7ad82;
+			}
+		}
+	}
+
+	.application-links-container {
+		margin-top: 98px;
+		border: 1px solid red;
+		max-width: 100%;
+		display: flex;
+		justify-content: center;
+		.img-container {
+			display: flex;
+			width: 34%;
+
+			text-align: center;
+			img {
+				width: 100%;
+			}
+		}
+		div {
+			display: flex;
+			justify-content: center;
+			p {
+				color: white;
+				position: absolute;
+				align-self: center;
+				font-weight: 1.4;
+				font-size: 2.1rem;
+			}
+			.donate-text {
+				color: black;
+			}
+		}
+		.donor:hover {
+
+		}
+		.students:hover {
+
+		}
+		.employers:hover {
+		}
+		.hovered {
+			display: block;
+		}
+	}
+}
