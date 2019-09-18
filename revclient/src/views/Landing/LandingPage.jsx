@@ -1,5 +1,8 @@
 import React from 'react';
 
+import Nav from '../../components/Layout/Nav.jsx';
+import Footer from "../../components/Layout/Footer.jsx";
+
 import Header from './Header/Header';
 import OurPurpose from './OurPurpose/OurPurpose';
 import OnTheJob from './OnTheJob/OnTheJob';
@@ -17,6 +20,7 @@ import FullScaleApp from './FullScaleApp/FullScaleApp';
 export default function LandingPage() {
 	return (
 		<>
+			<Nav />
 			<Header />
 			<OurPurpose />
 			<OnTheJob />
@@ -24,6 +28,7 @@ export default function LandingPage() {
 			<FeaturedProjects />
 			<SearchProjects />
 			<Testimonials />
+			<Footer />
 		</>
 	);
 }

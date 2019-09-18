@@ -64,7 +64,7 @@ export default function Register() {
                 <button>Get Started!</button>
                 </div>
             </div>
-            <img src={register} className='registerIMG' alt="Register" />
+            <div className="registerIMG"></div>
         </div>
     )
 }

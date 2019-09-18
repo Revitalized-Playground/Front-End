@@ -1,12 +1,11 @@
 .loginContainer {
 	background: #0b096f;
-	height: 1080px;
+	height: 100vh; 
 	max-width: 1920px;
 	margin: 0 auto;
 	display: flex;
 	color: white;
 	letter-spacing: 0.06em;
-	@include spaceForNav;
 	.loginForm {
 		width: 40%;
 		height: 100%;
@@ -106,25 +105,11 @@
 			}
 		}
 	}
-
 	.imgContainer {
-		border: 1px solid red;
 		height: 100%;
 		width: 60%;
-	}
-	.loginIMG {
-		width: 100%;
-		// height: 100%;
-		// width: 60%;
-
-		// position: absolute;
-		// top: 0;
-		// left: 20%;
-		// width: 100%;
-		// height: 100%;
-		// // background-color: #d9d9d9;
-		// background-position: center center;
-		// background-repeat: no-repeat;
-		// background-size: cover;
+		background-image: url("../assets/AuthPages/LIImage.svg");
+		background-size: cover;
+		background-position: center;	
 	}
 }

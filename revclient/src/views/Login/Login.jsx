@@ -10,7 +10,6 @@ import googleLogo from '../../assets/AuthPages/Google.png';
 import fbLogo from '../../assets/AuthPages/fb-logo.png';
 import twitterLogo from '../../assets/AuthPages/twitter.png';
 import loginImg from '../../assets/AuthPages/LIImage.svg';
-// import loginImg from '../../assets/AuthPages/Login.png';
 
 export default function Login() {
 	return (
@@ -63,9 +62,7 @@ export default function Login() {
 					<button>Log In</button>
 				</div>
 			</div>
-			<div className="imgContainer">
-				<img className="loginIMG" src={loginImg} alt="Student Pondering" />
-			</div>
+			<div className="imgContainer"></div>
 		</div>
 	);
 }
