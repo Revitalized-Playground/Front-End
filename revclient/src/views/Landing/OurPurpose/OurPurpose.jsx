@@ -21,7 +21,9 @@ const OurPurpose = () => {
 							$0 Tuition upfront <span className="highlighted-text">.</span>
 						</h3>
 						<p>No additional loans to weigh you down!</p>
-						<p>No payment until you are hired! Once hired, pay 10% of your income for 3 years.</p>
+						<p>
+							No payment until you are hired! Once hired, pay <br /> 10% of your income for 3 years.
+						</p>
 						<button>Start Now!</button>
 						<img src={debtMan} alt="Debt man" />
 					</div>

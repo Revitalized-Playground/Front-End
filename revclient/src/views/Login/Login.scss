@@ -107,8 +107,24 @@
 		}
 	}
 
-	.loginIMG {
+	.imgContainer {
+		border: 1px solid red;
 		height: 100%;
 		width: 60%;
+	}
+	.loginIMG {
+		width: 100%;
+		// height: 100%;
+		// width: 60%;
+
+		// position: absolute;
+		// top: 0;
+		// left: 20%;
+		// width: 100%;
+		// height: 100%;
+		// // background-color: #d9d9d9;
+		// background-position: center center;
+		// background-repeat: no-repeat;
+		// background-size: cover;
 	}
 }
