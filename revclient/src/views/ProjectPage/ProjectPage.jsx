@@ -19,8 +19,8 @@ const project = {
     duration: '9 months',
     difficultyLevel: 'Medium',
     projectBudget: '500000',
-    raised: '150000',
-    donors: 5723,
+    raised: '50000',
+    donors: 5724,
     location: 'Detroit, MI',
     projectPhotos: [pic1, pic2, pic3],
     comments: [

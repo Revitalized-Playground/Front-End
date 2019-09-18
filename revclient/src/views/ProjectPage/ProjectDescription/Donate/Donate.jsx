@@ -28,7 +28,7 @@ const Donate = ({raised, budget, donors}) => {
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
 
-    function kFormatter(num) {
+    function formatter(num) {
         return Math.abs(num) > 999 ? Math.sign(num)*((Math.abs(num)/1000).toFixed(1)) + 'k' : Math.sign(num)*Math.abs(num)
     }
 
@@ -37,7 +37,7 @@ const Donate = ({raised, budget, donors}) => {
             <div className='donateInnerDiv'>
                 <p className='donationMoney'><span className='large'>${numberWithCommas(raised)}</span> <span className='small'>raised out of ${numberWithCommas(budget)}</span></p>
                 <div className='progressBar'><Box></Box></div>
-                <p className='donatorCount'>{kFormatter(donors)}</p>
+                <p className='donatorCount'>{formatter(donors)}</p>
                 <p className='donorText'>Donors</p>
                 <div className='donationButtons'>
                     <button className='purple'>Donate now</button>
