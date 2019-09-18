@@ -8,9 +8,9 @@ const Form1 = ({ projDuration, projBudget, handleChanges, submitForm, setFormPos
     const checker = (e) => {
         e.target.value.split('.').map(each => {
             if (isNaN(each)) {
-                setErr(false)
+                return setErr(false)
             } else {
-                setErr(true)
+                return setErr(true)
             }
         })
     }

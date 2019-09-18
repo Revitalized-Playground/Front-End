@@ -1,9 +1,10 @@
 @import './BasicDescription/BasicDescription.scss';
 
 .detailedDescriptionContainer {
-    border: 1px solid red;
     max-width: 1015px;
     margin-right: 2.2%;
+    margin-top: -100px;
+    z-index: 1;
 
     .detailedDescription {
         font-size: 26px;

@@ -19,7 +19,7 @@ const project = {
     duration: '9 months',
     difficultyLevel: 'Medium',
     projectBudget: '500000',
-    raised: '50000',
+    raised: '150000',
     donors: 5723,
     location: 'Detroit, MI',
     projectPhotos: [pic1, pic2, pic3],
@@ -49,9 +49,11 @@ const projectCreator = {
 }
 
 const ProjectPage = () => {
-    console.log(project.projectDescription.length)
     return (
         <div className="project-page-container">
+            <div className='singleProjectVectorContainer'>
+                <div className='singleProjectVector'><div className='blueSquare'><h1>Team Rubicon</h1><div className='blueVector'></div></div></div>
+            </div>
             <div className='project-page-flex'>
                  <DetailedDescription 
                   startDate={project.projStartDate}

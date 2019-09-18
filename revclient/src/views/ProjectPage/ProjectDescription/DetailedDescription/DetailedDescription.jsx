@@ -17,6 +17,8 @@ const DetailedDescription = ({startDate, duration, difficulty, organizer, locati
                 <p className='detailedDescription'> <span>{location.toUpperCase()}</span>{projDescription.split('').map((each, index) => {
                     if(index < 1101) {
                         return each
+                    } else {
+                        return null
                     }
                 }).join('')}... <strong>{projDescription.length > 1100 && 'Read More'}</strong></p>
             :
