@@ -76,9 +76,6 @@ const App = () => (
 				<ProjectPage />
 			)}
 		/>
-
-		{/* <Footer /> */}
-
 	</BrowserRouter>
 
 );
