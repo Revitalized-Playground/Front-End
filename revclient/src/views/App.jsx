@@ -8,7 +8,7 @@ import LandingPage from '../views/Landing/LandingPage.jsx';
 import ProjectsHome from "../views/ProjectsHome/ProjectsHome.jsx";
 import Register from "../views/Register/Register.jsx";
 import Login from "../views/Login/Login.jsx"
-import Users from "../redux/Users.jsx";
+import Users from "./Users.jsx";
 
 // import Router from "../router/Router.jsx";
 // import RouterAuth from "../router/RouterAuth.jsx";
