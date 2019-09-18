@@ -7,6 +7,7 @@ import React from 'react'
 
 import google from "../../assets/AuthPages/Google.png";
 import fbLogo from "../../assets/AuthPages/fb-logo.png";
+import revitalizeLogo from '../../assets/LandingPage/Logo.png';
 import twitter from "../../assets/AuthPages/twitter.png";
 import register from "../../assets/AuthPages/register.png";
 
@@ -16,6 +17,13 @@ import register from "../../assets/AuthPages/register.png";
 export default function Register() {
     return (
         <div className='registerContainer'>
+        <div className='revitalizeLogo-container'>
+        	<a href="/" title="Home">
+				<div className="logo">
+					<img src={revitalizeLogo} alt="Revitalize logo" />					
+				</div>
+			</a>
+        </div>
             <div className='registerForm'>
                 <div className='registerThirdParty'>
                 <div className='registerWelcome'>
