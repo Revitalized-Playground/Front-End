@@ -7,7 +7,31 @@ import searchNow from '../../../assets/LandingPage/Search Now.png';
 
 const Header = () => {
 	
-	const [hovered, setHovered] = useState(true);
+	const [sHovered, setSHovered] = useState(false);
+	const [dHovered, setDHovered] = useState(false);
+	const [eHovered, setEHovered] = useState(false);
+	
+	
+	// const [hovered, setHovered] = useState(false);
+	// const [hovered, setHovered] = useState({
+	// 	students: false,
+	// 	donor: false,
+	// 	employers: false
+	// });
+
+	// const toggleHover = x => {
+	// 	// e.preventDefault();
+	// 	// let a
+	// 	// console.log(e.target.alt);
+	// 	// e.target.alt === "Apply Now!"
+	// 	// 	? 
+	// 	setHovered({
+	// 		...hovered,
+	// 		x: !x
+	// 	});
+	// }
+
+
 
 	return (
 		<section className="header">
@@ -49,22 +73,56 @@ const Header = () => {
 			</div>
 
 			<div className="application-links-container">
-				<div className="students img-container" onClick={() => {}}>
-					<img src={applyNow} alt="Apply now" />
-					{ !hovered
+				<div 
+					className="students img-container"
+					onClick={() => {}}
+					onMouseOver={() => setSHovered(!sHovered)}
+					onMouseOut={() => setSHovered(!sHovered)}
+					// onMouseOver={e => e.target.value = "Learn next to world-class professionals"}
+					// onMouseOver={() => toggleHover(hovered.students)}
+					// onMouseOut={() => toggleHover(hovered.students)}
+				>
+					<img src={applyNow} alt="Apply Now!" />
+					{!sHovered
+					// { !hovered.students
 						? <p>Apply Now!</p>
 						: <p className="hovered">Learn next to world-class professionals</p>
+						// : <p className={hovered ? "hovered" : ""}>Learn next to world-class professionals</p>
+
+						// : <p className="hovered">Learn next to world-class professionals</p>
+
 					}
 				</div>
 
-				<div className="donor img-container" onClick={() => {}}>
+				<div 
+					className="donor img-container"
+					onClick={() => {}}
+					// onMouseOver={e => toggleHover(e)}
+					// onMouseOut={e => toggleHover(e)}
+					onMouseOver={() => setDHovered(!dHovered)}
+					onMouseOut={() => setDHovered(!dHovered)}
+				>
 					<img src={donateNow} alt="Donate now" />
-					<p className="donate-text">Donate Now!</p>
+					{!dHovered
+						? <p className="donate-text">Donate Now!</p>
+						: <p className="donate-text hovered">Partner with us to rebuild communities</p>
+					}
 				</div>
 
-				<div className="employers img-container" onClick={() => {}}>
+				<div 
+					className="employers img-container"
+					onClick={() => {}}
+					// onMouseOver={e => toggleHover(e)}
+					// onMouseOut={e => toggleHover(e)}
+					onMouseOver={() => setEHovered(!eHovered)}
+					onMouseOut={() => setEHovered(!eHovered)}
+				>
 					<img src={searchNow} alt="Search now" />
-					<p>Search Now!</p>
+					{!eHovered
+						? <p>Search Now!</p>
+						: <p className="hovered">Hire qualified professionals hungry to make an impact</p>
+					}
+					
 				</div>
 			</div>
 		</section>

@@ -4,13 +4,14 @@
 	// max-height: 45px;
 	overflow: hidden;
 	background-color: $snow-white;
+	// background-color: red;
 	top: 0;
 	left: 0;
 	z-index: 100;
 }
 
 @mixin buttonStyler($bgc, $textColor, $borderStyle) {
-	font-family: Futura;
+	font-family: 'futura-pt';
 	margin: 8% 0;
 	background: $bgc;
 	padding: 1rem 2rem;
