@@ -14,6 +14,8 @@ nav {
 	}
 
 	a {
+		// background: yellow;
+		margin-right: 8px;
 		text-decoration: none;
 		color: inherit;
 	}
@@ -22,10 +24,10 @@ nav {
 		max-width: 25%;
 		// height: 80%;
 		position: absolute;
-		top: 0.72%;
+		// top: 0.72%;
 		position: absolute;
 		left: 4.5%;
-		top: 16%;
+		// top: 16%;
 
 		img {
 			max-height: 90px;
@@ -50,7 +52,7 @@ nav {
 		.navLinks {
 			// border: 1px solid red;
 			margin-right: 85px;
-			margin-top: 30px;
+			margin-top: 20px;
 
 			&:last-child {
 				margin-right: 300px;
@@ -67,14 +69,15 @@ nav {
 			font-size: 24px;
 			margin: auto 0.4% auto 1%;
 			height: 73px;
-			width: 225px;
+			width: 200px;
 			vertical-align: center;
 			padding-bottom: 30px;
 		}
 		.login {
 			@include buttonStyler($snow-white, $chillFi-purple, solid);
+			height: 70px;
 			margin: auto 0.4% auto 1%;
-			width: 225px;
+			width: 200px;
 			padding-bottom: 30px;
 		}
 	}

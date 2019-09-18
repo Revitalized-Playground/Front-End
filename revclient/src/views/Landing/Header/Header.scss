@@ -73,7 +73,7 @@
 				padding: 1.8rem 0;
 				font-size: 24px;
 				letter-spacing: 0.12em;
-				color: white;
+				color: $snow-white;
 				width: 15.3%;
 				height: 1.7rem;
 				margin: auto;
@@ -99,18 +99,27 @@
 			}
 		}
 	}
-
 	.application-links-container {
 		margin-top: 98px;
-		border: 1px solid red;
 		max-width: 100%;
 		display: flex;
 		justify-content: center;
 		.img-container {
 			display: flex;
 			width: 34%;
-
 			text-align: center;
+			&:hover {
+				cursor: pointer;
+				img {
+					transition: all 0.2s ease-in-out;
+					filter: brightness(50%);
+				}
+				p {
+					filter: none;
+					z-index: 10;
+					color: $snow-white;
+				}
+			}
 			img {
 				width: 100%;
 			}
@@ -119,23 +128,15 @@
 			display: flex;
 			justify-content: center;
 			p {
-				color: white;
+				color: $snow-white;
 				position: absolute;
 				align-self: center;
 				font-weight: 1.4;
 				font-size: 2.1rem;
 			}
 			.donate-text {
-				color: black;
+				color: $black-void;
 			}
-		}
-		.donor:hover {
-
-		}
-		.students:hover {
-
-		}
-		.employers:hover {
 		}
 		.hovered {
 			display: block;
