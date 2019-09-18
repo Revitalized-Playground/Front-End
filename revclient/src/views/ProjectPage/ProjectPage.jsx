@@ -9,14 +9,19 @@ import userProfile from '../../assets/SingleProjectPage/userProfile.png'
 
 //Component Imports
 import Donate from './ProjectDescription/Donate/Donate'
+import DetailedDescription from './ProjectDescription/DetailedDescription/DetailedDescription'
+import ProjectPictures from './ProjectDescription/ProjectPictures/ProjectPictures'
+import ProjectComments from './ProjectDescription/ProjectComments/ProjectComments'
 
 const project = {
+    projectOrganizer: 'Julian Crenshaw',
     projStartDate: 'January 13, 2020',
     duration: '9 months',
     difficultyLevel: 'Medium',
     projectBudget: '500000',
     raised: '50000',
     donors: 5723,
+    location: 'Detroit, MI',
     projectPhotos: [pic1, pic2, pic3],
     comments: [
         {
@@ -32,7 +37,7 @@ const project = {
             likes: ['name1', 'name2', 'name3', 'name1', 'name2', 'name3']
         }
     ],
-    projectDescription: 'Detroit, MI Team Rubicon is a warehouse restoration project located in the heart of Detroit. The warehouse used to be an ancient machinery manufacturing plant and was later converted to an automative plant. Revitalize is partnering with city officials to restore the warehouse to a careers training high school. City officials are looking forward to collaborating with Revitalize to restore abandoned buildings and empower communities.  Revitalize also partners with local construction and design firms in Detroit to ensure students are receiving hands-on training with local experts and ready to launch into their career. Team Rubicon has raised $50,000 so far and are grateful to all the donors who are supporting community growth and building restoration projects in Detroit.'
+    projectDescription: 'Team Rubicon is a warehouse restoration project located in the heart of Detroit. The warehouse used to be an ancient machinery manufacturing plant and was later converted to an automative plant. Revitalize is partnering with city officials to restore the warehouse to a careers training high school. City officials are looking forward to collaborating with Revitalize to restore abandoned buildings and empower communities. Revitalize also partners with local construction and design firms in Detroit to ensure students are receiving hands-on training with local experts and ready to launch into their career. Team Rubicon has raised $50,000 so far and are grateful to all the donors who are supporting community growth and building restoration projects in Detroit. Revitalize also partners with local construction and design firms in Detroit to ensure students are receiving hands-on training with local experts and ready to launch into their career. Team Rubicon has raised $50,000 so far and are grateful to all the donors who are supporting community growth and building restoration projects in Detroit.'
 }
 
 const projectCreator = {
@@ -40,16 +45,31 @@ const projectCreator = {
     role: 'Project Organizer',
     location: 'Detroit, MI',
     email: 'jcrenshaw@gmail.com',
-    profile: userProfile
+    profilePic: userProfile
 }
 
 const ProjectPage = () => {
+    console.log(project.projectDescription.length)
     return (
         <div className="project-page-container">
-            <Donate 
-              raised={project.raised}
-              budget={project.projectBudget}
-            />
+            <div className='project-page-flex'>
+                 <DetailedDescription 
+                  startDate={project.projStartDate}
+                  duration={project.duration}
+                  difficulty={project.difficultyLevel}
+                  organizer={project.projectOrganizer}
+                  location={project.location}
+                  projDescription={project.projectDescription}
+                  projectCreator={projectCreator}
+                />
+                <Donate 
+                  raised={project.raised}
+                  budget={project.projectBudget}
+                  donors={project.donors}
+                />
+            </div>
+            <ProjectPictures projectPhotos={project.projectPhotos}/>
+            <ProjectComments comments={project.comments} />
         </div>
     );
 };

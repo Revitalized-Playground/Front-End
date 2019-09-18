@@ -1,6 +1,18 @@
 @import './ProjectDescription/Donate/Donate.scss';
+@import './ProjectDescription/DetailedDescription/DetailedDescription.scss';
+@import './ProjectDescription/ProjectPictures/ProjectPictures.scss';
+@import './ProjectDescription/ProjectComments/ProjectComments.scss';
+
+
 .project-page-container {
 	@include spaceForNav;
 	max-width: 1920px;
-	border: 1px solid red
+	border: 1px solid red;
+
+	.project-page-flex {
+		display: flex;
+		border: 1px solid red;
+		max-width: 1645px;
+		margin: 0 auto
+	}
 }

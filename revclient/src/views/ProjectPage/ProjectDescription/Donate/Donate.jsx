@@ -3,7 +3,7 @@ import styled from 'styled-components';
  
 
 
-const Donate = ({raised, budget}) => {
+const Donate = ({raised, budget, donors}) => {
     const percent = Number(raised) / Number(budget) * 100
     const Box = styled.div`
     height: 12px;
@@ -37,7 +37,7 @@ const Donate = ({raised, budget}) => {
             <div className='donateInnerDiv'>
                 <p className='donationMoney'><span className='large'>${numberWithCommas(raised)}</span> <span className='small'>raised out of ${numberWithCommas(budget)}</span></p>
                 <div className='progressBar'><Box></Box></div>
-                <p className='donatorCount'>{kFormatter(57301)}</p>
+                <p className='donatorCount'>{kFormatter(donors)}</p>
                 <p className='donorText'>Donors</p>
                 <div className='donationButtons'>
                     <button className='purple'>Donate now</button>

@@ -1,0 +1,40 @@
+.projectCommentsContainer {
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: 0.06em;
+    max-width: 1645px;
+	margin: 80px auto 0 auto;
+    
+    border: 1px solid red;
+
+    .commentsTitle {
+        margin-bottom: 37px;
+    }
+
+    .commentFlex {
+        display: flex;
+
+        img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 1.1%
+        }
+
+        .comment {
+            font-size: 18px;
+            line-height: 27px;
+            letter-spacing: 0.06em;
+            max-width: 476px;
+        }
+
+        .lowerCommentSide {
+            p{
+                font-size: 14px;
+                line-height: 19px;
+                letter-spacing: 0.06em;
+                color: #9F9FA1;
+            }
+        }
+    }
+}
