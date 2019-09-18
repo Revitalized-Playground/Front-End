@@ -1,112 +1,109 @@
 .registerContainer {
-    background: #2B56D3;
-    height: 100vh;
-    max-width: 1920px;
-    margin: 0 auto;
-    display: flex;
-    color: white;
+	@include spaceForNav;
+	background: #2b56d3;
+	height: 100vh;
+	max-width: 1920px;
+	margin: 0 auto;
+	display: flex;
+	color: white;
 
-    .registerForm {
-        width: 40%;
-        height: 100%;
+	.registerForm {
+		width: 40%;
+		height: 100%;
 
-        .registerThirdParty {
-            
-            height: 40%;
-            width: 60%;
-            margin: 0 auto;
-            margin-top: 70px;
+		.registerThirdParty {
+			height: 40%;
+			width: 60%;
+			margin: 0 auto;
+			margin-top: 70px;
 
-            .registerWelcome {
-                text-align: center;
-                color: white;
-            }
+			.registerWelcome {
+				text-align: center;
+				color: white;
+			}
 
-            button {
-                width: 100%;
-                margin-top: 30px;
-                height: 50px;
-                border-radius: 8px;
-                border: none;
-                background: #FFFFFF;
-                cursor: pointer;
-                
+			button {
+				width: 100%;
+				margin-top: 30px;
+				height: 50px;
+				border-radius: 8px;
+				border: none;
+				background: #ffffff;
+				cursor: pointer;
 
-                .registerButton {
-                    display: flex;
-                    align-items: center;
-                    margin: 0 20px;
-                    ;
-                    img{
-                        margin-right: 20px;
-                        height: 40px;
-                        width: 40px
-                    }
-                }
-            }
-        }
+				.registerButton {
+					display: flex;
+					align-items: center;
+					margin: 0 20px;
+					img {
+						margin-right: 20px;
+						height: 40px;
+						width: 40px;
+					}
+				}
+			}
+		}
 
-        .registerMiddle {
-            width: 60%;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+		.registerMiddle {
+			width: 60%;
+			margin: 0 auto;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
 
-            .registerLine {
-                height: 1px;
-                width: 40%;
-                background: white
-            }
-        }
+			.registerLine {
+				height: 1px;
+				width: 40%;
+				background: white;
+			}
+		}
 
-        .registerLocal {
-            width: 60%;
-            margin: 0 auto;
-            margin-top: 40px;
-            display: flex;
-            flex-direction: column;
-            letter-spacing: 0.06em;
+		.registerLocal {
+			width: 60%;
+			margin: 0 auto;
+			margin-top: 40px;
+			display: flex;
+			flex-direction: column;
+			letter-spacing: 0.06em;
 
-            span {
-                text-decoration: underline;
-                cursor: pointer
-            }
-            .registerSpaceAbove{
-                margin-top: 40px
-            }
+			span {
+				text-decoration: underline;
+				cursor: pointer;
+			}
+			.registerSpaceAbove {
+				margin-top: 40px;
+			}
 
-            input {
-                height: 35px;
-            }
+			input {
+				height: 35px;
+			}
 
-            .registerPass {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-            }
+			.registerPass {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+			}
 
-            button {
-                height: 50px;
-                background: #D2405B;
-                width: 50%;
-                margin: 0 auto;
-                margin-top: 60px;
-                border: none;
-                color: white;
-                font-size: 20px;
-                border-radius: 5px;
-                cursor: pointer
-            }
-        }
-    }
+			button {
+				height: 50px;
+				background: #d2405b;
+				width: 50%;
+				margin: 0 auto;
+				margin-top: 60px;
+				border: none;
+				color: white;
+				font-size: 20px;
+				border-radius: 5px;
+				cursor: pointer;
+			}
+		}
+	}
 
-    .registerIMG {
-        height: 100%;
-        width: 60%;
-        background-image: url("../assets/AuthPages/CAAImage.svg");
+	.registerIMG {
+		height: 100%;
+		width: 60%;
+		background-image: url('../assets/AuthPages/CAAImage.svg');
 		background-size: cover;
 		background-position: center;
-    }
-    
+	}
 }
