@@ -1,4 +1,8 @@
 import React from 'react';
+
+import Nav from '../../components/Layout/Nav.jsx';
+import Footer from "../../components/Layout/Footer.jsx";
+
 import FeaturedProjects from './FeaturedProjects.jsx';
 import TopSection from './TopSection.jsx';
 import FeaturedTrades from './FeaturedTrades.jsx';
@@ -9,15 +13,19 @@ import RecommendedPlusStories from './RecomendedPlusStories/index.js';
 
 const ProjectsHome = () => {
 	return (
-		<div className="projects-home">
-			<TopSection />
-			<FeaturedTrades />
-			<CurriculumOptions />
-			<FeaturedProjects />
-			<CTAPlusTrades />
-			<SubscribeCTA />
-			<RecommendedPlusStories />
-		</div>
+		<>
+			<Nav />
+			<div className="projects-home">
+				<TopSection />
+				<FeaturedTrades />
+				<CurriculumOptions />
+				<FeaturedProjects />
+				<CTAPlusTrades />
+				<SubscribeCTA />
+				<RecommendedPlusStories />
+			</div>
+			<Footer />
+		</>
 	);
 };
 
