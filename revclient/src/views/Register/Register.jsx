@@ -10,15 +10,11 @@ import fbLogo from "../../assets/AuthPages/fb-logo.png";
 import revitalizeLogo from '../../assets/LandingPage/Logo.png';
 import twitter from "../../assets/AuthPages/twitter.png";
 
-import Nav from '../../components/Layout/Nav'
-
-
-
 
 export default function Register() {
     return (
         <div className='registerContainer'>
-<<<<<<< HEAD
+
         <div className='revitalizeLogo-container'>
         	<a href="/" title="Home">
 				<div className="logo">
@@ -26,9 +22,6 @@ export default function Register() {
 				</div>
 			</a>
         </div>
-=======
-            <Nav />
->>>>>>> 9485b2c93964134938f9ab027da9b85b6bb588c0
             <div className='registerForm'>
                 <div className='registerThirdParty'>
                     <div className='registerWelcome'>
