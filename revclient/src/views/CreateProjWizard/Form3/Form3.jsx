@@ -1,6 +1,19 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 const Form1 = ({ projDuration, projBudget, handleChanges, submitForm, setFormPosition }) => {
+
+    const [err, setErr] = useState(true)
+    console.log(err)
+
+    const checker = (e) => {
+        e.target.value.split('.').map(each => {
+            if (isNaN(each)) {
+                return setErr(false)
+            } else {
+                return setErr(true)
+            }
+        })
+    }
 
     return (
         <form onSubmit={(event) => submitForm(event)} className="form-3" >
@@ -18,12 +31,15 @@ const Form1 = ({ projDuration, projBudget, handleChanges, submitForm, setFormPos
             <h2>Project Budget</h2>
             <input
                 required
+                min='0'
+                step='0.10'
                 name="projBudget"
                 type="number"
                 className="proj-budget"
-                value={projBudget}
-                onChange={e => handleChanges(e)}
+                value={projBudget === 0 ? '' : projBudget}
+                onChange={e => {handleChanges(e); checker(e)}}
             />
+            {!err && <p className='errorText'>Please make sure to enter a correct price</p>}
             <h2>Project Difficulty Level</h2>
             <select
                 required

@@ -75,7 +75,7 @@ const Form2 = ({ projOwnerName, projAddress, city, state, zip, handleChanges, se
                         onChange={e => { handleChanges(e); checker2(e) }}
                         onBlur={(e) => checker(e)}
                     />
-                    {!err && <p>Wrong Zip Number</p>}
+                    {!err && <p className='errorText'>Wrong Zip Number</p>}
 
                 </div>
             </div>
@@ -83,7 +83,6 @@ const Form2 = ({ projOwnerName, projAddress, city, state, zip, handleChanges, se
             <div className="form-navigation">
                 <button type="submit" className="next-step">Next Step!</button>
                 <button className="prev-step" onClick={() => setFormPosition(1)}>Previous Step!</button>
-
             </div>
         </form >
     );

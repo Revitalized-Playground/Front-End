@@ -7,6 +7,9 @@
 	background-image: url('../assets/CreateProjWizard/RocketManGradient.png');
 	// margin-top: 100px;
 	height: 92.5vh;
+	.errorText {
+		color: red
+	}
 
 	.form-plus-quote-container {
 		display: flex;
