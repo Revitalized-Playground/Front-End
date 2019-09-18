@@ -5,12 +5,12 @@
  */
 
 import React from 'react';
-//  import loginIMG from '../../static/assets/AuthPages/Login.png'
+
 import googleLogo from '../../assets/AuthPages/Google.png';
 import revitalizeLogo from '../../assets/LandingPage/Logo.png';
 import fbLogo from '../../assets/AuthPages/fb-logo.png';
 import twitterLogo from '../../assets/AuthPages/twitter.png';
-import loginImg from '../../assets/AuthPages/LIImage.svg';
+
 
 export default function Login() {
 	return (
