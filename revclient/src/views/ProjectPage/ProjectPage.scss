@@ -1,3 +1,6 @@
+@import './ProjectDescription/Donate/Donate.scss';
 .project-page-container {
 	@include spaceForNav;
+	max-width: 1920px;
+	border: 1px solid red
 }
