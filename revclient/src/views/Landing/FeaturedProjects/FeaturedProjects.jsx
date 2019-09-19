@@ -1,41 +1,70 @@
 import React, { useState } from 'react';
+import Card from '../../../components/Card/Card';
+import tr from '../../../assets/ProjectPage/TR.png';
+import hmq from '../../../assets/ProjectPage/HMQ.png';
+import jpp from '../../../assets/ProjectPage/JPP.png';
+import m1p from '../../../assets/ProjectPage/M1p.png';
+import gp from '../../../assets/ProjectPage/GP.png';
+import clover4 from '../../../assets/ProjectPage/Clover4.png';
 
-import rubiconPhones from "../../../assets/LandingPage/RubiconPhones.png";
-import teamRubicon from "../../../assets/LandingPage/Team Rubicon.png";
+const projects = [
+	{
+		title: 'Team Rubicon',
+		description:
+			'Learn next to master trade professionals that are available during the day and after hours. Learn next to master trade Learn next to master trade professionals that are available during the day and after hours. Learn next to master trade',
+		img: tr,
+	},
+	{
+		title: 'Heavy Metal Queen',
+		description: 'Learn next to master trade professionals that are available during the day and after hours.',
+		img: hmq,
+	},
+	{
+		title: 'Jean Childs Project',
+		description: 'Learn next to master trade professionals that are available during the day and after hours. ',
+		img: jpp,
+	},
+	{
+		title: 'Mission One Project',
+		description: 'Learn next to master trade professionals that are available during the day and after hours.',
+		img: m1p,
+	},
+	{
+		title: 'Guidr Project',
+		description: 'Learn next to master trade professionals that are available during the day and after hours.',
+		img: gp,
+	},
+	{
+		title: 'Clover 4',
+		description: 'Learn next to master trade professionals that are available during the day and after hours.',
+		img: clover4,
+	},
+	{
+		title: 'Project 7',
+		description: 'description 7',
+		img: 'http://cupheadmemes.com/wp-content/uploads/2018/08/Best-Programming-Memes-026.jpg',
+	},
+	{
+		title: 'Project 8',
+		description: 'description 8',
+		img: 'http://cupheadmemes.com/wp-content/uploads/2018/08/Best-Programming-Memes-026.jpg',
+	},
+];
 
 const FeaturedProjects = () => {
+	const [featured] = useState(projects);
 
-  const initStory = "Come see the journey of our students and industry experts restore an abandoned school building to a modern state-of-the-art career school. The new school year will be starting Fall of 2020. Thank you to our amazing donors and partners for inspiring our apprentices."
-
-  const [projectTitle, setProjectTitle] = useState("Team Rubicon - Flint, MI")
-  const [projectStory, setProjectStory] = useState(initStory);
-
-  // still need to make images dynamic
-
-  return (
-    <section className="featured-project">
-      <h2 className="section-title">Featured&nbsp;Project</h2>
-      <img
-        className="phone-left phone"
-        src={rubiconPhones}
-        alt="cell phone"
-      />
-      <div className="user-story">
-        <img
-          className="user-photo"
-          src={teamRubicon}
-          alt="construction worker"
-        />
-        <h2 className="user-info">{projectTitle}</h2>
-        <p>{projectStory}</p>
-      </div>
-      <img
-        className="phone-right phone"
-        src={rubiconPhones}
-        alt="cell phone"
-      />
-    </section>
-  );
+	if (!projects) return <div>Loading</div>;
+	return (
+		<div className="FPContainer">
+			<h1>Featured Projects</h1>
+			<div className="FPProjectList">
+				{featured.map(({ img, title, description }, i) =>
+					i < 6 ? <Card className="card" img={img} title={title} description={description} key={i} /> : null,
+				)}
+			</div>
+		</div>
+	);
 };
 
 export default FeaturedProjects;

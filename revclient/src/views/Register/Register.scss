@@ -1,22 +1,22 @@
-.registerContainer {    
+.registerContainer {
 	background: #2b56d3;
 	height: 100vh;
 	max-width: 1920px;
 	margin: 0 auto;
 	display: flex;
 	color: white;
+	overflow: hidden;
 
+	.revitalizeLogo-container {
+		height: 100px;
+		width: 100px;
+		text-align: center;
+		img {
+			width: 100%;
+		}
+	}
 
-    .revitalizeLogo-container{        
-        height:100px;
-        width:100px;
-        text-align: center;
-        img {
-            width:100%;
-        }
-    }
-
-	.registerForm {        
+	.registerForm {
 		width: 40%;
 		height: 100%;
 
@@ -108,7 +108,7 @@
 		}
 	}
 
-		.registerForm {
+	.registerForm {
 		width: 40%;
 		height: 100%;
 
@@ -202,9 +202,9 @@
 
 	.registerIMG {
 		height: 100%;
-		width: 60%;
-		background-image: url('../assets/AuthPages/CAAImage.svg');
-		background-size: cover;
+		width: 80%;
+		background-image: url('../assets/AuthPages/LIImage.svg');
+		background-size: 138%;
 		background-position: center;
 	}
 }
