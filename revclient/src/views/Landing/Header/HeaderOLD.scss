@@ -9,20 +9,20 @@
 		height: 79vh;
 		display: flex;
 		justify-content: space-between;
-		margin: 10.5rem 7rem 5.2rem 7rem;
+		margin: 10.5rem 7rem 3.2rem 7rem;
 
 		img {
 			max-width: 50%;
 			scale: both;
 		}
 		.cta {
+			// border: 1px solid blue;
 			max-width: 50%;
 			max-height: 33%;
 			text-align: left;
-
 			.cta-title {
-				text-align: left;
 				margin-top: 85px;
+				// border: 1px solid red;
 				font-size: 42px;
 				font-weight: 500;
 				letter-spacing: 0.13em;
@@ -31,6 +31,7 @@
 				height: auto;
 			}
 			p {
+				// border: 1px solid orangered;
 				margin: 5% 0 0 0;
 				font-size: 24px;
 				letter-spacing: 0.12em;
@@ -48,7 +49,6 @@
 		}
 	}
 	.values {
-		margin-bottom: 5.5%;
 		p {
 			color: $machiavellian;
 			font-size: 1.5rem;
@@ -75,7 +75,7 @@
 				letter-spacing: 0.12em;
 				color: $snow-white;
 				width: 15.3%;
-				height: 5.2rem;
+				height: 1.7rem;
 				margin: auto;
 				text-align: center;
 			}
@@ -99,58 +99,47 @@
 			}
 		}
 	}
-	.what-we-do {
-		padding: 2% 0;
-		h2 {
-			text-align: center;
-			font-size: 48px;
-			letter-spacing: 0.13em;
-		}
-		.learn-more-container {
-			margin-top: 98px;
-			max-width: 100%;
+	.application-links-container {
+		margin-top: 98px;
+		max-width: 100%;
+		display: flex;
+		justify-content: center;
+		.img-container {
 			display: flex;
-			justify-content: space-evenly;
-			img {
-				width: 300px;
-				height: 300px;
-				border-radius: 50%;
-				margin-bottom: 80px;
-			}
-			.crowdFunding,
-			.opportunities,
-			.pathways {
-				display: inline-block;
-				text-align: center;
-				h3 {
-					font-size: 28px;
-					letter-spacing: 0.12em;
-					margin-bottom: 26px;
+			width: 34%;
+			text-align: center;
+			&:hover {
+				cursor: pointer;
+				img {
+					transition: all 0.2s ease-in-out;
+					filter: brightness(50%);
 				}
-				a {
-					font-size: 20px;
-					text-decoration: none;
-					color: #4840ba;
-				}
-			}
-
-			div {
-				display: flex;
-				justify-content: center;
 				p {
+					filter: none;
+					z-index: 10;
 					color: $snow-white;
-					position: absolute;
-					align-self: center;
-					font-weight: 1.4;
-					font-size: 2.1rem;
-				}
-				.donate-text {
-					color: $black-void;
 				}
 			}
-			.hovered {
-				display: block;
+			img {
+				width: 100%;
 			}
+		}
+		div {
+			display: flex;
+			justify-content: center;
+			p {
+				color: $snow-white;
+				position: absolute;
+				align-self: center;
+				font-weight: 1.4;
+				font-size: 2.1rem;
+			}
+			.donate-text {
+				color: $black-void;
+			}
+		}
+		.hovered {
+			display: block;
 		}
 	}
 }
