@@ -1,0 +1,33 @@
+.stories-wrapper {
+	color: white;
+	h2 {
+		display: block;
+		margin-left: 8%;
+	}
+	.featured-stories {
+		display: flex;
+		justify-content: space-between;
+		width: 100%;
+		color: white;
+
+		.card {
+			max-width: 48%;
+			max-height: 50%;
+			color: $snow-white;
+			&:hover {
+				color: black;
+			}
+			img {
+				object-fit: contain;
+				max-width: 65%;
+				margin: 0 auto;
+			}
+			h4 {
+				margin: 1% auto;
+			}
+			p {
+				margin-top: 1%;
+			}
+		}
+	}
+}

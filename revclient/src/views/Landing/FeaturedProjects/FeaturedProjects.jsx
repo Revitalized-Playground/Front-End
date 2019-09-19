@@ -4,9 +4,9 @@ import rubiconPhones from "../../../assets/LandingPage/RubiconPhones.png";
 import teamRubicon from "../../../assets/LandingPage/Team Rubicon.png";
 
 const FeaturedProjects = () => {
-  
+
   const initStory = "Come see the journey of our students and industry experts restore an abandoned school building to a modern state-of-the-art career school. The new school year will be starting Fall of 2020. Thank you to our amazing donors and partners for inspiring our apprentices."
-  
+
   const [projectTitle, setProjectTitle] = useState("Team Rubicon - Flint, MI")
   const [projectStory, setProjectStory] = useState(initStory);
 
@@ -14,7 +14,7 @@ const FeaturedProjects = () => {
 
   return (
     <section className="featured-project">
-      <h2 className="section-title">Featured Project</h2>
+      <h2 className="section-title">Featured&nbsp;Project</h2>
       <img
         className="phone-left phone"
         src={rubiconPhones}
@@ -35,7 +35,7 @@ const FeaturedProjects = () => {
         alt="cell phone"
       />
     </section>
-    );
+  );
 };
 
 export default FeaturedProjects;

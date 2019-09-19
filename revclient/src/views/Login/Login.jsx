@@ -5,15 +5,23 @@
  */
 
 import React from 'react';
-//  import loginIMG from '../../static/assets/AuthPages/Login.png'
+
 import googleLogo from '../../assets/AuthPages/Google.png';
+import revitalizeLogo from '../../assets/LandingPage/Logo.png';
 import fbLogo from '../../assets/AuthPages/fb-logo.png';
 import twitterLogo from '../../assets/AuthPages/twitter.png';
-import loginImg from '../../assets/AuthPages/LIImage.svg';
+
 
 export default function Login() {
 	return (
 		<div className="loginContainer">
+        <div className='revitalizeLogo-container'>
+        	<a href="/" title="Home">
+				<div className="logo">
+					<img src={revitalizeLogo} alt="Revitalize logo" />					
+				</div>
+			</a>
+        </div>
 			<div className="loginForm">
 				<div className="loginThirdParty">
 					<div className="loginWelcome">
