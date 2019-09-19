@@ -11,6 +11,7 @@ import SearchProjects from './SearchProjects/SearchProjects';
 // import Testimonials from './Testimonials/Testimonials';
 // import FullScaleApp from './FullScaleApp/FullScaleApp';
 import FeaturedProjects from './FeaturedProjects/FeaturedProjects';
+import CrowdFunding from './CrowdFunding/CrowdFunding';
 /**
  * * Description of component
  * TODO: things to do
@@ -26,6 +27,7 @@ export default function LandingPage() {
 			{/* <OnTheJob /> */}
 			{/* <FullScaleApp /> */}
 			{/* <Testimonials /> */}
+			<CrowdFunding />
 			<ProjectSpotlight />
 			<FeaturedProjects />
 			<SearchProjects />
