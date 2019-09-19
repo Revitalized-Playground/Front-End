@@ -60,19 +60,19 @@ const Header = () => {
 					<div className="crowdFunding">
 						<img src={crowdFundingImg} alt="Apply Now!" />
 						<h3>Crowdfunding platform</h3>
-						<a href="#">Learn More</a>
+						<a href="/">Learn More</a>
 					</div>
 
 					<div className="opportunities">
 						<img src={opportunitiesImg} alt="opportunities" />
 						<h3>Apprenticeship opportunities</h3>
-						<a href="#">Learn More</a>
+						<a href="/">Learn More</a>
 					</div>
 
 					<div className="pathways">
 						<img src={pathwaysImg} alt="trade pathways" />
 						<h3>Trade License Pathways</h3>
-						<a href="#">Learn More</a>
+						<a href="/">Learn More</a>
 					</div>
 				</div>
 			</div>
