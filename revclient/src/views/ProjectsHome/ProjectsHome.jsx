@@ -1,14 +1,14 @@
 import React from 'react';
 
 import Nav from '../../components/Layout/Nav.jsx';
-import Footer from "../../components/Layout/Footer.jsx";
+import Footer from '../../components/Layout/Footer.jsx';
 
-import FeaturedProjects from './FeaturedProjects.jsx';
+// import FeaturedProjects from './FeaturedProjects.jsx';
 import TopSection from './TopSection.jsx';
 import FeaturedTrades from './FeaturedTrades.jsx';
 import CurriculumOptions from './CurriculumOptions.jsx';
 import CTAPlusTrades from './CTAplusTrending';
-import SubscribeCTA from './SubscribeCTA/SubscribeCTA'
+import SubscribeCTA from './SubscribeCTA/SubscribeCTA';
 import RecommendedPlusStories from './RecomendedPlusStories/index.js';
 
 const ProjectsHome = () => {
@@ -19,7 +19,7 @@ const ProjectsHome = () => {
 				<TopSection />
 				<FeaturedTrades />
 				<CurriculumOptions />
-				<FeaturedProjects />
+				{/* <FeaturedProjects /> */}
 				<CTAPlusTrades />
 				<SubscribeCTA />
 				<RecommendedPlusStories />
