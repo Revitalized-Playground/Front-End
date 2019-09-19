@@ -99,57 +99,58 @@
 			}
 		}
 	}
-
-	h2 {
-		text-align: center;
-		font-size: 48px;
-		letter-spacing: 0.13em;
-	}
-	.application-links-container {
-		margin-top: 98px;
-		max-width: 100%;
-		display: flex;
-		justify-content: space-evenly;
-		.img-container {
-			display: flex;
+	.what-we-do {
+		padding: 2% 0;
+		h2 {
 			text-align: center;
-			width: 300px;
-			height: 300px;
-			img {
-				border-radius: 50%;
-			}
-			&:hover {
-				cursor: pointer;
-				img {
-					transition: all 0.2s ease-in-out;
-					filter: brightness(50%);
-				}
-				p {
-					filter: none;
-					z-index: 10;
-					color: $snow-white;
-				}
-			}
-			img {
-				width: 100%;
-			}
+			font-size: 48px;
+			letter-spacing: 0.13em;
 		}
-		div {
+		.learn-more-container {
+			margin-top: 98px;
+			max-width: 100%;
 			display: flex;
-			justify-content: center;
-			p {
-				color: $snow-white;
-				position: absolute;
-				align-self: center;
-				font-weight: 1.4;
-				font-size: 2.1rem;
+			justify-content: space-evenly;
+			img {
+				width: 300px;
+				height: 300px;
+				border-radius: 50%;
+				margin-bottom: 80px;
 			}
-			.donate-text {
-				color: $black-void;
+			.crowdFunding,
+			.opportunities,
+			.pathways {
+				display: inline-block;
+				text-align: center;
+				h3 {
+					font-size: 28px;
+					letter-spacing: 0.12em;
+					margin-bottom: 26px;
+				}
+				a {
+					font-size: 20px;
+					text-decoration: none;
+					color: #4840ba;
+				}
 			}
-		}
-		.hovered {
-			display: block;
+
+			div {
+				display: flex;
+				justify-content: center;
+				p {
+					color: $snow-white;
+					position: absolute;
+					align-self: center;
+					font-weight: 1.4;
+					font-size: 2.1rem;
+				}
+				.donate-text {
+					color: $black-void;
+				}
+			}
+			.hovered {
+				display: block;
+			}
 		}
 	}
 }

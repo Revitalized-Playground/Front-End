@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import heroImage from '../../../assets/LandingPage/Hero Image.png';
 import crowdFundingImg from '../../../assets/LandingPage/Crowdfunding.svg';
 import opportunitiesImg from '../../../assets/LandingPage/AO.svg';
 import pathwaysImg from '../../../assets/LandingPage/TradePathways.svg';
+import greyRectangle from '../../../assets/LandingPage/GreyRectangle.png';
 
 const Header = () => {
 	return (
@@ -45,19 +46,34 @@ const Header = () => {
 					</div>
 				</div>
 			</div>
-			<div className="what-we-do"></div>
-			<h2>What we do?</h2>
-			<div className="application-links-container">
-				<div className="students img-container">
-					<img src={crowdFundingImg} alt="Apply Now!" />
-				</div>
+			<div
+				className="what-we-do"
+				style={{
+					background: `url(${greyRectangle})`,
+					backgroundPosition: 'center',
+					backgroundSize: 'cover',
+					backgroundRepeat: 'no-repeat',
+				}}
+			>
+				<h2>What we do?</h2>
+				<div className="learn-more-container">
+					<div className="crowdFunding">
+						<img src={crowdFundingImg} alt="Apply Now!" />
+						<h3>Crowdfunding platform</h3>
+						<a href="#">Learn More</a>
+					</div>
 
-				<div className="donor img-container">
-					<img src={opportunitiesImg} alt="opportunities" />
-				</div>
+					<div className="opportunities">
+						<img src={opportunitiesImg} alt="opportunities" />
+						<h3>Apprenticeship opportunities</h3>
+						<a href="#">Learn More</a>
+					</div>
 
-				<div className="employers img-container">
-					<img src={pathwaysImg} alt="trade pathways" />
+					<div className="pathways">
+						<img src={pathwaysImg} alt="trade pathways" />
+						<h3>Trade License Pathways</h3>
+						<a href="#">Learn More</a>
+					</div>
 				</div>
 			</div>
 		</section>
