@@ -7,11 +7,12 @@
 	margin: 8.35% auto 10% auto;
 	height: 730px;
 	.section-title {
-		// position: absolute;
-		// left: 5.75%;
-		margin: 2.45% auto auto 2.45%;
+		position: absolute;
+		left: 5%;
+		margin-top: 2%;
 		width: auto;
-		font-size: 42px;
+		height: 60px;
+		font-size: 60px;
 		line-height: 152.31%;
 		letter-spacing: 0.03em;
 	}
@@ -43,7 +44,7 @@
 		}
 		.user-info {
 			font-size: 42px;
-			margin: -3% 0 0 8%;
+			margin: -3% 3% 0 8%;
 			line-height: 48px;
 			letter-spacing: 0.05em;
 		}
