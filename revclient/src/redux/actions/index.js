@@ -3,11 +3,11 @@ import React from "react";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
 
-export const LOGIN_START = 'LOGIN_START';
-export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
-export const LOGIN_FAILURE = 'LOGIN_FAILURE';
+// export const LOGIN_START = 'LOGIN_START';
+// export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+// export const LOGIN_FAILURE = 'LOGIN_FAILURE';
 
-export const LOGOUT_USER = 'LOGOUT_USER';
+// export const LOGOUT_USER = 'LOGOUT_USER';
 
 export const FETCH_USERS_START = 'FETCH_USERS_START';
 export const FETCH_USERS_SUCCESS = 'FETCH_USERS_SUCCESS';
@@ -32,16 +32,17 @@ export const getUsers = dispatch => {
             {({ loading, error, data }) => {
                 
                 console.log(data);
+                
                 if (loading) return (
                     dispatch({ 
-                        type: LOGIN_START, 
+                        type: FETCH_USERS_START, 
                         payload: loading
                     })
                 );
 
                 if (error) return (
                     dispatch({ 
-                        type: LOGIN_FAILURE, 
+                        type: FETCH_USERS_FAILURE, 
                         payload: error
                     })
                 );
@@ -49,7 +50,7 @@ export const getUsers = dispatch => {
                 return (
                     
                     dispatch({ 
-                        type: LOGIN_SUCCESS, 
+                        type: FETCH_USERS_SUCCESS, 
                         payload: data
                     })
                 )
@@ -102,12 +103,6 @@ export const getUsers = dispatch => {
 //         })
 // }
 
-
-// export const logoutUser = () => dispatch => {
-//     dispatch({
-//         type: LOGOUT_USER,
-//     })
-// }
 
 
 
