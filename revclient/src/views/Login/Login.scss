@@ -1,12 +1,11 @@
 .loginContainer {
 	background: #0b096f;
-	height: 1080px;
-	max-width: 1920px;
+	height: 100vh; 
+	// max-width: 1920px;
 	margin: 0 auto;
 	display: flex;
 	color: white;
 	letter-spacing: 0.06em;
-	@include spaceForNav;
 	.loginForm {
 		width: 40%;
 		height: 100%;
@@ -106,9 +105,11 @@
 			}
 		}
 	}
-
-	.loginIMG {
+	.imgContainer {
 		height: 100%;
 		width: 60%;
+		background-image: url("../assets/AuthPages/LIImage.svg");
+		background-size: cover;
+		background-position: center;	
 	}
 }
