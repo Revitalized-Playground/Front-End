@@ -1,6 +1,13 @@
 .crowdfunding-container {
-	height: 800px;
 	margin-top: 7.1%;
+	height: 100%;
+	
+	@media #{$mobile} {
+		margin-top: 0;
+		padding: 60px 35px 0 35px;
+		height: 100%
+	}
+
 	.crowdfunding-header {
 		font-family: Futura-pt;
 		font-size: 48px;
@@ -8,23 +15,32 @@
 		margin-left: 12%;
 		letter-spacing: 3px;
 		font-weight: bold;
-
-		/* or 77px */
-
 		color: #0b096f;
+
+		@media #{$mobile} {
+			margin-left: 0;
+			font-size: 26px;
+			line-height: 147.81%;
+			margin-bottom: 15px 
+		}
 	}
 	p {
 		font-family: Futura;
 		font-size: 22px;
 		line-height: 160.81%;
-
-		/* or 35px */
 		letter-spacing: 0.06em;
 	}
 	.Explore {
 		margin: 0.75% 0 4.3% 12.1%;
 		font-family: Futura-pt;
-		letter-spacing: 3px;
+		letter-spacing: 0.06em;
+
+		@media #{$mobile} {
+			margin: 0 0 45px 0;
+			font-size: 18px;
+			line-height: 154.81%;
+			color: #0B096F;
+		}
 	}
 	.do-you-know {
 		font-family: Futura-pt;
@@ -32,23 +48,51 @@
 		margin-left: 30.6%;
 		font-size: 25px;
 		letter-spacing: 1px;
+
+		@media #{$mobile} {
+			display: none
+		}
 	}
 	.img-container {
 		display: flex;
 		justify-content: space-between;
 		width: 76%;
 		margin-left: 12%;
+
+		@media #{$mobile} {
+			flex-direction: column;
+			width: 100%;
+			margin-left: 0;
+		}
 	}
 	img {
+		width: 31%;
+		height: 294px;
+		@media #{$mobile} {
+			width: 100%;
+			height: 240px;
+			margin-bottom: 40px;
+		}
+		
 	}
 	.create-button {
 		@include buttonStyler(#4840ba, #ffffff, none);
-		position: absolute;
-		right: 39.4%;
 		margin-top: 50px;
+		margin-left: 40%;
 		font-size: 34px;
 		height: 95px;
 		padding: 0.5rem 1.2rem;
-		width: 400px;
+		width: 20%;
+
+		@media #{$mobile} {
+			// position: static;
+			width: 80%;
+			margin: 0 auto;
+			height: 50px;
+			font-size: 18px;
+			line-height: 147.81%;
+			margin-left: 9%;
+			padding-top: 15px
+		}
 	}
 }

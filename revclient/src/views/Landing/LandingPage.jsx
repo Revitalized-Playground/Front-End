@@ -21,13 +21,13 @@ import CrowdFunding from './CrowdFunding/CrowdFunding';
 export default function LandingPage() {
 	return (
 		<>
-			<Nav />
-			<Header />
-			<CrowdFunding />
+			{/* <Nav />
+			<Header /> */}
+			{/* <CrowdFunding /> */}
 			<ProjectSpotlight />
-			<FeaturedProjects />
+			{/* <FeaturedProjects />
 			<SearchProjects />
-			<Footer />
+			<Footer /> */}
 			{/* <OurPurpose /> */}
 			{/* <OnTheJob /> */}
 			{/* <FullScaleApp /> */}
