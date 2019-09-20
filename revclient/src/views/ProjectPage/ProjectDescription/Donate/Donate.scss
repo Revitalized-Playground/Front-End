@@ -1,0 +1,95 @@
+.donateContainer {
+    max-width: 685px;
+    box-shadow: 0px 0px 8px #EEEDEF;
+
+    .donateInnerDiv {
+        max-width: 630px;
+        margin-left: 48px;
+        .donationMoney {
+            margin-bottom: 30px;
+            margin-top: 40px
+        }
+        p{
+            .large {
+                line-height: 72px;
+                font-size: 52px;
+                letter-spacing: 0.06em;
+                margin-right: 20px;
+            }
+
+            .small {
+                font-size: 1.4rem; 
+            }
+        }
+
+        .progressBar {
+            max-width: 515px;
+            height: 12px;
+            background: #EBE7FD;
+            border-radius: 50px;
+            margin-bottom: 16px;
+            border: 1px solid $snow-white;
+            div {
+                height: 12px;
+                background: #0B096F;
+                border-radius: 50px;
+            }
+        }
+
+        .donatorCount {
+            letter-spacing: 0.06em;
+            line-height: 32px;
+            font-size: 24px;
+            margin-bottom: 6px
+        }
+
+        .donorText {
+            font-size: 18px;
+            line-height: 24px;
+            letter-spacing: 0.06em;
+            color: #969696;
+        }
+        
+
+        .donationButtons {
+            display: flex;
+            flex-direction: column;
+            max-width: 515px;
+            margin-bottom: 44px;
+            
+            .purple {
+                background: #544CBE;
+                height: 77px;
+                border-radius: 5px;
+                font-size: 24px;
+                line-height: 32px;
+                color: #FFFFFF;
+                letter-spacing: 0.06em;
+                margin:40px 0 24px 0;
+                border: none;
+                cursor: pointer
+            }
+
+            .white {
+                background: #FFFFFF;
+                height: 77px;
+                border-radius: 5px;
+                font-size: 24px;
+                line-height: 32px;
+                color: #544CBE;
+                letter-spacing: 0.06em;
+                border: 1.2px solid #544CBE;
+                cursor: pointer
+            }
+        }
+
+        .lastText {
+            max-width: 585px;
+            font-size: 20px;
+            line-height: 27px;
+            letter-spacing: 0.06em; 
+        }
+        
+    }
+    
+}

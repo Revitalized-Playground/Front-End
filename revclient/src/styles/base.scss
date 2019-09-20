@@ -15,6 +15,9 @@
 @import '../views/ProjectsHome/CTAplusTrending/CTAPlusTrades.scss';
 @import '../views/ProjectsHome/SubscribeCTA/SubscribeCTA.scss';
 @import '../views/ProjectsHome/RecomendedPlusStories/RecommendedPlusStories.scss';
+@import '../views/CreateProjWizard/CreateProjWizard.scss';
+@import '../views/ProjectPage/ProjectPage.scss';
+@import '../views/ProjectPage/ProjectDescription/DetailedDescription/DetailedDescription.scss';
 
 // Components Here
 @import '../components/Card/Card.scss';
@@ -22,3 +25,6 @@
 @import '../components/Layout/Nav.scss';
 @import '../components/Project/Project.scss';
 @import '../components/ProjectList/ProjectList.scss';
+
+// testing
+@import '../redux/Users.scss';

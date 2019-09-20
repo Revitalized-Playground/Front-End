@@ -1,21 +1,29 @@
 .footer {
 	background-color: $erudite-purple;
-	height: 11rem;
+	height: 14rem;
 	color: $snow-white;
 	a {
 		color: $snow-white;
 		text-decoration: none;
+		font-size: 25px;
+		margin-right: 25px;
+		margin-top: 100%;
+		&:hover {
+			transform: scale(1.05);
+		}
 	}
 	.links-container {
 		display: flex;
-		max-width: 85%;
+		max-width: 78%;
 		justify-content: space-around;
 		margin: auto;
 		li {
-			display: inline-block;
 			max-height: 4rem;
-			margin: 4rem auto;
-			align-self: auto;
+			margin-top: 5rem;
+			margin-left: 10px;
+			&:hover {
+				transform: scale(1.04);
+			}
 		}
 	}
 	.copyright {
@@ -23,7 +31,8 @@
 		font-size: 1.3rem;
 		height: auto;
 		width: auto;
-		margin: 0 44%;
+		margin-left: 44%;
+		margin-top: 5%;
 	}
 	.italics {
 		font-style: italic;

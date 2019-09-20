@@ -1,0 +1,177 @@
+@import '../../../styles/mixins';
+
+.header {
+	// This is for fixed nav to be removed.
+	// border: 1px solid red;
+	@include spaceForNav;
+
+	.cta-container {
+		// border: 1px solid green;
+		height: 79vh;
+		display: flex;
+		justify-content: space-between;
+		margin: 10.5rem 7rem 5.2rem 7rem;
+
+		@media #{$mobile} {
+			border: 1px solid red;
+			display: block;
+			margin: 0;
+		}
+		img {
+			max-width: 50%;
+			scale: both;
+		}
+		.cta {
+			// border: 1px solid green;
+			max-width: 50%;
+			max-height: 33%;
+			text-align: left;
+			@media #{$mobile} {
+				max-width: 100%;
+			}
+
+			.cta-title {
+				text-align: left;
+				margin-top: 85px;
+				font-size: 42px;
+				font-weight: 500;
+				letter-spacing: 0.13em;
+				line-height: 1.4;
+				color: #4840ba;
+				height: auto;
+
+				@media #{$mobile} {
+					// border: 1px solid red;
+					margin: 0;
+					max-width: 100%;
+				}
+			}
+			p {
+				margin: 5% 0 0 0;
+				font-size: 24px;
+				letter-spacing: 0.12em;
+				line-height: 1.8;
+				color: $erudite-purple;
+
+				@media #{$mobile} {
+					max-width: 100%;
+					margin: 10px 0;
+				}
+			}
+			button {
+				@include buttonStyler(#4840ba, #ffffff, none);
+				margin-top: 20px;
+				font-size: 20px;
+				height: 70px;
+				padding: 0.5rem 1rem;
+				width: 270px;
+			}
+		}
+	}
+	.values {
+		margin-bottom: 5.5%;
+		p {
+			color: $machiavellian;
+			font-size: 1.5rem;
+			font-weight: 500;
+			letter-spacing: 0.13em;
+			margin-bottom: 17px;
+			padding-left: 50px;
+			text-align: center;
+		}
+		.value-tiles {
+			display: flex;
+
+			justify-content: space-between;
+			width: 86%;
+			margin: 0 auto;
+			text-align: center;
+			padding-bottom: 5rem;
+			padding-top: 1.25rem;
+
+			div {
+				border-radius: 0.25rem;
+				padding: 1.8rem 0;
+				font-size: 24px;
+				letter-spacing: 0.12em;
+				color: $snow-white;
+				width: 15.3%;
+				height: 5.2rem;
+				margin: auto;
+				text-align: center;
+			}
+			.tenacity {
+				background: #d2405b;
+			}
+			.ingenuity {
+				background: #ffc100;
+			}
+			.growth {
+				background: #82c7b3;
+			}
+			.diligence {
+				background: #53a1a9;
+			}
+			.resilience {
+				background: #ab7b61;
+			}
+			.compassion {
+				background: #f7ad82;
+			}
+		}
+	}
+	.what-we-do {
+		padding: 2% 0;
+		h2 {
+			text-align: center;
+			font-size: 48px;
+			letter-spacing: 0.13em;
+		}
+		.learn-more-container {
+			margin-top: 98px;
+			max-width: 100%;
+			display: flex;
+			justify-content: space-evenly;
+			img {
+				width: 300px;
+				height: 300px;
+				border-radius: 50%;
+				margin-bottom: 80px;
+			}
+			.crowdFunding,
+			.opportunities,
+			.pathways {
+				display: inline-block;
+				text-align: center;
+				h3 {
+					font-size: 28px;
+					letter-spacing: 0.12em;
+					margin-bottom: 26px;
+				}
+				a {
+					font-size: 20px;
+					text-decoration: none;
+					color: #4840ba;
+				}
+			}
+
+			div {
+				display: flex;
+				justify-content: center;
+				p {
+					color: $snow-white;
+					position: absolute;
+					align-self: center;
+					font-weight: 1.4;
+					font-size: 2.1rem;
+				}
+				.donate-text {
+					color: $black-void;
+				}
+			}
+			.hovered {
+				display: block;
+			}
+		}
+	}
+}
