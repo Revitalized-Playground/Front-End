@@ -1,0 +1,52 @@
+@import './ProjectDescription/Donate/Donate.scss';
+@import './ProjectDescription/DetailedDescription/DetailedDescription.scss';
+@import './ProjectDescription/ProjectPictures/ProjectPictures.scss';
+@import './ProjectDescription/ProjectComments/ProjectComments.scss';
+
+.project-page-container {
+	@include spaceForNav;
+	max-width: 1920px;
+
+	.singleProjectVectorContainer {
+		max-width: 1645px;
+		margin: 0 auto;
+	
+		.singleProjectVector {
+			background: url('../assets/SingleProjectPage/vector.jpeg');
+			height: 476px;
+			background-position: right;
+			background-size: 70% 476px;
+			background-repeat: no-repeat;
+
+			.blueSquare {
+				width: 30%;
+				height: 100%;
+				background: #544CBE;
+				h1 {
+					position: absolute;
+					margin: 57px 0 0 2%;
+					font-size: 300%;
+					line-height: 74px;
+					letter-spacing: 0.06em;
+					color: #FFFFFF;
+					z-index: 1
+				}
+				.blueVector {
+					width: 100%;
+					height: 100%;
+					background: #544CBE;;
+					transform-origin: bottom left;
+					-ms-transform: skew(-30deg, 0deg);
+					-webkit-transform: skew(-30deg, 0deg);
+					transform: skew(-30deg, 0deg);
+				}
+			}	
+		}
+	}
+
+	.project-page-flex {
+		display: flex;
+		max-width: 1645px;
+		margin: 0 auto
+	}
+}

@@ -1,0 +1,39 @@
+.full-scale-application {
+	display: flex;
+	justify-content: space-between;
+	margin: 9.66% auto 8% auto;
+	img {
+		width: 931px;
+		height: 644px;
+		margin: 104px 139px 0 0;
+		object-fit: contain;
+	}
+	.full-scale-application-cta {
+		max-width: 42%;
+		margin: 8% auto 8% 5.72%;
+		// color: #4840ba;
+		font-size: 1.2rem;
+		h2 {
+			font-size: 42px;
+			letter-spacing: 0.05em;
+			line-height: 147.81%;
+			font-weight: 300;
+			margin: 3.5% auto;
+		}
+		p {
+			margin: 1px auto 0 auto;
+			font-size: 26px;
+			line-height: 165%;
+			letter-spacing: 0.0875em;
+		}
+		button {
+			@include buttonStyler(#4840ba, #ffffff, none);
+			width: 272px;
+			height: 67px;
+			font-size: 23px;
+			font-family: 'futura-pt';
+			letter-spacing: 0.06em;
+			margin-top: 36px;
+		}
+	}
+}
