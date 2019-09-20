@@ -15,8 +15,11 @@ const ProjectSpotlight = () => {
 
 	return (
 		<section className="project-spotlight">
-			<h2 className="section-title">Project&nbsp;Spotlight</h2>
-			<img className="phone-left phone" src={rubiconPhones} alt="cell phone" />
+			<div className='phoneContainer'>
+				<h2 className="section-title">Project Spotlight</h2>
+				<img className="phone-left phone" src={rubiconPhones} alt="cell phone" />
+			</div>
+			
 			<div className="user-story">
 				<img className="user-photo" src={Theatre} alt="Alger-Theater" />
 				<h2 className="user-info">{projectTitle}</h2>
