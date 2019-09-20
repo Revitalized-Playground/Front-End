@@ -1,64 +1,56 @@
 @import '../../../styles/mixins';
 
-.featured-project {
-	display: flex;
-	justify-content: space-around;
-	background-color: #82c7b3;
-	margin: 8.35% auto 10% auto;
-	height: 730px;
-	.section-title {
-		// position: absolute;
-		// left: 5.75%;
-		margin: 2.45% auto auto 2.45%;
-		width: auto;
-		font-size: 42px;
-		line-height: 152.31%;
-		letter-spacing: 0.03em;
+.FPContainer {
+	max-width: 1600px;
+	margin: 0 auto;
+	height: 100%;
+	.card {
+		margin-bottom: 60px;
 	}
-	.phone {
-		position: relative;
-		top: 26%;
-		margin-bottom: -6.5%;
-		width: 30%;
-		height: 93%;
-	}
-	.phone-left {
-		// max-width: 28%;
-		transform: rotate(-31deg);
-	}
-	.user-story {
-		max-width: 31%;
+	.FPProjectList {
 		display: flex;
-		flex-direction: column;
-		align-content: center;
-		text-align: center;
-		.user-photo {
-			// figma specs below
-			// width: 403px;
-			// height: 403px;
-			width: 68%;
-			height: 68%;
-			object-fit: contain;
-			margin: 0 auto 0 18%;
-		}
-		.user-info {
-			font-size: 42px;
-			margin: -3% 0 0 8%;
-			line-height: 48px;
-			letter-spacing: 0.05em;
-		}
-		p {
-			margin: 5% auto 5% auto;
-			letter-spacing: 0.06em;
-			line-height: 180%;
-			font-size: 15px;
-			font-weight: bold;
-			position: relative;
-			left: 5%;
-		}
+		flex-wrap: wrap;
+		justify-content: space-between;
 	}
-	.phone-right {
-		position: relative;
-		// bottom: 5%;
+
+	h1 {
+		width: 420px;
+		height: 70px;
+		font-size: 48px;
+		margin: 0 20px 20px 20px;
+		color: #4840ba;
+	}
+
+	.FPProjects {
+		max-width: 480px;
+		margin: 0 20px;
+		margin-bottom: 60px;
+		text-align: center;
+		transition: 0.2s all ease-in-out;
+		&:hover {
+			transform: scale(1.07);
+			cursor: pointer;
+			color: $ocean-blue;
+		}
+
+		img {
+			width: 100%;
+			height: 660px;
+			border-radius: 10px;
+		}
+
+		h4 {
+			margin: 30px auto 0 auto;
+			max-width: 407px;
+			height: 80px;
+			font-size: 36px;
+		}
+
+		p {
+			font-size: 24px;
+			max-width: 405px;
+			height: 127px;
+			margin: 30px auto 0 auto;
+		}
 	}
 }
