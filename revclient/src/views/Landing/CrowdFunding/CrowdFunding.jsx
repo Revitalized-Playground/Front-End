@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Progress1 from '../../../assets/LandingPage/Progress1.svg';
+import Progress1v2 from '../../../assets/LandingPage/Progress1v2.png';
 import Progress2 from '../../../assets/LandingPage/Progress2.png';
 import Progress3 from '../../../assets/LandingPage/Progress3.png';
 const CrowdFunding = () => {
@@ -11,7 +11,7 @@ const CrowdFunding = () => {
 				Explore and donate to projects that inspire you and <br /> empower generations{' '}
 			</p>
 			<div className="img-container">
-				<img src={Progress1} alt="Drywall" />
+				<img src={Progress1v2} alt="Drywall" />
 				<img src={Progress2} alt="TableSaw" />
 				<img src={Progress3} alt="ladders" />
 			</div>
