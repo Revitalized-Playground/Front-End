@@ -5,27 +5,18 @@ import ReactDOM from 'react-dom';
 import { ApolloProvider } from "@apollo/react-hooks";
 import { client } from "./config/apollo.js";
 
-// import { createStore, applyMiddleware } from "redux";
-// import { Provider } from "react-redux";
-// import thunk from "redux-thunk";
-// import logger from "redux-logger";
-// import { composeWithDevTools } from "redux-devtools-extension";
-
-// import rootReducer from "./redux/reducers/index.js";
-// import App from "./views/App.jsx";
 import App from "./routes/App.jsx";
 
 
 import "./styles/base.scss";
 
 
-
 const elRoot = document.getElementById('root');
-
+console.log(process.env)
 
 ReactDOM.render(
     <ApolloProvider client={client} >
-            <App />
+        <App />
     </ApolloProvider>,
     elRoot 
 );

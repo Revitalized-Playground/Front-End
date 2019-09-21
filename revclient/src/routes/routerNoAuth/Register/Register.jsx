@@ -3,7 +3,8 @@
  * TODO: things to do
  * @props description
  */
-import React from 'react';
+import React from "react";
+import { Link } from "react-router-dom";
 import google from '../../../assets/AuthPages/Google.png';
 import fbLogo from '../../../assets/AuthPages/fb-logo.png';
 import revitalizeLogo from '../../../assets/LandingPage/Logo.png';
@@ -26,9 +27,11 @@ export default function Register() {
 						<h1>With Revitalize</h1>
 					</div>
 					<button>
-						<div className="registerButton">
-							<img src={google} alt="Google" />
-							<h3>Create an Account with Google</h3>
+						<div >
+							<a className="registerButton" href={`${process.env.REACT_APP_OAUTH_GOOGLE_LINK}`}>
+								<img src={google} alt="Google" />
+								<h3>Create an Account with Google</h3>
+							</a>
 						</div>
 					</button>
 					<button>

@@ -3,30 +3,24 @@ import { BrowserRouter, Route } from "react-router-dom";
 
 // router no authentication
 import LandingPage from './routerNoAuth/Landing/LandingPage';
-import ProjectsHome from "./routerNoAuth/ProjectsHome/ProjectsHome";
+// import ProjectsHome from "./routerNoAuth/ProjectsHome/ProjectsHome";
+import Login from "./routerNoAuth/Login/Login";
+import Register from "./routerNoAuth/Register/Register";
 
 // router user auth
 import CreateProjectWizard from "./routerUser/CreateProjWizard/CreateProjectWizard";
-import Login from "./routerUser/Login/Login";
-import Register from "./routerUser/Register/Register";
 
 // router project
 import ProjectPage from "./routerProject/ProjectPage/ProjectPage"
 
-
-// import Users from "../redux/Users.jsx";
-
-// import Router from "../router/Router.jsx";
-// import RouterAuth from "../router/RouterAuth.jsx";
-
-
-import '../styles/base.scss';
-
+// utils
+import AuthenticateUser from "../utils/AuthenticateUser";
 
 
 const App = () => (
 
 	<BrowserRouter>
+
 		<Route
 			exact
 			path="/"
@@ -59,13 +53,13 @@ const App = () => (
 			)}
 		/>  
 
-		<Route
+		{/* <Route
 			// exact
 			path="/projects"
 			render={() => (
 				<ProjectsHome />
 			)}
-		/>
+		/> */}
 
 		<Route
 			// exact
@@ -73,6 +67,12 @@ const App = () => (
 			render={() => (
 				<CreateProjectWizard />
 			)}
+		/>
+		
+		<Route 
+			exact
+			path="/oauth/:token"
+			component={AuthenticateUser}
 		/>
 
 {/* 		
