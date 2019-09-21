@@ -1,0 +1,202 @@
+.projects-home {
+	margin-top: 100px;
+	max-width: 1920px;
+	letter-spacing: 0.06em;
+	min-height: 100%;
+	display: block;
+	// border: 3px solid red;
+
+	.curriculumOpContainer {
+		background-image: url('../assets/ProjectPage/blueBackgroundVector.png');
+		// border: 2px solid blue;
+		height: 780px;
+		display: flex;
+		justify-content: space-between;
+
+		.curriculumShapesLeft {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			margin: 100px 0px 100px 50px;
+			z-index: 10;
+			img {
+				width: 68px;
+				height: 68px;
+			}
+		}
+		.curriculumMid {
+			width: 70%;
+			height: 474px;
+			margin: 109px 10px 199px -180px;
+			background: white;
+			display: flex;
+			justify-content: space-around;
+
+			.first {
+				width: 653px;
+				margin-top: 40px;
+				padding: 10px;
+
+				h1 {
+					font-size: 26px;
+					color: #00171f;
+					letter-spacing: 0.06em;
+				}
+				.flex {
+					display: flex;
+					justify-content: space-between;
+					text-align: center;
+					margin-top: 50px;
+					h2 {
+						width: 100%;
+						height: 27px;
+						font-size: 18px;
+						letter-spacing: 0.06em;
+					}
+
+					h3 {
+						margin-top: 20px;
+						height: 27px;
+					}
+				}
+			}
+			.second {
+				width: 454px;
+				margin-top: 78px;
+
+				h1 {
+					font-size: 24px;
+					letter-spacing: 0.06em;
+					color: #00171f;
+				}
+
+				button {
+					width: 182px;
+					height: 47px;
+					color: #ffffff;
+					background: #4840ba;
+					border-radius: 5px;
+					border: none;
+					letter-spacing: 0.06em;
+					margin-top: 33px;
+					@include buttonStyler($chillFi-purple, $snow-white, none);
+				}
+			}
+		}
+		position: relative;
+		.teacher {
+			position: absolute;
+			right: 95px;
+			top: 200px;
+		}
+
+		.curriculumShapesRight {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			margin: 100px 30px 42.3px 50px;
+			z-index: 10;
+			.small {
+				width: 63px;
+				height: 52px;
+			}
+			.large {
+				width: 88px;
+				height: 71px;
+			}
+		}
+	}
+
+	.cta-container {
+		display: flex;
+		justify-content: space-between;
+		margin: 173px 0 0 0;
+		img {
+			max-width: 50%;
+			margin-right: 70px;
+			scale: both;
+		}
+		.cta {
+			max-width: 50%;
+			width: 100%;
+			max-height: 33%;
+			text-align: left;
+			.cta-title {
+				font-size: 64px;
+				letter-spacing: 0.06em;
+				color: $black-void;
+				height: auto;
+				margin: 0 0 27px 100px;
+			}
+			p {
+				height: 191px;
+				letter-spacing: 0.06em;
+				width: 702px;
+				font-size: 40px;
+				line-height: 1.6;
+				margin-left: 100px;
+			}
+			button {
+				@include buttonStyler($chillFi-purple, $snow-white, none);
+				margin-left: 100px;
+				color: $snow-white;
+			}
+		}
+	}
+	.ft-container {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-evenly;
+		margin: 5rem 0;
+		h3,
+		p,
+		a,
+		.featured-trades {
+			margin: 1rem 6rem;
+		}
+		h3 {
+			color: $chillFi-purple;
+			font-size: 3rem;
+		}
+		p {
+			font-size: 1.2rem;
+		}
+		a {
+			font-style: italic;
+			font-size: 1.2rem;
+			text-decoration: none;
+			&:hover {
+				color: $ocean-blue;
+				text-decoration: underline;
+			}
+		}
+		.featured-trades {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			flex-wrap: wrap;
+
+			.ft-box {
+				display: flex;
+				flex-direction: column;
+				transition: 0.2s all ease-in-out;
+				max-width: 40rem;
+				&:hover {
+					transform: scale(1.15);
+					cursor: pointer;
+					color: $ocean-blue;
+				}
+				img {
+					border-radius: 0.5rem;
+					width: 100%;
+				}
+				p {
+					color: $chillFi-purple;
+					text-align: center;
+					font-size: 1.4rem;
+					margin-top: 1rem;
+				}
+			}
+		}
+	}
+}
