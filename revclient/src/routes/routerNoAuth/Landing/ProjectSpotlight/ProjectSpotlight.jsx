@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import rubiconPhones from '../../../../assets/LandingPage/RubiconPhones.png';
+import rubiconPhones from '../../../../assets/LandingPage/RubiconPhones-deShadow.png';
 // import teamRubicon from '../../../../assets/LandingPage/Team Rubicon.png';
 import Theatre from '../../../../assets/LandingPage/Theatre.svg';
 

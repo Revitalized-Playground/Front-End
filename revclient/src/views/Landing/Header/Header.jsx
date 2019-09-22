@@ -1,10 +1,11 @@
 import React from 'react';
 
-import heroImage from '../../../assets/LandingPage/Hero Image.png';
+import heroImage from '../../../assets/LandingPage/HeroImage.png';
 import crowdFundingImg from '../../../assets/LandingPage/Crowdfunding.svg';
 import opportunitiesImg from '../../../assets/LandingPage/AO.svg';
 import pathwaysImg from '../../../assets/LandingPage/TradePathways.svg';
 import greyRectangle from '../../../assets/LandingPage/GreyRectangle.png';
+
 
 const Header = () => {
 	return (

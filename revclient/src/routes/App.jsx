@@ -21,13 +21,6 @@ const App = () => (
 
 	<BrowserRouter>
 
-		<Route
-			exact
-			path="/"
-			render={() => (
-				<LandingPage />
-			)}
-		/>
 		
 		<Route
 			// exact

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import logo from '../../assets/LandingPage/Logo.png';
 import darkModeEmoji from '../../assets/Global/Nav/smiling-face-with-sunglasses_1f60e.svg';
 import lightModeEmoji from '../../assets/Global/Nav/electric-light-bulb_1f4a1.svg';
+
 const links = [{ href: '#', label: 'About' }, { href: '#', label: 'Trades' }, { href: '#', label: 'Community' },{ href: '#', label: 'Donate' }].map(
 	link => {
 		link.key = `nav-link-${link.href}-${link.label}`;

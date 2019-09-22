@@ -1,6 +1,7 @@
 .registerContainer {
 	background: #2b56d3;
 	height: 100vh;
+	max-width: 1920px;
 	margin: 0 auto;
 	display: flex;
 	color: white;
@@ -43,6 +44,10 @@
 					display: flex;
 					align-items: center;
 					margin: 0 20px;
+					a {
+						text-decoration: none;
+						color: inherit;
+					}
 					img {
 						margin-right: 20px;
 						height: 40px;
@@ -202,7 +207,7 @@
 	.registerIMG {
 		height: 100%;
 		width: 80%;
-		background-image: url('../assets/AuthPages/LIImage.svg');
+		background-image: url('../assets/AuthPages/AdobeStock_217741897_Preview.jpeg');
 		background-size: 138%;
 		background-position: center;
 	}

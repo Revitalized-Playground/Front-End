@@ -7,8 +7,6 @@ import {
 import jwtdecode from "jwt-decode";
 
 
-
-
 class AuthenticateUser extends React.Component {
 
     componentDidMount() {
