@@ -2,8 +2,11 @@ import React from 'react';
 
 const Banner = () => {
     return (
-        <div>
-            banner thing
+        <div className="bannerContainer">
+            <p>Banner thing goes here</p>
+            <div className="bannerThing">
+                
+            </div>
         </div>
     );
 };

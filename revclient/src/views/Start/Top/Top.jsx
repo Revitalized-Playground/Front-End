@@ -2,8 +2,8 @@ import React from 'react';
 
 const Top = () => {
     return (
-        <div>
-            top
+        <div className="topContainer">
+            
         </div>
     );
 };

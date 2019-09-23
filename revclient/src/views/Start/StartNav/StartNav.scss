@@ -1,0 +1,69 @@
+.navContainer {
+    display: flex;
+    margin: 1% auto 2% auto;
+    padding: 0.5% 0.75% 1% 0.75%;
+    border: 1px solid blue;
+    width: 85%;
+    justify-content: flex-end;
+    font-size: 18px;
+    line-height: 21px;
+    letter-spacing: 0.06rem;
+    // color: $mirage;
+    .links {
+        display: flex;
+        align-items: center;
+        margin-right: 4rem;
+        border: 1px solid green;
+        .link {
+            text-decoration: none;
+            color: $black-void;
+            margin: 0 1rem;
+            // font-size: 18px;
+            // line-height: 21px;
+            // font-family: Roboto;
+        }
+    }
+    .user {
+        display: flex;
+        align-items: center;
+        border: 1px solid orange;
+        .welcome {
+            margin-right: 2.5rem;
+            &:hover {
+                cursor: pointer;
+                color: $mirage;
+            }
+        }
+        .dropdown {            
+            display: block;
+            position: absolute;
+            top: 5rem;
+            height: 6rem;
+            width: 9.25rem;
+            background-color: $silver-lining;
+            clip-path: polygon(50% 0%, 60% 14%, 100% 14%, 100% 100%, 68% 100%, 32% 100%, 0 100%, 0 14%, 39% 14%);
+            border: 1px solid red;
+        }
+        .on {
+            margin-top: 1.25rem;
+            height: 5rem;
+            width: 100%;
+            background-color: $static-grey;
+            // z-index: 3;
+        }
+        // .up {
+        //     height: 2rem;
+        //     width: 2rem;
+        //     transform: rotate(45deg);
+        //     background-color: $silver-lining;
+        //     z-index: -1;
+        // }
+ 
+        .userIcon {
+            background-color: $static-grey;
+            width: 3.7rem;
+            height: 3.7rem;
+            border-radius: 50%;
+        }
+    }
+}
