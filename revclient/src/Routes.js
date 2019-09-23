@@ -7,6 +7,7 @@ import Register from './views/Register/Register';
 import Login from './views/Login/Login';
 import ProjectsHome from './views/ProjectsHome/ProjectsHome';
 import CreateProjectWizard from './views/CreateProjWizard/CreateProjectWizard';
+import Start from './views/Start/Start';
 
 // Utils
 import AuthenticateUser from './utils/AuthenticateUser';
@@ -32,6 +33,11 @@ export const Routes = props => {
 				// exact
 				path="/createproject"
 				render={() => <CreateProjectWizard />}
+			/>
+
+			<Route 
+				path="/start"
+				render={() => <Start />}
 			/>
 		</BrowserRouter>
 	);
