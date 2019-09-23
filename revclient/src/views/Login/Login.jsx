@@ -23,6 +23,7 @@ import twitterLogo from "../../assets/AuthPages/twitter.png";
 export default function Login() {
 	return (
 		<div className="loginContainer">
+			<div className="loginContainerLeft">
 			<div className="revitalizeLogo-container">
 				<Link to="/" title="Home">
 					<div className="logo">
@@ -75,6 +76,7 @@ export default function Login() {
 					<input type="password" placeholder="**********" />
 					<button>Log In</button>
 				</div>
+			</div>
 			</div>
 			<div className="imgContainer"></div>
 		</div>
