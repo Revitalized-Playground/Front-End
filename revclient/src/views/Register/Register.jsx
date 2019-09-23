@@ -31,7 +31,7 @@ function Register(props) {
             ...state,
             [event.target.name]: event.target.value
         })
-    }
+    };
 
     const handleSubmit = async event => {
         event.preventDefault();
@@ -43,7 +43,7 @@ function Register(props) {
         })
 		localStorage.setItem("token", created.data.createUser.token);
 		props.history.push("/");
-    }
+    };
 
 	return (
 		<div className="registerContainer">
