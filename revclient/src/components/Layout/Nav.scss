@@ -66,7 +66,7 @@ nav {
 			}
 		}
 		.login {
-			@include buttonStyler($snow-white, $chillFi-purple, none, auto 10px auto 0);
+			@include buttonStyler($chillFi-purple, $snow-white, none, auto 10px auto 0);
 		}
 		button {
 			@include buttonStyler($chillFi-purple, $snow-white, none, auto 10px auto 0);
@@ -98,16 +98,18 @@ nav {
 				}
 			}
 			.login {
-				color: $maastricht-blue;
-				background-color: $snow-white;
+				color: $snow-white;
+				background-color: $maastricht-blue;
+				
 				&:hover {
-					color: $snow-white;
-					background-color: $maastricht-blue;
+					color: $maastricht-blue;
+					background-color: $snow-white;
 				}
 			}
 			.register {
 				color: $snow-white;
 				background-color: $maastricht-blue;
+				
 				&:hover {
 					color: $maastricht-blue;
 					background-color: $snow-white;
