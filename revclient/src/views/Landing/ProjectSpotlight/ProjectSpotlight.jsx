@@ -8,8 +8,8 @@ const ProjectSpotlight = () => {
 	const initStory =
 		'Come see the journey of our students and industry experts restore an abandoned theatre to a modern state-of-the-art career school. The new school year will be starting Fall of 2020. Thank you to our amazing donors and partners for inspiring our apprentices.';
 
-	const [projectTitle, setProjectTitle] = useState('Alger Theatre - Detroit, MI');
-	const [projectStory, setProjectStory] = useState(initStory);
+	const [projectTitle] = useState('Alger Theatre - Detroit, MI');
+	const [projectStory] = useState(initStory);
 
 	// still need to make images dynamic
 
