@@ -1,0 +1,44 @@
+.on-the-job-training {
+	background: #4840ba;
+	margin: 4% auto;
+	display: flex;
+	justify-content: space-between;
+	color: white;
+	height: 605px;
+	img {
+		width: 870px;
+		height: 950px;
+		margin: -60px auto 0 110px;
+		object-fit: contain;
+	}
+	button {
+		@include buttonStyler(#ffffff, rgb(55, 48, 155), none);
+	}
+	.training-cta {
+		display: inline-block;
+		max-width: 28%;
+		margin: 10% 311px 10% auto;
+		h2 {
+			margin: -7.5% auto 5% auto;
+			font-size: 42px;
+			letter-spacing: 0.06em;
+			line-height: 147.81%;
+			font-weight: 300;
+		}
+		p {
+			width: 107%;
+			font-size: 26px;
+			line-height: 177.31%;
+			letter-spacing: 0.09em;
+			margin-top: -10px;
+		}
+		button {
+			margin-top: 17px;
+			width: 272px;
+			height: 68px;
+			font-size: 29px;
+			font-family: 'futura-pt';
+			letter-spacing: 0.06em;
+		}
+	}
+}

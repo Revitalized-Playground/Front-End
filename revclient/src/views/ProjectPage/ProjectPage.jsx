@@ -12,7 +12,7 @@ import Donate from './ProjectDescription/Donate/Donate'
 import DetailedDescription from './ProjectDescription/DetailedDescription/DetailedDescription'
 import ProjectPictures from './ProjectDescription/ProjectPictures/ProjectPictures'
 import ProjectComments from './ProjectDescription/ProjectComments/ProjectComments'
-
+import Nav from '../../components/Layout/Nav'
 const project = {
     projectOrganizer: 'Julian Crenshaw',
     projStartDate: 'January 13, 2020',
@@ -51,26 +51,27 @@ const projectCreator = {
 const ProjectPage = () => {
     return (
         <div className="project-page-container">
+            <Nav />
             <div className='singleProjectVectorContainer'>
                 <div className='singleProjectVector'><div className='blueSquare'><h1>Team Rubicon</h1><div className='blueVector'></div></div></div>
             </div>
             <div className='project-page-flex'>
-                 <DetailedDescription 
-                  startDate={project.projStartDate}
-                  duration={project.duration}
-                  difficulty={project.difficultyLevel}
-                  organizer={project.projectOrganizer}
-                  location={project.location}
-                  projDescription={project.projectDescription}
-                  projectCreator={projectCreator}
+                <DetailedDescription
+                    startDate={project.projStartDate}
+                    duration={project.duration}
+                    difficulty={project.difficultyLevel}
+                    organizer={project.projectOrganizer}
+                    location={project.location}
+                    projDescription={project.projectDescription}
+                    projectCreator={projectCreator}
                 />
-                <Donate 
-                  raised={project.raised}
-                  budget={project.projectBudget}
-                  donors={project.donors}
+                <Donate
+                    raised={project.raised}
+                    budget={project.projectBudget}
+                    donors={project.donors}
                 />
             </div>
-            <ProjectPictures projectPhotos={project.projectPhotos}/>
+            <ProjectPictures projectPhotos={project.projectPhotos} />
             <ProjectComments comments={project.comments} />
         </div>
     );

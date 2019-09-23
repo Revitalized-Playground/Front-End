@@ -3,43 +3,62 @@
 .header {
 	// This is for fixed nav to be removed.
 	// border: 1px solid red;
-	@include spaceForNav;
+	@include spaceForNav;  
+	// Consider using sticky to negate the need for a spacer fix
+	// Frank
+
 	.cta-container {
-		// border: 1px solid green;
 		height: 79vh;
 		display: flex;
 		justify-content: space-between;
-		margin: 10.5rem 7rem 3.2rem 7rem;
-
+		margin: 15vh 7rem 5.2rem 7rem;
+		@media #{$mobile} {
+			// border: 1px solid red;
+			display: block;
+			margin: 0;
+		}
 		img {
 			max-width: 50%;
-			scale: both;
+			object-fit: contain;
 		}
 		.cta {
-			// border: 1px solid blue;
 			max-width: 50%;
 			max-height: 33%;
 			text-align: left;
+			@media #{$mobile} {
+				max-width: 100%;
+			}
+
 			.cta-title {
-				margin-top: 85px;
-				// border: 1px solid red;
+				text-align: left;
+				margin-top: 25vh;
 				font-size: 42px;
 				font-weight: 500;
 				letter-spacing: 0.13em;
 				line-height: 1.4;
-				color: #4840ba;
+				color: $chillFi-purple;
 				height: auto;
+
+				@media #{$mobile} {
+					// border: 1px solid red;
+					margin: 0;
+					max-width: 100%;
+				}
 			}
 			p {
-				// border: 1px solid orangered;
 				margin: 5% 0 0 0;
 				font-size: 24px;
 				letter-spacing: 0.12em;
 				line-height: 1.8;
 				color: $erudite-purple;
+
+				@media #{$mobile} {
+					max-width: 100%;
+					margin: 10px 0;
+				}
 			}
 			button {
-				@include buttonStyler(#4840ba, #ffffff, none);
+				@include buttonStyler($chillFi-purple, $snow-white, none);
 				margin-top: 20px;
 				font-size: 20px;
 				height: 70px;
@@ -49,6 +68,7 @@
 		}
 	}
 	.values {
+		margin-bottom: 5.5%;
 		p {
 			color: $machiavellian;
 			font-size: 1.5rem;
@@ -75,71 +95,132 @@
 				letter-spacing: 0.12em;
 				color: $snow-white;
 				width: 15.3%;
-				height: 1.7rem;
+				height: 5.2rem;
 				margin: auto;
 				text-align: center;
 			}
 			.tenacity {
-				background: #d2405b;
+				background: $ruby-enchantment;
 			}
 			.ingenuity {
-				background: #ffc100;
+				background: $pikachu;
 			}
 			.growth {
-				background: #82c7b3;
+				background: $luigi;
 			}
 			.diligence {
-				background: #53a1a9;
+				background: $mutant-turtle;
 			}
 			.resilience {
-				background: #ab7b61;
+				background: $mocha;
 			}
 			.compassion {
-				background: #f7ad82;
+				background: $scampi;
 			}
 		}
 	}
-	.application-links-container {
-		margin-top: 98px;
-		max-width: 100%;
-		display: flex;
-		justify-content: center;
-		.img-container {
-			display: flex;
-			width: 34%;
+	.what-we-do {
+		padding: 2% 0;
+		background-image: url("../assets/LandingPage/GreyRectangle.png");
+		background-position: center;
+		background-size: cover;
+		background-repeat: no-repeat;
+		h2 {
 			text-align: center;
-			&:hover {
-				cursor: pointer;
-				img {
-					transition: all 0.2s ease-in-out;
-					filter: brightness(50%);
-				}
-				p {
-					filter: none;
-					z-index: 10;
-					color: $snow-white;
-				}
-			}
-			img {
-				width: 100%;
-			}
+			font-size: 48px;
+			letter-spacing: 0.13em;
 		}
-		div {
+		.learn-more-container {
+			margin-top: 98px;
+			max-width: 100%;
 			display: flex;
-			justify-content: center;
-			p {
-				color: $snow-white;
-				position: absolute;
-				align-self: center;
-				font-weight: 1.4;
-				font-size: 2.1rem;
+			justify-content: space-evenly;
+			img {
+				width: 300px;
+				height: 300px;
+				border-radius: 50%;
+				margin-bottom: 80px;
 			}
-			.donate-text {
-				color: $black-void;
+			.crowdFunding,
+			.opportunities,
+			.pathways {
+				display: inline-block;
+				text-align: center;
+				h3 {
+					font-size: 28px;
+					letter-spacing: 0.12em;
+					margin-bottom: 26px;
+				}
+				a {
+					font-size: 20px;
+					text-decoration: none;
+					color: $chillFi-purple;
+				}
 			}
-		}
-		.hovered {
-			display: block;
+
+			div {
+				display: flex;
+				justify-content: center;
+				p {
+					color: $snow-white;
+					position: absolute;
+					align-self: center;
+					font-weight: 1.4;
+					font-size: 2.1rem;
+				}
+				.donate-text {
+					color: $black-void;
+				}
+			}
+			.hovered {
+				display: block;
+			}
 		}
 	}
 }
+
+
+.dark-mode {
+	.cta-container {
+		.cta {
+			.cta-title {
+				color: $dark-electric-blue;
+			}
+			p {
+				color: $police-blue;
+			}
+			button {
+				background-color: $maastricht-blue;
+				color: $snow-white;
+				&:hover {
+					background-color: $scampi;
+					color: $maastricht-blue;
+
+					mix-blend-mode: color-dodge;
+				}
+			}
+		}
+	}
+	.values {
+		p {
+			color: $abatross;
+		}
+		.value-tiles {
+			div {
+				color: $machiavellian;
+			}
+		}
+	}
+	.what-we-do {
+		background-image: none;
+		background-color: $police-blue;
+		.learn-more-container {
+			.crowdFunding, .opportunities, .pathways { 
+				a {
+					color: $saphire-mox;
+				}
+			}
+		}
+	}
+}
+

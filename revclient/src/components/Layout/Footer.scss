@@ -9,7 +9,7 @@
 		margin-right: 25px;
 		margin-top: 100%;
 		&:hover {
-			transform: scale(1.1);
+			transform: scale(1.05);
 		}
 	}
 	.links-container {
@@ -22,7 +22,7 @@
 			margin-top: 5rem;
 			margin-left: 10px;
 			&:hover {
-				transform: scale(1.08);
+				transform: scale(1.04);
 			}
 		}
 	}
@@ -33,6 +33,7 @@
 		width: auto;
 		margin-left: 44%;
 		margin-top: 5%;
+		line-height: 0;
 	}
 	.italics {
 		font-style: italic;
@@ -45,5 +46,22 @@
 		justify-content: space-around;
 		width: 4%;
 		right: 5%;
+	}
+}
+
+.dark-mode {
+	.footer {
+		background-color: $police-blue;
+		color: $maastricht-blue;
+		a {
+			color: $maastricht-blue;
+		}
+		.links-container {
+			li {
+				a {
+					color: $dark-electric-blue;
+				}
+			}
+		}
 	}
 }

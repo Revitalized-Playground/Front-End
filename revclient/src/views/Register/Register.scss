@@ -1,112 +1,124 @@
 .registerContainer {
-    background: #2B56D3;
-    height: 100vh;
-    max-width: 1920px;
-    margin: 0 auto;
-    display: flex;
-    color: white;
+	background: $machiavellian;
+	color: $snow-white;
+	height: 100vh;
+	max-width: 1920px;
+	margin: 0 auto;
+	display: flex;
+	overflow: hidden;
 
-    .registerForm {
-        width: 40%;
-        height: 100%;
+	.revitalizeLogo-container {
+		height: 100px;
+		width: 100px;
+		text-align: center;
+		img {
+			width: 100%;
+		}
+	}
 
-        .registerThirdParty {
-            
-            height: 40%;
-            width: 60%;
-            margin: 0 auto;
-            margin-top: 70px;
+	.registerForm {
+		width: 40%;
+		height: 100%;
 
-            .registerWelcome {
-                text-align: center;
-                color: white;
-            }
+		.registerThirdParty {
+			height: 40%;
+			width: 60%;
+			margin: 0 auto;
+			margin-top: 70px;
 
-            button {
-                width: 100%;
-                margin-top: 30px;
-                height: 50px;
-                border-radius: 8px;
-                border: none;
-                background: #FFFFFF;
-                cursor: pointer;
-                
+			.registerWelcome {
+				text-align: center;
+				color: $snow-white;
+			}
 
-                .registerButton {
-                    display: flex;
-                    align-items: center;
-                    margin: 0 20px;
-                    ;
-                    img{
-                        margin-right: 20px;
-                        height: 40px;
-                        width: 40px
-                    }
-                }
-            }
-        }
+			button {
+				background: $blue-valentine;
+				color: $snow-white;
+				width: 100%;
+				margin-top: 30px;
+				height: 50px;
+				border-radius: 8px;
+				border: none;
+				cursor: pointer;
+				a {
+					text-decoration: none;
+					color: inherit;	
+				}
+				.registerButton {
+					display: flex;
+					align-items: center;
+					margin: 0 20px;
+					img {
+						margin-right: 20px;
+						height: 40px;
+						width: 40px;
+					}
+				}
 
-        .registerMiddle {
-            width: 60%;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+			}
+		}
 
-            .registerLine {
-                height: 1px;
-                width: 40%;
-                background: white
-            }
-        }
+		.registerMiddle {
+			width: 60%;
+			margin: 0 auto;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
 
-        .registerLocal {
-            width: 60%;
-            margin: 0 auto;
-            margin-top: 40px;
-            display: flex;
-            flex-direction: column;
-            letter-spacing: 0.06em;
+			.registerLine {
+				height: 1px;
+				width: 40%;
+				background: $snow-white;
+			}
+		}
 
-            span {
-                text-decoration: underline;
-                cursor: pointer
-            }
-            .registerSpaceAbove{
-                margin-top: 40px
-            }
+		.registerLocal {
+			width: 60%;
+			margin: 0 auto;
+			margin-top: 40px;
+			display: flex;
+			flex-direction: column;
+			letter-spacing: 0.06em;
 
-            input {
-                height: 35px;
-            }
+			span {
+				text-decoration: underline;
+				cursor: pointer;
+			}
+			.registerSpaceAbove {
+				margin-top: 40px;
+			}
 
-            .registerPass {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-            }
+			input {
+				height: 35px;
+			}
 
-            button {
-                height: 50px;
-                background: #D2405B;
-                width: 50%;
-                margin: 0 auto;
-                margin-top: 60px;
-                border: none;
-                color: white;
-                font-size: 20px;
-                border-radius: 5px;
-                cursor: pointer
-            }
-        }
-    }
+			.registerPass {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+			}
 
-    .registerIMG {
-        height: 100%;
-        width: 60%;
-        background-image: url("../assets/AuthPages/CAAImage.svg");
-		background-size: cover;
-		background-position: center;
-    }
-    
+			button {
+				height: 50px;
+				background: $ruby-enchantment;
+				width: 50%;
+				margin: 0 auto;
+				margin-top: 60px;
+				border: none;
+				color: white;
+				font-size: 20px;
+				border-radius: 5px;
+				cursor: pointer;
+			}
+		}
+	}
+
+	.registerIMG {
+		height: 100%;
+		width: 80%;
+		background-image: url('../assets/AuthPages/building-work-crew-03.jpg');
+		background-size: 100%;
+		background-position-y: top;
+	    mix-blend-mode: luminosity;
+	}
 }
