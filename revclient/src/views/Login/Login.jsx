@@ -3,7 +3,7 @@
  * TODO: things to do
  * @props description
  */
-import React from "react";
+import React, {useState} from "react";
 import { 
     useMutation, 
 } from "@apollo/react-hooks";
@@ -20,7 +20,34 @@ import fbLogo from "../../assets/AuthPages/fb-logo.png";
 import twitterLogo from "../../assets/AuthPages/twitter.png";
 
 
-export default function Login() {
+const Login = props => {
+	const [ loginUser ] = useMutation(LOGIN_USER);
+
+    const [state, setState] = useState({
+        email:"",
+        password:"",
+    });
+
+    const handleChanges = event => {
+        setState({
+            ...state,
+            [event.target.name]: event.target.value
+        })
+    };
+
+    const handleSubmit = async event => {
+        event.preventDefault();
+        localStorage.setItem("token", "");
+        const created = await loginUser({ variables: { data: state } });
+        setState({
+            email:"",
+            password:"",
+        })
+		localStorage.setItem("token", created.data.loginUser.token);
+		props.history.push("/");
+    };
+
+
 	return (
 		<div className="loginContainer">
 			<div className="revitalizeLogo-container">
@@ -60,23 +87,36 @@ export default function Login() {
 					<p>or</p>
 					<div className="loginLine"></div>
 				</div>
-				<div className="loginLocal">
-					<div className="loginMid">
-						<p>
-							Dont't have an account? <span>Create One</span>
-						</p>
-					</div>
+				<form className="loginLocal" onSubmit={handleSubmit}>
 					<p>Email</p>
-					<input placeholder="JaneDoe@gmail.com" />
-					<div className="loginPass">
-						<p className="loginSpaceAbove">Password</p>
-						<span className="loginSpaceAbove">Forgot Password?</span>
-					</div>
-					<input type="password" placeholder="**********" />
-					<button>Log In</button>
+					<input 
+						name='email'
+						type='email'
+						placeholder="JaneDoe@gmail.com"
+						value={state.email}
+						onChange={handleChanges}
+					/>	
+
+					<p className="registerSpaceAbove">Password</p>
+					<input 
+						name="password"
+						type="password"
+						placeholder="**********"
+						value={state.password}
+						onChange={handleChanges}
+					/>
+					
+					<button>Get Started!</button>
+				</form>
+				<div className="loginNoAccount">
+					<p>
+						Dont't have an account? <Link>Create One</Link>
+					</p>
 				</div>
 			</div>
 			<div className="imgContainer"></div>
 		</div>
 	);
 }
+
+export default withRouter(Login)
