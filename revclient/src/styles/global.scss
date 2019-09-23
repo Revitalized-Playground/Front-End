@@ -1,5 +1,8 @@
 body {
 	font-family: 'futura-pt';
+	button:focus { 
+		outline: none; 
+	}
 }
 // h2 {
 // 	font-size: 1.3rem;
@@ -7,6 +10,6 @@ body {
 // 	// font-weight: bolder;
 // }
 .dark-mode {
-	background-color: #043558;
-	color: $snow-white 
+	background-color: $machiavellian;
+	color: $snow-white;
 }

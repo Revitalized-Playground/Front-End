@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/LandingPage/Logo.png';
-import darkModeEmoji from '../../assets/Global/Nav/smiling-face-with-sunglasses_1f60e.svg';
-import lightModeEmoji from '../../assets/Global/Nav/electric-light-bulb_1f4a1.svg';
-const links = [{ href: '#', label: 'About' }, { href: '#', label: 'Trades' }, { href: '#', label: 'Community' },{ href: '#', label: 'Donate' }].map(
+// import darkModeEmoji from '../../assets/Global/Nav/night-mode-512.png';
+// import lightModeEmoji from '../../assets/Global/Nav/night-mode-512.png';
+import {FaMoon} from "react-icons/fa";
+
+const links = [{ href: '#', label: 'Browse' }, { href: '#', label: 'Learn More' },{ href: '#', label: 'Team' },{ href: '#', label: 'Log In' }].map(
 	link => {
 		link.key = `nav-link-${link.href}-${link.label}`;
 		return link;
@@ -32,15 +34,15 @@ const Nav = () => {
 						<a href={href}>{label}</a>
 					</li>
 				))}
-				<Link to="/login"><button className="login">Login</button></Link>
+				{/* <Link to="/login"><button className="login">Login</button></Link> */}
 				<Link to="/register"><button className="register">Get Started</button></Link>
 			</ul>
-			<img
-				className="dark-mode-emoji"
-				src={darkModeActive ? lightModeEmoji : darkModeEmoji}
-				alt="Darkmode Toggle"
-				onClick={() => toggleDarkMode()}
-			/>
+			<div className="dark-mode-emoji">
+				<FaMoon 
+
+					onClick={() => toggleDarkMode()}
+				/>
+			</div>
 		</nav>
 	);
 };

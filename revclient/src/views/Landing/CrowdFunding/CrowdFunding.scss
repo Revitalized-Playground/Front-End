@@ -15,7 +15,7 @@
 		margin-left: 12%;
 		letter-spacing: 3px;
 		font-weight: bold;
-		color: #0b096f;
+		color: $erudite-purple;
 
 		@media #{$mobile} {
 			margin-left: 0;
@@ -25,7 +25,7 @@
 		}
 	}
 	p {
-		font-family: Futura;
+		font-family: "futura";
 		font-size: 22px;
 		line-height: 160.81%;
 		letter-spacing: 0.06em;
@@ -39,11 +39,11 @@
 			margin: 0 0 45px 0;
 			font-size: 18px;
 			line-height: 154.81%;
-			color: #0B096F;
+			color: $erudite-purple;
 		}
 	}
 	.do-you-know {
-		font-family: Futura-pt;
+		font-family: "futura-pt";
 		margin-top: 2.4%;
 		margin-left: 30.6%;
 		font-size: 25px;
@@ -76,7 +76,7 @@
 		
 	}
 	.create-button {
-		@include buttonStyler(#4840ba, #ffffff, none);
+		@include buttonStyler($chillFi-purple, $snow-white, none);
 		margin-top: 50px;
 		margin-left: 40%;
 		font-size: 34px;
@@ -94,3 +94,20 @@
 		}
 	}
 }
+
+.dark-mode {
+	.crowdfunding-container {
+		.crowdfunding-header {
+			color: $maastricht-blue;
+		}
+		.create-button {
+			background-color: $maastricht-blue;
+			color: $snow-white;
+			&:hover {
+				background-color: $snow-white;
+				color: $maastricht-blue
+			}
+		}
+	}
+}
+

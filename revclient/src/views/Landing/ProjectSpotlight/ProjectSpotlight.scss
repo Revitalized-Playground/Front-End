@@ -1,9 +1,9 @@
 @import '../../../styles/mixins';
 
 .project-spotlight {
+	background-color: $luigi;
 	display: flex;
 	justify-content: space-around;
-	background-color: #82c7b3;
 	margin: 8.35% auto 10% auto;
 	height: 730px;
 
@@ -41,7 +41,7 @@
 		top: 26%;
 		margin-bottom: -6.5%;
 		height: 93%;
-
+		object-fit: scale-down;
 		@media #{$mobile} {
 			display: none
 		}
@@ -110,3 +110,10 @@
 		position: relative;
 	}
 }
+
+.dark-mode {
+	.project-spotlight {
+		background-color: $police-blue;
+	}
+}
+
