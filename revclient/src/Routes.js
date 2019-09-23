@@ -7,8 +7,13 @@ import Register from "./views/Register/Register";
 import Login from "./views/Login/Login";
 import ProjectsHome from "./views/ProjectsHome/ProjectsHome"; 
 
+// Protected Routes
+import Dashboard from "./views/Dashboard/Dashboard";
+
 // Utils
 import AuthenticateUser from "./utils/AuthenticateUser";
+
+
 
 export const Routes = props => {
 
@@ -52,6 +57,15 @@ export const Routes = props => {
                     <ProjectsHome />
                 )}
             />
+
+            <Route
+                // exact
+                path="/user/dashboard"
+                render={() => (
+                    <Dashboard />
+                )}
+            />
+
 
 
         </BrowserRouter>

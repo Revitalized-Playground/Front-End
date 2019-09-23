@@ -9,6 +9,7 @@
 @import '../views/Landing/LandingPage.scss';
 
 @import '../views/Dashboard/Dashboard.scss';
+@import "../views/Dashboard/User/UserDashboard.scss";
 
 @import '../views/Login/Login.scss';
 @import '../views/Register/Register.scss';
@@ -24,6 +25,7 @@
 
 @import '../views/ProjectPage/ProjectPage.scss';
 @import '../views/ProjectPage/ProjectDescription/DetailedDescription/DetailedDescription.scss';
+
 
 // @import '../views/CreateProjWizard/CreateProjWizard.scss';
 
@@ -42,6 +44,7 @@
 @import '../components/Card/Card.scss';
 @import '../components/Layout/Footer.scss';
 @import '../components/Layout/Nav.scss';
+@import '../components/Layout/UserNav.scss';
 @import '../components/Project/Project.scss';
 @import '../components/ProjectList/ProjectList.scss';
 

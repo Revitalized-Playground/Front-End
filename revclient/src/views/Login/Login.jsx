@@ -44,7 +44,7 @@ const Login = props => {
             password:"",
         })
 		localStorage.setItem("token", created.data.loginUser.token);
-		props.history.push("/");
+		props.history.push("/user/dashboard");
     };
 
 
@@ -110,7 +110,7 @@ const Login = props => {
 				</form>
 				<div className="loginNoAccount">
 					<p>
-						Dont't have an account? <Link>Create One</Link>
+						Don't have an account? <Link>Create One</Link>
 					</p>
 				</div>
 			</div>

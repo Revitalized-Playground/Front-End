@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/LandingPage/Logo.png';
-// import darkModeEmoji from '../../assets/Global/Nav/night-mode-512.png';
-// import lightModeEmoji from '../../assets/Global/Nav/night-mode-512.png';
-import {FaMoon} from "react-icons/fa";
+import { FaMoon } from "react-icons/fa";
 
-const links = [{ to: '/', label: 'Browse' }, { to: '/', label: 'Learn More' },{ to: '/', label: 'Team' },{ to: '/login', label: 'Log In' }].map(
+const links = [
+	{ to: '/', label: 'Browse' }, 
+	{ to: '/', label: 'Learn More' },
+	{ to: '/', label: 'Team' },
+	// { to: '/user/dashboard', label: 'User Dashboard' },
+	{ to: '/login', label: 'Log In' }
+].map(
 	link => {
 		link.key = `nav-link-${link.href}-${link.label}`;
 		return link;
