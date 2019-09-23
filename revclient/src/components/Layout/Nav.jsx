@@ -5,7 +5,7 @@ import logo from '../../assets/LandingPage/Logo.png';
 // import lightModeEmoji from '../../assets/Global/Nav/night-mode-512.png';
 import {FaMoon} from "react-icons/fa";
 
-const links = [{ href: '#', label: 'Browse' }, { href: '#', label: 'Learn More' },{ href: '#', label: 'Team' },{ href: '#', label: 'Log In' }].map(
+const links = [{ to: '/', label: 'Browse' }, { to: '/', label: 'Learn More' },{ to: '/', label: 'Team' },{ to: '/login', label: 'Log In' }].map(
 	link => {
 		link.key = `nav-link-${link.href}-${link.label}`;
 		return link;
@@ -21,17 +21,17 @@ const Nav = () => {
 
 	return (
 		<nav>
-			<a href="/" title="Home">
+			<Link to="/" title="Home">
 				<div className="logo">
 					<img src={logo} alt="Revitalize logo" />
 					<h2>Revitalize </h2>
 				</div>
-			</a>
+			</Link>
 
 			<ul>
-				{links.map(({ key, href, label }) => (
+				{links.map(({ key, to, label }) => (
 					<li className="navLinks" key={key}>
-						<a href={href}>{label}</a>
+						<Link to={to} >{label}</Link>
 					</li>
 				))}
 				{/* <Link to="/login"><button className="login">Login</button></Link> */}
