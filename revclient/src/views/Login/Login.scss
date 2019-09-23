@@ -1,10 +1,10 @@
 .loginContainer {
 	background: #0b096f;
+	color: $snow-white;
 	height: 100vh;
 	max-width: 1920px;
 	margin: 0 auto;
 	display: flex;
-	color: white;
 	letter-spacing: 0.06em;
 
 	.revitalizeLogo-container {
@@ -114,11 +114,13 @@
 			}
 		}
 	}
+
 	.imgContainer {
 		height: 100%;
-		width: 60%;
-		background-image: url('../assets/AuthPages/LIImage.svg');
-		background-size: cover;
-		background-position: center;
+		width: 80%;
+		background-image: url('../assets/AuthPages/building-work-crew-03.jpg');
+		background-size: 100%;
+		background-position-y: top;
+	    mix-blend-mode: luminosity;
 	}
 }
