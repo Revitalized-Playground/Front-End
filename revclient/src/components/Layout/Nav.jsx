@@ -5,7 +5,7 @@ import logo from '../../assets/LandingPage/Logo.png';
 // import lightModeEmoji from '../../assets/Global/Nav/night-mode-512.png';
 import {FaMoon} from "react-icons/fa";
 
-const links = [{ href: '#', label: 'About' }, { href: '#', label: 'Trades' }, { href: '#', label: 'Community' },{ href: '#', label: 'Donate' }].map(
+const links = [{ href: '#', label: 'Browse' }, { href: '#', label: 'Learn More' },{ href: '#', label: 'Team' },{ href: '#', label: 'Log In' }].map(
 	link => {
 		link.key = `nav-link-${link.href}-${link.label}`;
 		return link;
@@ -34,7 +34,7 @@ const Nav = () => {
 						<a href={href}>{label}</a>
 					</li>
 				))}
-				<Link to="/login"><button className="login">Login</button></Link>
+				{/* <Link to="/login"><button className="login">Login</button></Link> */}
 				<Link to="/register"><button className="register">Get Started</button></Link>
 			</ul>
 			<div className="dark-mode-emoji">
