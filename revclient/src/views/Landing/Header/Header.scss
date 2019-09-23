@@ -3,17 +3,17 @@
 .header {
 	// This is for fixed nav to be removed.
 	// border: 1px solid red;
-	@include spaceForNav;
+	@include spaceForNav;  
+	// Consider using sticky to negate the need for a spacer fix
+	// Frank
 
 	.cta-container {
-		// border: 1px solid green;
 		height: 79vh;
 		display: flex;
 		justify-content: space-between;
 		margin: 10.5rem 7rem 5.2rem 7rem;
-
 		@media #{$mobile} {
-			border: 1px solid red;
+			// border: 1px solid red;
 			display: block;
 			margin: 0;
 		}
@@ -22,7 +22,6 @@
 			object-fit: contain;
 		}
 		.cta {
-			// border: 1px solid green;
 			max-width: 50%;
 			max-height: 33%;
 			text-align: left;
@@ -37,7 +36,7 @@
 				font-weight: 500;
 				letter-spacing: 0.13em;
 				line-height: 1.4;
-				color: #4840ba;
+				color: $chillFi-purple;
 				height: auto;
 
 				@media #{$mobile} {
@@ -59,7 +58,7 @@
 				}
 			}
 			button {
-				@include buttonStyler(#4840ba, #ffffff, none);
+				@include buttonStyler($chillFi-purple, $snow-white, none);
 				margin-top: 20px;
 				font-size: 20px;
 				height: 70px;
@@ -101,27 +100,31 @@
 				text-align: center;
 			}
 			.tenacity {
-				background: #d2405b;
+				background: $ruby-enchantment;
 			}
 			.ingenuity {
-				background: #ffc100;
+				background: $pikachu;
 			}
 			.growth {
-				background: #82c7b3;
+				background: $luigi;
 			}
 			.diligence {
-				background: #53a1a9;
+				background: $mutant-turtle;
 			}
 			.resilience {
-				background: #ab7b61;
+				background: $mocha;
 			}
 			.compassion {
-				background: #f7ad82;
+				background: $scampi;
 			}
 		}
 	}
 	.what-we-do {
 		padding: 2% 0;
+		background-image: url("../assets/LandingPage/GreyRectangle.png");
+		background-position: center;
+		background-size: cover;
+		background-repeat: no-repeat;
 		h2 {
 			text-align: center;
 			font-size: 48px;
@@ -151,7 +154,7 @@
 				a {
 					font-size: 20px;
 					text-decoration: none;
-					color: #4840ba;
+					color: $chillFi-purple;
 				}
 			}
 
@@ -175,3 +178,39 @@
 		}
 	}
 }
+
+
+.dark-mode {
+	.cta-container {
+		.cta {
+			.cta-title {
+				color: $dark-electric-blue;
+			}
+			p {
+				color: $police-blue;
+			}
+		}
+	}
+	.values {
+		p {
+			color: $abatross;
+		}
+		.value-tiles {
+			div {
+				color: $machiavellian;
+			}
+		}
+	}
+	.what-we-do {
+		background-image: none;
+		background-color: $police-blue;
+		.learn-more-container {
+			.crowdFunding, .opportunities, .pathways { 
+				a {
+					color: $saphire-mox;
+				}
+			}
+		}
+	}
+}
+

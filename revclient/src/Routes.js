@@ -1,11 +1,14 @@
 import React from 'react'
 import { BrowserRouter, Route } from "react-router-dom";
 
+// Routes
 import LandingPage from "./views/Landing/LandingPage";
 import Register from "./views/Register/Register";
 import Login from "./views/Login/Login";
 import ProjectsHome from "./views/ProjectsHome/ProjectsHome"; 
 
+// Utils
+import AuthenticateUser from "./utils/AuthenticateUser";
 
 export const Routes = props => {
 
@@ -35,7 +38,11 @@ export const Routes = props => {
                     <Login />
                 )}
             />
-
+            <Route 
+                exact
+                path="/oauth/:token"
+                component={AuthenticateUser}
+		    />
             {/* private routes */}
 
             <Route

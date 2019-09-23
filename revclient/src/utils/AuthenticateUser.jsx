@@ -1,8 +1,6 @@
 import React from 'react';
 import { 
     withRouter, 
-    Redirect, 
-    Route, 
 } from "react-router-dom";
 import jwtdecode from "jwt-decode";
 

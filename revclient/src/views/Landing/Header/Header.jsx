@@ -4,7 +4,7 @@ import heroImage from '../../../assets/LandingPage/HeroImage.png';
 import crowdFundingImg from '../../../assets/LandingPage/Crowdfunding.svg';
 import opportunitiesImg from '../../../assets/LandingPage/AO.svg';
 import pathwaysImg from '../../../assets/LandingPage/TradePathways.svg';
-import greyRectangle from '../../../assets/LandingPage/GreyRectangle.png';
+// import greyRectangle from '../../../assets/LandingPage/GreyRectangle.png';
 
 
 const Header = () => {
@@ -50,10 +50,7 @@ const Header = () => {
 			<div
 				className="what-we-do"
 				style={{
-					background: `url(${greyRectangle})`,
-					backgroundPosition: 'center',
-					backgroundSize: 'cover',
-					backgroundRepeat: 'no-repeat',
+
 				}}
 			>
 				<h2>What we do?</h2>
