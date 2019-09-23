@@ -2,6 +2,9 @@
 	background-color: $erudite-purple;
 	height: 14rem;
 	color: $snow-white;
+	@media #{$mobile} {
+		height: 36.6rem;		
+		}
 	a {
 		color: $snow-white;
 		text-decoration: none;
@@ -11,12 +14,24 @@
 		&:hover {
 			transform: scale(1.05);
 		}
+		@media #{$mobile} {
+			border: 1px solid green;
+		}
 	}
 	.links-container {
 		display: flex;
 		max-width: 78%;
 		justify-content: space-around;
 		margin: auto;
+		@media #{$mobile} {
+			// justify-content: space-evenly;
+			border: 1px solid red;
+			height: 80%;
+			flex-direction: column;	
+			margin: 0 0 0 0%;
+			
+
+		}
 		li {
 			max-height: 4rem;
 			margin-top: 5rem;
@@ -24,6 +39,11 @@
 			&:hover {
 				transform: scale(1.04);
 			}
+			@media #{$mobile} {
+				margin-top: auto;
+				border: 1px solid pink;	
+				
+				}
 		}
 	}
 	.copyright {
@@ -47,6 +67,7 @@
 		width: 4%;
 		right: 5%;
 	}
+
 }
 
 .dark-mode {

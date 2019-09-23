@@ -5,12 +5,21 @@
 	justify-content: space-around;
 	margin-top: 4%;
 	height: 617px;
+				@media #{$mobile} {
+			height: 590px;
+
+			flex-direction: column;
+			}
 	h2 {
 		font-family: "futura-pt";
 		font-size: 36px;
 		margin: 2.75% auto 3.8% 0.8%;
 		height: auto;
 		letter-spacing: 1.4px;
+		@media #{$mobile} {
+			margin-top: 5.8%;
+			font-size: 26px;
+		}
 	}
 	p {
 		line-height: 1.25;
@@ -18,6 +27,11 @@
 		width: 58%;
 		letter-spacing: 0.7px;
 		margin-left: 6px;
+		@media #{$mobile} {
+			font-size: 20px;
+			width: 85%;
+			margin-top: 4.5%;
+		}
 	}
 
 	.search-projects {
@@ -27,6 +41,9 @@
 		height: 70%;
 		// padding-left: 25px;
 		margin: 2% auto auto 5.3%;
+		@media #{$mobile} {
+			width: 100%;
+		}
 		input {
 			min-height: 49px;
 			margin: 4.8% auto 4% 0.3%;
@@ -36,6 +53,12 @@
 			font-size: 18px;
 			font-style: italic;
 			letter-spacing: 1px;
+			@media #{$mobile} {
+				position: relative;
+				bottom: -59%;
+				width: 84%;
+				min-height: 47px;
+			}
 		}
 		button {
 			@include buttonStyler($snow-white, $chillFi-purple, none);
@@ -48,6 +71,9 @@
 			font-size: 20px;
 			letter-spacing: 0.7px;
 			padding: 1px;
+			@media #{$mobile} {
+				display: none;
+			}
 		}
 	}
 
@@ -57,6 +83,13 @@
 		margin: auto 35px;
 		background-color: $police-blue;
 		color: black;
+		@media #{$mobile} {
+			position: absolute;
+			width: 86%;
+			height: 25.5%;
+			margin-top: 22%;
+			margin-left: 6.5%;
+		}
 	}
 }
 
