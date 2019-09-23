@@ -4,14 +4,18 @@
 	max-width: 1600px;
 	margin: 13.5% auto;
 	height: 100%;
-
+	@media #{$mobile} {
+	}
 	.card {
 		margin-bottom: 60px;
+		@media #{$mobile} {
+		}
 	}
 	.FPProjectList {
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: space-between;
+
 	}
 
 	h1 {
@@ -19,6 +23,9 @@
 		height: 70px;
 		font-size: 60px;
 		margin: auto 20px 20px 20px;
+		@media #{$mobile} {
+			font-size: 40px;
+		}
 	}
 
 	// These styles are not actually running. 
