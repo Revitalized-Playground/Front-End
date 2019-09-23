@@ -3,13 +3,48 @@
  * TODO: things to do
  * @props description
  */
-import React from 'react';
+import React, { useState } from "react";
+import { 
+    useMutation, 
+} from "@apollo/react-hooks";
+import { 
+    CREATE_USER,
+} from "../../graphql/mutations";
+import { withRouter } from "react-router-dom";
+
 import google from '../../assets/AuthPages/Google.png';
 import fbLogo from '../../assets/AuthPages/fb-logo.png';
 import revitalizeLogo from '../../assets/LandingPage/Logo.png';
 import twitter from '../../assets/AuthPages/twitter.png';
 
-export default function Register() {
+
+function Register(props) {
+	const [ createUser ] = useMutation(CREATE_USER);
+
+    const [state, setState] = useState({
+        email:"",
+        password:"",
+    });
+
+    const handleChanges = event => {
+        setState({
+            ...state,
+            [event.target.name]: event.target.value
+        })
+    };
+
+    const handleSubmit = async event => {
+        event.preventDefault();
+        localStorage.setItem("token", "");
+        const created = await createUser({ variables: { data: state } });
+        setState({
+            email:"",
+            password:"",
+        })
+		localStorage.setItem("token", created.data.createUser.token);
+		props.history.push("/");
+    };
+
 	return (
 		<div className="registerContainer">
 			<div className="revitalizeLogo-container">
@@ -26,9 +61,11 @@ export default function Register() {
 						<h1>With Revitalize</h1>
 					</div>
 					<button>
-						<div className="registerButton">
-							<img src={google} alt="Google" />
-							<h3>Create an Account with Google</h3>
+						<div >
+							<a className="registerButton" href={`${process.env.REACT_APP_OAUTH_GOOGLE_LINK}`}>
+								<img src={google} alt="Google" />
+								<h3>Create an Account with Google</h3>
+							</a>
 						</div>
 					</button>
 					<button>
@@ -49,17 +86,34 @@ export default function Register() {
 					<p>or</p>
 					<div className="registerLine"></div>
 				</div>
-				<div className="registerLocal">
+				<form className="registerLocal" onSubmit={handleSubmit}>
 					<p>Email</p>
-					<input placeholder="JaneDoe@gmail.com" />
+					<input 
+						name='email'
+						type='email'
+						placeholder="JaneDoe@gmail.com"
+						value={state.email}
+						onChange={handleChanges}
+                	/>	
+
 					<p className="registerSpaceAbove">Password</p>
-					<input type="password" placeholder="**********" />
-					<p className="registerSpaceAbove">Confirm Password</p>
-					<input type="password" placeholder="**********" />
+					<input 
+						name="password"
+						type="password"
+						placeholder="**********"
+						value={state.password}
+						onChange={handleChanges}
+                	/>
+					
+					{/* <p className="registerSpaceAbove">Confirm Password</p>
+					<input type="password" placeholder="**********" /> */}
+					
 					<button>Get Started!</button>
-				</div>
+				</form>
 			</div>
 			<div className="registerIMG"></div>
 		</div>
 	);
 }
+
+export default withRouter(Register)
