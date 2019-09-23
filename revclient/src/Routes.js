@@ -6,6 +6,7 @@ import LandingPage from "./views/Landing/LandingPage";
 import Register from "./views/Register/Register";
 import Login from "./views/Login/Login";
 import ProjectsHome from "./views/ProjectsHome/ProjectsHome"; 
+import CreateProjectWizard from './views/CreateProjWizard/CreateProjectWizard'
 
 // Utils
 import AuthenticateUser from "./utils/AuthenticateUser";
@@ -50,6 +51,14 @@ export const Routes = props => {
                 path="/projects"
                 render={() => (
                     <ProjectsHome />
+                )}
+            />
+
+            <Route
+                // exact
+                path="/createproject"
+                render={() => (
+                    <CreateProjectWizard />
                 )}
             />
 
