@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/LandingPage/Logo.png';
-import darkModeEmoji from '../../assets/Global/Nav/night-mode-512.png';
-import lightModeEmoji from '../../assets/Global/Nav/night-mode-512.png';
+// import darkModeEmoji from '../../assets/Global/Nav/night-mode-512.png';
+// import lightModeEmoji from '../../assets/Global/Nav/night-mode-512.png';
 import {FaMoon} from "react-icons/fa";
 
 const links = [{ href: '#', label: 'About' }, { href: '#', label: 'Trades' }, { href: '#', label: 'Community' },{ href: '#', label: 'Donate' }].map(

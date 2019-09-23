@@ -11,7 +11,7 @@
 		height: 79vh;
 		display: flex;
 		justify-content: space-between;
-		margin: 10.5rem 7rem 5.2rem 7rem;
+		margin: 15vh 7rem 5.2rem 7rem;
 		@media #{$mobile} {
 			// border: 1px solid red;
 			display: block;
@@ -31,7 +31,7 @@
 
 			.cta-title {
 				text-align: left;
-				margin-top: 85px;
+				margin-top: 25vh;
 				font-size: 42px;
 				font-weight: 500;
 				letter-spacing: 0.13em;
@@ -188,6 +188,16 @@
 			}
 			p {
 				color: $police-blue;
+			}
+			button {
+				background-color: $maastricht-blue;
+				color: $snow-white;
+				&:hover {
+					background-color: $scampi;
+					color: $maastricht-blue;
+
+					mix-blend-mode: color-dodge;
+				}
 			}
 		}
 	}

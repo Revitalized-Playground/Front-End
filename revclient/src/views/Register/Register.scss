@@ -1,10 +1,10 @@
 .registerContainer {
-	background: #2b56d3;
+	background: $machiavellian;
+	color: $snow-white;
 	height: 100vh;
 	max-width: 1920px;
 	margin: 0 auto;
 	display: flex;
-	color: white;
 	overflow: hidden;
 
 	.revitalizeLogo-container {
@@ -28,32 +28,33 @@
 
 			.registerWelcome {
 				text-align: center;
-				color: white;
+				color: $snow-white;
 			}
 
 			button {
+				background: $blue-valentine;
+				color: $snow-white;
 				width: 100%;
 				margin-top: 30px;
 				height: 50px;
 				border-radius: 8px;
 				border: none;
-				background: #ffffff;
 				cursor: pointer;
-
+				a {
+					text-decoration: none;
+					color: inherit;	
+				}
 				.registerButton {
 					display: flex;
 					align-items: center;
 					margin: 0 20px;
-					a {
-						text-decoration: none;
-						color: inherit;
-					}
 					img {
 						margin-right: 20px;
 						height: 40px;
 						width: 40px;
 					}
 				}
+
 			}
 		}
 
@@ -67,7 +68,7 @@
 			.registerLine {
 				height: 1px;
 				width: 40%;
-				background: white;
+				background: $snow-white;
 			}
 		}
 
@@ -99,99 +100,7 @@
 
 			button {
 				height: 50px;
-				background: #d2405b;
-				width: 50%;
-				margin: 0 auto;
-				margin-top: 60px;
-				border: none;
-				color: white;
-				font-size: 20px;
-				border-radius: 5px;
-				cursor: pointer;
-			}
-		}
-	}
-
-	.registerForm {
-		width: 40%;
-		height: 100%;
-
-		.registerThirdParty {
-			height: 40%;
-			width: 60%;
-			margin: 0 auto;
-			margin-top: 70px;
-
-			.registerWelcome {
-				text-align: center;
-				color: white;
-			}
-
-			button {
-				width: 100%;
-				margin-top: 30px;
-				height: 50px;
-				border-radius: 8px;
-				border: none;
-				background: #ffffff;
-				cursor: pointer;
-
-				.registerButton {
-					display: flex;
-					align-items: center;
-					margin: 0 20px;
-					img {
-						margin-right: 20px;
-						height: 40px;
-						width: 40px;
-					}
-				}
-			}
-		}
-
-		.registerMiddle {
-			width: 60%;
-			margin: 0 auto;
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-
-			.registerLine {
-				height: 1px;
-				width: 40%;
-				background: white;
-			}
-		}
-
-		.registerLocal {
-			width: 60%;
-			margin: 0 auto;
-			margin-top: 40px;
-			display: flex;
-			flex-direction: column;
-			letter-spacing: 0.06em;
-
-			span {
-				text-decoration: underline;
-				cursor: pointer;
-			}
-			.registerSpaceAbove {
-				margin-top: 40px;
-			}
-
-			input {
-				height: 35px;
-			}
-
-			.registerPass {
-				display: flex;
-				align-items: center;
-				justify-content: space-between;
-			}
-
-			button {
-				height: 50px;
-				background: #d2405b;
+				background: $ruby-enchantment;
 				width: 50%;
 				margin: 0 auto;
 				margin-top: 60px;
@@ -207,8 +116,9 @@
 	.registerIMG {
 		height: 100%;
 		width: 80%;
-		background-image: url('../assets/AuthPages/AdobeStock_217741897_Preview.jpeg');
-		background-size: 138%;
-		background-position: center;
+		background-image: url('../assets/AuthPages/building-work-crew-03.jpg');
+		background-size: 100%;
+		background-position-y: top;
+	    mix-blend-mode: luminosity;
 	}
 }

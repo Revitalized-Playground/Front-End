@@ -84,6 +84,9 @@ nav {
 	nav {
 		background-color: $machiavellian;
 		.logo {
+			img {
+				filter: hue-rotate(-25deg);
+			}
 			h2 {
 				color: $maastricht-blue;
 			}

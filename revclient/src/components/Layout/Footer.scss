@@ -48,3 +48,20 @@
 		right: 5%;
 	}
 }
+
+.dark-mode {
+	.footer {
+		background-color: $police-blue;
+		color: $maastricht-blue;
+		a {
+			color: $maastricht-blue;
+		}
+		.links-container {
+			li {
+				a {
+					color: $dark-electric-blue;
+				}
+			}
+		}
+	}
+}
