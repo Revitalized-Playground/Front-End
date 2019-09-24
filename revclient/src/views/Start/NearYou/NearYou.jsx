@@ -29,7 +29,7 @@ const NearYou = () => {
     
     return (
         <div className="nearContainer">
-            <p>Projects near you</p>
+            <p>Local Projects</p>
             <div className="nearList">
                 <ProjectsCarousel list={nearList} />
             </div>
