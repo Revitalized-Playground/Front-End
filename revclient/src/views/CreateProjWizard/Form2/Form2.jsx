@@ -19,7 +19,7 @@ const Form2 = ({ projOwnerName, projAddress, city, state, zip, handleChanges, se
 
     return (
         <form onSubmit={() => setFormPosition(3)} className="form-2" >
-            <h2>Project Owner Name</h2>
+            <h2>Owner Name</h2>
             <input
                 required
                 name="projOwnerName"
@@ -29,7 +29,7 @@ const Form2 = ({ projOwnerName, projAddress, city, state, zip, handleChanges, se
                 value={projOwnerName}
                 onChange={e => handleChanges(e)}
             />
-            <h2>Project Street Address</h2>
+            <h2>Street Address</h2>
             <input
                 required
                 name="projAddress"
@@ -41,7 +41,7 @@ const Form2 = ({ projOwnerName, projAddress, city, state, zip, handleChanges, se
 
             <div className="address-details">
                 <div>
-                    <h2>Project City</h2>
+                    <h2>City</h2>
                     <input
                         required
                         name="city"
@@ -52,8 +52,8 @@ const Form2 = ({ projOwnerName, projAddress, city, state, zip, handleChanges, se
                     />
                 </div>
 
-                <div>
-                    <h2>Project State</h2>
+                <div className='state-zip'>
+                    <h2>State</h2>
                     <select
                         required
                         onChange={e => handleChanges(e)}
@@ -63,8 +63,8 @@ const Form2 = ({ projOwnerName, projAddress, city, state, zip, handleChanges, se
                     </select>
 
                 </div>
-                <div>
-                    <h2>Project Zip Code</h2>
+                <div className='state-zip'>
+                    <h2>Zip Code</h2>
                     <input
                         required
                         min='10000'
@@ -81,8 +81,8 @@ const Form2 = ({ projOwnerName, projAddress, city, state, zip, handleChanges, se
             </div>
 
             <div className="form-navigation">
-                <button type="submit" className="next-step">Next Step!</button>
-                <button className="prev-step" onClick={() => setFormPosition(1)}>Previous Step!</button>
+                <button type="submit" className="next-step">Next! &rarr;</button>
+                <button className="prev-step" onClick={() => setFormPosition(1)}>&larr; Previous!</button>
             </div>
         </form >
     );

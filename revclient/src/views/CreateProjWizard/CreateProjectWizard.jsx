@@ -10,7 +10,7 @@ import cloud from '../../assets/CreateProjWizard/bottom-cloud-layer.png'
 
 const CreateProjectWizard = () => {
     const [projectDetails, setProjectDetails] = useState({ projName: "", projStartDate: "", projDescription: "", projOwnerName: "", projAddress: "", city: "", state: "", zip: null, projectDuration: null, projBudget: null, difficultyLevel: null })
-    const [formPosition, setFormPosition] = useState(3)
+    const [formPosition, setFormPosition] = useState(2)
 
     const handleChanges = event => {
         console.log("event", event)
@@ -28,7 +28,7 @@ const CreateProjectWizard = () => {
     console.log(projectDetails);
     return (
         <div className="create-project-page">
-            <h2>Revitalize</h2>
+            <h1 className='project-title'>Revitalize</h1>
             <div className="form-plus-quote-container">
 
                 <div className="quote">

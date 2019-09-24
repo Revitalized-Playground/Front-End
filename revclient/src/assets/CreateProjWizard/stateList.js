@@ -1,5 +1,5 @@
 const states = [
-	'Select A State',
+	'State',
 	'Alabama',
 	'Alaska',
 	'Arizona',

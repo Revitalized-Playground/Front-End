@@ -1,10 +1,11 @@
 .form-2 {
 	.address-details {
 		display: flex;
+		justify-content: space-between;	
+		align-items: center;
 		width: 100%;
 		select {
 			height: 3.25rem;
-			margin: 2% 0 0 0;
 		}
 
 		.proj-zip {
