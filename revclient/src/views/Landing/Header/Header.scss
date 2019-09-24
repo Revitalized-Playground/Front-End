@@ -8,6 +8,7 @@
 	// Frank
 
 	.cta-container {
+
 		display: flex;
 		justify-content: space-between;
 		margin: 85px 55px 125px 55px;
@@ -16,12 +17,13 @@
 			display: block;
 			margin: 0;
 		}
+
 		.cta {
 			width: 50%;
 			text-align: left;
 			margin-left: 10%;
 			@media #{$mobile} {
-				max-width: 100%;
+				width: 100%;
 			}
 
 			.cta-title {

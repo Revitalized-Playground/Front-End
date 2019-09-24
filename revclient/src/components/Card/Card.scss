@@ -1,1 +1,25 @@
+.card {
+	width: 30%;
+	max-width: 480px;
+	margin: 0 20px;
+	margin-bottom: 3%;
+	text-align: center;
+	transition: 0.2s all ease-in-out;
+	&:hover {
+		cursor: pointer;
+		color: $ocean-blue;
+	}
+	
+	img {
+		width: 100%;
+		object-fit: contain;
+		height: 660px;
+		border-radius: 10px;
+		transition: 0.2s all ease-in-out;
+		&:hover {
+			transform: scale(1.01);
+		}
+	}
+
+
 

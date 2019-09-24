@@ -70,28 +70,23 @@
 			}
 		}
 
+
 		.loginLocal {
 			width: 65%;
 			margin: 0 auto;
+
+			margin-top: 40px;
 			display: flex;
 			flex-direction: column;
+			letter-spacing: 0.06em;
 
-			.loginSpaceAbove {
-				margin-top: 30px;
-			}
-
-			.loginMid {
-				text-align: center;
-				padding-bottom: 15px;
-				p {
-					font-style: italic;
-				}
-			}
 
 			span {
 				text-decoration: underline;
-				font-style: italic;
 				cursor: pointer;
+			}
+			.registerSpaceAbove {
+				margin-top: 40px;
 			}
 
 			input {
@@ -99,7 +94,7 @@
 				padding: 0px 5px;
 			}
 
-			.loginPass {
+			.registerPass {
 				display: flex;
 				align-items: center;
 				justify-content: space-between;
@@ -107,7 +102,7 @@
 
 			button {
 				height: 50px;
-				background: #d2405b;
+				background: $ruby-enchantment;
 				width: 50%;
 				margin: 0 auto;
 				margin-top: 60px;
@@ -116,6 +111,13 @@
 				font-size: 20px;
 				border-radius: 5px;
 				cursor: pointer;
+			}
+		}
+		.loginNoAccount {
+			width: 60%;
+			margin: 20px auto 0;
+			p {
+				text-align: center;
 			}
 		}
 	}
