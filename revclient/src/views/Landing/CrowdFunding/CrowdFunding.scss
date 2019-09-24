@@ -1,6 +1,6 @@
 .crowdfunding-container {
 	margin-top: 7.1%;
-	height: 100%;
+
 	
 	@media #{$mobile} {
 		margin-top: 0;
@@ -10,11 +10,11 @@
 
 	.crowdfunding-header {
 		font-family: Futura-pt;
-		font-size: 48px;
+		font-size: 44px;
 		line-height: 160.81%;
-		margin-left: 12%;
-		letter-spacing: 3px;
-		font-weight: bold;
+		margin-left: 6%;
+		letter-spacing: .04em;
+		font-weight: 500;
 		color: $erudite-purple;
 
 		@media #{$mobile} {
@@ -31,7 +31,7 @@
 		letter-spacing: 0.06em;
 	}
 	.Explore {
-		margin: 0.75% 0 4.3% 12.1%;
+		margin: 0.75% 0 4.3% 6.2%;
 		font-family: Futura-pt;
 		letter-spacing: 0.06em;
 
@@ -45,7 +45,7 @@
 	.do-you-know {
 		font-family: "futura-pt";
 		margin-top: 2.4%;
-		margin-left: 30.6%;
+		text-align: center;
 		font-size: 25px;
 		letter-spacing: 1px;
 
@@ -57,32 +57,36 @@
 		display: flex;
 		justify-content: space-between;
 		width: 76%;
-		margin-left: 12%;
+		margin: 0 auto;
 
 		@media #{$mobile} {
 			flex-direction: column;
 			width: 100%;
 			margin-left: 0;
 		}
-	}
-	img {
-		width: 31%;
-		height: 294px;
-		@media #{$mobile} {
-			width: 100%;
-			height: 240px;
-			margin-bottom: 40px;
+		img {
+			width: 31%;
+			height: 294px;
+			@media #{$mobile} {
+				width: 100%;
+				height: 240px;
+				margin-bottom: 40px;
+			}
+			
 		}
-		
 	}
+
+	.center{
+		display: block;
+		margin: 0 auto;
+		text-align: center;
+
 	.create-button {
 		@include buttonStyler($chillFi-purple, $snow-white, none);
-		margin-top: 50px;
-		margin-left: 40%;
-		font-size: 34px;
-		height: 95px;
-		padding: 0.5rem 1.2rem;
-		width: 20%;
+		margin: 40px auto 80px auto;
+		font-size: 30px;
+		padding: 1.2rem 2.2rem;
+		width: 300px;
 
 		@media #{$mobile} {
 			// position: static;
@@ -94,6 +98,7 @@
 			margin-left: 9%;
 		}
 	}
+}
 }
 
 .dark-mode {
