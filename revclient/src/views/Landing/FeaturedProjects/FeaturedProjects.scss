@@ -1,14 +1,53 @@
 @import '../../../styles/mixins';
 
 .FPContainer {
-	margin: 150px 70px;
+	margin: 150px 70px 100px 70px;
 
 	
 	.FPProjectList {
 		display: flex;
 		justify-content: space-between;
 		.card {
-			margin: 25px;
+			margin: 25 25px;
+			margin-bottom: 3%;
+			text-align: center;
+			transition: 0.2s all ease-in-out;
+			width: 25%;
+			&:hover {
+				cursor: pointer;
+				color: $ocean-blue;
+			}
+			
+			img {
+				width: 100%;
+				border-radius: 10px;
+				transition: 0.2s all ease-in-out;
+				&:hover {
+					transform: scale(1.01);
+					@include subtleBoxShadow;
+				}
+			}
+		
+			h4 {
+				margin: 30px auto 20px auto;
+				max-width: 407px;
+				font-size: 36px;
+			}
+		
+			p {
+				font-size: 23px;
+				max-width: 405px;
+				margin: 30px auto 0 auto;
+			}
+		}
+		
+		
+		.dark-mode {
+			.card {
+				&:hover {
+					color: $maastricht-blue;
+				}
+			}
 		}
 	}
 
@@ -16,6 +55,7 @@
 		line-height: 112.31%;
 		font-size: 48px;
 		letter-spacing: 0.06em;
+		margin-bottom: 35px;
 	}
 
 	// These styles are not actually running. 
