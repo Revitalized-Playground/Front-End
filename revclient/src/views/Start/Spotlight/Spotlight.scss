@@ -1,0 +1,25 @@
+.spotlightContainer {
+    margin: 4.5rem auto 2rem 9.8rem;
+    width: 85.2%;
+    height: 26rem;
+    color: $snow-white;
+    z-index: 1;
+}
+.spotlightImage {
+    // margin: 4.5rem auto 2rem 9.8rem;
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+    // border: 1px solid red;
+    filter: brightness(60%);
+}
+.text, .heart {
+    filter: brightness(150%);
+    margin-top: -5rem;
+    z-index: 2;
+    // border: 1px solid red;
+}
+.text {
+    display: flex;
+    flex-direction: column;
+}

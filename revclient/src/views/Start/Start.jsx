@@ -14,8 +14,8 @@ const Start = () => {
         <div className="startContainer">
             <Nav />
             <Top />
-            <Spotlight />
             <Banner />
+            <Spotlight />
             <RecommendedProjects />
             <NearYou />
             <Noteworthy />

@@ -1,9 +1,9 @@
 .topContainer {
     width: 85%;
-    // font-weight: bold;
-    // margin: 11.66rem auto 2rem auto;
     margin: 11.66rem auto 2rem 9.8rem;
+    // margin: 11.66rem auto 2rem auto;
     letter-spacing: 0.16rem;
+    font-weight: 500;
     .title {
         display: flex;
         font-size: 36px;
@@ -24,6 +24,7 @@
             width: 18.55rem;
             height: 4.25rem;
             display: flex;
+            border-radius: 5px;
             .bar {
                 width: 5%;
             }
