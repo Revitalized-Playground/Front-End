@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import building from '../../../assets/StartPage/SpotlightBuilding.png';
+import heart from '../../../assets/StartPage/HeartVector.png';
 
 const Spotlight = () => {
     
     const [spotlight, setSpotlight] = useState({
         description: "Milwaukee's Red Cypress building was home to iron manufacturing and now the ancient building is transforming to a coworking space.",
         image: `${building}`,
-        link: "#"
+        link: "/project"
     })
     
     return (
@@ -16,12 +18,13 @@ const Spotlight = () => {
                 className="spotlightImage" 
                 style={{backgroundImage: `url(${spotlight.image})`}}
             ></div>
+            <div className="window"></div>
             <div className="text">
                 <h3>SPOTLIGHT</h3>
                 <p>{spotlight.description}</p>
-                <a href={spotlight.link}>Learn more ></a>
+                <Link to={spotlight.link}>Learn more &gt;</Link>
             </div>
-            <div className="heart"></div>
+            <img src={heart} alt="heart" className="heart" />
         </div>
     );
 };
