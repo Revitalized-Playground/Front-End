@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import rubiconPhones from '../../../assets/LandingPage/RubiconPhones.png';
-// import teamRubicon from '../../../assets/LandingPage/Team Rubicon.png';
+import phoneLeft from "../../../assets/LandingPage/PhoneLeft.png";
 import Theatre from '../../../assets/LandingPage/Theatre.svg';
 
 const ProjectSpotlight = () => {
@@ -17,7 +17,7 @@ const ProjectSpotlight = () => {
 		<section className="project-spotlight">
 			<div className='phoneContainer'>
 				<h2 className="section-title">Project Spotlight</h2>
-				<img className="phone-left phone" src={rubiconPhones} alt="cell phone" />
+				<img className="phone-left phone" src={phoneLeft} alt="cell phone" />
 			</div>
 			
 			<div className="user-story">
