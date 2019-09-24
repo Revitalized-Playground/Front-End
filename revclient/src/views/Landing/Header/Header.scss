@@ -16,14 +16,10 @@
 			display: block;
 			margin: 0;
 		}
-		img {
-			max-width: 44%;
-			object-fit: contain;
-		}
 		.cta {
-			max-width: 47%;
-			max-height: 33%;
+			width: 50%;
 			text-align: left;
+			margin-left: 10%;
 			@media #{$mobile} {
 				max-width: 100%;
 			}
@@ -63,6 +59,15 @@
 				height: 70px;
 				padding: 0.5rem 1rem;
 				width: 270px;
+			}
+		}
+		.header-img-container {
+			width: 50%;
+			display: flex;
+			justify-content: flex-start;
+			img {
+				width: 85%;
+				object-fit: contain;
 			}
 		}
 	}

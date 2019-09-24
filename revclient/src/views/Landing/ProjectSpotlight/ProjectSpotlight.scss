@@ -64,7 +64,8 @@
 			margin: 0 auto
 		}
 		.user-photo {
-			width: 78%;
+			width: 50%;
+			max-width: 375px;
 			height: 78%;
 			object-fit: contain;
 			margin: 0 auto;
@@ -75,7 +76,7 @@
 		}
 		.user-info {
 			font-size: 42px;
-			margin: -3% 3% 0 8%;
+			margin: -3% auto 0 auto;
 			line-height: 48px;
 			letter-spacing: 0.05em;
 
@@ -94,7 +95,6 @@
 			font-size: 15px;
 			font-weight: bold;
 			position: relative;
-			left: 5%;
 
 			@media #{$mobile} {
 				font-size: 16px;
