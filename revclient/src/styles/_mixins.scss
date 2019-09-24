@@ -55,3 +55,25 @@
 @mixin subtleBoxShadow {
 	box-shadow: 0px 0px 5px 0px rgba(10,10,10,0.25);
 }
+
+@mixin bottomBoxShadow {
+	box-shadow: 0px 4px 3px -3px rgba(10, 10, 10, 0.25);
+}
+
+@mixin sections {
+	border-left-color: $static-grey;
+    border-left-style: solid;
+	border-left-width: 1px;
+    border-right-color: $static-grey;
+    border-right-style: solid;
+    border-right-width: 1px;
+	border-top-color: $static-grey;
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-bottom-color: $static-grey;
+    border-bottom-style: solid;
+    border-bottom-width: 3px;
+	margin: 5px 10px 5px 10px;
+	padding: 10px;
+	background-color: $snow-white;
+}

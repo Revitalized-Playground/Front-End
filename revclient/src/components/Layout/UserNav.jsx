@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import userProfileAvatarTest from "../../assets/LandingPage/Maxwell.png";
 
 
-const UserNav = props => {
+const UserNav = () => {
 
     const [user] = useState({ 
         firstName: "Frank"
