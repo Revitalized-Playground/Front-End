@@ -55,8 +55,8 @@
 	}
 	.img-container {
 		display: flex;
-		justify-content: space-between;
-		width: 76%;
+		justify-content: space-around;
+		width: 100%;
 		margin: 0 auto;
 
 		@media #{$mobile} {
@@ -65,8 +65,7 @@
 			margin-left: 0;
 		}
 		img {
-			width: 31%;
-			height: 294px;
+			width: 25%;
 			@media #{$mobile} {
 				width: 100%;
 				height: 240px;
@@ -76,6 +75,11 @@
 		}
 	}
 
+	.do-you-know{
+		margin-top: 55px;
+		font-size: 22px;
+	}
+
 	.center{
 		display: block;
 		margin: 0 auto;
@@ -83,7 +87,7 @@
 
 	.create-button {
 		@include buttonStyler($chillFi-purple, $snow-white, none);
-		margin: 40px auto 80px auto;
+		margin: 50px auto 80px auto;
 		font-size: 30px;
 		padding: 1.2rem 2.2rem;
 		width: 300px;

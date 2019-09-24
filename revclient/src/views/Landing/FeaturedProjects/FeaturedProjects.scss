@@ -1,24 +1,21 @@
 @import '../../../styles/mixins';
 
 .FPContainer {
-	max-width: 1600px;
-	margin: 13.5% auto;
-	height: 100%;
+	margin: 150px 70px;
 
-	.card {
-		margin-bottom: 60px;
-	}
+	
 	.FPProjectList {
 		display: flex;
-		flex-wrap: wrap;
 		justify-content: space-between;
+		.card {
+			margin: 25px;
+		}
 	}
 
 	h1 {
-		width: 420px;
-		height: 70px;
-		font-size: 60px;
-		margin: auto 20px 20px 20px;
+		line-height: 112.31%;
+		font-size: 48px;
+		letter-spacing: 0.06em;
 	}
 
 	// These styles are not actually running. 
