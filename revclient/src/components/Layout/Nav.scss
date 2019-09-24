@@ -8,7 +8,6 @@ nav {
 	height: 90px;
 	padding: 5px 0px;
 	@include fixedNav;
-
 	@media #{$mobile} {
 		background: $chillFi-purple;
 		height: 99px;
