@@ -12,6 +12,8 @@ import {
 } from "../../graphql/mutations";
 import { withRouter } from "react-router-dom";
 
+import {Link} from "react-router-dom";
+
 import google from '../../assets/AuthPages/Google.png';
 import fbLogo from '../../assets/AuthPages/fb-logo.png';
 import revitalizeLogo from '../../assets/LandingPage/Logo.png';
@@ -48,11 +50,11 @@ function Register(props) {
 	return (
 		<div className="registerContainer">
 			<div className="revitalizeLogo-container">
-				<a href="/" title="Home">
+				<Link to="/" title="Home">
 					<div className="logo">
 						<img src={revitalizeLogo} alt="Revitalize logo" />
 					</div>
-				</a>
+				</Link>
 			</div>
 			<div className="registerForm">
 				<div className="registerThirdParty">

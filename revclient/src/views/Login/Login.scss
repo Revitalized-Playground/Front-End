@@ -1,11 +1,15 @@
 .loginContainer {
 	background: #0b096f;
-	height: 100vh;
-	max-width: 1920px;
+	color: $snow-white;
 	margin: 0 auto;
 	display: flex;
-	color: white;
 	letter-spacing: 0.06em;
+	height: 100%;
+
+	.loginContainerLeft{
+		min-height: 100vh;
+		padding-bottom: 140px;
+		min-width: 525px;
 
 	.revitalizeLogo-container {
 		height: 100px;
@@ -16,14 +20,13 @@
 		}
 	}
 	.loginForm {
-		width: 40%;
-		height: 100%;
+		width: 80%;
+		margin: 0 auto;
 
 		.loginThirdParty {
-			height: 40%;
-			width: 60%;
+			
+			width: 65%;
 			margin: 0 auto;
-			margin-top: 70px;
 
 			.loginWelcome {
 				text-align: center;
@@ -53,8 +56,9 @@
 		}
 
 		.loginMiddle {
-			width: 60%;
+			width: 65%;
 			margin: 0 auto;
+			padding: 20px;
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
@@ -67,18 +71,18 @@
 		}
 
 		.loginLocal {
-			width: 60%;
+			width: 65%;
 			margin: 0 auto;
-			margin-top: 10px;
 			display: flex;
 			flex-direction: column;
 
 			.loginSpaceAbove {
-				margin-top: 40px;
+				margin-top: 30px;
 			}
 
 			.loginMid {
 				text-align: center;
+				padding-bottom: 15px;
 				p {
 					font-style: italic;
 				}
@@ -92,6 +96,7 @@
 
 			input {
 				height: 35px;
+				padding: 0px 5px;
 			}
 
 			.loginPass {
@@ -114,11 +119,16 @@
 			}
 		}
 	}
+}
+
 	.imgContainer {
-		height: 100%;
-		width: 60%;
-		background-image: url('../assets/AuthPages/LIImage.svg');
-		background-size: cover;
-		background-position: center;
+		background-attachment:fixed;
+		width: 90%;
+		background-image: url('../assets/AuthPages/Login.png');
+		background-size: 63%;
+		background-position-y: top;
+		background-position-x: 90%;
+		
+		background-repeat: no-repeat;
 	}
 }

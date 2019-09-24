@@ -3,25 +3,34 @@
  * TODO: things to do
  * @props description
  */
+import React from "react";
+import { 
+    useMutation, 
+} from "@apollo/react-hooks";
+import { 
+    LOGIN_USER,
+} from "../../graphql/mutations";
+import { withRouter } from "react-router-dom";
 
-import React from 'react';
+import {Link} from "react-router-dom";
 
-import googleLogo from '../../assets/AuthPages/Google.png';
-import revitalizeLogo from '../../assets/LandingPage/Logo.png';
-import fbLogo from '../../assets/AuthPages/fb-logo.png';
-import twitterLogo from '../../assets/AuthPages/twitter.png';
+import googleLogo from "../../assets/AuthPages/Google.png";
+import revitalizeLogo from "../../assets/LandingPage/Logo.png";
+import fbLogo from "../../assets/AuthPages/fb-logo.png";
+import twitterLogo from "../../assets/AuthPages/twitter.png";
 
 
 export default function Login() {
 	return (
 		<div className="loginContainer">
-        <div className='revitalizeLogo-container'>
-        	<a href="/" title="Home">
-				<div className="logo">
-					<img src={revitalizeLogo} alt="Revitalize logo" />					
-				</div>
-			</a>
-        </div>
+			<div className="loginContainerLeft">
+			<div className="revitalizeLogo-container">
+				<Link to="/" title="Home">
+					<div className="logo">
+						<img src={revitalizeLogo} alt="Revitalize logo" />					
+					</div>
+				</Link>
+			</div>
 			<div className="loginForm">
 				<div className="loginThirdParty">
 					<div className="loginWelcome">
@@ -65,10 +74,9 @@ export default function Login() {
 						<span className="loginSpaceAbove">Forgot Password?</span>
 					</div>
 					<input type="password" placeholder="**********" />
-					<p className="loginSpaceAbove">Confirm Password</p>
-					<input type="password" placeholder="**********" />
 					<button>Log In</button>
 				</div>
+			</div>
 			</div>
 			<div className="imgContainer"></div>
 		</div>
