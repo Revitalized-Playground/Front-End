@@ -1,7 +1,12 @@
 .user-nav {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     padding: 33px;
+    .user-nav-logo {
+        svg {
+            font-size: 1.6rem;
+        }
+    }
     .user-nav-avatar {
         display: flex;
         justify-content: center;
