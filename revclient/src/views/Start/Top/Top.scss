@@ -1,6 +1,48 @@
 .topContainer {
     width: 85%;
-    height: 300px;
-    border: 1px solid red;
-    margin: 0 auto;
+    // font-weight: bold;
+    // margin: 11.66rem auto 2rem auto;
+    margin: 11.66rem auto 2rem 9.8rem;
+    letter-spacing: 0.16rem;
+    .title {
+        display: flex;
+        font-size: 36px;
+        line-height: 48px;
+        .questionMark {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    }
+    .roles {
+        display: flex;
+        font-size: 28px;
+        line-height: 37px;
+        margin-top: 1.5rem;
+        padding: 0.5rem 0;
+        .role {
+            background-color: $silver-lining;
+            margin-right: 3.9rem;
+            width: 18.55rem;
+            height: 4.25rem;
+            display: flex;
+            .bar {
+                width: 5%;
+            }
+            p {
+                align-self: center;
+                padding-left: 1.5rem;
+            }
+            .student {
+                background-color: $chillFi-purple;
+            }
+            .employer {
+                background-color: $pikachu;                    
+            }
+            .donor {
+                background-color: $luigi;                    
+            }
+            .trainer {
+                background-color: $ruby-enchantment;                    
+            }
+        }
+    }
 }

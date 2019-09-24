@@ -1,6 +1,5 @@
 import React from 'react';
 
-// import StartNav from './StartNav/StartNav';
 import Nav from '../../components/Layout/Nav';
 import Top from './Top/Top';
 import Banner from './Banner/Banner';
@@ -13,7 +12,6 @@ import Hire from './Hire/Hire';
 const Start = () => {
     return (
         <div className="startContainer">
-            {/* <StartNav /> */}
             <Nav />
             <Top />
             <Spotlight />

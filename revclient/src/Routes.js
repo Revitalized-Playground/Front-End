@@ -6,6 +6,7 @@ import LandingPage from './views/Landing/LandingPage';
 import Register from './views/Register/Register';
 import Login from './views/Login/Login';
 import ProjectsHome from './views/ProjectsHome/ProjectsHome';
+import ProjectPage from './views/ProjectPage/ProjectPage';
 import CreateProjectWizard from './views/CreateProjWizard/CreateProjectWizard';
 import Start from './views/Start/Start';
 
@@ -27,6 +28,11 @@ export const Routes = props => {
 				// exact
 				path="/projects"
 				render={() => <ProjectsHome />}
+			/>
+			<Route
+				// exact
+				path="/project"
+				render={() => <ProjectPage />}
 			/>
 
 			<Route

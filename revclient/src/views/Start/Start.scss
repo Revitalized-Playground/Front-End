@@ -1,4 +1,3 @@
-@import './StartNav/StartNav.scss';
 @import './Top/Top.scss';
 @import './Banner/Banner.scss';
 @import './Spotlight/Spotlight.scss';
@@ -7,8 +6,7 @@
 @import './Noteworthy/Noteworthy.scss';
 @import './Hire/Hire.scss';
 
-// .startContainer {
-//     background-color: $black-void;
-//     color: $snow-white;
-//     height: 100vh;
-// }
+.startContainer {
+    @include spaceForNav;
+    // margin-left: 9.8rem;
+}
