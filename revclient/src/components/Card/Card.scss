@@ -21,26 +21,5 @@
 		}
 	}
 
-	h4 {
-		margin: 30px auto 0 auto;
-		max-width: 407px;
-		height: 80px;
-		font-size: 36px;
-	}
-
-	p {
-		font-size: 24px;
-		max-width: 405px;
-		height: 127px;
-		margin: 30px auto 0 auto;
-	}
-}
 
 
-.dark-mode {
-	.card {
-		&:hover {
-			color: $maastricht-blue;
-		}
-	}
-}
