@@ -31,6 +31,7 @@ const StartNav = () => {
     
     return (
         <div className="navContainer">
+
             <div className="dark-mode-emoji">
 				<FaMoon onClick={() => toggleDarkMode()}/>
 			</div>
@@ -46,7 +47,6 @@ const StartNav = () => {
                         <div className="on"></div>
                     </div>
                 )}
-
                 <div className="userIcon"></div>
             </div>
         </div>

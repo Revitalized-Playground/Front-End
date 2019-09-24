@@ -5,7 +5,13 @@ import logo from '../../assets/LandingPage/Logo.png';
 // import lightModeEmoji from '../../assets/Global/Nav/night-mode-512.png';
 import { FaMoon } from "react-icons/fa";
 
-const links = [{ href: '#', label: 'Browse' }, { href: '#', label: 'Learn More' }, { href: '#', label: 'Team' }, { href: '#', label: 'Log In' }].map(
+const uLinks = [{ href: '/start', label: 'Browse' }, { href: '#', label: 'Learn More' }, { href: '#', label: 'Team' }, { href: '/login', label: 'Log In' }].map(
+	link => {
+		link.key = `nav-link-${link.href}-${link.label}`;
+		return link;
+	},
+);
+const aLinks = [{ href: '/createproject', label: 'Create a project' }, { href: '/projects', label: 'Community' }, { href: '#', label: 'Help' }].map(
 	link => {
 		link.key = `nav-link-${link.href}-${link.label}`;
 		return link;
@@ -14,6 +20,16 @@ const links = [{ href: '#', label: 'Browse' }, { href: '#', label: 'Learn More' 
 
 const Nav = () => {
 	const [darkModeActive, setDarkMode] = useState(false);
+	const [loggedIn, setLoggedIn] = useState(false);
+	const [name, setName] = useState("User");
+    const [clicked, setClicked] = useState(false);
+
+	// for testing
+	const toggleLoggedIn = () => setLoggedIn(!loggedIn);
+
+    const toggleDropdown = () => {
+        setClicked(!clicked);
+	}
 
 	const toggleDarkMode = () => {
 		setDarkMode(!darkModeActive);
@@ -36,19 +52,36 @@ const Nav = () => {
 					<h2>Revitalize </h2>
 				</div>
 			</a>
-
+			{/* <button onClick={toggleLoggedIn}>FOR TESTING: toggleLoggedIn</button> */}
 			<ul>
-				{links.map(({ key, href, label }) => (
-					<li className="navLinks" key={key}>
-						<a href={href}>{label}</a>
-					</li>
-				))}
-				{/* <Link to="/login"><button className="login">Login</button></Link> */}
-				<Link to="/register"><button className="register">Get Started</button></Link>
+			{localStorage.getItem('token')
+				?	(<> {aLinks.map(({ key, href, label }) => (
+						<li className="navLinks" key={key}>
+							<Link to={href}>{label}</Link>
+						</li>
+					))}
+					<div className="user">
+								<div className="welcome" onClick={toggleDropdown}>{`Welcome, ${name}`}</div>
+									{clicked && (
+										<div className="dropdown">
+											<div className="on"></div>
+										</div>
+									)}
+								<div className="userIcon"></div>
+							</div></>
+							)
+				:	(<> {uLinks.map(({ key, href, label }) => (
+						<li className="navLinks" key={key}>
+							<Link to={href}>{label}</Link>
+						</li>
+					))}
+					<li>
+								<Link to="/register"><button className="register">Get Started</button></Link>
+							</li></>)
+			}
 			</ul>
 			<div className="dark-mode-emoji">
 				<FaMoon
-
 					onClick={() => toggleDarkMode()}
 				/>
 			</div>
