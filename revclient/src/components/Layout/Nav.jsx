@@ -22,8 +22,10 @@ const aLinks = [{ href: '/createproject', label: 'Create a project' }, { href: '
 const Nav = props => {
 	const [darkModeActive, setDarkMode] = useState(false);
 	const [loggedIn, setLoggedIn] = useState(false);
-	const [name] = useState("User");
-    const [clicked, setClicked] = useState(false);
+	const [clicked, setClicked] = useState(false);
+
+	// Current user
+	const [name] = useState({});
 
 	// for testing
 	const toggleLoggedIn = () => setLoggedIn(!loggedIn);
@@ -62,7 +64,7 @@ const Nav = props => {
 			{/* <button onClick={toggleLoggedIn}>FOR TESTING: toggleLoggedIn</button> */}
 			<ul className="right-nav">
 			{localStorage.getItem('token')
-				?	(<> 
+				?	(<>
 						{aLinks.map(({ key, href, label }) => (
 							<li className="navLinks" key={key}>
 								<Link to={href}>{label}</Link>
@@ -77,7 +79,7 @@ const Nav = props => {
 									<div>Setting</div>
 									<div onClick={toggleDarkMode}>
 										<FaMoon  />&nbsp; Dark mode: {darkModeActive ? "on" : "off"}
-									</div> 
+									</div>
 									<div onClick={logout}>Log out</div>
 								</div>
 							)}
@@ -102,7 +104,7 @@ const Nav = props => {
 					)
 			}
 			</ul>
-			
+
 		</nav>
 	);
 };
@@ -121,7 +123,7 @@ export default withRouter(Nav);
 // import { FaMoon } from "react-icons/fa";
 
 // const links = [
-// 	{ to: '/', label: 'Browse' }, 
+// 	{ to: '/', label: 'Browse' },
 // 	{ to: '/', label: 'Learn More' },
 // 	{ to: '/', label: 'Team' },
 // 	// { to: '/user/dashboard', label: 'User Dashboard' },

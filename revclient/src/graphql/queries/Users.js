@@ -8,4 +8,17 @@ export const GET_USERS = gql`
         }
     }
 `
-
+export const GET_USER = gql`
+    query me {
+        email
+        firstName
+        lastName
+        profileImage
+        city
+        zip
+        address
+        state
+        aptNumber
+        projects
+    }
+`;
