@@ -13,19 +13,30 @@
 		justify-content: space-between;
 		margin: 15vh 7rem 5.2rem 7rem;
 		@media #{$mobile} {
+
 			// border: 1px solid red;
 			display: block;
+
+			flex-direction: column;
+
 			margin: 0;
+			height: 100%;
 		}
 		img {
 			max-width: 50%;
 			object-fit: contain;
+
+			@media #{$mobile} {
+				max-width: 100%;
+			}
 		}
 		.cta {
 			max-width: 50%;
-			max-height: 33%;
+			max-height: 100%;
 			text-align: left;
+
 			@media #{$mobile} {
+				height: 50%;
 				max-width: 100%;
 			}
 
@@ -54,7 +65,7 @@
 
 				@media #{$mobile} {
 					max-width: 100%;
-					margin: 10px 0;
+					margin: 10px 0 50px 0;
 				}
 			}
 			button {
@@ -64,6 +75,10 @@
 				height: 70px;
 				padding: 0.5rem 1rem;
 				width: 270px;
+
+				@media #{$mobile} {
+					margin: 10px 0 80px 0;
+				}
 			}
 		}
 	}
@@ -77,6 +92,10 @@
 			margin-bottom: 17px;
 			padding-left: 50px;
 			text-align: center;
+
+			@media #{$mobile} {
+				font-size: 1rem;
+			}
 		}
 		.value-tiles {
 			display: flex;
@@ -88,6 +107,15 @@
 			padding-bottom: 5rem;
 			padding-top: 1.25rem;
 
+			@media #{$mobile} {
+				justify-content: space-between;
+				width: 86%;
+				margin: 0 auto;
+				text-align: center;
+				padding-bottom: 5rem;
+				padding-top: 1.25rem;
+			}
+
 			div {
 				border-radius: 0.25rem;
 				padding: 1.8rem 0;
@@ -98,6 +126,12 @@
 				height: 5.2rem;
 				margin: auto;
 				text-align: center;
+
+				@media #{$mobile} {
+					font-size: 10px;
+					padding: 0.5rem 0;
+					height: 0.5rem;
+				}
 			}
 			.tenacity {
 				background: $ruby-enchantment;
@@ -135,6 +169,10 @@
 			max-width: 100%;
 			display: flex;
 			justify-content: space-evenly;
+
+			@media #{$mobile} {
+				flex-direction: column;
+			}
 			img {
 				width: 300px;
 				height: 300px;
