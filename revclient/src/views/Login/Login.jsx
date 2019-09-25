@@ -3,25 +3,63 @@
  * TODO: things to do
  * @props description
  */
+import React, {useState} from "react";
+import { 
+    useMutation, 
+} from "@apollo/react-hooks";
+import { 
+    LOGIN_USER,
+} from "../../graphql/mutations";
+import { withRouter } from "react-router-dom";
 
-import React from 'react';
+import {Link} from "react-router-dom";
 
-import googleLogo from '../../assets/AuthPages/Google.png';
-import revitalizeLogo from '../../assets/LandingPage/Logo.png';
-import fbLogo from '../../assets/AuthPages/fb-logo.png';
-import twitterLogo from '../../assets/AuthPages/twitter.png';
+import googleLogo from "../../assets/AuthPages/Google.png";
+import revitalizeLogo from "../../assets/LandingPage/Logo.png";
+import fbLogo from "../../assets/AuthPages/fb-logo.png";
+import twitterLogo from "../../assets/AuthPages/twitter.png";
 
 
-export default function Login() {
+const Login = props => {
+	const [ loginUser ] = useMutation(LOGIN_USER);
+
+    const [state, setState] = useState({
+        email:"",
+        password:"",
+    });
+
+    const handleChanges = event => {
+        setState({
+            ...state,
+            [event.target.name]: event.target.value
+        })
+    };
+
+    const handleSubmit = async event => {
+        event.preventDefault();
+        localStorage.setItem("token", "");
+        const created = await loginUser({ variables: { data: state } });
+        setState({
+            email:"",
+            password:"",
+        })
+		localStorage.setItem("token", created.data.loginUser.token);
+		props.history.push("/user/dashboard");
+    };
+
+
 	return (
 		<div className="loginContainer">
-        <div className='revitalizeLogo-container'>
-        	<a href="/" title="Home">
-				<div className="logo">
-					<img src={revitalizeLogo} alt="Revitalize logo" />					
-				</div>
-			</a>
-        </div>
+
+			<div className="revitalizeLogo-container">
+				<Link to="/" title="Home">
+					<div className="logo">
+						<img src={revitalizeLogo} alt="Revitalize logo" />					
+					</div>
+				</Link>
+			</div>
+			
+
 			<div className="loginForm">
 				<div className="loginThirdParty">
 					<div className="loginWelcome">
@@ -52,25 +90,37 @@ export default function Login() {
 					<p>or</p>
 					<div className="loginLine"></div>
 				</div>
-				<div className="loginLocal">
-					<div className="loginMid">
-						<p>
-							Dont't have an account? <span>Create One</span>
-						</p>
-					</div>
+				<form className="loginLocal" onSubmit={handleSubmit}>
 					<p>Email</p>
-					<input placeholder="JaneDoe@gmail.com" />
-					<div className="loginPass">
-						<p className="loginSpaceAbove">Password</p>
-						<span className="loginSpaceAbove">Forgot Password?</span>
-					</div>
-					<input type="password" placeholder="**********" />
-					<p className="loginSpaceAbove">Confirm Password</p>
-					<input type="password" placeholder="**********" />
-					<button>Log In</button>
+					<input 
+						name='email'
+						type='email'
+						placeholder="JaneDoe@gmail.com"
+						value={state.email}
+						onChange={handleChanges}
+					/>	
+
+					<p className="registerSpaceAbove">Password</p>
+					<input 
+						name="password"
+						type="password"
+						placeholder="**********"
+						value={state.password}
+						onChange={handleChanges}
+					/>
+					
+					<button>Get Started!</button>
+				</form>
+				<div className="loginNoAccount">
+					<p>
+						Don't have an account? <Link>Create One</Link>
+					</p>
 				</div>
 			</div>
+
 			<div className="imgContainer"></div>
 		</div>
 	);
 }
+
+export default withRouter(Login)
