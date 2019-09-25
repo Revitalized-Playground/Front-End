@@ -16,7 +16,9 @@ const CrowdFunding = () => {
 				<img src={Progress3} alt="ladders" />
 			</div>
 			<p className="do-you-know">Do you know of a building near you that needs to be Revitalized?</p>
+			<div className="center">
 			<button className="create-button"> Create a Project</button>
+			</div>
 		</div>
 	);
 };

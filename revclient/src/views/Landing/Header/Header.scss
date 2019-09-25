@@ -8,33 +8,30 @@
 	// Frank
 
 	.cta-container {
-		height: 79vh;
+
 		display: flex;
 		justify-content: space-between;
-		margin: 15vh 7rem 5.2rem 7rem;
+		margin: 85px 55px 125px 55px;
 		@media #{$mobile} {
 			// border: 1px solid red;
 			display: block;
 			margin: 0;
 		}
-		img {
-			max-width: 50%;
-			object-fit: contain;
-		}
+
 		.cta {
-			max-width: 50%;
-			max-height: 33%;
+			width: 50%;
 			text-align: left;
+			margin-left: 10%;
 			@media #{$mobile} {
-				max-width: 100%;
+				width: 100%;
 			}
 
 			.cta-title {
 				text-align: left;
-				margin-top: 25vh;
-				font-size: 42px;
+				margin-top: 110px;
+				font-size: 40px;
 				font-weight: 500;
-				letter-spacing: 0.13em;
+				letter-spacing: 0.06em;
 				line-height: 1.4;
 				color: $chillFi-purple;
 				height: auto;
@@ -59,11 +56,20 @@
 			}
 			button {
 				@include buttonStyler($chillFi-purple, $snow-white, none);
-				margin-top: 20px;
+				margin-top: 29px;
 				font-size: 20px;
 				height: 70px;
 				padding: 0.5rem 1rem;
 				width: 270px;
+			}
+		}
+		.header-img-container {
+			width: 50%;
+			display: flex;
+			justify-content: flex-start;
+			img {
+				width: 85%;
+				object-fit: contain;
 			}
 		}
 	}
@@ -131,15 +137,15 @@
 			letter-spacing: 0.13em;
 		}
 		.learn-more-container {
-			margin-top: 98px;
+			margin-top: 58px;
 			max-width: 100%;
 			display: flex;
 			justify-content: space-evenly;
 			img {
-				width: 300px;
-				height: 300px;
+				width: 240px;
+				height: 240px;
 				border-radius: 50%;
-				margin-bottom: 80px;
+				margin-bottom: 50px;
 			}
 			.crowdFunding,
 			.opportunities,
@@ -147,12 +153,13 @@
 				display: inline-block;
 				text-align: center;
 				h3 {
-					font-size: 28px;
-					letter-spacing: 0.12em;
+					font-size: 23px;
+					letter-spacing: 0.03em;
 					margin-bottom: 26px;
 				}
 				a {
-					font-size: 20px;
+					font-size: 22px;
+					font-weight: 500;
 					text-decoration: none;
 					color: $chillFi-purple;
 				}
@@ -187,7 +194,7 @@
 				color: $dark-electric-blue;
 			}
 			p {
-				color: $police-blue;
+				color: $maastricht-blue;
 			}
 			button {
 				background-color: $maastricht-blue;
@@ -195,7 +202,6 @@
 				&:hover {
 					background-color: $scampi;
 					color: $maastricht-blue;
-
 					mix-blend-mode: color-dodge;
 				}
 			}
