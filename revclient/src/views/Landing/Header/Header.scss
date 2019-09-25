@@ -180,7 +180,7 @@
 			max-width: 100%;
 			display: flex;
 			justify-content: space-evenly;
-			@media #{$tablet} {
+			@media #{$mobile} {
 				flex-direction: column;
 			}
 			img {
@@ -188,22 +188,42 @@
 				height: 240px;
 				border-radius: 50%;
 				margin-bottom: 50px;
+				@media #{$tablet-small} {
+					margin-bottom: 20px;
+					width: 160px;
+				height: 160px;
+				}
+				@media #{$mobile} {
+					margin-bottom: 20px;
+					width: 220px;
+				height: 220px;
+				}
 			}
 			.crowdFunding,
 			.opportunities,
 			.pathways {
 				display: inline-block;
 				text-align: center;
+				margin-bottom: 20px;
+
 				h3 {
 					font-size: 23px;
 					letter-spacing: 0.03em;
 					margin-bottom: 26px;
+					@media #{$tablet-small} {
+						padding: 0px 8px;
+						font-size: 18px;
+						letter-spacing: 0.02em;
+					}
 				}
 				a {
 					font-size: 22px;
 					font-weight: 500;
 					text-decoration: none;
 					color: $chillFi-purple;
+					@media #{$tablet-small} {
+						font-size: 17px;
+					}
 				}
 			}
 

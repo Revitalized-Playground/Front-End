@@ -10,11 +10,11 @@ nav {
 	// @include fixedNav;
 	@media #{$mobile} {
 		background: $chillFi-purple;
-		height: 99px;
+		height: 90px;
 	}
 	@media #{$tablet} {
 		background: $chillFi-purple;
-		height: 99px;
+		height: 90px;
 	}
 
 	.leftNav {

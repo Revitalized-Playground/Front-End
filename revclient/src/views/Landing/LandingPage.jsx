@@ -21,7 +21,7 @@ import CrowdFunding from './CrowdFunding/CrowdFunding';
 export default function LandingPage() {
 	return (
 		<>
-			{/* <Nav /> */}
+			<Nav />
 			<Header />
 			<CrowdFunding />
 			<ProjectSpotlight />
