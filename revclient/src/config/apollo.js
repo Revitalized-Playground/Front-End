@@ -5,5 +5,8 @@ import ApolloClient, { InMemoryCache } from "apollo-boost"; // link is not expor
 // Endpoint
 export const client = new ApolloClient({
     uri: "https://revitalize-production.herokuapp.com/", // Revitalize
-    cache: new InMemoryCache()
+    cache: new InMemoryCache(),
+    request: async (operation) => {
+        console.log(operation)
+    }
 });
