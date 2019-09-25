@@ -25,7 +25,7 @@ class RecommendedProjects extends React.Component {
             {
                 id: 2,
                 name: "Green Acres",
-                description: "Team Rubicon allies with Jersey City to restore an iconic building located in the waterfront.",
+                description: "Apprentices learn from local herbalists best practices for homeopathic remedies and making tonics.",
                 state: "WA",
                 city: "Yakiama",
                 goalAmount: 100000.00,
