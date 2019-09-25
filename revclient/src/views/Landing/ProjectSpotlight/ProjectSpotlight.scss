@@ -14,6 +14,10 @@
 		line-height: 152.31%;
 		letter-spacing: 0.06em;
 		font-weight: 500;
+		@media #{$tablet} {
+			margin: 0 auto;
+			text-align: center;
+		}
 	}
 	.project-spotlight-content{
 	display: flex;
@@ -48,6 +52,9 @@
 	}
 	.phone-left {
 		width: 100%;
+		@media #{$tablet} {
+			display: none;
+		}
 	}
 	.user-story {
 		max-width: 32%;
@@ -58,7 +65,7 @@
 		margin-bottom: 240px;
 		margin-top: -50px;
 
-		@media #{$mobile} {
+		@media #{$tablet} {
 			max-width: 100%;
 			width: 85%;
 			margin: 0 auto
@@ -69,8 +76,12 @@
 			object-fit: contain;
 			margin: 0 auto;
 
-			@media #{$mobile} {
+			@media #{$tablet} {
 				margin: 0 auto;
+				padding: 30px;
+				width: 350px;
+				height: 350px;
+				align-items: center;
 			}
 		}
 		.user-info {
@@ -96,7 +107,7 @@
 			position: relative;
 			left: 5%;
 
-			@media #{$mobile} {
+			@media #{$tablet} {
 				font-size: 16px;
 				line-height: 190.31%;
 				left: 0;
@@ -107,6 +118,9 @@
 	}
 	.phone-right {
 		width: 100%;
+		@media #{$tablet} {
+			display: none;
+		}
 	}
 }
 }

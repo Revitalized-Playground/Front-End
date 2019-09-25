@@ -7,7 +7,7 @@ nav {
 	display: flex;
 	height: 90px;
 	padding: 5px 0px;
-	@include fixedNav;
+	// @include fixedNav;
 	@media #{$mobile} {
 		background: $chillFi-purple;
 		height: 99px;
@@ -51,6 +51,7 @@ nav {
 			align-items: center;
 			width: 100%;
 			margin: auto;
+			
 		a{
 			@media #{$tablet} {
 				display: none;

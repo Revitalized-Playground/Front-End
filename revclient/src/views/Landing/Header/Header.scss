@@ -3,29 +3,37 @@
 .header {
 	// This is for fixed nav to be removed.
 	// border: 1px solid red;
-	@include spaceForNav;  
 	// Consider using sticky to negate the need for a spacer fix
 	// Frank
 
 	.cta-container {
 		display: flex;
 		justify-content: space-between;
-		margin: 85px 55px 125px 55px;
-		@media #{$mobile} {
+		margin: 15px 55px 125px 6%;
+		@media #{$tablet} {
 			// border: 1px solid red;
-			display: block;
-			margin: 0;
+			flex-direction: column-reverse;
+			margin: 0 auto;
 		}
 		img {
-			max-width: 44%;
+			max-width: 47%;
 			object-fit: contain;
+			@media #{$tablet} {
+				margin: 0 auto;
+				max-width: 60%;
+			}
+			@media #{$mobile} {	
+				max-width: 70%;
+			}
 		}
 		.cta {
 			max-width: 47%;
 			max-height: 33%;
 			text-align: left;
-			@media #{$mobile} {
+			margin: 35px;
+			@media #{$tablet} {
 				max-width: 100%;
+				text-align:center;
 			}
 
 			.cta-title {
@@ -38,12 +46,37 @@
 				color: $chillFi-purple;
 				height: auto;
 
-				@media #{$mobile} {
+				@media #{$tablet} {
 					// border: 1px solid red;
-					margin: 0;
+					display: none;
+					margin: 0 auto;
 					max-width: 100%;
+					text-align: center;
 				}
 			}
+			.cta-title-tablet {
+				display: none;
+				text-align: left;
+				margin-top: 110px;
+				font-size: 40px;
+				font-weight: 500;
+				letter-spacing: 0.06em;
+				line-height: 1.4;
+				color: $chillFi-purple;
+				height: auto;
+
+				@media #{$tablet} {
+					// border: 1px solid red;
+					display: block;
+					margin: 0 auto;
+					max-width: 100%;
+					text-align: center;
+				}
+				@media #{$tablet-small} {
+					font-size: 30px;
+					}
+			}
+			
 			p {
 				margin: 5% 0 0 0;
 				font-size: 24px;
@@ -51,15 +84,18 @@
 				line-height: 1.8;
 				color: $erudite-purple;
 
-				@media #{$mobile} {
+				@media #{$tablet} {
 					max-width: 100%;
 					margin: 10px 0;
+				}
+				@media #{$tablet-small} {
+				font-size: 20px;
 				}
 			}
 			button {
 				@include buttonStyler($chillFi-purple, $snow-white, none);
 				margin-top: 29px;
-				font-size: 20px;
+				font-size: 24px;
 				height: 70px;
 				padding: 0.5rem 1rem;
 				width: 270px;
@@ -68,35 +104,45 @@
 	}
 	.values {
 		margin-bottom: 5.5%;
+		width: 100%;
+
 		p {
 			color: $machiavellian;
 			font-size: 1.5rem;
 			font-weight: 500;
 			letter-spacing: 0.13em;
-			margin-bottom: 17px;
 			padding-left: 50px;
 			text-align: center;
+		
 		}
 		.value-tiles {
 			display: flex;
-
-			justify-content: space-between;
-			width: 86%;
+			width: 100%;
 			margin: 0 auto;
 			text-align: center;
 			padding-bottom: 5rem;
 			padding-top: 1.25rem;
+			@media #{$tablet} {
+				width: 100%;
+			}
 
 			div {
-				border-radius: 0.25rem;
-				padding: 1.8rem 0;
-				font-size: 24px;
-				letter-spacing: 0.12em;
+				margin-top: 45px;
+				border-radius: 0rem;
+				padding: 1.2rem 1.2rem;
+				font-size: 22px;
+				letter-spacing: 0.08em;
 				color: $snow-white;
-				width: 15.3%;
-				height: 5.2rem;
-				margin: auto;
+				width: calc(100% / 6);
 				text-align: center;
+				@media #{$tablet} {
+					border-radius: 0;
+					width: calc(100% / 6);
+					letter-spacing: 0.06em;
+					font-size: 12px;
+					padding: 1.2rem .5rem;
+
+				}
 			}
 			.tenacity {
 				background: $ruby-enchantment;
@@ -134,6 +180,9 @@
 			max-width: 100%;
 			display: flex;
 			justify-content: space-evenly;
+			@media #{$tablet} {
+				flex-direction: column;
+			}
 			img {
 				width: 240px;
 				height: 240px;
