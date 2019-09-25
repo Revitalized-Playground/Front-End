@@ -1,6 +1,7 @@
 .donateContainer {
     max-width: 685px;
     box-shadow: 0px 0px 8px #EEEDEF;
+    margin: 0 0 auto auto;
     @media #{$mobile} {
         // height: 440px;
         border: 1px solid blue;

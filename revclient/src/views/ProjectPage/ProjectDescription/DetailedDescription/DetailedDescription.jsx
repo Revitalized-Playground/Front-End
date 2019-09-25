@@ -6,12 +6,12 @@ const DetailedDescription = ({startDate, duration, difficulty, organizer, locati
 
     return (
         <div className='detailedDescriptionContainer'>
-            <BasicDetails 
+            {/* <BasicDetails 
               startDate={startDate}
               duration={duration}
               difficulty={difficulty}
               organizer={organizer}
-            />
+            /> */}
             {projDescription.length > 1100 
             ?
                 <p className='detailedDescription'> <span>{location.toUpperCase()}</span>{projDescription.split('').map((each, index) => {

@@ -13,6 +13,8 @@ import DetailedDescription from './ProjectDescription/DetailedDescription/Detail
 import ProjectPictures from './ProjectDescription/ProjectPictures/ProjectPictures'
 import ProjectComments from './ProjectDescription/ProjectComments/ProjectComments'
 import Nav from '../../components/Layout/Nav'
+import BasicDescription from './ProjectDescription/DetailedDescription/BasicDescription/BasicDescription'
+
 const project = {
     projectOrganizer: 'Julian Crenshaw',
     projStartDate: 'January 13, 2020',
@@ -55,7 +57,20 @@ const ProjectPage = () => {
             <div className='singleProjectVectorContainer'>
                 <div className='singleProjectVector'><div className='blueSquare'><h1>Team Rubicon</h1><div className='blueVector'></div></div></div>
             </div>
+             
             <div className='project-page-flex'>
+                <BasicDescription 
+                  startDate={project.projStartDate}
+                  duration={project.duration}
+                  difficulty={project.difficultyLevel}
+                  organizer={project.projectOrganizer}
+                />
+                <Donate
+                    raised={project.raised}
+                    budget={project.projectBudget}
+                    donors={project.donors}
+                />
+            </div>
                 <DetailedDescription
                     startDate={project.projStartDate}
                     duration={project.duration}
@@ -65,12 +80,6 @@ const ProjectPage = () => {
                     projDescription={project.projectDescription}
                     projectCreator={projectCreator}
                 />
-                <Donate
-                    raised={project.raised}
-                    budget={project.projectBudget}
-                    donors={project.donors}
-                />
-            </div>
             <ProjectPictures projectPhotos={project.projectPhotos} />
             <ProjectComments comments={project.comments} />
         </div>

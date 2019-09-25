@@ -9,6 +9,8 @@
     font-size: 24px;
     line-height: 32px;
     letter-spacing: 0.06em;
+    margin-top: -100px;
+    z-index: 1;
 
     @media #{$mobile} {
         margin-left: 0;
