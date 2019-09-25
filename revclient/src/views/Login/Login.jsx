@@ -4,15 +4,18 @@
  * @props description
  */
 import React, {useState} from "react";
+
 import { 
-    useMutation, 
+	useMutation, 
 } from "@apollo/react-hooks";
+
 import { 
-    LOGIN_USER,
+	LOGIN_USER, 
 } from "../../graphql/mutations";
+
 import { withRouter } from "react-router-dom";
 
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import googleLogo from "../../assets/AuthPages/Google.png";
 import revitalizeLogo from "../../assets/LandingPage/Logo.png";

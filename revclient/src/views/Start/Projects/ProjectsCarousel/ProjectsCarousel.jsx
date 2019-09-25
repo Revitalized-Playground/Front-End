@@ -1,14 +1,18 @@
 import React from 'react';
 
-import Project from '../Project/Project';
+// import Project from '../Project/Project';
 
-const ProjectsCarousel = (props, list, Card) => {
+
+
+const ProjectsCarousel = ( {card} ) => {
+
+    
     return (
-        <div>
-            {props.list.map(p => {
-                return <Project key={p.id} info={p} />
-            })}
-        </div>
+        <section className="carousel-card">
+            <i> {card.city}, {card.state} </i>
+            <h3>{card.name}</h3>
+            <p>{card.description}</p>
+        </section>
     );
 };
 
