@@ -17,11 +17,13 @@ const Header = () => {
 						revitalizing your community
 					</h2>
 					<p>
-						Revitalize is a community crowdfunding platform <br /> for apprenticeships.
+						A crowdfunding platform that <br /> creates apprenticeship opportunities.
 					</p>
-					<button>Start Your Journey Now!</button>
+					<button>Start Your Journey!</button>
 				</div>
-				<img src={heroImage} alt="Hero" />
+				<div className="header-img-container">
+					<img src={heroImage} alt="Hero" />
+				</div>
 			</div>
 
 			<div className="values">

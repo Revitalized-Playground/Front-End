@@ -10,8 +10,13 @@ import ProjectPage from './views/ProjectPage/ProjectPage';
 import CreateProjectWizard from './views/CreateProjWizard/CreateProjectWizard';
 import Start from './views/Start/Start';
 
+// Protected Routes
+import Dashboard from "./views/Dashboard/Dashboard";
+
 // Utils
 import AuthenticateUser from './utils/AuthenticateUser';
+
+
 
 export const Routes = props => {
 	return (
@@ -48,3 +53,4 @@ export const Routes = props => {
 		</BrowserRouter>
 	);
 };
+
