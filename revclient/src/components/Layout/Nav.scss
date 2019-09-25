@@ -107,6 +107,39 @@ nav {
 	}
 }
 
+.user {
+	display: flex;
+	align-items: center;
+	.welcome {
+		margin-right: 2.5rem;
+		&:hover {
+			cursor: pointer;
+			color: $mirage;
+		}
+	}
+	.dropdown {            
+		display: block;
+		position: absolute;
+		top: 5rem;
+		height: 6rem;
+		width: 9.25rem;
+		background-color: $silver-lining;
+		clip-path: polygon(50% 0%, 60% 14%, 100% 14%, 100% 100%, 68% 100%, 32% 100%, 0 100%, 0 14%, 39% 14%);
+	}
+	.on {
+		margin-top: 1.25rem;
+		height: 5rem;
+		width: 100%;
+		background-color: $static-grey;
+	}
+	.userIcon {
+		background-color: $static-grey;
+		width: 3.7rem;
+		height: 3.7rem;
+		border-radius: 50%;
+	}
+}
+
 .dark-mode {
 	nav {
 		background-color: $machiavellian;
