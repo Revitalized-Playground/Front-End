@@ -43,6 +43,15 @@ const Donate = ({raised, budget, donors}) => {
                     <button className='purple'>Donate now</button>
                     <button className='white'>Share</button>
                 </div>
+                <div className="loginMiddle">
+					<div className="loginLine"></div>
+					<p>or</p>
+					<div className="loginLine"></div>
+				</div>
+                <div className='apply-button'>
+                    <button >Apply to Project</button>
+                </div>
+                
                 <p className='lastText'>Partner with growing donors who are eager to see the transformation and economical growth of Detroit.</p>
             </div>
             

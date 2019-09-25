@@ -6,15 +6,33 @@
     margin-top: -100px;
     z-index: 1;
 
+    @media #{$mobile} {
+        margin-top: 0;
+        margin-right: 0;
+        width: 100%;
+        
+    }
     .detailedDescription {
         font-size: 26px;
         line-height: 190.81%;
         letter-spacing: 0.06em; 
         max-width: 974px;
+        // border: 1px solid blue;
+
+        @media #{$mobile} {
+            font-size: 16px;
+            line-height: 212.31%;
+            margin-top: 450px
+        }
 
         span {
             font-size: 32px;
-            margin-right: 30px
+            margin-right: 30px;
+
+            @media #{$mobile} {
+                font-size: 24px;
+                margin-right: 10px;
+            }
         }
 
         strong {
