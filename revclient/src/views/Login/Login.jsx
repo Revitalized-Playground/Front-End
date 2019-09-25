@@ -50,7 +50,7 @@ const Login = props => {
 
 	return (
 		<div className="loginContainer">
-			<div className="loginContainerLeft">
+
 			<div className="revitalizeLogo-container">
 				<Link to="/" title="Home">
 					<div className="logo">
@@ -58,6 +58,8 @@ const Login = props => {
 					</div>
 				</Link>
 			</div>
+			
+
 			<div className="loginForm">
 				<div className="loginThirdParty">
 					<div className="loginWelcome">
@@ -115,7 +117,7 @@ const Login = props => {
 					</p>
 				</div>
 			</div>
-			</div>
+
 			<div className="imgContainer"></div>
 		</div>
 	);

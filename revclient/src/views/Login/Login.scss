@@ -1,16 +1,11 @@
+
 .loginContainer {
-	background: #0b096f;
+	background: $machiavellian;
 	color: $snow-white;
+	height: 100%;
 	margin: 0 auto;
 	display: flex;
-	letter-spacing: 0.06em;
-	height: 100%;
-
-	.loginContainerLeft{
-		min-height: 100vh;
-		padding-bottom: 140px;
-		min-width: 525px;
-
+	letter-spacing: 0.06rem;
 	.revitalizeLogo-container {
 		height: 100px;
 		width: 100px;
@@ -19,18 +14,24 @@
 			width: 100%;
 		}
 	}
+		
 	.loginForm {
+		padding-bottom: 140px;
+		width: 50%;
+		max-width: 700px;
+		min-width: 500px;
 		width: 80%;
 		margin: 0 auto;
+		// width: 40%;
+		// height: 100%;
 
 		.loginThirdParty {
-			
 			width: 65%;
 			margin: 0 auto;
 
 			.loginWelcome {
 				text-align: center;
-				color: white;
+				color: $snow-white;
 			}
 
 			button {
@@ -39,7 +40,7 @@
 				height: 50px;
 				border-radius: 8px;
 				border: none;
-				background: #ffffff;
+				background: $snow-white;
 				cursor: pointer;
 
 				.loginButton {
@@ -66,7 +67,7 @@
 			.loginLine {
 				height: 1px;
 				width: 40%;
-				background: white;
+				background: $snow-white;
 			}
 		}
 
@@ -121,16 +122,14 @@
 			}
 		}
 	}
-}
 
 	.imgContainer {
-		background-attachment:fixed;
-		width: 90%;
-		background-image: url('../assets/AuthPages/Login.png');
-		background-size: 63%;
+		width: 100%;
+		background-size: 80%;
+		background-attachment: fixed;
+		background-image: url('../assets/AuthPages/building-work-crew-03.jpg');
+		background-position-x: right;
 		background-position-y: top;
-		background-position-x: 90%;
-		
-		background-repeat: no-repeat;
+		mix-blend-mode: luminosity;
 	}
 }
