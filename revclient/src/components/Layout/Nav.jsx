@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import logo from '../../assets/LandingPage/Logo.png';
 // import darkModeEmoji from '../../assets/Global/Nav/night-mode-512.png';
 // import lightModeEmoji from '../../assets/Global/Nav/night-mode-512.png';
@@ -19,10 +19,10 @@ const aLinks = [{ href: '/createproject', label: 'Create a project' }, { href: '
 	},
 );
 
-const Nav = () => {
+const Nav = props => {
 	const [darkModeActive, setDarkMode] = useState(false);
 	const [loggedIn, setLoggedIn] = useState(false);
-	const [name, setName] = useState("User");
+	const [name] = useState("User");
     const [clicked, setClicked] = useState(false);
 
 	// for testing
@@ -30,6 +30,11 @@ const Nav = () => {
 
     const toggleDropdown = () => {
         setClicked(!clicked);
+	}
+
+	const logout = () => {
+		localStorage.removeItem("token")
+		props.history.push("/")
 	}
 
 	const toggleDarkMode = () => {
@@ -45,51 +50,63 @@ const Nav = () => {
 		}
 	}, [darkModeActive])
 
+
 	return (
 		<nav>
-		  <Link to="/" title="Home">
+		  	<Link to="/" title="Home">
 				<div className="logo">
 					<img src={logo} alt="Revitalize logo" />
 					<h2>Revitalize </h2>
 				</div>
 			</Link>
 			{/* <button onClick={toggleLoggedIn}>FOR TESTING: toggleLoggedIn</button> */}
-			<ul>
+			<ul className="right-nav">
 			{localStorage.getItem('token')
-				?	(<> {aLinks.map(({ key, href, label }) => (
+				?	(<> 
+						{aLinks.map(({ key, href, label }) => (
+							<li className="navLinks" key={key}>
+								<Link to={href}>{label}</Link>
+							</li>
+						))}
+						<div className="user"  onClick={toggleDropdown}>
+							<div className="welcome">{`Welcome, ${name}`}</div>
+							<div className="userIcon"></div>
+							{clicked && (
+								<div className="dropdown">
+									<Link to="/user/dashboard">Profile</Link>
+									<div>Setting</div>
+									<div onClick={toggleDarkMode}>
+										<FaMoon  />&nbsp; Dark mode: {darkModeActive ? "on" : "off"}
+									</div> 
+									<div onClick={logout}>Log out</div>
+								</div>
+							)}
+						</div>
+					</>
+					)
+				:	(
+					<> {uLinks.map(({ key, href, label }) => (
 						<li className="navLinks" key={key}>
 							<Link to={href}>{label}</Link>
 						</li>
 					))}
-					<div className="user">
-								<div className="welcome" onClick={toggleDropdown}>{`Welcome, ${name}`}</div>
-									{clicked && (
-										<div className="dropdown">
-											<div className="on"></div>
-										</div>
-									)}
-								<div className="userIcon"></div>
-							</div></>
-							)
-				:	(<> {uLinks.map(({ key, href, label }) => (
-						<li className="navLinks" key={key}>
-							<Link to={href}>{label}</Link>
+						<li>
+							<Link to="/register"><button className="register">Get Started</button></Link>
 						</li>
-					))}
-					<li>
-								<Link to="/register"><button className="register">Get Started</button></Link>
-							</li></>)
+						<div className="dark-mode-emoji">
+							<FaMoon
+								onClick={() => toggleDarkMode()}
+							/>
+						</div>
+					</>
+					)
 			}
 			</ul>
-			<div className="dark-mode-emoji">
-				<FaMoon
-					onClick={() => toggleDarkMode()}
-				/>
-			</div>
+			
 		</nav>
 	);
 };
-export default Nav;
+export default withRouter(Nav);
 
 
 
