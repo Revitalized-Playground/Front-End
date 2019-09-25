@@ -2,7 +2,6 @@ import React from 'react';
 
 import Nav from '../../components/Layout/Nav';
 import Top from './Top/Top';
-import Banner from './Banner/Banner';
 import Spotlight from './Spotlight/Spotlight';
 import RecommendedProjects from './RecommendedProjects/RecommendedProjects';
 import NearYou from './NearYou/NearYou';
@@ -14,7 +13,6 @@ const Start = () => {
         <div className="startContainer">
             <Nav />
             <Top />
-            <Banner />
             <Spotlight />
             <RecommendedProjects />
             <NearYou />
