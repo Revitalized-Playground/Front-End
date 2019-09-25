@@ -1,5 +1,5 @@
 .loginContainer {
-	background: #0b096f;
+	background: $erudite-purple;
 	color: $snow-white;
 	height: 100vh;
 	max-width: 1920px;
@@ -27,7 +27,7 @@
 
 			.loginWelcome {
 				text-align: center;
-				color: white;
+				color: $snow-white;
 			}
 
 			button {
@@ -36,7 +36,7 @@
 				height: 50px;
 				border-radius: 8px;
 				border: none;
-				background: #ffffff;
+				background: $snow-white;
 				cursor: pointer;
 
 				.loginButton {
@@ -62,7 +62,7 @@
 			.loginLine {
 				height: 1px;
 				width: 40%;
-				background: white;
+				background: $snow-white;
 			}
 		}
 
@@ -100,7 +100,7 @@
 				margin: 0 auto;
 				margin-top: 60px;
 				border: none;
-				color: white;
+				color: $snow-white;
 				font-size: 20px;
 				border-radius: 5px;
 				cursor: pointer;
