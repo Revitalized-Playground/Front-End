@@ -12,7 +12,10 @@
     width: 100%;
     max-width: 1600px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 0 40px;
+    @media #{$tablet} {
+        padding: 0 60px;
+    }
     section {
         margin: 10px auto;
     }
@@ -21,15 +24,24 @@
         width: 100%;
         margin: 1% auto 2%;
         .slick-prev, .slick-next {
+            height: 3.6rem;
+            width: 4rem;
             &:before {
-                color: $chillFi-purple;
-                opacity: 1;
+                color: $static-grey;
+                opacity: 0.75;
+                font-size: 4rem;
             }
             &:hover {
                 &:before {
-                    color: darken( $chillFi-purple, 10%); 
+                    color: darken($static-grey, 10%); 
                 }
             }
+        }
+        .slick-prev {
+            left: -30px;
+        }
+        .slick-next {
+            right: -30px;
         }
     }
 }
