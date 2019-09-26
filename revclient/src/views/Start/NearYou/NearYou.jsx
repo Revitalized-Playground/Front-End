@@ -17,7 +17,8 @@ const NearYou = () => {
             goalAmount: 0.00,
             amountFunded: 0.00,
             images: ["https://","https://"],
-            featuredImage: "https://res.cloudinary.com/revitalize/image/upload/v1569451131/start%20page/Railway_Dreams_zhwuff.svg"
+            featuredImage: "https://res.cloudinary.com/revitalize/image/upload/v1569451131/start%20page/Railway_Dreams_zhwuff.svg",
+            liked: false,
         },
         {
             id: 2,
@@ -29,6 +30,7 @@ const NearYou = () => {
             amountFunded: 0.00,
             images: ["https://","https://"],
             featuredImage: "https://res.cloudinary.com/revitalize/image/upload/v1569451120/start%20page/Red_Grey_Matter_zwdfbs.svg",
+            liked: false,
         },
         {
             id: 3,
@@ -40,6 +42,7 @@ const NearYou = () => {
             amountFunded: 0.00,
             images: ["https://","https://"],
             featuredImage: "https://res.cloudinary.com/revitalize/image/upload/v1569451126/start%20page/Iron_Syde_Shop_ickfun.svg",
+            liked: false,
         },
         {
             id: 4,
@@ -51,6 +54,7 @@ const NearYou = () => {
             amountFunded: 0.00,
             images: ["https://","https://"],
             featuredImage: "https://res.cloudinary.com/revitalize/image/upload/v1569451129/start%20page/Mission_Zero_image_xs2wtv.svg",
+            liked: false,
         },
         {
             id: 5,
@@ -62,6 +66,7 @@ const NearYou = () => {
             amountFunded: 0.00,
             images: ["https://","https://"],
             featuredImage: "https://res.cloudinary.com/revitalize/image/upload/v1569451138/start%20page/Team_Rubicon_xlxh6r.svg",
+            liked: false,
         },
         {
             id: 6,
@@ -73,6 +78,7 @@ const NearYou = () => {
             amountFunded: 0.00,
             images: ["https://","https://"],
             featuredImage: "https://res.cloudinary.com/revitalize/image/upload/v1569451117/start%20page/Camp_Crystal_Lake_jqewaz.svg",
+            liked: false,
         },
         {
             id: 7,
@@ -84,6 +90,7 @@ const NearYou = () => {
             amountFunded: 0.00,
             images: ["https://","https://"],
             featuredImage: "https://res.cloudinary.com/revitalize/image/upload/v1569451133/start%20page/Rustic_Road_Brewery_tulxbq.svg",
+            liked: false,
         },
         {
             id: 8,
@@ -95,6 +102,7 @@ const NearYou = () => {
             amountFunded: 0.00,
             images: ["https://","https://"],
             featuredImage: "https://res.cloudinary.com/revitalize/image/upload/v1569451138/start%20page/Velvet_Thread_e2e8u3.svg",
+            liked: false
         },
         {
             id: 9,
@@ -106,6 +114,7 @@ const NearYou = () => {
             amountFunded: 0.00,
             images: ["https://","https://"],
             featuredImage: "https://res.cloudinary.com/revitalize/image/upload/v1569516054/start%20page/Cup_of_Joe_s_Cafe_gbkrft.png",
+            liked: false
         }
     ]
 
