@@ -38,7 +38,7 @@ class RecommendedProjects extends React.Component {
             {
                 id: 3,
                 name: "Sage Francis",
-                description: "Team Rubicon allies with Jersey City to restore an iconic building located in the waterfront.",
+                description: "Reclaim, a nonprofit works with local relief organizations to rebuild Puerto Rico after the impact of Hurrican Dorian.",
                 state: "PR",
                 city: "San Juan",
                 goalAmount: 5000.00,
