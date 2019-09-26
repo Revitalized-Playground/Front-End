@@ -3,15 +3,35 @@
     box-shadow: 0px 0px 8px #EEEDEF;
     margin: 0 0 auto auto;
     @media #{$mobile} {
-        // height: 440px;
         border: 1px solid blue;
-        margin-top: -1430px;
-        margin-bottom: 930px
+        margin: 0;
     }
     .donateInnerDiv {
         max-width: 630px;
         margin-left: 48px;
         
+        .mid-line-container {
+            
+			margin: 0 auto;
+			display: flex;
+			justify-content: space-between;
+            align-items: center;
+            
+            p {
+                font-size: 18px;
+                line-height: 212.81%;
+                letter-spacing: 0.06em;
+                color: rgba(48, 48, 48, 0.3);
+                margin-top: -5px
+            }
+
+            .mid-line {
+                border: 1px solid rgba(0, 0, 0, 0.3);
+                transform: rotate(180deg);
+                height: 1px;
+                width: 45%
+            }
+        }
 
         .apply-button { 
             max-width: 515px;

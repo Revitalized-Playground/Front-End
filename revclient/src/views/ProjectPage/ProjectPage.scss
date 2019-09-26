@@ -7,10 +7,17 @@
 	@include spaceForNav;
 	max-width: 1920px;
 	border: 1px solid red;
+	padding-left: 6.5%;
+	padding-right: 6.5%;
+	
+	@media #{$mobile} {
+		padding-left: 0;
+		padding-right: 0;
+	}
 
 	.singleProjectVectorContainer {
 		max-width: 1645px;
-		margin: 0 auto;
+		// margin: 0 auto;
 	
 		.singleProjectVector {
 			background: url('../assets/SingleProjectPage/vector.jpeg');
@@ -60,7 +67,7 @@
 	.project-page-flex {
 		display: flex;
 		max-width: 1645px;
-		margin: 0 auto;
+		// margin: 0 auto;
 		border: 1px solid red;
 
 		@media #{$mobile} {

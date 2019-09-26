@@ -1,12 +1,9 @@
 @import './BasicDescription/BasicDescription.scss';
 
 .detailedDescriptionContainer {
-    max-width: 1015px;
-    margin-right: 2.2%;
-    margin-left: 7.1%;
+    width: 55%;
     z-index: 1;
     margin-top: -550px;
-    border: 1px solid red;
 
     @media #{$mobile} {
         margin-top: 0;
@@ -19,13 +16,14 @@
         line-height: 190.81%;
         letter-spacing: 0.06em; 
         max-width: 974px;
-        // border: 1px solid blue;
 
         @media #{$mobile} {
             font-size: 16px;
             line-height: 212.31%;
-            margin-top: 450px
+            margin-top: 50px;
+            padding: 0 5.5% 0 5.5%
         }
+        
 
         span {
             font-size: 32px;
@@ -44,45 +42,87 @@
     }
 
     .creatorProfile {
+        
         margin-top: 60px;
         width: 442px;
-        height: 176px;
         border-left: 7px solid #544CBE;
         background: #F9F8FD;
         letter-spacing: 0.06em;
-        display: flex;
+
+        .profile-center {
+            display: flex;
+
+            @media #{$mobile} {
+                margin: 0 auto;
+                width: 85%;
+            }
+        }
+
+        @media #{$mobile} {
+            border-left: none;
+            width: 100%
+        }
 
         h2 {
             font-size: 20px;
             line-height: 27px;
-            margin-bottom: 10px
+            margin-bottom: 10px;
+
+            @media #{$mobile} {
+                font-size: 15px;
+                line-height: 20px;
+            }
+        }
+
+        p {
+            @media #{$mobile} {
+                font-size: 12px;
+                line-height: 17px;
+            }
         }
         
         .profilePic {
             height: 120px;
             width: 120px;
             border-radius: 50%;
-            margin: 32px
+            margin: 32px;
+
+            @media #{$mobile} {
+                width: 94px;
+                height: 94px;
+                margin: 25px 25px 25px 0;
+            }
         }
 
         .creatorInfo {
-            height: 120px;
-            margin-top: 32px;
-
+            // height: 120px;
+            margin-top: 25px;
+            border: 1px solid red;
             .email {
                 display: flex;
+                flex-wrap: nowrap;
                 align-content: center;
                 margin-top: 17px;
 
                 h2 {
                     font-size: 14px;
                     line-height: 16px;
+
+                    @media #{$mobile} {
+                        font-size: 12px;
+                        line-height: 16px;
+                    }
                 }
 
                 img{
                     height: 18px;
                     width: 20px;
-                    margin-right: 6px
+                    margin-right: 6px;
+
+                    @media #{$mobile} {
+                        height: 15px;
+                        width: 17px;
+                    }
                 }
             }
         }

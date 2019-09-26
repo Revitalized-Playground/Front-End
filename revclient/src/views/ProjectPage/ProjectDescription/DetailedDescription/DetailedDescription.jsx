@@ -25,6 +25,7 @@ const DetailedDescription = ({startDate, duration, difficulty, organizer, locati
                 <p className='detailedDescription'><span>{location.toUpperCase()}</span>{projDescription}</p>
             } 
             <div className='creatorProfile'>
+                <div className='profile-center'>
                 <img className='profilePic' src={projectCreator.profilePic} alt='Profile' />
                 <div className='creatorInfo'>
                     <h2>{projectCreator.name}</h2>
@@ -35,6 +36,8 @@ const DetailedDescription = ({startDate, duration, difficulty, organizer, locati
                         <h2>{projectCreator.email}</h2>
                     </div>
                 </div>
+                </div>
+                
             </div>
         </div>
     )

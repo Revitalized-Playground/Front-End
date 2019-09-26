@@ -1,8 +1,8 @@
 import React from 'react';
 //Image Imports (To be deleted once we have a back end)
-import pic1 from '../../assets/SingleProjectPage/pic1.png'
-import pic2 from '../../assets/SingleProjectPage/pic2.png'
-import pic3 from '../../assets/SingleProjectPage/pic3.png'
+import pic1 from '../../assets/SingleProjectPage/pic1.jpeg'
+import pic2 from '../../assets/SingleProjectPage/pic2.jpeg'
+import pic3 from '../../assets/SingleProjectPage/pic3.jpeg'
 import commentProfile1 from '../../assets/SingleProjectPage/commentProfile1.png'
 import commentProfile2 from '../../assets/SingleProjectPage/commentProfile2.png'
 import userProfile from '../../assets/SingleProjectPage/userProfile.png'

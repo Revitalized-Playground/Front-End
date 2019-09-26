@@ -43,10 +43,10 @@ const Donate = ({raised, budget, donors}) => {
                     <button className='purple'>Donate now</button>
                     <button className='white'>Share</button>
                 </div>
-                <div className="loginMiddle">
-					<div className="loginLine"></div>
+                <div className="mid-line-container">
+					<div className="mid-line"></div>
 					<p>or</p>
-					<div className="loginLine"></div>
+					<div className="mid-line"></div>
 				</div>
                 <div className='apply-button'>
                     <button >Apply to Project</button>

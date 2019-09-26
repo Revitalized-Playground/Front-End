@@ -1,8 +1,12 @@
 .projectPictureContainer{
+    width: 100%;
+    margin-top: 80px;
+    overflow: hidden;
 
-    max-width: 1645px;
-	margin: 80px auto 0 auto;
-
+    .projectImgCarousel {
+        display: flex;
+        transition: 0.3s
+    }
     p {
         font-size: 24px;
         line-height: 212.81%;
@@ -13,11 +17,11 @@
     .projectImgCarousel {
 
         img {
-            width: 345px;
-            height: 224px;
+            width: 100%;
             border-radius: 5px;
-            margin-right: 0.9%;
-            cursor: pointer
+            padding: 15px;
+            cursor: pointer;
+            border-radius: 20px;
         }
     }
 }
