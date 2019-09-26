@@ -9,6 +9,7 @@ const NearYou = () => {
     const nearList = [
         {
             id: 1,
+
             name: "Railway Dreams",
             description: "The subway system in St Joseph needs help revamping the transit to meet expansion deadline.",
             state: "MI",
@@ -103,12 +104,15 @@ const NearYou = () => {
         infinite: true,
         speed: 500,
         slidesToShow: 4,
-        slidesToScroll: 4
+        slidesToScroll: 1,
+        centerPadding: "400px",
+        lazyLoad: "progressive",
+        className: "carousel-card"
     };
 
     return (
-        <div className="nearContainer">
-            <p>Local Projects</p>
+        <section className="near-you-section">
+            <h4>Local Projects</h4>
             <div className="slider">
                 <Slider {...settings}>
                     {nearList ? nearList.map(item => (
@@ -116,7 +120,7 @@ const NearYou = () => {
                     )) : null}
                 </Slider>
             </div>
-        </div>
+        </section>
     );
 };
 

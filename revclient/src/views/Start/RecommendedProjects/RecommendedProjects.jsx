@@ -38,7 +38,9 @@ class RecommendedProjects extends React.Component {
             {
                 id: 3,
                 name: "Sage Francis",
+
                 description: "Reclaim, a nonprofit works with local relief organizations to rebuild Puerto Rico after the impact of Hurrican Dorian.",
+
                 state: "PR",
                 city: "San Juan",
                 goalAmount: 5000.00,
@@ -140,29 +142,25 @@ class RecommendedProjects extends React.Component {
             infinite: true,
             speed: 500,
             slidesToShow: 5,
-            slidesToScroll: 5
+            slidesToScroll: 1,
+            centerPadding: "400px",
+            lazyLoad: "progressive",
+            className: "carousel-card"
         };
         return (
-            <div className="slider">
-                <Slider {...settings}>
-                    {recommendedArray ? recommendedArray.map(recommendedItem => (
+            <section className="recommened-projects-section">
+                <h4>Recommened Projects</h4>
+                <div className="slider">
+                    <Slider {...settings}>
+                        {recommendedArray ? recommendedArray.map(recommendedItem => (
                             <ProjectsCarousel key={recommendedItem.id} card={recommendedItem} />
-                    )) : null}
-                </Slider>
-            </div>
+                        )) : null}
+                    </Slider>
+                </div>
+            </section>
         );
     }
 }
     
 
 export default RecommendedProjects;
-
-//     return (
-//         <div className="recContainer">
-//             <p>Recommended Projects</p>
-//             <div className="recList">
-//                 <ProjectsCarousel list={recList} />
-//             </div>
-//         </div>
-//     );
-

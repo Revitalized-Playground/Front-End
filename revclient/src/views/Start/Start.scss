@@ -5,11 +5,16 @@
 @import './CreateProject/CreateProject.scss';
 @import './Noteworthy/Noteworthy.scss';
 @import './Hire/Hire.scss';
+@import "./Projects/ProjectsCarousel/ProjectsCarousel.scss";
 
 .startContainer {
     width: 100%;
     max-width: 1600px;
     margin: 0 auto;
+    section {
+        margin: 10px auto;
+    }
+    
     .slider {
         width: 100%;
         margin: 0 auto;
