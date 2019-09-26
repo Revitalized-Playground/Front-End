@@ -2,25 +2,27 @@ import React from 'react';
 
 import Nav from '../../components/Layout/Nav';
 import Top from './Top/Top';
-import Banner from './Banner/Banner';
 import Spotlight from './Spotlight/Spotlight';
 import RecommendedProjects from './RecommendedProjects/RecommendedProjects';
 import NearYou from './NearYou/NearYou';
+import CreateProject from './CreateProject/CreateProject';
 import Noteworthy from './Noteworthy/Noteworthy';
 import Hire from './Hire/Hire';
 
 const Start = () => {
     return (
+        <>
+        <Nav />
         <div className="startContainer">
-            <Nav />
             <Top />
-            <Banner />
             <Spotlight />
             <RecommendedProjects />
             <NearYou />
+            <CreateProject />
             <Noteworthy />
             <Hire />
         </div>
+        </>
     );
 };
 
