@@ -149,7 +149,7 @@ class RecommendedProjects extends React.Component {
         };
         return (
             <section className="recommened-projects-section">
-                <h4>Recommened Projects</h4>
+                <h4>Recommended Projects</h4>
                 <div className="slider">
                     <Slider {...settings}>
                         {recommendedArray ? recommendedArray.map(recommendedItem => (
