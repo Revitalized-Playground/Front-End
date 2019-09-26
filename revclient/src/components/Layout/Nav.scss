@@ -26,15 +26,15 @@ nav {
 		}
 		.logo {
 			display: flex;
-			max-width: 20%;
-			max-height: 60px;
+			
 				margin: 10px;
 			// position: absolute;
 			// left: 4.5%;
 			
 			
 			img {
-				
+				width:70px;
+				margin-right: 10px;
 				@media #{$tablet} {
 					display: none;
 				}

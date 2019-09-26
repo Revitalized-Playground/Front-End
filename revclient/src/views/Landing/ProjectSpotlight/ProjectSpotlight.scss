@@ -2,7 +2,7 @@
 
 .project-spotlight {
 	background-color: $luigi;
-	padding-bottom: 25px;
+	
 	@media #{$mobile} {
 		flex-direction: column;
 		height: 100%;
@@ -10,7 +10,7 @@
 	.section-title {
 		margin-left: 55px;
 		padding-top: 45px;
-		font-size: 48px;
+		font-size: 52px;
 		line-height: 152.31%;
 		letter-spacing: 0.06em;
 		font-weight: 500;
@@ -45,7 +45,6 @@
 	}
 	.phone {
 		position: relative;
-		margin-top: 150px;
 		height: 93%;
 		object-fit: scale-down;
 		@media #{$mobile} {
@@ -54,6 +53,7 @@
 	}
 	.phone-left {
 		width: 100%;
+		margin-top: 210px;
 		@media #{$tablet} {
 			display: none;
 		}
@@ -64,21 +64,19 @@
 		flex-direction: column;
 		align-content: center;
 		text-align: center;
-		margin-bottom: 240px;
-		margin-top: -50px;
+		
 		
 
 		@media #{$tablet} {
 			max-width: 100%;
-			width: 78%;
+			width: 56%;
 			margin: 0 auto
 		}
 		.user-photo {
-			width: 78%;
-			height: 78%;
+			width: 88%;
+			height: 88%;
 			text-align:center;
 			margin: 0 auto;
-			margin: 15px;
 
 			@media #{$tablet} {
 				margin: 0 auto;
@@ -96,9 +94,10 @@
 			}
 		}
 		.user-info {
-			font-size: 42px;
-			line-height: 48px;
-			letter-spacing: 0.05em;
+			font-size: 36px;
+			line-height: 44px;
+			letter-spacing: 0.03em;
+			
 			@media #{$tablet} {
 				font-size:33px;
 				margin-top: 15px;
@@ -115,21 +114,23 @@
 		}
 		p {
 			margin: 5% auto 5% auto;
-			letter-spacing: 0.06em;
+			letter-spacing: 0.03em;
 			line-height: 180%;
-			font-size: 18px;
+			font-size: 22px;
 			font-weight: 400;
 
 			@media #{$tablet} {
-				font-size: 16px;
+				font-size: 18px;
 				line-height: 190.31%;
 				margin: 20px auto;
-				text-align: left
+				text-align: left;
+				
 			}
 		}
 	}
 	.phone-right {
 		width: 100%;
+		margin-top: 210px;
 		@media #{$tablet} {
 			display: none;
 		}

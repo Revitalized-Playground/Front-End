@@ -21,9 +21,11 @@
 			@media #{$tablet} {
 				margin: 0 auto;
 				max-width: 60%;
+				margin-top: 10px;
 			}
 			@media #{$mobile} {	
 				max-width: 80%;
+				
 			}
 		}
 		.cta {
