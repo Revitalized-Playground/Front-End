@@ -2,7 +2,7 @@
 
 .project-spotlight {
 	background-color: $luigi;
-	height: 790px;
+	padding-bottom: 25px;
 	@media #{$mobile} {
 		flex-direction: column;
 		height: 100%;
@@ -16,7 +16,13 @@
 		font-weight: 500;
 		@media #{$tablet} {
 			margin: 0 auto;
+			margin-bottom: 17px;
 			text-align: center;
+		}
+		@media #{$mobile} {
+			margin: 0 auto;
+			text-align: center;
+			font-size: 33px;
 		}
 	}
 	.project-spotlight-content{
@@ -29,12 +35,8 @@
 		
 		
 	
-			@media #{$mobile} {
-				font-size: 27px;
-				line-height: 152.31%;
-				margin-left: 0;
-				margin: 0 auto;
-				width: 85%;
+			@media #{$tablet} {
+				display: none;
 			}
 		
 		@media #{$mobile} {
@@ -64,38 +66,51 @@
 		text-align: center;
 		margin-bottom: 240px;
 		margin-top: -50px;
+		
 
 		@media #{$tablet} {
 			max-width: 100%;
-			width: 85%;
+			width: 75%;
 			margin: 0 auto
 		}
 		.user-photo {
 			width: 78%;
 			height: 78%;
-			object-fit: contain;
+			text-align:center;
 			margin: 0 auto;
+			margin: 15px;
 
 			@media #{$tablet} {
 				margin: 0 auto;
-				padding: 30px;
+				padding: 10px;
 				width: 350px;
 				height: 350px;
+				align-items: center;
+			}
+			@media #{$mobile} {
+				margin: 0 auto;
+				padding: 10px;
+				width: 200px;
+				height: 200px;
 				align-items: center;
 			}
 		}
 		.user-info {
 			font-size: 42px;
-			margin: -3% 3% 0 8%;
 			line-height: 48px;
 			letter-spacing: 0.05em;
+			@media #{$tablet} {
+				font-size:33px;
+				margin-top: 15px;
+				
+			}
 
 			@media #{$mobile} {
-				margin: 40px auto 0 auto;
-				font-size: 25px;
+				margin: 0px auto 0 auto;
+				font-size:26px;
 				line-height: 190.31%;
 				text-align: center;
-				font-weight: bold;
+				font-weight: 500;
 			}
 		}
 		p {
@@ -103,14 +118,13 @@
 			letter-spacing: 0.06em;
 			line-height: 180%;
 			font-size: 15px;
-			font-weight: bold;
+			font-weight: 400;
 			position: relative;
 			left: 5%;
 
 			@media #{$tablet} {
 				font-size: 16px;
 				line-height: 190.31%;
-				left: 0;
 				margin: 20px auto;
 				text-align: left
 			}
