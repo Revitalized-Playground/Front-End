@@ -94,8 +94,8 @@
 			}
 		}
 		.user-info {
-			font-size: 36px;
-			line-height: 44px;
+			font-size: 33px;
+			line-height: 40px;
 			letter-spacing: 0.03em;
 			
 			@media #{$tablet} {
@@ -124,6 +124,7 @@
 				line-height: 190.31%;
 				margin: 20px auto;
 				text-align: left;
+				width: 75%;
 				
 			}
 		}
