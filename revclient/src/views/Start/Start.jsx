@@ -11,8 +11,9 @@ import Hire from './Hire/Hire';
 
 const Start = () => {
     return (
+        <>
+        <Nav />
         <div className="startContainer">
-            <Nav />
             <Top />
             <Spotlight />
             <RecommendedProjects />
@@ -21,6 +22,7 @@ const Start = () => {
             <Noteworthy />
             <Hire />
         </div>
+        </>
     );
 };
 
