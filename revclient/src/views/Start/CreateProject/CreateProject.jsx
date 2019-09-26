@@ -9,7 +9,7 @@ const CreateProject = () => {
             <img src={Houseplay} alt="man at desk" />
             <div className="right">
                 <p>Like what you see so far? Creating a project is made easier by using our simple form tool.</p>
-                <Link to="/createproject"><button className="createButton">Create a Project</button></Link>
+                <Link to="/createproject">Create a Project</Link>
             </div>
         </section>
     );

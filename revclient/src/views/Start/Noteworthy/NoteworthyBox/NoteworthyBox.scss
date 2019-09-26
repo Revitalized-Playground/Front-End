@@ -1,0 +1,38 @@
+.noteworthyBox {
+    // height: 100%;
+    // img {
+    //     height: 250px;
+    //     width: 100%;
+    //     object-fit: cover;
+    // }
+    .flexbox {
+        position: relative;
+        bottom: 50%;
+        left: 5%;
+        display: flex;
+        flex-direction: column;
+        h6, p, a {
+            max-width: 400px;
+        }
+        h6, p {
+            margin-bottom: 3%;
+        }
+        h6 {
+            font-size: 2.4rem;
+            line-height: 3.2rem;
+        }
+        p {
+            font-size: 1.4rem;
+            line-height: 138.14%;
+            letter-spacing: 0.03rem;
+        }
+    }
+}
+.one {
+    // width: 25%;
+    // margin-right:
+
+}
+// .two {
+//     width: 50;
+// }
