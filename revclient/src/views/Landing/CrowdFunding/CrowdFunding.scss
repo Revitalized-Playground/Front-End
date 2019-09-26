@@ -21,8 +21,9 @@
 			line-height: 147.81%;
 			margin-bottom: 15px 
 		}
-
+		
 		@media #{$mobile} {
+			margin-left: 0;
 			font-size: 26px;
 			line-height: 147.81%;
 			margin-bottom: 15px 
