@@ -1,12 +1,18 @@
 @import './Top/Top.scss';
-@import './Banner/Banner.scss';
 @import './Spotlight/Spotlight.scss';
 @import './RecommendedProjects/RecommendedProjects.scss';
 @import './NearYou/NearYou.scss';
+@import './CreateProject/CreateProject.scss';
 @import './Noteworthy/Noteworthy.scss';
 @import './Hire/Hire.scss';
 
 .startContainer {
-    @include spaceForNav;
-    // margin-left: 9.8rem;
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    .slider {
+        width: 100%;
+        margin: 0 auto;
+    }
 }
+
