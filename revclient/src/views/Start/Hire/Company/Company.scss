@@ -1,0 +1,40 @@
+.hireContainer {
+	margin-bottom: 50px;
+	max-width: 1600px;
+	h2 {
+		font-size: 18px;
+	}
+	.companies {
+		padding-left: 0.5%;
+		display: flex;
+		justify-content: space-between;
+	}
+
+	.companyContainer {
+		border-radius: 1.5%;
+		padding-bottom: 2.5%;
+		display: flex;
+		align-items: flex-end;
+		background-position: center;
+		background-size: cover;
+		margin-right: 60px;
+		height: 32vh;
+		// width: 100%;
+		max-width: 1600px;
+
+		&:last-child {
+			margin-right: 0;
+		}
+		img {
+			width: 100%;
+		}
+		.logo {
+			margin-bottom: 3%;
+		}
+
+		.logoContainer {
+			width: 50%;
+			margin: 0 auto;
+		}
+	}
+}
