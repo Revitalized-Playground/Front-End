@@ -1,10 +1,11 @@
 import React from 'react';
 
-import heroImage from '../../../assets/LandingPage/Hero Image.png';
+import heroImage from '../../../assets/LandingPage/HeroImage.png';
 import crowdFundingImg from '../../../assets/LandingPage/Crowdfunding.svg';
 import opportunitiesImg from '../../../assets/LandingPage/AO.svg';
 import pathwaysImg from '../../../assets/LandingPage/TradePathways.svg';
-import greyRectangle from '../../../assets/LandingPage/GreyRectangle.png';
+// import greyRectangle from '../../../assets/LandingPage/GreyRectangle.png';
+
 
 const Header = () => {
 	return (
@@ -16,11 +17,13 @@ const Header = () => {
 						revitalizing your community
 					</h2>
 					<p>
-						Revitalize is a community crowdfunding platform <br /> for apprenticeships.
+						A crowdfunding platform that <br /> creates apprenticeship opportunities.
 					</p>
-					<button>Start Your Journey Now!</button>
+					<button>Start Your Journey!</button>
 				</div>
-				<img src={heroImage} alt="Hero" />
+				<div className="header-img-container">
+					<img src={heroImage} alt="Hero" />
+				</div>
 			</div>
 
 			<div className="values">
@@ -49,10 +52,7 @@ const Header = () => {
 			<div
 				className="what-we-do"
 				style={{
-					background: `url(${greyRectangle})`,
-					backgroundPosition: 'center',
-					backgroundSize: 'cover',
-					backgroundRepeat: 'no-repeat',
+
 				}}
 			>
 				<h2>What we do?</h2>

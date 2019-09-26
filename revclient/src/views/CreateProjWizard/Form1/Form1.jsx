@@ -27,7 +27,7 @@ const Form1 = ({ projName, projStartDate, projDescription, handleChanges, setFor
             <h2>Project Description</h2>
             <textarea
                 required
-                name="projDescription" S
+                name="projDescription"
                 type="text"
                 className="description"
                 placeholder="Project Description"

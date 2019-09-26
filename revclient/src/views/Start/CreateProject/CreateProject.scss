@@ -1,0 +1,35 @@
+.createProjectContainer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 5%;
+    width: 100%;
+    background-color: $snow-white;
+    padding: 2%;
+    margin: 4% 0;
+    border-radius: 5px;
+    img {
+        margin: 0 6.6%;
+
+    }
+    .right {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        color: $black-void;
+        p {
+            font-size: 22px;
+            line-height: 153.31%;
+            letter-spacing: 0.015rem;
+            width: 80%;
+        }
+        button {
+            @include buttonStyler($chillFi-purple, $snow-white, none, 5% 0);
+            width: 35%;
+            font-size: 22px;
+            line-height: 147.81%;
+            letter-spacing: 0.06rem;
+            // margin-top: 5%;
+        }
+    }
+}

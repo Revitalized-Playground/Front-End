@@ -28,7 +28,7 @@ const SearchProjects = () => {
 				/>
 				<button>Search Now!</button>
 			</form>
-			<div className="fake-map">My totally fake map</div>
+			<div className="fake-map">Map goes here</div>
 		</section>
 	);
 };

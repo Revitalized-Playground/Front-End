@@ -20,9 +20,10 @@ pnpm-lock.yaml*
 
 # misc
 .DS_Store
-.env*
+.env
 
 # debug
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+

@@ -1,86 +1,184 @@
 @import '../../styles/variables';
 @import '../../styles/mixins';
-nav {
-	display: flex;
-	justify-content: space-between;
-	height: 90px;
-	padding: 5px 5px;
-	@include fixedNav;
-	justify-content: space-around;
-	.dark-mode-emoji {
-		max-width: 45px;
-	}
+@import './Hamburger';
 
+
+nav {
+	
+	display: flex;
+	height: 90px;
+	padding: 5px 0px;
+	@include fixedNav;
 	@media #{$mobile} {
-		background: #4840ba;
+		background: $chillFi-purple;
+		height: 99px;
+	}
+	@media #{$tablet} {
+		background: $chillFi-purple;
 		height: 99px;
 	}
 
-	a {
-		// background: yellow;
-		margin-right: 8px;
-		text-decoration: none;
-		color: inherit;
-	}
 	.logo {
 		display: flex;
-		max-width: 25%;
-		// height: 80%;
-		position: absolute;
-		// top: 0.72%;
-		position: absolute;
-		left: 4.5%;
-		// top: 16%;
-		margin-top: -7.5px;
+		max-width: 20%;
 		img {
-			max-height: 90px;
+			max-height: 60px;
+			margin: 10px;
 		}
 		h2 {
+			@media #{$tablet} {
+				color:$abatross;
+			}
 			align-self: center;
-			margin-bottom: 0.5%;
 			font-size: 1.8rem;
 			font-weight: lighter;
 			letter-spacing: 0.06em;
 			color: $chillFi-purple;
 		}
 	}
+	a {
+		text-decoration: none;
+		&:hover {
+			cursor: pointer;
+			color: $mirage;
+		}
+		@media #{$tablet} {
+			display: none;
+		}
+	}
 	ul {
-		// border: 1px solid red;
+		display: flex;
+		align-items: center;
 		display: flex;
 		justify-content: flex-end;
-		width: 90%;
+		align-items: center;
+		width: 100%;
 		margin: auto;
+		color: $chillFi-purple;
+		font-size: 1.8rem;
+		letter-spacing: 0.06em;
+		line-height: 0.9;
+		a {
+			color: $chillFi-purple;
+			letter-spacing: 0.06em;
+			line-height: 0.9;
+		}
 		@media #{$mobile} {
 			display: none;
 		}
 		.navLinks {
-			// border: 1px solid red;
-			margin-right: 85px;
-			margin-top: 20px;
+			margin-right: 65px;
 			&:last-child {
 				margin-right: 300px;
 			}
-			a {
-				color: $chillFi-purple;
-				font-size: 24px;
-				letter-spacing: 0.06em;
-			}
-		}
-		button {
-			@include buttonStyler($chillFi-purple, $snow-white, solid);
-			font-size: 24px;
-			margin: auto 0.4% auto 1%;
-			height: 73px;
-			width: 200px;
-			vertical-align: center;
-			padding-bottom: 30px;
 		}
 		.login {
-			@include buttonStyler($snow-white, $chillFi-purple, solid);
-			height: 70px;
-			margin: auto 0.4% auto 1%;
+			@include buttonStyler($chillFi-purple, $snow-white, none, auto 10px auto 0);
+		}
+		button {
+			@include buttonStyler($chillFi-purple, $snow-white, none, auto 10px auto 0);
+			font-size: 24px;
+			height: 60px;
 			width: 200px;
-			padding-bottom: 30px;
+			vertical-align: center;
+			@include subtleBoxShadow;
+			@media #{$tablet} {
+				display: none;
+			}
+		}
+		.user {
+			display: flex;
+			align-items: center;
+			justify-content: flex-end;
+			margin-right: 2%;
+			.welcome {
+				margin-right: 1.2rem;
+				&:hover {
+					cursor: pointer;
+					color: $mirage;
+				}
+			}
+			.dropdown {
+				background-color: $chillFi-purple;
+				color: $snow-white;
+				position: fixed;
+				display: flex;
+				flex-direction: column;
+				top: 5.5rem;
+				width: 15%;
+				right: 0;
+				padding: 10px;
+				border-radius: 0.25rem;
+				cursor: pointer;
+				a {
+					color: $snow-white;
+					margin-bottom: 10px;
+				}
+				div {
+					margin-bottom: 10px;
+					display: flex;
+					align-items: center;
+				}
+			}
+			.userIcon {
+				background-color: $static-grey;
+				width: 3.7rem;
+				height: 3.7rem;
+				border-radius: 50%;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+			}
+		}
+		.dark-mode-emoji {
+			font-size: 2.4rem;
+			padding: 10px 15px 0 10px;
+		}
+	}
+}
+
+
+
+.dark-mode {
+	nav {
+		background-color: $machiavellian;
+		.logo {
+			img {
+				filter: hue-rotate(-25deg);
+			}
+			h2 {
+				color: $maastricht-blue;
+			}
+		}
+		ul {
+			.navLinks {
+				a {
+					color: $maastricht-blue;
+				}
+			}
+			.login {
+				color: $snow-white;
+				background-color: $maastricht-blue;
+
+				&:hover {
+					color: $maastricht-blue;
+					background-color: $snow-white;
+				}
+			}
+			.register {
+				color: $snow-white;
+				background-color: $maastricht-blue;
+
+				&:hover {
+					color: $maastricht-blue;
+					background-color: $snow-white;
+				}
+			}
+		}
+		.dark-mode-emoji {
+			svg {
+				color: $police-blue;
+			}
 		}
 	}
 }

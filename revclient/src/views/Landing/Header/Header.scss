@@ -3,45 +3,37 @@
 .header {
 	// This is for fixed nav to be removed.
 	// border: 1px solid red;
-	@include spaceForNav;
+	@include spaceForNav;  
+	// Consider using sticky to negate the need for a spacer fix
+	// Frank
 
 	.cta-container {
-		height: 79vh;
 		display: flex;
 		justify-content: space-between;
-		margin: 10.5rem 7rem 5.2rem 7rem;
-
+		margin: 85px 55px 125px 55px;
 		@media #{$mobile} {
-			flex-direction: column;
+			// border: 1px solid red;
+			display: block;
 			margin: 0;
 			height: 100%;
 		}
-		img {
-			max-width: 50%;
-			object-fit: contain;
 
-			@media #{$mobile} {
-				max-width: 100%;
-			}
-		}
 		.cta {
-			max-width: 50%;
-			max-height: 100%;
+			width: 50%;
 			text-align: left;
-
+			margin-left: 10%;
 			@media #{$mobile} {
-				height: 50%;
-				max-width: 100%;
+				width: 100%;
 			}
 
 			.cta-title {
 				text-align: left;
-				margin-top: 85px;
-				font-size: 42px;
+				margin-top: 110px;
+				font-size: 40px;
 				font-weight: 500;
-				letter-spacing: 0.13em;
+				letter-spacing: 0.06em;
 				line-height: 1.4;
-				color: #4840ba;
+				color: $chillFi-purple;
 				height: auto;
 
 				@media #{$mobile} {
@@ -63,8 +55,8 @@
 				}
 			}
 			button {
-				@include buttonStyler(#4840ba, #ffffff, none);
-				margin-top: 20px;
+				@include buttonStyler($chillFi-purple, $snow-white, none);
+				margin-top: 29px;
 				font-size: 20px;
 				height: 70px;
 				padding: 0.5rem 1rem;
@@ -73,6 +65,15 @@
 				@media #{$mobile} {
 					margin: 10px 0 80px 0;
 				}
+			}
+		}
+		.header-img-container {
+			width: 50%;
+			display: flex;
+			justify-content: flex-start;
+			img {
+				width: 85%;
+				object-fit: contain;
 			}
 		}
 	}
@@ -112,12 +113,12 @@
 
 			div {
 				border-radius: 0.25rem;
-				padding: 1.8rem 0;
+				padding: 18px 0;
 				font-size: 24px;
 				letter-spacing: 0.12em;
 				color: $snow-white;
 				width: 15.3%;
-				height: 5.2rem;
+				height: 64px;
 				margin: auto;
 				text-align: center;
 
@@ -128,34 +129,38 @@
 				}
 			}
 			.tenacity {
-				background: #d2405b;
+				background: $ruby-enchantment;
 			}
 			.ingenuity {
-				background: #ffc100;
+				background: $pikachu;
 			}
 			.growth {
-				background: #82c7b3;
+				background: $luigi;
 			}
 			.diligence {
-				background: #53a1a9;
+				background: $mutant-turtle;
 			}
 			.resilience {
-				background: #ab7b61;
+				background: $mocha;
 			}
 			.compassion {
-				background: #f7ad82;
+				background: $scampi;
 			}
 		}
 	}
 	.what-we-do {
 		padding: 2% 0;
+		background-image: url("../assets/LandingPage/GreyRectangle.png");
+		background-position: center;
+		background-size: cover;
+		background-repeat: no-repeat;
 		h2 {
 			text-align: center;
 			font-size: 48px;
 			letter-spacing: 0.13em;
 		}
 		.learn-more-container {
-			margin-top: 98px;
+			margin-top: 58px;
 			max-width: 100%;
 			display: flex;
 			justify-content: space-evenly;
@@ -164,10 +169,10 @@
 				flex-direction: column;
 			}
 			img {
-				width: 300px;
-				height: 300px;
+				width: 240px;
+				height: 240px;
 				border-radius: 50%;
-				margin-bottom: 80px;
+				margin-bottom: 50px;
 			}
 			.crowdFunding,
 			.opportunities,
@@ -175,14 +180,15 @@
 				display: inline-block;
 				text-align: center;
 				h3 {
-					font-size: 28px;
-					letter-spacing: 0.12em;
+					font-size: 23px;
+					letter-spacing: 0.03em;
 					margin-bottom: 26px;
 				}
 				a {
-					font-size: 20px;
+					font-size: 22px;
+					font-weight: 500;
 					text-decoration: none;
-					color: #4840ba;
+					color: $chillFi-purple;
 				}
 			}
 
@@ -206,3 +212,48 @@
 		}
 	}
 }
+
+
+.dark-mode {
+	.cta-container {
+		.cta {
+			.cta-title {
+				color: $dark-electric-blue;
+			}
+			p {
+				color: $maastricht-blue;
+			}
+			button {
+				background-color: $maastricht-blue;
+				color: $snow-white;
+				&:hover {
+					background-color: $scampi;
+					color: $maastricht-blue;
+					mix-blend-mode: color-dodge;
+				}
+			}
+		}
+	}
+	.values {
+		p {
+			color: $abatross;
+		}
+		.value-tiles {
+			div {
+				color: $machiavellian;
+			}
+		}
+	}
+	.what-we-do {
+		background-image: none;
+		background-color: $police-blue;
+		.learn-more-container {
+			.crowdFunding, .opportunities, .pathways { 
+				a {
+					color: $saphire-mox;
+				}
+			}
+		}
+	}
+}
+

@@ -1,6 +1,6 @@
 .crowdfunding-container {
 	margin-top: 7.1%;
-	height: 100%;
+
 	
 	@media #{$mobile} {
 		margin-top: 0;
@@ -10,12 +10,12 @@
 
 	.crowdfunding-header {
 		font-family: Futura-pt;
-		font-size: 48px;
+		font-size: 44px;
 		line-height: 160.81%;
-		margin-left: 12%;
-		letter-spacing: 3px;
-		font-weight: bold;
-		color: #0b096f;
+		margin-left: 6%;
+		letter-spacing: .04em;
+		font-weight: 500;
+		color: $erudite-purple;
 
 		@media #{$mobile} {
 			margin-left: 0;
@@ -25,13 +25,13 @@
 		}
 	}
 	p {
-		font-family: Futura;
+		font-family: "futura";
 		font-size: 22px;
 		line-height: 160.81%;
 		letter-spacing: 0.06em;
 	}
 	.Explore {
-		margin: 0.75% 0 4.3% 12.1%;
+		margin: 0.75% 0 4.3% 6.2%;
 		font-family: Futura-pt;
 		letter-spacing: 0.06em;
 
@@ -39,53 +39,59 @@
 			margin: 0 0 45px 0;
 			font-size: 18px;
 			line-height: 154.81%;
-			color: #0B096F;
+			color: $erudite-purple;
 		}
 	}
 	.do-you-know {
-		font-family: Futura-pt;
+		font-family: "futura-pt";
 		margin-top: 2.4%;
-		margin-left: 30.6%;
+		text-align: center;
 		font-size: 25px;
 		letter-spacing: 1px;
-
 		@media #{$mobile} {
 			display: none
 		}
 	}
 	.img-container {
 		display: flex;
-		justify-content: space-between;
-		width: 76%;
-		margin-left: 12%;
+		justify-content: space-around;
+		width: 100%;
+		margin: 0 auto;
 
 		@media #{$mobile} {
 			flex-direction: column;
 			width: 100%;
 			margin-left: 0;
 		}
-	}
-	img {
-		width: 31%;
-		height: 294px;
-		@media #{$mobile} {
-			width: 100%;
-			height: 240px;
-			margin-bottom: 40px;
+		img {
+			width: 25%;
+			@media #{$mobile} {
+				width: 100%;
+				height: 240px;
+				margin-bottom: 40px;
+			}
+			
 		}
-		
 	}
+
+	.do-you-know{
+		margin-top: 55px;
+		font-size: 22px;
+	}
+
+	.center{
+		display: block;
+		margin: 0 auto;
+		text-align: center;
+
 	.create-button {
-		@include buttonStyler(#4840ba, #ffffff, none);
-		margin-top: 50px;
-		margin-left: 40%;
-		font-size: 34px;
-		height: 95px;
-		padding: 0.5rem 1.2rem;
-		width: 20%;
+		@include buttonStyler($chillFi-purple, $snow-white, none);
+		margin: 50px auto 80px auto;
+		font-size: 30px;
+		padding: 1.2rem 2.2rem;
+		width: 300px;
 
 		@media #{$mobile} {
-			// position: static;
 			width: 80%;
 			margin: 0 auto;
 			height: 50px;
@@ -95,3 +101,21 @@
 		}
 	}
 }
+}
+
+.dark-mode {
+	.crowdfunding-container {
+		.crowdfunding-header {
+			color: $maastricht-blue;
+		}
+		.create-button {
+			background-color: $maastricht-blue;
+			color: $snow-white;
+			&:hover {
+				background-color: $snow-white;
+				color: $maastricht-blue
+			}
+		}
+	}
+}
+
