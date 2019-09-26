@@ -11,7 +11,7 @@ const Noteworthy = () => {
             state: "IA",
             description: "NU Energy team is Revitalize’s upcoming project focused on renewable and sustainable energy. Experts in the wind energy industry share their knowledge and best practices with future wind turbine technicians.",
             link: "#",
-            image: ""          
+            image: "https://res.cloudinary.com/revitalize/image/upload/v1569451140/start%20page/Windmill_jvynbk.svg"          
         },
         {
             id: 2,
@@ -19,7 +19,7 @@ const Noteworthy = () => {
             state: "MI",
             description: "Alger Theatre is one of Detroit’s well loved and iconic theatre. Multiple prospects compete to decide the future of Alger Theatre. Residents of the city hold the fate of Alger Theatre. What will the residents decide?",
             link: "#",
-            image: ""                
+            image: "https://res.cloudinary.com/revitalize/image/upload/v1569451143/start%20page/Alger_theater_Dark_Mode_Pic_inlldb.svg"                
         }
     ]
 

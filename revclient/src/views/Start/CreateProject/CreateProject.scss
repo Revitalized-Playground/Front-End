@@ -10,7 +10,6 @@
     border-radius: 5px;
     img {
         margin: 0 6.6%;
-
     }
     .right {
         display: flex;
@@ -23,13 +22,12 @@
             letter-spacing: 0.015rem;
             width: 80%;
         }
-        button {
+        a {
             @include buttonStyler($chillFi-purple, $snow-white, none, 5% 0);
             width: 35%;
             font-size: 22px;
             line-height: 147.81%;
             letter-spacing: 0.06rem;
-            // margin-top: 5%;
         }
     }
 }
