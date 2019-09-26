@@ -1,12 +1,10 @@
 import React from 'react';
 import Slider from "react-slick";
 
-
-import ProjectsCarousel from '../Projects/ProjectsCarousel/ProjectsCarousel';
+import CarouselCard from '../Projects/ProjectsCarousel/CarouselCard';
 
 
 class RecommendedProjects extends React.Component {
-
 
     render() {
         const recommendedArray = [
@@ -38,9 +36,7 @@ class RecommendedProjects extends React.Component {
             {
                 id: 3,
                 name: "Sage Francis",
-
                 description: "Reclaim, a nonprofit works with local relief organizations to rebuild Puerto Rico after the impact of Hurrican Dorian.",
-
                 state: "PR",
                 city: "San Juan",
                 goalAmount: 5000.00,
@@ -55,8 +51,8 @@ class RecommendedProjects extends React.Component {
                 description: "Students from different academics (Engineering and Mechanics) present Nasa   on tools for the new space station.",
                 state: "DC",
                 city: "Washington",
-                goalAmount: 8000000.00,
-                amountFunded: 15000000.00,
+                goalAmount: 15000000.00,
+                amountFunded: 8000000.00,
                 images: ["https://","https://"],
                 featuredImage: "https://res.cloudinary.com/revitalize/image/upload/v1569451125/start%20page/SpaceLine_Project_jwcjug.svg",
                 liked: false
@@ -104,8 +100,8 @@ class RecommendedProjects extends React.Component {
                 description: "Atlanta gets a mural upgrade with apprentice artists showcasing their skills and process.",
                 state: "GA",
                 city: "Atlanta",
-                goalAmount: 1000.00,
-                amountFunded: 5000.00,
+                goalAmount: 5000.00,
+                amountFunded: 1000.00,
                 images: ["https://","https://"],
                 featuredImage: "https://res.cloudinary.com/revitalize/image/upload/v1569451132/start%20page/Murals_of_Hope_pam8nr.svg",
                 liked: false 
@@ -142,18 +138,19 @@ class RecommendedProjects extends React.Component {
             infinite: true,
             speed: 500,
             slidesToShow: 5,
-            slidesToScroll: 1,
+            slidesToScroll: 3,
             centerPadding: "400px",
             lazyLoad: "progressive",
             className: "carousel-card"
         };
+
         return (
             <section className="recommened-projects-section">
                 <h4>Recommended Projects</h4>
                 <div className="slider">
                     <Slider {...settings}>
                         {recommendedArray ? recommendedArray.map(recommendedItem => (
-                            <ProjectsCarousel key={recommendedItem.id} card={recommendedItem} />
+                            <CarouselCard key={recommendedItem.id} card={recommendedItem} view="recommended" />
                         )) : null}
                     </Slider>
                 </div>
@@ -161,6 +158,7 @@ class RecommendedProjects extends React.Component {
         );
     }
 }
-    
+
 
 export default RecommendedProjects;
+

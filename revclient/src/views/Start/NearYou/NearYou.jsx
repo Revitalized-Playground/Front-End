@@ -1,7 +1,7 @@
 import React from 'react';
 import Slider from "react-slick";
 
-import ProjectsCarousel from '../Projects/ProjectsCarousel/ProjectsCarousel';
+import CarouselCard from '../Projects/ProjectsCarousel/CarouselCard';
 
 
 const NearYou = () => {
@@ -124,7 +124,7 @@ const NearYou = () => {
         infinite: true,
         speed: 500,
         slidesToShow: 4,
-        slidesToScroll: 1,
+        slidesToScroll: 2,
         centerPadding: "400px",
         lazyLoad: "progressive",
         className: "carousel-card"
@@ -136,7 +136,7 @@ const NearYou = () => {
             <div className="slider">
                 <Slider {...settings}>
                     {nearList ? nearList.map(item => (
-                        <ProjectsCarousel key={item.id} card={item} />
+                        <CarouselCard key={item.id} card={item} view="nearYou" />
                     )) : null}
                 </Slider>
             </div>
