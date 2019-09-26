@@ -49,6 +49,7 @@ function Register(props) {
 
 	return (
 		<div className="registerContainer">
+			
 			<div className="revitalizeLogo-container">
 				<Link to="/" title="Home">
 					<div className="logo">
@@ -56,6 +57,7 @@ function Register(props) {
 					</div>
 				</Link>
 			</div>
+
 			<div className="registerForm">
 				<div className="registerThirdParty">
 					<div className="registerWelcome">

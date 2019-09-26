@@ -1,0 +1,29 @@
+
+
+.carousel-card {
+    .carousel-card-inner {
+        background-color: $snow-white;
+        margin: 0 10px;
+        border-radius: 5px;
+        border: 1px solid $silver-lining;
+        .carousel-card-image {
+            // height: 200px;
+            img {
+                width: 100%;
+                height: 150px;
+                object-fit: cover;
+            }
+        }
+        .carousel-card-body {
+            padding: 10px;
+            font-size: 1.2rem;
+            h5 {
+                margin-top: 10px;
+            }
+            p {
+                margin-top: 10px;
+            }
+        }
+    }
+}
+
