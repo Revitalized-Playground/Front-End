@@ -8,7 +8,6 @@
 	// Frank
 
 	.cta-container {
-
 		display: flex;
 		justify-content: space-between;
 		margin: 85px 55px 125px 55px;
@@ -16,6 +15,7 @@
 			// border: 1px solid red;
 			display: block;
 			margin: 0;
+			height: 100%;
 		}
 
 		.cta {
@@ -51,7 +51,7 @@
 
 				@media #{$mobile} {
 					max-width: 100%;
-					margin: 10px 0;
+					margin: 10px 0 50px 0;
 				}
 			}
 			button {
@@ -61,6 +61,10 @@
 				height: 70px;
 				padding: 0.5rem 1rem;
 				width: 270px;
+
+				@media #{$mobile} {
+					margin: 10px 0 80px 0;
+				}
 			}
 		}
 		.header-img-container {
@@ -83,6 +87,10 @@
 			margin-bottom: 17px;
 			padding-left: 50px;
 			text-align: center;
+
+			@media #{$mobile} {
+				font-size: 1rem;
+			}
 		}
 		.value-tiles {
 			display: flex;
@@ -94,6 +102,15 @@
 			padding-bottom: 5rem;
 			padding-top: 1.25rem;
 
+			@media #{$mobile} {
+				justify-content: space-between;
+				width: 86%;
+				margin: 0 auto;
+				text-align: center;
+				padding-bottom: 5rem;
+				padding-top: 1.25rem;
+			}
+
 			div {
 				border-radius: 0.25rem;
 				padding: 18px 0;
@@ -104,6 +121,12 @@
 				height: 64px;
 				margin: auto;
 				text-align: center;
+
+				@media #{$mobile} {
+					font-size: 10px;
+					padding: 0.5rem 0;
+					height: 0.5rem;
+				}
 			}
 			.tenacity {
 				background: $ruby-enchantment;
@@ -141,6 +164,10 @@
 			max-width: 100%;
 			display: flex;
 			justify-content: space-evenly;
+
+			@media #{$mobile} {
+				flex-direction: column;
+			}
 			img {
 				width: 240px;
 				height: 240px;
