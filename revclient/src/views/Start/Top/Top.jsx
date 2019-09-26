@@ -9,20 +9,24 @@ const Top = () => {
             </div>
             <div className="roles">
                 <div className="role">
-                    <div className="bar student"></div>
-                    <p>Student</p>
+                    <div className="bar color-cerulean"></div>
+                    <p>Avionics</p>
                 </div>
                 <div className="role">
-                    <div className="bar employer"></div>
-                    <p>Employer</p>
+                    <div className="bar color-pikachu"></div>
+                    <p>Construction</p>
                 </div>
                 <div className="role">
-                    <div className="bar donor"></div>
-                    <p>Donor</p>
+                    <div className="bar color-erudite-purple"></div>
+                    <p>Interior Design</p>
                 </div>
                 <div className="role">
-                    <div className="bar trainer"></div>
-                    <p>Master Trainer</p>
+                    <div className="bar color-mutant-turtle"></div>
+                    <p>Welding</p>
+                </div>
+                <div className="role">
+                    <div className="bar color-ruby-enchantment"></div>
+                    <p>Wind Energy</p>
                 </div>
             </div>
         </div>
