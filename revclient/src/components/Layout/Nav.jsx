@@ -6,6 +6,9 @@ import logo from '../../assets/LandingPage/Logo.png';
 // import lightModeEmoji from '../../assets/Global/Nav/night-mode-512.png';
 import { FaMoon } from "react-icons/fa";
 
+import { useQuery } from '@apollo/react-hooks';
+import { GET_USER } from '../../graphql/queries/Users';
+
 const uLinks = [{ href: '/start', label: 'Browse' }, { href: '#', label: 'Learn More' }, { href: '#', label: 'Team' }, { href: '/login', label: 'Log In' }].map(
 	link => {
 		link.key = `nav-link-${link.href}-${link.label}`;
@@ -22,19 +25,13 @@ const aLinks = [{ href: '/createproject', label: 'Create a project' }, { href: '
 const Nav = props => {
 	const [darkModeActive, setDarkMode] = useState(false);
 	const [loggedIn, setLoggedIn] = useState(false);
-	const [name] = useState("User");
-    const [clicked, setClicked] = useState(false);
+	const [clicked, setClicked] = useState(false);
 
 	// for testing
 	const toggleLoggedIn = () => setLoggedIn(!loggedIn);
 
     const toggleDropdown = () => {
         setClicked(!clicked);
-	}
-
-	const logout = () => {
-		localStorage.removeItem("token")
-		props.history.push("/")
 	}
 
 	const toggleDarkMode = () => {
@@ -50,6 +47,20 @@ const Nav = props => {
 		}
 	}, [darkModeActive])
 
+	// Current user
+	const { client, loading, error, data } = useQuery(GET_USER);
+
+	const logout = () => {
+		localStorage.removeItem("token");
+		client.resetStore();
+		props.history.push("/")
+	}
+
+
+	if (localStorage.getItem('token')) {
+		if (loading) return <p>loading....</p>
+	}
+
 
 	return (
 		<nav>
@@ -61,23 +72,23 @@ const Nav = props => {
 			</Link>
 			{/* <button onClick={toggleLoggedIn}>FOR TESTING: toggleLoggedIn</button> */}
 			<ul className="right-nav">
-			{localStorage.getItem('token')
-				?	(<> 
+			{ localStorage.getItem("token")
+				?	(<>
 						{aLinks.map(({ key, href, label }) => (
 							<li className="navLinks" key={key}>
 								<Link to={href}>{label}</Link>
 							</li>
 						))}
 						<div className="user"  onClick={toggleDropdown}>
-							<div className="welcome">{`Welcome, ${name}`}</div>
-							<div className="userIcon"></div>
+							<div className="welcome">{data.me.firstName !== null ? `Welcome, ${data.me.firstName}`: 'Welcome'}</div>
+							<img className="userIcon" src={data.me.profileImage} />
 							{clicked && (
 								<div className="dropdown">
 									<Link to="/user/dashboard">Profile</Link>
 									<div>Setting</div>
 									<div onClick={toggleDarkMode}>
 										<FaMoon  />&nbsp; Dark mode: {darkModeActive ? "on" : "off"}
-									</div> 
+									</div>
 									<div onClick={logout}>Log out</div>
 								</div>
 							)}
@@ -102,7 +113,7 @@ const Nav = props => {
 					)
 			}
 			</ul>
-			
+
 		</nav>
 	);
 };
@@ -121,7 +132,7 @@ export default withRouter(Nav);
 // import { FaMoon } from "react-icons/fa";
 
 // const links = [
-// 	{ to: '/', label: 'Browse' }, 
+// 	{ to: '/', label: 'Browse' },
 // 	{ to: '/', label: 'Learn More' },
 // 	{ to: '/', label: 'Team' },
 // 	// { to: '/user/dashboard', label: 'User Dashboard' },
