@@ -102,7 +102,19 @@ const NearYou = () => {
             amountFunded: 0.00,
             images: ["https://","https://"],
             featuredImage: "https://res.cloudinary.com/revitalize/image/upload/v1569451138/start%20page/Velvet_Thread_e2e8u3.svg",
-            liked: false,
+            liked: false
+        },
+        {
+            id: 9,
+            name: "Cup of Joe’s Cafe",
+            description: "Implement blueprint including working with construction manager, interior design and final inspection.",
+            state: "MI",
+            city: "Detroit",
+            goalAmount: 0.00,
+            amountFunded: 0.00,
+            images: ["https://","https://"],
+            featuredImage: "https://res.cloudinary.com/revitalize/image/upload/v1569516054/start%20page/Cup_of_Joe_s_Cafe_gbkrft.png",
+            liked: false
         }
     ]
 

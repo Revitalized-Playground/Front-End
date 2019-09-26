@@ -11,7 +11,6 @@ const CreateProject = () => {
                 <p>Like what you see so far? Creating a project is made easier by using our simple form tool.</p>
                 <Link to="/createproject"><button className="createButton">Create a Project</button></Link>
             </div>
-            
         </section>
     );
 };
