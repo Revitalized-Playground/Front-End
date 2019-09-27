@@ -95,9 +95,11 @@
         }
 
         .creatorInfo {
-            // height: 120px;
-            margin-top: 25px;
-            border: 1px solid red;
+            margin-top: 35px;
+
+            @media #{$mobile} {
+                margin-top: 25px
+            }
             .email {
                 display: flex;
                 flex-wrap: nowrap;

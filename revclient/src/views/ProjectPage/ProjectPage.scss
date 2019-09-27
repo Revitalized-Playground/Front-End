@@ -6,7 +6,6 @@
 .project-page-container {
 	@include spaceForNav;
 	max-width: 1920px;
-	border: 1px solid red;
 	padding-left: 6.5%;
 	padding-right: 6.5%;
 	
@@ -31,7 +30,6 @@
 				background-size: 100%;
 				background-size: cover;
 				background-position-x: 25%;
-				border: 1px solid red;
 				height: 200px
             }
 
@@ -67,8 +65,6 @@
 	.project-page-flex {
 		display: flex;
 		max-width: 1645px;
-		// margin: 0 auto;
-		border: 1px solid red;
 
 		@media #{$mobile} {
 			flex-direction: column
