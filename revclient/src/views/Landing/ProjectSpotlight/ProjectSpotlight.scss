@@ -76,6 +76,7 @@
 			width: 88%;
 			height: 88%;
 			text-align:center;
+
 			margin: 0 auto;
 
 			@media #{$tablet} {
@@ -94,6 +95,7 @@
 			}
 		}
 		.user-info {
+
 			font-size: 33px;
 			line-height: 40px;
 			letter-spacing: 0.03em;
@@ -103,6 +105,7 @@
 				margin-top: 15px;
 				
 			}
+
 
 			@media #{$mobile} {
 				margin: 0px auto 0 auto;
@@ -116,8 +119,10 @@
 			margin: 5% auto 5% auto;
 			letter-spacing: 0.03em;
 			line-height: 180%;
+
 			font-size: 22px;
 			font-weight: 400;
+
 
 			@media #{$tablet} {
 				font-size: 18px;

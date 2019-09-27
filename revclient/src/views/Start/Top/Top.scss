@@ -1,0 +1,44 @@
+
+.topContainer {
+    width: 100%;
+    max-width: 800px; 
+    margin-top: 100px;
+    letter-spacing: 0.16rem;
+    font-weight: 500;
+    .title {
+        display: flex;
+        font-size: 3.6rem;
+        line-height: 1;
+        .questionMark {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    }
+    .interests {
+        display: flex;
+        justify-content: space-between;
+        font-size: 1.8rem;
+        line-height: 1;
+        margin-top: 1.5rem;
+        padding: 0.5rem 0;
+        .interest {
+            background-color: $silver-lining;
+            padding: 10px;
+            border-radius: 0 3px 3px 0;
+        }
+        .interest.one {
+            border-left: 10px solid $cerulean;
+        }
+        .interest.two {
+            border-left: 10px solid $pikachu;
+        }
+        .interest.three {
+            border-left: 10px solid $erudite-purple;
+        }
+        .interest.four {
+            border-left: 10px solid $luigi;
+        }
+        .interest.five {
+            border-left: 10px solid $ruby-enchantment;
+        }
+    }
+}

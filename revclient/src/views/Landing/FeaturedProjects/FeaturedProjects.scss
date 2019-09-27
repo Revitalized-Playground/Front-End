@@ -10,6 +10,7 @@
 		margin: 0 auto;
 		margin-top: 45px;
 	}
+
 	
 	.FPProjectList {
 		display: flex;
@@ -25,7 +26,6 @@
 			transition: 0.2s all ease-in-out;
 			width: 25%;
 			
-
 			@media #{$tablet}{
 				margin: 5px;
 				width: 31%;
@@ -35,6 +35,7 @@
 				margin: 0 auto;
 				
 			}
+
 			&:hover {
 				cursor: pointer;
 				color: $ocean-blue;
@@ -95,40 +96,6 @@
 		letter-spacing: 0.06em;
 		margin-bottom: 35px;
 	}
-
-	// These styles are not actually running. 
-	// Card styling has been moved to the card components -fm
-	// .FPProjects { 
-	// 	max-width: 480px;
-	// 	margin: 0 20px;
-	// 	margin-bottom: 60px;
-	// 	text-align: center;
-	// 	transition: 0.2s all ease-in-out;
-	// 	&:hover {
-	// 		cursor: pointer;
-	// 		color: $ocean-blue;
-	// 	}
-	// 	img {
-	// 		width: 100%;
-	// 		height: 660px;
-	// 		border-radius: 10px;
-	// 		&:hover {
-	// 			transform: scale(1.01);
-	// 		}
-	// 	}
-	// 	h4 {
-	// 		margin: 30px auto 0 auto;
-	// 		max-width: 407px;
-	// 		height: 80px;
-	// 		font-size: 36px;
-	// 	}
-	// 	p {
-	// 		font-size: 24px;
-	// 		max-width: 405px;
-	// 		height: 127px;
-	// 		margin: 30px auto 0 auto;
-	// 	}
-	// }
 }
 
 .dark-mode {

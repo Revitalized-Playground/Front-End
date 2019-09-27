@@ -11,7 +11,6 @@
 		justify-content: space-between;
 		margin: 15px 55px 125px 6%;
 		@media #{$tablet} {
-			// border: 1px solid red;
 			flex-direction: column-reverse;
 			margin: 0 auto;
 		}
@@ -28,9 +27,9 @@
 				
 			}
 		}
+
 		.cta {
-			max-width: 47%;
-			max-height: 33%;
+			width: 50%;
 			text-align: left;
 			margin: 35px;
 			@media #{$tablet} {
@@ -90,7 +89,7 @@
 
 				@media #{$tablet} {
 					max-width: 100%;
-					margin: 10px 0;
+					margin: 10px 0 50px 0;
 				}
 				@media #{$tablet-small} {
 				font-size: 20px;
@@ -105,10 +104,12 @@
 				font-size: 24px;
 				padding: 1rem 1.8rem;
 				width: 270px;
+
 				@media #{$mobile}{
 					width: 200px;
 					font-size: 18px;
 				}
+
 			}
 		}
 	}
@@ -127,6 +128,7 @@
 			padding-left: 50px;
 			text-align: center;
 		
+
 		}
 		.value-tiles {
 			display: flex;
@@ -137,6 +139,15 @@
 			padding-top: 1.25rem;
 			@media #{$tablet} {
 				width: 100%;
+			}
+
+			@media #{$mobile} {
+				justify-content: space-between;
+				width: 86%;
+				margin: 0 auto;
+				text-align: center;
+				padding-bottom: 5rem;
+				padding-top: 1.25rem;
 			}
 
 			div {
@@ -154,7 +165,6 @@
 					letter-spacing: 0.06em;
 					font-size: 12px;
 					padding: 1.2rem .5rem;
-
 				}
 			}
 			.tenacity {
@@ -209,6 +219,7 @@
 			max-width: 100%;
 			display: flex;
 			justify-content: space-evenly;
+
 			@media #{$mobile} {
 				flex-direction: column;
 			}

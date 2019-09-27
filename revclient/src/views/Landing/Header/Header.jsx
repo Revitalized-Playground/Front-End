@@ -25,7 +25,9 @@ const Header = () => {
 					</p>
 					<button>Start Your Journey!</button>
 				</div>
-				<img src={heroImage} alt="Hero" />
+				<div className="header-img-container">
+					<img src={heroImage} alt="Hero" />
+				</div>
 			</div>
 
 			<div className="values">
