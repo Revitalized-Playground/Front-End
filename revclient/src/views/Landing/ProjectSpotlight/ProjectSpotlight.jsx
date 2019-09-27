@@ -30,6 +30,7 @@ const ProjectSpotlight = () => {
 			<div className='phoneContainer'>
 			<img className="phone-right phone" src={rubiconPhones} alt="cell phone" />
 			</div>
+			
 			</div>
 		</section>
 	);
