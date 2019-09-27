@@ -52,21 +52,18 @@ const UserDashboard = () => {
         }
     ]
 
-    const [userType, setUserType] = useState("apprentice");
+    const [apprentice, setApprentice] = useState(true);
 
+    const toggleUserType = () => {
+        setApprentice(!apprentice)
+    }
     return (
         <>
             <section className="user-dashboard">
-                {/* {if(userType === "apprentice") {(
-                    <Sidebar user={users.skyelar} />
-                )} else if () {
-
+                { apprentice
+                    ? <Sidebar user={users.skyelar} />
+                    : <Sidebar user={users.maleescha} />
                 }
-                    ?    
-                    :   <Sidebar user={users.maleescha} /> 
-                } */}
-                
-                <Sidebar />
                 
                 <section className="user-dashboard-body">
                     <div className="user-dashboard-header section">

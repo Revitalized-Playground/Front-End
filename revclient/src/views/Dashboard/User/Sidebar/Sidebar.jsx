@@ -10,11 +10,11 @@ const Sidebar = props => {
                 <Skeleton circle={true} height={110} width={110} />
             }
 
-            <Skeleton count={2} />  name, username -->
+            <Skeleton count={2} />
             <div className="user-dashboard-title">
-                    <Skeleton count={1} height={25} width={200} />  cert -->
-                    <Skeleton count={1} height={25} width={125} />  hours logged -->
-                    <Skeleton count={1} height={25} width={75} />  credit hours -->
+                    <Skeleton count={1} height={25} width={200} />
+                    <Skeleton count={1} height={25} width={125} />
+                    <Skeleton count={1} height={25} width={75} /> 
             </div>
 
             <hr/>
