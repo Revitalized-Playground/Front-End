@@ -3,27 +3,39 @@
 .header {
 	// This is for fixed nav to be removed.
 	// border: 1px solid red;
-	@include spaceForNav;  
 	// Consider using sticky to negate the need for a spacer fix
 	// Frank
 
 	.cta-container {
 		display: flex;
 		justify-content: space-between;
-		margin: 85px 55px 125px 55px;
-		@media #{$mobile} {
-			// border: 1px solid red;
-			display: block;
-			margin: 0;
-			height: 100%;
+		margin: 15px 55px 125px 6%;
+		@media #{$tablet} {
+			flex-direction: column-reverse;
+			margin: 0 auto;
+		}
+		img {
+			max-width: 47%;
+			object-fit: contain;
+			@media #{$tablet} {
+				margin: 0 auto;
+				max-width: 60%;
+				margin-top: 30px;
+			}
+			@media #{$mobile} {	
+				max-width: 80%;
+				
+			}
 		}
 
 		.cta {
 			width: 50%;
 			text-align: left;
-			margin-left: 10%;
-			@media #{$mobile} {
-				width: 100%;
+			margin: 35px;
+			@media #{$tablet} {
+				max-width: 100%;
+				text-align:center;
+				margin: 20px;
 			}
 
 			.cta-title {
@@ -36,71 +48,98 @@
 				color: $chillFi-purple;
 				height: auto;
 
-				@media #{$mobile} {
+				@media #{$tablet} {
 					// border: 1px solid red;
-					margin: 0;
+					display: none;
+					margin: 0 auto;
 					max-width: 100%;
+					text-align: center;
 				}
 			}
+			.cta-title-tablet {
+				display: none;
+				text-align: left;
+				margin-top: 110px;
+				font-size: 40px;
+				font-weight: 500;
+				letter-spacing: 0.06em;
+				line-height: 1.4;
+				color: $chillFi-purple;
+
+				@media #{$tablet} {
+					// border: 1px solid red;
+					display: block;
+					margin: 0 auto;
+					text-align: center;
+				}
+				@media #{$tablet-small} {
+					font-size: 26px;
+					}
+					@media #{$mobile} {
+						font-size: 18px;
+						}
+			}
+			
 			p {
-				margin: 5% 0 0 0;
+				margin: 3% 0 0 0;
 				font-size: 24px;
 				letter-spacing: 0.12em;
 				line-height: 1.8;
 				color: $erudite-purple;
 
-				@media #{$mobile} {
+				@media #{$tablet} {
 					max-width: 100%;
 					margin: 10px 0 50px 0;
 				}
+				@media #{$tablet-small} {
+				font-size: 20px;
+				}
+				@media #{$mobile} {
+					font-size: 11px;
+					}
 			}
 			button {
 				@include buttonStyler($chillFi-purple, $snow-white, none);
 				margin-top: 29px;
-				font-size: 20px;
-				height: 70px;
-				padding: 0.5rem 1rem;
+				font-size: 24px;
+				padding: 1rem 1.8rem;
 				width: 270px;
 
-				@media #{$mobile} {
-					margin: 10px 0 80px 0;
+				@media #{$mobile}{
+					width: 200px;
+					font-size: 18px;
 				}
-			}
-		}
-		.header-img-container {
-			width: 50%;
-			display: flex;
-			justify-content: flex-start;
-			img {
-				width: 85%;
-				object-fit: contain;
+
 			}
 		}
 	}
 	.values {
 		margin-bottom: 5.5%;
+		width: 100%;
+		@media #{$mobile}{
+			display: none;
+		}
+
 		p {
 			color: $machiavellian;
 			font-size: 1.5rem;
 			font-weight: 500;
 			letter-spacing: 0.13em;
-			margin-bottom: 17px;
 			padding-left: 50px;
 			text-align: center;
+		
 
-			@media #{$mobile} {
-				font-size: 1rem;
-			}
 		}
 		.value-tiles {
 			display: flex;
-
-			justify-content: space-between;
-			width: 86%;
+			width: 100%;
 			margin: 0 auto;
 			text-align: center;
 			padding-bottom: 5rem;
 			padding-top: 1.25rem;
+			@media #{$tablet} {
+				width: 100%;
+			}
 
 			@media #{$mobile} {
 				justify-content: space-between;
@@ -112,20 +151,20 @@
 			}
 
 			div {
-				border-radius: 0.25rem;
-				padding: 18px 0;
-				font-size: 24px;
-				letter-spacing: 0.12em;
+				margin-top: 45px;
+				border-radius: 0rem;
+				padding: 1.2rem 1.2rem;
+				font-size: 22px;
+				letter-spacing: 0.08em;
 				color: $snow-white;
-				width: 15.3%;
-				height: 64px;
-				margin: auto;
+				width: calc(100% / 6);
 				text-align: center;
-
-				@media #{$mobile} {
-					font-size: 10px;
-					padding: 0.5rem 0;
-					height: 0.5rem;
+				@media #{$tablet} {
+					border-radius: 0;
+					width: calc(100% / 6);
+					letter-spacing: 0.06em;
+					font-size: 12px;
+					padding: 1.2rem .5rem;
 				}
 			}
 			.tenacity {
@@ -152,12 +191,28 @@
 		padding: 2% 0;
 		background-image: url("../assets/LandingPage/GreyRectangle.png");
 		background-position: center;
-		background-size: cover;
-		background-repeat: no-repeat;
+		background-size:cover;
+		background-repeat: repeat;
+		@media #{$tablet} {
+			background-image: url("../assets/LandingPage/ConfettiMedium.png");
+		}
+		@media #{$tablet-small} {
+			background-image: url("../assets/LandingPage/ConfettiSmall.png");
+		}
+		@media #{$mobile} {
+			background-image: url("../assets/LandingPage/ConfettiMobile.png");
+			background-position: 30% 70%;
+		}
 		h2 {
 			text-align: center;
 			font-size: 48px;
 			letter-spacing: 0.13em;
+			@media #{$tablet}{
+				font-size: 42px;
+			}
+			@media #{$mobile}{
+				font-size: 36px;
+			}
 		}
 		.learn-more-container {
 			margin-top: 58px;
@@ -169,26 +224,46 @@
 				flex-direction: column;
 			}
 			img {
-				width: 240px;
-				height: 240px;
+				width: 200px;
+				height: 200px;
 				border-radius: 50%;
 				margin-bottom: 50px;
+				@media #{$tablet-small} {
+					margin-bottom: 20px;
+					width: 130px;
+				height: 130px;
+				}
+				@media #{$mobile} {
+					margin-bottom: 20px;
+					width: 200px;
+				height: 200px;
+				}
 			}
 			.crowdFunding,
 			.opportunities,
 			.pathways {
 				display: inline-block;
 				text-align: center;
+				margin-bottom: 20px;
+
 				h3 {
 					font-size: 23px;
 					letter-spacing: 0.03em;
 					margin-bottom: 26px;
+					@media #{$tablet-small} {
+						padding: 0px 8px;
+						font-size: 18px;
+						letter-spacing: 0.02em;
+					}
 				}
 				a {
 					font-size: 22px;
 					font-weight: 500;
 					text-decoration: none;
 					color: $chillFi-purple;
+					@media #{$tablet-small} {
+						font-size: 17px;
+					}
 				}
 			}
 

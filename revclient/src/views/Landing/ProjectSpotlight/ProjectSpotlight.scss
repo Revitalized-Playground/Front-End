@@ -2,7 +2,7 @@
 
 .project-spotlight {
 	background-color: $luigi;
-	height: 790px;
+	
 	@media #{$mobile} {
 		flex-direction: column;
 		height: 100%;
@@ -10,10 +10,20 @@
 	.section-title {
 		margin-left: 55px;
 		padding-top: 45px;
-		font-size: 48px;
+		font-size: 52px;
 		line-height: 152.31%;
 		letter-spacing: 0.06em;
 		font-weight: 500;
+		@media #{$tablet} {
+			margin: 0 auto;
+			margin-bottom: 17px;
+			text-align: center;
+		}
+		@media #{$mobile} {
+			margin: 0 auto;
+			text-align: center;
+			font-size: 33px;
+		}
 	}
 	.project-spotlight-content{
 	display: flex;
@@ -25,12 +35,8 @@
 		
 		
 	
-			@media #{$mobile} {
-				font-size: 27px;
-				line-height: 152.31%;
-				margin-left: 0;
-				margin: 0 auto;
-				width: 85%;
+			@media #{$tablet} {
+				display: none;
 			}
 		
 		@media #{$mobile} {
@@ -39,7 +45,6 @@
 	}
 	.phone {
 		position: relative;
-		margin-top: 150px;
 		height: 93%;
 		object-fit: scale-down;
 		@media #{$mobile} {
@@ -48,6 +53,10 @@
 	}
 	.phone-left {
 		width: 100%;
+		margin-top: 210px;
+		@media #{$tablet} {
+			display: none;
+		}
 	}
 	.user-story {
 		max-width: 32%;
@@ -55,58 +64,87 @@
 		flex-direction: column;
 		align-content: center;
 		text-align: center;
-		margin-bottom: 240px;
-		margin-top: -50px;
+		
+		
 
-		@media #{$mobile} {
+		@media #{$tablet} {
 			max-width: 100%;
-			width: 85%;
+			width: 82%;
 			margin: 0 auto
 		}
 		.user-photo {
-			width: 50%;
-			max-width: 375px;
-			height: 78%;
-			object-fit: contain;
+			width: 88%;
+			height: 88%;
+			text-align:center;
+
 			margin: 0 auto;
 
+			@media #{$tablet} {
+				margin: 0 auto;
+				padding: 10px;
+				width: 350px;
+				height: 350px;
+				align-items: center;
+			}
 			@media #{$mobile} {
 				margin: 0 auto;
+				padding: 10px;
+				width: 200px;
+				height: 200px;
+				align-items: center;
 			}
 		}
 		.user-info {
-			font-size: 42px;
-			margin: -3% auto 0 auto;
-			line-height: 48px;
-			letter-spacing: 0.05em;
+
+			font-size: 33px;
+			line-height: 40px;
+			letter-spacing: 0.03em;
+			
+			@media #{$tablet} {
+				font-size:33px;
+				margin-top: 15px;
+				
+			}
+
 
 			@media #{$mobile} {
-				margin: 40px auto 0 auto;
-				font-size: 25px;
+				margin: 0px auto 0 auto;
+				font-size:26px;
 				line-height: 190.31%;
 				text-align: center;
-				font-weight: bold;
+				font-weight: 500;
 			}
 		}
 		p {
 			margin: 5% auto 5% auto;
-			letter-spacing: 0.06em;
+			letter-spacing: 0.03em;
 			line-height: 180%;
-			font-size: 15px;
-			font-weight: bold;
-			position: relative;
 
-			@media #{$mobile} {
-				font-size: 16px;
+			font-size: 22px;
+			font-weight: 400;
+
+
+			@media #{$tablet} {
+				font-size: 18px;
 				line-height: 190.31%;
-				left: 0;
 				margin: 20px auto;
-				text-align: left
+				text-align: left;
+				width: 75%;
+				
+			}
+			@media #{$mobile} {
+				
+				width: 100%;
+				
 			}
 		}
 	}
 	.phone-right {
 		width: 100%;
+		margin-top: 210px;
+		@media #{$tablet} {
+			display: none;
+		}
 	}
 }
 }

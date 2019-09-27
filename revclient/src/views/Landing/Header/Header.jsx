@@ -14,10 +14,14 @@ const Header = () => {
 				<div className="cta">
 					<h2 className="cta-title">
 						A modern approach to <br />
-						revitalizing your community
+						building your community
+					</h2>
+					<h2 className="cta-title-tablet">
+						A modern approach to
+						building your community
 					</h2>
 					<p>
-						A crowdfunding platform that <br /> creates apprenticeship opportunities.
+						Revitalize is a crowdfunding platform <br /> that creates apprenticeship opportunities.
 					</p>
 					<button>Start Your Journey!</button>
 				</div>
