@@ -12,7 +12,6 @@ import Start from './views/Start/Start';
 
 // Protected Routes
 import Dashboard from "./views/Dashboard/Dashboard";
-import UserDashboard from "./views/Dashboard/User/UserDashboard";
 
 // Utils
 import AuthenticateUser from './utils/AuthenticateUser';
