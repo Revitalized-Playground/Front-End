@@ -4,7 +4,6 @@ const ProjectPictures = ({projectPhotos}) => {
     const [el, setEl] = useState({
         holder: document.getElementsByClassName('projectImgCarousel')
     });
-    const[counter, setCounter] = useState(window.innerWidth)
     const [global, setGlobal] = useState({
       touchstartx: undefined,
       touchmovex: undefined,
@@ -32,8 +31,6 @@ const ProjectPictures = ({projectPhotos}) => {
         ...global,
         touchmovex: ev.touches[0].pageX
       });
-
-      setCounter(window.innerWidth)
   
       el.holder.style = `transform: translateX(${-global.index * global.holderWidth +
         (global.touchmovex - global.touchstartx)}px)`;
@@ -68,17 +65,14 @@ const ProjectPictures = ({projectPhotos}) => {
 
 
     const resize = () => {
-        el.holder.style = `transform: translateX(${-global.index * window.innerWidth}px);
-        transition: 0s;
-        `;
-        console.log(window.innerWidth, 'window')
-        
+        el.holder.style = `transform: translateX(${-global.index * window.innerWidth}px); transition: 0s;`;  
     }
 
     window.onresize = resize
   
     return (
       <div className="projectPictureContainer">
+        <p className='p'>Project Photos</p>
         <div
           className="projectImgCarousel"
           onTouchStart={tchStart}
@@ -102,10 +96,3 @@ const ProjectPictures = ({projectPhotos}) => {
 }
 
 export default ProjectPictures
-
-{/* <div className='projectPictureContainer'>
-            <p className='p'>Project Photos</p>
-            <div className='projectImgCarousel'>
-                {projectPhotos.map((each, i) => <img src={each} alt={i+1} />)}
-            </div>
-</div> */}

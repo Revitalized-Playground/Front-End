@@ -2,6 +2,7 @@
     width: 100%;
     margin-top: 80px;
     overflow: hidden;
+    display: none;
 
     .projectImgCarousel {
         display: flex;
@@ -11,7 +12,8 @@
         font-size: 24px;
         line-height: 212.81%;
         letter-spacing: 0.06em;
-        font-weight: bold
+        font-weight: bold;
+        padding: 0 15px;
     }
 
     .projectImgCarousel {
