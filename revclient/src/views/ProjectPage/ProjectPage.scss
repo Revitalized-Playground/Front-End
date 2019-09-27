@@ -6,22 +6,40 @@
 .project-page-container {
 	@include spaceForNav;
 	max-width: 1920px;
+	padding-left: 6.5%;
+	padding-right: 6.5%;
+	
+	@media #{$mobile} {
+		padding-left: 0;
+		padding-right: 0;
+	}
 
 	.singleProjectVectorContainer {
 		max-width: 1645px;
-		margin: 0 auto;
+		// margin: 0 auto;
 	
 		.singleProjectVector {
 			background: url('../assets/SingleProjectPage/vector.jpeg');
 			height: 476px;
-			background-position: right;
-			background-size: 70% 476px;
+			background-position-x: right;
+			background-position-y: center;
+			background-size: 70%;
 			background-repeat: no-repeat;
+
+			@media #{$mobile} {
+				background-size: 100%;
+				background-size: cover;
+				background-position-x: 25%;
+				height: 200px
+            }
 
 			.blueSquare {
 				width: 30%;
 				height: 100%;
 				background: #544CBE;
+				@media #{$mobile} {
+					display: none
+				}
 				h1 {
 					position: absolute;
 					margin: 57px 0 0 2%;
@@ -47,6 +65,9 @@
 	.project-page-flex {
 		display: flex;
 		max-width: 1645px;
-		margin: 0 auto
+
+		@media #{$mobile} {
+			flex-direction: column
+		}
 	}
 }

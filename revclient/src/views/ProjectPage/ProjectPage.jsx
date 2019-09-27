@@ -1,8 +1,8 @@
 import React from 'react';
 //Image Imports (To be deleted once we have a back end)
-import pic1 from '../../assets/SingleProjectPage/pic1.png'
-import pic2 from '../../assets/SingleProjectPage/pic2.png'
-import pic3 from '../../assets/SingleProjectPage/pic3.png'
+import pic1 from '../../assets/SingleProjectPage/pic1.jpeg'
+import pic2 from '../../assets/SingleProjectPage/pic2.jpeg'
+import pic3 from '../../assets/SingleProjectPage/pic3.jpeg'
 import commentProfile1 from '../../assets/SingleProjectPage/commentProfile1.png'
 import commentProfile2 from '../../assets/SingleProjectPage/commentProfile2.png'
 import userProfile from '../../assets/SingleProjectPage/userProfile.png'
@@ -13,14 +13,16 @@ import DetailedDescription from './ProjectDescription/DetailedDescription/Detail
 import ProjectPictures from './ProjectDescription/ProjectPictures/ProjectPictures'
 import ProjectComments from './ProjectDescription/ProjectComments/ProjectComments'
 import Nav from '../../components/Layout/Nav'
+import BasicDescription from './ProjectDescription/DetailedDescription/BasicDescription/BasicDescription'
+
 const project = {
     projectOrganizer: 'Julian Crenshaw',
     projStartDate: 'January 13, 2020',
     duration: '9 months',
     difficultyLevel: 'Medium',
     projectBudget: '500000',
-    raised: '50000',
-    donors: 5724,
+    raised: '400000',
+    donors: 11600,
     location: 'Detroit, MI',
     projectPhotos: [pic1, pic2, pic3],
     comments: [
@@ -55,7 +57,20 @@ const ProjectPage = () => {
             <div className='singleProjectVectorContainer'>
                 <div className='singleProjectVector'><div className='blueSquare'><h1>Team Rubicon</h1><div className='blueVector'></div></div></div>
             </div>
+             
             <div className='project-page-flex'>
+                <BasicDescription 
+                  startDate={project.projStartDate}
+                  duration={project.duration}
+                  difficulty={project.difficultyLevel}
+                  organizer={project.projectOrganizer}
+                />
+                <Donate
+                    raised={project.raised}
+                    budget={project.projectBudget}
+                    donors={project.donors}
+                />
+            </div>
                 <DetailedDescription
                     startDate={project.projStartDate}
                     duration={project.duration}
@@ -65,12 +80,6 @@ const ProjectPage = () => {
                     projDescription={project.projectDescription}
                     projectCreator={projectCreator}
                 />
-                <Donate
-                    raised={project.raised}
-                    budget={project.projectBudget}
-                    donors={project.donors}
-                />
-            </div>
             <ProjectPictures projectPhotos={project.projectPhotos} />
             <ProjectComments comments={project.comments} />
         </div>

@@ -1,5 +1,4 @@
 .basicDescriptionContainer {
-    // border: 1px solid blue;
     margin-bottom: 89px;
     margin-left: 6.3%;
     margin-right: 10%;
@@ -10,20 +9,52 @@
     font-size: 24px;
     line-height: 32px;
     letter-spacing: 0.06em;
+    margin-top: -100px;
+    z-index: 1;
 
+    @media #{$mobile} {
+        margin-left: 0;
+        margin-right: 0;
+        max-height: 210px;
+        min-width: 100%;
+        margin-bottom: 0;
+        margin-top: 0;
+    }
     .descriptionInnerDiv {
         padding: 48px 0 0 40px;
         color: black;
-        
+
+        @media #{$mobile} {
+            padding: 23px 5.5% 0 5.5%;
+            font-size: 1.4rem;
+            line-height: 19px;
+            letter-spacing: 0.06em;
+            font-weight: bold;
+        }
+
+        .projectStart {
+            color: #0B096F;
+
+            @media #{$mobile} {
+                font-size: 1.5rem;
+                line-height: 154.81%;
+            }
+        }
+        .mobile-column {
+            @media #{$mobile} {
+                flex-direction: column;
+            }
+        }
         .detailsFlex {
             display: flex;
             
+    
             
             .basicDetails {
                 display: flex;
 
                 p {
-                    margin-right: 21px
+                    margin-right: 5%
                 }
             }
         }
@@ -32,7 +63,11 @@
         img {
             width: 26px;
             height: 26px;
-            margin-right: 12px
+            margin-right: 12px;
+
+            @media #{$mobile} {
+                width: 7%;
+            }
         }
 
         p {
