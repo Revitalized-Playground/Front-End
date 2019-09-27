@@ -178,10 +178,9 @@ class RecommendedProjects extends React.Component {
                     </Slider>
                 </div>
             </section>
-        )
+        );
     }
 }
 
 
 export default RecommendedProjects;
-
