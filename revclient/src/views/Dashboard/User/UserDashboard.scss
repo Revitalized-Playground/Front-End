@@ -1,4 +1,6 @@
 // Move to global?
+@import "./Sidebar/Sidebar.scss";
+
 hr {
     width: calc(100% + 20px);
     margin-left: -10px;
@@ -16,19 +18,6 @@ hr {
     padding-left: 10px;
     padding-right: 10px;
     margin-bottom: 60px;
-    .user-dashboard-sidebar {
-        @include testBorder(red);
-        width: 25%;
-        height: 100%;
-        text-align: center;
-        .user-dashboard-sidebar-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            height: 130px;
-            padding: 20px;
-        }
-    }
     .user-dashboard-body {
         width: calc(75% - 40px);
         .user-dashboard-header {
