@@ -20,11 +20,6 @@ const SearchProjects = () => {
 					Explore various projects trending in <br /> your local area and be the first to see <br /> what's
 					going on.
 				</p>
-				<p className="description-tablet">
-					Explore various projects trending in your local area and be the first to see what's
-					going on.
-				</p>
-				<div className="search-form">
 				<input
 					type="text"
 					placeholder="Enter Location"
@@ -32,7 +27,6 @@ const SearchProjects = () => {
 					onChange={e => setInput(e.target.value)}
 				/>
 				<button>Search Now!</button>
-				</div>
 			</form>
 			<div className="fake-map">Map goes here</div>
 		</section>

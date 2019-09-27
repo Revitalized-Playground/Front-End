@@ -1,6 +1,6 @@
 .crowdfunding-container {
 	margin-top: 7.1%;
-	margin-bottom: 35px;
+
 	
 	@media #{$mobile} {
 		margin-top: 0;
@@ -16,12 +16,7 @@
 		letter-spacing: .04em;
 		font-weight: 500;
 		color: $erudite-purple;
-		@media #{$tablet} {
-			font-size: 26px;
-			line-height: 147.81%;
-			margin-bottom: 15px 
-		}
-		
+
 		@media #{$mobile} {
 			margin-left: 0;
 			font-size: 26px;
@@ -34,21 +29,15 @@
 		font-size: 22px;
 		line-height: 160.81%;
 		letter-spacing: 0.06em;
-	
 	}
 	.Explore {
 		margin: 0.75% 0 4.3% 6.2%;
 		font-family: Futura-pt;
 		letter-spacing: 0.06em;
-		@media #{$tablet} {
-			font-size: 18px;
-			line-height: 147.81%;
-			margin-bottom: 15px 
-		}
 
 		@media #{$mobile} {
 			margin: 0 0 45px 0;
-			font-size: 16px;
+			font-size: 18px;
 			line-height: 154.81%;
 			color: $erudite-purple;
 		}
@@ -78,6 +67,7 @@
 			width: 25%;
 			@media #{$mobile} {
 				width: 100%;
+				height: 240px;
 				margin-bottom: 40px;
 			}
 			
@@ -96,17 +86,18 @@
 
 	.create-button {
 		@include buttonStyler($chillFi-purple, $snow-white, none);
-		margin: 25px 0px;
+		margin: 50px auto 80px auto;
 		font-size: 30px;
 		padding: 1.2rem 2.2rem;
-		width: 280px;
+		width: 300px;
 
 		@media #{$mobile} {
-			// position: static;
+			width: 80%;
 			margin: 0 auto;
-			font-size: 20px;
-			padding: .7rem 2rem;
-			width: 200px;
+			height: 50px;
+			font-size: 18px;
+			line-height: 147.81%;
+			margin-left: 9%;
 		}
 	}
 }
