@@ -1,14 +1,12 @@
 .hireContainer {
 	max-width: 1600px;
-	h2 {
-		font-size: 18px;
-	}
+	margin-bottom: 60px;
 	.companies {
 		padding-left: 0.5%;
 		display: flex;
 		justify-content: space-between;
+		margin: 1% auto 2%;
 	}
-
 	.companyContainer {
 		border-radius: 1.5%;
 		padding-bottom: 2.5%;
