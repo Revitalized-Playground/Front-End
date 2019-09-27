@@ -17,6 +17,7 @@ hr {
     padding-right: 10px;
     margin-bottom: 60px;
     .user-dashboard-sidebar {
+        @include testBorder(red);
         width: 25%;
         height: 100%;
         text-align: center;

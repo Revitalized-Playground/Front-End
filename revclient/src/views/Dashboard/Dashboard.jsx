@@ -1,6 +1,6 @@
 import React from 'react'
 
-import UserNav from "../../components/Layout/UserNav";
+import Nav from '../../components/Layout/Nav';
 import UserDashboard from "./User/UserDashboard";
 import Footer from "../../components/Layout/Footer";
 
@@ -9,7 +9,7 @@ export default function Dashboard() {
     return (
         <>
             <div className="dashboard-container" >
-                <UserNav />
+                <Nav />
                 <UserDashboard />
                 <Footer />
             </div>
