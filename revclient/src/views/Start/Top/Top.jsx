@@ -4,30 +4,33 @@ const Top = () => {
     return (
         <div className="topContainer">
             <div className="title">
-                <p>What is your area of interest</p>
+                <p>What is your role</p>
                 <p className="questionMark">?</p>    
             </div>
-            <div className="interests">
-                <div className="interest one">
-                    Avionics
+            <div className="roles">
+                <div className="role">
+                    <div className="bar color-cerulean"></div>
+                    <p>Avionics</p>
                 </div>
-                <div className="interest two">
-                    Construction
+                <div className="role">
+                    <div className="bar color-pikachu"></div>
+                    <p>Construction</p>
                 </div>
-                <div className="interest three">
-                    Interior Design
+                <div className="role">
+                    <div className="bar color-erudite-purple"></div>
+                    <p>Interior Design</p>
                 </div>
-                <div className="interest four">
-                    Welding
+                <div className="role">
+                    <div className="bar color-mutant-turtle"></div>
+                    <p>Welding</p>
                 </div>
-                <div className="interest five">
-                    Wind Energy
+                <div className="role">
+                    <div className="bar color-ruby-enchantment"></div>
+                    <p>Wind Energy</p>
                 </div>
             </div>
-
         </div>
     );
 };
 
 export default Top;
-

@@ -1,6 +1,6 @@
 import React from 'react';
 import  { Link } from "react-router-dom";
-import { formatMoney } from "../../../../helpers/formatMoney";
+import { formatMoney } from "../../../helpers/formatMoney";
 import styled from "styled-components";
 // import { Skeleton, SkeletonTheme } from "react-loading-skeleton";
 import { FaHeart, FaAngleRight } from "react-icons/fa";
@@ -57,6 +57,23 @@ const CarouselCard = ( {card, view} ) => {
             <section className="carousel-card-inner __near-you">
                 <div className="carousel-card-image">
                     <i className="carousel-card-location">{card.city}, {card.state}</i> 
+                    <img src={card.featuredImage} alt={card.name} />
+                </div>
+                <div className="carousel-card-body">
+                    <div className="carousel-card-body-descript">
+                        <h5>{card.name}</h5>
+                        <p>{card.description}</p>
+                    </div>
+                    <Link to="">Learn more <FaAngleRight /></Link>
+                </div>
+            </section>
+        )
+    }
+    if (view === "noteworthy") {
+        return (
+            <section className="carousel-card-inner __noteworthy">
+                <div className="carousel-card-image">
+                    <div className="carousel-card-location">{card.city}, {card.state}</div> 
                     <img src={card.featuredImage} alt={card.name} />
                 </div>
                 <div className="carousel-card-body">

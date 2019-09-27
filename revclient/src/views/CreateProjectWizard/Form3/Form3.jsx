@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 
-const Form1 = ({ projDuration, projBudget, handleChanges, submitForm, setFormPosition }) => {
+const Form3 = ({ projDuration, projBudget, handleChanges, submitForm, setFormPosition }) => {
 
     const [err, setErr] = useState(true)
     console.log(err)
@@ -60,4 +60,4 @@ const Form1 = ({ projDuration, projBudget, handleChanges, submitForm, setFormPos
     );
 };
 
-export default Form1;
+export default Form3;

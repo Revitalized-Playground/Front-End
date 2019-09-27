@@ -61,7 +61,6 @@ const Form2 = ({ projOwnerName, projAddress, city, state, zip, handleChanges, se
                     >
                         {states.map(eachState => <option>{eachState}</option>)}
                     </select>
-
                 </div>
                 <div>
                     <h2>Project Zip Code</h2>
@@ -79,7 +78,6 @@ const Form2 = ({ projOwnerName, projAddress, city, state, zip, handleChanges, se
 
                 </div>
             </div>
-
             <div className="form-navigation">
                 <button type="submit" className="next-step">Next Step!</button>
                 <button className="prev-step" onClick={() => setFormPosition(1)}>Previous Step!</button>
