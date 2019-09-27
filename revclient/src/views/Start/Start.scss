@@ -1,0 +1,48 @@
+@import './Top/Top.scss';
+@import './Spotlight/Spotlight.scss';
+@import './RecommendedProjects/RecommendedProjects.scss';
+@import './NearYou/NearYou.scss';
+@import './CreateProject/CreateProject.scss';
+@import './Noteworthy/Noteworthy.scss';
+@import './Hire/Hire.scss';
+@import "./CarouselCard/CarouselCard.scss";
+
+
+.startContainer {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 40px;
+    @media #{$tablet} {
+        padding: 0 60px;
+    }
+    section {
+        margin: 10px auto;
+    }
+    
+    .slider {
+        width: 100%;
+        margin: 1% auto 2%;
+        .slick-prev, .slick-next {
+            height: 3.6rem;
+            width: 4rem;
+            &:before {
+                color: $static-grey;
+                opacity: 0.75;
+                font-size: 4rem;
+            }
+            &:hover {
+                &:before {
+                    color: darken($static-grey, 10%); 
+                }
+            }
+        }
+        .slick-prev {
+            left: -4%;
+        }
+        .slick-next {
+            right: -4%;
+        }
+    }
+}
+
