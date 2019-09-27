@@ -65,14 +65,6 @@ const Donate = ({raised, budget, donors}) => {
                 </div>
                 
                 <p className='lastText'>Partner with growing donors who are eager to see the transformation and economical growth of Detroit.</p>
-
-
-
-                <div class="demo-preview">
-                    <div class="progress progress-striped active">
-                        <div class="progress-bar"><span>Primary</span></div>
-                    </div>
-                </div>
             </div>
             
         </div>
