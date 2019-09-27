@@ -4,6 +4,17 @@ import ApolloClient, { InMemoryCache } from "apollo-boost"; // link is not expor
 
 // Endpoint
 export const client = new ApolloClient({
-    uri: "https://revitalize-production.herokuapp.com/", // Revitalize
-    cache: new InMemoryCache()
+    uri: "https://revitalize-development.herokuapp.com/", // Revitalize
+    cache: new InMemoryCache(),
+    fetchOptions: {
+        credentials: 'include'
+      },
+    request: async (operation) => {
+        const token = localStorage.getItem('token') ? localStorage.getItem('token') : '';
+        operation.setContext({
+            headers: {
+                authorization: token
+            }
+        })
+    }
 });
