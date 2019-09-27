@@ -35,7 +35,7 @@ const Nav = props => {
 	const [clicked, setClicked] = useState(false);
 
 	// for testing
-	const toggleLoggedIn = () => setLoggedIn(!loggedIn);
+	// const toggleLoggedIn = () => setLoggedIn(!loggedIn);
 
 	const toggleDropdown = () => {
 		setClicked(!clicked);
@@ -81,62 +81,64 @@ const Nav = props => {
 					</div>
 				</Link>
 			</div>
-			{/* <button onClick={toggleLoggedIn}>FOR TESTING: toggleLoggedIn</button> */}
-			<ul className="right-nav">
-				{localStorage.getItem('token') ? (
-					<>
-						{aLinks.map(({ key, href, label }) => (
-							<li className="navLinks" key={key}>
-								<Link to={href}>{label}</Link>
-							</li>
-						))}
-						<div className="user" onClick={toggleDropdown}>
-							<div className="welcome">
-								{data.me.firstName !== null ? `Welcome, ${data.me.firstName}` : 'Welcome'}
-							</div>
-							<img className="userIcon" src={data.me.profileImage} />
-							{clicked && (
-								<div className="dropdown">
-									<Link to="/user/dashboard">Profile</Link>
-									<div>Setting</div>
-									<div onClick={toggleDarkMode}>
-										<FaMoon />
-										&nbsp; Dark mode: {darkModeActive ? 'on' : 'off'}
-									</div>
-									<div onClick={logout}>Log out</div>
+			<div className="right-nav">
+				<ul>
+					{localStorage.getItem('token') ? (
+						<>
+							{aLinks.map(({ key, href, label }) => (
+								<li className="navLinks" key={key}>
+									<Link to={href}>{label}</Link>
+								</li>
+							))}
+							<div className="user" onClick={toggleDropdown}>
+								<div className="welcome">
+									{data.me.firstName !== null ? `Welcome, ${data.me.firstName}` : 'Welcome'}
 								</div>
-							)}
-						</div>
-					</>
-				) : (
-					<>
-						{' '}
-						{uLinks.map(({ key, href, label }) => (
-							<li className="navLinks" key={key}>
-								<Link to={href}>{label}</Link>
+								<img className="userIcon" src={data.me.profileImage} />
+								{clicked && (
+									<div className="dropdown">
+										<Link to="/user/dashboard">Profile</Link>
+										<div>Setting</div>
+										<div onClick={toggleDarkMode}>
+											<FaMoon />
+											&nbsp; Dark mode: {darkModeActive ? 'on' : 'off'}
+										</div>
+										<div onClick={logout}>Log out</div>
+									</div>
+								)}
+							</div>
+						</>
+					) : (
+						<>
+							{' '}
+							{uLinks.map(({ key, href, label }) => (
+								<li className="navLinks" key={key}>
+									<Link to={href}>{label}</Link>
+								</li>
+							))}
+							<li>
+								<Link to="/register">
+									<button className="register">Get Started</button>
+								</Link>
 							</li>
-						))}
-						<li>
-							<Link to="/register">
-								<button className="register">Get Started</button>
-							</Link>
-						</li>
-						<div className="dark-mode-emoji">
-							<FaMoon onClick={() => toggleDarkMode()} />
-						</div>
-						<button
-							onClick={setActive}
-							className={`hamburger hamburger--squeeze ${activeHamburger && 'is-active'}`}
-							type="button"
-						>
-							<span class="hamburger-box">
-								<span class="hamburger-inner"></span>
-							</span>
-						</button>
-					</>
-				)}
-			</ul>
+							<div className="dark-mode-emoji">
+								<FaMoon onClick={() => toggleDarkMode()} />
+							</div>
+							<button
+								onClick={setActive}
+								className={`hamburger hamburger--squeeze ${activeHamburger && 'is-active'}`}
+								type="button"
+							>
+								<span class="hamburger-box">
+									<span class="hamburger-inner"></span>
+								</span>
+							</button>
+						</>
+					)}
+				</ul>
+			</div>
 		</nav>
 	);
 };
+
 export default withRouter(Nav);
