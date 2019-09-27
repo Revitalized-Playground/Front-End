@@ -4,7 +4,7 @@ const Form1 = ({ projName, projStartDate, projDescription, handleChanges, setFor
 
     return (
         <form onSubmit={() => setFormPosition(2)} className="form-1" >
-            <h2>Project Name</h2>
+            <h2>Name</h2>
             <input
                 required
                 label="Project Name"
@@ -15,7 +15,7 @@ const Form1 = ({ projName, projStartDate, projDescription, handleChanges, setFor
                 value={projName}
                 onChange={e => handleChanges(e)}
             />
-            <h2>Project Start Date</h2>
+            <h2>Start Date</h2>
             <input
                 required
                 name="projStartDate"
@@ -24,7 +24,7 @@ const Form1 = ({ projName, projStartDate, projDescription, handleChanges, setFor
                 value={projStartDate}
                 onChange={e => handleChanges(e)}
             />
-            <h2>Project Description</h2>
+            <h2>Description</h2>
             <textarea
                 required
                 name="projDescription"
@@ -34,7 +34,7 @@ const Form1 = ({ projName, projStartDate, projDescription, handleChanges, setFor
                 value={projDescription}
                 onChange={e => handleChanges(e)}
             />
-            <button className="next-step">Next Step!</button>
+            <button className="next-step">Next! &rarr;</button>
         </form >
     );
 };

@@ -7,7 +7,6 @@ nav {
 	display: flex;
 	height: 90px;
 	padding: 5px 0px;
-	// @include fixedNav;
 	@media #{$mobile} {
 		background: $chillFi-purple;
 		height: 90px;
@@ -53,28 +52,24 @@ nav {
 	}
 	.right-nav {
 		display: flex;
-			justify-content: flex-end;
-			align-items: center;
-			width: 100%;
-			margin: auto;
-			
-		a{
+		justify-content: flex-end;
+		align-items: center;
+		font-size: 1.8rem;
+		width: 100%;
+		margin: auto;
+		a {
+			// text-decoration: none;
 			@media #{$tablet} {
 				display: none;
 			}
-			text-decoration: none;
 		}
 		ul {
-			@media #{$tablet} {
-			display: none;
-			}
 			display: flex;
 			align-items: center;
-			
-			
-			
-			
 			@media #{$mobile} {
+				display: none;
+			}
+			@media #{$tablet} {
 				display: none;
 			}
 			.navLinks {
@@ -82,13 +77,11 @@ nav {
 				@media #{$tablet} {
 					display: none;
 				}
-				// margin-top: 20px;
 				&:last-child {
 					margin-right: 300px;
 				}
 				a {
 					color: $chillFi-purple;
-					font-size: 24px;
 					letter-spacing: 0.06em;
 					line-height: 0.9;
 				}
@@ -162,13 +155,13 @@ nav {
 			}
 		}
 	}
-			.dark-mode-emoji {
-				@media #{$tablet}{
-					display: none;
-				}
-			
-				svg {
-					color: $police-blue;
-				}
-			}
+	.dark-mode-emoji {
+		@media #{$tablet}{
+			display: none;
+		}
+	
+		svg {
+			color: $police-blue;
+		}
+	}
 }
