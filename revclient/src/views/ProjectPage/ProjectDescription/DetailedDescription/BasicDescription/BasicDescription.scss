@@ -15,7 +15,7 @@
     @media #{$mobile} {
         margin-left: 0;
         margin-right: 0;
-        height: 210px;
+        max-height: 210px;
         min-width: 100%;
         margin-bottom: 0;
         margin-top: 0;
@@ -26,7 +26,7 @@
 
         @media #{$mobile} {
             padding: 23px 5.5% 0 5.5%;
-            font-size: 14px;
+            font-size: 1.4rem;
             line-height: 19px;
             letter-spacing: 0.06em;
             font-weight: bold;
@@ -36,7 +36,7 @@
             color: #0B096F;
 
             @media #{$mobile} {
-                font-size: 15px;
+                font-size: 1.5rem;
                 line-height: 154.81%;
             }
         }
@@ -54,7 +54,7 @@
                 display: flex;
 
                 p {
-                    margin-right: 21px
+                    margin-right: 5%
                 }
             }
         }
@@ -66,8 +66,7 @@
             margin-right: 12px;
 
             @media #{$mobile} {
-                width: 19px;
-                height: 18px;
+                width: 7%;
             }
         }
 

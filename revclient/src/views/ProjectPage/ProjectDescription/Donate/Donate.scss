@@ -16,7 +16,7 @@
             align-items: center;
             
             p {
-                font-size: 18px;
+                font-size: 1.8rem;
                 line-height: 212.81%;
                 letter-spacing: 0.06em;
                 color: rgba(48, 48, 48, 0.3);
@@ -45,7 +45,7 @@
             }
 
             button {
-                font-size: 24px;
+                font-size: 1.5rem;
                 line-height: 32px;
                 background:  #285FD7;;
                 height: 77px;
@@ -60,7 +60,7 @@
                 @media #{$mobile} {
                     height: 51px;
                     margin: 18px 0 13px 0;
-                    font-size: 18px;
+                    font-size: 1.7rem;
                     line-height: 24px;
                     margin-bottom: 30px;
                 } 
@@ -84,13 +84,13 @@
         p{
             color: #0B096F;
             .large {
-                line-height: 72px;
+                line-height: 4.5rem;
                 font-size: 52px;
                 letter-spacing: 0.06em;
                 margin-right: 20px;
 
                 @media #{$mobile} {
-                    font-size: 24px;
+                    font-size: 2.7rem;
                     line-height: 154.81%;
                     margin-right: 3px;
                     width: 90%
@@ -102,7 +102,7 @@
                 font-size: 1.4rem; 
 
                 @media #{$mobile} {
-                    font-size: 16px;
+                    font-size: 1.6rem;
                     line-height: 100%;
                     width: 90%
                 }
@@ -117,15 +117,6 @@
             margin-bottom: 16px;
             border: 1px solid $snow-white;
 
-            
-
-
-            // div {
-            //     height: 12px;
-            //     background: #0B096F;
-            //     border-radius: 50px;
-            // }
-
             @media #{$mobile} {
                 width: 93%;
                 margin-bottom: 10px;
@@ -135,22 +126,22 @@
         .donatorCount {
             letter-spacing: 0.06em;
             line-height: 32px;
-            font-size: 24px;
+            font-size: 1.5rem;
             margin-bottom: 6px;
             @media #{$mobile} {
-                font-size: 14px;
+                font-size: 1.7rem;
                 line-height: 19px;
             }
         }
 
         .donorText {
-            font-size: 18px;
+            font-size: 1.1rem;
             line-height: 24px;
             letter-spacing: 0.06em;
             color: #969696;
 
             @media #{$mobile} {
-                font-size: 14px;
+                font-size: 1.7rem;
                 line-height: 19px;
             }
         }
@@ -170,7 +161,7 @@
             }
             
             .purple {
-                font-size: 24px;
+                font-size: 1.5rem;
                 line-height: 32px;
                 background: #544CBE;
                 height: 77px;
@@ -184,13 +175,13 @@
                 @media #{$mobile} {
                     height: 51px;
                     margin: 18px 0 13px 0;
-                    font-size: 18px;
+                    font-size: 1.7rem;
                     line-height: 24px;
                 } 
             }
 
             .white {
-                font-size: 24px;
+                font-size: 1.5rem;
                 line-height: 32px;
                 background: #FFFFFF;
                 height: 77px;
@@ -202,7 +193,7 @@
 
                 @media #{$mobile} {
                     height: 51px;
-                    font-size: 18px;
+                    font-size: 1.7rem;
                     line-height: 24px;
                 } 
             }
