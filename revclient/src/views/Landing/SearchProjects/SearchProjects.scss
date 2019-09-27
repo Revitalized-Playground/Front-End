@@ -50,7 +50,6 @@
 		display: flex;
 		flex-direction: column;
 		width: 45.5%;
-		height: 70%;
 		// padding-left: 25px;
 		margin: 2% auto auto 5.3%;
 		@media #{$tablet}{
@@ -62,8 +61,8 @@
 				flex-direction: column;
 			}
 		input {
-			min-height: 49px;
-			margin: 4.8% auto 4% 0.3%;
+			height: 49px;
+			margin: 25px auto 15px 10px;
 			width: 305px;
 			margin-left: 7px;
 			font-family: "futura-pt";
@@ -75,11 +74,14 @@
 				width: 380px;
 			}
 			@media #{$tablet-small}{
-				margin: 4.8% auto 4% 0.3%;
+				margin: 25px auto 15px 10px;
 				width: 290px;
 			}
 			@media #{$mobile}{
 				width: 200px;
+			}
+			&::placeholder{
+				padding-left:8px;
 			}
 		}
 		button {
@@ -94,7 +96,7 @@
 			letter-spacing: 0.7px;
 			padding: 1px;
 			@media #{$tablet-small}{
-				margin:  0 auto 4% 0.3%;
+				margin:  25px auto 15px 10px;
 				width: 120px;
 			}
 		}
