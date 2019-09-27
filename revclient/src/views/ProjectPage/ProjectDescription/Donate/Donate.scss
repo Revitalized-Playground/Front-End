@@ -3,7 +3,6 @@
     box-shadow: 0px 0px 8px #EEEDEF;
     margin: 0 0 auto auto;
     @media #{$mobile} {
-        border: 1px solid blue;
         margin: 0;
     }
     .donateInnerDiv {
