@@ -127,6 +127,11 @@
 				width: 75%;
 				
 			}
+			@media #{$mobile} {
+				
+				width: 100%;
+				
+			}
 		}
 	}
 	.phone-right {
