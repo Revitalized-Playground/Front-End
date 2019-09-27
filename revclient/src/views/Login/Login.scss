@@ -1,11 +1,16 @@
-
 .loginContainer {
-	background: $machiavellian;
+	background: #0b096f;
 	color: $snow-white;
-	height: 100%;
 	margin: 0 auto;
 	display: flex;
-	letter-spacing: 0.06rem;
+	letter-spacing: 0.06em;
+	height: 100%;
+
+	.loginContainerLeft{
+		min-height: 100vh;
+		padding-bottom: 140px;
+		min-width: 525px;
+
 	.revitalizeLogo-container {
 		height: 100px;
 		width: 100px;
@@ -14,21 +19,18 @@
 			width: 100%;
 		}
 	}
-		
 	.loginForm {
-		padding-bottom: 140px;
-		width: 50%;
-		max-width: 700px;
-		min-width: 500px;
+		width: 80%;
 		margin: 0 auto;
 
 		.loginThirdParty {
+			
 			width: 65%;
 			margin: 0 auto;
 
 			.loginWelcome {
 				text-align: center;
-				color: $snow-white;
+				color: white;
 			}
 
 			button {
@@ -37,7 +39,7 @@
 				height: 50px;
 				border-radius: 8px;
 				border: none;
-				background: $snow-white;
+				background: #ffffff;
 				cursor: pointer;
 
 				.loginButton {
@@ -64,25 +66,32 @@
 			.loginLine {
 				height: 1px;
 				width: 40%;
-				background: $snow-white;
+				background: white;
 			}
 		}
 
 		.loginLocal {
 			width: 65%;
 			margin: 0 auto;
-
-			margin-top: 40px;
 			display: flex;
 			flex-direction: column;
-			letter-spacing: 0.06em;
+
+			.loginSpaceAbove {
+				margin-top: 30px;
+			}
+
+			.loginMid {
+				text-align: center;
+				padding-bottom: 15px;
+				p {
+					font-style: italic;
+				}
+			}
 
 			span {
 				text-decoration: underline;
+				font-style: italic;
 				cursor: pointer;
-			}
-			.registerSpaceAbove {
-				margin-top: 40px;
 			}
 
 			input {
@@ -90,7 +99,7 @@
 				padding: 0px 5px;
 			}
 
-			.registerPass {
+			.loginPass {
 				display: flex;
 				align-items: center;
 				justify-content: space-between;
@@ -98,33 +107,28 @@
 
 			button {
 				height: 50px;
-				background: $ruby-enchantment;
+				background: #d2405b;
 				width: 50%;
 				margin: 0 auto;
 				margin-top: 60px;
 				border: none;
-				color: $snow-white;
+				color: white;
 				font-size: 20px;
 				border-radius: 5px;
 				cursor: pointer;
 			}
 		}
-		.loginNoAccount {
-			width: 60%;
-			margin: 20px auto 0;
-			p {
-				text-align: center;
-			}
-		}
 	}
+}
 
 	.imgContainer {
-		width: 100%;
-		background-size: 80%;
-		background-attachment: fixed;
-		background-image: url('../assets/AuthPages/building-work-crew-03.jpg');
-		background-position-x: right;
+		background-attachment:fixed;
+		width: 90%;
+		background-image: url('../assets/AuthPages/Login.png');
+		background-size: 63%;
 		background-position-y: top;
-		mix-blend-mode: luminosity;
+		background-position-x: 90%;
+		
+		background-repeat: no-repeat;
 	}
 }

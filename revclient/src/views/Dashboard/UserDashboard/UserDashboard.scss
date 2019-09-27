@@ -1,0 +1,57 @@
+// Move to global?
+hr {
+    width: calc(100% + 20px);
+    margin-left: -10px;
+    border: none;
+    border-top-color: $silver-lining;
+    border-top-width: 1px;
+    border-top-style: solid;
+}
+// END Move to global?
+
+
+.user-dashboard {
+    width: 100%;
+    display: flex;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 60px;
+    .user-dashboard-sidebar {
+        @include testBorder(red);
+        width: 25%;
+        height: 100%;
+        text-align: center;
+        .user-dashboard-sidebar-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            height: 130px;
+            padding: 20px;
+        }
+    }
+    .user-dashboard-body {
+        width: calc(75% - 40px);
+        .user-dashboard-header {
+            width:100%;
+            display: flex;
+            span {
+                margin-right: 50px;
+            }
+        }
+        .user-dashboard-main {
+            width:100%;
+            .user-dashboard-main-body {
+                line-height: 3;
+            }
+        }
+    }
+    .user-dashboard-title {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+    .section[class^="user-dashboard"] {
+        @include sections;
+        @include bottomBoxShadow;
+    }
+}
