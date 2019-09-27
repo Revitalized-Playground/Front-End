@@ -6,6 +6,8 @@ import LandingPage from "./views/Landing/LandingPage";
 import Register from "./views/Register/Register";
 import Login from "./views/Login/Login";
 import ProjectsHome from "./views/ProjectsHome/ProjectsHome"; 
+import Start from "./views/Start/Start";
+import Dashboard from "./views/Dashboard/Dashboard";
 
 // Utils
 import AuthenticateUser from "./utils/AuthenticateUser";
@@ -43,6 +45,16 @@ export const Routes = props => {
                 path="/oauth/:token"
                 component={AuthenticateUser}
 		    />
+
+
+            <Route
+                // exact
+                path="/dashboard"
+                render={() => (
+                    <Dashboard />
+                )}
+            />
+
             {/* private routes */}
 
             <Route
@@ -53,6 +65,13 @@ export const Routes = props => {
                 )}
             />
 
+            <Route
+                // exact
+                path="/start"
+                render={() => (
+                    <Start />
+                )}
+            />
 
         </BrowserRouter>
     );
