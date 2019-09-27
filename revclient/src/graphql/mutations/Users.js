@@ -14,13 +14,12 @@ export const CREATE_USER = gql`
 `;
 
 export const LOGIN_USER = gql`
-    mutation loginUser($data: UserAccountInput!) {
-        loginUser(data: $data) {
+    mutation CreateUser($data: UserAccountInput!) {
+        createUser(data: $data) {
             token
             profile {
                 id
                 email
-                profileImage
             }
         }
     }

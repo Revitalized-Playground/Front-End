@@ -6,19 +6,14 @@
 
 import React from 'react'
 
-import UserNav from "../../components/Layout/UserNav";
-import UserDashboard from "./User/UserDashboard";
-import Footer from "../../components/Layout/Footer";
-
+import Nav from '../../components/Layout/Nav.jsx';
+import Footer from "../../components/Layout/Footer.jsx";
 
 export default function Dashboard() {
     return (
         <>
-            <div className="dashboard-container" >
-                <UserNav />
-                <UserDashboard />
-                <Footer />
-            </div>
+            <Nav />
+            <Footer />
         </>
     )
 }

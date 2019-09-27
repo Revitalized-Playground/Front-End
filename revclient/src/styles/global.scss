@@ -1,6 +1,3 @@
-html {
-	font-size: 62.5%;
-}
 body {
 	font-family: 'futura-pt';
 	button:focus { 
@@ -16,32 +13,3 @@ body {
 	background-color: $machiavellian;
 	color: $snow-white;
 }
-
-a {
-	text-decoration: none;
-	color: inherit;
-}
-
-i { 
-	font-style: italic;
-}
-
-
-b { 
-	font-weight: bold;
-}
-
-
-
-h4 {
-	font-family: 'futura';
-	// font-weight: bold;
-	font-size: 1.8rem;
-}
-
-h5 {
-	font-family: 'futura';
-	// font-weight: bold;
-	font-size: 1.6rem;
-}
-
