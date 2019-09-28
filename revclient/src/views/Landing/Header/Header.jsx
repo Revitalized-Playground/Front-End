@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import heroImage from '../../../assets/LandingPage/HeroImage.png';
 import crowdFundingImg from '../../../assets/LandingPage/Crowdfunding.svg';
@@ -23,7 +24,11 @@ const Header = () => {
 					<p>
 						Revitalize is a crowdfunding platform <br /> that creates apprenticeship opportunities.
 					</p>
-					<button>Start Your Journey!</button>
+					{localStorage.getItem("token")
+						? <Link to="/start"><button>Start Your Journey!</button></Link>
+						: <Link to="/register"><button>Start Your Journey!</button></Link>
+					}
+					
 				</div>
 				<img src={heroImage} alt="Hero" />
 			</div>

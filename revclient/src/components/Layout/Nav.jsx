@@ -20,6 +20,7 @@ const uLinks = [
 	return link;
 });
 const aLinks = [
+	{ href: '/start', label: 'Browse' },
 	{ href: '/createproject', label: 'Create a project' },
 	{ href: '/projects', label: 'Community' },
 	{ href: '#', label: 'Help' },

@@ -4,13 +4,13 @@
  * @props description
  */
 import React from "react";
-
+import { Link } from 'react-router-dom';
 
 const links = [
-	{ href: "#", label: "Learn More" },
-	{ href: "#", label: "Team" },
-	{ href: "#", label: "Create Project" },
-	{ href: "#", label: "Browse" },
+	{ path: "#", label: "Learn More" },
+	{ path: "#", label: "Team" },
+	{ path: "/createproject", label: "Create Project" },
+	{ path: "/start", label: "Browse" },
 ].map(link => {
 	link.key = `nav-link-${link.href}-${link.label}`;
 	return link;
@@ -22,9 +22,9 @@ export default function Footer() {
 		<div className="footer">
 			<div>
 			<ul className="links-container">
-				{links.map(({ key, href, label }) => (
+				{links.map(({ key, path, label }) => (
 					<li key={key}>
-						<a href={href}>{label}</a>
+						<Link to={path}>{label}</Link>
 					</li>
 				))}
 			</ul>
