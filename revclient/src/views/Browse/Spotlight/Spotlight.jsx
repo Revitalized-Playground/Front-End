@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import building from '../../../assets/StartPage/SpotlightBuilding.png';
-import heart from '../../../assets/StartPage/HeartVector.png';
+import building from '../../../assets/BrowsePage/SpotlightBuilding.png';
+import heart from '../../../assets/BrowsePage/HeartVector.png';
 
 const Spotlight = () => {
     
@@ -13,11 +13,11 @@ const Spotlight = () => {
         image: `${building}`,
         link: "/project"
     })
-    
+
     return (
         <div className="spotlightContainer">
-            <div 
-                className="spotlightImage" 
+            <div
+                className="spotlightImage"
                 style={{backgroundImage: `url(${spotlight.image})`}}
             ></div>
             <div className="window"></div>
