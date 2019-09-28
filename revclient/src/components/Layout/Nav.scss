@@ -86,6 +86,11 @@ nav {
 					line-height: 0.9;
 				}
 			}
+			.userIcon {
+				width: 30px;
+				height: 30px;
+				object-fit: cover;
+			}
 			.login {
 				@include buttonStyler($chillFi-purple, $snow-white, none, auto 10px auto 0);
 			}

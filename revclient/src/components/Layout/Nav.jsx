@@ -1,7 +1,7 @@
-
-
 import React, { useState, useEffect } from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import Skeleton from 'react-loading-skeleton';
+
 import logo from '../../assets/LandingPage/Logo.png';
 // import darkModeEmoji from '../../assets/Global/Nav/night-mode-512.png';
 // import lightModeEmoji from '../../assets/Global/Nav/night-mode-512.png';
@@ -94,7 +94,11 @@ const Nav = props => {
 								<div className="welcome">
 									{data.me.firstName !== null ? `Welcome, ${data.me.firstName}` : 'Welcome'}
 								</div>
-								<img className="userIcon" src={data.me.profileImage} />
+								
+								{data.me.profileImage !== null
+									? <img className="userIcon" src={data.me.profileImage}/>
+									: <Skeleton className="userIcon" circle={true} height={30} width={30} />
+								}
 								{clicked && (
 									<div className="dropdown">
 										<Link to="/dashboard">Profile</Link>
