@@ -3,23 +3,53 @@
 @import './Form3/Form3.scss';
 
 .create-project-page {
-	@include spaceForNav;
-	// z-index: -10;
 	background-image: url('../assets/CreateProjWizard/RocketManGradient.png');
-	// margin-top: 100px;
-	height: 92.5vh;
+	height: 100vh;
+	margin: 2% auto 3%;
 	.errorText {
 		color: red
 	}
+	background-size: cover;
+	background-repeat: no-repeat;
 
+	.project-title {
+		font-family: Futura;
+		font-size: 28px;
+		line-height: 37px;
+		letter-spacing: 0.06em;
+		padding-top: 2.2%;
+		padding-left: 3.7%;
+		color: #4840BA;
+	}
+
+	button {
+		font-size: 16px;
+		line-height: 147.81%;
+	}
 	.form-plus-quote-container {
 		display: flex;
 		justify-content: space-around;
-		width: 1780px;
+		width: 92.7%;
 		background-color: #4840ba;
-		height: 906px;
+		height: 79%;
 		z-index: 99;
-		margin: 14.5% 0 0 auto;
+		margin-left: 7.3%;
+		margin-top: 13.3vh;
+		@media (max-width: 1750px) {
+			margin-top: 13.6vh
+		}
+		@media (max-width: 1650px) {
+			margin-top: 14vh
+		}
+		@media (max-width: 1450px) {
+			margin-top: 14.3vh
+		}
+		@media (max-width: 1300px) {
+			margin-top: 14.5vh
+		}
+		@media (max-width: 1250px) {
+			margin-top: 14.7vh
+		}
 		.quote {
 			display: flex;
 			flex-direction: column;
@@ -29,21 +59,29 @@
 			h2 {
 				height: auto;
 				margin: auto;
+				font-size: 18px;
+				line-height: 24px;
+				text-align: center;
+				letter-spacing: 0.06em;
 			}
 			p {
 				height: auto;
 			}
 			.bottom-cloud {
 				align-self: flex-end;
-				width: 120%;
+				width: 124%;
+
+				bottom: 0;
+				left: 8.5%
 			}
 		}
 		.ui-section {
+			// border: 1px solid red;
 			width: 1290px;
 			background-color: $snow-white;
 			.title {
 				display: block;
-				margin: 4% auto 4% 8%;
+				margin: 40px auto 40px 8%;
 				font-size: 32px;
 			}
 			.progress-tracker {
@@ -55,7 +93,7 @@
 					display: flex;
 					justify-content: space-around;
 					width: 50%;
-					margin: 2% auto 4% 8%;
+					margin: 30px auto 45px 8%;
 					.active {
 						border: 2px solid #4840ba;
 						background-color: #4840ba;
@@ -72,10 +110,14 @@
 				display: flex;
 				flex-direction: column;
 				width: 42%;
-				margin: auto;
+				margin: 0 auto;
+				height: 500px;
 				h2 {
 					margin: 3% auto auto 0;
 					height: auto;
+					font-size: 18px;
+					line-height: 24px;
+					letter-spacing: 0.06em;
 				}
 				input {
 					border-radius: 2px;
@@ -91,12 +133,28 @@
 				.form-navigation {
 					display: flex;
 					justify-content: space-between;
+					button {
+						width: 40%;
+						height: 60px;
+					}
 					.prev-step {
 						order: -1;
 					}
 				}
 				.description {
 					height: 11rem;
+				}
+
+				.state-zip {
+					width: 100px;
+					
+					input {
+						width: 100%
+					}
+					select {
+						width: 100%;
+						border: 1px solid grey;
+					}
 				}
 			}
 		}

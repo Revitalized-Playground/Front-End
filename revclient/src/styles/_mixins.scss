@@ -47,6 +47,7 @@
 }
 @mixin spaceForNav {
 	// margin-top: 100px; // This is redundant now that we are using sticky for positioning in the nav
+	margin-top: 99px;
 }
 
 @mixin testBorder($borderColor) {
@@ -78,3 +79,4 @@
 	padding: 10px;
 	background-color: $snow-white;
 }
+

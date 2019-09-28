@@ -4,31 +4,27 @@ const Top = () => {
     return (
         <div className="topContainer">
             <div className="title">
-                <p>What is your role</p>
+                <p>What is your area of interest</p>
                 <p className="questionMark">?</p>    
             </div>
-            <div className="roles">
-                <div className="role">
-                    <div className="bar color-cerulean"></div>
-                    <p>Avionics</p>
+            <div className="interests">
+                <div className="interest one">
+                    Avionics
                 </div>
-                <div className="role">
-                    <div className="bar color-pikachu"></div>
-                    <p>Construction</p>
+                <div className="interest two">
+                    Construction
                 </div>
-                <div className="role">
-                    <div className="bar color-erudite-purple"></div>
-                    <p>Interior Design</p>
+                <div className="interest three">
+                    Interior Design
                 </div>
-                <div className="role">
-                    <div className="bar color-mutant-turtle"></div>
-                    <p>Welding</p>
+                <div className="interest four">
+                    Welding
                 </div>
-                <div className="role">
-                    <div className="bar color-ruby-enchantment"></div>
-                    <p>Wind Energy</p>
+                <div className="interest five">
+                    Wind Energy
                 </div>
             </div>
+
         </div>
     );
 };
