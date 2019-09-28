@@ -45,7 +45,8 @@
             }
 
             button {
-                font-size: 1.5rem;
+                font-family: "futura-pt";
+                font-size: 1.8rem;
                 line-height: 32px;
                 background:  #285FD7;;
                 border-radius: 5px;
@@ -81,7 +82,7 @@
                 margin-bottom: 23px;
             }
         }
-        p{
+        p {
             color: #0B096F;
             .large {
                 line-height: 4.5rem;
@@ -152,8 +153,6 @@
             flex-direction: column;
             max-width: 515px;
             margin-bottom: 44px;
-            
-
             @media #{$mobile} {
                 width: 93%;
                 
@@ -161,7 +160,8 @@
             }
             
             .purple {
-                font-size: 1.5rem;
+                font-family: "futura-pt";
+                font-size: 1.8rem;
                 line-height: 32px;
                 background: #544CBE;
                 padding: 25px 0;
@@ -213,18 +213,18 @@
         
     }
     .progress-bar {
-    background-color: #2196F3;
-    box-shadow:none;
-    &.text-left{
-        text-align: left;
+        background-color: #2196F3;
+        box-shadow:none;
+        &.text-left{
+            text-align: left;
         span{
-        margin-left: 10px;
+            margin-left: 10px;
         }
     }
     &.text-right{
         text-align: right;
         span{
-        margin-right: 10px;
+            margin-right: 10px;
         }
     }
     }
