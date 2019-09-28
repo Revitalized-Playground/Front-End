@@ -93,26 +93,25 @@ const Nav = props => {
 								</li>
 							))}
 							<div className="user" onClick={toggleDropdown}>
-								<div className="welcome">
+								<div>
 									{data.me.firstName !== null ? `Welcome, ${data.me.firstName}` : 'Welcome'}
 								</div>
-								
 								{data.me.profileImage !== null
 									? <img className="userIcon" src={data.me.profileImage} alt={data.me.firstName}/>
-									: <Skeleton className="userIcon" circle={true} height={30} width={30} />
+									: <Skeleton className="userIcon" circle={true} height={40} width={40} />
 								}
-								{clicked && (
-									<div className="dropdown">
-										<Link to="/dashboard">Profile</Link>
-										<div>Setting</div>
-										<div onClick={toggleDarkMode}>
-											<FaMoon />
-											&nbsp; Dark mode: {darkModeActive ? 'on' : 'off'}
-										</div>
-										<div onClick={logout}>Log out</div>
-									</div>
-								)}
 							</div>
+							{clicked && (
+								<div className="dropdown">
+									<Link to="/dashboard" className="dropdown-option">Profile</Link>
+									<div className="dropdown-option">Setting</div>
+									<div onClick={toggleDarkMode} className="dropdown-option">
+										<FaMoon />
+										&nbsp; Dark mode: {darkModeActive ? 'on' : 'off'}
+									</div>
+									<div onClick={logout} className="dropdown-option">Log out</div>
+								</div>
+							)}
 						</>
 					) : (
 						<>
