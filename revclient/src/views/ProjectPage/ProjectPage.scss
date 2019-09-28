@@ -4,10 +4,10 @@
 @import './ProjectDescription/ProjectComments/ProjectComments.scss';
 
 .project-page-container {
-	@include spaceForNav;
 	max-width: 1920px;
 	padding-left: 6.5%;
 	padding-right: 6.5%;
+	margin: 0 auto;
 	
 	@media #{$mobile} {
 		padding-left: 0;
@@ -43,7 +43,7 @@
 				h1 {
 					position: absolute;
 					margin: 57px 0 0 2%;
-					font-size: 300%;
+					font-size: 4rem;
 					line-height: 74px;
 					letter-spacing: 0.06em;
 					color: #FFFFFF;
