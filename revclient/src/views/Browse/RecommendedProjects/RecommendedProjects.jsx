@@ -47,6 +47,8 @@ const RecommendedProjects = () => {
 
         if (loading) return <RecommendedProjectsSkeleton/>
 
+        if (error) return console.log(error)
+
         return (
             <section className="recommened-projects-section">
                 <h4>Recommended Projects</h4>
