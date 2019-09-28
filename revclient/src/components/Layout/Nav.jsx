@@ -129,8 +129,8 @@ const Nav = props => {
 								className={`hamburger hamburger--squeeze ${activeHamburger && 'is-active'}`}
 								type="button"
 							>
-								<span class="hamburger-box">
-									<span class="hamburger-inner"></span>
+								<span className="hamburger-box">
+									<span className="hamburger-inner"></span>
 								</span>
 							</button>
 						</>

@@ -172,8 +172,8 @@ class RecommendedProjects extends React.Component {
                 <h4>Recommended Projects</h4>
                 <div className="slider">
                     <Slider {...settings}>
-                        {recommendedArray ? recommendedArray.map(recommendedItem => (
-                            <CarouselCard key={recommendedItem.id} card={recommendedItem} view="recommended" />
+                        {recommendedArray ? recommendedArray.map((recommendedItem, index) => (
+                            <CarouselCard key={recommendedItem.id} card={recommendedItem} view="recommended" index={index} name='Recommended' />
                         )) : null}
                     </Slider>
                 </div>

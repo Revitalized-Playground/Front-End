@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import Slider from "react-slick";
 
 const ProjectPictures = ({projectPhotos}) => {
     const [el, setEl] = useState({
@@ -73,6 +74,7 @@ const ProjectPictures = ({projectPhotos}) => {
     return (
       <div className="projectPictureContainer">
         <p className='p'>Project Photos</p>
+
         <div
           className="projectImgCarousel"
           onTouchStart={tchStart}

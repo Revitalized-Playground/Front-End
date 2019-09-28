@@ -158,8 +158,8 @@ const NearYou = () => {
             <h4>Local Projects</h4>
             <div className="slider">
                 <Slider {...settings}>
-                    {nearList ? nearList.map(item => (
-                        <CarouselCard key={item.id} card={item} view="nearYou" />
+                    {nearList ? nearList.map((item, index) => (
+                        <CarouselCard key={item.id} card={item} view="nearYou" index={index} name='Near List' />
                     )) : null}
                 </Slider>
             </div>

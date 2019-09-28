@@ -6,7 +6,9 @@ import styled from "styled-components";
 import { FaHeart, FaAngleRight } from "react-icons/fa";
 
 
-const CarouselCard = ( {card, view} ) => {
+const CarouselCard = ( {card, view, index, name} ) => {
+
+    console.log(name, index)
 
     const Box = styled.div`
         height: 12px;
@@ -19,7 +21,7 @@ const CarouselCard = ( {card, view} ) => {
                 background: #0B096F;
                 }
             100% {
-                width: ${card.amountFunded > card.goalAmount ? 100 : (Number(card.amountFunded) / Number(card.goalAmount) * 100)}%;
+                /* width: ${card.amountFunded > card.goalAmount ? 100 : (Number(card.amountFunded) / Number(card.goalAmount) * 100)}%; */
                         
             }              
         }
