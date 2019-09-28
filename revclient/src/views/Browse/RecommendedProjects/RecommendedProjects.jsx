@@ -1,14 +1,15 @@
 import React from 'react';
 import Slider from "react-slick";
 
+import RecommendedProjectsSkeleton from './RecommendedProjectsSkeleton';
 import CarouselCard from '../CarouselCard/CarouselCard';
 
 import { useQuery } from '@apollo/react-hooks';
 import { GET_PROJECTS } from '../../../graphql/queries';
 
 const RecommendedProjects = () => {
-        const { loading, error, data } = useQuery(GET_PROJECTS);
-
+        const {  error, data } = useQuery(GET_PROJECTS);
+        let loading = true;
         const settings = {
             arrows: true,
             dots: false,
@@ -44,7 +45,7 @@ const RecommendedProjects = () => {
             ]
         }
 
-        if(loading) return <h1>Loading...</h1>
+        if (loading) return <RecommendedProjectsSkeleton/>
 
         return (
             <section className="recommened-projects-section">
