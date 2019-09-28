@@ -2,11 +2,11 @@
     margin-bottom: 89px;
     margin-left: 6.3%;
     margin-right: 10%;
-    max-width: 732px;
-    height: 232px;
+    width: 35%;
+    height: 250px;
     background: #F9F8FD;
     box-shadow: 0px 2px 10px rgba(245, 242, 255, 0.2);
-    font-size: 24px;
+    font-size: 2.4rem;
     line-height: 32px;
     letter-spacing: 0.06em;
     margin-top: -100px;
@@ -19,6 +19,10 @@
         min-width: 100%;
         margin-bottom: 0;
         margin-top: 0;
+    }
+    .last {
+        display: flex;
+        align-items: center;
     }
     .descriptionInnerDiv {
         padding: 48px 0 0 40px;
@@ -34,6 +38,7 @@
 
         .projectStart {
             color: #0B096F;
+            margin-bottom: 20px;
 
             @media #{$mobile} {
                 font-size: 1.5rem;
@@ -52,7 +57,10 @@
             
             .basicDetails {
                 display: flex;
-
+                align-items: center;
+                margin-bottom: 20px;
+                width: 100%;
+                
                 p {
                     margin-right: 5%
                 }
@@ -68,10 +76,6 @@
             @media #{$mobile} {
                 width: 7%;
             }
-        }
-
-        p {
-            margin-bottom: 22px
         }
     }
 }
