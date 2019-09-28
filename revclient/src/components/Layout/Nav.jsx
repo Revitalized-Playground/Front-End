@@ -32,7 +32,7 @@ const aLinks = [
 const Nav = props => {
 	const [activeHamburger, setActiveHamburger] = useState(false);
 	const [darkModeActive, setDarkMode] = useState(false);
-	const [loggedIn, setLoggedIn] = useState(false);
+	// const [loggedIn, setLoggedIn] = useState(false);
 	const [clicked, setClicked] = useState(false);
 
 	// for testing
@@ -52,7 +52,7 @@ const Nav = props => {
 	};
 
 	useEffect(() => {
-		if (JSON.parse(localStorage.getItem('dark-mode')) == true) {
+		if (JSON.parse(localStorage.getItem('dark-mode')) === true) {
 			document.querySelector('body').classList.add('dark-mode');
 		} else {
 			document.querySelector('body').classList.remove('dark-mode');
@@ -70,6 +70,7 @@ const Nav = props => {
 
 	if (localStorage.getItem('token')) {
 		if (loading) return <p>loading....</p>;
+		if (error) return <p>Error....</p>;
 	}
 
 	return (
@@ -92,26 +93,25 @@ const Nav = props => {
 								</li>
 							))}
 							<div className="user" onClick={toggleDropdown}>
-								<div className="welcome">
+								<div>
 									{data.me.firstName !== null ? `Welcome, ${data.me.firstName}` : 'Welcome'}
 								</div>
-								
 								{data.me.profileImage !== null
-									? <img className="userIcon" src={data.me.profileImage}/>
-									: <Skeleton className="userIcon" circle={true} height={30} width={30} />
+									? <img className="userIcon" src={data.me.profileImage} alt={data.me.firstName}/>
+									: <Skeleton className="userIcon" circle={true} height={40} width={40} />
 								}
-								{clicked && (
-									<div className="dropdown">
-										<Link to="/dashboard">Profile</Link>
-										<div>Setting</div>
-										<div onClick={toggleDarkMode}>
-											<FaMoon />
-											&nbsp; Dark mode: {darkModeActive ? 'on' : 'off'}
-										</div>
-										<div onClick={logout}>Log out</div>
-									</div>
-								)}
 							</div>
+							{clicked && (
+								<div className="dropdown">
+									<Link to="/dashboard" className="dropdown-option">Profile</Link>
+									<div className="dropdown-option">Setting</div>
+									<div onClick={toggleDarkMode} className="dropdown-option">
+										<FaMoon />
+										&nbsp; Dark mode: {darkModeActive ? 'on' : 'off'}
+									</div>
+									<div onClick={logout} className="dropdown-option">Log out</div>
+								</div>
+							)}
 						</>
 					) : (
 						<>
