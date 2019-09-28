@@ -8,8 +8,8 @@ import { useQuery } from '@apollo/react-hooks';
 import { GET_PROJECTS } from '../../../graphql/queries';
 
 const RecommendedProjects = () => {
-        const {  error, data } = useQuery(GET_PROJECTS);
-        let loading = true;
+        const { loading, error, data } = useQuery(GET_PROJECTS);
+
         const settings = {
             arrows: true,
             dots: false,
