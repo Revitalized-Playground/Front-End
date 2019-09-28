@@ -4,9 +4,7 @@ import Slider from "react-slick";
 import CarouselCard from '../CarouselCard/CarouselCard';
 
 
-class RecommendedProjects extends React.Component {
-
-    render() {
+const RecommendedProjects = () => {
         const recommendedArray = [
             {
                 id: 1,
@@ -79,7 +77,7 @@ class RecommendedProjects extends React.Component {
                 amountFunded: 50000.00,
                 images: ["https://","https://"],
                 featuredImage: "https://res.cloudinary.com/revitalize/image/upload/v1569451130/start%20page/Newton_Infrastructure_Upgrade_1_y12ht6.svg",
-                liked: false 
+                liked: false
 
             },
             {
@@ -92,7 +90,7 @@ class RecommendedProjects extends React.Component {
                 amountFunded: 50000.00,
                 images: ["https://","https://"],
                 featuredImage: "https://res.cloudinary.com/revitalize/image/upload/v1569453294/start%20page/Rectangle_jnwuh9.png",
-                liked: false 
+                liked: false
             },
             {
                 id: 8,
@@ -104,7 +102,7 @@ class RecommendedProjects extends React.Component {
                 amountFunded: 1000.00,
                 images: ["https://","https://"],
                 featuredImage: "https://res.cloudinary.com/revitalize/image/upload/v1569451132/start%20page/Murals_of_Hope_pam8nr.svg",
-                liked: false 
+                liked: false
             },
             {
                 id: 9,
@@ -116,7 +114,7 @@ class RecommendedProjects extends React.Component {
                 amountFunded: 500000.00,
                 images: ["https://","https://"],
                 featuredImage: "https://res.cloudinary.com/revitalize/image/upload/v1569451134/start%20page/Lightning_Sparks_ppgmkx.svg",
-                liked: false   
+                liked: false
             },
             {
                 id: 10,
@@ -128,7 +126,7 @@ class RecommendedProjects extends React.Component {
                 amountFunded: 8000.00,
                 images: ["https://","https://"],
                 featuredImage: "https://res.cloudinary.com/revitalize/image/upload/v1569451121/start%20page/Heavy_metal_queen_image_ppdqnn.svg",
-                liked: false   
+                liked: false
             }
         ]
 
@@ -165,7 +163,7 @@ class RecommendedProjects extends React.Component {
                     }
                 }
             ]
-        };
+        }
 
         return (
             <section className="recommened-projects-section">
@@ -179,7 +177,7 @@ class RecommendedProjects extends React.Component {
                 </div>
             </section>
         );
-    }
+
 }
 
 
