@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Skeleton,  { SkeletonTheme } from "react-loading-skeleton";
+import Skeleton,  { } from "react-loading-skeleton";
 
 import Sidebar from './Sidebar/Sidebar';
 
@@ -52,11 +52,13 @@ const UserDashboard = () => {
         }
     ]
 
-    const [apprentice, setApprentice] = useState(true);
+    const [apprentice, 
+        // setApprentice
+    ] = useState(true);
 
-    const toggleUserType = () => {
-        setApprentice(!apprentice)
-    }
+    // const toggleUserType = () => {
+    //     setApprentice(!apprentice)
+    // }
     return (
         <>
             <section className="user-dashboard">

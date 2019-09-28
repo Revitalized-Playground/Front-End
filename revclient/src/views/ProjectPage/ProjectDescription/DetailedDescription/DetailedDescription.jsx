@@ -1,5 +1,5 @@
 import React from 'react'
-import BasicDetails from './BasicDescription/BasicDescription.jsx'
+// import BasicDetails from './BasicDescription/BasicDescription.jsx'
 import email from '../../../../assets/SingleProjectPage/email.png'
 
 const DetailedDescription = ({startDate, duration, difficulty, organizer, location, projDescription, projectCreator}) => {

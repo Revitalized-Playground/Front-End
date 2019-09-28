@@ -32,7 +32,7 @@ const aLinks = [
 const Nav = props => {
 	const [activeHamburger, setActiveHamburger] = useState(false);
 	const [darkModeActive, setDarkMode] = useState(false);
-	const [loggedIn, setLoggedIn] = useState(false);
+	// const [loggedIn, setLoggedIn] = useState(false);
 	const [clicked, setClicked] = useState(false);
 
 	// for testing
@@ -52,7 +52,7 @@ const Nav = props => {
 	};
 
 	useEffect(() => {
-		if (JSON.parse(localStorage.getItem('dark-mode')) == true) {
+		if (JSON.parse(localStorage.getItem('dark-mode')) === true) {
 			document.querySelector('body').classList.add('dark-mode');
 		} else {
 			document.querySelector('body').classList.remove('dark-mode');
@@ -70,6 +70,7 @@ const Nav = props => {
 
 	if (localStorage.getItem('token')) {
 		if (loading) return <p>loading....</p>;
+		if (error) return <p>Error....</p>;
 	}
 
 	return (
@@ -97,7 +98,7 @@ const Nav = props => {
 								</div>
 								
 								{data.me.profileImage !== null
-									? <img className="userIcon" src={data.me.profileImage}/>
+									? <img className="userIcon" src={data.me.profileImage} alt={data.me.firstName}/>
 									: <Skeleton className="userIcon" circle={true} height={30} width={30} />
 								}
 								{clicked && (
