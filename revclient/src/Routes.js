@@ -71,7 +71,7 @@ export const Routes = () => {
 
             <Route
                 // exact
-                path="/project"
+                path="/project/:id"
                 render={() => (
                     <ProjectPage />
                 )}
@@ -84,7 +84,7 @@ export const Routes = () => {
                     <CreateProjectWizard />
                 )}
             />
-            
+
             <Route
                 // exact
                 path="/browse"
