@@ -6,7 +6,9 @@ import styled from "styled-components";
 import { FaHeart, FaAngleRight } from "react-icons/fa";
 
 
-const CarouselCard = ( {card, view} ) => {
+const CarouselCard = ( {card, view, index, name} ) => {
+
+    console.log(name, index)
 
     const Box = styled.div`
         height: 12px;
