@@ -4,15 +4,13 @@
  * @props description
  */
 import React from "react";
-
+import { Link } from 'react-router-dom';
 
 const links = [
-	{ href: "#", label: "FAQ's" },
-	{ href: "#", label: "Meet the Team" },
-	{ href: "#", label: "Donate" },
-	{ href: "#", label: "Contact" },
-	{ href: "#", label: "Resources" },
-	{ href: "#", label: "Reviews" },
+	{ path: "#", label: "Learn More" },
+	{ path: "#", label: "Team" },
+	{ path: "/createproject", label: "Create Project" },
+	{ path: "/start", label: "Browse" },
 ].map(link => {
 	link.key = `nav-link-${link.href}-${link.label}`;
 	return link;
@@ -22,22 +20,27 @@ const links = [
 export default function Footer() {
 	return (
 		<div className="footer">
+			<div>
 			<ul className="links-container">
-				{links.map(({ key, href, label }) => (
+				{links.map(({ key, path, label }) => (
 					<li key={key}>
-						<a href={href}>{label}</a>
+						<Link to={path}>{label}</Link>
 					</li>
 				))}
 			</ul>
+			</div>
 			<div className="social-links-container">
 				<a href="https://github.com" alt="Github"> <i className="fa fa-github"></i> </a>
 				<a href="https://facebook.com" alt="Facebook"> <i className="fa fa-facebook"></i> </a>
 				<a href="https://Linkedin.com" alt="LinkedIn"> <i className="fa fa-linkedin"></i> </a>
 				<a href="https://twitter.com" alt="Twitter"> <i className="fa fa-twitter"></i> </a>
 			</div>
+			<div className="bottom-footer">
+		
 			<span className="copyright">
 				Revitalize &copy; <span className="italics">2019 All Rights Reserved</span>{' '}
 			</span>
+			</div>
 		</div>
 	);
 }

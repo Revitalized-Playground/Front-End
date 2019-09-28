@@ -1,63 +1,99 @@
-import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import React from 'react'
+import { BrowserRouter, Route } from "react-router-dom";
 
 // Routes
-import LandingPage from './views/Landing/LandingPage';
-import Register from './views/Register/Register';
-import Login from './views/Login/Login';
-import ProjectsHome from './views/ProjectsHome/ProjectsHome';
-import ProjectPage from './views/ProjectPage/ProjectPage';
-import CreateProjectWizard from './views/CreateProjWizard/CreateProjectWizard';
-import Start from './views/Start/Start';
-
-// Protected Routes
+import LandingPage from "./views/Landing/LandingPage";
+import Register from "./views/Register/Register";
+import Login from "./views/Login/Login";
+import ProjectsHome from "./views/ProjectsHome/ProjectsHome";  // May be deprecated
+import Start from "./views/Start/Start";
 import Dashboard from "./views/Dashboard/Dashboard";
-import UserDashboard from "./views/Dashboard/User/UserDashboard";
+import CreateProjectWizard from './views/CreateProjWizard/CreateProjectWizard'
+import ProjectPage from './views/ProjectPage/ProjectPage'
 
 // Utils
-import AuthenticateUser from './utils/AuthenticateUser';
-
-
+import AuthenticateUser from "./utils/AuthenticateUser";
 
 export const Routes = props => {
-	return (
-		<BrowserRouter>
-			{/* public routes */}
 
-			<Route exact path="/" render={() => <LandingPage />} />
-			<Route exact path="/register" render={() => <Register />} />
-			<Route exact path="/login" render={() => <Login />} />
-			<Route exact path="/oauth/:token" component={AuthenticateUser} />
-			{/* private routes */}
+    return (
+        <BrowserRouter>
+            
+            {/* public routes */}
+            
+            <Route
+                exact
+                path="/"
+                render={() => (
+                    <LandingPage />
+                )}
+		    />
+            <Route
+                exact
+                path="/register"
+                render={() => (
+                    <Register />
+                )}
+            />
+            <Route
+                exact
+                path="/login"
+                render={() => (
+                    <Login />
+                )}
+            />
+            <Route 
+                exact
+                path="/oauth/:token"
+                component={AuthenticateUser}
+		    />
 
-			<Route
-				// exact
-				path="/projects"
-				render={() => <ProjectsHome />}
-			/>
-			<Route
-				// exact
-				path="/project"
-				render={() => <ProjectPage />}
-			/>
 
-			<Route
-				// exact
-				path="/createproject"
-				render={() => <CreateProjectWizard />}
-			/>
+            <Route
+                // exact
+                path="/dashboard"
+                render={() => (
+                    <Dashboard />
+                )}
+            />
 
-			<Route 
-				path="/start"
-				render={() => <Start />}
-			/>
+            {/* private routes */}
 
-			<Route 
-				path="/user/dashboard"
-				render={() => <Dashboard />}
-			/>
+            <Route
+                // exact
+                path="/projects"
+                render={() => (
+                    <ProjectsHome />
+                )}
+            />
 
-		</BrowserRouter>
-	);
-};
+            <Route
+                // exact
+                path="/project"
+                render={() => (
+                    <ProjectPage />
+                )}
+            />
+
+            <Route
+                // exact
+                path="/createproject"
+                render={() => (
+                    <CreateProjectWizard />
+                )}
+            />
+            
+            <Route
+                // exact
+                path="/start"
+                render={() => (
+                    <Start />
+                )}
+            />
+
+        </BrowserRouter>
+    );
+}
+
+
 

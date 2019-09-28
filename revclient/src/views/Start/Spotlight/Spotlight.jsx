@@ -6,7 +6,9 @@ import heart from '../../../assets/StartPage/HeartVector.png';
 
 const Spotlight = () => {
     
-    const [spotlight, setSpotlight] = useState({
+    const [spotlight, 
+        // setSpotlight
+    ] = useState({
         description: "Milwaukee's Red Cypress building was home to iron manufacturing and now the ancient building is transforming to a coworking space.",
         image: `${building}`,
         link: "/project"

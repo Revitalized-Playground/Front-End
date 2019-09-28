@@ -70,6 +70,17 @@
             font-size: 1.6rem;
         }
     }
+    .carousel-card-inner.__noteworthy {
+        height: 300px;
+        .carousel-card-image {
+            div.carousel-card-location {
+                position: absolute;
+                color: $snow-white;
+                padding: 10px;
+                font-size: 1.8rem;
+            }
+        }
+    }
 }
 
 .dark-mode {

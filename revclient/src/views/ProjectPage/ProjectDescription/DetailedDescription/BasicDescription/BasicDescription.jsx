@@ -10,7 +10,7 @@ const BasicDescription = ({startDate, duration, difficulty, organizer}) => {
         <div className='basicDescriptionContainer'>
             <div className='descriptionInnerDiv'>
                 <p className='projectStart'>PROJECT START DATE: {startDate}</p>
-                <div className='detailsFlex'>
+                <div className='detailsFlex mobile-column'>
                     <div className='basicDetails'>
                         <img src={durationImg} alt='duration icon' />
                         <p>Duration: {duration}</p>
@@ -21,7 +21,7 @@ const BasicDescription = ({startDate, duration, difficulty, organizer}) => {
                     </div>
                     
                 </div>
-                <div className='detailsFlex'>
+                <div className='last'>
                     <img src={projectOrganizer} alt='Profile icon' />
                     <p>Project Organizer: {organizer}</p>
                 </div>

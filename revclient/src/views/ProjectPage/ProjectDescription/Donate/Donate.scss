@@ -1,53 +1,150 @@
 .donateContainer {
     max-width: 685px;
     box-shadow: 0px 0px 8px #EEEDEF;
-
+    margin: 0 0 auto auto;
+    @media #{$mobile} {
+        margin: 0;
+    }
     .donateInnerDiv {
         max-width: 630px;
         margin-left: 48px;
+        
+        .mid-line-container {
+            max-width: 515px;
+			display: flex;
+			justify-content: space-between;
+            align-items: center;
+            
+            p {
+                font-size: 1.8rem;
+                line-height: 212.81%;
+                letter-spacing: 0.06em;
+                color: rgba(48, 48, 48, 0.3);
+                margin-top: -5px
+            }
+
+            .mid-line {
+                border: 1px solid rgba(0, 0, 0, 0.3);
+                transform: rotate(180deg);
+                height: 1px;
+                width: 45%
+            }
+
+            @media #{$mobile} {
+                width: 93%; 
+            }
+        }
+
+        .apply-button { 
+            max-width: 515px;
+            margin-bottom: 44px;
+
+            @media #{$mobile} {
+                width: 93%; 
+                margin-bottom: 20px;
+            }
+
+            button {
+                font-family: "futura-pt";
+                font-size: 1.8rem;
+                line-height: 32px;
+                background:  #285FD7;;
+                border-radius: 5px;
+                color: #FFFFFF;
+                letter-spacing: 0.06em;
+                margin:40px 0 24px 0;
+                border: none;
+                cursor: pointer;
+                width: 100%;
+                padding: 25px 0;
+
+                @media #{$mobile} {
+                    padding: 15px 0;
+                    margin: 18px 0 13px 0;
+                    font-size: 1.7rem;
+                    line-height: 24px;
+                    margin-bottom: 30px;
+                } 
+            }
+                
+            
+        }
+        @media #{$mobile} {
+            margin-left: 5.5%;;
+        }
+
         .donationMoney {
             margin-bottom: 30px;
-            margin-top: 40px
+            margin-top: 40px;
+            @media #{$mobile} {
+                width: 90%;
+                margin-top: 17px;
+                margin-bottom: 23px;
+            }
         }
-        p{
+        p {
+            color: #0B096F;
             .large {
-                line-height: 72px;
-                font-size: 52px;
+                line-height: 4.5rem;
+                font-size: 5.2rem;
                 letter-spacing: 0.06em;
                 margin-right: 20px;
+
+                @media #{$mobile} {
+                    font-size: 2.7rem;
+                    line-height: 154.81%;
+                    margin-right: 3px;
+                    width: 90%
+                }
+                
             }
 
             .small {
-                font-size: 1.4rem; 
+                font-size: 2.2rem; 
+
+                @media #{$mobile} {
+                    font-size: 1.6rem;
+                    line-height: 100%;
+                    width: 90%
+                }
             }
         }
 
-        .progressBar {
+        .progress-bar {
             max-width: 515px;
-            height: 12px;
+            height: 14px;
             background: #EBE7FD;
             border-radius: 50px;
             margin-bottom: 16px;
             border: 1px solid $snow-white;
-            div {
-                height: 12px;
-                background: #0B096F;
-                border-radius: 50px;
+
+            @media #{$mobile} {
+                width: 93%;
+                margin-bottom: 10px;
             }
         }
 
         .donatorCount {
             letter-spacing: 0.06em;
             line-height: 32px;
-            font-size: 24px;
-            margin-bottom: 6px
+            font-size: 2.7rem;
+            margin-bottom: 6px;
+            @media #{$mobile} {
+                font-size: 1.7rem;
+                line-height: 19px;
+            }
         }
 
         .donorText {
-            font-size: 18px;
+            font-size: 2rem;
             line-height: 24px;
             letter-spacing: 0.06em;
             color: #969696;
+
+            @media #{$mobile} {
+                font-size: 1.7rem;
+                line-height: 19px;
+            }
         }
         
 
@@ -56,40 +153,79 @@
             flex-direction: column;
             max-width: 515px;
             margin-bottom: 44px;
+            @media #{$mobile} {
+                width: 93%;
+                
+                margin-bottom: 30px;
+            }
             
             .purple {
-                background: #544CBE;
-                height: 77px;
-                border-radius: 5px;
-                font-size: 24px;
+                font-family: "futura-pt";
+                font-size: 1.8rem;
                 line-height: 32px;
+                background: #544CBE;
+                padding: 25px 0;
+                border-radius: 5px;
                 color: #FFFFFF;
                 letter-spacing: 0.06em;
                 margin:40px 0 24px 0;
                 border: none;
-                cursor: pointer
+                cursor: pointer;
+
+                @media #{$mobile} {
+                    padding: 15px 0;
+                    margin: 18px 0 13px 0;
+                    font-size: 1.7rem;
+                    line-height: 24px;
+                } 
             }
 
             .white {
-                background: #FFFFFF;
-                height: 77px;
-                border-radius: 5px;
-                font-size: 24px;
+                font-size: 1.5rem;
                 line-height: 32px;
+                background: #FFFFFF;
+                padding: 25px 0;
+                border-radius: 5px;
                 color: #544CBE;
                 letter-spacing: 0.06em;
                 border: 1.2px solid #544CBE;
-                cursor: pointer
+                cursor: pointer;
+
+                @media #{$mobile} {
+                    padding: 15px 0;
+                    font-size: 1.7rem;
+                    line-height: 24px;
+                } 
             }
         }
 
         .lastText {
             max-width: 585px;
-            font-size: 20px;
+            font-size: 2rem;
             line-height: 27px;
-            letter-spacing: 0.06em; 
+            letter-spacing: 0.06em;
+            margin-bottom: 40px;
+
+            @media #{$mobile} {
+                display: none
+            }
         }
         
     }
-    
+    .progress-bar {
+        background-color: #2196F3;
+        box-shadow:none;
+        &.text-left{
+            text-align: left;
+        span{
+            margin-left: 10px;
+        }
+    }
+    &.text-right{
+        text-align: right;
+        span{
+            margin-right: 10px;
+        }
+    }
+    }
 }

@@ -28,7 +28,7 @@ const CreateProjectWizard = () => {
     console.log(projectDetails);
     return (
         <div className="create-project-page">
-            <h2>Revitalize</h2>
+            <h1 className='project-title'>Revitalize</h1>
             <div className="form-plus-quote-container">
 
                 <div className="quote">

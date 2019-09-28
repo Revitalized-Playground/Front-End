@@ -1,37 +1,72 @@
-import React from 'react';
-import Skeleton,  { SkeletonTheme } from "react-loading-skeleton";
+import React, { useState } from 'react';
+import Skeleton,  { } from "react-loading-skeleton";
+
+import Sidebar from './Sidebar/Sidebar';
 
 const UserDashboard = () => {
 
+    const users = [
+        {
+            skyelar: {
+                id: 1,
+                userAccountId: 1,
+                email: "fractured2k@gmail.com",
+                firstName: "Skyelar",
+                lastName: "Carrol",
+                profileImage: "",
+                city: "Grand Haven",
+                zip: "",
+                address: "",
+                state: "MI",
+                aptNumber: "",
+                projects: [],
+                phoneNumber: "889-214-8971",
+                zoom: "SkyfiCrole",
+                certifications: 2,
+                hoursLogged: 396,
+                creditHours: 22,
+                achievements: [],
+            }
+        },
+        {
+            maleescha: {
+                id: 2,
+                userAccountId: 2,
+                email: "Maleescha Mclarin@gmail.com",
+                firstName: "Maleescha",
+                lastName: "Mclarin",
+                profileImage: "",
+                city: "Detroit",
+                zip: "",
+                address: "",
+                state: "MI",
+                aptNumber: "",
+                projects: [],
+                phoneNumber: "356-230-9971",
+                zoom: "TheeMclarin",
+                certifications: 2,
+                hoursLogged: 396,            
+                creditHours: 22,
+                achievements: [],
+            }
+        }
+    ]
+
+    const [apprentice, 
+        // setApprentice
+    ] = useState(true);
+
+    // const toggleUserType = () => {
+    //     setApprentice(!apprentice)
+    // }
     return (
         <>
             <section className="user-dashboard">
-                <section className="user-dashboard-sidebar section">
-                    <Skeleton circle={true} height={110} width={110} />
-                    <Skeleton count={2} />
-                    <div className="user-dashboard-title">
-                            <Skeleton count={1} height={25} width={200} />
-                            <Skeleton count={1} height={25} width={125} />
-                            <Skeleton count={1} height={25} width={75} />
-                    </div>
-
-                    <hr/>
-
-                    <SkeletonTheme color="#ffffff"  >
-                        <Skeleton count={15} duration={100} />
-                    </SkeletonTheme>
-
-                    <hr/>
-
-                    <div className="user-dashboard-sidebar-footer">
-                        <Skeleton circle={true} height={63} width={63} />
-                        <Skeleton circle={true} height={63} width={63} />
-                        <Skeleton circle={true} height={63} width={63} />
-                        <Skeleton circle={true} height={63} width={63} />
-                    </div>
-                </section>
-
-
+                { apprentice
+                    ? <Sidebar user={users.skyelar} />
+                    : <Sidebar user={users.maleescha} />
+                }
+                
                 <section className="user-dashboard-body">
                     <div className="user-dashboard-header section">
                         <Skeleton count={1} height={50} width={200} />
@@ -59,6 +94,4 @@ const UserDashboard = () => {
     );
 };
 
-
 export default UserDashboard
-

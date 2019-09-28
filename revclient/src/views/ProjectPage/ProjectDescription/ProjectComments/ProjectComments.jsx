@@ -18,6 +18,10 @@ const ProjectComments = ({comments}) => {
                     </div>
                 ))}
             </div>
+            <div className='comment-button-container'>
+                <button className='see-more-comments'>See more comments</button>
+            </div>
+            
         </div>
     )
 }

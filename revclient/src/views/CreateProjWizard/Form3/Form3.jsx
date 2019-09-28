@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 
-const Form1 = ({ projDuration, projBudget, handleChanges, submitForm, setFormPosition }) => {
+const Form3 = ({ projDuration, projBudget, handleChanges, submitForm, setFormPosition }) => {
 
     const [err, setErr] = useState(true)
     console.log(err)
@@ -53,11 +53,11 @@ const Form1 = ({ projDuration, projBudget, handleChanges, submitForm, setFormPos
 
             </select>
             <div className="form-navigation">
-                <button className="next-step" type="submit">Next Step!</button>
-                <button className="prev-step" onClick={() => setFormPosition(2)}>Previous Step!</button>
+                <button className="next-step" type="submit">Submit!</button>
+                <button className="prev-step" onClick={() => setFormPosition(2)}>&larr; Previous!</button>
             </div>
         </form >
     );
 };
 
-export default Form1;
+export default Form3;

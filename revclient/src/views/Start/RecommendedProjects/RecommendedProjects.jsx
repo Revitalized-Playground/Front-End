@@ -1,7 +1,7 @@
 import React from 'react';
 import Slider from "react-slick";
 
-import CarouselCard from '../Projects/ProjectsCarousel/CarouselCard';
+import CarouselCard from '../CarouselCard/CarouselCard';
 
 
 class RecommendedProjects extends React.Component {
@@ -184,4 +184,3 @@ class RecommendedProjects extends React.Component {
 
 
 export default RecommendedProjects;
-

@@ -47,10 +47,11 @@
 }
 @mixin spaceForNav {
 	// margin-top: 100px; // This is redundant now that we are using sticky for positioning in the nav
+	margin-top: 99px;
 }
 
 @mixin testBorder($borderColor) {
-	border: 1px dashed $borderColor;
+	border: 1px solid $borderColor;
 }
 
 @mixin subtleBoxShadow {
@@ -78,3 +79,4 @@
 	padding: 10px;
 	background-color: $snow-white;
 }
+
