@@ -12,7 +12,7 @@
         
     }
     .detailedDescription {
-        font-size: 2.6rem;
+        font-size: 1.8rem;
         line-height: 190.81%;
         letter-spacing: 0.06em; 
         width: 85%;
@@ -26,11 +26,11 @@
         
 
         span {
-            font-size: 3.2rem;
+            font-size: 2.8rem;
             margin-right: 30px;
 
             @media #{$mobile} {
-                font-size: 2.4rem;
+                font-size: 2rem;
                 margin-right: 10px;
             }
         }
@@ -46,9 +46,11 @@
         border-left: 7px solid #544CBE;
         background: #F9F8FD;
         letter-spacing: 0.06em;
+        width: 80%;
 
         @media #{$mobile} {
             border-left: none;
+            width: 100%;
         }
 
         .profile-center {
@@ -115,7 +117,7 @@
                     }
                 }
 
-                img{
+                img {
                     max-height: 18px;
                     width: 20%;
                     margin-right: 6px;

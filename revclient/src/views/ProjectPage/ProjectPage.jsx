@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard'
+import { withRouter } from 'react-router-dom';
+
 //Image Imports (To be deleted once we have a back end)
 import pic1 from '../../assets/SingleProjectPage/pic1.jpeg'
 import pic2 from '../../assets/SingleProjectPage/pic2.jpeg'
@@ -11,12 +13,17 @@ import fb from '../../assets/AuthPages/fb-logo.png'
 import twtr from '../../assets/AuthPages/twitter.png'
 
 //Component Imports
+import Nav from '../../components/Layout/Nav';
+import Footer from "../../components/Layout/Footer";
+
 import Donate from './ProjectDescription/Donate/Donate'
 import DetailedDescription from './ProjectDescription/DetailedDescription/DetailedDescription'
 import ProjectPictures from './ProjectDescription/ProjectPictures/ProjectPictures'
 import ProjectComments from './ProjectDescription/ProjectComments/ProjectComments'
-import Nav from '../../components/Layout/Nav'
 import BasicDescription from './ProjectDescription/DetailedDescription/BasicDescription/BasicDescription'
+
+import { useQuery } from '@apollo/react-hooks';
+import { GET_PROJECT } from '../../graphql/queries';
 
 const project = {
     projectOrganizer: 'Julian Crenshaw',
@@ -105,25 +112,61 @@ const project = {
     projectDescription: 'Team Rubicon is a warehouse restoration project located in the heart of Detroit. The warehouse used to be an ancient machinery manufacturing plant and was later converted to an automative plant. Revitalize is partnering with city officials to restore the warehouse to a careers training high school. City officials are looking forward to collaborating with Revitalize to restore abandoned buildings and empower communities. Revitalize also partners with local construction and design firms in Detroit to ensure students are receiving hands-on training with local experts and ready to launch into their career. Team Rubicon has raised $50,000 so far and are grateful to all the donors who are supporting community growth and building restoration projects in Detroit. Revitalize also partners with local construction and design firms in Detroit to ensure students are receiving hands-on training with local experts and ready to launch into their career. Team Rubicon has raised $50,000 so far and are grateful to all the donors who are supporting community growth and building restoration projects in Detroit.'
 }
 
-const projectCreator = {
-    name: 'Julian Crenshaw',
-    role: 'Project Organizer',
-    location: 'Detroit, MI',
-    email: 'jcrenshaw@gmail.com',
-    profilePic: userProfile
-}
+// const ProjectPage = ({ match }) => {
+    
 
 
-const ProjectPage = () => {
+const ProjectPage = ({ match }) => {
     const [modal, setModal] = useState(false)
     window.onclick = function(e) {
         e.target.className === 'modal' && setModal(false)
     }
+    const { loading, error, data } = useQuery(GET_PROJECT, {
+        variables: { id: match.params.id }
+    })
     const [copied, setCopied] = useState(false)
+    if (error) return <h1>error fuck off</h1>
+    // console.log(data.project)
+    
+
+    if (loading) return <h1>LOADING THINGY</h1>
     return (
-        <div className="project-page-container">
-            <Nav />
-            <div className={!modal ? 'none' : 'modal'} >
+        <>
+            {/* <Nav />
+            
+             
+            <div className='project-page-flex'>
+                <BasicDescription 
+                  startDate={project.projStartDate}
+                  duration={project.duration}
+                  difficulty={project.difficultyLevel}
+                  organizer={project.projectOrganizer}
+                />
+                <Donate
+                    raised={project.raised}
+                    budget={project.projectBudget}
+                    donors={project.donors}
+                    setModal={setModal}
+                />
+            </div>
+                <DetailedDescription
+                    startDate={project.projStartDate}
+                    duration={project.duration}
+                    difficulty={project.difficultyLevel}
+                    organizer={project.projectOrganizer}
+                    location={project.location}
+                    projDescription={project.projectDescription}
+                    projectCreator={projectCreator}
+                />
+            <ProjectPictures projectPhotos={project.projectPhotos} />
+            <ProjectComments comments={project.comments} />
+        </div> */}
+                <div className="project-page-container">
+                    {/* <div className='singleProjectVectorContainer'>
+                        <div className='singleProjectVector'><div className='blueSquare'><h1>{data.project.name}</h1><div className='blueVector'></div></div></div>
+                    </div> */}
+
+                    <div className={!modal ? 'none' : 'modal'} >
                 <div className='inner-modal' >
                     <div className='button-div'>
                         <div className="outer" onClick={() => setModal(false)}>
@@ -180,34 +223,36 @@ const ProjectPage = () => {
             <div className='singleProjectVectorContainer'>
                 <div className='singleProjectVector'><div className='blueSquare'><h1>Team Rubicon</h1><div className='blueVector'></div></div></div>
             </div>
-             
-            <div className='project-page-flex'>
-                <BasicDescription 
-                  startDate={project.projStartDate}
-                  duration={project.duration}
-                  difficulty={project.difficultyLevel}
-                  organizer={project.projectOrganizer}
-                />
-                <Donate
-                    raised={project.raised}
-                    budget={project.projectBudget}
-                    donors={project.donors}
-                    setModal={setModal}
-                />
-            </div>
-                <DetailedDescription
-                    startDate={project.projStartDate}
-                    duration={project.duration}
-                    difficulty={project.difficultyLevel}
-                    organizer={project.projectOrganizer}
-                    location={project.location}
-                    projDescription={project.projectDescription}
-                    projectCreator={projectCreator}
-                />
-            <ProjectPictures projectPhotos={project.projectPhotos} />
-            <ProjectComments comments={project.comments} />
-        </div>
+
+                    <div className='project-page-flex'>
+                        <BasicDescription
+                            startDate={project.projStartDate}
+                            duration={project.duration}
+                            difficulty={project.difficultyLevel}
+                            organizer={`${data.project.profile.firstName} ${data.project.profile.lastName}`}
+                        />
+                        <Donate
+                            raised={data.project.amountFunded}
+                            budget={data.project.goalAmount}
+                            donors={project.donors}
+                            setModal={setModal}
+                        />
+                    </div>
+                        <DetailedDescription
+                            startDate={project.projStartDate}
+                            duration={project.duration}
+                            difficulty={project.difficultyLevel}
+                            organizer={`${data.project.profile.firstName} ${data.project.profile.lastName}`}
+                            location={`${data.project.city}, ${data.project.state}`}
+                            projDescription={data.project.description}
+                            projectCreator={data.project.profile}
+                        />
+                    <ProjectPictures projectPhotos={project.projectPhotos} />
+                    <ProjectComments comments={project.comments} />
+                </div>
+            <Footer />
+        </>
     );
 };
 
-export default ProjectPage;
+export default withRouter(ProjectPage);
