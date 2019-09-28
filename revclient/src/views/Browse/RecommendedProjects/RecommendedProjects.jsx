@@ -7,6 +7,7 @@ import CarouselCard from '../CarouselCard/CarouselCard';
 import { useQuery } from '@apollo/react-hooks';
 import { GET_PROJECTS } from '../../../graphql/queries';
 
+
 const RecommendedProjects = () => {
         const { loading, error, data } = useQuery(GET_PROJECTS);
 
@@ -17,6 +18,7 @@ const RecommendedProjects = () => {
             speed: 500,
             slidesToShow: 5,
             slidesToScroll: 2,
+            // swipeToSlide: true,
             centerPadding: "400px",
             lazyLoad: "progressive",
             className: "carousel-card",
