@@ -97,7 +97,7 @@ const Nav = props => {
 								<img className="userIcon" src={data.me.profileImage} />
 								{clicked && (
 									<div className="dropdown">
-										<Link to="/user/dashboard">Profile</Link>
+										<Link to="/dashboard">Profile</Link>
 										<div>Setting</div>
 										<div onClick={toggleDarkMode}>
 											<FaMoon />

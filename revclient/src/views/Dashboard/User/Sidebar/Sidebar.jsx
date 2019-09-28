@@ -5,8 +5,8 @@ const Sidebar = props => {
     return (
         <section className="user-dashboard-sidebar section">
             {
-                <img src="" alt="user" />
-                ||
+                // <img src={props.user.profileImage} alt="user" />
+                // ||
                 <Skeleton circle={true} height={110} width={110} />
             }
 
