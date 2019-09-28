@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import Houseplay from '../../../assets/StartPage/Houseplay.png';
+import Houseplay from '../../../assets/BrowsePage/Houseplay.png';
 
 const CreateProject = () => {
     return (
