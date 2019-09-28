@@ -34,21 +34,23 @@ const CarouselCard = ( {card, view} ) => {
     if (view === "recommended") {
         return (
             <section className="carousel-card-inner __recommended">
-                <div className="carousel-card-image">
-                    <FaHeart />
-                    <img src={card.featuredImage} alt={card.name} />
-                </div>
-                <div className="carousel-card-body">
-                    <div className="carousel-card-body-descript">
-                        <i>{card.city}, {card.state}</i>
-                        <h5>{card.name}</h5>
-                        <p>{card.description}</p>
+                <Link to="/project">
+                    <div className="carousel-card-image">
+                        <FaHeart />
+                        <img src={card.featuredImage} alt={card.name} />
                     </div>
-                    <div className="carousel-card-body-money" >
-                        <Box />
-                        <p><b>${formatMoney(card.amountFunded)}</b> out of ${formatMoney(card.goalAmount)}</p>
+                    <div className="carousel-card-body">
+                        <div className="carousel-card-body-descript">
+                            <i>{card.city}, {card.state}</i>
+                            <h5>{card.name}</h5>
+                            <p>{card.description}</p>
+                        </div>
+                        <div className="carousel-card-body-money" >
+                            <Box />
+                            <p><b>${formatMoney(card.amountFunded)}</b> out of ${formatMoney(card.goalAmount)}</p>
+                        </div>
                     </div>
-                </div>
+                </Link>
             </section>
         );
     }
