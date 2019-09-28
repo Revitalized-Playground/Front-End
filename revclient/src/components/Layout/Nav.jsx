@@ -11,7 +11,7 @@ import { useQuery } from '@apollo/react-hooks';
 import { GET_USER } from '../../graphql/queries/Users';
 
 const uLinks = [
-	{ href: '/start', label: 'Browse' },
+	{ href: '/browse', label: 'Browse' },
 	{ href: '#', label: 'Learn More' },
 	{ href: '#', label: 'Team' },
 	{ href: '/login', label: 'Log In' },
@@ -20,6 +20,7 @@ const uLinks = [
 	return link;
 });
 const aLinks = [
+	{ href: '/browse', label: 'Browse' },
 	{ href: '/createproject', label: 'Create a project' },
 	{ href: '/projects', label: 'Community' },
 	{ href: '#', label: 'Help' },
