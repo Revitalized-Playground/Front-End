@@ -21,7 +21,7 @@ const BasicDescription = ({startDate, duration, difficulty, organizer}) => {
                     </div>
                     
                 </div>
-                <div className='detailsFlex'>
+                <div className='last'>
                     <img src={projectOrganizer} alt='Profile icon' />
                     <p>Project Organizer: {organizer}</p>
                 </div>
