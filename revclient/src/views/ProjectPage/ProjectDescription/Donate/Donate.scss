@@ -161,7 +161,6 @@
             margin-bottom: 44px;
             @media #{$mobile} {
                 width: 93%;
-                
                 margin-bottom: 30px;
             }
             
@@ -188,7 +187,8 @@
             }
 
             .white {
-                font-size: 2.4rem;
+                font-family: "futura-pt";
+                font-size: 1.8rem;
                 line-height: 32px;
                 background: #FFFFFF;
                 font-family: futura-pt;
