@@ -125,6 +125,7 @@ const NearYou = () => {
         speed: 500,
         slidesToShow: 4,
         slidesToScroll: 3,
+        // swipeToSlide: true,
         centerPadding: "400px",
         lazyLoad: "progressive",
         className: "carousel-card",
@@ -158,8 +159,8 @@ const NearYou = () => {
             <h4>Local Projects</h4>
             <div className="slider">
                 <Slider {...settings}>
-                    {nearList ? nearList.map(item => (
-                        <CarouselCard key={item.id} card={item} view="nearYou" />
+                    {nearList ? nearList.map((item, index) => (
+                        <CarouselCard key={item.id} card={item} view="nearYou" index={index} name='Near List' />
                     )) : null}
                 </Slider>
             </div>

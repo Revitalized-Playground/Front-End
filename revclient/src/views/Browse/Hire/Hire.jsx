@@ -3,19 +3,19 @@ import React from 'react';
 import Company from './Company/Company';
 
 //images
-import wework from '../../../assets/StartPage/Wework.svg';
-import habitat from '../../../assets/StartPage/Habitat-For-Hummanity.svg';
-import taskrabbit from '../../../assets/StartPage/taskrabbit.svg';
+import wework from '../../../assets/BrowsePage/Wework.svg';
+import habitat from '../../../assets/BrowsePage/Habitat-For-Hummanity.svg';
+import taskrabbit from '../../../assets/BrowsePage/taskrabbit.svg';
 
 //logos
-import weworkLogo from '../../../assets/StartPage/WeWork-logo-White.svg';
-import habitatLogo from '../../../assets/StartPage/HHFH.svg';
-import taskrabbitLogo from '../../../assets/StartPage/TR.svg';
+import weworkLogo from '../../../assets/BrowsePage/WeWork-logo-White.svg';
+import habitatLogo from '../../../assets/BrowsePage/HHFH.svg';
+import taskrabbitLogo from '../../../assets/BrowsePage/TR.svg';
 
 //paintbrush strokes
-import weworkBrush from '../../../assets/StartPage/Wework-paintbrush.svg';
-import habitatBrush from '../../../assets/StartPage/HH4H-paintbrush.svg';
-import taskrabbitBrush from '../../../assets/StartPage/Taskrabbit-Paintbrush.svg';
+import weworkBrush from '../../../assets/BrowsePage/Wework-paintbrush.svg';
+import habitatBrush from '../../../assets/BrowsePage/HH4H-paintbrush.svg';
+import taskrabbitBrush from '../../../assets/BrowsePage/Taskrabbit-Paintbrush.svg';
 
 const Hire = () => {
 	const companies = [
