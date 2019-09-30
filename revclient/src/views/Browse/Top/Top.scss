@@ -1,6 +1,5 @@
 .topContainer {
     width: 100%;
-    max-width: 800px; 
     margin-top: 100px;
     letter-spacing: 0.16rem;
     font-weight: 500;
@@ -19,7 +18,9 @@
         line-height: 1;
         margin-top: 1.5rem;
         padding: 0.5rem 0;
+        width: 95%;
         .interest {
+            width: 16%;
             background-color: $silver-lining;
             padding: 10px;
             border-radius: 0 3px 3px 0;

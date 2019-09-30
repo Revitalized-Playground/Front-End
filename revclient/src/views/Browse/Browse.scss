@@ -23,7 +23,7 @@
     .slider {
         width: 100%;
         margin: 1% auto 2%;
-        padding: 0 20px;
+        padding: 0 0px;
         .slick-prev, .slick-next {
             height: unset;
             width: unset;
@@ -39,10 +39,12 @@
             }
         }
         .slick-prev {
-            left: -40px;
+            z-index: 3;
+            left: -33px;
         }
         .slick-next {
-            right: -40px;
+            z-index: 3;
+            right: -35px;
         }
     }
 
