@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import Map from '../../../components/Map/Map'
 const SearchProjects = () => {
 	const [locationInput, setInput] = useState('');
 
@@ -25,16 +25,16 @@ const SearchProjects = () => {
 					going on.
 				</p>
 				<div className="search-form">
-				<input
-					type="text"
-					placeholder="Enter Location"
-					value={locationInput}
-					onChange={e => setInput(e.target.value)}
-				/>
-				<button>Search Now!</button>
+					<input
+						type="text"
+						placeholder="Enter Location"
+						value={locationInput}
+						onChange={e => setInput(e.target.value)}
+					/>
+					<button>Search Now!</button>
 				</div>
 			</form>
-			<div className="fake-map">Map goes here</div>
+			<Map className="fake-map" />
 		</section>
 	);
 };
