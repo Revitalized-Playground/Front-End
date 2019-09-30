@@ -17,9 +17,10 @@
 		background-color: $chillFi-purple;
 		display: flex;
 		justify-content: space-around;
-		width: 88%;
+		width: 82%;
+		max-width: 1420px;
 		height: 750px;
-		margin-left: 12%;
+		margin-left: 18%;
 		z-index: 5;
 		position: relative;
 		top: 20%;
@@ -53,8 +54,8 @@
 		}
 		.ui-section {
 			background-color: $snow-white;
-			// width: 1290px;
 			width: 65%;
+
 			@media #{$tablet} {
 				width: 100%;
 			}
