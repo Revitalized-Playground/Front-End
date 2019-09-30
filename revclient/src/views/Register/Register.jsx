@@ -14,13 +14,13 @@ import { withRouter } from "react-router-dom";
 
 import {Link} from "react-router-dom";
 
-import google from '../../assets/AuthPages/Google.png';
+import googleLogo from '../../assets/AuthPages/Google.png';
 import fbLogo from '../../assets/AuthPages/fb-logo.png';
 import revitalizeLogo from '../../assets/LandingPage/Logo.png';
-import twitter from '../../assets/AuthPages/twitter.png';
+// import twitter from '../../assets/AuthPages/twitter.png';
 
 
-function Register(props) {
+const Register = props => {
 	const [ createUser ] = useMutation(CREATE_USER);
 
     const [state, setState] = useState({
@@ -48,74 +48,73 @@ function Register(props) {
     };
 
 	return (
-		<div className="registerContainer">
-			<div className="revitalizeLogo-container">
-				<Link to="/" title="Home">
-					<div className="logo">
-						<img src={revitalizeLogo} alt="Revitalize logo" />
-					</div>
-				</Link>
-			</div>
-			<div className="registerForm">
-				<div className="registerThirdParty">
-					<div className="registerWelcome">
-						<h1>Create an Account</h1>
-						<h1>With Revitalize</h1>
-					</div>
-					<button>
-						<div >
-							<a className="registerButton" href={`${process.env.REACT_APP_OAUTH_GOOGLE_LINK}`}>
-								<img src={google} alt="Google" />
-								<h3>Create an Account with Google</h3>
-							</a>
-						</div>
-					</button>
-					<button>
+		<div className="register-container">
+			<div className="register-container-left">
+				<div className="revitalize-logo-container">
+					<Link to="/" title="Home">
 						<div>
-							<a className="registerButton" href={`${process.env.REACT_APP_OAUTH_FACEBOOK_LINK}`}>
-								<img src={fbLogo} alt="Facebook" />
-								<h3>Create an Account with Facebook</h3>
-							</a>
+							<img src={revitalizeLogo} alt="Revitalize logo" />
 						</div>
-					</button>
-					<button>
-						<div className="registerButton">
-							<img src={twitter} alt="Twitter" />
-							<h3>Create an Account with Twitter</h3>
+					</Link>
+				</div>
+				<div className="register-form">
+					<div className="register-third-party">
+						<div className="register-welcome">
+							<h2>Get Started!</h2>
+							<h2>Register</h2>
 						</div>
-					</button>
+						<button>
+							<div>
+								<a className="register-Button" href={`${process.env.REACT_APP_OAUTH_GOOGLE_LINK}`}>
+									<img src={googleLogo} alt="Google logo" />
+									<h5>Register With Google</h5>
+								</a>
+							</div>
+						</button>
+						<button>
+							<div>
+								<a className="register-Button" href={`${process.env.REACT_APP_OAUTH_FACEBOOK_LINK}`}>
+									<img src={fbLogo} alt="Facebook logo" />
+									<h5>Register With Facebook</h5>
+								</a>
+							</div>
+						</button>
+					</div>
+					<div className="register-Middle">
+						<div className="register-Line"></div>
+						<p>or</p>
+						<div className="register-Line"></div>
+					</div>
+					<form className="register-Local" onSubmit={handleSubmit}>
+						<p className="register-title">Email</p>
+						<input
+							name='email'
+							type='email'
+							placeholder="Email..."
+							value={state.email}
+							onChange={handleChanges}
+                		/>
+						<div className="register-Pass">
+							<p className="">Password</p>
+							<span className="">Forgot Password?</span>
+						</div>
+						<input
+							name="password"
+							type="password"
+							placeholder="Password..."
+							value={state.password}
+							onChange={handleChanges}
+                		/>
+						<div className="register-Mid">
+							<p>
+								Don't have an account? <span>Create One</span>
+							</p>
+						</div>
+						<button>Register</button>
+					</form>
 				</div>
-				<div className="registerMiddle">
-					<div className="registerLine"></div>
-					<p>or</p>
-					<div className="registerLine"></div>
-				</div>
-				<form className="registerLocal" onSubmit={handleSubmit}>
-					<p>Email</p>
-					<input
-						name='email'
-						type='email'
-						placeholder="JaneDoe@gmail.com"
-						value={state.email}
-						onChange={handleChanges}
-                	/>
-
-					<p className="registerSpaceAbove">Password</p>
-					<input
-						name="password"
-						type="password"
-						placeholder="**********"
-						value={state.password}
-						onChange={handleChanges}
-                	/>
-
-					{/* <p className="registerSpaceAbove">Confirm Password</p>
-					<input type="password" placeholder="**********" /> */}
-
-					<button>Get Started!</button>
-				</form>
 			</div>
-			<div className="registerIMG"></div>
+			<div className="imgContainer"></div>
 		</div>
 	);
 }

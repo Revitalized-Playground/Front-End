@@ -1,36 +1,35 @@
-.loginContainer {
-	background: #0b096f;
+.login-container {
+	background: $erudite-purple;
 	color: $snow-white;
 	margin: 0 auto;
 	display: flex;
 	letter-spacing: 0.06em;
 	height: 100%;
-
-	.loginContainerLeft{
+	font-size: 1.4rem;
+	.login-container-left{
 		min-height: 100vh;
 		padding-bottom: 140px;
 		min-width: 525px;
 
 	.revitalizeLogo-container {
-		height: 100px;
-		width: 100px;
+		width: 70px;
 		text-align: center;
+		margin: 10px 0 0 20px;
 		img {
 			width: 100%;
 		}
 	}
-	.loginForm {
+	.login-form {
 		width: 80%;
 		margin: 0 auto;
 
-		.loginThirdParty {
-			
+		.login-third-party {
 			width: 65%;
 			margin: 0 auto;
 
-			.loginWelcome {
+			.login-welcome {
 				text-align: center;
-				color: white;
+				color: $snow-white;
 			}
 
 			button {
@@ -39,10 +38,10 @@
 				height: 50px;
 				border-radius: 8px;
 				border: none;
-				background: #ffffff;
+				background: $snow-white;
 				cursor: pointer;
 
-				.loginButton {
+				.login-button {
 					display: flex;
 					align-items: center;
 					margin: 0 20px;
@@ -55,34 +54,34 @@
 			}
 		}
 
-		.loginMiddle {
+		.login-middle {
 			width: 65%;
 			margin: 0 auto;
-			padding: 20px;
+			padding: 40px 0;
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
 
-			.loginLine {
+			.login-line {
 				height: 1px;
 				width: 40%;
 				background: white;
 			}
 		}
 
-		.loginLocal {
+		.login-local {
 			width: 65%;
 			margin: 0 auto;
 			display: flex;
 			flex-direction: column;
 
-			.loginSpaceAbove {
-				margin-top: 30px;
+			.login-title {
+				margin: 0 0 5px 0;
 			}
 
-			.loginMid {
+			.login-mid {
 				text-align: center;
-				padding-bottom: 15px;
+				padding: 5px 0 0 0;
 				p {
 					font-style: italic;
 				}
@@ -94,26 +93,24 @@
 				cursor: pointer;
 			}
 
-			input {
-				height: 35px;
-				padding: 0px 5px;
-			}
 
-			.loginPass {
+
+			.login-pass {
 				display: flex;
 				align-items: center;
 				justify-content: space-between;
+				margin: 30px 0 5px 0;
 			}
 
 			button {
 				height: 50px;
-				background: #d2405b;
+				background: $ruby-enchantment;
 				width: 50%;
 				margin: 0 auto;
-				margin-top: 60px;
+				margin-top: 40px;
 				border: none;
-				color: white;
-				font-size: 20px;
+				color: $snow-white;
+				font-size: 2rem;
 				border-radius: 5px;
 				cursor: pointer;
 			}
@@ -122,13 +119,11 @@
 }
 
 	.imgContainer {
-		background-attachment:fixed;
-		width: 90%;
+		background-attachment: fixed;
+		width: 100%;
 		background-image: url('../assets/AuthPages/Login.png');
-		background-size: 63%;
-		background-position-y: top;
-		background-position-x: 90%;
-		
+		background-size: 100%;
+		background-position-y: center;
 		background-repeat: no-repeat;
 	}
 }
