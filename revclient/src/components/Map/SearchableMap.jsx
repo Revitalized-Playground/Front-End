@@ -5,7 +5,7 @@ import MapGL from "react-map-gl";
 import DeckGL, { GeoJsonLayer } from "deck.gl";
 import Geocoder from "react-map-gl-geocoder";
 
-const token = "pk.eyJ1IjoicmV2aXRhbGl6ZXRlYW0iLCJhIjoiY2sxNm9wbng4MTgwbzNtbW9leXMzYTNpZSJ9.X4VRU_njmnvNxhnuhPZDHw"
+const token = process.env.REACT_APP_MAP_BOX
 
 class SearchableMap extends Component {
     state = {
