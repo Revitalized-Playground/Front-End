@@ -8,90 +8,89 @@ import Header from './Header/Header';
 // import { GET_USER } from '../../graphql/queries/Users';
 
 const UserDashboard = () => {
+	// const { client, loading, error, data } = useQuery(GET_USER);
 
-    // const { client, loading, error, data } = useQuery(GET_USER);
-
-    const users = [
-        {
-            id: 1,
-            userAccountId: 1,
-            email: "fractured2k@gmail.com",
-            firstName: "Skyelar",
-            lastName: "Carrol",
-            handle: "@Skyelar",
-            profileImage: "",
-            city: "Grand Haven",
-            zip: "",
-            address: "",
-            state: "MI",
-            aptNumber: "",
-            projects: [],
-            phoneNumber: "889-214-8971",
-            zoom: "SkyfiCrole",
-            certifications: 2,
-            hoursLogged: 396,
-            creditHours: 22,
-            achievements: [
-                {
-                    name: "Master Key Award",
-                    image: "",
-                    number: 2
-                },
-                {
-                    name: "Thanos Grip Award",
-                    image: "",
-                    number: 1
-                },
-                {
-                    name: "Magic Wand",
-                    image: "",
-                    number: 12
-                },
-                {
-                    name: "Rupee Award",
-                    image: "",
-                    number: 31
-                }
-            ],
-        },
-        {
-            id: 2,
-            userAccountId: 2,
-            email: "Maleescha Mclarin@gmail.com",
-            firstName: "Maleescha",
-            lastName: "Mclarin",
-            handle: "@TheeMclarin ",
-            profileImage: "",
-            city: "Detroit",
-            zip: "",
-            address: "",
-            state: "MI",
-            aptNumber: "",
-            projects: [],
-            phoneNumber: "356-230-9971",
-            zoom: "TheeMclarin",
-            certifications: 2,
-            hoursLogged: 396,            
-            creditHours: 22,
-            achievements: [],
-        }
-    ]
-
-	const project = [
+	const users = [
 		{
-			joesCafe: {
-				id: 1,
-				profile: 1,
-				name: "Joe's Cafe",
-				description:
-					'Work with Joe, the cafe owner to implement blueprint including workign with construction manager, interior design and final inspection',
-				address: '555 Coffee Drive',
-				state: 'MI',
-				zip: '48127',
-				city: 'Detroit',
-				goalAmount: 20000,
-				amountFunded: 5000,
-			},
+			id: 1,
+			userAccountId: 1,
+			email: 'fractured2k@gmail.com',
+			firstName: 'Skyelar',
+			lastName: 'Carrol',
+			handle: '@Skyelar',
+			profileImage: '',
+			city: 'Grand Haven',
+			zip: '',
+			address: '',
+			state: 'MI',
+			aptNumber: '',
+			projects: [],
+			phoneNumber: '889-214-8971',
+			zoom: 'SkyfiCrole',
+			certifications: 2,
+			hoursLogged: 396,
+			creditHours: 22,
+			achievements: [
+				{
+					name: 'Master Key Award',
+					image: '',
+					number: 2,
+				},
+				{
+					name: 'Thanos Grip Award',
+					image: '',
+					number: 1,
+				},
+				{
+					name: 'Magic Wand',
+					image: '',
+					number: 12,
+				},
+				{
+					name: 'Rupee Award',
+					image: '',
+					number: 31,
+				},
+			],
+		},
+		{
+			id: 2,
+			userAccountId: 2,
+			email: 'Maleescha Mclarin@gmail.com',
+			firstName: 'Maleescha',
+			lastName: 'Mclarin',
+			handle: '@TheeMclarin ',
+			profileImage: '',
+			city: 'Detroit',
+			zip: '',
+			address: '',
+			state: 'MI',
+			aptNumber: '',
+			projects: [],
+			phoneNumber: '356-230-9971',
+			zoom: 'TheeMclarin',
+			certifications: 2,
+			hoursLogged: 396,
+			creditHours: 22,
+			achievements: [],
+		},
+	];
+
+	const projects = [
+		{
+			id: 1,
+			profile: 1,
+			name: "Rennovating Cup of Joe's Cafe",
+			description:
+				'Work with Joe, the cafe owner to implement blueprint including workign with construction manager, interior design and final inspection',
+			address: '555 Coffee Drive',
+			state: 'MI',
+			zip: '48127',
+			city: 'Detroit',
+			goalAmount: 20000,
+			amountFunded: 5000,
+			status: 'In Progress',
+			dueDate: 'Oct 25, 2019',
 		},
 	];
 
@@ -100,16 +99,16 @@ const UserDashboard = () => {
 		// setApprentice
 	] = useState(true);
 
-    return (
-        <>
-            <section className="user-dashboard">
-                { apprentice
-                    ? <Sidebar user={users[0]} />
-                    : <Sidebar user={users[1]} />
-                }
-                
+	return (
+		<>
+			<section className="user-dashboard">
+				{apprentice ? <Sidebar user={users[0]} /> : <Sidebar user={users[1]} />}
+
 				<section className="user-dashboard-body">
-					<Header project={project.joesCafe} />
+					{projects.map(project => {
+						return <Header key={project.id} project={project} />;
+					})}
+					{/* <Header project={project} /> */}
 					{/* <br/> */}
 
 					<div className="user-dashboard-main section">
