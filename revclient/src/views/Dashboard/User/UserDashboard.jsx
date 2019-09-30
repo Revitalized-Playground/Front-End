@@ -82,14 +82,14 @@ const UserDashboard = () => {
 			profile: 1,
 			name: "Rennovating Cup of Joe's Cafe",
 			description:
-				'Work with Joe, the cafe owner to implement blueprint including workign with construction manager, interior design and final inspection',
+				'Work with Joe, the cafe owner to implement blueprint including working with construction manager, interior design and final inspection',
 			address: '555 Coffee Drive',
 			state: 'MI',
 			zip: '48127',
 			city: 'Detroit',
 			goalAmount: 20000,
 			amountFunded: 5000,
-			status: 'In Progress',
+			status: 'Upcoming',
 			dueDate: 'Oct 25, 2019',
 		},
 	];

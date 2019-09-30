@@ -1,2 +1,71 @@
 .user-dashboard-header {
+	display: flex;
+	flex-direction: column;
+	.header-top {
+		color: green;
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 16px;
+
+		.project-status {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 152px;
+			height: 40px;
+			border-radius: 5px;
+			background-color: #e3fff7;
+			font-size: 18px;
+			color: #15630e;
+		}
+	}
+
+	.header-middle {
+		display: flex;
+		flex-direction: column;
+		h3 {
+			font-family: Futura;
+			font-size: 14px;
+			color: rgba(0, 23, 31, 0.9);
+		}
+		h2 {
+			margin-bottom: 16px;
+			font-family: Futura;
+			font-size: 32px;
+			color: #00171f;
+		}
+		.header-middle-description {
+			max-width: 970px;
+			width: 100%;
+			font-size: 20px;
+			line-height: 1.34;
+			letter-spacing: normal;
+			color: rgba(0, 23, 31, 0.8);
+			margin-bottom: 40px;
+		}
+	}
+
+	.header-bottom {
+		display: flex;
+
+		.dueDate {
+			display: flex;
+			justify-content: left;
+			align-items: center;
+			width: 237px;
+			height: 48px;
+			border-radius: 7px;
+			background-color: #f5f3ff;
+			font-size: 16px;
+			color: #00171f;
+		}
+
+		.bottom-icons {
+			display: flex;
+		}
+
+		.member-icon {
+			display: flex;
+		}
+	}
 }

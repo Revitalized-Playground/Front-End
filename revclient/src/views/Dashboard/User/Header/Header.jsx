@@ -14,15 +14,25 @@ const Header = props => {
 			</div>
 
 			<div className="header-middle">
-				<h2>
+				<h3>
 					{city}, {state}
-				</h2>
+				</h3>
 				<h2>{name}</h2>
-				<p>{description}</p>
+				<p className="header-middle-description">{description}</p>
 			</div>
 
 			<div className="header-bottom">
-				<p>Due Date: {dueDate}</p>
+				<p className="dueDate">Due Date: {dueDate}</p>
+				<div className="bottom-icons">
+					<div className="comment-icon">
+						<img src="" alt=""/>
+					</div>
+					<div className="form-icon"></div>
+				</div>
+				<div className="team-members">
+					<p>Team Members</p>
+					<div className="member-icons"></div>
+				</div>
 			</div>
 		</div>
 	);
