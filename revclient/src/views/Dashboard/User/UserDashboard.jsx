@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import Skeleton,  { } from "react-loading-skeleton";
+import Skeleton from 'react-loading-skeleton';
 
 import Sidebar from './Sidebar/Sidebar';
+import Header from './Header/Header';
 
 // import { useQuery } from '@apollo/react-hooks';
 // import { GET_USER } from '../../graphql/queries/Users';
@@ -76,9 +77,28 @@ const UserDashboard = () => {
         }
     ]
 
-    const [apprentice, 
-        // setApprentice
-    ] = useState(true);
+	const project = [
+		{
+			joesCafe: {
+				id: 1,
+				profile: 1,
+				name: "Joe's Cafe",
+				description:
+					'Work with Joe, the cafe owner to implement blueprint including workign with construction manager, interior design and final inspection',
+				address: '555 Coffee Drive',
+				state: 'MI',
+				zip: '48127',
+				city: 'Detroit',
+				goalAmount: 20000,
+				amountFunded: 5000,
+			},
+		},
+	];
+
+	const [
+		apprentice,
+		// setApprentice
+	] = useState(true);
 
     return (
         <>
@@ -88,31 +108,26 @@ const UserDashboard = () => {
                     : <Sidebar user={users[1]} />
                 }
                 
-                <section className="user-dashboard-body">
-                    <div className="user-dashboard-header section">
-                        <Skeleton count={1} height={50} width={200} />
-                        <Skeleton count={1} height={50} width={125} />
-                        <Skeleton count={1} height={50} width={75} />
-                    </div>
+				<section className="user-dashboard-body">
+					<Header project={project.joesCafe} />
+					{/* <br/> */}
 
-                    {/* <br/> */}
-                    
-                    <div className="user-dashboard-main section">
-                        <div className="user-dashboard-title">
-                            <Skeleton count={1} height={25} width={200} />
-                            <Skeleton count={1} height={25} width={125} />
-                            <Skeleton count={1} height={25} width={75} />
-                        </div>
+					<div className="user-dashboard-main section">
+						<div className="user-dashboard-title">
+							<Skeleton count={1} height={25} width={200} />
+							<Skeleton count={1} height={25} width={125} />
+							<Skeleton count={1} height={25} width={75} />
+						</div>
 
-                        <hr/>
-                        <div className="user-dashboard-main-body">
-                            <Skeleton count={5} height={125}  />
-                        </div>
-                    </div>
-                </section>
-            </section>
-        </>
-    );
+						<hr />
+						<div className="user-dashboard-main-body">
+							<Skeleton count={5} height={125} />
+						</div>
+					</div>
+				</section>
+			</section>
+		</>
+	);
 };
 
-export default UserDashboard
+export default UserDashboard;
