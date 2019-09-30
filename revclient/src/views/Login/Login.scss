@@ -6,7 +6,7 @@
 	letter-spacing: 0.06em;
 	height: 100%;
 	font-size: 1.4rem;
-	.loginContainerLeft{
+	.login-container-left{
 		min-height: 100vh;
 		padding-bottom: 140px;
 		min-width: 525px;
@@ -19,15 +19,15 @@
 			width: 100%;
 		}
 	}
-	.loginForm {
+	.login-form {
 		width: 80%;
 		margin: 0 auto;
 
-		.loginThirdParty {
+		.login-third-party {
 			width: 65%;
 			margin: 0 auto;
 
-			.loginWelcome {
+			.login-welcome {
 				text-align: center;
 				color: $snow-white;
 			}
@@ -41,7 +41,7 @@
 				background: $snow-white;
 				cursor: pointer;
 
-				.loginButton {
+				.login-button {
 					display: flex;
 					align-items: center;
 					margin: 0 20px;
@@ -54,7 +54,7 @@
 			}
 		}
 
-		.loginMiddle {
+		.login-middle {
 			width: 65%;
 			margin: 0 auto;
 			padding: 40px 0;
@@ -62,14 +62,14 @@
 			justify-content: space-between;
 			align-items: center;
 
-			.loginLine {
+			.login-line {
 				height: 1px;
 				width: 40%;
 				background: white;
 			}
 		}
 
-		.loginLocal {
+		.login-local {
 			width: 65%;
 			margin: 0 auto;
 			display: flex;
@@ -79,7 +79,7 @@
 				margin: 0 0 5px 0;
 			}
 
-			.loginMid {
+			.login-mid {
 				text-align: center;
 				padding: 5px 0 0 0;
 				p {
@@ -95,7 +95,7 @@
 
 
 
-			.loginPass {
+			.login-pass {
 				display: flex;
 				align-items: center;
 				justify-content: space-between;
@@ -119,12 +119,11 @@
 }
 
 	.imgContainer {
-		background-attachment:fixed;
+		background-attachment: fixed;
 		width: 100%;
 		background-image: url('../assets/AuthPages/Login.png');
 		background-size: 100%;
 		background-position-y: center;
-		
 		background-repeat: no-repeat;
 	}
 }

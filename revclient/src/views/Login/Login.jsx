@@ -43,7 +43,7 @@ const Login = props => {
 	
 	return (
 		<div className="login-container">
-			<div className="loginContainerLeft">
+			<div className="login-container-left">
 				<div className="revitalizeLogo-container">
 					<Link to="/" title="Home">
 						<div>
@@ -51,15 +51,15 @@ const Login = props => {
 						</div>
 					</Link>
 				</div>
-				<div className="loginForm">
-					<div className="loginThirdParty">
-						<div className="loginWelcome">
+				<div className="login-form">
+					<div className="login-third-party">
+						<div className="login-welcome">
 							<h2>Welcome Back!</h2>
 							<h2>Log In</h2>
 						</div>
 						<button>
 							<div>
-								<a className="loginButton" href={`${process.env.REACT_APP_OAUTH_GOOGLE_LINK}`}>
+								<a className="login-button" href={`${process.env.REACT_APP_OAUTH_GOOGLE_LINK}`}>
 									<img src={googleLogo} alt="Google logo" />
 									<h5>Sign In With Google</h5>
 								</a>
@@ -67,19 +67,19 @@ const Login = props => {
 						</button>
 						<button>
 							<div>
-								<a className="loginButton" href={`${process.env.REACT_APP_OAUTH_FACEBOOK_LINK}`}>
+								<a className="login-button" href={`${process.env.REACT_APP_OAUTH_FACEBOOK_LINK}`}>
 									<img src={fbLogo} alt="Facebook logo" />
 									<h5>Sign In With Facebook</h5>
 								</a>
 							</div>
 						</button>
 					</div>
-					<div className="loginMiddle">
-						<div className="loginLine"></div>
+					<div className="login-middle">
+						<div className="login-line"></div>
 						<p>or</p>
-						<div className="loginLine"></div>
+						<div className="login-line"></div>
 					</div>
-					<form className="loginLocal" onSubmit={handleSubmit}>
+					<form className="login-local" onSubmit={handleSubmit}>
 						<p className="login-title">Email</p>
 						<input
 							name='email'
@@ -88,7 +88,7 @@ const Login = props => {
 							value={state.email}
 							onChange={handleChanges}
                 		/>
-						<div className="loginPass">
+						<div className="login-pass">
 							<p className="">Password</p>
 							<span className="">Forgot Password?</span>
 						</div>
@@ -99,7 +99,7 @@ const Login = props => {
 							value={state.password}
 							onChange={handleChanges}
                 		/>
-						<div className="loginMid">
+						<div className="login-mid">
 							<p>
 								Don't have an account? <span>Create One</span>
 							</p>
