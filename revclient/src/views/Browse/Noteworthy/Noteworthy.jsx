@@ -41,6 +41,7 @@ const Noteworthy = () => {
         speed: 500,
         slidesToShow: 2,
         slidesToScroll: 0,
+        // swipeToSlide: true,
         centerPadding: "400px",
         lazyLoad: "progressive",
         className: "carousel-card",
@@ -71,8 +72,8 @@ const Noteworthy = () => {
             <h4>New & Noteworthy</h4>
             <div className="slider">
                 <Slider {...settings}>
-                    {noteworthyData ? noteworthyData.map(item => (
-                        <CarouselCard key={item.id} card={item} view="noteworthy" />
+                    {noteworthyData ? noteworthyData.map((item, index) => (
+                        <CarouselCard key={item.id} card={item} view="noteworthy" index={index} name='Note Worthy' />
                     )) : null}
                 </Slider>
             </div>
