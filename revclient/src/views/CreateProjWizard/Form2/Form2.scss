@@ -1,0 +1,19 @@
+.form-2 {
+	.address-details {
+		display: flex;
+		justify-content: space-between;	
+		align-items: center;
+		width: 100%;
+		select {
+			height: 3.25rem;
+		}
+
+		.proj-zip {
+			-webkit-inner-spin-button,
+			-webkit-outer-spin-button {
+				-webkit-appearance: none;
+				margin: 0;
+			}
+		}
+	}
+}

@@ -4,13 +4,15 @@
  * @props description
  */
 import React, { useState } from "react";
-import { 
-    useMutation, 
+import {
+    useMutation,
 } from "@apollo/react-hooks";
-import { 
+import {
     CREATE_USER,
 } from "../../graphql/mutations";
 import { withRouter } from "react-router-dom";
+
+import {Link} from "react-router-dom";
 
 import google from '../../assets/AuthPages/Google.png';
 import fbLogo from '../../assets/AuthPages/fb-logo.png';
@@ -48,11 +50,11 @@ function Register(props) {
 	return (
 		<div className="registerContainer">
 			<div className="revitalizeLogo-container">
-				<a href="/" title="Home">
+				<Link to="/" title="Home">
 					<div className="logo">
 						<img src={revitalizeLogo} alt="Revitalize logo" />
 					</div>
-				</a>
+				</Link>
 			</div>
 			<div className="registerForm">
 				<div className="registerThirdParty">
@@ -69,9 +71,11 @@ function Register(props) {
 						</div>
 					</button>
 					<button>
-						<div className="registerButton">
-							<img src={fbLogo} alt="Facebook" />
-							<h3>Create an Account with Facebook</h3>
+						<div>
+							<a className="registerButton" href={`${process.env.REACT_APP_OAUTH_FACEBOOK_LINK}`}>
+								<img src={fbLogo} alt="Facebook" />
+								<h3>Create an Account with Facebook</h3>
+							</a>
 						</div>
 					</button>
 					<button>
@@ -88,26 +92,26 @@ function Register(props) {
 				</div>
 				<form className="registerLocal" onSubmit={handleSubmit}>
 					<p>Email</p>
-					<input 
+					<input
 						name='email'
 						type='email'
 						placeholder="JaneDoe@gmail.com"
 						value={state.email}
 						onChange={handleChanges}
-                	/>	
+                	/>
 
 					<p className="registerSpaceAbove">Password</p>
-					<input 
+					<input
 						name="password"
 						type="password"
 						placeholder="**********"
 						value={state.password}
 						onChange={handleChanges}
                 	/>
-					
+
 					{/* <p className="registerSpaceAbove">Confirm Password</p>
 					<input type="password" placeholder="**********" /> */}
-					
+
 					<button>Get Started!</button>
 				</form>
 			</div>

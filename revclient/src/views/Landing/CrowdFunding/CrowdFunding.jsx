@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import Progress1v2 from '../../../assets/LandingPage/Progress1v2.png';
 import Progress2 from '../../../assets/LandingPage/Progress2.png';
@@ -16,7 +17,12 @@ const CrowdFunding = () => {
 				<img src={Progress3} alt="ladders" />
 			</div>
 			<p className="do-you-know">Do you know of a building near you that needs to be Revitalized?</p>
-			<button className="create-button"> Create a Project</button>
+			<div className="center">
+			{localStorage.getItem("token")
+				? <Link to="/createproject"><button className="create-button"> Create a Project</button></Link>
+				: <Link to="/login"><button className="create-button"> Create a Project</button></Link>
+			}
+			</div>
 		</div>
 	);
 };

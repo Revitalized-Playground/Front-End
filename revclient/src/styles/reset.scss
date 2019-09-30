@@ -3,7 +3,7 @@
    License: none (public domain)
 */
 html {
-	font-size: 62.5%;
+	font-size: 62.5% !important
 }
 html,
 body,
@@ -98,7 +98,6 @@ video {
 	line-height: 120%;
 }
 body {
-	max-width: 1920px;
 	margin: 0 auto;
 }
 /* HTML5 display-role reset for older browsers */

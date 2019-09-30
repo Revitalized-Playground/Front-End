@@ -1,14 +1,14 @@
 @mixin fixedNav {
-	position: fixed;
+	position: sticky;
 	width: 100%;
-	// max-height: 45px;
 	overflow: hidden;
 	background-color: $snow-white;
-	// background-color: red;
 	top: 0;
 	left: 0;
 	z-index: 100;
 }
+
+
 
 @mixin buttonStyler($bgc, $textColor, $borderStyle, $margin: 8% 0) {
 	font-family: 'futura-pt';
@@ -24,11 +24,11 @@
 	transition: 0.2s all ease-in-out;
 	user-select: none;
 	&:hover {
-		background-color: darken($bgc, 7.5%)  ;
+		background-color: darken($bgc, 7.5%);
 		color: $textColor;
 		cursor: pointer;
-		// transform: scale(1.005);
 		border: 2px $borderStyle $bgc;
+		// transform: scale(1.005);
 		// background: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15));
 		// box-shadow: 
 		// 	0px 0px 7px 0px rgba(92, 69, 69, 0.95);
@@ -46,13 +46,37 @@
 	}
 }
 @mixin spaceForNav {
-	margin-top: 100px;
+	// margin-top: 100px; // This is redundant now that we are using sticky for positioning in the nav
+	margin-top: 99px;
 }
 
 @mixin testBorder($borderColor) {
-	border: 1px dashed $borderColor;
+	border: 1px solid $borderColor;
 }
 
 @mixin subtleBoxShadow {
 	box-shadow: 0px 0px 5px 0px rgba(10,10,10,0.25);
 }
+
+@mixin bottomBoxShadow {
+	box-shadow: 0px 4px 3px -3px rgba(10, 10, 10, 0.25);
+}
+
+@mixin sections {
+	border-left-color: $static-grey;
+    border-left-style: solid;
+	border-left-width: 1px;
+    border-right-color: $static-grey;
+    border-right-style: solid;
+    border-right-width: 1px;
+	border-top-color: $static-grey;
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-bottom-color: $static-grey;
+    border-bottom-style: solid;
+    border-bottom-width: 3px;
+	margin: 5px 10px 5px 10px;
+	padding: 10px;
+	background-color: $snow-white;
+}
+

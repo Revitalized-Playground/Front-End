@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import heroImage from '../../../assets/LandingPage/HeroImage.png';
 import crowdFundingImg from '../../../assets/LandingPage/Crowdfunding.svg';
@@ -14,12 +15,20 @@ const Header = () => {
 				<div className="cta">
 					<h2 className="cta-title">
 						A modern approach to <br />
-						revitalizing your community
+						building your community
+					</h2>
+					<h2 className="cta-title-tablet">
+						A modern approach to
+						building your community
 					</h2>
 					<p>
-						Revitalize is a community crowdfunding platform <br /> for apprenticeships.
+						Revitalize is a crowdfunding platform <br /> that creates apprenticeship opportunities.
 					</p>
-					<button>Start Your Journey Now!</button>
+					{localStorage.getItem("token")
+						? <Link to="/start"><button>Start Your Journey!</button></Link>
+						: <Link to="/register"><button>Start Your Journey!</button></Link>
+					}
+					
 				</div>
 				<img src={heroImage} alt="Hero" />
 			</div>
