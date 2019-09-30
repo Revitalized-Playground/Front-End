@@ -47,6 +47,14 @@
 
 	.header-bottom {
 		display: flex;
+		justify-content: space-between;
+		img {
+			width: 20%;
+		}
+
+		.bottom-left {
+			display: flex;
+		}
 
 		.dueDate {
 			display: flex;
@@ -58,14 +66,47 @@
 			background-color: #f5f3ff;
 			font-size: 16px;
 			color: #00171f;
+			margin-right: 40px;
 		}
 
 		.bottom-icons {
 			display: flex;
-		}
 
-		.member-icon {
+			img {
+				width: 10%;
+				margin-right: 40px;
+			}
+		}
+		.team-members {
+			width: 20%;
 			display: flex;
+			align-items: center;
+
+			p {
+				font-size: 16px;
+				line-height: 1.55;
+				letter-spacing: 0.96px;
+				color: #00171f;
+				margin-right: 16px;
+				display: flex;
+				align-items: center;
+			}
+
+			.member-icons {
+				display: flex;
+				width: 20%;
+				img {
+					width: 100%;
+
+					&:last-of-type {
+						margin-left: -2px;
+					}
+				}
+				.count {
+					font-size: 20px;
+					margin-left: 5px;
+				}
+			}
 		}
 	}
 }
