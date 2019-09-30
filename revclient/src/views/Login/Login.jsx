@@ -42,7 +42,7 @@ const Login = props => {
 	};
 	
 	return (
-		<div className="loginContainer">
+		<div className="login-container">
 			<div className="loginContainerLeft">
 				<div className="revitalizeLogo-container">
 					<Link to="/" title="Home">

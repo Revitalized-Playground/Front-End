@@ -1,124 +1,129 @@
-.registerContainer {
-	background: $machiavellian;
+.register-container {
+	background: $erudite-purple;
 	color: $snow-white;
-	height: 100vh;
-	max-width: 1920px;
 	margin: 0 auto;
 	display: flex;
-	overflow: hidden;
+	letter-spacing: 0.06em;
+	height: 100%;
+	font-size: 1.4rem;
+	.register-container-left {
+		min-height: 100vh;
+		padding-bottom: 140px;
+		min-width: 525px;
 
-	.revitalizeLogo-container {
-		height: 100px;
-		width: 100px;
-		text-align: center;
-		img {
-			width: 100%;
+		.revitalize-logo-container {
+			width: 70px;
+			text-align: center;
+			margin: 10px 0 0 20px;
+			img {
+				width: 100%;
+			}
 		}
-	}
-
-	.registerForm {
-		width: 40%;
-		height: 100%;
-
-		.registerThirdParty {
-			height: 40%;
-			width: 60%;
+		.register-form {
+			width: 80%;
 			margin: 0 auto;
-			margin-top: 70px;
 
-			.registerWelcome {
-				text-align: center;
-				color: $snow-white;
+			.register-third-party {
+				width: 65%;
+				margin: 0 auto;
+
+				.register-welcome {
+					text-align: center;
+					color: $snow-white;
+				}
+
+				button {
+					width: 100%;
+					margin-top: 30px;
+					height: 50px;
+					border-radius: 8px;
+					border: none;
+					background: $snow-white;
+					cursor: pointer;
+
+					.register-Button {
+						display: flex;
+						align-items: center;
+						margin: 0 20px;
+						img {
+							margin-right: 20px;
+							height: 40px;
+							width: 40px;
+						}
+					}
+				}
 			}
 
-			button {
-				background: $blue-valentine;
-				color: $snow-white;
-				width: 100%;
-				margin-top: 30px;
-				height: 50px;
-				border-radius: 8px;
-				border: none;
-				cursor: pointer;
-				a {
-					text-decoration: none;
-					color: inherit;	
+			.register-Middle {
+				width: 65%;
+				margin: 0 auto;
+				padding: 40px 0;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+
+				.register-Line {
+					height: 1px;
+					width: 40%;
+					background: white;
 				}
-				.registerButton {
-					display: flex;
-					align-items: center;
-					margin: 0 20px;
-					img {
-						margin-right: 20px;
-						height: 40px;
-						width: 40px;
+			}
+
+			.register-Local {
+				width: 65%;
+				margin: 0 auto;
+				display: flex;
+				flex-direction: column;
+
+				.register-title {
+					margin: 0 0 5px 0;
+				}
+
+				.register-Mid {
+					text-align: center;
+					padding: 5px 0 0 0;
+					p {
+						font-style: italic;
 					}
 				}
 
-			}
-		}
+				span {
+					text-decoration: underline;
+					font-style: italic;
+					cursor: pointer;
+				}
 
-		.registerMiddle {
-			width: 60%;
-			margin: 0 auto;
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
 
-			.registerLine {
-				height: 1px;
-				width: 40%;
-				background: $snow-white;
-			}
-		}
 
-		.registerLocal {
-			width: 60%;
-			margin: 0 auto;
-			margin-top: 40px;
-			display: flex;
-			flex-direction: column;
-			letter-spacing: 0.06em;
+				.register-Pass {
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+					margin: 30px 0 5px 0;
+				}
 
-			span {
-				text-decoration: underline;
-				cursor: pointer;
-			}
-			.registerSpaceAbove {
-				margin-top: 40px;
-			}
-
-			input {
-				height: 35px;
-			}
-
-			.registerPass {
-				display: flex;
-				align-items: center;
-				justify-content: space-between;
-			}
-
-			button {
-				height: 50px;
-				background: $ruby-enchantment;
-				width: 50%;
-				margin: 0 auto;
-				margin-top: 60px;
-				border: none;
-				color: white;
-				font-size: 20px;
-				border-radius: 5px;
-				cursor: pointer;
+				button {
+					height: 50px;
+					background: $ruby-enchantment;
+					width: 50%;
+					margin: 0 auto;
+					margin-top: 40px;
+					border: none;
+					color: $snow-white;
+					font-size: 2rem;
+					border-radius: 5px;
+					cursor: pointer;
+				}
 			}
 		}
 	}
 
-	.registerIMG {
-		height: 100%;
-		width: 80%;
-		background-image: url('../assets/AuthPages/building-work-crew-03.jpg');
+	.imgContainer {
+		background-attachment:fixed;
+		width: 100%;
+		background-image: url('../assets/AuthPages/Login.png');
 		background-size: 100%;
-		background-position-y: top;
-	    mix-blend-mode: luminosity;
+		background-position-y: center;
+		background-repeat: no-repeat;
 	}
 }
