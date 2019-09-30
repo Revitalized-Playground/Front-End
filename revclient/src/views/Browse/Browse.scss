@@ -10,12 +10,17 @@
 
 .startContainer {
     width: 100%;
-    max-width: 1600px;
     margin: 0 auto;
-    padding: 0 40px;
-    @media #{$tablet} {
-        padding: 0 60px;
-    }
+    padding: 0 35px;
+    // @media #{$tablet} {
+    //     padding: 0 40px;
+    // }
+    // @media #{$tablet-small} {
+    //     padding: 0 40px;
+    // }
+    // @media #{$mobile} {
+    //     padding: 0 40px;
+    // }
     section {
         margin: 10px auto;
     }
@@ -23,7 +28,7 @@
     .slider {
         width: 100%;
         margin: 1% auto 2%;
-        padding: 0 20px;
+        padding: 0 0px;
         .slick-prev, .slick-next {
             height: unset;
             width: unset;
@@ -39,10 +44,12 @@
             }
         }
         .slick-prev {
-            left: -40px;
+            z-index: 3;
+            left: -33px;
         }
         .slick-next {
-            right: -40px;
+            z-index: 3;
+            right: -35px;
         }
     }
 
