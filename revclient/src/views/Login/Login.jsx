@@ -34,14 +34,14 @@ export default function Login() {
 			<div className="loginForm">
 				<div className="loginThirdParty">
 					<div className="loginWelcome">
-						<h1>Welcome Back!</h1>
-						<h1>Log In</h1>
+						<h2>Welcome Back!</h2>
+						<h2>Log In</h2>
 					</div>
 					<button>
 						<div>
 						<a className="loginButton" href={`${process.env.REACT_APP_OAUTH_GOOGLE_LINK}`}>
 							<img src={googleLogo} alt="Google logo" />
-							<h3>Sign In With Google</h3>
+							<h5>Sign In With Google</h5>
 						</a>
 						</div>
 					</button>
@@ -49,14 +49,8 @@ export default function Login() {
 						<div className="loginButton">
 						<a className="registerButton" href={`${process.env.REACT_APP_OAUTH_FACEBOOK_LINK}`}>
 								<img src={fbLogo} alt="Facebook logo" />
-								<h3>Sign In With Facebook</h3>
+								<h5>Sign In With Facebook</h5>
 							</a>
-						</div>
-					</button>
-					<button>
-						<div className="loginButton">
-							<img src={twitterLogo} alt="Twitter logo" />
-							<h3>Sign In With Twitter</h3>
 						</div>
 					</button>
 				</div>

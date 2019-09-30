@@ -32,6 +32,17 @@ b {
 }
 
 
+h2 {
+	font-family: 'futura-pt';
+	// font-weight: bold;
+	font-size: 2.2rem;
+}
+
+h3 {
+	font-family: 'futura-pt';
+	// font-weight: bold;
+	font-size: 2rem;
+}
 
 h4 {
 	font-family: 'futura-pt';
@@ -44,3 +55,13 @@ h5 {
 	// font-weight: bold;
 	font-size: 1.6rem;
 }
+
+input {
+	height: 35px;
+	padding: 0px 10px;
+	border-radius: 5px;
+	border: none;
+	font-size: 1.2rem;
+}
+
+
