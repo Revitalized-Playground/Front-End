@@ -4,85 +4,79 @@
 
 .create-project-page {
 	background-image: url('../assets/CreateProjWizard/RocketManGradient.png');
-	height: 100vh;
-	margin: 2% auto 3%;
-	.errorText {
-		color: red
-	}
 	background-size: cover;
 	background-repeat: no-repeat;
-
-	.project-title {
-		font-family: Futura;
-		font-size: 28px;
-		line-height: 37px;
-		letter-spacing: 0.06em;
-		padding-top: 2.2%;
-		padding-left: 3.7%;
-		color: #4840BA;
+	height: 100vh;
+	margin: 0 auto;
+	.errorText {
+		color: red;
 	}
+	// .bottom-cloud {
+	// 	align-self: flex-end;
+	// 	width: 100%;
+	// 	bottom: 0;
+	// 	left: 0;
+	// }
 
-	button {
-		font-size: 16px;
-		line-height: 147.81%;
-	}
+	// .project-title {
+	// 	color: $chillFi-purple;
+	// 	font-family: "Futura";
+	// 	font-size: 2.8rem;
+	// 	line-height: 37px;
+	// 	letter-spacing: 0.06em;
+	// 	padding-top: 2.2%;
+	// 	padding-left: 3.7%;
+	// }
+
+
 	.form-plus-quote-container {
+		background-color: $chillFi-purple;
 		display: flex;
 		justify-content: space-around;
-		width: 92.7%;
-		background-color: #4840ba;
-		height: 79%;
-		z-index: 99;
-		margin-left: 7.3%;
-		margin-top: 13.3vh;
-		@media (max-width: 1750px) {
-			margin-top: 13.6vh
+		width: 88%;
+		height: 750px;
+		margin-left: 12%;
+		z-index: 5;
+		position: relative;
+		top: 20%;
+		@media #{$tablet} {
+			width: 100%;
+			margin-left: unset;
 		}
-		@media (max-width: 1650px) {
-			margin-top: 14vh
-		}
-		@media (max-width: 1450px) {
-			margin-top: 14.3vh
-		}
-		@media (max-width: 1300px) {
-			margin-top: 14.5vh
-		}
-		@media (max-width: 1250px) {
-			margin-top: 14.7vh
-		}
+
 		.quote {
 			display: flex;
 			flex-direction: column;
+			align-items: center;
 			text-align: center;
 			height: 100%;
-			height: 100%;
+			width: 35%;
+			padding: 0 60px;
+			white-space: nowrap;
 			h2 {
 				height: auto;
-				margin: auto;
-				font-size: 18px;
-				line-height: 24px;
+				margin: auto 0 ;
 				text-align: center;
 				letter-spacing: 0.06em;
 			}
 			p {
 				height: auto;
+				padding-bottom: 120px;
 			}
-			.bottom-cloud {
-				align-self: flex-end;
-				width: 124%;
-
-				bottom: 0;
-				left: 8.5%
+			@media #{$tablet} {
+				display: none;
 			}
 		}
 		.ui-section {
-			// border: 1px solid red;
-			width: 1290px;
 			background-color: $snow-white;
+			// width: 1290px;
+			width: 65%;
+			@media #{$tablet} {
+				width: 100%;
+			}
 			.title {
 				display: block;
 				margin: 40px auto 40px 8%;
-				font-size: 32px;
 			}
 			.progress-tracker {
 				display: flex;
@@ -95,12 +89,12 @@
 					width: 50%;
 					margin: 30px auto 45px 8%;
 					.active {
-						border: 2px solid #4840ba;
-						background-color: #4840ba;
+						background-color: $chillFi-purple;
+						border: 2px solid $chillFi-purple;
 					}
 					.step {
 						border-radius: 8px;
-						border: 2px solid grey;
+						border: 2px solid $mirage;
 						width: 32%;
 						height: 10px;
 					}
@@ -126,7 +120,7 @@
 					border: 1px solid grey;
 				}
 				button {
-					@include buttonStyler(#4840ba, $snow-white, none);
+					@include buttonStyler($chillFi-purple, $snow-white, none);
 					border-radius: 3px;
 					align-self: flex-end;
 				}
