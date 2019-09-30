@@ -25,7 +25,10 @@ const Header = props => {
 				<p className="dueDate">Due Date: {dueDate}</p>
 				<div className="bottom-icons">
 					<div className="comment-icon">
-						<img src="" alt=""/>
+						<img
+							src="https://res.cloudinary.com/revitalize/image/upload/v1569861723/user%20dashboard/3_plus_comments_k4zcus.svg"
+							alt=""
+						/>
 					</div>
 					<div className="form-icon"></div>
 				</div>
