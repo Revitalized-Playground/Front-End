@@ -16,12 +16,12 @@ const Spotlight = () => {
 
     return (
         <div className="spotlightContainer">
-            <div
+            {/* <div
                 className="spotlightImage"
-                style={{backgroundImage: `url(${spotlight.image})`}}
-            ></div>
+                
+            ></div> */}
             <div className="window"></div>
-            <div className="text">
+            <div className="text" style={{backgroundImage: `url(${spotlight.image})`}}>
                 <h3>SPOTLIGHT</h3>
                 <p>{spotlight.description}</p>
                 <Link to={spotlight.link}>Learn more &gt;</Link>

@@ -5,11 +5,24 @@
     height: 5%;
     width: 100%;
     background-color: $snow-white;
-    padding: 2%;
+    padding: 8%;
     margin: 4% 0;
     border-radius: 5px;
+    @media #{$tablet}{
+        flex-direction: column;
+        padding: 4%;
+    }
+    @media #{$tablet-small}{
+        padding: 2%;
+    }
+    @media #{$mobile}{
+        padding: 1%;
+    }
     img {
         margin: 0 6.6%;
+        @media #{$tablet}{
+            padding-bottom: 40px;
+        }
 
     }
     .right {
@@ -17,18 +30,38 @@
         flex-direction: column;
         justify-content: center;
         color: $black-void;
+        @media #{$tablet}{
+            text-align: center;
+            padding-bottom: 40px;
+        }
         p {
             font-size: 22px;
             line-height: 153.31%;
             letter-spacing: 0.015rem;
             width: 80%;
+            @media #{$tablet}{
+                width: 100%;
+            }
         }
         button {
             @include buttonStyler($chillFi-purple, $snow-white, none, 5% 0);
-            width: 35%;
+            width: 45%;
             font-size: 22px;
             line-height: 147.81%;
             letter-spacing: 0.06rem;
+            @media #{$tablet}{
+                padding: 15px 20px;
+            }
+            @media #{$tablet-small}{
+                font-size: 20px;
+                width: 70%;
+                padding: 15px 30px;
+            }
+            @media #{$mobile}{
+                font-size: 18px;
+                width: 100%;
+                padding: 15px 30px;
+            }
             // margin-top: 5%;
         }
     }

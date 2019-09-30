@@ -13,18 +13,28 @@
     }
     .interests {
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
         font-size: 1.8rem;
         line-height: 1;
-        margin-top: 1.5rem;
+        margin: 1.5rem auto 0 auto;
         padding: 0.5rem 0;
-        width: 95%;
+        width: 98%;
+        @media #{$tablet} {
+            flex-direction:column;
+        }
+        
+        .interests-left{
+            width: 49%;
+            display: flex;
+            justify-content: space-around;
+         
         .interest {
-            width: 16%;
+            width: 30%;
             background-color: $silver-lining;
             padding: 10px;
             border-radius: 0 3px 3px 0;
         }
+        
         .interest.one {
             border-left: 10px solid $cerulean;
         }
@@ -34,11 +44,26 @@
         .interest.three {
             border-left: 10px solid $erudite-purple;
         }
+    }
+        .interests-right{
+            width: 49%;
+            display: flex;
+            justify-content: space-around;
+            .interest {
+                width: 30%;
+                background-color: $silver-lining;
+                padding: 10px;
+                border-radius: 0 3px 3px 0;
+            }
         .interest.four {
             border-left: 10px solid $luigi;
         }
         .interest.five {
             border-left: 10px solid $ruby-enchantment;
         }
+        .interest.six {
+            border-left: 10px solid $mutant-turtle;
+        }
     }
+}
 }

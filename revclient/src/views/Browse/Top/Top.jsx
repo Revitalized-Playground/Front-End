@@ -8,6 +8,7 @@ const Top = () => {
                 <p className="questionMark">?</p>    
             </div>
             <div className="interests">
+                <div className="interests-left">
                 <div className="interest one">
                     Electrical 
                 </div>
@@ -17,11 +18,17 @@ const Top = () => {
                 <div className="interest three">
                     Interior Design
                 </div>
+                </div>
+                <div className="interests-right">
                 <div className="interest four">
                     HVAC
                 </div>
                 <div className="interest five">
                     Plumbing
+                </div>
+                <div className="interest six">
+                    Masonry
+                </div>
                 </div>
             </div>
 
