@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import MapGL, { GeolocateControl } from 'react-map-gl'
-import 'mapbox-gl/dist/mapbox-gl.css'
+// import 'mapbox-gl/dist/mapbox-gl.css'
 
 const TOKEN = "pk.eyJ1IjoicmV2aXRhbGl6ZXRlYW0iLCJhIjoiY2sxNm9wbng4MTgwbzNtbW9leXMzYTNpZSJ9.X4VRU_njmnvNxhnuhPZDHw"
 
