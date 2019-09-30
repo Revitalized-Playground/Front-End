@@ -10,6 +10,7 @@
 
 .startContainer {
     width: 100%;
+    max-width: 1920px; // You want to cap the container size at 1920 or smaller so that content doesn't go crazy wide. -fm
     margin: 0 auto;
     padding: 0 35px;
     // @media #{$tablet} {
