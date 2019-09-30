@@ -58,6 +58,9 @@
 			@media #{$tablet} {
 				width: 100%;
 			}
+			@media #{$mobile} {
+				width: 100%;
+			}
 			.title {
 				display: block;
 				margin: 40px auto 40px 8%;
@@ -90,6 +93,12 @@
 				width: 42%;
 				margin: 0 auto;
 				height: 500px;
+				@media #{$tablet} {
+					width: 60%;
+				}
+				@media #{$mobile} {
+					width: 80%;
+				}
 				h2 {
 					// margin: 3% auto auto 0;
 					
