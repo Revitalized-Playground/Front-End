@@ -7,27 +7,11 @@
 	background-size: cover;
 	background-repeat: no-repeat;
 	height: 100vh;
+	min-height: 1000px;
 	margin: 0 auto;
 	.errorText {
 		color: red;
 	}
-	// .bottom-cloud {
-	// 	align-self: flex-end;
-	// 	width: 100%;
-	// 	bottom: 0;
-	// 	left: 0;
-	// }
-
-	// .project-title {
-	// 	color: $chillFi-purple;
-	// 	font-family: "Futura";
-	// 	font-size: 2.8rem;
-	// 	line-height: 37px;
-	// 	letter-spacing: 0.06em;
-	// 	padding-top: 2.2%;
-	// 	padding-left: 3.7%;
-	// }
-
 
 	.form-plus-quote-container {
 		background-color: $chillFi-purple;
@@ -90,11 +74,11 @@
 					margin: 30px auto 45px 8%;
 					.active {
 						background-color: $chillFi-purple;
-						border: 2px solid $chillFi-purple;
+						border: 1px solid $chillFi-purple;
 					}
 					.step {
-						border-radius: 8px;
-						border: 2px solid $mirage;
+						border-radius: 5px;
+						border: 1px solid $mirage;
 						width: 32%;
 						height: 10px;
 					}
@@ -107,17 +91,18 @@
 				margin: 0 auto;
 				height: 500px;
 				h2 {
-					margin: 3% auto auto 0;
+					// margin: 3% auto auto 0;
+					
 					height: auto;
-					font-size: 18px;
+					// font-size: 18px;
 					line-height: 24px;
 					letter-spacing: 0.06em;
 				}
 				input {
-					border-radius: 2px;
-					margin: 3% 0 5% 0;
-					height: 3rem;
-					border: 1px solid grey;
+					margin: 6px 0 6px 0;
+					margin-bottom: 30px;
+					// height: 3rem;
+					border: 1px solid $mirage;
 				}
 				button {
 					@include buttonStyler($chillFi-purple, $snow-white, none);
@@ -127,10 +112,6 @@
 				.form-navigation {
 					display: flex;
 					justify-content: space-between;
-					button {
-						width: 40%;
-						height: 60px;
-					}
 					.prev-step {
 						order: -1;
 					}
@@ -139,16 +120,12 @@
 					height: 11rem;
 				}
 
-				.state-zip {
-					width: 100px;
-					
-					input {
-						width: 100%
-					}
-					select {
-						width: 100%;
-						border: 1px solid grey;
-					}
+				.start-date {
+					font-family: "Futura";
+
+				}
+				textarea { 
+					border: 1px solid $mirage;
 				}
 			}
 		}
