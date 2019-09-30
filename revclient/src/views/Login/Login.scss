@@ -12,9 +12,9 @@
 		min-width: 525px;
 
 	.revitalizeLogo-container {
-		height: 100px;
-		width: 100px;
+		width: 70px;
 		text-align: center;
+		margin: 10px 0 0 20px;
 		img {
 			width: 100%;
 		}
@@ -24,7 +24,6 @@
 		margin: 0 auto;
 
 		.loginThirdParty {
-			
 			width: 65%;
 			margin: 0 auto;
 
@@ -58,7 +57,7 @@
 		.loginMiddle {
 			width: 65%;
 			margin: 0 auto;
-			padding: 20px;
+			padding: 40px 0;
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
@@ -76,13 +75,13 @@
 			display: flex;
 			flex-direction: column;
 
-			.loginSpaceAbove {
-				margin-top: 30px;
+			.login-title {
+				margin: 0 0 5px 0;
 			}
 
 			.loginMid {
 				text-align: center;
-				padding-bottom: 15px;
+				padding: 5px 0 0 0;
 				p {
 					font-style: italic;
 				}
@@ -100,6 +99,7 @@
 				display: flex;
 				align-items: center;
 				justify-content: space-between;
+				margin: 30px 0 5px 0;
 			}
 
 			button {
@@ -107,7 +107,7 @@
 				background: $ruby-enchantment;
 				width: 50%;
 				margin: 0 auto;
-				margin-top: 60px;
+				margin-top: 40px;
 				border: none;
 				color: $snow-white;
 				font-size: 2rem;
@@ -120,11 +120,10 @@
 
 	.imgContainer {
 		background-attachment:fixed;
-		width: 90%;
+		width: 100%;
 		background-image: url('../assets/AuthPages/Login.png');
-		background-size: 63%;
-		background-position-y: top;
-		background-position-x: 90%;
+		background-size: 100%;
+		background-position-y: center;
 		
 		background-repeat: no-repeat;
 	}
