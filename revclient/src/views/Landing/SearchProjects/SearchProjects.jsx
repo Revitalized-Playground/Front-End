@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Map from '../../../components/Map/Map'
+import SearchableMap from '../../../components/Map/SearchableMap'
 const SearchProjects = () => {
 	const [locationInput, setInput] = useState('');
 
@@ -34,7 +34,7 @@ const SearchProjects = () => {
 					<button>Search Now!</button>
 				</div>
 			</form>
-			<Map className="fake-map" />
+			<SearchableMap className="fake-map" />
 		</section>
 	);
 };

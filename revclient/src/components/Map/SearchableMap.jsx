@@ -10,8 +10,8 @@ const token = "pk.eyJ1IjoicmV2aXRhbGl6ZXRlYW0iLCJhIjoiY2sxNm9wbng4MTgwbzNtbW9leX
 class SearchableMap extends Component {
     state = {
         viewport: {
-            latitude: 0,
-            longitude: 0,
+            latitude: 36.230099,
+            longitude: -101.887639,
             zoom: 1
         },
         searchResultLayer: null
@@ -57,7 +57,7 @@ class SearchableMap extends Component {
                     {...viewport}
                     mapStyle="mapbox://styles/mapbox/streets-v9"
                     width="100%"
-                    height="90%"
+                    height="650px"
                     onViewportChange={this.handleViewportChange}
                     mapboxApiAccessToken={token}
                 >
