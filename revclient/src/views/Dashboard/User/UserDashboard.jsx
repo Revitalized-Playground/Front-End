@@ -53,6 +53,8 @@ const UserDashboard = () => {
                     number: 36
                 }
             ],
+            apprentice: true,
+            master: false
         },
         {
             id: 2,
@@ -61,7 +63,7 @@ const UserDashboard = () => {
             firstName: "Maleescha",
             lastName: "Mclarin",
             handle: "@TheeMclarin ",
-            profileImage: "",
+            profileImage: "https://res.cloudinary.com/revitalize/image/upload/v1569861718/user%20dashboard/Maleescha_Mclarin_qsafnt.png",
             city: "Detroit",
             zip: "",
             address: "",
@@ -74,6 +76,8 @@ const UserDashboard = () => {
             hoursLogged: 396,            
             creditHours: 22,
             achievements: [],
+            apprentice: false,
+            master: true
         }
     ]
 
@@ -95,18 +99,11 @@ const UserDashboard = () => {
 		},
 	];
 
-	const [
-		apprentice,
-		// setApprentice
-	] = useState(true);
-
     return (
         <>
             <section className="user-dashboard">
-                { apprentice
-                    ? <Sidebar user={users[0]} />
-                    : <Sidebar user={users[1]} />
-                }
+
+                <Sidebar user={users[1]} />
                 
 				<section className="user-dashboard-body">
 					<Header project={project.joesCafe} />

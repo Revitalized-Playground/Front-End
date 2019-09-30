@@ -5,25 +5,6 @@ import Skeleton,  { SkeletonTheme } from "react-loading-skeleton";
 
 const Sidebar = props => {
     
-    // const Box = styled.div`
-    //     height: 12px;
-    //     background: #0B096F;
-    //     border-radius: 50px;
-
-    //     @keyframes pulse {
-    //         0% {
-    //             width: 0;
-    //             background: #0B096F;
-    //             }
-    //         100% {
-    //             width: ${card.amountFunded > card.goalAmount ? 100 : (Number(card.amountFunded) / Number(card.goalAmount) * 100)}%;
-
-    //         }
-    //     }
-    //     width: ${card.amountFunded > card.goalAmount ? 100 : (Number(card.amountFunded) / Number(card.goalAmount) * 100)}%;
-    //     animation: 1s ease-out pulse;
-    // `
-
     return (
         <section className="user-dashboard-sidebar section">
             <div className="sidebar-top">
@@ -131,6 +112,11 @@ const Sidebar = props => {
             </div>
             <hr/>
             <div className="user-dashboard-sidebar-footer">
+                {/* {if(props.user.apprentice) {
+
+                } else if(props.user.master) {
+
+                }} */}
                 <h4>Achievements</h4>
                 <div className="a-container">
                     {
