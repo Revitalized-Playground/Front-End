@@ -11,7 +11,7 @@ import { useQuery } from '@apollo/react-hooks';
 import { GET_USER } from '../../graphql/queries/Users';
 
 const uLinks = [
-	{ href: '/start', label: 'Browse' },
+	{ href: '/browse', label: 'Browse' },
 	{ href: '#', label: 'Learn More' },
 	{ href: '#', label: 'Team' },
 	{ href: '/login', label: 'Log In' },
@@ -20,7 +20,7 @@ const uLinks = [
 	return link;
 });
 const aLinks = [
-	{ href: '/start', label: 'Browse' },
+	{ href: '/browse', label: 'Browse' },
 	{ href: '/createproject', label: 'Create a project' },
 	{ href: '/projects', label: 'Community' },
 	{ href: '#', label: 'Help' },
@@ -134,8 +134,8 @@ const Nav = props => {
 								className={`hamburger hamburger--squeeze ${activeHamburger && 'is-active'}`}
 								type="button"
 							>
-								<span class="hamburger-box">
-									<span class="hamburger-inner"></span>
+								<span className="hamburger-box">
+									<span className="hamburger-inner"></span>
 								</span>
 							</button>
 						</>

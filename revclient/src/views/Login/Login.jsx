@@ -4,12 +4,13 @@
  * @props description
  */
 import React from "react";
-// import { 
-//     useMutation, 
+// import {
+//     useMutation,
 // } from "@apollo/react-hooks";
-// import { 
+// import {
 //     LOGIN_USER,
 // } from "../../graphql/mutations";
+// import { withRouter } from "react-router-dom";
 
 import {Link} from "react-router-dom";
 
@@ -26,7 +27,7 @@ export default function Login() {
 			<div className="revitalizeLogo-container">
 				<Link to="/" title="Home">
 					<div className="logo">
-						<img src={revitalizeLogo} alt="Revitalize logo" />					
+						<img src={revitalizeLogo} alt="Revitalize logo" />
 					</div>
 				</Link>
 			</div>
@@ -37,15 +38,19 @@ export default function Login() {
 						<h1>Log In</h1>
 					</div>
 					<button>
-						<div className="loginButton">
+						<div>
+						<a className="loginButton" href={`${process.env.REACT_APP_OAUTH_GOOGLE_LINK}`}>
 							<img src={googleLogo} alt="Google logo" />
 							<h3>Sign In With Google</h3>
+						</a>
 						</div>
 					</button>
 					<button>
 						<div className="loginButton">
-							<img src={fbLogo} alt="Facebook logo" />
-							<h3>Sign In With Facebook</h3>
+						<a className="registerButton" href={`${process.env.REACT_APP_OAUTH_FACEBOOK_LINK}`}>
+								<img src={fbLogo} alt="Facebook logo" />
+								<h3>Sign In With Facebook</h3>
+							</a>
 						</div>
 					</button>
 					<button>

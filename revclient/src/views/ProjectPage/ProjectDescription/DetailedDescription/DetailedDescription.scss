@@ -46,9 +46,11 @@
         border-left: 7px solid #544CBE;
         background: #F9F8FD;
         letter-spacing: 0.06em;
+        width: 80%;
 
         @media #{$mobile} {
             border-left: none;
+            width: 100%;
         }
 
         .profile-center {
@@ -94,7 +96,7 @@
         }
 
         .creatorInfo {
-            margin: 25px 25px 25px 0;
+            margin: 35px 25px 25px 0;
             @media #{$mobile} {
                 margin-top: 25px;
                 width: 100%;

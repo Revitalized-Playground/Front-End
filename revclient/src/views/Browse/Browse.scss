@@ -19,7 +19,7 @@
     section {
         margin: 10px auto;
     }
-    
+
     .slider {
         width: 100%;
         margin: 1% auto 2%;
@@ -34,7 +34,7 @@
             }
             &:hover {
                 &:before {
-                    color: darken($static-grey, 10%); 
+                    color: darken($static-grey, 10%);
                 }
             }
         }
@@ -44,6 +44,10 @@
         .slick-next {
             right: -40px;
         }
+    }
+
+    .skeleton-slider {
+        display: flex;
     }
 }
 

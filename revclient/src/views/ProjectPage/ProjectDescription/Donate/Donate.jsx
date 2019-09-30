@@ -3,15 +3,15 @@ import styled from 'styled-components';
  
 
 
-const Donate = ({raised, budget, donors}) => {
+const Donate = ({raised, budget, donors, setModal}) => {
     const percent = Number(raised) / Number(budget) * 100
     const Box = styled.div`
-    height: 12px;
-          background: #0B096F;
-          border-radius: 50px;
-          filter: brightness(${percent < 50 ?percent / 100 * 3 : percent >= 100 ? 4 : percent / 100 * 2});
-          transition: 1s ease;
-          @keyframes pulse {
+        height: 12px;
+        background: #0B096F;
+        border-radius: 50px;
+        filter: brightness(${percent < 50 ?percent / 100 * 3 : percent >= 100 ? 4 : percent / 100 * 2});
+        transition: 1s ease;
+        @keyframes pulse {
               0% {
                   width: 0;
                   background: #0B096F;
@@ -55,7 +55,7 @@ const Donate = ({raised, budget, donors}) => {
                 <p className='donorText'>Donors</p>
                 <div className='donationButtons'>
                     <button className='purple'>Donate now</button>
-                    <button className='white'>Share</button>
+                    <button className='white' onClick={() => setModal(true)}>Share</button>
                 </div>
                 <div className="mid-line-container">
 					<div className="mid-line"></div>
