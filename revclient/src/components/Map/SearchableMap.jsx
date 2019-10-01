@@ -104,7 +104,7 @@ class SearchableMap extends Component {
         const { viewport, searchResultLayer } = this.state
         return (
             <div style={{ height: '100vh', width:"100%" }}>
-                <h1 style={{ textAlign: 'center', fontSize: '25px', fontWeight: 'bolder' }}>Search For Apprenticeship
+                <h1 style={{ textAlign: 'center', fontSize: '25px', fontWeight: 'bolder', marginBottom:"25px" }}>Search For Apprenticeship
 Projects Near You!</h1>
                 <MapGL
                     ref={this.mapRef}
@@ -132,15 +132,15 @@ Projects Near You!</h1>
                     trackUserLocation={true}
                 />
                 <div style={{
-  position: 'absolute',
-  width: "50px",
-  bottom: 10,
-  right: 0,
-  padding: '10px'
-}}>
-
+                    position: 'absolute',
+                    width: "50px",
+                    bottom: 10,
+                    right: 0,
+                    padding: '10px'
+                }}>
                 <NavigationControl  onViewportChange={this.handleGeocoderViewportChange} />
                 </div>
+
                     {this.state.gpsArray.map((gps, i) => 
                         <Marker key={i} latitude={gps.lat} longitude={gps.long} >   
                                 <img src="RevitalizeLogo.png" alt="Revitalize Logo" style={{width:"35px"}} onClick={()=> this.setState({...this.state, selectedProject:gps})} />
