@@ -16,7 +16,8 @@ const Sidebar = props => {
                 }
                 {
                     <>
-                        <h3>{`${props.user.firstName} ${props.user.lastName}`}</h3>
+                        {/* <h3>{`${props.user.firstName} ${props.user.lastName}`}</h3> */}
+                        <h3>{`${props.realMe.firstName} ${props.realMe.lastName}`}</h3>
                         <p>{props.user.handle}</p>
                     </>
                     ||
