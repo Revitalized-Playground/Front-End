@@ -1,7 +1,7 @@
 import "mapbox-gl/dist/mapbox-gl.css"
 import "react-map-gl-geocoder/dist/mapbox-gl-geocoder.css"
 import React, { Component } from 'react'
-import MapGL, { Marker } from "react-map-gl";
+import MapGL, { Marker, Popup } from "react-map-gl";
 import DeckGL, { GeoJsonLayer } from "deck.gl";
 import Geocoder from "react-map-gl-geocoder";
 
@@ -12,9 +12,10 @@ class SearchableMap extends Component {
         viewport: {
             latitude: 36.230099,
             longitude: -101.887639,
-            zoom: 1
+            zoom: 2
         },
         searchResultLayer: null,
+        selectedProject: null,
         gpsArray: [
             { lat: 27.192223, long: - 80.243057 },
             { lat: 31.442778, long: - 100.450279 },
@@ -65,7 +66,6 @@ class SearchableMap extends Component {
             { lat: 33.124722, long: - 117.080833 },
             { lat: 39.106667, long: - 94.676392 },
             { lat: 42.101391, long: - 72.590279 }
-
         ]
     }
 
@@ -102,13 +102,13 @@ class SearchableMap extends Component {
     render() {
         const { viewport, searchResultLayer } = this.state
         return (
-            <div style={{ height: '100vh' }}>
+            <div style={{ height: '650px' }}>
                 <h1 style={{ textAlign: 'center', fontSize: '25px', fontWeight: 'bolder' }}>Use the search bar to find a location or click <a href="/">here</a> to find your location</h1>
                 <MapGL
                     ref={this.mapRef}
                     {...viewport}
                     mapStyle="mapbox://styles/mapbox/streets-v9"
-                    width="100%"
+                    width="850px"
                     height="650px"
                     onViewportChange={this.handleViewportChange}
                     mapboxApiAccessToken={token}
@@ -120,7 +120,10 @@ class SearchableMap extends Component {
                         mapboxApiAccessToken={token}
                         position='top-left'
                     />
-                    {this.state.gpsArray.map((gps, i) => <Marker key={i} latitude={gps.lat} longitude={gps.long} ><button>Maker</button></Marker>)}
+                    {this.state.gpsArray.map((gps, i) =>
+                        <Marker key={i} latitude={gps.lat} longitude={gps.long} ><button onClick={(e) => (this.state.selectedProject = gps)}>Maker</button></Marker>
+                    )}
+                    {this.state.selectedProject && <Popup latitude={this.state.selectedProject.lat} longitude={this.state.selectedProject.long}><p>project</p></Popup>}
                 </MapGL>
                 <DeckGL {...viewport} layers={[searchResultLayer]} />
             </div>
