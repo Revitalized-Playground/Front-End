@@ -1,10 +1,10 @@
 import "mapbox-gl/dist/mapbox-gl.css"
 import "react-map-gl-geocoder/dist/mapbox-gl-geocoder.css"
 import React, { Component } from 'react'
-import MapGL, { Marker } from "react-map-gl";
+import MapGL, { Marker, Popup } from "react-map-gl";
 import DeckGL, { GeoJsonLayer } from "deck.gl";
 import Geocoder from "react-map-gl-geocoder";
-
+import logo from '../../assets/logo.svg'
 const token = process.env.REACT_APP_MAP_BOX
 
 class SearchableMap extends Component {
@@ -15,6 +15,7 @@ class SearchableMap extends Component {
             zoom: 1
         },
         searchResultLayer: null,
+        selectedProject:null,
         gpsArray: [
             { lat: 27.192223, long: - 80.243057 },
             { lat: 31.442778, long: - 100.450279 },
@@ -120,7 +121,23 @@ class SearchableMap extends Component {
                         mapboxApiAccessToken={token}
                         position='top-left'
                     />
-                    {this.state.gpsArray.map((gps, i) => <Marker key={i} latitude={gps.lat} longitude={gps.long} ><button>Maker</button></Marker>)}
+                    {this.state.gpsArray.map((gps, i) => 
+                        <Marker key={i} latitude={gps.lat} longitude={gps.long} >   
+                                <img src="RevitalizeLogo.png" alt="Revitalize Logo" style={{width:"35px"}} onClick={()=> this.state.selectedProject=gps} />
+                        </Marker>
+                    )}
+                    {this.state.selectedProject && 
+                        <Popup
+                            latitude={this.state.selectedProject.lat}
+                            longitude={this.state.selectedProject.long}
+                            closeButton={true}
+                            closeOnClick={false}
+                            onClose={() => this.setState({...this.state, selectedProject:null})}
+                            anchor="top"
+                        >
+                        <p></p>
+                        </Popup>
+                    }
                 </MapGL>
                 <DeckGL {...viewport} layers={[searchResultLayer]} />
             </div>
