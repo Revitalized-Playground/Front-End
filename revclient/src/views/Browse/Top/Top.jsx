@@ -4,24 +4,31 @@ const Top = () => {
     return (
         <div className="topContainer">
             <div className="title">
-                <p>What is your area of interest</p>
+                <p>What are your interests</p>
                 <p className="questionMark">?</p>    
             </div>
             <div className="interests">
+                <div className="interests-left">
                 <div className="interest one">
-                    Avionics
+                    Electrical 
                 </div>
                 <div className="interest two">
-                    Construction
+                    Carpentry
                 </div>
                 <div className="interest three">
                     Interior Design
                 </div>
+                </div>
+                <div className="interests-right">
                 <div className="interest four">
-                    Welding
+                    HVAC
                 </div>
                 <div className="interest five">
-                    Wind Energy
+                    Plumbing
+                </div>
+                <div className="interest six">
+                    Masonry
+                </div>
                 </div>
             </div>
 

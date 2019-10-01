@@ -14,7 +14,7 @@
 	.FPProjectList {
 		display: flex;
 		justify-content: space-between;
-		@media (max-width: 825px) {
+		@media (max-width: 600px) {
 			flex-direction: column;
 		}
 		.card {
@@ -38,12 +38,16 @@
 			}
 
 			img {
-				width: 100%;
+				width: 90%;
 				border-radius: 10px;
 				transition: 0.2s all ease-in-out;
 				&:hover {
 					transform: scale(1.01);
 					@include subtleBoxShadow;
+				}
+
+				@media (max-width: 600px) {
+					width: 55%;
 				}
 			}
 

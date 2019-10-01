@@ -40,7 +40,7 @@ const Form2 = ({ projOwnerName, projAddress, city, state, zip, handleChanges, se
             />
 
             <div className="address-details">
-                <div>
+                <div className="address-details-city">
                     <h2>City</h2>
                     <input
                         required
@@ -52,35 +52,41 @@ const Form2 = ({ projOwnerName, projAddress, city, state, zip, handleChanges, se
                     />
                 </div>
 
-                <div className='state-zip'>
+                <div className='address-details-state'>
                     <h2>State</h2>
-                    <select
+                    {/* <select
                         required
                         onChange={e => handleChanges(e)}
                         name="state"
                     >
                         {states.map(eachState => <option>{eachState}</option>)}
-                    </select>
-                </div>
-                <div className='state-zip'>
-                    <h2>Zip Code</h2>
+                    </select> */}
                     <input
                         required
-                        min='10000'
-                        name="zip"
-                        type="number"
-                        className="proj-zip"
-                        value={zip === 0 ? '' : zip}
-                        onChange={e => { handleChanges(e); checker2(e) }}
-                        onBlur={(e) => checker(e)}
+                        name="state"
+                        type="text"
+                        value={state}
+                        onChange={e => handleChanges(e)}
                     />
-                    {!err && <p className='errorText'>Wrong Zip Number</p>}
-
                 </div>
             </div>
+            <div className='address-details-zip'>
+                <h2>Zip Code</h2>
+                <input
+                    required
+                    min='10000'
+                    name="zip"
+                    type="number"
+                    className="proj-zip"
+                    value={zip === 0 ? '' : zip}
+                    onChange={e => { handleChanges(e); checker2(e) }}
+                    onBlur={(e) => checker(e)}
+                />
+                {!err && <p className='errorText'>Wrong Zip Number</p>}
+            </div>
             <div className="form-navigation">
-                <button type="submit" className="next-step">Next! &rarr;</button>
-                <button className="prev-step" onClick={() => setFormPosition(1)}>&larr; Previous!</button>
+                <button type="submit" className="next-step">Next &rarr;</button>
+                <button className="prev-step" onClick={() => setFormPosition(1)}>&larr; Previous</button>
             </div>
         </form >
     );

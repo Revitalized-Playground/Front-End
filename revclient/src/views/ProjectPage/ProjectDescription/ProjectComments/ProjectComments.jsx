@@ -8,7 +8,7 @@ const ProjectComments = ({comments}) => {
             <div>
                 {comments.map((each, index) => {
                     if(index <= commentCount - 1) {
-                        return <div className='commentFlex'>
+                        return <div className='commentFlex' key={index}>
                                     <img src={each.profilePic} alt='Profile icon' />
                                     <div>
                                         <p className='comment'>{each.comment}</p>
@@ -22,7 +22,7 @@ const ProjectComments = ({comments}) => {
                 })}
             </div>
             <div className='comment-button-container'>
-                <button disabled={comments.length < commentCount ? true : false} className='see-more-comments' onClick={() => setCommentCount(commentCount + 8)}>Load more comments</button>
+                <button disabled={comments.length < commentCount ? true : false} style={comments.length < commentCount ? {color: 'gray', border: '1px solid gray', cursor: 'default'} : null} className='see-more-comments' onClick={() => setCommentCount(commentCount + 8)}>{commentCount < comments.length ? 'Load more comments' : 'No more comments'}</button>
             </div>
             
         </div>

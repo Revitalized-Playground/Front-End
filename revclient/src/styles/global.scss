@@ -7,11 +7,7 @@ body {
 		outline: none; 
 	}
 }
-// h2 {
-// 	font-size: 1.3rem;
-// 	height: 1.2rem;
-// 	// font-weight: bolder;
-// }
+
 .dark-mode {
 	background-color: $machiavellian;
 	color: $snow-white;
@@ -26,12 +22,32 @@ i {
 	font-style: italic;
 }
 
+p {
+	font-family: 'Futura-pt';
+}
 
 b { 
 	font-weight: bold;
 }
 
 
+h1 {
+	font-family: 'futura-pt';
+	// font-weight: bold;
+	font-size: 3.2rem;
+}
+
+h2 {
+	font-family: 'futura-pt';
+	// font-weight: bold;
+	font-size: 2.2rem;
+}
+
+h3 {
+	font-family: 'futura-pt';
+	// font-weight: bold;
+	font-size: 2rem;
+}
 
 h4 {
 	font-family: 'futura-pt';
@@ -43,4 +59,22 @@ h5 {
 	font-family: 'futura-pt';
 	// font-weight: bold;
 	font-size: 1.6rem;
+}
+
+input {
+	font-family: "Futura";
+	font-size: 1.2rem;
+	height: 35px;
+	padding: 0px 10px;
+	border-radius: 5px;
+	border: none;
+	border: 1px solid $mirage;
+}
+
+textarea {
+	font-family: "Futura";
+	font-size: 1.2rem;
+	padding: 10px;
+	border-radius: 5px;
+	border: 1px solid $mirage;
 }

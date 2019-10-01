@@ -4,15 +4,15 @@ import Form2 from './Form2/Form2'
 import Form3 from './Form3/Form3'
 
 import Nav from "../../components/Layout/Nav";
-import Footer from "../../components/Layout/Footer";
+// import Footer from "../../components/Layout/Footer";
 
-import cloud from '../../assets/CreateProjWizard/bottom-cloud-layer.png'
+// import cloud from '../../assets/CreateProjWizard/bottom-cloud-layer.png'
 
 
 
 const CreateProjectWizard = () => {
     const [projectDetails, setProjectDetails] = useState({ projName: "", projStartDate: "", projDescription: "", projOwnerName: "", projAddress: "", city: "", state: "", zip: null, projectDuration: null, projBudget: null, difficultyLevel: null })
-    const [formPosition, setFormPosition] = useState(1)
+    const [formPosition, setFormPosition] = useState(3)
 
     const handleChanges = event => {
         console.log("event", event)
@@ -32,13 +32,18 @@ const CreateProjectWizard = () => {
         <>
             <Nav />
             <div className="create-project-page">
+                {/* <img src={cloud} alt="cloud" className="bottom-cloud" /> */}
                 <div className="form-plus-quote-container">
 
                     <div className="quote">
-                        <h2>“Yesterday I was clever, so I <br /> wanted to change the world.<br /> Today I am wise, so I am<br /> changing myself.”</h2>
+                        <h2>“Yesterday I was clever, 
+                            <br />so I wanted to change the world 
+                            <br />Today I am wise, 
+                            <br />so I am changing myself.”
+                        </h2>
                         <p>Jalal ad-Din Rumi PERSIAN POET</p>
-                        <img src={cloud} alt="cloud" className="bottom-cloud" />
                     </div>
+                    
 
                     <div className="ui-section">
                         <div className="progress-tracker">
@@ -59,30 +64,30 @@ const CreateProjectWizard = () => {
                                 projDescription={projectDetails.projDescription}
                             />
                             : formPosition === 2
-                                ? <Form2
-                                    setFormPosition={setFormPosition}
-                                    handleChanges={handleChanges}
-                                    projOwnerName={projectDetails.projOwnerName}
-                                    projAddress={projectDetails.projAddress}
-                                    city={projectDetails.city}
-                                    state={projectDetails.state}
-                                    zip={projectDetails.zip}
-                                />
-                                : formPosition === 3
-                                    ? <Form3
-                                        submitForm={submitForm}
-                                        setFormPosition={setFormPosition}
-                                        handleChanges={handleChanges}
-                                        projDuration={projectDetails.projectDuration}
-                                        projBudget={projectDetails.projBudget}
-                                    />
-                                    : null
+                            ? <Form2
+                                setFormPosition={setFormPosition}
+                                handleChanges={handleChanges}
+                                projOwnerName={projectDetails.projOwnerName}
+                                projAddress={projectDetails.projAddress}
+                                city={projectDetails.city}
+                                state={projectDetails.state}
+                                zip={projectDetails.zip}
+                            />
+                            : formPosition === 3
+                            ? <Form3
+                                submitForm={submitForm}
+                                setFormPosition={setFormPosition}
+                                handleChanges={handleChanges}
+                                projDuration={projectDetails.projectDuration}
+                                projBudget={projectDetails.projBudget}
+                            />
+                            : null
                         }
                     </div>
 
                 </div>
             </div>
-            <Footer />
+            {/* <Footer /> */}
         </>
     );
 };

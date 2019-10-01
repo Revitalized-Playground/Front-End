@@ -1,14 +1,16 @@
 .hireContainer {
-	max-width: 1600px;
 	margin-bottom: 60px;
 	.companies {
-		padding-left: 0.5%;
+		// padding-left: 0.5%;
 		display: flex;
 		justify-content: space-between;
 		margin: 1% auto 2%;
+		@media #{$tablet-small} {
+			flex-direction: column;
+		}
 	}
 	.companyContainer {
-		border-radius: 1.5%;
+		border-radius: 5px;
 		padding-bottom: 2.5%;
 		display: flex;
 		align-items: flex-end;
@@ -17,7 +19,19 @@
 		margin-right: 4%;
 		height: 32vh;
 		max-width: 1600px;
-
+		@media #{$tablet} {
+			height: 200px;
+		}
+		@media #{$tablet-small} {
+			height: 200px;
+			margin-right: 0;
+			margin-top: 25px;
+		}
+		@media #{$mobile} {
+			height: 200px;
+			margin-right: 0;
+			margin-top: 25px;
+		}
 		&:last-child {
 			margin-right: 0;
 		}
