@@ -1,25 +1,30 @@
-// Apollo
-import ApolloClient, { InMemoryCache } from "apollo-boost"; // link is not exported from this version of apollo-client
-import { createUploadLink } from "apollo-upload-client";
+// Apollo reimagined
+import { ApolloClient } from "apollo-client";
+import { InMemoryCache } from "apollo-cache-inmemory";
+import { createUploadLink } from 'apollo-upload-client';
+import { setContext } from 'apollo-link-context';
+// import { createHttpLink } from 'apollo-link-http'; // DEPRECATED WITH APOLLO UPLOAD
+// import { ApolloLink } from "apollo-link";
 
 
-// Create upload link
-const link = createUploadLink({
-    credentials: 'include'
-})
 
-// Endpoint
-export const client = new ApolloClient({
-    uri: process.env.REACT_APP_SERVER_URL, // Revitalize
-    link,
-    cache: new InMemoryCache(),
-    request: async (operation) => {
-        const token = localStorage.getItem('token') ? localStorage.getItem('token') : '';
-        operation.setContext({
-            headers: {
-                authorization: token
-            }
-        })
+const httpLink = createUploadLink({
+    uri: process.env.REACT_APP_SERVER_URL
+});
+
+const authLink = setContext(({ headers }) => {
+    const token = localStorage.getItem('token');
+    return {
+        headers: {
+            ...headers,
+            authorization: token ? `Bearer ${token}` : "",
+        }
     }
 });
+
+
+export const client = new ApolloClient({
+    link: authLink.concat(httpLink),
+    cache: new InMemoryCache()
+})
 

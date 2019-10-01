@@ -1,38 +1,30 @@
-import React, { useState, useEffect, useCallback } from 'react'
-import Dropzone from 'react-dropzone'
-import { withPreviews, clearPreviews } from './with-previews'
 
-const Droppy = () => {
+import React, { useState, useEffect, useCallback } from 'react';
+import Dropzone from 'react-dropzone';
+// import { withPreviews, clearPreviews } from './with-previews';
+
+import Nav from "./components/Layout/Nav";
+
+const Droppy = ({
+    field: { name },
+    form: { setFieldValue },
+    ...props,
+}) => {
     
-    const [files, setFiles] = useState([])
-
-    useEffect(() => () => clearPreviews(files), [files])
-
-    const handleDrop = useCallback(accepted => {
-        setFiles(files => 
-            [...files, ...accepted]
-        )
-    })
 
     return (
         <>
-            <Dropzone onDropAccepted={withPreviews(handleDrop)}>Drop things here</Dropzone>
-            <button
-                onClick={() => {
-                clearPreviews(files)
-                setFiles([])
+            <Nav />
+            <Dropzone 
+                onDrop={(file) => {
+                    setFieldValue(name, file)
                 }}
+                accept="image/*"
+                multiple={false}
             >
-                Clear files and previews
-            </button>
-            {files.map(file => (
-                <img
-                    key={file.name}
-                    src={file.preview}
-                    style={{ maxWidth: 200, display: 'block' }}
-                    alt=""
-                />
-            ))}
+                <h1>Try Dropping some shit here</h1>
+
+            </Dropzone>
         </>
     )
 }
