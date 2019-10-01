@@ -3,15 +3,8 @@ import React from 'react'
 import email from '../../../../assets/SingleProjectPage/email.png'
 
 const DetailedDescription = ({startDate, duration, difficulty, organizer, location, projDescription, projectCreator}) => {
-    console.log(projectCreator)
     return (
         <div className='detailedDescriptionContainer'>
-            {/* <BasicDetails
-              startDate={startDate}
-              duration={duration}
-              difficulty={difficulty}
-              organizer={organizer}
-            /> */}
             {projDescription.length > 1100
             ?
                 <p className='detailedDescription'> <span>{location.toUpperCase()}</span>{projDescription.split('').map((each, index) => {
