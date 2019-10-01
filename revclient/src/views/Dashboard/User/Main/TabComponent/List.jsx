@@ -5,7 +5,9 @@ const List = props => {
 		<>
 			{props.list.tab === 'Activity Feed' ? (
 				<div className="list column" key={props.list.name + Date.now()}>
+					
 					<div className="left">{props.list.left}</div>
+
 					<div className="container">
 						<img src={props.list.image} alt="" />
 						<div className="text">
@@ -13,9 +15,10 @@ const List = props => {
 							<p className="description">{props.list.description}</p>
 							<p className="comment">{props.list.comment}</p>
 						</div>
+					
 						<div className="right">
 							<p>{props.list.right}</p>
-						</div>
+						</div>						
 					</div>
 				</div>
 			) : (
