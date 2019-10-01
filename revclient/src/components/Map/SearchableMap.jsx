@@ -123,7 +123,7 @@ class SearchableMap extends Component {
                     />
                     {this.state.gpsArray.map((gps, i) => 
                         <Marker key={i} latitude={gps.lat} longitude={gps.long} >   
-                                <img src="RevitalizeLogo.png" alt="Revitalize Logo" style={{width:"35px"}} onClick={()=> this.state.selectedProject=gps} />
+                                <img src="RevitalizeLogo.png" alt="Revitalize Logo" style={{width:"35px"}} onClick={()=> this.setState({...this.state, selectedProject:gps})} />
                         </Marker>
                     )}
                     {this.state.selectedProject && 
@@ -133,9 +133,11 @@ class SearchableMap extends Component {
                             closeButton={true}
                             closeOnClick={false}
                             onClose={() => this.setState({...this.state, selectedProject:null})}
-                            anchor="top"
+                            anchor="bottom"
                         >
-                        <p></p>
+                        <h2>Project Name</h2>
+                        <p>Location</p>
+                        <p>Short Description</p>
                         </Popup>
                     }
                 </MapGL>
