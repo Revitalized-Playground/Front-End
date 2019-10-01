@@ -12,111 +12,211 @@ const Main = () => {
         tabs: ["1", "2", "3", "4"],
         lists: [
             {
-                left: "",
-                image: "",
-                name: "one",
-                description: "",
-                comment: "",
-                right: "",
+                left: "will be #f38c01",
+                image: "https://res.cloudinary.com/revitalize/image/upload/v1569861716/user%20dashboard/Electric_qssium.svg",
+                name: "Change and Adjust the Light Fixtures",
+                description: "Replace current light fixtures with tungsten bulbs and sleek fixtures. Arrange sconces spaced out in the dining hall.",
+                comment: "Priority level: Mid-priority",
+                right: [
+                    {
+                        img: "https://res.cloudinary.com/revitalize/image/upload/v1569861720/user%20dashboard/OliverCut_jsjnmx.png"
+                    },
+                    {
+                        img: "https://res.cloudinary.com/revitalize/image/upload/v1569861721/user%20dashboard/Selena_p2ndem.png"
+                    }
+                ],
                 tab: "1"
             },
             {
-                left: "",
-                image: "",
-                name: "two",
-                description: "",
-                comment: "",
-                right: "",
+                left: "will be $ruby-enchantment",
+                image: "https://res.cloudinary.com/revitalize/image/upload/v1569861717/user%20dashboard/HVAC_so27i2.svg",
+                name: "Repair the Heating System",
+                description: "Replace current light fixtures with tungsten bulbs and sleek fixtures. Arrange sconces spaced out in the dining hall.",
+                comment: "Priority level: High-priority",
+                right: [
+                    {
+                        img: "https://res.cloudinary.com/revitalize/image/upload/v1569861720/user%20dashboard/OliverCut_jsjnmx.png"
+                    },
+                    {
+                        img: "https://res.cloudinary.com/revitalize/image/upload/v1569861715/user%20dashboard/Cliff_rkxqq5.png"
+                    },
+                    {
+                        img: "https://res.cloudinary.com/revitalize/image/upload/v1569861719/user%20dashboard/Mya_vrdanh.png"
+                    }
+                ],
                 tab: "1"
             },
             {
-                left: "",
-                image: "",
-                name: "three",
-                description: "",
-                comment: "",
-                right: "",
+                left: "$pikachu",
+                image: "https://res.cloudinary.com/revitalize/image/upload/v1569861720/user%20dashboard/Plumbing_fxedhz.svg",
+                name: "Work on the Plumbing Fixtures For the Sinks and Toilets",
+                description: "Mount sink piece and adjust nozzle on tap. Check and adjust pipes for toilets.",
+                comment: "Priority level: High-priority",
+                right: [
+                    {
+                        img: "https://res.cloudinary.com/revitalize/image/upload/v1569861717/user%20dashboard/Greg_zvzyrc.png"
+                    }
+                ],
                 tab: "1"
             },
             {
-                left: "",
-                image: "",
-                name: "uno",
-                description: "",
-                comment: "",
-                right: "",
+                left: "chillFi-purple",
+                image: "https://res.cloudinary.com/revitalize/image/upload/v1569861718/user%20dashboard/Maintenance_q9et8e.svg",
+                name: "Remove and Replace Doors to Restroom and Cafe Entrance",
+                description: "Measure door heights and replace door handles with sleek handles. Leave space to hand exit signs.",
+                comment: "Priority level: Not a priority",
+                right: [
+                    {
+                        img: "https://res.cloudinary.com/revitalize/image/upload/v1569861720/user%20dashboard/OliverCut_jsjnmx.png"
+                    },
+                    {
+                        img: "https://res.cloudinary.com/revitalize/image/upload/v1569861718/user%20dashboard/Milo_netcid.png"
+                    }
+                ],
+                tab: "1"
+            },
+            {
+                left: "$pikachu",
+                image: "https://res.cloudinary.com/revitalize/image/upload/v1569861718/user%20dashboard/Maintenance_q9et8e.svg",
+                name: "Fix Ventilation Systems",
+                description: "Replace current light fixtures with tungsten bulbs and sleek fixtures. Arrange sconces spaced out in the dining hall.",
+                comment: "Priority level: High-priority",
+                right: [
+                    {
+                        img: ""
+                    },
+                    {
+                        img: "https://res.cloudinary.com/revitalize/image/upload/v1569861715/user%20dashboard/Cliff_rkxqq5.png"
+                    }
+                ],
                 tab: "2"
             },
             {
-                left: "",
-                image: "",
-                name: "dos",
-                description: "",
-                comment: "",
-                right: "",
+                left: "$ruby-enchantment",
+                image: "https://res.cloudinary.com/revitalize/image/upload/v1569861718/user%20dashboard/Meetings_g7lgfb.svg",
+                name: "Briefing with Master Trainer/Engineer",
+                description: "Replace current light fixtures with tungsten bulbs and sleek fixtures. Arrange sconces spaced out in the dining hall.",
+                comment: "Priority level: Super high-priority",
+                right: [
+                    {
+                        img: "https://res.cloudinary.com/revitalize/image/upload/v1569861718/user%20dashboard/Milo_netcid.png"
+                    },
+                    {
+                        img: "https://res.cloudinary.com/revitalize/image/upload/v1569861721/user%20dashboard/Selena_p2ndem.png"
+                    },
+                    {
+                        img: "https://res.cloudinary.com/revitalize/image/upload/v1569861715/user%20dashboard/Cliff_rkxqq5.png"
+                    }
+                ],
                 tab: "2"
             },
             {
-                left: "",
-                image: "",
-                name: "tres",
-                description: "",
-                comment: "",
-                right: "",
+                left: "$pikachu",
+                image: "https://res.cloudinary.com/revitalize/image/upload/v1569861720/user%20dashboard/Plumbing_fxedhz.svg",
+                name: "Check and Observe Plumbing Fixtures, Pipes, and Drains",
+                description: "Mount sink piece and adjust nozzle on tap. Check and adjust pipes for toilets.",
+                comment: "Priority level: High-priority",
+                right: [
+                    {
+                        img: "https://res.cloudinary.com/revitalize/image/upload/v1569861717/user%20dashboard/Greg_zvzyrc.png"
+                    },
+                    {
+                        img: "https://res.cloudinary.com/revitalize/image/upload/v1569861719/user%20dashboard/Mya_vrdanh.png"
+                    },
+                    {
+                        img: "https://res.cloudinary.com/revitalize/image/upload/v1569861721/user%20dashboard/Selena_p2ndem.png"
+                    }
+                ],
                 tab: "2"
             },
             {
-                left: "",
-                image: "",
-                name: "eins",
-                description: "",
-                comment: "",
-                right: "",
+                left: "$ruby-enchantment",
+                image: "https://res.cloudinary.com/revitalize/image/upload/v1569861716/user%20dashboard/Electric_qssium.svg",
+                name: "Connect Wires to Various Components Within The Shops Electrical Systems",
+                description: "Measure door heights and replace door handles with sleek handles. Leave space to hand exit signs. ",
+                comment: "Priority level: Super high-priority",
+                right: [
+                    {
+                        img: "https://res.cloudinary.com/revitalize/image/upload/v1569861720/user%20dashboard/OliverCut_jsjnmx.png"
+                    },
+                    {
+                        img: ""
+                    }
+                ],
+                tab: "2"
+            },
+            {
+                left: "#00a164",
+                image: "https://res.cloudinary.com/revitalize/image/upload/v1569861715/user%20dashboard/Completed_rhwabs.svg",
+                name: "Clean Up Scraps In The Store",
+                description: "Replace current light fixtures with tungsten bulbs and sleek fixtures. Arrange sconces spaced out in the dining hall.",
+                comment: "Priority level: Mid-priority",
+                right: [
+                    {
+                        img: "https://res.cloudinary.com/revitalize/image/upload/v1569861720/user%20dashboard/OliverCut_jsjnmx.png"
+                    },
+                    {
+                        img: "https://res.cloudinary.com/revitalize/image/upload/v1569861717/user%20dashboard/Greg_zvzyrc.png"
+                    }
+                ],
                 tab: "3"
             },
             {
-                left: "",
-                image: "",
-                name: "zwei",
-                description: "",
-                comment: "",
-                right: "",
+                left: "#00a164",
+                image: "https://res.cloudinary.com/revitalize/image/upload/v1569861715/user%20dashboard/Completed_rhwabs.svg",
+                name: "Replace Windows",
+                description: "Replace current light fixtures with tungsten bulbs and sleek fixtures. Arrange sconces spaced out in the dining hall.",
+                comment: "Priority level: Super high-priority",
+                right: [
+                    {
+                        img: "https://res.cloudinary.com/revitalize/image/upload/v1569861721/user%20dashboard/Selena_p2ndem.png"
+                    },
+                    {
+                        img: "https://res.cloudinary.com/revitalize/image/upload/v1569861715/user%20dashboard/Cliff_rkxqq5.png"
+                    }
+                ],
                 tab: "3"
             },
             {
-                left: "",
-                image: "",
-                name: "drei",
-                description: "",
-                comment: "",
-                right: "",
-                tab: "3"
+                left: "#00a164",
+                image: "https://res.cloudinary.com/revitalize/image/upload/v1569861715/user%20dashboard/Completed_rhwabs.svg",
+                name: "Replace Floor Tiles",
+                description: "Mount sink piece and adjust nozzle on tap. Check and adjust pipes for toilets.",
+                comment: "Priority level: High-priority",
+                right: [
+                    {
+                        img: ""
+                    }
+                ],
+                tab: "3" 
             },
             {
-                left: "",
-                image: "",
-                name: "un",
-                description: "",
-                comment: "",
-                right: "",
+                left: "Announcements",
+                image: "https://res.cloudinary.com/revitalize/image/upload/v1569861718/user%20dashboard/Maleescha_Mclarin_qsafnt.png",
+                name: "Mark your calendar for briefing with Joe Reagan",
+                description: "Please download and print the updated skills form and checklist. The updated forms include seal of certificate and can used to submit hours to be approved to recieve licensure. ",
+                comment: "Reply",
+                comment2: "View 3 replies",
+                right: "09/25/19",
                 tab: "4"
             },
             {
-                left: "",
-                image: "",
-                name: "deux",
-                description: "",
-                comment: "",
-                right: "",
+                left: "DISCUSSION",
+                image: "https://res.cloudinary.com/revitalize/image/upload/v1569861715/user%20dashboard/Dakota_Six_yip35k.png",
+                name: "Phillips or Flathead",
+                description: "Which tool do you prefer when you are pulling out floor boards? Please share your thought below on the comment thread.",
+                comment: "Reply",
+                comment2: "View 3 replies",
+                right: "09/20/19",
                 tab: "4"
             },
             {
-                left: "",
+                left: "FORMS",
                 image: "",
-                name: "trois",
-                description: "",
+                name: "Skills sign-off forms and checklist",
+                description: "Please download and print the updated skills form and checklist. The updated forms include seal of certificate and can used to submit hours to be approved to recieve licensure. ",
                 comment: "",
-                right: "",
+                right: "Added 09/12/19",
                 tab: "4"
             }
         ]
@@ -127,10 +227,7 @@ const Main = () => {
             ...state,
             selected: tab
         })
-        console.log("state.selected: ", state.selected);
     }
-
-    console.log("state.lists: ", state.lists)
 
     return (
         <div className="user-dashboard-main section">
@@ -151,10 +248,7 @@ const Main = () => {
             <div className="user-dashboard-main-body">
                 {
                     <Lists lists={
-                        state.lists.filter(list => {
-                            console.log("list: ", list)
-                            return list.tab === state.selected
-                        })
+                        state.lists.filter(list => list.tab === state.selected)
                     }/>
                     ||
                     <Skeleton count={5} height={125} />

@@ -1,8 +1,6 @@
 import React from 'react';
 
 const List = props => {
-    
-    console.log("List props: ", props);
 
     return (
         <>
@@ -14,7 +12,14 @@ const List = props => {
                     <p className="description">{props.list.description}</p>
                     <p className="comment">{props.list.comment}</p>
                 </div>
-                <div className="right">{props.list.right}</div>
+                <div className="right">
+                    {props.list.tab === "4"
+                        ? <p>{props.list.right}</p>
+                        : props.list.right.map(x => (
+                            <img src={x.img} alt="blah" key={x.img+Date.now()}/>
+                        ))
+                    }
+                </div>
             </div>
         </>
     );
