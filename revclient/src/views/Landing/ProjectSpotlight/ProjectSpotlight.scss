@@ -1,7 +1,10 @@
 @import '../../../styles/mixins';
 
 .project-spotlight {
+	max-width: 2000px;
 	background-color: $luigi;
+	max-height: 720px;
+	margin: 0 auto;
 	
 	@media #{$mobile} {
 		flex-direction: column;
@@ -32,7 +35,7 @@
 	.phoneContainer {
 		width: 32%;
 		word-wrap: nowrap;
-		
+		margin-top: 200px;
 		
 	
 			@media #{$tablet} {
@@ -45,7 +48,7 @@
 	}
 	.phone {
 		position: relative;
-		height: 93%;
+		height: 73%;
 		object-fit: scale-down;
 		@media #{$mobile} {
 			display: none
@@ -53,7 +56,6 @@
 	}
 	.phone-left {
 		width: 100%;
-		margin-top: 210px;
 		@media #{$tablet} {
 			display: none;
 		}
@@ -66,6 +68,7 @@
 		text-align: center;
 		
 		
+		
 
 		@media #{$tablet} {
 			max-width: 100%;
@@ -73,16 +76,17 @@
 			margin: 0 auto
 		}
 		.user-photo {
-			width: 88%;
-			height: 88%;
+			
+			width: 300px;
+			height: 300px;
 			text-align:center;
 			margin: 0 auto;
-
+			margin-bottom: 30px;
 			@media #{$tablet} {
 				margin: 0 auto;
 				padding: 10px;
-				width: 350px;
-				height: 350px;
+				width: 300px;
+				height: 300px;
 				align-items: center;
 			}
 			@media #{$mobile} {
@@ -136,7 +140,6 @@
 	}
 	.phone-right {
 		width: 100%;
-		margin-top: 210px;
 		@media #{$tablet} {
 			display: none;
 		}
