@@ -5,7 +5,7 @@ const SearchProjects = () => {
 
 	return (
 		<section className="search-projects-near-you">
-			<form
+			{/* <form
 				onSubmit={event => {
 					event.preventDefault();
 					setInput('');
@@ -31,9 +31,9 @@ const SearchProjects = () => {
 						value={locationInput}
 						onChange={e => setInput(e.target.value)}
 					/>
-					<button>Search Now!</button>
-				</div>
-			</form>
+					<button>Search Now!</button> */}
+				{/* </div> */}
+			{/* </form> */}
 			<SearchableMap className="fake-map" />
 		</section>
 	);

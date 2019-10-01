@@ -1,7 +1,7 @@
 import "mapbox-gl/dist/mapbox-gl.css"
 import "react-map-gl-geocoder/dist/mapbox-gl-geocoder.css"
 import React, { Component } from 'react'
-import MapGL, { Marker, Popup } from "react-map-gl";
+import MapGL, { Marker, Popup, GeolocateControl, NavigationControl } from "react-map-gl";
 import DeckGL, { GeoJsonLayer } from "deck.gl";
 import Geocoder from "react-map-gl-geocoder";
 import logo from '../../assets/logo.svg'
@@ -12,7 +12,7 @@ class SearchableMap extends Component {
         viewport: {
             latitude: 36.230099,
             longitude: -101.887639,
-            zoom: 1
+            zoom: 3
         },
         searchResultLayer: null,
         selectedProject:null,
@@ -79,7 +79,7 @@ class SearchableMap extends Component {
     }
     // if you are happy with Geocoder default settings, you can just use handleViewportChange directly
     handleGeocoderViewportChange = viewport => {
-        const geocoderDefaultOverrides = { transitionDuration: 1000 };
+        const geocoderDefaultOverrides = { transitionDuration: 50 };
 
         return this.handleViewportChange({
             ...viewport,
@@ -103,13 +103,14 @@ class SearchableMap extends Component {
     render() {
         const { viewport, searchResultLayer } = this.state
         return (
-            <div style={{ height: '100vh' }}>
-                <h1 style={{ textAlign: 'center', fontSize: '25px', fontWeight: 'bolder' }}>Use the search bar to find a location or click <a href="/">here</a> to find your location</h1>
+            <div style={{ height: '100vh', width:"100%" }}>
+                <h1 style={{ textAlign: 'center', fontSize: '25px', fontWeight: 'bolder' }}>Search For Apprenticeship
+Projects Near You!</h1>
                 <MapGL
                     ref={this.mapRef}
                     {...viewport}
                     mapStyle="mapbox://styles/mapbox/streets-v9"
-                    width="100%"
+                    width="inherit"
                     height="650px"
                     onViewportChange={this.handleViewportChange}
                     mapboxApiAccessToken={token}
@@ -121,6 +122,25 @@ class SearchableMap extends Component {
                         mapboxApiAccessToken={token}
                         position='top-left'
                     />
+                    <GeolocateControl
+                    style={{
+                        float: 'left',
+                        margin: '50px auto auto 10px',
+                        padding: '10px'
+                    }}
+                    positionOptions={{ enableHighAccuracy: true }}
+                    trackUserLocation={true}
+                />
+                <div style={{
+  position: 'absolute',
+  width: "50px",
+  bottom: 10,
+  right: 0,
+  padding: '10px'
+}}>
+
+                <NavigationControl  onViewportChange={this.handleGeocoderViewportChange} />
+                </div>
                     {this.state.gpsArray.map((gps, i) => 
                         <Marker key={i} latitude={gps.lat} longitude={gps.long} >   
                                 <img src="RevitalizeLogo.png" alt="Revitalize Logo" style={{width:"35px"}} onClick={()=> this.setState({...this.state, selectedProject:gps})} />
