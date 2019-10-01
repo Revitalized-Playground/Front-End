@@ -118,54 +118,26 @@ const project = {
 
 const ProjectPage = ({ match }) => {
     const [modal, setModal] = useState(false)
+    const [large, setLarge] = useState(false)
     window.onclick = function(e) {
-        e.target.className === 'modal' && setModal(false)
+        if(e.target.className === 'modal') {
+           return setModal(false)
+        } else if(e.target.className === 'carousel-large-project') {
+           return setLarge(false)
+        }
     }
+
     const { loading, error, data } = useQuery(GET_PROJECT, {
         variables: { id: match.params.id }
     })
     const [copied, setCopied] = useState(false)
     if (error) return <h1>error fuck off</h1>
-    // console.log(data.project)
     
 
     if (loading) return <h1>LOADING THINGY</h1>
     return (
         <>
-            {/* <Nav />
-            
-             
-            <div className='project-page-flex'>
-                <BasicDescription 
-                  startDate={project.projStartDate}
-                  duration={project.duration}
-                  difficulty={project.difficultyLevel}
-                  organizer={project.projectOrganizer}
-                />
-                <Donate
-                    raised={project.raised}
-                    budget={project.projectBudget}
-                    donors={project.donors}
-                    setModal={setModal}
-                />
-            </div>
-                <DetailedDescription
-                    startDate={project.projStartDate}
-                    duration={project.duration}
-                    difficulty={project.difficultyLevel}
-                    organizer={project.projectOrganizer}
-                    location={project.location}
-                    projDescription={project.projectDescription}
-                    projectCreator={projectCreator}
-                />
-            <ProjectPictures projectPhotos={project.projectPhotos} />
-            <ProjectComments comments={project.comments} />
-        </div> */}
                 <div className="project-page-container">
-                    {/* <div className='singleProjectVectorContainer'>
-                        <div className='singleProjectVector'><div className='blueSquare'><h1>{data.project.name}</h1><div className='blueVector'></div></div></div>
-                    </div> */}
-
                     <div className={!modal ? 'none' : 'modal'} >
                 <div className='inner-modal' >
                     <div className='button-div'>
@@ -247,7 +219,7 @@ const ProjectPage = ({ match }) => {
                             projDescription={data.project.description}
                             projectCreator={data.project.profile}
                         />
-                    <ProjectPictures projectPhotos={project.projectPhotos} />
+                    <ProjectPictures projectPhotos={project.projectPhotos} large={large} setLarge={setLarge} />
                     <ProjectComments comments={project.comments} />
                 </div>
             <Footer />

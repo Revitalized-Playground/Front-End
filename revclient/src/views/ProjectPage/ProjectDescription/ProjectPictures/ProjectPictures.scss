@@ -2,7 +2,7 @@
     width: 100%;
     margin-top: 80px;
     overflow: hidden;
-    display: none;
+    // display: none;
 
     .projectImgCarousel {
         display: flex;
@@ -24,6 +24,81 @@
             padding: 15px;
             cursor: pointer;
             border-radius: 20px;
+        }
+    }
+}
+
+
+
+.projectPictureContainer-desktop {
+    .slick-prev:before, .slick-next:before {
+        font-family: "slick";
+        font-size: 20px;
+        line-height: 1;
+        color: #c4c4c4;
+        opacity: 0.75;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        font-size: 4rem;
+    };
+    .slick-prev:before {
+        margin-left: -20px
+    }
+    p {
+        font-size: 2.4rem;
+        line-height: 212.81%;
+        letter-spacing: 0.06em;
+        font-weight: bold;
+        padding: 0 15px;
+    }
+    margin-top: 100px;
+    .carousel-large-project {
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.4);
+        z-index: 3;
+
+        .carousel-card{
+            position: absolute;
+            left: 0; right: 0; top: 0; bottom: 0;
+            margin: auto;
+            z-index: 3;
+            width: 50%;
+            height: 90vh;
+            width: 50%;        
+
+            .carousel-card-inner-project {
+                .carousel-card-image {
+                    margin: 0;
+                    img {
+                        width: 100%;
+                        height: 90vh;
+                        object-fit: cover;
+                        border-radius: 5px;
+                    }
+                }
+            }
+        }
+    }
+    .carousel-card {
+        width: 50%;
+        
+        .carousel-card-inner-project {
+            background-color: $snow-white;
+            font-size: 1.2rem;
+            .carousel-card-image {
+                margin: 0 30px;
+                img {
+                    width: 100%;
+                    height: 250px;
+                    object-fit: cover;
+                    border-radius: 5px;
+                    cursor: pointer;
+                }
+            }
         }
     }
 }
