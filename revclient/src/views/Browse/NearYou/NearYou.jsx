@@ -5,28 +5,6 @@ import CarouselCard from '../CarouselCard/CarouselCard';
 import { NextArrow, PrevArrow } from "../CarouselCard/Arrows";
 
 
-function SampleNextArrow(props) {
-    const { className, style, onClick } = props;
-    return (
-        <div
-            className={className}
-            style={{ ...style, display: "block", background: "red" }}
-            onClick={onClick}
-        />
-    );
-}
-
-function SamplePrevArrow(props) {
-    const { className, style, onClick } = props;
-    return (
-        <div
-            className={className}
-            style={{ ...style, display: "block", background: "green" }}
-            onClick={onClick}
-        />
-    );
-}
-
 const NearYou = () => {
     
     const nearList = [

@@ -1,5 +1,5 @@
 import React, {useCallback} from 'react'
-import {useDropzone} from 'react-dropzone'
+import { useDropzone } from 'react-dropzone'
 
 export default function MyDropzone() {
   const onDrop = useCallback(acceptedFiles => {
@@ -15,7 +15,9 @@ export default function MyDropzone() {
 
     acceptedFiles.forEach(file => reader.readAsBinaryString(file))
   }, [])
-  const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop})
+  const {getRootProps, getInputProps, 
+    // isDragActive
+  } = useDropzone({onDrop})
 
   return (
     <div {...getRootProps()}>

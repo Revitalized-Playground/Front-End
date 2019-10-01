@@ -6,20 +6,22 @@ const ProjectComments = ({comments}) => {
         <div className='projectCommentsContainer'>
             <h2 className='commentsTitle'>Comments</h2>
             <div>
-                {comments.map((each, index) => {
+                {comments ? comments.map((each, index) => {
                     if(index <= commentCount - 1) {
-                        return <div className='commentFlex' key={index}>
-                                    <img src={each.profilePic} alt='Profile icon' />
-                                    <div>
-                                        <p className='comment'>{each.comment}</p>
-                                        <div className='lowerCommentSide'>
-                                            <p>{each.createdAt}</p>
-                                            <p>{each.likes.length} {each.likes.length === 1 ? 'Like' : 'Likes'}</p>
-                                        </div>
+                        return (
+                            <div className='commentFlex' key={index}>
+                                <img src={each.profilePic} alt='Profile icon' />
+                                <div>
+                                    <p className='comment'>{each.comment}</p>
+                                    <div className='lowerCommentSide'>
+                                        <p>{each.createdAt}</p>
+                                        <p>{each.likes.length} {each.likes.length === 1 ? 'Like' : 'Likes'}</p>
                                     </div>
                                 </div>
-                    }    
-                })}
+                            </div>
+                        )
+                    } else return null;
+                }) : null }
             </div>
             <div className='comment-button-container'>
                 <button disabled={comments.length < commentCount ? true : false} style={comments.length < commentCount ? {color: 'gray', border: '1px solid gray', cursor: 'default'} : null} className='see-more-comments' onClick={() => setCommentCount(commentCount + 8)}>{commentCount < comments.length ? 'Load more comments' : 'No more comments'}</button>
