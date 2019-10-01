@@ -2,7 +2,30 @@ import React from 'react';
 import Slider from "react-slick";
 
 import CarouselCard from '../CarouselCard/CarouselCard';
+import { NextArrow, PrevArrow } from "../CarouselCard/Arrows";
 
+
+function SampleNextArrow(props) {
+    const { className, style, onClick } = props;
+    return (
+        <div
+            className={className}
+            style={{ ...style, display: "block", background: "red" }}
+            onClick={onClick}
+        />
+    );
+}
+
+function SamplePrevArrow(props) {
+    const { className, style, onClick } = props;
+    return (
+        <div
+            className={className}
+            style={{ ...style, display: "block", background: "green" }}
+            onClick={onClick}
+        />
+    );
+}
 
 const NearYou = () => {
     
@@ -119,16 +142,18 @@ const NearYou = () => {
     ]
 
     const settings = {
-        arrows: true,
+        // arrows: true,
         dots: false,
         infinite: true,
         speed: 500,
         slidesToShow: 4,
         slidesToScroll: 3,
-        // swipeToSlide: true,
+        swipeToSlide: true,
         centerPadding: "400px",
         lazyLoad: "progressive",
         className: "carousel-card",
+        nextArrow: <NextArrow />,
+        prevArrow: <PrevArrow />,
         responsive: [
             {
                 breakpoint: 1200,
