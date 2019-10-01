@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { withRouter } from 'react-router-dom';
 
@@ -116,6 +116,18 @@ const project = {
 const ProjectPage = ({ match }) => {
     const [modal, setModal] = useState(false)
     const [large, setLarge] = useState(false)
+    const [copied, setCopied] = useState(false)
+
+    const { loading, error, data } = useQuery(GET_PROJECT, {
+        variables: { id: match.params.id }
+    })
+    const [projectData, setProjectData] = useState(data)
+
+    useEffect(() => {
+        setProjectData(data)
+    }, [data])
+
+
     window.onclick = function(e) {
         if(e.target.className === 'modal') {
            return setModal(false)
@@ -123,17 +135,11 @@ const ProjectPage = ({ match }) => {
            return setLarge(false)
         }
     }
-
-    const { loading, error, data } = useQuery(GET_PROJECT, {
-        variables: { id: match.params.id }
-    })
-    console.log(data)
-
-    const [copied, setCopied] = useState(false)
+    
     if (error) return <h1>error fuck off</h1>
     
 
-    if (loading) return <h1>LOADING THINGY</h1>
+    if (loading || !projectData) return <h1>LOADING THINGY</h1>
     return (
         <>
                 <div className="project-page-container">
@@ -185,8 +191,7 @@ const ProjectPage = ({ match }) => {
                             <CopyToClipboard text={window.location.href}>
                                 {copied ?<button disabled='true' className='copied'>Copied!</button> : <button onClick={(e) => {e.preventDefault(); setCopied(true)}}>Copy</button>}
                             </CopyToClipboard>
-                        </div>
-                        
+                        </div>  
                     </form>
                 </div>
                 
@@ -200,11 +205,11 @@ const ProjectPage = ({ match }) => {
                             startDate={project.projStartDate}
                             duration={project.duration}
                             difficulty={project.difficultyLevel}
-                            organizer={`${data.project.profile.firstName} ${data.project.profile.lastName}`}
+                            organizer={`${projectData.project.profile.firstName} ${projectData.project.profile.lastName}`}
                         />
                         <Donate
-                            raised={data.project.amountFunded}
-                            budget={data.project.goalAmount}
+                            raised={projectData.project.amountFunded}
+                            budget={projectData.project.goalAmount}
                             donors={project.donors}
                             setModal={setModal}
                         />
@@ -213,13 +218,13 @@ const ProjectPage = ({ match }) => {
                             startDate={project.projStartDate}
                             duration={project.duration}
                             difficulty={project.difficultyLevel}
-                            organizer={`${data.project.profile.firstName} ${data.project.profile.lastName}`}
-                            location={`${data.project.city}, ${data.project.state}`}
-                            projDescription={data.project.description}
-                            projectCreator={data.project.profile}
+                            organizer={`${projectData.project.profile.firstName} ${projectData.project.profile.lastName}`}
+                            location={`${projectData.project.city}, ${projectData.project.state}`}
+                            projDescription={projectData.project.description}
+                            projectCreator={projectData.project.profile}
                         />
                     <ProjectPictures projectPhotos={project.projectPhotos} large={large} setLarge={setLarge} />
-                    <ProjectComments comments={project.comments} />
+                    <ProjectComments comments={projectData.project.comments} projectData={projectData} setProjectData={setProjectData} id={projectData.project.id}/>
                 </div>
             <Footer />
         </>

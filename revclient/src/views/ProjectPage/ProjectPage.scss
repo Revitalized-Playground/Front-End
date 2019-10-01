@@ -160,7 +160,7 @@
 				div {
 					display: flex;
 					justify-content: space-between;
-					margin-bottom: 20px
+					margin-bottom: 20px;
 				}
 				p {
 					margin-left: 3%;
@@ -171,15 +171,13 @@
 					background: white;
 					width: 80px;
 					text-align: center;
-					// position: relative
-
 				}
 				input {
 					width: 75%;
 					padding-left: 2%;
 					border-radius: 5px;
 					border: 1px solid gray;
-					cursor: pointer
+					cursor: pointer;
 				}
 				button {
 					width: 20%;
@@ -190,7 +188,6 @@
 					line-height: 147.81%;
 					text-align: center;
 					letter-spacing: 0.06em;
-					padding: 13px;
 					color: white;
 					cursor: pointer
 				}
@@ -204,7 +201,6 @@
 					line-height: 147.81%;
 					text-align: center;
 					letter-spacing: 0.06em;
-					padding: 13px;
 					color: white;
 					cursor: pointer
 				}
