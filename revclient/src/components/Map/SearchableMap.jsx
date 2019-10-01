@@ -70,6 +70,11 @@ class SearchableMap extends Component {
         ]
     }
 
+    // This will be the API URL for Geocoding but we will need to request them independently 10 at a time (time consuming to convert an array to Lat and Long)
+    // `https://api.mapbox.com/geocoding/v5/mapbox.places/${queryStringForGeocoding}.json?type=address&proximity=${usersGeoLocationCSVLatLong}&access_token=${TOKEN}`
+
+
+
     mapRef = React.createRef()
 
     handleViewportChange = viewport => {
@@ -104,8 +109,7 @@ class SearchableMap extends Component {
         const { viewport, searchResultLayer } = this.state
         return (
             <div style={{ height: '100vh', width:"100%" }}>
-                <h1 style={{ textAlign: 'center', fontSize: '25px', fontWeight: 'bolder', marginBottom:"25px" }}>Search For Apprenticeship
-Projects Near You!</h1>
+                <h1 style={{ textAlign: 'center', fontSize: '25px', fontWeight: 'bolder', marginBottom:"25px" }}>Search For Apprenticeship Projects Near You!</h1>
                 <MapGL
                     ref={this.mapRef}
                     {...viewport}
