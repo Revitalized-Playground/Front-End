@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import states from '../../../assets/CreateProjWizard/stateList'
+// import states from '../../../assets/CreateProjWizard/stateList'
 const Form2 = ({ projOwnerName, projAddress, city, state, zip, handleChanges, setFormPosition }) => {
     const [err, setErr] = useState(true)
 

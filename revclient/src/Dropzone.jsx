@@ -1,24 +1,41 @@
-import React, { useCallback } from 'react';
-import { useDropzone } from 'react-dropzone';
+import React, { useState, useEffect, useCallback } from 'react'
+import Dropzone from 'react-dropzone'
+import { withPreviews, clearPreviews } from './with-previews'
 
+const Droppy = () => {
+    
+    const [files, setFiles] = useState([])
 
-export default function MyDropzone() {
-    const onDrop = useCallback(acceptedFiles => {
-        // Do something with the files
-    }, []);
+    useEffect(() => () => clearPreviews(files), [files])
 
-    const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop});
+    const handleDrop = useCallback(accepted => {
+        setFiles(files => 
+            [...files, ...accepted]
+        )
+    })
 
     return (
-        <div {...getRootProps()}>
-        <input {...getInputProps()} />
-            {
-                isDragActive ?
-                <p>Drop the files here ...</p> :
-                <p>Drag 'n' drop some files here, or click to select files</p>
-            }
-        </div>
+        <>
+            <Dropzone onDropAccepted={withPreviews(handleDrop)}>Drop things here</Dropzone>
+            <button
+                onClick={() => {
+                clearPreviews(files)
+                setFiles([])
+                }}
+            >
+                Clear files and previews
+            </button>
+            {files.map(file => (
+                <img
+                    key={file.name}
+                    src={file.preview}
+                    style={{ maxWidth: 200, display: 'block' }}
+                    alt=""
+                />
+            ))}
+        </>
     )
-};
+}
 
 
+export default Droppy

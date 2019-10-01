@@ -17,6 +17,7 @@ import AuthenticateUser from "./utils/AuthenticateUser";
 
 // Test
 import Dropzone from "./Dropzone";
+import Dropzone2 from "./Dropzone2";
 
 
 export const Routes = () => {
@@ -65,6 +66,12 @@ export const Routes = () => {
     path="/dropzone"
     render={() => (
         <Dropzone />
+    )}
+/>
+<Route
+    path="/dropzone2"
+    render={() => (
+        <Dropzone2 />
     )}
 />
 
