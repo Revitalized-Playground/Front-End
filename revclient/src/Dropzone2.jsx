@@ -18,20 +18,21 @@ export default function MyDropzone() {
 
     const reader = new FileReader()
     
-    // reader.onabort = () => console.log('file reading was aborted')
-    // reader.onerror = () => console.log('file reading has failed')
-    // reader.onload = async () => {
-    //   const binaryStr = reader.result
-    //   await uploadPhoto({ variables: { picture: binaryStr } })
-    //   // console.log(binaryStr)
-    // }
+    reader.onabort = () => console.log('file reading was aborted')
+    reader.onerror = () => console.log('file reading has failed')
+    reader.onload = () => {
+      const binaryStr = reader.result
+      console.log(binaryStr)
+      // await uploadPhoto({ variables: { picture: binaryStr } })
+    }
 
-    acceptedFiles.forEach(file => {
+    acceptedFiles.forEach(async (file) => {
       console.log(file);
       // const transcribedFile = reader.readAsBinaryString(file);
       // console.log(transcribedFile)
-      uploadPhoto({ variables: { picture: file.path } })
+      await uploadPhoto({ variables: { picture: file } })
     })
+    
   }, [])
   const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop})
 
