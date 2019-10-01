@@ -1,6 +1,6 @@
 import {
     CREATE_USER,
-    LOGIN_USER
+    LOGIN_USER,
 } from "./Users.js";
 
 export {

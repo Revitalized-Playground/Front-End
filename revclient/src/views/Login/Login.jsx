@@ -101,7 +101,7 @@ const Login = props => {
                 		/>
 						<div className="login-mid">
 							<p>
-								Don't have an account? <span>Create One</span>
+								Don't have an account? <Link to='/register' style={{textDecoration: `underline`}}>Create One</Link>
 							</p>
 						</div>
 						<button>Log In</button>

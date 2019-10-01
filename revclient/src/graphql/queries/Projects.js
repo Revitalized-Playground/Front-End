@@ -28,6 +28,15 @@ export const GET_PROJECT = gql`
             city
             goalAmount
             amountFunded
+            comments {
+                id
+                comment
+                profile{
+                    profileImage
+                    firstName
+                    lastName
+                }
+            }
             profile {
                 profileImage
                 firstName
@@ -39,3 +48,5 @@ export const GET_PROJECT = gql`
         }
     }
 `;
+
+

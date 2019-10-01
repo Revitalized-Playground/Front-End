@@ -67,7 +67,6 @@ const RecommendedProjects = () => {
                 </div>
             </section>
         );
-
 }
 
 

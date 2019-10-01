@@ -34,22 +34,29 @@
             .carousel-card-body-descript {
                 h5 {
                     margin-top: 10px;
+                    font-size: 2rem
                 }
                 p {
                     margin: 10px 0;
+                    font-size: 1.4rem
                 }
             }
             .carousel-card-body-money {
                 p {
                     margin: 10px 0;
+                    font-size: 1.4rem
                 }
             }
         }
     }
     .carousel-card-inner.__recommended {
+        
         height: 325px;
         .carousel-card-image {
             justify-content: flex-end;
+        }
+        i {
+            font-size: 1.3rem
         }
     }
     .carousel-card-inner.__near-you {
