@@ -6,7 +6,7 @@ import Lists from './TabComponent/Lists';
 
 const Main = () => {
 	const [state, setState] = useState({
-		selected: '1',
+		selected: 'New Tasks',
 		tabs: ['New Tasks', 'Tasks In Progress', 'Completed Tasks', 'Activity Feed'],
 		lists: [
 			{
