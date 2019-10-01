@@ -1,19 +1,27 @@
+
 .form-2 {
 	.address-details {
 		display: flex;
 		justify-content: space-between;	
 		align-items: center;
 		width: 100%;
-		select {
-			height: 3.25rem;
-		}
-
-		.proj-zip {
-			-webkit-inner-spin-button,
-			-webkit-outer-spin-button {
-				-webkit-appearance: none;
-				margin: 0;
+		.address-details-city {
+			margin-right: 30px;
+			width: 100%;
+			input {
+				width: 100%;
 			}
+		}
+		// .address-details-state {
+		// 	margin-right: 30px;
+		// }
+		
+	}
+	.address-details-zip {
+		input {
+			// width: 100%;
+			-webkit-appearance: none;
+			margin: 0;
 		}
 	}
 }

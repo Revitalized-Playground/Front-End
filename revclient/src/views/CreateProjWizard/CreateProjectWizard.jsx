@@ -4,15 +4,15 @@ import Form2 from './Form2/Form2'
 import Form3 from './Form3/Form3'
 
 import Nav from "../../components/Layout/Nav";
-import Footer from "../../components/Layout/Footer";
+// import Footer from "../../components/Layout/Footer";
 
-import cloud from '../../assets/CreateProjWizard/bottom-cloud-layer.png'
+// import cloud from '../../assets/CreateProjWizard/bottom-cloud-layer.png'
 
 
 
 const CreateProjectWizard = () => {
     const [projectDetails, setProjectDetails] = useState({ projName: "", projStartDate: "", projDescription: "", projOwnerName: "", projAddress: "", city: "", state: "", zip: null, projectDuration: null, projBudget: null, difficultyLevel: null })
-    const [formPosition, setFormPosition] = useState(1)
+    const [formPosition, setFormPosition] = useState(3)
 
     const handleChanges = event => {
         console.log("event", event)
@@ -39,7 +39,7 @@ const CreateProjectWizard = () => {
                         <h2>“Yesterday I was clever, 
                             <br />so I wanted to change the world 
                             <br />Today I am wise, 
-                            <br />so I a changing myself.”
+                            <br />so I am changing myself.”
                         </h2>
                         <p>Jalal ad-Din Rumi PERSIAN POET</p>
                     </div>
