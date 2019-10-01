@@ -1,10 +1,14 @@
 import "mapbox-gl/dist/mapbox-gl.css"
 import "react-map-gl-geocoder/dist/mapbox-gl-geocoder.css"
 import React, { Component } from 'react'
+<<<<<<< HEAD
 import MapGL, { Marker, Popup } from "react-map-gl";
+=======
+import MapGL, { Marker, Popup, GeolocateControl, NavigationControl } from "react-map-gl";
+>>>>>>> 89a9af466d9b0951cbcd703db16070de92bc3112
 import DeckGL, { GeoJsonLayer } from "deck.gl";
 import Geocoder from "react-map-gl-geocoder";
-
+import logo from '../../assets/logo.svg'
 const token = process.env.REACT_APP_MAP_BOX
 
 class SearchableMap extends Component {
@@ -12,10 +16,17 @@ class SearchableMap extends Component {
         viewport: {
             latitude: 36.230099,
             longitude: -101.887639,
+<<<<<<< HEAD
             zoom: 2
         },
         searchResultLayer: null,
         selectedProject: null,
+=======
+            zoom: 3
+        },
+        searchResultLayer: null,
+        selectedProject:null,
+>>>>>>> 89a9af466d9b0951cbcd703db16070de92bc3112
         gpsArray: [
             { lat: 27.192223, long: - 80.243057 },
             { lat: 31.442778, long: - 100.450279 },
@@ -69,6 +80,11 @@ class SearchableMap extends Component {
         ]
     }
 
+    // This will be the API URL for Geocoding but we will need to request them independently 10 at a time (time consuming to convert an array to Lat and Long)
+    // `https://api.mapbox.com/geocoding/v5/mapbox.places/${queryStringForGeocoding}.json?type=address&proximity=${usersGeoLocationCSVLatLong}&access_token=${TOKEN}`
+
+
+
     mapRef = React.createRef()
 
     handleViewportChange = viewport => {
@@ -78,7 +94,7 @@ class SearchableMap extends Component {
     }
     // if you are happy with Geocoder default settings, you can just use handleViewportChange directly
     handleGeocoderViewportChange = viewport => {
-        const geocoderDefaultOverrides = { transitionDuration: 1000 };
+        const geocoderDefaultOverrides = { transitionDuration: 50 };
 
         return this.handleViewportChange({
             ...viewport,
@@ -102,13 +118,22 @@ class SearchableMap extends Component {
     render() {
         const { viewport, searchResultLayer } = this.state
         return (
+<<<<<<< HEAD
             <div style={{ height: '650px' }}>
                 <h1 style={{ textAlign: 'center', fontSize: '25px', fontWeight: 'bolder' }}>Use the search bar to find a location or click <a href="/">here</a> to find your location</h1>
+=======
+            <div style={{ height: '100vh', width:"100%" }}>
+                <h1 style={{ textAlign: 'center', fontSize: '25px', fontWeight: 'bolder', marginBottom:"25px" }}>Search For Apprenticeship Projects Near You!</h1>
+>>>>>>> 89a9af466d9b0951cbcd703db16070de92bc3112
                 <MapGL
                     ref={this.mapRef}
                     {...viewport}
                     mapStyle="mapbox://styles/mapbox/streets-v9"
+<<<<<<< HEAD
                     width="850px"
+=======
+                    width="inherit"
+>>>>>>> 89a9af466d9b0951cbcd703db16070de92bc3112
                     height="650px"
                     onViewportChange={this.handleViewportChange}
                     mapboxApiAccessToken={token}
@@ -120,10 +145,51 @@ class SearchableMap extends Component {
                         mapboxApiAccessToken={token}
                         position='top-left'
                     />
+<<<<<<< HEAD
                     {this.state.gpsArray.map((gps, i) =>
                         <Marker key={i} latitude={gps.lat} longitude={gps.long} ><button onClick={(e) => (this.state.selectedProject = gps)}>Maker</button></Marker>
                     )}
                     {this.state.selectedProject && <Popup latitude={this.state.selectedProject.lat} longitude={this.state.selectedProject.long}><p>project</p></Popup>}
+=======
+                    <GeolocateControl
+                    style={{
+                        float: 'left',
+                        margin: '50px auto auto 10px',
+                        padding: '10px'
+                    }}
+                    positionOptions={{ enableHighAccuracy: true }}
+                    trackUserLocation={true}
+                />
+                <div style={{
+                    position: 'absolute',
+                    width: "50px",
+                    bottom: 10,
+                    right: 0,
+                    padding: '10px'
+                }}>
+                <NavigationControl  onViewportChange={this.handleGeocoderViewportChange} />
+                </div>
+
+                    {this.state.gpsArray.map((gps, i) => 
+                        <Marker key={i} latitude={gps.lat} longitude={gps.long} >   
+                                <img src="RevitalizeLogo.png" alt="Revitalize Logo" style={{width:"35px"}} onClick={()=> this.setState({...this.state, selectedProject:gps})} />
+                        </Marker>
+                    )}
+                    {this.state.selectedProject && 
+                        <Popup
+                            latitude={this.state.selectedProject.lat}
+                            longitude={this.state.selectedProject.long}
+                            closeButton={true}
+                            closeOnClick={false}
+                            onClose={() => this.setState({...this.state, selectedProject:null})}
+                            anchor="bottom"
+                        >
+                        <h2>Project Name</h2>
+                        <p>Location</p>
+                        <p>Short Description</p>
+                        </Popup>
+                    }
+>>>>>>> 89a9af466d9b0951cbcd703db16070de92bc3112
                 </MapGL>
                 <DeckGL {...viewport} layers={[searchResultLayer]} />
             </div>
