@@ -15,6 +15,9 @@ import ProjectPage from './views/ProjectPage/ProjectPage'
 // Utils
 import AuthenticateUser from "./utils/AuthenticateUser";
 
+// Test
+import Dropzone from "./Dropzone";
+
 
 export const Routes = () => {
 
@@ -50,7 +53,6 @@ export const Routes = () => {
                 component={AuthenticateUser}
 		    />
 
-
             <Route
                 // exact
                 path="/dashboard"
@@ -59,10 +61,16 @@ export const Routes = () => {
                 )}
             />
 
+<Route
+    path="/dropzone"
+    render={() => (
+        <Dropzone />
+    )}
+/>
+
             {/* private routes */}
 
             <Route
-                // exact
                 path="/projects"
                 render={() => (
                     <ProjectsHome />
@@ -70,7 +78,6 @@ export const Routes = () => {
             />
 
             <Route
-                // exact
                 path="/project/:id"
                 render={() => (
                     <ProjectPage />
@@ -78,7 +85,6 @@ export const Routes = () => {
             />
 
             <Route
-                // exact
                 path="/createproject"
                 render={() => (
                     <CreateProjectWizard />
@@ -86,7 +92,6 @@ export const Routes = () => {
             />
 
             <Route
-                // exact
                 path="/browse"
                 render={() => (
                     <Browse />
