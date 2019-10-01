@@ -11,122 +11,114 @@ const Main = () => {
         selected: "1",
         tabs: ["1", "2", "3", "4"],
         lists: [
-            [
-                {
-                    left: "",
-                    image: "",
-                    name: "one",
-                    description: "",
-                    comment: "",
-                    right: "",
-                    tab: "1"
-                },
-                {
-                    left: "",
-                    image: "",
-                    name: "two",
-                    description: "",
-                    comment: "",
-                    right: "",
-                    tab: "1"
-                },
-                {
-                    left: "",
-                    image: "",
-                    name: "three",
-                    description: "",
-                    comment: "",
-                    right: "",
-                    tab: "1"
-                }
-            ],
-            [
-                {
-                    left: "",
-                    image: "",
-                    name: "uno",
-                    description: "",
-                    comment: "",
-                    right: "",
-                    tab: "2"
-                },
-                {
-                    left: "",
-                    image: "",
-                    name: "dos",
-                    description: "",
-                    comment: "",
-                    right: "",
-                    tab: "2"
-                },
-                {
-                    left: "",
-                    image: "",
-                    name: "tres",
-                    description: "",
-                    comment: "",
-                    right: "",
-                    tab: "2"
-                }
-            ],
-            [
-                {
-                    left: "",
-                    image: "",
-                    name: "eins",
-                    description: "",
-                    comment: "",
-                    right: "",
-                    tab: "3"
-                },
-                {
-                    left: "",
-                    image: "",
-                    name: "zwei",
-                    description: "",
-                    comment: "",
-                    right: "",
-                    tab: "3"
-                },
-                {
-                    left: "",
-                    image: "",
-                    name: "drei",
-                    description: "",
-                    comment: "",
-                    right: "",
-                    tab: "3"
-                }
-            ],
-            [
-                {
-                    left: "",
-                    image: "",
-                    name: "un",
-                    description: "",
-                    comment: "",
-                    right: "",
-                    tab: "4"
-                },
-                {
-                    left: "",
-                    image: "",
-                    name: "deux",
-                    description: "",
-                    comment: "",
-                    right: "",
-                    tab: "4"
-                },
-                {
-                    left: "",
-                    image: "",
-                    name: "trois",
-                    description: "",
-                    comment: "",
-                    right: "",
-                    tab: "4"
-                }
-            ]
+            {
+                left: "",
+                image: "",
+                name: "one",
+                description: "",
+                comment: "",
+                right: "",
+                tab: "1"
+            },
+            {
+                left: "",
+                image: "",
+                name: "two",
+                description: "",
+                comment: "",
+                right: "",
+                tab: "1"
+            },
+            {
+                left: "",
+                image: "",
+                name: "three",
+                description: "",
+                comment: "",
+                right: "",
+                tab: "1"
+            },
+            {
+                left: "",
+                image: "",
+                name: "uno",
+                description: "",
+                comment: "",
+                right: "",
+                tab: "2"
+            },
+            {
+                left: "",
+                image: "",
+                name: "dos",
+                description: "",
+                comment: "",
+                right: "",
+                tab: "2"
+            },
+            {
+                left: "",
+                image: "",
+                name: "tres",
+                description: "",
+                comment: "",
+                right: "",
+                tab: "2"
+            },
+            {
+                left: "",
+                image: "",
+                name: "eins",
+                description: "",
+                comment: "",
+                right: "",
+                tab: "3"
+            },
+            {
+                left: "",
+                image: "",
+                name: "zwei",
+                description: "",
+                comment: "",
+                right: "",
+                tab: "3"
+            },
+            {
+                left: "",
+                image: "",
+                name: "drei",
+                description: "",
+                comment: "",
+                right: "",
+                tab: "3"
+            },
+            {
+                left: "",
+                image: "",
+                name: "un",
+                description: "",
+                comment: "",
+                right: "",
+                tab: "4"
+            },
+            {
+                left: "",
+                image: "",
+                name: "deux",
+                description: "",
+                comment: "",
+                right: "",
+                tab: "4"
+            },
+            {
+                left: "",
+                image: "",
+                name: "trois",
+                description: "",
+                comment: "",
+                right: "",
+                tab: "4"
+            }
         ]
     })
 
@@ -137,6 +129,8 @@ const Main = () => {
         })
         console.log("state.selected: ", state.selected);
     }
+
+    console.log("state.lists: ", state.lists)
 
     return (
         <div className="user-dashboard-main section">
@@ -156,9 +150,12 @@ const Main = () => {
             <hr />
             <div className="user-dashboard-main-body">
                 {
-                    <Lists lists={state.lists.filter(list => list.tab === state.selected)} />
-                    // <Lists lists={state.lists} />
-
+                    <Lists lists={
+                        state.lists.filter(list => {
+                            console.log("list: ", list)
+                            return list.tab === state.selected
+                        })
+                    }/>
                     ||
                     <Skeleton count={5} height={125} />
                 }
