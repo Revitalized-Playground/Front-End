@@ -1,36 +1,148 @@
 import React, { useState } from 'react';
 import Skeleton from 'react-loading-skeleton';
 
-import { tabs, lists } from './dummydata';
+import Tabs from './TabComponent/Tabs';
+import Lists from './TabComponent/Lists';
 
 const Main = () => {
     
 
-    const [list, setList] = useState({
-        // one: true,
-        // two: false,
-        // three: false,
-        // four: false
-        list: "list1"
+    const [state, setState] = useState({
+        selected: "1",
+        tabs: ["1", "2", "3", "4"],
+        lists: [
+            [
+                {
+                    left: "",
+                    image: "",
+                    name: "one",
+                    description: "",
+                    comment: "",
+                    right: "",
+                    tab: "1"
+                },
+                {
+                    left: "",
+                    image: "",
+                    name: "two",
+                    description: "",
+                    comment: "",
+                    right: "",
+                    tab: "1"
+                },
+                {
+                    left: "",
+                    image: "",
+                    name: "three",
+                    description: "",
+                    comment: "",
+                    right: "",
+                    tab: "1"
+                }
+            ],
+            [
+                {
+                    left: "",
+                    image: "",
+                    name: "uno",
+                    description: "",
+                    comment: "",
+                    right: "",
+                    tab: "2"
+                },
+                {
+                    left: "",
+                    image: "",
+                    name: "dos",
+                    description: "",
+                    comment: "",
+                    right: "",
+                    tab: "2"
+                },
+                {
+                    left: "",
+                    image: "",
+                    name: "tres",
+                    description: "",
+                    comment: "",
+                    right: "",
+                    tab: "2"
+                }
+            ],
+            [
+                {
+                    left: "",
+                    image: "",
+                    name: "eins",
+                    description: "",
+                    comment: "",
+                    right: "",
+                    tab: "3"
+                },
+                {
+                    left: "",
+                    image: "",
+                    name: "zwei",
+                    description: "",
+                    comment: "",
+                    right: "",
+                    tab: "3"
+                },
+                {
+                    left: "",
+                    image: "",
+                    name: "drei",
+                    description: "",
+                    comment: "",
+                    right: "",
+                    tab: "3"
+                }
+            ],
+            [
+                {
+                    left: "",
+                    image: "",
+                    name: "un",
+                    description: "",
+                    comment: "",
+                    right: "",
+                    tab: "4"
+                },
+                {
+                    left: "",
+                    image: "",
+                    name: "deux",
+                    description: "",
+                    comment: "",
+                    right: "",
+                    tab: "4"
+                },
+                {
+                    left: "",
+                    image: "",
+                    name: "trois",
+                    description: "",
+                    comment: "",
+                    right: "",
+                    tab: "4"
+                }
+            ]
+        ]
     })
 
-    console.log(list);
+    const changeSelected = tab => {
+        setState({
+            ...state,
+            selected: tab
+        })
+        console.log("state.selected: ", state.selected);
+    }
 
     return (
         <div className="user-dashboard-main section">
             <div className="user-dashboard-title">
                 {
-                    tabs.map(t => (
-                        <h3 
-                            className="tab"
-                            key={t+Date.now()}
-                            value={t}
-                            onClick={e => {
-                                console.log(e.target);
-                                setList(e.target.value)
-                            }}
-                        >{t}</h3>
-                    ))
+                    <Tabs tabs={state.tabs} selected={state.selected} changeSelected={changeSelected}/>
                     ||
                     <>
                         <Skeleton count={1} height={25} width={200} />
@@ -44,19 +156,10 @@ const Main = () => {
             <hr />
             <div className="user-dashboard-main-body">
                 {
-                    // list1.map(d => (
-                    //     <div className="div" key={d.name + Date.now()}>
-                    //         <div className="left">{d.left}</div>
-                    //         <img src={d.image} alt={d.name} className="icon-image"/>
-                    //         <div className="text">
-                    //             <h4>{d.name}</h4>
-                    //             <p className="p-one">{d.description}</p>
-                    //             <p className="p-two">{d.comment}</p>
-                    //         </div>
-                    //         <div className="right">{d.right}</div>
-                    //     </div>
-                    // ))
-                    // ||
+                    <Lists lists={state.lists.filter(list => list.tab === state.selected)} />
+                    // <Lists lists={state.lists} />
+
+                    ||
                     <Skeleton count={5} height={125} />
                 }
             </div>
