@@ -1,3 +1,6 @@
+@import './TabComponent/Lists.scss';
+@import './TabComponent/Tabs.scss';
+
 .user-dashboard-main {
 	width: 100%;
 	.user-dashboard-main-body {
@@ -8,26 +11,5 @@
 	width: 100%;
 	display: flex;
 	justify-content: space-between;
-	.tabs {
-		color: #00171f;
-		font-size: 18px;
-		letter-spacing: 1.08px;
-		width: 100%;
-		display: flex;
-		justify-content: space-between;
-		.tab {
-			font-family: Roboto;
-			font-size: 1.8rem;
-			font-weight: 500;
-			letter-spacing: 1.08px;
-			&:hover {
-				cursor: pointer;
-			}
-		}
-
-		.active-tab {
-			border-bottom: 5px solid #0b096f;
-			padding-bottom: 3.5rem;
-		}
-	}
+	
 }

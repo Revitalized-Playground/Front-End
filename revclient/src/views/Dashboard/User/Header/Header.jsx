@@ -1,8 +1,6 @@
 import React from 'react';
-import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 
 const Header = props => {
-	console.log(props);
 	const { status, city, state, name, description, dueDate } = props.project;
 	return (
 		<div className="user-dashboard-header section">

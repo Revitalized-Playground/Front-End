@@ -1,0 +1,17 @@
+.list {
+	display: flex;
+	.column {
+		flex-direction: column;
+	}
+	.left-bg {
+		// background: #f38c01;
+		width: 5rem;
+	}
+	.container {
+		display: flex;
+		.text {
+			display: flex;
+			flex-direction: column;
+		}
+	}
+}
