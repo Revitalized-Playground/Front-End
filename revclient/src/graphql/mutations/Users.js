@@ -13,9 +13,10 @@ export const CREATE_USER = gql`
     }
 `;
 
+
 export const LOGIN_USER = gql`
-    mutation CreateUser($data: UserAccountInput!) {
-        createUser(data: $data) {
+    mutation LoginUser($data: UserAccountInput!) {
+        loginUser(data: $data) {
             token
             profile {
                 id
@@ -24,6 +25,5 @@ export const LOGIN_USER = gql`
         }
     }
 `;
-
 
 
