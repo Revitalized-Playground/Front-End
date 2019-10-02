@@ -1,6 +1,11 @@
-import React, { useState } from 'react'
-import states from '../../../assets/CreateProjWizard/stateList'
-const Form2 = ({ projOwnerName, address, city, state, zip, handleChanges, setFormPosition }) => {
+import React, { useState } from 'react';
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+
+import states from '../../../assets/CreateProjWizard/stateList';
+
+
+
+const Form2 = ({ projOwnerName, projAddress, city, state, zip, handleChanges, setFormPosition }) => {
     const [err, setErr] = useState(true)
 
     const checker = (e) => {
@@ -25,7 +30,7 @@ const Form2 = ({ projOwnerName, address, city, state, zip, handleChanges, setFor
                 name="projOwnerName"
                 type="text"
                 className="name"
-                placeholder="Alpha Wolf Squadron"
+                placeholder="Name"
                 // value={projOwnerName}
                 onChange={e => handleChanges(e)}
             /> */}
@@ -35,7 +40,7 @@ const Form2 = ({ projOwnerName, address, city, state, zip, handleChanges, setFor
                 name="address"
                 type="text"
                 className="proj-street-address"
-                value={address}
+                value={projAddress}
                 onChange={e => handleChanges(e)}
             />
 
@@ -54,20 +59,20 @@ const Form2 = ({ projOwnerName, address, city, state, zip, handleChanges, setFor
 
                 <div className='address-details-state'>
                     <h2>State</h2>
-                    {/* <select
+                    <select
                         required
-                        onChange={e => handleChanges(e)}
+                        onChange={event => handleChanges(event)}
                         name="state"
                     >
                         {states.map(eachState => <option>{eachState}</option>)}
-                    </select> */}
-                    <input
+                    </select>
+                    {/* <input
                         required
                         name="state"
                         type="text"
                         value={state}
                         onChange={e => handleChanges(e)}
-                    />
+                    /> */}
                 </div>
             </div>
             <div className='address-details-zip'>
@@ -85,8 +90,8 @@ const Form2 = ({ projOwnerName, address, city, state, zip, handleChanges, setFor
                 {!err && <p className='errorText'>Wrong Zip Number</p>}
             </div>
             <div className="form-navigation">
-                <button type="submit" className="next-step">Next &rarr;</button>
-                <button className="prev-step" onClick={() => setFormPosition(1)}>&larr; Previous</button>
+                <button type="submit" className="next-step">Next&nbsp;<FaArrowRight /></button>
+                <button className="prev-step" onClick={() => setFormPosition(1)}><FaArrowLeft />&nbsp;Previous</button>
             </div>
         </form >
     );

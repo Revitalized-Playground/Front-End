@@ -29,34 +29,49 @@
             display: flex;
             flex-direction: column;
             padding: 10px;
-            height: calc(100% - 150px);
+            height: calc(100% - 140px);
             justify-content: space-between;
             .carousel-card-body-descript {
                 h5 {
                     margin-top: 10px;
-                    font-size: 2rem
+                    font-size: 2.2rem;
+                    width: 100%;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    &:hover {
+                        @include text-shadow;
+                    }
                 }
-                p {
+                .display-text-group {
                     margin: 10px 0;
-                    font-size: 1.4rem
+                    font-size: 1.4rem;
+                    .displayed-text {
+                        .read-more-button {
+                            display:none;
+                        }
+                    }
                 }
             }
             .carousel-card-body-money {
                 p {
                     margin: 10px 0;
-                    font-size: 1.4rem
+                    font-size: 1.4rem;
+                    width: 100%;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
                 }
             }
         }
     }
     .carousel-card-inner.__recommended {
-        
-        height: 325px;
+        height: 360px;
         .carousel-card-image {
             justify-content: flex-end;
         }
         i {
-            font-size: 1.3rem
+            font-size: 1.4rem;
         }
     }
     .carousel-card-inner.__near-you {
@@ -69,6 +84,9 @@
                 padding: 10px;
                 font-size: 1.4rem;
             }
+        }
+        .carousel-card-body {
+            height: calc(100% - 155px);
         }
         a {
             color: $chillFi-purple;
@@ -105,6 +123,17 @@
                 align-items: flex-end;
                 font-size: 1.6rem;
             }
+        }
+    }
+}
+
+.noteworthy-section {
+    .slider {
+        .slick-track > div:first-of-type { 
+            width: 35% !important;
+        }
+        .slick-track > div:nth-of-type(2) { 
+            width: 65% !important;
         }
     }
 }

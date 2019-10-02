@@ -1,4 +1,6 @@
-import React from 'react'
+import React from 'react';
+import { FaArrowRight } from "react-icons/fa";
+
 
 const Form1 = ({ name, description, handleChanges, setFormPosition, startDate }) => {
 
@@ -34,8 +36,10 @@ const Form1 = ({ name, description, handleChanges, setFormPosition, startDate })
                 value={description}
                 onChange={e => handleChanges(e)}
             />
-            <button className="next-step">Next! &rarr;</button>
-        </form>
+            <div className="form-navigation first-step">
+                <button className="next-step">Next&nbsp;<FaArrowRight /></button>
+            </div>
+        </form >
     );
 };
 

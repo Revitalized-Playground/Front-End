@@ -16,7 +16,7 @@ const Noteworthy = () => {
             city: "Urbandale",
             goalAmount: 0.00,
             amountFunded: 0.00,
-            images: ["https://","https://"],
+            images: ["https://res.cloudinary.com/revitalize/image/upload/v1569451140/start%20page/Windmill_jvynbk.svg"],
             featuredImage: "https://res.cloudinary.com/revitalize/image/upload/v1569451140/start%20page/Windmill_jvynbk.svg",
             liked: false,
         },
@@ -28,7 +28,7 @@ const Noteworthy = () => {
             city: "Detroit",
             goalAmount: 0.00,
             amountFunded: 0.00,
-            images: ["https://","https://"],
+            images: ["https://res.cloudinary.com/revitalize/image/upload/v1569451143/start%20page/Alger_theater_Dark_Mode_Pic_inlldb.svg"],
             featuredImage: "https://res.cloudinary.com/revitalize/image/upload/v1569451143/start%20page/Alger_theater_Dark_Mode_Pic_inlldb.svg",
             liked: false,
         }

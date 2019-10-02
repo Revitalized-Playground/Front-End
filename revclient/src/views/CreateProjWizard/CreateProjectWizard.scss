@@ -126,6 +126,18 @@
 					.prev-step {
 						order: -1;
 					}
+					button {
+						width: unset;
+						display: flex;
+						justify-content: center;
+						align-items: center;
+					}
+					button.submit {
+						background-color: $mutant-turtle;
+					}
+				}
+				.form-navigation.first-step {
+					justify-content: flex-end;
 				}
 				.description {
 					height: 11rem;

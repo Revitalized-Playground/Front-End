@@ -26,6 +26,7 @@
     "react-router-dom": "^5.0.1",
     "react-scripts": "^2.1.4",
     "react-slick": "^0.25.2",
+    "read-more-react": "^1.0.9",
     "slick-carousel": "^1.8.1",
     "styled-components": "^4.3.2"
   },

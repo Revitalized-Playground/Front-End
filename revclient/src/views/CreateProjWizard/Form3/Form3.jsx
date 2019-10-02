@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import  { FaArrowLeft } from "react-icons/fa";
+
 import Droppy from "../../../components/PhotoUpload/Droppy";
 
 
@@ -56,8 +58,8 @@ const Form3 = ({difficulty, duration, goalAmount, amountFunded, handleChanges, s
             </select>
             <Droppy />
             <div className="form-navigation">
-                <button className="next-step" type="submit">Submit!</button>
-                <button className="prev-step" onClick={() => setFormPosition(2)}>&larr; Previous!</button>
+                <button className="prev-step" onClick={() => setFormPosition(2)}><FaArrowLeft />&nbsp;Previous</button>
+                <button className="next-step submit" type="submit">Submit</button>
             </div>
         </form >
     );
