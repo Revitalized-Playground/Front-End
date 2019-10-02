@@ -1,4 +1,4 @@
-import { gql } from 'apollo-boost';
+import gql from 'graphql-tag';
 
 export const GET_PROJECTS = gql`
     query projects {
@@ -28,6 +28,15 @@ export const GET_PROJECT = gql`
             city
             goalAmount
             amountFunded
+            comments {
+                id
+                comment
+                profile{
+                    profileImage
+                    firstName
+                    lastName
+                }
+            }
             profile {
                 profileImage
                 firstName
@@ -39,3 +48,5 @@ export const GET_PROJECT = gql`
         }
     }
 `;
+
+
