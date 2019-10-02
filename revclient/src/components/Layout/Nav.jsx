@@ -67,16 +67,66 @@ const Nav = props => {
 		if (error) return <p>Error....</p>;
 	}
 
+	if (props.page === "login") {
+		return (
+			<nav className="nav-frosted">
+				<div className="leftNav">
+					<Link to="/" title="Home">
+						<div className="logo">
+							<img src={logo} alt="Revitalize logo" />
+						</div>
+					</Link>
+				</div>
+				<div className="right-nav">
+					<ul>
+						{localStorage.getItem('token') ? (
+							<>
+								{aLinks.map(({ key, href, label }) => (
+									<li className="navLinks" key={key}>
+										<Link to={href}>{label}</Link>
+									</li>
+								))}
+								<div className="user" onClick={toggleDropdown}>
+									<div>
+										{data.me.firstName !== null ? `Welcome, ${data.me.firstName}` : 'Welcome'}
+									</div>
+									{data.me.profileImage !== null
+										? <img className="userIcon" src={data.me.profileImage} alt={data.me.firstName}/>
+										: <Skeleton className="userIcon" circle={true} height={40} width={40} />
+									}
+								</div>
+								{clicked && (
+									<div className="dropdown">
+										<Link to="/dashboard" className="dropdown-option">Profile</Link>
+										<div className="dropdown-option">Setting</div>
+										<div onClick={toggleDarkMode} className="dropdown-option">
+											<FaMoon />
+											&nbsp; Dark mode: {darkModeActive ? 'on' : 'off'}
+										</div>
+										<div onClick={logout} className="dropdown-option">Log out</div>
+									</div>
+								)}
+							</>
+						) : (
+							null
+						)}
+					</ul>
+				</div>
+			</nav>
+		);
+	}
+
 	return (
 		<nav>
 			<div className="leftNav">
 				<Link to="/" title="Home">
 					<div className="logo">
-						<img src={logo} alt="Revitalize logo" />
-						<h2>Revitalize </h2>
+						<span>Revitalize </span>
 					</div>
 				</Link>
 			</div>
+
+			
 			<div className="right-nav">
 				<ul>
 					{localStorage.getItem('token') ? (
@@ -87,23 +137,26 @@ const Nav = props => {
 								</li>
 							))}
 							<div className="user" onClick={toggleDropdown}>
-								<div>
-									{data.me.firstName !== null ? `Welcome, ${data.me.firstName}` : 'Welcome'}
-								</div>
-								{data.me.profileImage !== null
-									? <img className="userIcon" src={data.me.profileImage} alt={data.me.firstName}/>
-									: <Skeleton className="userIcon" circle={true} height={40} width={40} />
-								}
+								<div>{data.me.firstName !== null ? `Welcome, ${data.me.firstName}` : 'Welcome'}</div>
+								{data.me.profileImage !== null ? (
+									<img className="userIcon" src={data.me.profileImage} alt={data.me.firstName} />
+								) : (
+									<Skeleton className="userIcon" circle={true} height={40} width={40} />
+								)}
 							</div>
 							{clicked && (
 								<div className="dropdown">
-									<Link to="/dashboard" className="dropdown-option">Profile</Link>
+									<Link to="/dashboard" className="dropdown-option">
+										Profile
+									</Link>
 									<div className="dropdown-option">Setting</div>
 									<div onClick={toggleDarkMode} className="dropdown-option">
 										<FaMoon />
 										&nbsp; Dark mode: {darkModeActive ? 'on' : 'off'}
 									</div>
-									<div onClick={logout} className="dropdown-option">Log out</div>
+									<div onClick={logout} className="dropdown-option">
+										Log out
+									</div>
 								</div>
 							)}
 						</>
@@ -123,7 +176,9 @@ const Nav = props => {
 							<div className="dark-mode-emoji">
 								<FaMoon onClick={() => toggleDarkMode()} />
 							</div>
-							<button
+
+
+							<div
 								onClick={setActive}
 								className={`hamburger hamburger--squeeze ${activeHamburger && 'is-active'}`}
 								type="button"
@@ -131,11 +186,47 @@ const Nav = props => {
 								<span className="hamburger-box">
 									<span className="hamburger-inner"></span>
 								</span>
-							</button>
+							</div>
+							
+							
+						
 						</>
 					)}
 				</ul>
 			</div>
+
+{activeHamburger &&
+			<div className='overlay overlay-hugeinc'>
+								<div className="nav-overlay">
+									<ul>
+										{localStorage.getItem('token') ? (
+											<>
+												{aLinks.map(({ key, href, label }) => (
+													<li className="navLinks-overlay" key={key}>
+														<Link to={href}>{label}</Link>
+													</li>
+												))}
+											</>
+										) : (
+											<ul>
+												{' '}
+												{uLinks.map(({ key, href, label }) => (
+													<li className="navLinks-overlay" key={key}>
+														<Link to={href}>{label}</Link>
+													</li>
+												))}
+												<li>
+													<Link to="/register">
+														<button className="register">Get Started</button>
+													</Link>
+												</li>
+											</ul>
+										)}
+									</ul>
+								</div>
+								
+							</div>
+}
 		</nav>
 	);
 };
