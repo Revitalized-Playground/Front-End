@@ -30,7 +30,7 @@ const Form3 = ({difficulty, duration, goalAmount, amountFunded, handleChanges, s
                 value={duration}
                 onChange={e => handleChanges(e)}
             />
-            <h2>Project Budget</h2>
+            <h2>Goal Budget</h2>
             <input
                 required
                 min='0'
@@ -54,6 +54,7 @@ const Form3 = ({difficulty, duration, goalAmount, amountFunded, handleChanges, s
                 <option >Hard</option>
 
             </select>
+            <Droppy />
             <div className="form-navigation">
                 <button className="next-step" type="submit">Submit!</button>
                 <button className="prev-step" onClick={() => setFormPosition(2)}>&larr; Previous!</button>
