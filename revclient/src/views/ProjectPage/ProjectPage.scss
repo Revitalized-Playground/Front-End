@@ -7,7 +7,7 @@
 	max-width: 1920px;
 	padding-left: 6.5%;
 	padding-right: 6.5%;
-	margin: 0 auto;
+	margin: 0 auto 3%;
 	
 	@media #{$mobile} {
 		padding-left: 0;
@@ -16,7 +16,6 @@
 
 	.singleProjectVectorContainer {
 		max-width: 1645px;
-		// margin: 0 auto;
 	
 		.singleProjectVector {
 			background: url('../assets/SingleProjectPage/vector.jpeg');
@@ -68,6 +67,294 @@
 
 		@media #{$mobile} {
 			flex-direction: column
+		}
+	}
+
+
+	//Modal
+	.none {
+		display: none
+	}
+	.modal {
+		position: fixed;
+		display: flex;
+		z-index: 2;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100vh;
+		overflow: auto;
+		background-color: rgb(0,0,0);
+		background-color: rgba(0,0,0,0.4);
+		
+
+		.button-div {
+			display: flex;
+			flex-direction: row-reverse;
+			
+			
+			.button {
+				cursor: pointer;
+				width: 30px;
+				height: 30px;
+			}
+		}
+
+		.inner-modal {
+			align-self: center;
+			width: 50%;
+			margin: 0 auto;
+			background: $snow-white;
+			letter-spacing: 0.06em;
+			z-index: 1;
+			border-radius: 5px;
+			
+			h2 {
+				font-size: 3rem;
+				width: 90%;
+				margin: 30px auto;
+				letter-spacing: 0.08em
+			}
+
+			h4 {
+				font-size: 2.4rem;
+				font-style: italic;
+				width: 90%;
+				margin: 0 auto 30px;
+			}
+
+			.lines {
+				height: 1px;
+				border: 1px solid grey;
+				width: 90%;
+				margin: 0 auto 30px;
+			}
+
+			.logos {
+				display: flex;
+				width: 90%;
+				margin: 0 auto 30px;
+				padding: 0 2%;
+				justify-content: space-between;
+
+				div{
+					width: 10%;
+					text-align: center;
+					font-size: 1.5rem;
+					font-style: italic;
+					cursor: pointer;
+
+					img {
+						width: 100%;
+						margin-bottom: 20px
+					}
+				}
+			}
+
+			form {
+				display: flex;
+				flex-direction: column;
+				width: 50%;
+				margin: 0 auto 30px;
+
+				div {
+					display: flex;
+					justify-content: space-between;
+					margin-bottom: 20px;
+				}
+				p {
+					margin-left: 3%;
+					font-size: 1.4rem;
+					font-style: italic;
+					margin-bottom: -8px;
+					z-index: 2;
+					background: white;
+					width: 80px;
+					text-align: center;
+				}
+				input {
+					width: 75%;
+					padding-left: 2%;
+					border-radius: 5px;
+					border: 1px solid gray;
+					cursor: pointer;
+				}
+				button {
+					width: 20%;
+					background: #4840BA;
+					border: none;
+					border-radius: 5px;
+					font-size: 1.7rem;
+					line-height: 147.81%;
+					text-align: center;
+					letter-spacing: 0.06em;
+					color: white;
+					cursor: pointer
+				}
+
+				.copied {
+					width: 20%;
+					background: #28a745;
+					border: none;
+					border-radius: 5px;
+					font-size: 1.7rem;
+					line-height: 147.81%;
+					text-align: center;
+					letter-spacing: 0.06em;
+					color: white;
+					cursor: pointer
+				}
+			}
+		}
+
+
+
+
+
+
+// Modal Exit Button Style
+// $button-size: 40px;
+// $close-width: ($button-size / 10);
+
+// .close-button {
+//   display: block;
+//   width: $button-size;
+//   height: $button-size;
+//   position: relative;
+//   overflow: hidden;
+//   cursor: pointer;
+//   > div {
+//     position: relative;
+//   }
+//   &-block {
+//     width: 40px;
+//     height: 20px;
+//     position: relative;
+//     overflow: hidden;
+//     &:before,
+//     &:after {
+//       content: '';
+//       position: absolute;
+//       bottom: 0;
+//       left: calc(55% - 4px);
+//       display: block;
+//       width: 4px;
+//       height: 25px;
+//       transform-origin: bottom center;
+//       background: red;
+//       transition: all ease-out 280ms;
+//     }
+//     &:last-of-type {
+//       transform: rotate(180deg);
+//     }
+//   }
+//   .in {
+//     .close-button-block {
+//       &:before {
+//         transition-delay: 280ms;
+//         transform: translateX(20px) translateY(-20px) rotate(45deg);
+//       }
+//       &:after {
+//         transition-delay: 280ms;
+//         transform: translateX(-22px) translateY(-22px) rotate(-45deg);
+//       }
+//     }
+//   }
+//   .out {
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     .close-button-block {
+//       &:before {
+//         transform: translateX(-5px) translateY(5px) rotate(45deg);
+//       }
+//       &:after {
+//         transform: translateX(5px) translateY(5px) rotate(-45deg);
+//       }
+//     }
+//   }
+//   &:hover {
+//     .in {
+//       .close-button-block {
+//         &:before {
+//           transform: translateX(-5px) translateY(5px) rotate(45deg);
+//         }
+//         &:after {
+//           transform: translateX(5px) translateY(5px) rotate(-45deg);
+//         }
+//       }
+//     }
+//     .out {
+//       .close-button-block {
+//         &:before {
+//           transform: translateX(-20px) translateY(20px) rotate(45deg);
+//         }
+//         &:after {
+//           transform: translateX(20px) translateY(20px) rotate(-45deg);
+//         }
+//       }
+//     }
+//   }
+	// }
+		.inner-modal {
+			.outer {
+				position: relative;
+				width: 40px;
+				margin-top: 5px;
+				cursor: pointer;
+			}
+			
+			.inner {
+				width: inherit;
+				text-align: center;
+			}
+			
+			label { 
+				font-size: .8em; 
+				line-height: 4em;
+				text-transform: uppercase;
+				color: black;
+				transition: all .3s ease-in;
+				opacity: 0;
+				cursor: pointer;
+			}
+			
+			.inner:before, .inner:after {
+				position: absolute;
+				content: '';
+				height: 1px;
+				width: inherit;
+				background: red;
+				left: 0;
+				transition: all .3s ease-in;
+			}
+			
+			.inner:before {
+				top: 50%; 
+				transform: rotate(45deg);  
+			}
+			
+			.inner:after {  
+				bottom: 50%;
+				transform: rotate(-45deg);  
+			}
+			
+			.outer:hover label {
+				opacity: 1;
+			}
+			
+			.outer:hover .inner:before,
+			.outer:hover .inner:after {
+				transform: rotate(0);
+			}
+			
+			.outer:hover .inner:before {
+				top: 0;
+			}
+			
+			.outer:hover .inner:after {
+				bottom: 0;
+			}
 		}
 	}
 }

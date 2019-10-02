@@ -6,7 +6,8 @@ import LandingPage from "./views/Landing/LandingPage";
 import Register from "./views/Register/Register";
 import Login from "./views/Login/Login";
 import ProjectsHome from "./views/ProjectsHome/ProjectsHome";  // May be deprecated
-import Start from "./views/Start/Start";
+// import Start from "./views/Start/Start";
+import Browse from "./views/Browse/Browse";
 import Dashboard from "./views/Dashboard/Dashboard";
 import CreateProjectWizard from './views/CreateProjWizard/CreateProjectWizard'
 import ProjectPage from './views/ProjectPage/ProjectPage'
@@ -14,13 +15,15 @@ import ProjectPage from './views/ProjectPage/ProjectPage'
 // Utils
 import AuthenticateUser from "./utils/AuthenticateUser";
 
-export const Routes = props => {
+
+
+export const Routes = () => {
 
     return (
         <BrowserRouter>
-            
+
             {/* public routes */}
-            
+
             <Route
                 exact
                 path="/"
@@ -42,12 +45,11 @@ export const Routes = props => {
                     <Login />
                 )}
             />
-            <Route 
+            <Route
                 exact
                 path="/oauth/:token"
                 component={AuthenticateUser}
 		    />
-
 
             <Route
                 // exact
@@ -60,7 +62,6 @@ export const Routes = props => {
             {/* private routes */}
 
             <Route
-                // exact
                 path="/projects"
                 render={() => (
                     <ProjectsHome />
@@ -68,26 +69,23 @@ export const Routes = props => {
             />
 
             <Route
-                // exact
-                path="/project"
+                path="/project/:id"
                 render={() => (
                     <ProjectPage />
                 )}
             />
 
             <Route
-                // exact
                 path="/createproject"
                 render={() => (
                     <CreateProjectWizard />
                 )}
             />
-            
+
             <Route
-                // exact
-                path="/start"
+                path="/browse"
                 render={() => (
-                    <Start />
+                    <Browse />
                 )}
             />
 

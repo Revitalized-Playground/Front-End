@@ -40,7 +40,7 @@ hr {
         justify-content: space-between;
     }
     .section[class^="user-dashboard"] {
-        @include sections;
+        @include skeleton-section;
         @include bottomBoxShadow;
     }
 }

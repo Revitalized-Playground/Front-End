@@ -1,0 +1,58 @@
+@import './Top/Top.scss';
+@import './Spotlight/Spotlight.scss';
+@import './CreateProject/CreateProject.scss';
+@import './Hire/Hire.scss';
+@import "./CarouselCard/CarouselCard.scss";
+// @import './RecommendedProjects/RecommendedProjects.scss';
+// @import './NearYou/NearYou.scss';
+// @import './Noteworthy/Noteworthy.scss';
+
+
+.startContainer {
+    width: 100%;
+    max-width: 1500px; // You want to cap the container size at 1920 or smaller so that content doesn't go crazy wide. -fm
+    margin: 0 auto;
+    padding: 0 35px;
+    section {
+        margin: 40px auto;
+    }
+    .slider {
+        width: 100%;
+        margin: 0 auto 20px;
+        padding: 0 0px;
+        .slick-prev {
+            z-index: 3;
+            left: -25px;
+            top: 50%;
+            transform: translate(0px, -22.5px) rotate(180deg);
+        }
+        .slick-next {
+            z-index: 3;
+            right: -25px;
+            top: 50%;
+        }
+        .slick-next, .slick-prev {
+            height: unset;
+            width: unset;
+            border-radius: 100%;
+            @include subtleBoxShadow;
+            &:before {
+                background-image: url("../assets/BrowsePage/arrow-left.svg");
+                font-size: 4.5rem;
+                opacity: 1;
+                color: rgba(0,0,0,0);
+                background-repeat: no-repeat;
+            }
+        }
+    }
+
+    // .recommened-projects-section {}
+    // .near-you-section {}
+    // .noteworthy-section {}
+    // .hireContainer {}
+
+    .skeleton-slider {
+        display: flex;
+    }
+}
+

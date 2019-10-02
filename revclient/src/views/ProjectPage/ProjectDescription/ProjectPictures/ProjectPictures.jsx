@@ -1,9 +1,10 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
+import Slider from "react-slick";
 
-const ProjectPictures = ({projectPhotos}) => {
-    const [el, setEl] = useState({
-        holder: document.getElementsByClassName('projectImgCarousel')
-    });
+const ProjectPictures = ({projectPhotos, large, setLarge}) => {
+    const [el, setEl] = useState({holder: document.getElementsByClassName('projectImgCarousel')});
+    const [view, setView] = useState(window.innerWidth)
+    
     const [global, setGlobal] = useState({
       touchstartx: undefined,
       touchmovex: undefined,
@@ -63,16 +64,79 @@ const ProjectPictures = ({projectPhotos}) => {
     };
 
 
-
-    const resize = () => {
-        el.holder.style = `transform: translateX(${-global.index * window.innerWidth}px); transition: 0s;`;  
+    window.onresize = () => {
+      setView(window.innerWidth)
+      el.holder.style = `transform: translateX(${-global.index * window.innerWidth}px); transition: 0s;`;
     }
 
-    window.onresize = resize
+
+
+    const settings = {
+      arrows: true,
+      dots: false,
+      infinite: true,
+      speed: 500,
+      slidesToShow: large ? 1 : 2,
+      slidesToScroll: 1,
+      swipeToSlide: true,
+      // centerPadding: "400px",
+      lazyLoad: "progressive",
+      className: "carousel-card",
+      responsive: [
+          // {
+          //     breakpoint: 1200,
+          //     settings: {
+          //         slidesToShow: 2,
+          //         slidesToScroll: 2,
+          //     }
+          // },
+          // {
+          //     breakpoint: 600,
+          //     settings: {
+          //         slidesToShow: 1,
+          //         slidesToScroll: 1,
+          //     }
+          // },
+          // {
+          //     breakpoint: 480,
+          //     settings: {
+          //         slidesToShow: 1,
+          //         slidesToScroll: 1
+          //     }
+          // }
+      ]
+  };
   
+  if(view > 500) {
+    return (
+      <div className='projectPictureContainer-desktop'>
+        <p className='p'>Project Photos</p>
+      
+        
+        <div className={large ? 'carousel-large-project': 'carousel-small-project'}>
+          <Slider {...settings}>
+            {projectPhotos.map((each, index) => (
+                <section className="carousel-card-inner-project" key={index}>
+                  <div className="carousel-card-image">
+                      <img src={each} alt={each.name}  onClick={() => setLarge(true)}/>
+                  </div>
+                </section>
+            ))}
+          </Slider>  
+        </div>
+          <div className="dotsContainer">
+            {projectPhotos.map((each, index) => (
+              <span className={index === global.index ? "dot active" : "dot"} key={index} />
+            ))}
+          </div>
+      </div>
+    );
+  } else {
     return (
       <div className="projectPictureContainer">
         <p className='p'>Project Photos</p>
+      
+        
         <div
           className="projectImgCarousel"
           onTouchStart={tchStart}
@@ -93,6 +157,8 @@ const ProjectPictures = ({projectPhotos}) => {
         </div>
       </div>
     );
+  }
+    
 }
 
 export default ProjectPictures

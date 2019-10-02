@@ -1,0 +1,158 @@
+
+
+.carousel-card {
+    .carousel-card-inner {
+        background-color: $snow-white;
+        margin: 10px;
+        border-radius: 5px;
+        font-size: 1.2rem;
+        @include subtleBoxShadow;
+        .carousel-card-image {
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+            svg {
+                position: absolute;
+                color: $ruby-enchantment;
+                padding: 10px;
+                font-size: 1.8rem;
+                z-index: 1;
+            }
+            img {
+                width: 100%;
+                height: 150px;
+                object-fit: cover;
+                border-radius: 5px 5px 0 0;
+            }
+        }
+        .carousel-card-body {
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            height: calc(100% - 140px);
+            justify-content: space-between;
+            .carousel-card-body-descript {
+                h5 {
+                    margin-top: 10px;
+                    width: 100%;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    &:hover {
+                        @include text-shadow;
+                    }
+                }
+                .display-text-group {
+                    margin: 10px 0;
+                    font-size: 1.4rem;
+                    .displayed-text {
+                        .read-more-button {
+                            display:none;
+                        }
+                    }
+                }
+            }
+            .carousel-card-body-money {
+                p {
+                    margin: 10px 0;
+                    font-size: 1.4rem;
+                    width: 100%;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+            }
+        }
+    }
+    .carousel-card-inner.__recommended {
+        height: 360px;
+        .carousel-card-image {
+            justify-content: flex-end;
+        }
+        i {
+            font-size: 1.4rem;
+        }
+    }
+    .carousel-card-inner.__near-you {
+        height: 275px;
+        .carousel-card-image {
+            justify-content: flex-start;
+            .carousel-card-location {
+                position: absolute;
+                color: $snow-white;
+                padding: 10px;
+                font-size: 1.4rem;
+            }
+        }
+        .carousel-card-body {
+            height: calc(100% - 155px);
+            h5 { 
+                margin: 0 auto;
+            }
+            p {
+                font-size: 1.4rem;
+                margin: 10px auto;
+            }
+        }
+        a {
+            color: $chillFi-purple;
+            display: flex;
+            align-items: flex-end;
+            font-size: 1.6rem;
+        }
+    }
+    .carousel-card-inner.__noteworthy {
+        height: 300px;
+        .carousel-card-image {
+            img {
+                height: 300px;
+            }
+            div.carousel-card-location {
+                position: absolute;
+                color: $snow-white;
+                padding: 10px;
+                font-size: 1.8rem;
+            }
+        }
+        .carousel-card-body {
+            color: $snow-white;
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            height: calc(100% - 150px);
+            justify-content: space-between;
+            position: absolute;
+            top: 20%;
+            width: 30%;
+            .carousel-card-body-descript {
+                p {
+                    margin: 30px auto;
+                    font-size: 1.6rem;
+                }
+            }
+            a {
+                display: flex;
+                align-items: flex-end;
+                font-size: 1.8rem;
+            }
+        }
+    }
+}
+
+.noteworthy-section {
+    .slider {
+        .slick-track > div:first-of-type { 
+            width: 35% !important;
+        }
+        .slick-track > div:nth-of-type(2) { 
+            width: 65% !important;
+        }
+    }
+}
+
+.dark-mode {
+    .carousel-card-inner {
+        color: $machiavellian;
+    }
+}
+
