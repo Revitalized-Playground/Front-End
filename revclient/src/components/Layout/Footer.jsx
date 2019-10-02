@@ -8,9 +8,9 @@ import { Link } from 'react-router-dom';
 
 const links = [
 	{ path: "#", label: "Learn More" },
-	{ path: "#", label: "Team" },
+	{ path: "/about", label: "Team" },
 	{ path: "/createproject", label: "Create Project" },
-	{ path: "/start", label: "Browse" },
+	{ path: "/browse", label: "Browse" },
 ].map(link => {
 	link.key = `nav-link-${link.href}-${link.label}`;
 	return link;

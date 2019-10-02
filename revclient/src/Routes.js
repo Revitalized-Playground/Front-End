@@ -11,6 +11,7 @@ import Browse from "./views/Browse/Browse";
 import Dashboard from "./views/Dashboard/Dashboard";
 import CreateProjectWizard from './views/CreateProjWizard/CreateProjectWizard'
 import ProjectPage from './views/ProjectPage/ProjectPage'
+import About from './views/About/About';
 
 // Utils
 import AuthenticateUser from "./utils/AuthenticateUser";
@@ -52,14 +53,22 @@ export const Routes = () => {
 		    />
 
             <Route
+                exact
+                path="/about"
+                render={() => (
+                    <About />
+                )}
+            />
+
+            {/* private routes */}
+
+            <Route
                 // exact
                 path="/dashboard"
                 render={() => (
                     <Dashboard />
                 )}
             />
-
-            {/* private routes */}
 
             <Route
                 path="/projects"
