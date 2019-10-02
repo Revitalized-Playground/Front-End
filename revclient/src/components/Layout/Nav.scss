@@ -96,6 +96,7 @@ nav {
 			.user {
 				display: flex;
 				align-items: center;
+				cursor: pointer;
 				div {
 					margin-right: 10px;
 				}
@@ -128,8 +129,10 @@ nav {
 				right: 0;
 				padding: 10px 20px 10px 10px;
 				margin-right: 20px;
+				z-index: 10;
 				.dropdown-option {
 					margin: 5px 0;
+					cursor: pointer;
 				}
 			}
 		}
