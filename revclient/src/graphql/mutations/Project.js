@@ -2,7 +2,7 @@ import { gql } from 'apollo-boost';
 
 
 export const ADD_COMMENT = gql`
-    mutation ($data: CreateProjectCommentInput!) {
+    mutation($data: CreateProjectCommentInput!) {
         createProjectComment(data: $data) {
             id
             comment
@@ -15,3 +15,11 @@ export const ADD_COMMENT = gql`
         }
     }
 `;
+
+export const ADD_PROJECT = gql`
+    mutation($data: CreateProjectInput!) {
+        createProject(data: $data) {
+            id
+        }
+    }
+`

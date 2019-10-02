@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Form1 = ({ projName, projStartDate, projDescription, handleChanges, setFormPosition }) => {
+const Form1 = ({ name, description, handleChanges, setFormPosition, startDate }) => {
 
     return (
         <form onSubmit={() => setFormPosition(2)} className="form-1" >
@@ -8,34 +8,34 @@ const Form1 = ({ projName, projStartDate, projDescription, handleChanges, setFor
             <input
                 required
                 label="Project Name"
-                name="projName"
+                name="name"
                 type="text"
                 className="name"
                 placeholder="Alpha Wolf Squadron"
-                value={projName}
+                value={name}
                 onChange={e => handleChanges(e)}
             />
             <h2>Start Date</h2>
             <input
                 required
-                name="projStartDate"
+                name="startDate"
                 type="date"
                 className="start-date"
-                value={projStartDate}
+                value={startDate}
                 onChange={e => handleChanges(e)}
             />
             <h2>Description</h2>
             <textarea
                 required
-                name="projDescription"
+                name="description"
                 type="text"
                 className="description"
                 placeholder="Project Description"
-                value={projDescription}
+                value={description}
                 onChange={e => handleChanges(e)}
             />
             <button className="next-step">Next! &rarr;</button>
-        </form >
+        </form>
     );
 };
 

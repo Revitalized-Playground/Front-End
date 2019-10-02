@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Droppy from "../../../components/PhotoUpload/Droppy";
 
 
-const Form3 = ({ projDuration, projBudget, handleChanges, submitForm, setFormPosition }) => {
+const Form3 = ({difficulty, duration, goalAmount, amountFunded, handleChanges, submitForm, setFormPosition }) => {
 
     const [err, setErr] = useState(true)
     console.log(err)
@@ -23,11 +23,11 @@ const Form3 = ({ projDuration, projBudget, handleChanges, submitForm, setFormPos
             <input
                 required
                 label="Project Name"
-                name="projNDuration"
+                name="duration"
                 type="text"
                 className="duration"
-                placeholder="9 Months"
-                value={projDuration}
+                placeholder="(Amount of Months)"
+                value={duration}
                 onChange={e => handleChanges(e)}
             />
             <h2>Project Budget</h2>
@@ -35,17 +35,17 @@ const Form3 = ({ projDuration, projBudget, handleChanges, submitForm, setFormPos
                 required
                 min='0'
                 step='0.10'
-                name="projBudget"
+                name="goalAmount"
                 type="number"
                 className="proj-budget"
-                value={projBudget === 0 ? '' : projBudget}
+                value={goalAmount === 0 ? '' : goalAmount}
                 onChange={e => {handleChanges(e); checker(e)}}
             />
             {!err && <p className='errorText'>Please make sure to enter a correct price</p>}
             <h2>Project Difficulty Level</h2>
             <select
                 required
-                name="projDifficultyLevel"
+                name="difficulty"
                 onChange={e => handleChanges(e)}
             >
                 <option >Select Difficulty</option>
@@ -54,7 +54,6 @@ const Form3 = ({ projDuration, projBudget, handleChanges, submitForm, setFormPos
                 <option >Hard</option>
 
             </select>
-            <Droppy />
             <div className="form-navigation">
                 <button className="next-step" type="submit">Submit!</button>
                 <button className="prev-step" onClick={() => setFormPosition(2)}>&larr; Previous!</button>

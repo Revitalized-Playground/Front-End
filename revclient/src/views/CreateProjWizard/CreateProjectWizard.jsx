@@ -3,37 +3,54 @@ import Form1 from './Form1/Form1'
 import Form2 from './Form2/Form2'
 import Form3 from './Form3/Form3'
 
+
+import { useMutation } from '@apollo/react-hooks';
+import { ADD_PROJECT } from '../../graphql/mutations/Project';
+
+import {withRouter} from 'react-router-dom'
+
+
 import Nav from "../../components/Layout/Nav";
-// import Footer from "../../components/Layout/Footer";
 
-// import cloud from '../../assets/CreateProjWizard/bottom-cloud-layer.png'
+// ====== properties needed ======
+//  - project start Date
+//  - project owner name
+//  - estimated project projDuration
+//  - difficulty Level
 
 
 
-const CreateProjectWizard = () => {
-    const [projectDetails, setProjectDetails] = useState({ projName: "", projStartDate: "", projDescription: "", projOwnerName: "", projAddress: "", city: "", state: "", zip: null, projectDuration: null, projBudget: null, difficultyLevel: null })
-    const [formPosition, setFormPosition] = useState(3)
+const CreateProjectWizard = ({history}) => {
+    const [projectDetails, setProjectDetails] = useState({ name: '', startDate: '', country: 'USA', duration: null, description: '',  address: '', city: '', state: '', zip: null,  goalAmount: null, difficulty: ''})
+    const [formPosition, setFormPosition] = useState(1)
+
+    const [addProject] = useMutation(ADD_PROJECT)
+    
+
+    console.log(projectDetails)
 
     const handleChanges = event => {
-        // console.log("event", event)
-        if (event.target.name === 'zip' || event.target.name === 'projBudget') {
+        if (event.target.name === 'zip' || event.target.name === 'goalAmount' || event.target.name === 'amountFunded' || event.target.name === 'duration') {
             setProjectDetails({ ...projectDetails, [event.target.name]: Number(event.target.value) })
         } else {
             setProjectDetails({ ...projectDetails, [event.target.name]: event.target.value })
         }
     }
 
-    const submitForm = event => { 
-        event.preventDefault(); 
-        console.log("submitted") 
+    const submitForm = async event => { 
+        event.preventDefault();
+        console.log('this is a project', projectDetails)
+        const addedProj = await addProject({variables: {data: projectDetails}})
+        console.log(addedProj)
+        if(addedProj) {
+            history.push(`/project/${addedProj.data.createProject.id}`)
+        }
     }
-
 
     return (
         <>
             <Nav />
             <div className="create-project-page">
-                {/* <img src={cloud} alt="cloud" className="bottom-cloud" /> */}
                 <div className="form-plus-quote-container">
 
                     <div className="quote">
@@ -60,16 +77,16 @@ const CreateProjectWizard = () => {
                             ? <Form1
                                 setFormPosition={setFormPosition}
                                 handleChanges={handleChanges}
-                                projName={projectDetails.projName}
-                                projStartDate={projectDetails.projStartDate}
-                                projDescription={projectDetails.projDescription}
+                                name={projectDetails.name}
+                                startDate={projectDetails.startDate}
+                                description={projectDetails.description}
                             />
                             : formPosition === 2
                             ? <Form2
                                 setFormPosition={setFormPosition}
                                 handleChanges={handleChanges}
-                                projOwnerName={projectDetails.projOwnerName}
-                                projAddress={projectDetails.projAddress}
+                                // projOwnerName={projectDetails.projOwnerName}
+                                address={projectDetails.address}
                                 city={projectDetails.city}
                                 state={projectDetails.state}
                                 zip={projectDetails.zip}
@@ -79,8 +96,10 @@ const CreateProjectWizard = () => {
                                 submitForm={submitForm}
                                 setFormPosition={setFormPosition}
                                 handleChanges={handleChanges}
-                                projDuration={projectDetails.projectDuration}
-                                projBudget={projectDetails.projBudget}
+                                duration={projectDetails.duration}
+                                goalAmount={projectDetails.goalAmount}
+                                // amountFunded={projectDetails.amountFunded}
+                                difficulty={projectDetails.difficulty}
                             />
                             : null
                         }
@@ -88,9 +107,8 @@ const CreateProjectWizard = () => {
 
                 </div>
             </div>
-            {/* <Footer /> */}
         </>
     );
 };
 
-export default CreateProjectWizard;
+export default withRouter(CreateProjectWizard);
