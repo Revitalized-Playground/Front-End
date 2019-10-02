@@ -9,6 +9,7 @@ nav {
 	display: flex;
 	height: 90px;
 	padding: 5px 0px;
+	z-index: 999;
 	@media #{$mobile} {
 		background: $chillFi-purple;
 	}
