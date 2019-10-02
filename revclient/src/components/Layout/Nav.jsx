@@ -3,8 +3,6 @@ import { Link, withRouter } from 'react-router-dom';
 import Skeleton from 'react-loading-skeleton';
 
 import logo from '../../assets/LandingPage/Logo.png';
-// import darkModeEmoji from '../../assets/Global/Nav/night-mode-512.png';
-// import lightModeEmoji from '../../assets/Global/Nav/night-mode-512.png';
 import { FaMoon } from 'react-icons/fa';
 
 import { useQuery } from '@apollo/react-hooks';
@@ -13,7 +11,7 @@ import { GET_USER } from '../../graphql/queries/Users';
 const uLinks = [
 	{ href: '/browse', label: 'Browse' },
 	{ href: '#', label: 'Learn More' },
-	{ href: '#', label: 'Team' },
+	{ href: '/about', label: 'Team' },
 	{ href: '/login', label: 'Log In' },
 ].map(link => {
 	link.key = `nav-link-${link.href}-${link.label}`;
@@ -32,11 +30,7 @@ const aLinks = [
 const Nav = props => {
 	const [activeHamburger, setActiveHamburger] = useState(false);
 	const [darkModeActive, setDarkMode] = useState(false);
-	// const [loggedIn, setLoggedIn] = useState(false);
 	const [clicked, setClicked] = useState(false);
-
-	// for testing
-	// const toggleLoggedIn = () => setLoggedIn(!loggedIn);
 
 	const toggleDropdown = () => {
 		setClicked(!clicked);

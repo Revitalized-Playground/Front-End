@@ -1,7 +1,7 @@
 import React from 'react';
-import Header from '../Header/Header';
-import Main from '../Main/Main';
-import Squad from '../Squad/Squad';
+import Header from './Header/Header';
+import Main from './Main/Main';
+import Squad from './Squad/Squad';
 
 const About = () => {
 	return (
