@@ -9,16 +9,18 @@ nav {
 	display: flex;
 	height: 90px;
 	padding: 5px 0px;
+	@media #{$tablet} {
+		width: 100%;
+		position: sticky;
+		top:0;
+		background: $chillFi-purple;
+		height: 90px;
+	}
 	@media #{$mobile} {
 		background: $chillFi-purple;
 		height: 90px;
 	}
-	@media #{$tablet} {
-		width: 100%;
-		position: sticky;
-		background: $chillFi-purple;
-		height: 90px;
-	}
+	
 
 	.userIcon {
 		background-color: $static-grey;
