@@ -3,7 +3,7 @@ import { FaArrowRight } from "react-icons/fa";
 
 
 const Form1 = ({ name, description, handleChanges, setFormPosition, startDate }) => {
-
+    console.log(startDate)
     return (
         <form onSubmit={() => setFormPosition(2)} className="form-1" >
             <h4>Name</h4>
