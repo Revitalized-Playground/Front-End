@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import states from '../../../assets/CreateProjWizard/stateList'
-const Form2 = ({ projOwnerName, projAddress, city, state, zip, handleChanges, setFormPosition }) => {
+const Form2 = ({ projOwnerName, address, city, state, zip, handleChanges, setFormPosition }) => {
     const [err, setErr] = useState(true)
 
     const checker = (e) => {
@@ -19,23 +19,23 @@ const Form2 = ({ projOwnerName, projAddress, city, state, zip, handleChanges, se
 
     return (
         <form onSubmit={() => setFormPosition(3)} className="form-2" >
-            <h2>Owner Name</h2>
+            {/* <h2>Owner Name</h2>
             <input
-                required
+                // required
                 name="projOwnerName"
                 type="text"
                 className="name"
                 placeholder="Alpha Wolf Squadron"
-                value={projOwnerName}
+                // value={projOwnerName}
                 onChange={e => handleChanges(e)}
-            />
+            /> */}
             <h2>Street Address</h2>
             <input
                 required
-                name="projAddress"
+                name="address"
                 type="text"
                 className="proj-street-address"
-                value={projAddress}
+                value={address}
                 onChange={e => handleChanges(e)}
             />
 
