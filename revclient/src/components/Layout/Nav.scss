@@ -1,6 +1,8 @@
 @import '../../styles/variables';
 @import '../../styles/mixins';
 @import './Hamburger';
+@import './Overlay';
+
 
 
 nav {
@@ -12,6 +14,8 @@ nav {
 		height: 90px;
 	}
 	@media #{$tablet} {
+		width: 100%;
+		position: sticky;
 		background: $chillFi-purple;
 		height: 90px;
 	}
@@ -61,21 +65,16 @@ nav {
 		font-size: 2.3rem;
 		width: 100%;
 		margin-right: 20px;
-		a {
-			// text-decoration: none;
-			@media #{$tablet} {
-				display: none;
-			}
-		}
+		// a {
+		// 	// text-decoration: none;
+		// 	@media #{$tablet} {
+		// 		display: none;
+		// 	}
+		// }
 		ul {
 			display: flex;
 			align-items: center;
-			@media #{$mobile} {
-				display: none;
-			}
-			@media #{$tablet} {
-				display: none;
-			}
+		
 			.navLinks {
 				margin-right: 65px;
 				@media #{$tablet} {
@@ -130,6 +129,7 @@ nav {
 				}
 			}
 		}
+		
 		.dark-mode-emoji {
 			font-size: 2rem;
 			display: flex;
