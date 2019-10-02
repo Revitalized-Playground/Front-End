@@ -4,14 +4,11 @@ import Sidebar from './Sidebar/Sidebar';
 import Header from './Header/Header';
 import Main from './Main/Main';
 
-// import { useQuery } from '@apollo/react-hooks';
-// import { GET_USER } from '../../graphql/queries/Users';
+import { useQuery } from '@apollo/react-hooks';
+import { GET_USER } from '../../../graphql/queries/Users';
 
 const UserDashboard = () => {
-	// const { client, loading, error, data } = useQuery(GET_USER);
-
-    // const { client, loading, error, data } = useQuery(GET_USER);
-
+    
     const users = [
         {
             id: 1,
@@ -81,14 +78,14 @@ const UserDashboard = () => {
             master: true
         }
     ]
-
+    
 	const projects = [
-		{
-			id: 1,
+        {
+            id: 1,
 			profile: 1,
 			name: "Rennovating Cup of Joe's Cafe",
 			description:
-				'Work with Joe, the cafe owner to implement blueprint including working with construction manager, interior design and final inspection',
+            'Work with Joe, the cafe owner to implement blueprint including working with construction manager, interior design and final inspection',
 			address: '555 Coffee Drive',
 			state: 'MI',
 			zip: '48127',
@@ -99,16 +96,23 @@ const UserDashboard = () => {
 			dueDate: 'Oct 25, 2019',
 		},
 	];
+    
+    const { loading, error, data } = useQuery(GET_USER);
+    console.log("data: ", data);
+    
+    if (loading) return <p>loading....</p>;
+    if (error) return <p>Error....</p>;
 
     return (
         <>
             <section className="user-dashboard">
 
-                <Sidebar user={users[0]} />
+                <Sidebar user={users[0]} realMe={data.me} />
                 
+
 				<section className="user-dashboard-body">
 					{projects.map(project => {
-						return <Header key={project.id} project={project} />;
+                        return <Header key={project.id} project={project} />;
 					})}
 					{/* <Header project={project} /> */}
 					{/* <br/> */}
