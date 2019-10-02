@@ -8,13 +8,14 @@ import jose from '../../../assets/AboutPage/Jose.svg';
 import omar from '../../../assets/AboutPage/Omar.svg';
 import ruth from '../../../assets/AboutPage/Ruth.svg';
 import skyelar from '../../../assets/AboutPage/Skyelar.svg';
+import anthony from '../../../assets/AboutPage/anthony.svg';
 
 const Squad = () => {
 	const squad1 = [
 		{
 			name: 'Anthony Venturini',
 			role: 'CEO/Product Manager',
-			image: 'https://res.cloudinary.com/revitalize/image/upload/v1570036587/about%20page/Anthony_hrzqq1.svg',
+			image: `${anthony}`,
 			background: '#ffb588',
 		},
 		{
@@ -87,7 +88,7 @@ const Squad = () => {
 			<div className="flex-container">
 				<div className="squad-flex-one">
 					{squad1.map(person => (
-						<div className='person' style={{ backgroundColor: `${person.background}` }}>
+						<div className="person" style={{ backgroundColor: `${person.background}` }}>
 							<h2 className="name"> {person.name}</h2>
 							<h3 className="role"> {person.role}</h3>
 							<div className="img-container">
@@ -98,7 +99,7 @@ const Squad = () => {
 				</div>
 				<div className="squad-flex-two">
 					{squad2.map(person => (
-						<div className='person' style={{ backgroundColor: `${person.background}` }}>
+						<div className="person" style={{ backgroundColor: `${person.background}` }}>
 							<h2 className="name"> {person.name}</h2>
 							<h3 className="role"> {person.role}</h3>
 							<div className="img-container">
@@ -110,7 +111,7 @@ const Squad = () => {
 
 				<div className="squad-flex-three">
 					{squad3.map(person => (
-						<div className='person' style={{ backgroundColor: `${person.background}` }}>
+						<div className="person" style={{ backgroundColor: `${person.background}` }}>
 							<h2 className="name"> {person.name}</h2>
 							<h3 className="role"> {person.role}</h3>
 							<div className="img-container">
