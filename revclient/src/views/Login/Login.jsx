@@ -36,7 +36,8 @@ const Login = props => {
         setState({
             email:"",
             password:"",
-        })
+		})
+		console.log(created)
 		localStorage.setItem("token", created.data.loginUser.token);
 		props.history.push("/");
 	};
@@ -101,7 +102,7 @@ const Login = props => {
                 		/>
 						<div className="login-mid">
 							<p>
-								Don't have an account? <span>Create One</span>
+								Don't have an account? <Link to='/register' style={{textDecoration: `underline`}}>Create One</Link>
 							</p>
 						</div>
 						<button>Log In</button>

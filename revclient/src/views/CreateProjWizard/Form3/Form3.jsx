@@ -1,6 +1,10 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react';
+import  { FaArrowLeft } from "react-icons/fa";
 
-const Form3 = ({ projDuration, projBudget, handleChanges, submitForm, setFormPosition }) => {
+import Droppy from "../../../components/PhotoUpload/Droppy";
+
+
+const Form3 = ({difficulty, duration, goalAmount, amountFunded, handleChanges, submitForm, setFormPosition }) => {
 
     const [err, setErr] = useState(true)
     console.log(err)
@@ -17,33 +21,33 @@ const Form3 = ({ projDuration, projBudget, handleChanges, submitForm, setFormPos
 
     return (
         <form onSubmit={(event) => submitForm(event)} className="form-3" >
-            <h2>Project Duration</h2>
+            <h4>Project Duration</h4>
             <input
                 required
                 label="Project Name"
-                name="projNDuration"
+                name="duration"
                 type="text"
                 className="duration"
-                placeholder="9 Months"
-                value={projDuration}
+                placeholder="(Amount of Months)"
+                value={duration}
                 onChange={e => handleChanges(e)}
             />
-            <h2>Project Budget</h2>
+            <h4>Goal Budget</h4>
             <input
                 required
                 min='0'
                 step='0.10'
-                name="projBudget"
+                name="goalAmount"
                 type="number"
                 className="proj-budget"
-                value={projBudget === 0 ? '' : projBudget}
+                value={goalAmount === 0 ? '' : goalAmount}
                 onChange={e => {handleChanges(e); checker(e)}}
             />
             {!err && <p className='errorText'>Please make sure to enter a correct price</p>}
-            <h2>Project Difficulty Level</h2>
+            <h4>Project Difficulty Level</h4>
             <select
                 required
-                name="projDifficultyLevel"
+                name="difficulty"
                 onChange={e => handleChanges(e)}
             >
                 <option >Select Difficulty</option>
@@ -52,9 +56,10 @@ const Form3 = ({ projDuration, projBudget, handleChanges, submitForm, setFormPos
                 <option >Hard</option>
 
             </select>
+            <Droppy />
             <div className="form-navigation">
-                <button className="next-step" type="submit">Submit!</button>
-                <button className="prev-step" onClick={() => setFormPosition(2)}>&larr; Previous!</button>
+                <button className="prev-step" onClick={() => setFormPosition(2)}><FaArrowLeft />&nbsp;Previous</button>
+                <button className="next-step submit" type="submit">Submit</button>
             </div>
         </form >
     );

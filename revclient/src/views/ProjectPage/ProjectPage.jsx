@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { withRouter } from 'react-router-dom';
 
@@ -8,12 +8,12 @@ import pic2 from '../../assets/SingleProjectPage/pic2.jpeg'
 import pic3 from '../../assets/SingleProjectPage/pic3.jpeg'
 import commentProfile1 from '../../assets/SingleProjectPage/commentProfile1.png'
 import commentProfile2 from '../../assets/SingleProjectPage/commentProfile2.png'
-import userProfile from '../../assets/SingleProjectPage/userProfile.png'
+// import userProfile from '../../assets/SingleProjectPage/userProfile.png'
 import fb from '../../assets/AuthPages/fb-logo.png'
 import twtr from '../../assets/AuthPages/twitter.png'
 
 //Component Imports
-import Nav from '../../components/Layout/Nav';
+// import Nav from '../../components/Layout/Nav';
 import Footer from "../../components/Layout/Footer";
 
 import Donate from './ProjectDescription/Donate/Donate'
@@ -110,62 +110,39 @@ const project = {
         }
     ],
     projectDescription: 'Team Rubicon is a warehouse restoration project located in the heart of Detroit. The warehouse used to be an ancient machinery manufacturing plant and was later converted to an automative plant. Revitalize is partnering with city officials to restore the warehouse to a careers training high school. City officials are looking forward to collaborating with Revitalize to restore abandoned buildings and empower communities. Revitalize also partners with local construction and design firms in Detroit to ensure students are receiving hands-on training with local experts and ready to launch into their career. Team Rubicon has raised $50,000 so far and are grateful to all the donors who are supporting community growth and building restoration projects in Detroit. Revitalize also partners with local construction and design firms in Detroit to ensure students are receiving hands-on training with local experts and ready to launch into their career. Team Rubicon has raised $50,000 so far and are grateful to all the donors who are supporting community growth and building restoration projects in Detroit.'
-}
-
-// const ProjectPage = ({ match }) => {
-    
+}   
 
 
 const ProjectPage = ({ match }) => {
     const [modal, setModal] = useState(false)
-    window.onclick = function(e) {
-        e.target.className === 'modal' && setModal(false)
-    }
+    const [large, setLarge] = useState(false)
+    const [copied, setCopied] = useState(false)
+
     const { loading, error, data } = useQuery(GET_PROJECT, {
         variables: { id: match.params.id }
     })
-    const [copied, setCopied] = useState(false)
+    const [projectData, setProjectData] = useState(data)
+
+    useEffect(() => {
+        setProjectData(data)
+    }, [data])
+
+
+    window.onclick = function(e) {
+        if(e.target.className === 'modal') {
+           return setModal(false)
+        } else if(e.target.className === 'carousel-large-project') {
+           return setLarge(false)
+        }
+    }
+    
     if (error) return <h1>error fuck off</h1>
-    // console.log(data.project)
     
 
-    if (loading) return <h1>LOADING THINGY</h1>
+    if (loading || !projectData) return <h1>LOADING THINGY</h1>
     return (
         <>
-            {/* <Nav />
-            
-             
-            <div className='project-page-flex'>
-                <BasicDescription 
-                  startDate={project.projStartDate}
-                  duration={project.duration}
-                  difficulty={project.difficultyLevel}
-                  organizer={project.projectOrganizer}
-                />
-                <Donate
-                    raised={project.raised}
-                    budget={project.projectBudget}
-                    donors={project.donors}
-                    setModal={setModal}
-                />
-            </div>
-                <DetailedDescription
-                    startDate={project.projStartDate}
-                    duration={project.duration}
-                    difficulty={project.difficultyLevel}
-                    organizer={project.projectOrganizer}
-                    location={project.location}
-                    projDescription={project.projectDescription}
-                    projectCreator={projectCreator}
-                />
-            <ProjectPictures projectPhotos={project.projectPhotos} />
-            <ProjectComments comments={project.comments} />
-        </div> */}
                 <div className="project-page-container">
-                    {/* <div className='singleProjectVectorContainer'>
-                        <div className='singleProjectVector'><div className='blueSquare'><h1>{data.project.name}</h1><div className='blueVector'></div></div></div>
-                    </div> */}
-
                     <div className={!modal ? 'none' : 'modal'} >
                 <div className='inner-modal' >
                     <div className='button-div'>
@@ -214,8 +191,7 @@ const ProjectPage = ({ match }) => {
                             <CopyToClipboard text={window.location.href}>
                                 {copied ?<button disabled='true' className='copied'>Copied!</button> : <button onClick={(e) => {e.preventDefault(); setCopied(true)}}>Copy</button>}
                             </CopyToClipboard>
-                        </div>
-                        
+                        </div>  
                     </form>
                 </div>
                 
@@ -229,11 +205,11 @@ const ProjectPage = ({ match }) => {
                             startDate={project.projStartDate}
                             duration={project.duration}
                             difficulty={project.difficultyLevel}
-                            organizer={`${data.project.profile.firstName} ${data.project.profile.lastName}`}
+                            organizer={`${projectData.project.profile.firstName} ${projectData.project.profile.lastName}`}
                         />
                         <Donate
-                            raised={data.project.amountFunded}
-                            budget={data.project.goalAmount}
+                            raised={projectData.project.amountFunded}
+                            budget={projectData.project.goalAmount}
                             donors={project.donors}
                             setModal={setModal}
                         />
@@ -242,13 +218,13 @@ const ProjectPage = ({ match }) => {
                             startDate={project.projStartDate}
                             duration={project.duration}
                             difficulty={project.difficultyLevel}
-                            organizer={`${data.project.profile.firstName} ${data.project.profile.lastName}`}
-                            location={`${data.project.city}, ${data.project.state}`}
-                            projDescription={data.project.description}
-                            projectCreator={data.project.profile}
+                            organizer={`${projectData.project.profile.firstName} ${projectData.project.profile.lastName}`}
+                            location={`${projectData.project.city}, ${projectData.project.state}`}
+                            projDescription={projectData.project.description}
+                            projectCreator={projectData.project.profile}
                         />
-                    <ProjectPictures projectPhotos={project.projectPhotos} />
-                    <ProjectComments comments={project.comments} />
+                    <ProjectPictures projectPhotos={project.projectPhotos} large={large} setLarge={setLarge} />
+                    <ProjectComments comments={projectData.project.comments} projectData={projectData} setProjectData={setProjectData} id={projectData.project.id}/>
                 </div>
             <Footer />
         </>

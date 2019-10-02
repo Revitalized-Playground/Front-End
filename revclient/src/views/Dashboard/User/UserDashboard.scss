@@ -30,7 +30,7 @@ hr {
 		}
 	}
 	.section[class^='user-dashboard'] {
-		@include sections;
+		@include skeleton-section;
 		@include bottomBoxShadow;
 	}
 }

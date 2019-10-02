@@ -16,6 +16,7 @@ import ProjectPage from './views/ProjectPage/ProjectPage'
 import AuthenticateUser from "./utils/AuthenticateUser";
 
 
+
 export const Routes = () => {
 
     return (
@@ -50,7 +51,6 @@ export const Routes = () => {
                 component={AuthenticateUser}
 		    />
 
-
             <Route
                 // exact
                 path="/dashboard"
@@ -62,7 +62,6 @@ export const Routes = () => {
             {/* private routes */}
 
             <Route
-                // exact
                 path="/projects"
                 render={() => (
                     <ProjectsHome />
@@ -70,7 +69,6 @@ export const Routes = () => {
             />
 
             <Route
-                // exact
                 path="/project/:id"
                 render={() => (
                     <ProjectPage />
@@ -78,7 +76,6 @@ export const Routes = () => {
             />
 
             <Route
-                // exact
                 path="/createproject"
                 render={() => (
                     <CreateProjectWizard />
@@ -86,7 +83,6 @@ export const Routes = () => {
             />
 
             <Route
-                // exact
                 path="/browse"
                 render={() => (
                     <Browse />
