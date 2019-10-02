@@ -28,10 +28,10 @@
 
 			@media #{$tablet}{
 				margin: 5px;
-				width: 31%;
+				// width: 31%;
 			}
 			@media (max-width: 825px){
-				width: 75%;
+				// width: 75%;
 				margin: 0 auto;
 				
 			}
@@ -53,90 +53,48 @@
 					width: 55%;
 				}
 			}
-		
 			h4 {
 				margin: 30px auto 20px auto;
 				max-width: 407px;
-				font-size: 36px;
 				@media #{$tablet}{
-					font-size: 28px;
+					font-size: 2rem;
 				}
 				@media (max-width: 825px){
 					margin: 10px auto;		
-					font-size: 34px;
+					font-size: 1.8rem;
 				}
 			}
-		
 			p {
-				font-size: 23px;
+				font-size: 1.6rem;
 				max-width: 405px;
 				margin: 30px auto 0 auto;
 				@media #{$tablet}{
-					font-size: 18px;
+					font-size: 1.4rem;
 				}
 				@media (max-width: 825px){
-					margin: 10px auto 50px auto;
-		
-					
+					margin: 10px auto 50px auto;		
 				}
-			}
-			
-		}
-		
-		
-		.dark-mode {
-			.card {
-				&:hover {
-					color: $maastricht-blue;
+				@media #{$mobile}{
+					font-size: 1.2rem;
 				}
-			}
+			}		
 		}
 	}
-
-	h1 {
-		line-height: 112.31%;
-		font-size: 48px;
+	h2 {
+		line-height: 1;
 		letter-spacing: 0.06em;
 		margin-bottom: 35px;
 	}
-
-	// These styles are not actually running. 
-	// Card styling has been moved to the card components -fm
-	// .FPProjects { 
-	// 	max-width: 480px;
-	// 	margin: 0 20px;
-	// 	margin-bottom: 60px;
-	// 	text-align: center;
-	// 	transition: 0.2s all ease-in-out;
-	// 	&:hover {
-	// 		cursor: pointer;
-	// 		color: $ocean-blue;
-	// 	}
-	// 	img {
-	// 		width: 100%;
-	// 		height: 660px;
-	// 		border-radius: 10px;
-	// 		&:hover {
-	// 			transform: scale(1.01);
-	// 		}
-	// 	}
-	// 	h4 {
-	// 		margin: 30px auto 0 auto;
-	// 		max-width: 407px;
-	// 		height: 80px;
-	// 		font-size: 36px;
-	// 	}
-	// 	p {
-	// 		font-size: 24px;
-	// 		max-width: 405px;
-	// 		height: 127px;
-	// 		margin: 30px auto 0 auto;
-	// 	}
-	// }
 }
+
 
 .dark-mode {
 	.FPContainer {
-
+		.card {
+			&:hover {
+				color: $maastricht-blue;
+			}
+		}
 	}
 }
+

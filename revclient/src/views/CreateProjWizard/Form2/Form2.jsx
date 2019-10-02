@@ -24,7 +24,7 @@ const Form2 = ({ projOwnerName, projAddress, city, state, zip, handleChanges, se
 
     return (
         <form onSubmit={() => setFormPosition(3)} className="form-2" >
-            {/* <h2>Owner Name</h2>
+            {/* <h4>Owner Name</h4>
             <input
                 // required
                 name="projOwnerName"
@@ -34,7 +34,7 @@ const Form2 = ({ projOwnerName, projAddress, city, state, zip, handleChanges, se
                 // value={projOwnerName}
                 onChange={e => handleChanges(e)}
             /> */}
-            <h2>Street Address</h2>
+            <h4>Street Address</h4>
             <input
                 required
                 name="address"
@@ -46,7 +46,7 @@ const Form2 = ({ projOwnerName, projAddress, city, state, zip, handleChanges, se
 
             <div className="address-details">
                 <div className="address-details-city">
-                    <h2>City</h2>
+                    <h4>City</h4>
                     <input
                         required
                         name="city"
@@ -58,7 +58,7 @@ const Form2 = ({ projOwnerName, projAddress, city, state, zip, handleChanges, se
                 </div>
 
                 <div className='address-details-state'>
-                    <h2>State</h2>
+                    <h4>State</h4>
                     <select
                         required
                         onChange={event => handleChanges(event)}
@@ -76,7 +76,7 @@ const Form2 = ({ projOwnerName, projAddress, city, state, zip, handleChanges, se
                 </div>
             </div>
             <div className='address-details-zip'>
-                <h2>Zip Code</h2>
+                <h4>Zip Code</h4>
                 <input
                     required
                     min='10000'

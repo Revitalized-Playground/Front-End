@@ -29,7 +29,7 @@
 			margin-left: unset;
 		}
 
-		.quote {
+		q.quote {
 			display: flex;
 			flex-direction: column;
 			align-items: center;
@@ -38,7 +38,7 @@
 			width: 35%;
 			padding: 0 60px;
 			white-space: nowrap;
-			h2 {
+			h5 {
 				height: auto;
 				margin: auto 0 ;
 				text-align: center;

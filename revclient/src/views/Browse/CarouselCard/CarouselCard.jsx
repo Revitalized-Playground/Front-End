@@ -87,7 +87,7 @@ const CarouselCard = ( {card, view, index, name} ) => {
                 </div>
                 <div className="carousel-card-body">
                     <div className="carousel-card-body-descript">
-                        <h5>{card.name}</h5>
+                        <h4>{card.name}</h4>
                         <p>{card.description}</p>
                     </div>
                     <Link to="">Learn more <FaAngleRight /></Link>

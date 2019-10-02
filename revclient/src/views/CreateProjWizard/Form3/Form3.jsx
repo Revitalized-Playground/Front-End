@@ -21,7 +21,7 @@ const Form3 = ({difficulty, duration, goalAmount, amountFunded, handleChanges, s
 
     return (
         <form onSubmit={(event) => submitForm(event)} className="form-3" >
-            <h2>Project Duration</h2>
+            <h4>Project Duration</h4>
             <input
                 required
                 label="Project Name"
@@ -32,7 +32,7 @@ const Form3 = ({difficulty, duration, goalAmount, amountFunded, handleChanges, s
                 value={duration}
                 onChange={e => handleChanges(e)}
             />
-            <h2>Goal Budget</h2>
+            <h4>Goal Budget</h4>
             <input
                 required
                 min='0'
@@ -44,7 +44,7 @@ const Form3 = ({difficulty, duration, goalAmount, amountFunded, handleChanges, s
                 onChange={e => {handleChanges(e); checker(e)}}
             />
             {!err && <p className='errorText'>Please make sure to enter a correct price</p>}
-            <h2>Project Difficulty Level</h2>
+            <h4>Project Difficulty Level</h4>
             <select
                 required
                 name="difficulty"

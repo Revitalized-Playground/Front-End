@@ -53,14 +53,14 @@ const CreateProjectWizard = ({history}) => {
             <div className="create-project-page">
                 <div className="form-plus-quote-container">
 
-                    <div className="quote">
-                        <h2>“Yesterday I was clever, 
+                    <q className="quote">
+                        <h5>“Yesterday I was clever, 
                             <br />so I wanted to change the world 
                             <br />Today I am wise, 
                             <br />so I am changing myself.”
-                        </h2>
+                        </h5>
                         <p>Jalal ad-Din Rumi PERSIAN POET</p>
-                    </div>
+                    </q>
                     
 
                     <div className="ui-section">

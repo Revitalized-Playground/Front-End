@@ -14,12 +14,11 @@
     margin: 0 auto;
     padding: 0 35px;
     section {
-        margin: 10px auto;
+        margin: 40px auto;
     }
-
     .slider {
         width: 100%;
-        margin: 1% auto 2%;
+        margin: 0 auto 20px;
         padding: 0 0px;
         .slick-prev {
             z-index: 3;
@@ -47,29 +46,10 @@
         }
     }
 
-    .recommened-projects-section {
-        h4 {
-            font-size: 2.3rem
-        }
-    }
-
-    .near-you-section {
-        h4 {
-            font-size: 2.3rem
-        }
-    }
-
-    .noteworthy-section {
-        h4 {
-            font-size: 2.3rem
-        }
-    }
-
-    .hireContainer {
-        h4 {
-            font-size: 2.3rem
-        }
-    }
+    // .recommened-projects-section {}
+    // .near-you-section {}
+    // .noteworthy-section {}
+    // .hireContainer {}
 
     .skeleton-slider {
         display: flex;

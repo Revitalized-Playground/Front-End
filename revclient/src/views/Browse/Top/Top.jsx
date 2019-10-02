@@ -4,8 +4,8 @@ const Top = () => {
     return (
         <div className="topContainer">
             <div className="title">
-                <p>What are your interests</p>
-                <p className="questionMark">?</p>    
+                <p>What are your interests?</p>
+                {/* <p className="questionMark">?</p>     */}
             </div>
             <div className="interests">
                 <div className="interests-left">

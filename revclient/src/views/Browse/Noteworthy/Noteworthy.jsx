@@ -4,7 +4,6 @@ import Slider from "react-slick";
 import CarouselCard from '../CarouselCard/CarouselCard';
 
 
-
 const Noteworthy = () => {
     
     const noteworthyData = [
@@ -41,7 +40,6 @@ const Noteworthy = () => {
         speed: 500,
         slidesToShow: 2,
         slidesToScroll: 0,
-        // swipeToSlide: true,
         centerPadding: "400px",
         lazyLoad: "progressive",
         className: "carousel-card",
