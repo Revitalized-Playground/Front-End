@@ -78,8 +78,7 @@ const Nav = props => {
 			<div className="leftNav">
 				<Link to="/" title="Home">
 					<div className="logo">
-						<img src={logo} alt="Revitalize logo" />
-						<h2>Revitalize </h2>
+						<span>Revitalize </span>
 					</div>
 				</Link>
 			</div>

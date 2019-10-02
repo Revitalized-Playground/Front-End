@@ -36,26 +36,19 @@ nav {
 		.logo {
 			display: flex;
 
-				margin: 10px;
+				margin: 20px;
 			// position: absolute;
 			// left: 4.5%;
 
 
-			img {
-				width:70px;
-				margin-right: 10px;
-				@media #{$tablet} {
-					display: none;
-				}
-			}
-			h2 {
+			span {
 				@media #{$tablet} {
 					color:$abatross;
 				}
+				font-family: "Futura-PT";
 				align-self: center;
-				font-size: 1.8rem;
-				font-weight: lighter;
-				letter-spacing: 0.06em;
+				font-size: 2.8rem;
+				letter-spacing: 0.09em;
 				color: $chillFi-purple;
 			}
 		}
@@ -65,7 +58,7 @@ nav {
 		display: flex;
 		justify-content: flex-end;
 		align-items: center;
-		font-size: 1.8rem;
+		font-size: 2.3rem;
 		width: 100%;
 		margin-right: 20px;
 		a {
