@@ -16,29 +16,52 @@
 		color: #000000;
 		margin-bottom: 9.7rem;
 	}
-	.grid-container {
-		display: grid;
-		grid-template-columns: 1fr 1fr 1fr;
+	.flex-container {
+		display: flex;
+		justify-content: center;
 
-		.squad-flex-one {
-			width: 46.2rem;
-			height: 65.5rem;
-			margin-bottom: 17.3rem;
+		.squad-flex-one,
+		.squad-flex-two,
+		.squad-flex-three {
+			display: flex;
+			flex-direction: column;
 
-			.name {
-				font-family: Futura;
-				font-size: 30px;
-				line-height: 1.61;
-				letter-spacing: 1.8px;
-				color: #ffffff;
+			.person {
+				padding: 1rem;
+				width: 46.2rem;
+				height: 65.5rem;
+				margin-bottom: 17.3rem;
+
+				.name {
+					font-family: Futura;
+					font-size: 30px;
+					line-height: 1.61;
+					letter-spacing: 1.8px;
+					color: #ffffff;
+				}
+				.role {
+					font-family: Futura;
+					font-size: 23px;
+					line-height: 1.61;
+					letter-spacing: 1.38px;
+					color: #ffffff;
+				}
+				.img-container {
+					outline: 1px solid red;
+					margin: 0 auto;
+					width: 100%;
+					height: 56rem;
+					img {
+						width: 80%;
+					}
+				}
 			}
-			.role {
-				font-family: Futura;
-				font-size: 23px;
-				line-height: 1.61;
-				letter-spacing: 1.38px;
-				color: #ffffff;
-			}
+		}
+		.squad-flex-two {
+			margin-top: 17.3rem;
+		}
+		.squad-flex-three {
+			margin-top: calc(17.3rem * 2);
 		}
 	}
 }
