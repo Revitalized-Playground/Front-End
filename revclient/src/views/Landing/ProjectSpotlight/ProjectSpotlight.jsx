@@ -24,7 +24,7 @@ const ProjectSpotlight = () => {
 				
 				<div className="user-story">
 					<img className="user-photo" src={Theatre} alt="Alger-Theater" />
-					<h2 className="user-info">{projectTitle}</h2>
+					<h3 className="user-info">{projectTitle}</h3>
 					<p>{projectStory}</p>
 				</div>
 				<div className='phoneContainer'>

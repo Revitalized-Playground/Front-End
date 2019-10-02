@@ -9,6 +9,9 @@ nav {
 	display: flex;
 	height: 90px;
 	padding: 5px 0px;
+	@media #{$mobile} {
+		background: $chillFi-purple;
+	}
 	@media #{$tablet} {
 		width: 100%;
 		position: sticky;
@@ -18,7 +21,6 @@ nav {
 	}
 	@media #{$mobile} {
 		background: $chillFi-purple;
-		height: 90px;
 	}
 	
 
@@ -41,8 +43,7 @@ nav {
 		}
 		.logo {
 			display: flex;
-
-				margin: 20px;
+			margin: 20px;
 			// position: absolute;
 			// left: 4.5%;
 
@@ -161,15 +162,12 @@ nav {
 			}
 		}
 		ul {
-			.navLinks {
-				a {
-					color: $maastricht-blue;
-				}
+			.navLinks a {
+				color: $maastricht-blue;
 			}
 			.login {
 				color: $snow-white;
 				background-color: $maastricht-blue;
-
 				&:hover {
 					color: $maastricht-blue;
 					background-color: $snow-white;
@@ -178,21 +176,38 @@ nav {
 			.register {
 				color: $snow-white;
 				background-color: $maastricht-blue;
-
 				&:hover {
 					color: $maastricht-blue;
 					background-color: $snow-white;
 				}
 			}
+			.user {
+				color: $maastricht-blue;
+			}
 		}
 	}
-	.dark-mode-emoji {
+	.right-nav .dark-mode-emoji {
+		svg {
+			color: $maastricht-blue;
+		}
 		@media #{$tablet}{
 			display: none;
 		}
+	}
+}
 
-		svg {
-			color: $police-blue;
-		}
+nav.nav-frosted {  
+	// // This is the frosted glass effect
+    // background-color: rgba($erudite-purple, 0.75);
+	// backdrop-filter: blur(8px); 
+	width: 100%;
+	position: fixed;
+	@media #{$mobile} {
+		background: inherit;
+		height: 90px;
+	}
+	@media #{$tablet} {
+		background: inherit;
+		height: 90px;
 	}
 }

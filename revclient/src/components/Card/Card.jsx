@@ -11,7 +11,7 @@ export default function Card({ img, title, description, key }) {
     return (
         <div className='card' key={key}>
             <img alt={`${title} cover`} src={img} />
-            <h4>{title}</h4>
+            <h3>{title}</h3>
             <p>{description.split('').map((eachLetter, letterLength) => {
                 if (letterLength <= 118) {
                     return eachLetter;
