@@ -9,11 +9,9 @@ nav {
 	padding: 5px 0px;
 	@media #{$mobile} {
 		background: $chillFi-purple;
-		height: 90px;
 	}
 	@media #{$tablet} {
 		background: $chillFi-purple;
-		height: 90px;
 	}
 
 	.userIcon {
@@ -197,5 +195,24 @@ nav {
 		@media #{$tablet}{
 			display: none;
 		}
+	}
+}
+
+nav.nav-frosted {  
+	// // This is the frosted glass effect
+    // background-color: rgba($erudite-purple, 0.75);
+	// backdrop-filter: blur(8px); 
+	width: 100%;
+	position: fixed;
+	@media #{$mobile} {
+		background: inherit;
+		height: 90px;
+	}
+	@media #{$tablet} {
+		background: inherit;
+		height: 90px;
+	}
+	.leftNav h2 {
+		color: $snow-white;
 	}
 }
