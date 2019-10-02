@@ -1,0 +1,44 @@
+.squad-container {
+	.title {
+		text-align: center;
+		font-family: Futura;
+		font-size: 90px;
+		line-height: 1.61;
+		letter-spacing: 5.4px;
+		color: #0b096f;
+	}
+	.description {
+		text-align: center;
+		font-family: Futura;
+		font-size: 22px;
+		line-height: 1.61;
+		letter-spacing: 1.32px;
+		color: #000000;
+		margin-bottom: 9.7rem;
+	}
+	.grid-container {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+
+		.squad-flex-one {
+			width: 46.2rem;
+			height: 65.5rem;
+			margin-bottom: 17.3rem;
+
+			.name {
+				font-family: Futura;
+				font-size: 30px;
+				line-height: 1.61;
+				letter-spacing: 1.8px;
+				color: #ffffff;
+			}
+			.role {
+				font-family: Futura;
+				font-size: 23px;
+				line-height: 1.61;
+				letter-spacing: 1.38px;
+				color: #ffffff;
+			}
+		}
+	}
+}
