@@ -73,6 +73,55 @@ const Nav = props => {
 		if (error) return <p>Error....</p>;
 	}
 
+	if (props.page === "login") {
+		return (
+			<nav className="nav-frosted">
+				<div className="leftNav">
+					<Link to="/" title="Home">
+						<div className="logo">
+							<img src={logo} alt="Revitalize logo" />
+						</div>
+					</Link>
+				</div>
+				<div className="right-nav">
+					<ul>
+						{localStorage.getItem('token') ? (
+							<>
+								{aLinks.map(({ key, href, label }) => (
+									<li className="navLinks" key={key}>
+										<Link to={href}>{label}</Link>
+									</li>
+								))}
+								<div className="user" onClick={toggleDropdown}>
+									<div>
+										{data.me.firstName !== null ? `Welcome, ${data.me.firstName}` : 'Welcome'}
+									</div>
+									{data.me.profileImage !== null
+										? <img className="userIcon" src={data.me.profileImage} alt={data.me.firstName}/>
+										: <Skeleton className="userIcon" circle={true} height={40} width={40} />
+									}
+								</div>
+								{clicked && (
+									<div className="dropdown">
+										<Link to="/dashboard" className="dropdown-option">Profile</Link>
+										<div className="dropdown-option">Setting</div>
+										<div onClick={toggleDarkMode} className="dropdown-option">
+											<FaMoon />
+											&nbsp; Dark mode: {darkModeActive ? 'on' : 'off'}
+										</div>
+										<div onClick={logout} className="dropdown-option">Log out</div>
+									</div>
+								)}
+							</>
+						) : (
+							null
+						)}
+					</ul>
+				</div>
+			</nav>
+		);
+	}
+
 	return (
 		<nav>
 			<div className="leftNav">
