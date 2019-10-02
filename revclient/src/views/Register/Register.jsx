@@ -61,7 +61,6 @@ const Register = props => {
 					<div className="register-third-party">
 						<div className="register-welcome">
 							<h2>Get Started!</h2>
-							<h2>Register</h2>
 						</div>
 						<button>
 							<div>

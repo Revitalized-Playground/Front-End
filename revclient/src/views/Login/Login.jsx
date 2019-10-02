@@ -56,7 +56,6 @@ const Login = props => {
 					<div className="login-third-party">
 						<div className="login-welcome">
 							<h2>Welcome Back!</h2>
-							<h2>Log In</h2>
 						</div>
 						<button>
 							<div>

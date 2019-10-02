@@ -166,15 +166,12 @@ nav {
 			}
 		}
 		ul {
-			.navLinks {
-				a {
-					color: $maastricht-blue;
-				}
+			.navLinks a {
+				color: $maastricht-blue;
 			}
 			.login {
 				color: $snow-white;
 				background-color: $maastricht-blue;
-
 				&:hover {
 					color: $maastricht-blue;
 					background-color: $snow-white;
@@ -183,21 +180,22 @@ nav {
 			.register {
 				color: $snow-white;
 				background-color: $maastricht-blue;
-
 				&:hover {
 					color: $maastricht-blue;
 					background-color: $snow-white;
 				}
 			}
+			.user {
+				color: $maastricht-blue;
+			}
 		}
 	}
-	.dark-mode-emoji {
+	.right-nav .dark-mode-emoji {
+		svg {
+			color: $maastricht-blue;
+		}
 		@media #{$tablet}{
 			display: none;
-		}
-
-		svg {
-			color: $police-blue;
 		}
 	}
 }
