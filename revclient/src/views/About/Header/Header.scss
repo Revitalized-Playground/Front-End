@@ -1,37 +1,38 @@
 .about-header {
-    background-color: $chillFi-purple;
-    display: flex;
-    justify-content: space-between;
+	background-color: $chillFi-purple;
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 11rem;
 
-    // .images {
-    //     display: flex;
-    //     justify-content: space-between;
-    //     flex-flow: row nowrap;
-    //     z-index: 0;
-    // }
-    h1 {
-        color: $snow-white;
-        font-family: 'futura-pt';
-        font-size: 9.3rem;
-        font-weight: 500;
-        line-height: 1.61;
-        letter-spacing: 5.58px;
-        position: absolute;
-        // margin: 50% 50%;
-        // text-align: center;
-        left: 33.3%;
-        top: 30%;
-        // margin: 0 auto;
-        z-index: 1;
-    }
-    img {
-        object-fit: contain;
-        overflow: hidden;
-    }
-    .img2 {
-        position: relative;
-        top: 27px;
-        right: 0;
-        margin-left: 10%;
-    }
+	// .images {
+	//     display: flex;
+	//     justify-content: space-between;
+	//     flex-flow: row nowrap;
+	//     z-index: 0;
+	// }
+	h1 {
+		color: $snow-white;
+		font-family: 'futura-pt';
+		font-size: 9.3rem;
+		font-weight: 500;
+		line-height: 1.61;
+		letter-spacing: 5.58px;
+		position: absolute;
+		// margin: 50% 50%;
+		// text-align: center;
+		left: 33.3%;
+		top: 30%;
+		// margin: 0 auto;
+		z-index: 1;
+	}
+	img {
+		object-fit: contain;
+		overflow: hidden;
+	}
+	.img2 {
+		position: relative;
+		top: 27px;
+		right: 0;
+		margin-left: 10%;
+	}
 }
