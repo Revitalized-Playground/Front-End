@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
-import Form1 from './Form1/Form1'
-import Form2 from './Form2/Form2'
-import Form3 from './Form3/Form3'
-
+import { withRouter } from 'react-router-dom';
 
 import { useMutation } from '@apollo/react-hooks';
 import { ADD_PROJECT } from '../../graphql/mutations/Project';
 
-import {withRouter} from 'react-router-dom'
-
-
 import Nav from "../../components/Layout/Nav";
+import Form1 from './Form1/Form1';
+import Form2 from './Form2/Form2';
+import Form3 from './Form3/Form3';
+
+
+
 
 // ====== properties needed ======
 //  - project start Date
@@ -25,9 +25,6 @@ const CreateProjectWizard = ({history}) => {
     const [formPosition, setFormPosition] = useState(1)
 
     const [addProject] = useMutation(ADD_PROJECT)
-    
-
-    console.log(projectDetails)
 
     const handleChanges = event => {
         if (event.target.name === 'zip' || event.target.name === 'goalAmount' || event.target.name === 'amountFunded' || event.target.name === 'duration') {
@@ -37,11 +34,9 @@ const CreateProjectWizard = ({history}) => {
         }
     }
 
-    const submitForm = async event => { 
+    const submitForm = async event => {
         event.preventDefault();
-        console.log('this is a project', projectDetails)
-        const addedProj = await addProject({variables: {data: projectDetails}})
-        console.log(addedProj)
+        const addedProj = await addProject({ variables: { data: projectDetails }})
         if(addedProj) {
             history.push(`/project/${addedProj.data.createProject.id}`)
         }
