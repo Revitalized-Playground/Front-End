@@ -15,9 +15,8 @@ import ProjectPage from './views/ProjectPage/ProjectPage'
 // Utils
 import AuthenticateUser from "./utils/AuthenticateUser";
 
-// Test
-import Dropzone from "./Dropzone";
-import Dropzone2 from "./Dropzone2";
+// Dropzone
+import Dropzone from "./components/PhotoUpload/Dropzone";
 
 
 export const Routes = () => {
@@ -62,18 +61,12 @@ export const Routes = () => {
                 )}
             />
 
-<Route
-    path="/dropzone"
-    render={() => (
-        <Dropzone />
-    )}
-/>
-<Route
-    path="/dropzone2"
-    render={() => (
-        <Dropzone2 />
-    )}
-/>
+            <Route
+                path="/dropzone"
+                render={() => (
+                    <Dropzone />
+                )}
+            />
 
             {/* private routes */}
 
