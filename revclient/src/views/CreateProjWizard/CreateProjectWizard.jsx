@@ -12,7 +12,7 @@ import Nav from "../../components/Layout/Nav";
 
 const CreateProjectWizard = () => {
     const [projectDetails, setProjectDetails] = useState({ projName: "", projStartDate: "", projDescription: "", projOwnerName: "", projAddress: "", city: "", state: "", zip: null, projectDuration: null, projBudget: null, difficultyLevel: null })
-    const [formPosition, setFormPosition] = useState(3)
+    const [formPosition, setFormPosition] = useState(1)
 
     const handleChanges = event => {
         console.log("event", event)

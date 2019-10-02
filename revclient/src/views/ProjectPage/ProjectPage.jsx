@@ -8,12 +8,12 @@ import pic2 from '../../assets/SingleProjectPage/pic2.jpeg'
 import pic3 from '../../assets/SingleProjectPage/pic3.jpeg'
 import commentProfile1 from '../../assets/SingleProjectPage/commentProfile1.png'
 import commentProfile2 from '../../assets/SingleProjectPage/commentProfile2.png'
-import userProfile from '../../assets/SingleProjectPage/userProfile.png'
+// import userProfile from '../../assets/SingleProjectPage/userProfile.png'
 import fb from '../../assets/AuthPages/fb-logo.png'
 import twtr from '../../assets/AuthPages/twitter.png'
 
 //Component Imports
-import Nav from '../../components/Layout/Nav';
+// import Nav from '../../components/Layout/Nav';
 import Footer from "../../components/Layout/Footer";
 
 import Donate from './ProjectDescription/Donate/Donate'
