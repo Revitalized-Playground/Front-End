@@ -7,6 +7,8 @@ import Form3 from './Form3/Form3'
 import { useMutation } from '@apollo/react-hooks';
 import { ADD_PROJECT } from '../../graphql/mutations/Project';
 
+import {withRouter} from 'react-router-dom'
+
 
 import Nav from "../../components/Layout/Nav";
 
@@ -18,7 +20,7 @@ import Nav from "../../components/Layout/Nav";
 
 
 
-const CreateProjectWizard = () => {
+const CreateProjectWizard = ({history}) => {
     const [projectDetails, setProjectDetails] = useState({ name: '', startDate: '', country: 'USA', duration: null, description: '',  address: '', city: '', state: '', zip: null,  goalAmount: null, difficulty: ''})
     const [formPosition, setFormPosition] = useState(1)
 
@@ -39,14 +41,16 @@ const CreateProjectWizard = () => {
         event.preventDefault();
         console.log('this is a project', projectDetails)
         const addedProj = await addProject({variables: {data: projectDetails}})
-        console.log('proj', addedProj)
+        console.log(addedProj)
+        if(addedProj) {
+            history.push(`/project/${addedProj.data.createProject.id}`)
+        }
     }
 
     return (
         <>
             <Nav />
             <div className="create-project-page">
-                {/* <img src={cloud} alt="cloud" className="bottom-cloud" /> */}
                 <div className="form-plus-quote-container">
 
                     <div className="quote">
@@ -107,4 +111,4 @@ const CreateProjectWizard = () => {
     );
 };
 
-export default CreateProjectWizard;
+export default withRouter(CreateProjectWizard);
