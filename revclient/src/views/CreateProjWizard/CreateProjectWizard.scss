@@ -92,8 +92,8 @@
 			form {
 				display: flex;
 				flex-direction: column;
-				width: 42%;
-				margin: 0 auto;
+				width: 45%;
+				margin: 0 auto 0 12%;
 				height: 500px;
 				@media #{$tablet} {
 					width: 60%;
