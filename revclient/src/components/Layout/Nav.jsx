@@ -3,8 +3,7 @@ import { Link, withRouter } from 'react-router-dom';
 import Skeleton from 'react-loading-skeleton';
 
 import logo from '../../assets/LandingPage/Logo.png';
-// import darkModeEmoji from '../../assets/Global/Nav/night-mode-512.png';
-// import lightModeEmoji from '../../assets/Global/Nav/night-mode-512.png';
+
 import { FaMoon } from 'react-icons/fa';
 
 import { useQuery } from '@apollo/react-hooks';

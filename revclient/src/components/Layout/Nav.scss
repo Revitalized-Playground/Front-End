@@ -37,8 +37,7 @@ nav {
 		}
 		.logo {
 			display: flex;
-
-				margin: 20px;
+			margin: 20px;
 			// position: absolute;
 			// left: 4.5%;
 
@@ -204,8 +203,5 @@ nav.nav-frosted {
 	@media #{$tablet} {
 		background: inherit;
 		height: 90px;
-	}
-	.leftNav h2 {
-		color: $snow-white;
 	}
 }

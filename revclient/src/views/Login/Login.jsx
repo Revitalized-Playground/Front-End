@@ -7,11 +7,11 @@ import {
 } from "../../graphql/mutations"; 
 
 import { Link, withRouter } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa";
 
 import googleLogo from "../../assets/AuthPages/Google.png";
 import fbLogo from "../../assets/AuthPages/fb-logo.png";
 
-import Nav from "../../components/Layout/Nav";
 
 
 const Login = props => {
@@ -41,19 +41,16 @@ const Login = props => {
 		localStorage.setItem("token", created.data.loginUser.token);
 		props.history.push("/");
 	};
+
+	const goBack = () => {
+		props.history.push("/");
+	}
 	
 	return (
 		<>
-			<Nav page="login" />
 			<div className="login-container">
+				<FaArrowLeft onClick={goBack} />
 				<div className="login-container-left">
-					{/* <div className="revitalizeLogo-container">
-						<Link to="/" title="Home">
-							<div>
-								<img src={revitalizeLogo} alt="Revitalize logo" />
-							</div>
-						</Link>
-					</div> */}
 					<div className="login-form">
 						<div className="login-third-party">
 							<div className="login-welcome">
