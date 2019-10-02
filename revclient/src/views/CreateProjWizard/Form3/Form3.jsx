@@ -1,4 +1,6 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react';
+import Droppy from "../../../components/PhotoUpload/Droppy";
+
 
 const Form3 = ({ projDuration, projBudget, handleChanges, submitForm, setFormPosition }) => {
 
@@ -52,6 +54,7 @@ const Form3 = ({ projDuration, projBudget, handleChanges, submitForm, setFormPos
                 <option >Hard</option>
 
             </select>
+            <Droppy />
             <div className="form-navigation">
                 <button className="next-step" type="submit">Submit!</button>
                 <button className="prev-step" onClick={() => setFormPosition(2)}>&larr; Previous!</button>

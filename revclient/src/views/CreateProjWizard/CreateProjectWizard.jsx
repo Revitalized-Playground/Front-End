@@ -12,10 +12,10 @@ import Nav from "../../components/Layout/Nav";
 
 const CreateProjectWizard = () => {
     const [projectDetails, setProjectDetails] = useState({ projName: "", projStartDate: "", projDescription: "", projOwnerName: "", projAddress: "", city: "", state: "", zip: null, projectDuration: null, projBudget: null, difficultyLevel: null })
-    const [formPosition, setFormPosition] = useState(1)
+    const [formPosition, setFormPosition] = useState(3)
 
     const handleChanges = event => {
-        console.log("event", event)
+        // console.log("event", event)
         if (event.target.name === 'zip' || event.target.name === 'projBudget') {
             setProjectDetails({ ...projectDetails, [event.target.name]: Number(event.target.value) })
         } else {
@@ -23,11 +23,12 @@ const CreateProjectWizard = () => {
         }
     }
 
-    const submitForm = (event) => { event.preventDefault(); console.log("submitted") }
+    const submitForm = event => { 
+        event.preventDefault(); 
+        console.log("submitted") 
+    }
 
 
-
-    console.log(projectDetails);
     return (
         <>
             <Nav />

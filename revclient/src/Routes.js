@@ -15,8 +15,6 @@ import ProjectPage from './views/ProjectPage/ProjectPage'
 // Utils
 import AuthenticateUser from "./utils/AuthenticateUser";
 
-// Dropzone
-import Dropzone from "./components/PhotoUpload/Dropzone";
 
 
 export const Routes = () => {
@@ -58,13 +56,6 @@ export const Routes = () => {
                 path="/dashboard"
                 render={() => (
                     <Dashboard />
-                )}
-            />
-
-            <Route
-                path="/dropzone"
-                render={() => (
-                    <Dropzone />
                 )}
             />
 
