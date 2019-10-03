@@ -97,9 +97,7 @@ nav {
 
 			.logout{
 				display:none;
-				@media #{$tablet} {
-					display: flex;
-				}
+				
 			}
 			.user {
 				display: flex;
@@ -141,20 +139,32 @@ nav {
 				}
 			}
 			.dropdown {
-				background-color: $chillFi-purple;
-				color: $snow-white;
+				background-color: $snow-white;
+				color: $chillFi-purple;
+				border: 3px solid #14128f;
+				border-radius:6px;
 				position: absolute;
 				top: 80px;
 				right: 0;
-				padding: 10px 20px 10px 10px;
-				margin-right: 20px;
+				width: 265px;
+				padding: 20px 10px 15px 20px;
+				margin-right: 25px;
 				z-index: 10;
 				@media #{$tablet} {
 					display: none;
 				}
 				.dropdown-option {
-					margin: 5px 0;
+					margin: 15px 0;
 					cursor: pointer;
+					font-size:26px;
+					padding:5px;
+					display: flex;
+					.icon{
+						width:26px;
+						padding:2px;
+						margin-right:25px;
+						align-content: center;
+					}
 				}
 			}
 		}
