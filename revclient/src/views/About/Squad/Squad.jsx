@@ -8,32 +8,49 @@ import jose from '../../../assets/AboutPage/Jose.svg';
 import omar from '../../../assets/AboutPage/Omar.svg';
 import ruth from '../../../assets/AboutPage/Ruth.svg';
 import skyelar from '../../../assets/AboutPage/Skyelar.svg';
+import anthony from '../../../assets/AboutPage/anthony.svg';
 
 const Squad = () => {
 	const squad1 = [
 		{
 			name: 'Anthony Venturini',
 			role: 'CEO/Product Manager',
-			image: 'https://res.cloudinary.com/revitalize/image/upload/v1570036587/about%20page/Anthony_hrzqq1.svg',
+			image: `${anthony}`,
 			background: '#ffb588',
+			bio: '',
+			github: '',
+			linkedIn: '',
+			twitter: '',
 		},
 		{
 			name: 'Ruth Philips',
 			role: 'Product Designer/UX Writer/Content Strategist',
 			image: `${ruth}`,
 			background: '#49a2ff',
+			bio: '',
+			github: '',
+			linkedIn: '',
+			twitter: '',
 		},
 		{
 			name: 'Omar Salah',
 			role: 'Full Stack Developer',
 			image: `${omar}`,
 			background: '#d2405b',
+			bio: '',
+			github: '',
+			linkedIn: '',
+			twitter: '',
 		},
 		{
 			name: 'Frank Martinez',
 			role: 'Full Stack Developer',
 			image: `${frank}`,
 			background: '#007ea7',
+			bio: '',
+			github: '',
+			linkedIn: '',
+			twitter: '',
 		},
 	];
 	const squad2 = [
@@ -42,6 +59,10 @@ const Squad = () => {
 			role: 'Product Design Evangelist',
 			image: `${kerry}`,
 			background: '#4840ba',
+			bio: '',
+			github: '',
+			linkedIn: '',
+			twitter: '',
 		},
 
 		{
@@ -49,6 +70,10 @@ const Squad = () => {
 			role: 'Full Stack Developer',
 			image: `${jose}`,
 			background: '#235597',
+			bio: '',
+			github: '',
+			linkedIn: '',
+			twitter: '',
 		},
 
 		{
@@ -56,6 +81,10 @@ const Squad = () => {
 			role: 'Full Stack Developer',
 			image: `${skyelar}`,
 			background: '#4840ba',
+			bio: '',
+			github: '',
+			linkedIn: '',
+			twitter: '',
 		},
 	];
 	const squad3 = [
@@ -64,6 +93,10 @@ const Squad = () => {
 			role: 'Full Stack Developer',
 			image: 'https://res.cloudinary.com/revitalize/image/upload/v1570036577/about%20page/Alex_uqo9oo.svg',
 			background: '#f78539',
+			bio: '',
+			github: '',
+			linkedIn: '',
+			twitter: '',
 		},
 
 		{
@@ -71,6 +104,10 @@ const Squad = () => {
 			role: 'Full Stack Developer',
 			image: 'https://res.cloudinary.com/revitalize/image/upload/v1570036576/about%20page/Elan_w397tt.svg',
 			background: '#d6ad2f',
+			bio: '',
+			github: '',
+			linkedIn: '',
+			twitter: '',
 		},
 
 		{
@@ -78,6 +115,10 @@ const Squad = () => {
 			role: 'Full Stack Developer',
 			image: `${clark}`,
 			background: '#0051be',
+			bio: '',
+			github: '',
+			linkedIn: '',
+			twitter: '',
 		},
 	];
 	return (
@@ -87,7 +128,7 @@ const Squad = () => {
 			<div className="flex-container">
 				<div className="squad-flex-one">
 					{squad1.map(person => (
-						<div className='person' style={{ backgroundColor: `${person.background}` }}>
+						<div className="person" style={{ backgroundColor: `${person.background}` }}>
 							<h2 className="name"> {person.name}</h2>
 							<h3 className="role"> {person.role}</h3>
 							<div className="img-container">
@@ -98,7 +139,7 @@ const Squad = () => {
 				</div>
 				<div className="squad-flex-two">
 					{squad2.map(person => (
-						<div className='person' style={{ backgroundColor: `${person.background}` }}>
+						<div className="person" style={{ backgroundColor: `${person.background}` }}>
 							<h2 className="name"> {person.name}</h2>
 							<h3 className="role"> {person.role}</h3>
 							<div className="img-container">
@@ -110,7 +151,7 @@ const Squad = () => {
 
 				<div className="squad-flex-three">
 					{squad3.map(person => (
-						<div className='person' style={{ backgroundColor: `${person.background}` }}>
+						<div className="person" style={{ backgroundColor: `${person.background}` }}>
 							<h2 className="name"> {person.name}</h2>
 							<h3 className="role"> {person.role}</h3>
 							<div className="img-container">
