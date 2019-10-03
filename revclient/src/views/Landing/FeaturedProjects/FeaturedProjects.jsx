@@ -11,7 +11,7 @@ const projects = [
 	{
 		title: 'Team Rubicon',
 		description:
-			'Learn next to master trade professionals that are available during the day and after hours. Learn next to master trade Learn next to master trade professionals that are available during the day and after hours. Learn next to master trade',
+			'Learn next to master trade professionals that are available during the day and after hours.',
 		img: tr,
 	},
 	{
@@ -54,10 +54,10 @@ const projects = [
 const FeaturedProjects = () => {
 	const [featured] = useState(projects);
 
-	if (!projects) return <div>Loading</div>;
+	if (!projects) return <div>Loading...</div>;
 	return (
 		<div className="FPContainer">
-			<h1>Featured Projects</h1>
+			<h2>Featured Projects</h2>
 			<div className="FPProjectList">
 				{featured.map(({ img, title, description }, i) =>
 					i < 3 ? <Card className="card" img={img} title={title} description={description} key={i} /> : null,

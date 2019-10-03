@@ -1,17 +1,10 @@
-/**
- * * Description of component
- * TODO: things to do
- * @props description 
- */
+import React from 'react';
 
-import React from 'react'
-
-export default function Card({ img, title, description, key }) {
-    console.log(img)
+export default function Card({ img, title, description, index }) {
     return (
-        <div className='card' key={key}>
+        <div className='card' key={index}>
             <img alt={`${title} cover`} src={img} />
-            <h4>{title}</h4>
+            <h3>{title}</h3>
             <p>{description.split('').map((eachLetter, letterLength) => {
                 if (letterLength <= 118) {
                     return eachLetter;
@@ -22,4 +15,4 @@ export default function Card({ img, title, description, key }) {
             </p>
         </div>
     )
-}
+};

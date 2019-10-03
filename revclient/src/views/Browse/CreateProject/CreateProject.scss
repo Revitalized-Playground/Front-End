@@ -1,4 +1,4 @@
-.createProjectContainer {
+.startContainer section.createProjectContainer {
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -6,7 +6,7 @@
     width: 100%;
     background-color: $snow-white;
     padding: 6%;
-    margin: 4% 0;
+    margin: 0 auto;
     border-radius: 5px;
     @media #{$tablet}{
         flex-direction: column;
@@ -44,10 +44,10 @@
             }
         }
         button {
-            @include buttonStyler($chillFi-purple, $snow-white, none, 5% 0);
+            @include buttonStyler($chillFi-purple, $snow-white, none, 0);
             width: 45%;
-            font-size: 22px;
-            line-height: 147.81%;
+            font-size: 2.2rem;
+            line-height: 1;
             letter-spacing: 0.06rem;
             @media #{$tablet}{
                 padding: 15px 20px;
@@ -62,7 +62,27 @@
                 width: 100%;
                 padding: 15px 30px;
             }
-            // margin-top: 5%;
         }
     }
 }
+
+.dark-mode {
+    section.createProjectContainer {
+        background-color: unset;
+        .right {
+            margin: 5% unset;
+            p {
+                color: $snow-white;
+                margin-bottom: 5%;
+            }
+            button {
+                @include buttonStyler($maastricht-blue, $snow-white, none, 0);
+                width: 45%;
+                font-size: 2.2rem;
+                line-height: 1;
+                letter-spacing: 0.06rem;
+            }
+        }
+    }
+}
+

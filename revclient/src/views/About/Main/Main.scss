@@ -1,0 +1,43 @@
+.main-container {
+	margin-bottom: 16rem;
+	.title {
+		max-width: 135.9rem;
+		width: 100%;
+		font-family: Futura;
+		font-size: 48px;
+		line-height: 1.61;
+		letter-spacing: 2.88px;
+		text-align: center;
+		margin: 0 auto;
+		color: #0b096f;
+		margin-bottom: 6rem;
+	}
+
+	.main-content {
+		display: flex;
+		justify-content: space-between;
+		.main-left {
+			width: 52%;
+			margin: -20rem 0 0 0;
+
+			img {
+				width: 92%;
+			}
+		}
+		.main-right {
+			width: 68%;
+			p {
+				padding-right: 17rem;
+				font-family: Futura;
+				font-size: 22px;
+				font-weight: 500;
+				font-style: normal;
+				font-stretch: normal;
+				line-height: 1.61;
+				letter-spacing: 1.32px;
+				color: #000000;
+				margin-bottom: 3.3rem;
+			}
+		}
+	}
+}

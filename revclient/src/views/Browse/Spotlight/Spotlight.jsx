@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import building from '../../../assets/BrowsePage/SpotlightBuilding.png';
-import heart from '../../../assets/BrowsePage/HeartVector.png';
+// import heart from '../../../assets/BrowsePage/HeartVector.png';
 
 const Spotlight = () => {
     
@@ -26,7 +26,7 @@ const Spotlight = () => {
                 <p>{spotlight.description}</p>
                 <Link to={spotlight.link}>Learn more &gt;</Link>
             </div>
-            <img src={heart} alt="heart" className="heart" />
+            {/* <img src={heart} alt="heart" className="heart" /> */}
         </div>
     );
 };

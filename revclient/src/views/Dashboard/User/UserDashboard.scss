@@ -1,46 +1,46 @@
 // Move to global?
-@import "./Sidebar/Sidebar.scss";
+@import './Sidebar/Sidebar.scss';
+@import './Header/Header.scss';
+@import './Main/Main.scss';
 
 hr {
-    width: calc(100% + 20px);
-    margin-left: -10px;
-    border: none;
-    border-top-color: $silver-lining;
-    border-top-width: 1px;
-    border-top-style: solid;
+	width: calc(100% + 20px);
+	margin-left: -10px;
+	border: none;
+	border-top-color: $silver-lining;
+	border-top-width: 1px;
+	border-top-style: solid;
 }
 // END Move to global?
 
-
 .user-dashboard {
-    width: 100%;
-    display: flex;
-    padding-left: 10px;
-    padding-right: 10px;
-    margin-bottom: 60px;
-    .user-dashboard-body {
-        width: calc(75% - 40px);
-        .user-dashboard-header {
-            width:100%;
-            display: flex;
-            span {
-                margin-right: 50px;
-            }
-        }
-        .user-dashboard-main {
-            width:100%;
-            .user-dashboard-main-body {
-                line-height: 3;
-            }
-        }
-    }
-    .user-dashboard-title {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-    }
-    .section[class^="user-dashboard"] {
-        @include sections;
-        @include bottomBoxShadow;
-    }
+	width: 100%;
+	display: flex;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-bottom: 60px;
+	.user-dashboard-body {
+		width: calc(75% - 40px);
+		.user-dashboard-header {
+			width: 100%;
+			display: flex;
+			span {
+				margin-right: 50px;
+			}
+		}
+	}
+	.section[class^='user-dashboard'] {
+		@include skeleton-section;
+		@include bottomBoxShadow;
+	}
+	.user-dashboard-sidebar, .user-dashboard-header, .user-dashboard-main {
+		background: $snow-white;
+	}
+}
+.dark-mode {
+	.user-dashboard-sidebar, .user-dashboard-header, .user-dashboard-main {
+		background-color: #152531;
+		// border: none;
+		// color: $snow-white;
+	}
 }

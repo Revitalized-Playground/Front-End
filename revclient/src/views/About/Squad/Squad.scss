@@ -1,0 +1,70 @@
+.squad-container {
+	.title {
+		text-align: center;
+		font-family: Futura;
+		font-size: 90px;
+		line-height: 1.61;
+		letter-spacing: 5.4px;
+		color: #0b096f;
+	}
+	.description {
+		text-align: center;
+		font-family: Futura;
+		font-size: 22px;
+		line-height: 1.61;
+		letter-spacing: 1.32px;
+		color: #000000;
+		margin-bottom: 9.7rem;
+	}
+	.flex-container {
+		display: flex;
+		justify-content: center;
+
+		.squad-flex-one,
+		.squad-flex-two,
+		.squad-flex-three {
+			display: flex;
+			flex-direction: column;
+
+			.person {
+				padding: 1rem 1rem 0 1rem;
+				width: 46.2rem;
+				height: 65.5rem;
+				margin-bottom: 17.3rem;
+
+				.name {
+					height: 7%;
+					font-family: Futura;
+					font-size: 30px;
+					line-height: 1.61;
+					letter-spacing: 1.8px;
+					color: #ffffff;
+				}
+				.role {
+					height: 13%;
+					font-family: Futura;
+					font-size: 23px;
+					line-height: 1.61;
+					letter-spacing: 1.38px;
+					color: #ffffff;
+				}
+				.img-container {
+					margin: 0 auto;
+					width: 100%;
+					height: 80%;
+					img {
+						width: 100%;
+						height: 100%;
+						object-fit: contain;
+					}
+				}
+			}
+		}
+		.squad-flex-two {
+			margin-top: 17.3rem;
+		}
+		.squad-flex-three {
+			margin-top: calc(17.3rem * 2);
+		}
+	}
+}
