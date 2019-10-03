@@ -17,24 +17,40 @@ const Squad = () => {
 			role: 'CEO/Product Manager',
 			image: `${anthony}`,
 			background: '#ffb588',
+			bio: '',
+			github: '',
+			linkedIn: '',
+			twitter: '',
 		},
 		{
 			name: 'Ruth Philips',
 			role: 'Product Designer/UX Writer/Content Strategist',
 			image: `${ruth}`,
 			background: '#49a2ff',
+			bio: '',
+			github: '',
+			linkedIn: '',
+			twitter: '',
 		},
 		{
 			name: 'Omar Salah',
 			role: 'Full Stack Developer',
 			image: `${omar}`,
 			background: '#d2405b',
+			bio: '',
+			github: '',
+			linkedIn: '',
+			twitter: '',
 		},
 		{
 			name: 'Frank Martinez',
 			role: 'Full Stack Developer',
 			image: `${frank}`,
 			background: '#007ea7',
+			bio: '',
+			github: '',
+			linkedIn: '',
+			twitter: '',
 		},
 	];
 	const squad2 = [
@@ -43,6 +59,10 @@ const Squad = () => {
 			role: 'Product Design Evangelist',
 			image: `${kerry}`,
 			background: '#4840ba',
+			bio: '',
+			github: '',
+			linkedIn: '',
+			twitter: '',
 		},
 
 		{
@@ -50,6 +70,10 @@ const Squad = () => {
 			role: 'Full Stack Developer',
 			image: `${jose}`,
 			background: '#235597',
+			bio: '',
+			github: '',
+			linkedIn: '',
+			twitter: '',
 		},
 
 		{
@@ -57,6 +81,10 @@ const Squad = () => {
 			role: 'Full Stack Developer',
 			image: `${skyelar}`,
 			background: '#4840ba',
+			bio: '',
+			github: '',
+			linkedIn: '',
+			twitter: '',
 		},
 	];
 	const squad3 = [
@@ -65,6 +93,10 @@ const Squad = () => {
 			role: 'Full Stack Developer',
 			image: 'https://res.cloudinary.com/revitalize/image/upload/v1570036577/about%20page/Alex_uqo9oo.svg',
 			background: '#f78539',
+			bio: '',
+			github: '',
+			linkedIn: '',
+			twitter: '',
 		},
 
 		{
@@ -72,6 +104,10 @@ const Squad = () => {
 			role: 'Full Stack Developer',
 			image: 'https://res.cloudinary.com/revitalize/image/upload/v1570036576/about%20page/Elan_w397tt.svg',
 			background: '#d6ad2f',
+			bio: '',
+			github: '',
+			linkedIn: '',
+			twitter: '',
 		},
 
 		{
@@ -79,6 +115,10 @@ const Squad = () => {
 			role: 'Full Stack Developer',
 			image: `${clark}`,
 			background: '#0051be',
+			bio: '',
+			github: '',
+			linkedIn: '',
+			twitter: '',
 		},
 	];
 	return (
