@@ -110,3 +110,22 @@
 		}
 	}
 }
+.dark-mode {
+	.header-middle {
+		h2, h3, .header-middle-description {
+			color: $snow-white;
+		}
+	}
+	.header-bottom {
+		.team-members {
+			p {
+				color: $snow-white;
+			}
+			.member-icons {
+				.count {
+					color: $snow-white;
+				}
+			}
+		}
+	}
+}

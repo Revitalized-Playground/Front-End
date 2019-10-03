@@ -10,7 +10,8 @@ const Sidebar = props => {
             <div className="sidebar-top">
                 <Link to="#"><h6>EDIT</h6></Link>
                 {
-                    <img src={props.user.profileImage} alt="user" className="user-picture" />
+                    // <img src={props.user.profileImage} alt="user" className="user-picture" />
+                    <img src={props.realMe.profileImage} alt="user" className="user-picture" />
                     ||
                     <Skeleton circle={true} height={110} width={110} />
                 }
