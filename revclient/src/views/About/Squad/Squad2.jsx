@@ -41,10 +41,10 @@ const Squad2 = () => {
 			// image: 'https://res.cloudinary.com/revitalize/image/upload/v1570036577/about%20page/Alex_uqo9oo.svg',
 			background: '#f78539',
 			bio: '',
-			github: '',
+			github: 'https://github.com/AlexxanderP',
 			facebook: '',
-			linkedIn: '',
-			twitter: '',
+			linkedIn: 'https://www.linkedin.com/in/alexander-piroumian/',
+			twitter: 'https://twitter.com/expertgoogler',
 		},
 		{
 			name: 'Ruth Philips',
