@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import MapGL, { GeolocateControl } from 'react-map-gl'
-// import 'mapbox-gl/dist/mapbox-gl.css'
 
-const TOKEN = process.env.REACT_APP_MAP_BOX
+const token = process.env.REACT_APP_MAP_BOX
 
 const geolocateStyle = {
     float: 'left',
@@ -27,7 +26,7 @@ const Map = () => {
 
             <MapGL
                 {...viewport}
-                mapboxApiAccessToken={TOKEN}
+                mapboxApiAccessToken={token}
                 mapStyle="mapbox://styles/mapbox/dark-v8"
                 onViewportChange={_onViewportChange}
             >

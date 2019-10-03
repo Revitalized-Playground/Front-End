@@ -1,7 +1,6 @@
 import React from 'react';
 
 export default function Card({ img, title, description, index }) {
-    console.log(index)
     return (
         <div className='card' key={index}>
             <img alt={`${title} cover`} src={img} />

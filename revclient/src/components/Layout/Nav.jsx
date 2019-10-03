@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import Skeleton from 'react-loading-skeleton';
 
-import logo from '../../assets/LandingPage/Logo.png';
 import { FaMoon } from 'react-icons/fa';
 
 import { useQuery } from '@apollo/react-hooks';

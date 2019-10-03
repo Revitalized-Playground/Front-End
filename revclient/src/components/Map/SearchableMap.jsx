@@ -1,21 +1,21 @@
-import "mapbox-gl/dist/mapbox-gl.css"
-import "react-map-gl-geocoder/dist/mapbox-gl-geocoder.css"
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import MapGL, { Marker, Popup, GeolocateControl, NavigationControl } from "react-map-gl";
 import DeckGL, { GeoJsonLayer } from "deck.gl";
 import Geocoder from "react-map-gl-geocoder";
-import logo from '../../assets/logo.svg'
-const token = process.env.REACT_APP_MAP_BOX
+
+const token = process.env.REACT_APP_MAPBOX_TOKEN
 
 class SearchableMap extends Component {
     state = {
-        viewport: {
-            latitude: 36.230099,
-            longitude: -101.887639,
-            zoom: 3
+        viewport: { // SF
+            latitude: 37.78846,
+            longitude: -122.399754,
+            pitch: 60,
+            bearing: 9.6,
+            zoom: 15.82,
         },
         searchResultLayer: null,
-        selectedProject:null,
+        selectedProject: null,
         gpsArray: [
             { lat: 27.192223, long: - 80.243057 },
             { lat: 31.442778, long: - 100.450279 },
@@ -73,8 +73,6 @@ class SearchableMap extends Component {
     // This will be the API URL for Geocoding but we will need to request them independently 10 at a time (time consuming to convert an array to Lat and Long)
     // `https://api.mapbox.com/geocoding/v5/mapbox.places/${queryStringForGeocoding}.json?type=address&proximity=${usersGeoLocationCSVLatLong}&access_token=${TOKEN}`
 
-
-
     mapRef = React.createRef()
 
     handleViewportChange = viewport => {
@@ -113,11 +111,11 @@ class SearchableMap extends Component {
                 <MapGL
                     ref={this.mapRef}
                     {...viewport}
-                    mapStyle="mapbox://styles/mapbox/streets-v9"
+                    mapStyle={process.env.REACT_APP_MAPBOX_3DMAP}
+                    mapboxApiAccessToken={token}
                     width="inherit"
                     height="650px"
                     onViewportChange={this.handleViewportChange}
-                    mapboxApiAccessToken={token}
                 >
                     <Geocoder
                         mapRef={this.mapRef}
