@@ -17,7 +17,7 @@ const Squad = () => {
 			role: 'CEO/Product Manager',
 			// image: `${anthony}`,
 			background: '#ffb588',
-			bio: '',
+			bio: 'Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for will uncover many web sites still in their infancy. ',
 			github: '',
 			linkedIn: '',
 			twitter: '',
@@ -116,9 +116,9 @@ const Squad = () => {
 			// image: `${clark}`,
 			background: '#0051be',
 			bio: '',
-			github: '',
-			linkedIn: '',
-			twitter: '',
+			github: 'https://github.com/Cwill14',
+			linkedIn: 'https://www.linkedin.com/in/clark-williams14/',
+			twitter: 'https://twitter.com/clarktwilliams',
 		},
 	];
 	return (
@@ -135,7 +135,13 @@ const Squad = () => {
 								<img src={person.image} alt="person" />
 							</div>
 							<div className="overlay">
-								<div className="text">Hello World</div>
+								<div className="text">{person.bio}</div>
+								<div className="social">
+									<a href={person.github} alt="Github"> <i className="fa fa-github"></i> </a>
+									<a href={person.facebook} alt="Facebook"> <i className="fa fa-facebook"></i> </a>
+									<a href={person.linkedIn} alt="LinkedIn"> <i className="fa fa-linkedin"></i> </a>
+									<a href={person.twitter} alt="Twitter"> <i className="fa fa-twitter"></i> </a>
+								</div>
 							</div>
 						</div>
 					))}
@@ -148,6 +154,15 @@ const Squad = () => {
 							<div className="img-container">
 								<img src={person.image} alt="person" />
 							</div>
+							<div className="overlay">
+								<div className="text">{person.bio}</div>
+								<div className="social">
+									<a href={person.github} alt="Github"> <i className="fa fa-github"></i> </a>
+									<a href={person.facebook} alt="Facebook"> <i className="fa fa-facebook"></i> </a>
+									<a href={person.linkedIn} alt="LinkedIn"> <i className="fa fa-linkedin"></i> </a>
+									<a href={person.twitter} alt="Twitter"> <i className="fa fa-twitter"></i> </a>
+								</div>
+							</div>
 						</div>
 					))}
 				</div>
@@ -159,6 +174,15 @@ const Squad = () => {
 							<h3 className="role"> {person.role}</h3>
 							<div className="img-container">
 								<img src={person.image} alt="person" />
+							</div>
+							<div className="overlay">
+								<div className="text">{person.bio}</div>
+								<div className="social">
+									<a href={person.github} alt="Github"> <i className="fa fa-github"></i> </a>
+									<a href={person.facebook} alt="Facebook"> <i className="fa fa-facebook"></i> </a>
+									<a href={person.linkedIn} alt="LinkedIn"> <i className="fa fa-linkedin"></i> </a>
+									<a href={person.twitter} alt="Twitter"> <i className="fa fa-twitter"></i> </a>
+								</div>
 							</div>
 						</div>
 					))}
