@@ -108,10 +108,8 @@ class SearchableMap extends Component {
     render() {
         const { viewport, searchResultLayer } = this.state;
         return (
-            <div style={{ height: '100%', width:"100%" }}>
-                {/* <h1 
-                    style={{ textAlign: 'center', fontSize: '25px', fontWeight: 'bolder', marginBottom:"25px" }}
-                >Search For Apprenticeship Projects Near You!</h1>
+            <div className="searchable-map">
+                {/* 
                 <MapGL
                     ref={this.mapRef}
                     {...viewport}
