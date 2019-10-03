@@ -1,10 +1,14 @@
-import React, { } from 'react';
-
+import React, { useState } from 'react';
+import SearchableMap from '../../../components/Map/SearchableMap'
 const SearchProjects = () => {
 
 	return (
 		<section className="search-projects-near-you">
-			<div
+			{/* <form
+				onSubmit={event => {
+					event.preventDefault();
+					setInput('');
+				}}
 				className="search-projects"
 			>
 				<h2>
@@ -19,8 +23,17 @@ const SearchProjects = () => {
 					Explore various projects trending in your local area and be the first to see what's
 					going on.
 				</p>
-			</div>
-			<div className="search-projects-map">Map goes here</div>
+				<div className="search-form">
+					<input
+						type="text"
+						placeholder="Enter Location"
+						value={locationInput}
+						onChange={e => setInput(e.target.value)}
+					/>
+					<button>Search Now!</button> */}
+				{/* </div> */}
+			{/* </form> */}
+			<SearchableMap className="fake-map" />
 		</section>
 	);
 };
