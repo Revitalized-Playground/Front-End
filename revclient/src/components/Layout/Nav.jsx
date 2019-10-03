@@ -115,7 +115,7 @@ const Nav = props => {
 									<div className="dropdown-option"><FaCog className="icon"/> Setting</div>
 									<div onClick={toggleDarkMode} className="dropdown-option">
 										<FaMoon className="icon"/>
-										Dark mode: {darkModeActive ? 'on' : 'off'}
+										Dark mode
 									</div>
 									<div onClick={logout} className="dropdown-option">
 									<FaWindowClose className="icon"/>Log out
