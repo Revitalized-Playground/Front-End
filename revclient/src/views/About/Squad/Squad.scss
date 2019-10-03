@@ -27,12 +27,13 @@
 			flex-direction: column;
 
 			.person {
-				padding: 1rem;
+				padding: 1rem 1rem 0 1rem;
 				width: 46.2rem;
 				height: 65.5rem;
 				margin-bottom: 17.3rem;
 
 				.name {
+					height: 7%;
 					font-family: Futura;
 					font-size: 30px;
 					line-height: 1.61;
@@ -40,6 +41,7 @@
 					color: #ffffff;
 				}
 				.role {
+					height: 13%;
 					font-family: Futura;
 					font-size: 23px;
 					line-height: 1.61;
@@ -47,12 +49,13 @@
 					color: #ffffff;
 				}
 				.img-container {
-					outline: 1px solid red;
 					margin: 0 auto;
 					width: 100%;
-					height: 56rem;
+					height: 80%;
 					img {
-						width: 80%;
+						width: 100%;
+						height: 100%;
+						object-fit: contain;
 					}
 				}
 			}

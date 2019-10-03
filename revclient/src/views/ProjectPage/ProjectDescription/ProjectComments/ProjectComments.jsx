@@ -38,7 +38,7 @@ const ProjectComments = ({comments, id, setProjectData, projectData}) => {
                 localStorage.getItem('token') 
                 && 
                 <form className='comment-form' onSubmit={submitComment}>
-                    <input 
+                    <textarea 
                         placeholder='comment'
                         onChange={commentHandle}
                         value={comment.comment}

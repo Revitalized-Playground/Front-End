@@ -3,6 +3,12 @@
     background-color: scale-color($silver-lining, $alpha: -50%);
     height: 100%;
 }
+
+.dark-mode {
+    .dashboard-container {
+        background-color: $machiavellian;
+    }
+}
 // .footer {
 //     background-color: $mirage;
 //     color: $snow-white;

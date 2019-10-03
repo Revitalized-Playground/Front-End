@@ -11,7 +11,10 @@
 
     .comment-form {
         display: flex;
-        margin-bottom: 30px
+        margin-bottom: 30px;
+        button {
+            @include buttonStyler($chillFi-purple, $snow-white, 0, 0);
+        }
     }
 
     .commentsTitle {
@@ -64,7 +67,7 @@
         }
 
         .lowerCommentSide {
-            p{
+            p {
                 font-size: 1.4rem;
                 line-height: 19px;
                 letter-spacing: 0.06em;

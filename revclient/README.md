@@ -1,4 +1,4 @@
-This project was bootstrapped with [CRA](https://github.com/facebook/create-react-app).
+# Create react App!
 
 ## Available Scripts
 
