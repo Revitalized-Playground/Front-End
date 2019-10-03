@@ -13,7 +13,7 @@ import fb from '../../assets/AuthPages/fb-logo.png'
 import twtr from '../../assets/AuthPages/twitter.png'
 
 //Component Imports
-// import Nav from '../../components/Layout/Nav';
+import Nav from '../../components/Layout/Nav';
 import Footer from "../../components/Layout/Footer";
 
 import Donate from './ProjectDescription/Donate/Donate'
@@ -136,12 +136,14 @@ const ProjectPage = ({ match }) => {
         }
     }
     
-    if (error) return <h1>error fuck off</h1>
+    // if (error) return <h1>error fuck off</h1>
+    if (error) return <h2>ERROR! Someone call Elan</h2>
     
 
-    if (loading || !projectData) return <h1>LOADING THINGY</h1>
+    if (loading || !projectData) return <h3>Summoning magic!</h3>
     return (
         <>
+            <Nav />
                 <div className="project-page-container">
                     <div className={!modal ? 'none' : 'modal'} >
                 <div className='inner-modal' >

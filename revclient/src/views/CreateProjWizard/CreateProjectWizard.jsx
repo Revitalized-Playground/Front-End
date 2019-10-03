@@ -21,10 +21,22 @@ import Form3 from './Form3/Form3';
 let currentDate = moment().format("YYYY-MM-DD");
 
 const CreateProjectWizard = ({history}) => {
-    // const [projectDetails, setProjectDetails] = useState({ name: '', startDate: currentDate, country: 'USA', duration: 1, description: '',  address: '', city: '', state: '', zip: null,  goalAmount: null, difficulty: '', images: []})
-    const [projectDetails, setProjectDetails] = useState({ name: 'Revitalize', startDate: currentDate, country: 'USA', duration: 1, description: 'All your bases are belong to us',  address: '123 Main', city: 'San Jose', state: 'California', zip: 95132,  goalAmount: 333333.00, amountFunded: 0.00, difficulty: 'Easy', images: []})
-    const [formPosition, setFormPosition] = useState(3);
-
+    const [ projectDetails, setProjectDetails ] = useState({ 
+        name: '', 
+        startDate: currentDate, 
+        country: 'USA', 
+        duration: 1, 
+        description: '',
+        address: '', 
+        city: '',
+        state: '', 
+        zip: null,  
+        goalAmount: 0.00, 
+        amountFunded: 0.00, 
+        difficulty: '', 
+        images: []
+    })
+    const [formPosition, setFormPosition] = useState(1);
     const [addProject] = useMutation(ADD_PROJECT);
 
     const handleChanges = event => {
@@ -36,9 +48,10 @@ const CreateProjectWizard = ({history}) => {
     };
 
     const submitForm = async event => {
+        console.log("Project details ",projectDetails);
         event.preventDefault();
         const addedProj = await addProject({ variables: { data: projectDetails }})
-        if(addedProj) {
+        if (addedProj) {
             history.push(`/project/${addedProj.data.createProject.id}`)
         }
     }
@@ -81,22 +94,24 @@ const CreateProjectWizard = ({history}) => {
                             ? <Form2
                                 setFormPosition={setFormPosition}
                                 handleChanges={handleChanges}
-                                // projOwnerName={projectDetails.projOwnerName}
                                 address={projectDetails.address}
                                 city={projectDetails.city}
                                 state={projectDetails.state}
                                 zip={projectDetails.zip}
+                                // projOwnerName={projectDetails.projOwnerName}
                             />
                             : formPosition === 3
                             ? <Form3
-                                submitForm={submitForm}
                                 setFormPosition={setFormPosition}
                                 handleChanges={handleChanges}
+                                submitForm={submitForm}
+                                setProjectDetails={setProjectDetails}
+                                projectDetails={projectDetails}
                                 duration={projectDetails.duration}
                                 goalAmount={projectDetails.goalAmount}
-                                // amountFunded={projectDetails.amountFunded}
                                 difficulty={projectDetails.difficulty}
                                 images={projectDetails.images}
+                                // amountFunded={projectDetails.amountFunded}
                             />
                             : null
                         }
