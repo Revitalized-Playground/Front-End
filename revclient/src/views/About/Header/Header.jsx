@@ -8,7 +8,8 @@ const Header = () => {
       <div className="about-header">
         <img
           src="https://res.cloudinary.com/revitalize/image/upload/v1570037035/about%20page/Hero_Images1_k5qnxo.svg"
-          alt="" />
+          alt="" 
+          className="img1" />
         <h1>Who We Are</h1>
         <img
           src={Hero2}
