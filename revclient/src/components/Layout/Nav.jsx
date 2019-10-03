@@ -8,7 +8,7 @@ import { GET_USER } from '../../graphql/queries/Users';
 const uLinks = [
 	{ href: '/browse', label: 'Browse' },
 	{ href: '/projects', label: 'Learn More' },
-	{ href: '#', label: 'Team' },
+	{ href: '/about', label: 'Team' },
 	{ href: '/login', label: 'Log In' },
 ].map(link => {
 	link.key = `nav-link-${link.href}-${link.label}`;
@@ -17,7 +17,7 @@ const uLinks = [
 const aLinks = [
 	{ href: '/browse', label: 'Browse' },
 	{ href: '/projects', label: 'Learn More' },
-	{ href: '#', label: 'Team' },
+	{ href: '/about', label: 'Team' },
 	{ href: '#', label: 'Logout' },
 ].map(link => {
 	link.key = `nav-link-${link.href}-${link.label}`;

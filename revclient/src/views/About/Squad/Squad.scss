@@ -5,7 +5,7 @@
 		font-size: 90px;
 		line-height: 1.61;
 		letter-spacing: 5.4px;
-		color: #0b096f;
+		color: $erudite-purple;
 	}
 	.description {
 		text-align: center;
@@ -13,7 +13,6 @@
 		font-size: 22px;
 		line-height: 1.61;
 		letter-spacing: 1.32px;
-		color: #000000;
 		margin-bottom: 9.7rem;
 	}
 	.flex-container {
@@ -38,7 +37,7 @@
 					font-size: 30px;
 					line-height: 1.61;
 					letter-spacing: 1.8px;
-					color: #ffffff;
+					color: $snow-white;
 				}
 				.role {
 					height: 13%;
@@ -46,7 +45,7 @@
 					font-size: 23px;
 					line-height: 1.61;
 					letter-spacing: 1.38px;
-					color: #ffffff;
+					color: $snow-white;
 				}
 				.img-container {
 					margin: 0 auto;
@@ -66,5 +65,10 @@
 		.squad-flex-three {
 			margin-top: calc(17.3rem * 2);
 		}
+	}
+}
+.dark-mode {
+	.title {
+		color: $snow-white;
 	}
 }

@@ -7,12 +7,14 @@
 	h1 {
 		color: $snow-white;
 		font-family: 'futura-pt';
-		font-size: 9.3rem;
+		font-size: 9rem;
 		font-weight: 500;
 		line-height: 1.61;
-		letter-spacing: 5.58px;
+		letter-spacing: 5.5px;
 		align-self: center;
 		z-index: 1;
+		// overflow: visible;
+		// text-overflow: clip;
 	}
 	img {
 		object-fit: contain;

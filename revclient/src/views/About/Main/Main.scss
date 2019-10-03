@@ -9,7 +9,7 @@
 		letter-spacing: 2.88px;
 		text-align: center;
 		margin: 0 auto;
-		color: #0b096f;
+		color: $erudite-purple;
 		margin-bottom: 6rem;
 	}
 
@@ -35,9 +35,13 @@
 				font-stretch: normal;
 				line-height: 1.61;
 				letter-spacing: 1.32px;
-				color: #000000;
 				margin-bottom: 3.3rem;
 			}
 		}
+	}
+}
+.dark-mode {
+	.title {
+		color: $snow-white;
 	}
 }
