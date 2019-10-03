@@ -7,7 +7,6 @@
 import React from 'react'
 
 export default function Card({ img, title, description, key }) {
-    console.log(img)
     return (
         <div className='card' key={key}>
             <img alt={`${title} cover`} src={img} />

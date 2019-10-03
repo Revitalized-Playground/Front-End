@@ -83,6 +83,7 @@ nav {
 				margin-right: 65px;
 				@media #{$tablet} {
 					display: none;
+					margin-right: 0px;
 				}
 				&:last-child {
 					margin-right: 300px;
@@ -93,17 +94,35 @@ nav {
 					line-height: 0.9;
 				}
 			}
+
+			.logout{
+				display:none;
+				@media #{$tablet} {
+					display: flex;
+				}
+			}
 			.user {
 				display: flex;
 				align-items: center;
 				div {
 					margin-right: 10px;
+					span{
+						@media #{$tablet}{
+							color: white;
+						}
+						@media #{$mobile}{
+							display: none;
+						}
+					}
 				}
 				.userIcon {
 					width: 40px;
 					height: 40px;
 					object-fit: cover;
 					border-radius: 100%;
+					&:hover{
+						cursor: pointer;
+					}
 				}
 			}
 			.login {
@@ -128,6 +147,9 @@ nav {
 				right: 0;
 				padding: 10px 20px 10px 10px;
 				margin-right: 20px;
+				@media #{$tablet} {
+					display: none;
+				}
 				.dropdown-option {
 					margin: 5px 0;
 				}
