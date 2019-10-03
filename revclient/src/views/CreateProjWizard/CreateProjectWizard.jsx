@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { withRouter } from 'react-router-dom';
+import moment from "moment";
 
 import { useMutation } from '@apollo/react-hooks';
 import { ADD_PROJECT } from '../../graphql/mutations/Project';
@@ -9,9 +10,6 @@ import Form1 from './Form1/Form1';
 import Form2 from './Form2/Form2';
 import Form3 from './Form3/Form3';
 
-
-
-
 // ====== properties needed ======
 //  - project start Date
 //  - project owner name
@@ -20,11 +18,14 @@ import Form3 from './Form3/Form3';
 
 
 
-const CreateProjectWizard = ({history}) => {
-    const [projectDetails, setProjectDetails] = useState({ name: '', startDate: '', country: 'USA', duration: null, description: '',  address: '', city: '', state: '', zip: null,  goalAmount: null, difficulty: ''})
-    const [formPosition, setFormPosition] = useState(1)
+let currentDate = moment().format("YYYY-MM-DD");
 
-    const [addProject] = useMutation(ADD_PROJECT)
+const CreateProjectWizard = ({history}) => {
+    // const [projectDetails, setProjectDetails] = useState({ name: '', startDate: currentDate, country: 'USA', duration: 1, description: '',  address: '', city: '', state: '', zip: null,  goalAmount: null, difficulty: '', images: []})
+    const [projectDetails, setProjectDetails] = useState({ name: 'Revitalize', startDate: currentDate, country: 'USA', duration: 1, description: 'All your bases are belong to us',  address: '123 Main', city: 'San Jose', state: 'California', zip: 95132,  goalAmount: 333333.00, amountFunded: 0.00, difficulty: 'Easy', images: []})
+    const [formPosition, setFormPosition] = useState(3);
+
+    const [addProject] = useMutation(ADD_PROJECT);
 
     const handleChanges = event => {
         if (event.target.name === 'zip' || event.target.name === 'goalAmount' || event.target.name === 'amountFunded' || event.target.name === 'duration') {
@@ -32,7 +33,7 @@ const CreateProjectWizard = ({history}) => {
         } else {
             setProjectDetails({ ...projectDetails, [event.target.name]: event.target.value })
         }
-    }
+    };
 
     const submitForm = async event => {
         event.preventDefault();
@@ -95,6 +96,7 @@ const CreateProjectWizard = ({history}) => {
                                 goalAmount={projectDetails.goalAmount}
                                 // amountFunded={projectDetails.amountFunded}
                                 difficulty={projectDetails.difficulty}
+                                images={projectDetails.images}
                             />
                             : null
                         }
