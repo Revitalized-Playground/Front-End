@@ -97,9 +97,7 @@ nav {
 
 			.logout{
 				display:none;
-				@media #{$tablet} {
-					display: flex;
-				}
+				
 			}
 			.user {
 				display: flex;
@@ -141,19 +139,22 @@ nav {
 				}
 			}
 			.dropdown {
-				background-color: $chillFi-purple;
-				color: $snow-white;
+				background-color: $snow-white;
+				color: $chillFi-purple;
+				border: 3px solid $chillFi-purple;
+				border-radius:6px;
 				position: absolute;
 				top: 80px;
 				right: 0;
-				padding: 10px 20px 10px 10px;
-				margin-right: 20px;
+				width: 250px;
+				padding: 30px 10px 20px 40px;
+				margin-right: 25px;
 				z-index: 10;
 				@media #{$tablet} {
 					display: none;
 				}
 				.dropdown-option {
-					margin: 5px 0;
+					margin: 15px 0;
 					cursor: pointer;
 				}
 			}
