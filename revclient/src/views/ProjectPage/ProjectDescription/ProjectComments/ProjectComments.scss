@@ -9,6 +9,14 @@
         padding: 0 5.5% 0 5.5%;
     }
 
+    .comment-form {
+        display: flex;
+        margin-bottom: 30px;
+        button {
+            @include buttonStyler($chillFi-purple, $snow-white, 0, 0);
+        }
+    }
+
     .commentsTitle {
         margin-bottom: 37px;
     }
@@ -21,6 +29,15 @@
         @media #{$mobile} {
             width: 100%;
             margin-top: 20px
+        }
+
+        .commenter-name-flex {
+            display: flex;
+
+            p{
+                margin-right: 10px;
+                font-size: 2rem
+            }
         }
 
         img {
@@ -38,7 +55,7 @@
         }
 
         .comment {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             line-height: 27px;
             letter-spacing: 0.06em;
             max-width: 476px;
@@ -50,7 +67,7 @@
         }
 
         .lowerCommentSide {
-            p{
+            p {
                 font-size: 1.4rem;
                 line-height: 19px;
                 letter-spacing: 0.06em;

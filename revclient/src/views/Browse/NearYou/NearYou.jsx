@@ -2,6 +2,7 @@ import React from 'react';
 import Slider from "react-slick";
 
 import CarouselCard from '../CarouselCard/CarouselCard';
+import { NextArrow, PrevArrow } from "../CarouselCard/Arrows";
 
 
 const NearYou = () => {
@@ -16,7 +17,7 @@ const NearYou = () => {
             city: "St. Joseph",
             goalAmount: 0.00,
             amountFunded: 0.00,
-            images: ["https://","https://"],
+            images: ["https://res.cloudinary.com/revitalize/image/upload/v1569451131/start%20page/Railway_Dreams_zhwuff.svg"],
             featuredImage: "https://res.cloudinary.com/revitalize/image/upload/v1569451131/start%20page/Railway_Dreams_zhwuff.svg",
             liked: false,
         },
@@ -28,7 +29,7 @@ const NearYou = () => {
             city: "Grand Rapids",
             goalAmount: 0.00, 
             amountFunded: 0.00,
-            images: ["https://","https://"],
+            images: ["https://res.cloudinary.com/revitalize/image/upload/v1569451120/start%20page/Red_Grey_Matter_zwdfbs.svg"],
             featuredImage: "https://res.cloudinary.com/revitalize/image/upload/v1569451120/start%20page/Red_Grey_Matter_zwdfbs.svg",
             liked: false,
         },
@@ -40,7 +41,7 @@ const NearYou = () => {
             city: "Ann Arbor",
             goalAmount: 0.00,
             amountFunded: 0.00,
-            images: ["https://","https://"],
+            images: ["https://res.cloudinary.com/revitalize/image/upload/v1569451126/start%20page/Iron_Syde_Shop_ickfun.svg"],
             featuredImage: "https://res.cloudinary.com/revitalize/image/upload/v1569451126/start%20page/Iron_Syde_Shop_ickfun.svg",
             liked: false,
         },
@@ -52,7 +53,7 @@ const NearYou = () => {
             city: "Flint",
             goalAmount: 0.00,
             amountFunded: 0.00,
-            images: ["https://","https://"],
+            images: ["https://res.cloudinary.com/revitalize/image/upload/v1569451129/start%20page/Mission_Zero_image_xs2wtv.svg"],
             featuredImage: "https://res.cloudinary.com/revitalize/image/upload/v1569451129/start%20page/Mission_Zero_image_xs2wtv.svg",
             liked: false,
         },
@@ -64,7 +65,7 @@ const NearYou = () => {
             city: "Detroit",
             goalAmount: 0.00,
             amountFunded: 0.00,
-            images: ["https://","https://"],
+            images: ["https://res.cloudinary.com/revitalize/image/upload/v1569451138/start%20page/Team_Rubicon_xlxh6r.svg"],
             featuredImage: "https://res.cloudinary.com/revitalize/image/upload/v1569451138/start%20page/Team_Rubicon_xlxh6r.svg",
             liked: false,
         },
@@ -76,7 +77,7 @@ const NearYou = () => {
             city: "Grand Haven",
             goalAmount: 0.00,
             amountFunded: 0.00,
-            images: ["https://","https://"],
+            images: ["https://res.cloudinary.com/revitalize/image/upload/v1569451117/start%20page/Camp_Crystal_Lake_jqewaz.svg"],
             featuredImage: "https://res.cloudinary.com/revitalize/image/upload/v1569451117/start%20page/Camp_Crystal_Lake_jqewaz.svg",
             liked: false,
         },
@@ -88,7 +89,7 @@ const NearYou = () => {
             city: "Kalamazoo",
             goalAmount: 0.00,
             amountFunded: 0.00,
-            images: ["https://","https://"],
+            images: ["https://res.cloudinary.com/revitalize/image/upload/v1569451133/start%20page/Rustic_Road_Brewery_tulxbq.svg"],
             featuredImage: "https://res.cloudinary.com/revitalize/image/upload/v1569451133/start%20page/Rustic_Road_Brewery_tulxbq.svg",
             liked: false,
         },
@@ -100,7 +101,7 @@ const NearYou = () => {
             city: "Royal Oak",
             goalAmount: 0.00,
             amountFunded: 0.00,
-            images: ["https://","https://"],
+            images: ["https://res.cloudinary.com/revitalize/image/upload/v1569451138/start%20page/Velvet_Thread_e2e8u3.svg"],
             featuredImage: "https://res.cloudinary.com/revitalize/image/upload/v1569451138/start%20page/Velvet_Thread_e2e8u3.svg",
             liked: false
         },
@@ -112,23 +113,25 @@ const NearYou = () => {
             city: "Detroit",
             goalAmount: 0.00,
             amountFunded: 0.00,
-            images: ["https://","https://"],
+            images: ["https://res.cloudinary.com/revitalize/image/upload/v1569516054/start%20page/Cup_of_Joe_s_Cafe_gbkrft.png"],
             featuredImage: "https://res.cloudinary.com/revitalize/image/upload/v1569516054/start%20page/Cup_of_Joe_s_Cafe_gbkrft.png",
             liked: false
         }
     ]
 
     const settings = {
-        arrows: true,
+        // arrows: true,
         dots: false,
         infinite: true,
         speed: 500,
         slidesToShow: 4,
         slidesToScroll: 3,
-        // swipeToSlide: true,
+        swipeToSlide: true,
         centerPadding: "400px",
         lazyLoad: "progressive",
         className: "carousel-card",
+        nextArrow: <NextArrow />,
+        prevArrow: <PrevArrow />,
         responsive: [
             {
                 breakpoint: 1200,

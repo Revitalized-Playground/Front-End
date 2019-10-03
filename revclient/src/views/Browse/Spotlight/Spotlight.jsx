@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import building from '../../../assets/BrowsePage/SpotlightBuilding.png';
-import heart from '../../../assets/BrowsePage/HeartVector.png';
+// import heart from '../../../assets/BrowsePage/HeartVector.png';
 
 const Spotlight = () => {
     
@@ -16,17 +16,17 @@ const Spotlight = () => {
 
     return (
         <div className="spotlightContainer">
-            <div
+            {/* <div
                 className="spotlightImage"
-                style={{backgroundImage: `url(${spotlight.image})`}}
-            ></div>
+                
+            ></div> */}
             <div className="window"></div>
-            <div className="text">
+            <div className="text" style={{backgroundImage: `url(${spotlight.image})`}}>
                 <h3>SPOTLIGHT</h3>
                 <p>{spotlight.description}</p>
                 <Link to={spotlight.link}>Learn more &gt;</Link>
             </div>
-            <img src={heart} alt="heart" className="heart" />
+            {/* <img src={heart} alt="heart" className="heart" /> */}
         </div>
     );
 };

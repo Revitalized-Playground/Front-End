@@ -22,10 +22,10 @@ const Header = () => {
 						building your community
 					</h2>
 					<p>
-						Revitalize is a crowdfunding platform <br /> that creates apprenticeship opportunities.
+						Revitalize is a crowdfunding platform <br /> that creates apprenticeship opportunities
 					</p>
 					{localStorage.getItem("token")
-						? <Link to="/start"><button>Start Your Journey!</button></Link>
+						? <Link to="/browse"><button>Start Your Journey!</button></Link>
 						: <Link to="/register"><button>Start Your Journey!</button></Link>
 					}
 					
@@ -37,22 +37,22 @@ const Header = () => {
 				<p>Values that will direct you to a successful career</p>
 				<div className="value-tiles">
 					<div className="tenacity">
-						<h4>Tenacity</h4>
+						<span>Tenacity</span>
 					</div>
 					<div className="ingenuity">
-						<h4>Ingenuity</h4>
+						<span>Ingenuity</span>
 					</div>
 					<div className="growth">
-						<h4>Growth</h4>
+						<span>Growth</span>
 					</div>
 					<div className="diligence">
-						<h4>Diligence</h4>
+						<span>Diligence</span>
 					</div>
 					<div className="resilience">
-						<h4>Resilience</h4>
+						<span>Resilience</span>
 					</div>
 					<div className="compassion">
-						<h4>Compassion</h4>
+						<span>Compassion</span>
 					</div>
 				</div>
 			</div>

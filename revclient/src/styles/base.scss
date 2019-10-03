@@ -9,7 +9,7 @@
 @import '../views/Landing/LandingPage.scss';
 
 @import '../views/Dashboard/Dashboard.scss';
-@import "../views/Dashboard/User/UserDashboard.scss";
+@import '../views/Dashboard/User/UserDashboard.scss';
 
 @import '../views/Login/Login.scss';
 @import '../views/Register/Register.scss';
@@ -29,9 +29,17 @@
 
 @import '../views/Browse/Browse.scss';
 
+@import '../views/About/About.scss';
+@import '../components/PhotoUpload/Droppy.scss';
+
 // Components Here
 @import '../components/Card/Card.scss';
 @import '../components/Layout/Footer.scss';
 @import '../components/Layout/Nav.scss';
 @import '../components/Project/Project.scss';
 @import '../components/ProjectList/ProjectList.scss';
+
+// Mapbox
+@import "../../node_modules/mapbox-gl/dist/mapbox-gl.css";
+@import "../../node_modules/react-map-gl-geocoder/dist/mapbox-gl-geocoder.css";
+@import "../components/Map/SearchableMap.scss";

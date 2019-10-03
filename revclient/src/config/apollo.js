@@ -1,20 +1,30 @@
-// Apollo
-import ApolloClient, { InMemoryCache } from "apollo-boost"; // link is not exported from this version of apollo-client
+// Apollo reimagined
+import { ApolloClient } from "apollo-client";
+import { InMemoryCache } from "apollo-cache-inmemory";
+import { createUploadLink } from 'apollo-upload-client';
+import { setContext } from 'apollo-link-context';
+// import { createHttpLink } from 'apollo-link-http'; // DEPRECATED WITH APOLLO UPLOAD
+// import { ApolloLink } from "apollo-link";
 
 
-// Endpoint
-export const client = new ApolloClient({
-    uri: "https://revitalize-development.herokuapp.com/", // Revitalize
-    cache: new InMemoryCache(),
-    fetchOptions: {
-        credentials: 'include'
-      },
-    request: async (operation) => {
-        const token = localStorage.getItem('token') ? localStorage.getItem('token') : '';
-        operation.setContext({
-            headers: {
-                authorization: token
-            }
-        })
+
+const httpLink = createUploadLink({
+    uri: process.env.REACT_APP_SERVER_URL
+});
+
+const authLink = setContext(({ headers }) => {
+    const token = localStorage.getItem('token');
+    return {
+        headers: {
+            ...headers,
+            authorization: token ? `Bearer ${token}` : "",
+        }
     }
 });
+
+
+export const client = new ApolloClient({
+    link: authLink.concat(httpLink),
+    cache: new InMemoryCache()
+})
+

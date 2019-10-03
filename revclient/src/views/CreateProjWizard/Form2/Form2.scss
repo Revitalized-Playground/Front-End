@@ -1,19 +1,34 @@
+
 .form-2 {
 	.address-details {
 		display: flex;
 		justify-content: space-between;	
-		align-items: center;
+		align-items: flex-start;
 		width: 100%;
-		select {
-			height: 3.25rem;
+		.address-details-city {
+			margin-right: 30px;
+			width: 80%;
 		}
-
-		.proj-zip {
-			-webkit-inner-spin-button,
-			-webkit-outer-spin-button {
-				-webkit-appearance: none;
-				margin: 0;
-			}
+		// .address-details-state {
+		// 	margin-right: 30px;
+		// }
+		
+	}
+	.address-details-zip {
+		input {
+			// width: 100%;
+			-webkit-appearance: none;
+			margin: 0;
+		}
+	}
+	.address-details-state {
+		select {
+			font-family: "Futura-pt";
+			font-size: 1.6rem;
+			height: 35px;
+			margin: 6px 0 6px 0;
+			margin-bottom: 20px;
+			width: 100%;
 		}
 	}
 }

@@ -1,12 +1,166 @@
 .user-dashboard-sidebar {
-    width: 25%;
-    // height: 100%;
-    text-align: center;
-    .user-dashboard-sidebar-footer {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-end;
-        height: 130px;
-        padding: 20px;
-    }
+	width: 25%;
+	text-align: center;
+	.sidebar-top {
+		.user-picture {
+			width: 164px;
+			height: 164px;
+			object-fit: contain;
+			border-radius: 50%;
+		}
+		h3 {
+			font-size: 2.4rem;
+			font-weight: 500;
+			line-height: 1.61;
+			letter-spacing: 1.44px;
+			color: $machiavellian;
+		}
+		h6 {
+			text-align: right;
+			color: $blue-valentine;
+			font-size: 1.8rem;
+			font-weight: 500;
+		}
+		p {
+			font-size: 1.8rem;
+			font-weight: 500;
+			line-height: 1.61;
+			letter-spacing: 1.08px;
+			color: $machiavellian;
+		}
+	}
+	.user-dashboard-stats {
+		display: flex;
+		justify-content: space-evenly;
+		margin: 10% 0 5% 0;
+		color: $machiavellian;
+		font-family: Roboto;
+		h4 {
+			font-size: 2.4rem;
+			letter-spacing: 1.44px;
+		}
+		p {
+			font-size: 1.3rem;
+			letter-spacing: 0.78px;
+		}
+	}
+	.info-container {
+		margin: 5% 0;
+		font-family: Roboto;
+		p {
+			color: #6f6f6f;
+			font-size: 1.6rem;
+			font-weight: 500;
+			line-height: 1.61;
+			letter-spacing: 0.96px;
+		}
+		span {
+			font-size: 1.8rem;
+			font-weight: 500;
+			color: $machiavellian;
+			line-height: 1.61;
+			letter-spacing: 1.08px;
+		}
+		.info {
+			display: flex;
+			justify-content: space-between;
+			.text {
+				display: flex;
+				flex-direction: column;
+				text-align: left;
+			}
+			.icon {
+				width: 48px;
+				height: 47px;
+				border-radius: 12px;
+			}
+			.percent {
+				font-family: Roboto;
+				font-size: 20px;
+				letter-spacing: 1.2px;
+				color: $machiavellian;
+			}
+		}
+		.progress,
+		.info {
+			margin: 6% 0;
+		}
+	}
+	.user-dashboard-sidebar-footer {
+		display: flex;
+		flex-direction: column;
+		margin: 5% 0;
+		h4 {
+			font-size: 2rem;
+			font-weight: 500;
+			line-height: 1.61;
+			letter-spacing: 1.2px;
+			color: $machiavellian;
+			margin-bottom: 5%;
+		}
+		.a-container {
+			display: flex;
+			flex-flow: row wrap;
+			justify-content: space-evenly;
+			.achievement {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				margin: 3.5% 3.5%;
+
+				.a-icon {
+					width: 75px;
+					height: 75px;
+				}
+				.number {
+					font-family: Roboto;
+					font-size: 1.3rem;
+					font-weight: 500;
+					letter-spacing: 0.72px;
+					background-color: $static-grey;
+					width: 45px;
+					height: 30px;
+					position: relative;
+					bottom: 10%;
+					border-radius: 50%;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+				}
+			}
+		}
+		a {
+			color: $machiavellian;
+			font-size: 1.6rem;
+		}
+	}
+}
+.dark-mode {
+	.sidebar-top {
+		h3, h6, p {
+			color: $snow-white;
+		}
+	}
+	.user-dashboard-stats {
+		color: $snow-white;
+	}
+	.info-container {
+		p, span {
+			color: $snow-white;
+		}
+		.info {
+			.percent {
+				color: $snow-white;
+			}
+		}
+	}
+	.user-dashboard-sidebar-footer {
+		h4 {
+			color: $snow-white;
+		}
+		.number {
+			background-color: $snow-white;
+			color: $black-void;
+		}
+	}
 }
