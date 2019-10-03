@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import MapGL, { GeolocateControl } from 'react-map-gl'
 
-const token = process.env.REACT_APP_MAP_BOX
+const TOKEN = process.env.REACT_APP_MAP_BOX_TOKEN;
 
 const geolocateStyle = {
 	float: 'left',
