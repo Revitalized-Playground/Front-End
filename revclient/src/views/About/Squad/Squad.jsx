@@ -15,7 +15,7 @@ const Squad = () => {
 		{
 			name: 'Anthony Venturini',
 			role: 'CEO/Product Manager',
-			image: `${anthony}`,
+			// image: `${anthony}`,
 			background: '#ffb588',
 			bio: '',
 			github: '',
@@ -25,7 +25,7 @@ const Squad = () => {
 		{
 			name: 'Ruth Philips',
 			role: 'Product Designer/UX Writer/Content Strategist',
-			image: `${ruth}`,
+			// image: `${ruth}`,
 			background: '#49a2ff',
 			bio: '',
 			github: '',
@@ -35,7 +35,7 @@ const Squad = () => {
 		{
 			name: 'Omar Salah',
 			role: 'Full Stack Developer',
-			image: `${omar}`,
+			// image: `${omar}`,
 			background: '#d2405b',
 			bio: '',
 			github: '',
@@ -45,7 +45,7 @@ const Squad = () => {
 		{
 			name: 'Frank Martinez',
 			role: 'Full Stack Developer',
-			image: `${frank}`,
+			// image: `${frank}`,
 			background: '#007ea7',
 			bio: '',
 			github: '',
@@ -57,7 +57,7 @@ const Squad = () => {
 		{
 			name: 'Kerry McPhearson',
 			role: 'Product Design Evangelist',
-			image: `${kerry}`,
+			// image: `${kerry}`,
 			background: '#4840ba',
 			bio: '',
 			github: '',
@@ -68,7 +68,7 @@ const Squad = () => {
 		{
 			name: 'Jose Montero Jr',
 			role: 'Full Stack Developer',
-			image: `${jose}`,
+			// image: `${jose}`,
 			background: '#235597',
 			bio: '',
 			github: '',
@@ -79,7 +79,7 @@ const Squad = () => {
 		{
 			name: 'Skyelar Carroll',
 			role: 'Full Stack Developer',
-			image: `${skyelar}`,
+			// image: `${skyelar}`,
 			background: '#4840ba',
 			bio: '',
 			github: '',
@@ -91,7 +91,7 @@ const Squad = () => {
 		{
 			name: 'Alexander Piroumian',
 			role: 'Full Stack Developer',
-			image: 'https://res.cloudinary.com/revitalize/image/upload/v1570036577/about%20page/Alex_uqo9oo.svg',
+			// image: 'https://res.cloudinary.com/revitalize/image/upload/v1570036577/about%20page/Alex_uqo9oo.svg',
 			background: '#f78539',
 			bio: '',
 			github: '',
@@ -102,7 +102,7 @@ const Squad = () => {
 		{
 			name: 'Elan Riznis',
 			role: 'Full Stack Developer',
-			image: 'https://res.cloudinary.com/revitalize/image/upload/v1570036576/about%20page/Elan_w397tt.svg',
+			// image: 'https://res.cloudinary.com/revitalize/image/upload/v1570036576/about%20page/Elan_w397tt.svg',
 			background: '#d6ad2f',
 			bio: '',
 			github: '',
@@ -113,7 +113,7 @@ const Squad = () => {
 		{
 			name: 'Clark Williams',
 			role: 'Full Stack Developer',
-			image: `${clark}`,
+			// image: `${clark}`,
 			background: '#0051be',
 			bio: '',
 			github: '',
@@ -133,6 +133,9 @@ const Squad = () => {
 							<h3 className="role"> {person.role}</h3>
 							<div className="img-container">
 								<img src={person.image} alt="person" />
+							</div>
+							<div className="overlay">
+								<div className="text">Hello World</div>
 							</div>
 						</div>
 					))}
