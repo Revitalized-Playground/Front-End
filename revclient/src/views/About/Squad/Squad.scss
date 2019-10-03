@@ -27,6 +27,8 @@
 			flex-direction: column;
 
 			.person {
+				outline: 1px solid red;
+				position: relative;
 				padding: 1rem 1rem 0 1rem;
 				width: 46.2rem;
 				height: 65.5rem;
@@ -77,8 +79,6 @@
 					position: absolute;
 					top: 50%;
 					left: 50%;
-					-webkit-transform: translate(-50%, -50%);
-					-ms-transform: translate(-50%, -50%);
 					transform: translate(-50%, -50%);
 					text-align: center;
 				}
