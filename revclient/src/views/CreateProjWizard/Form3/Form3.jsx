@@ -5,8 +5,7 @@ import Droppy from "../../../components/PhotoUpload/Droppy";
 const Form3 = ({difficulty, duration, goalAmount, amountFunded, handleChanges, submitForm, setFormPosition }) => {
 
     const [err, setErr] = useState(true)
-    console.log(err)
-
+    
     const checker = (e) => {
         e.target.value.split('.').map(each => {
             if (isNaN(each)) {

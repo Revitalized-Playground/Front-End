@@ -12,22 +12,12 @@ import {withRouter} from 'react-router-dom'
 
 import Nav from "../../components/Layout/Nav";
 
-// ====== properties needed ======
-//  - project start Date
-//  - project owner name
-//  - estimated project projDuration
-//  - difficulty Level
-
-
 
 const CreateProjectWizard = ({history}) => {
     const [projectDetails, setProjectDetails] = useState({ name: '', startDate: '', country: 'USA', duration: null, description: '',  address: '', city: '', state: '', zip: null,  goalAmount: null, difficulty: ''})
     const [formPosition, setFormPosition] = useState(1)
 
     const [addProject] = useMutation(ADD_PROJECT)
-    
-
-    console.log(projectDetails)
 
     const handleChanges = event => {
         if (event.target.name === 'zip' || event.target.name === 'goalAmount' || event.target.name === 'amountFunded' || event.target.name === 'duration') {
@@ -39,9 +29,7 @@ const CreateProjectWizard = ({history}) => {
 
     const submitForm = async event => { 
         event.preventDefault();
-        console.log('this is a project', projectDetails)
         const addedProj = await addProject({variables: {data: projectDetails}})
-        console.log(addedProj)
         if(addedProj) {
             history.push(`/project/${addedProj.data.createProject.id}`)
         }
@@ -85,7 +73,6 @@ const CreateProjectWizard = ({history}) => {
                             ? <Form2
                                 setFormPosition={setFormPosition}
                                 handleChanges={handleChanges}
-                                // projOwnerName={projectDetails.projOwnerName}
                                 address={projectDetails.address}
                                 city={projectDetails.city}
                                 state={projectDetails.state}
@@ -98,7 +85,6 @@ const CreateProjectWizard = ({history}) => {
                                 handleChanges={handleChanges}
                                 duration={projectDetails.duration}
                                 goalAmount={projectDetails.goalAmount}
-                                // amountFunded={projectDetails.amountFunded}
                                 difficulty={projectDetails.difficulty}
                             />
                             : null

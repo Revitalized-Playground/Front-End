@@ -19,16 +19,6 @@ const Form2 = ({ projOwnerName, address, city, state, zip, handleChanges, setFor
 
     return (
         <form onSubmit={() => setFormPosition(3)} className="form-2" >
-            {/* <h2>Owner Name</h2>
-            <input
-                // required
-                name="projOwnerName"
-                type="text"
-                className="name"
-                placeholder="Alpha Wolf Squadron"
-                // value={projOwnerName}
-                onChange={e => handleChanges(e)}
-            /> */}
             <h2>Street Address</h2>
             <input
                 required
