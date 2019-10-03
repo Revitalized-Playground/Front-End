@@ -69,3 +69,19 @@
 		}
 	}
 }
+.dark-mode {
+	.list {
+		background-color: #072A44;
+		.container {
+			.text {
+				.description {
+					color: $snow-white;
+				}
+	
+				.comment {
+					color: $snow-white;
+				}
+			}
+		}
+	}
+}

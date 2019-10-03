@@ -16,7 +16,15 @@
 	}
 
 	.active-tab {
-		border-bottom: 5px solid #0b096f;
+		border-bottom: 5px solid $erudite-purple;
 		padding-bottom: 3.5rem;
+	}
+}
+.dark-mode {
+	.tabs {
+		color: $snow-white;
+	}
+	.active-tab {
+		border-bottom: 5px solid $snow-white;
 	}
 }
