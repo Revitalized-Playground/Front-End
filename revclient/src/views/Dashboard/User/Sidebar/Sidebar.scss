@@ -1,10 +1,6 @@
 .user-dashboard-sidebar {
 	width: 25%;
-	// height: 100%;
 	text-align: center;
-	.machiavellian {
-		color: $machiavellian;
-	}
 	.sidebar-top {
 		.user-picture {
 			width: 164px;
@@ -135,6 +131,35 @@
 		a {
 			color: $machiavellian;
 			font-size: 1.6rem;
+		}
+	}
+}
+.dark-mode {
+	.sidebar-top {
+		h3, h6, p {
+			color: $snow-white;
+		}
+	}
+	.user-dashboard-stats {
+		color: $snow-white;
+	}
+	.info-container {
+		p, span {
+			color: $snow-white;
+		}
+		.info {
+			.percent {
+				color: $snow-white;
+			}
+		}
+	}
+	.user-dashboard-sidebar-footer {
+		h4 {
+			color: $snow-white;
+		}
+		.number {
+			background-color: $snow-white;
+			color: $black-void;
 		}
 	}
 }
