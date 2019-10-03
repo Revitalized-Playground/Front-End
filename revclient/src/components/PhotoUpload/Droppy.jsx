@@ -3,10 +3,9 @@ import { useDropzone } from 'react-dropzone';
 
 
 
-export default function Droppy({images}) {
+export default function Droppy({images, setProjectDetails, projectDetails}) {
     
-    const [ imagePreview, setImagePreview ] = useState([]);
-
+    const [ imagePreview, setImagePreview ] = useState(images);
     const { getRootProps, getInputProps } = useDropzone({
         accept: 'image/*',
         onDrop: acceptedFiles => {
@@ -28,18 +27,14 @@ export default function Droppy({images}) {
         </div>
     ));
 
-    useEffect(() => () => {
-        // Make sure to revoke the data uris to avoid memory leaks
+    useEffect(() => () => { // Make sure to revoke the data uris to avoid memory leaks
         imagePreview.forEach(file => URL.revokeObjectURL(file.preview));
     }, [imagePreview]);
 
     const submitImages = () => {
-        console.log("submitImages");
-        images=imagePreview;
-        console.log(images);
-        setImagePreview([])
+        setImagePreview([]);
+        setProjectDetails({ ...projectDetails, images: imagePreview })
     }
-
 
     return (
         <section className="droppy-container">

@@ -6,12 +6,11 @@ import  { FaArrowLeft } from "react-icons/fa";
 import Droppy from "../../../components/PhotoUpload/Droppy";
 
 
-const Form3 = ({difficulty, duration, goalAmount, amountFunded, handleChanges, submitForm, setFormPosition, images }) => {
+const Form3 = ({ setProjectDetails, projectDetails, difficulty, duration, goalAmount, amountFunded, handleChanges, submitForm, setFormPosition, images }) => {
 
     const [error, 
         setError
     ] = useState(true);
-
 
     const checker = (e) => {
         e.target.value.split('.').map(each => {
@@ -22,9 +21,6 @@ const Form3 = ({difficulty, duration, goalAmount, amountFunded, handleChanges, s
             }
         })
     };
-    
-    
-
 
     return (
         <form onSubmit={(event) => submitForm(event)} className="form-3" >
@@ -67,7 +63,7 @@ const Form3 = ({difficulty, duration, goalAmount, amountFunded, handleChanges, s
                 <option >Hard</option>
 
             </select>
-            <Droppy images={images} />
+            <Droppy images={images} setProjectDetails={setProjectDetails} projectDetails={projectDetails} />
             <div className="form-navigation">
                 <button className="prev-step" onClick={() => setFormPosition(2)}><FaArrowLeft />&nbsp;Previous</button>
                 <button className="next-step submit" type="submit">Submit</button>
