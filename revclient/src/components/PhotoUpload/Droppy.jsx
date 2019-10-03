@@ -15,12 +15,12 @@ export default function Droppy({images, setProjectDetails, projectDetails}) {
         }
     });
   
-    const thumbs = imagePreview.map(file => (
-        <div className="thumb" key={file.name}>
+    const thumbs = imagePreview.map(image => (
+        <div className="thumb" key={image.name}>
             <div className="thumb-inner" >
                 <img
                     className="thumb-img"
-                    src={file.preview}
+                    src={image.preview}
                     alt="preview"
                 />
             </div>

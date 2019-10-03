@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import Skeleton from 'react-loading-skeleton';
-
 import { FaMoon } from 'react-icons/fa';
-
 import { useQuery } from '@apollo/react-hooks';
 import { GET_USER } from '../../graphql/queries/Users';
 
@@ -18,8 +16,8 @@ const uLinks = [
 });
 const aLinks = [
 	{ href: '/browse', label: 'Browse' },
-	{ href: '/createproject', label: 'Learn More' },
-	{ href: '/projects', label: 'Team' },
+	{ href: '/projects', label: 'Learn More' },
+	{ href: '#', label: 'Team' },
 	{ href: '#', label: 'Logout' },
 ].map(link => {
 	link.key = `nav-link-${link.href}-${link.label}`;
