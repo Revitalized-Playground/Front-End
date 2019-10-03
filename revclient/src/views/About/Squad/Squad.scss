@@ -26,6 +26,7 @@
 			flex-direction: column;
 
 			.person {
+				position: relative;
 				padding: 1rem 1rem 0 1rem;
 				width: 46.2rem;
 				height: 65.5rem;
@@ -58,7 +59,36 @@
 					}
 				}
 			}
+
+			.overlay {
+				position: absolute;
+				display: block;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				background-color: #008cba;
+				overflow: hidden;
+				width: 100%;
+				height: 0;
+				transition: 0.5s ease;
+
+				.text {
+					color: white;
+					font-size: 20px;
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -50%);
+					text-align: center;
+				}
+			}
+
+			.person:hover .overlay {
+				cursor: pointer;
+				height: 50%;
+			}
 		}
+
 		.squad-flex-two {
 			margin-top: 17.3rem;
 		}
