@@ -35,7 +35,9 @@ const Nav = props => {
 	
 
 	//custom hook for window.onClick
-	const [modal, setModal, carousel, setCarousel, clicked, setClicked] = useWindowHook()
+	const [
+		// modal, setModal, carousel, setCarousel, 
+		clicked, setClicked] = useWindowHook()
 
 	// for testing
 	// const toggleLoggedIn = () => setLoggedIn(!loggedIn);
