@@ -3,7 +3,7 @@ import jwt from 'jsonwebtoken';
 
 export const useAuth = history => {
 
-    let [token, setStoken] = useState(localStorage.getItem('token'));
+    let [token] = useState(localStorage.getItem('token'));
 
     try {
         jwt.verify(token, process.env.REACT_APP_JWT_SECRET);
