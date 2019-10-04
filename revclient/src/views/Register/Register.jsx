@@ -5,13 +5,11 @@ import {
 import {
     CREATE_USER,
 } from "../../graphql/mutations";
-import { withRouter, Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
 
 import googleLogo from '../../assets/AuthPages/Google.png';
 import fbLogo from '../../assets/AuthPages/fb-logo.png';
-import revitalizeLogo from '../../assets/LandingPage/Logo.png';
-// import twitter from '../../assets/AuthPages/twitter.png';
 
 
 const Register = props => {
