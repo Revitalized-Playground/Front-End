@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Redirect } from 'react-router-dom';
-
 import jwt from 'jsonwebtoken';
 
 export const useAuth = history => {
@@ -13,9 +11,13 @@ export const useAuth = history => {
 		return history.push('/login');
 	}
 
+	function currentUser() {
+		return jwt.decode(token, token, process.env.REACT_APP_JWT_SECRET);
+	}
+
 	function logOut() {
 		localStorage.removeItem('token');
 	}
 
-	return { logOut };
+	return { currentUser, logOut };
 };
