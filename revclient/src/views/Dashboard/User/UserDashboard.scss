@@ -32,15 +32,18 @@ hr {
 	.section[class^='user-dashboard'] {
 		@include skeleton-section;
 		@include bottomBoxShadow;
-	}
-	.user-dashboard-sidebar, .user-dashboard-header, .user-dashboard-main {
 		background: $snow-white;
+
 	}
 }
 .dark-mode {
-	.user-dashboard-sidebar, .user-dashboard-header, .user-dashboard-main {
+	.section[class^='user-dashboard'] {
+		@include skeleton-section;
 		background-color: #152531;
-		// border: none;
-		// color: $snow-white;
+		border: none;
+	}
+	hr {
+		border-top-color: rgba(255, 255, 255, 0.18);
+
 	}
 }

@@ -2,13 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import Skeleton from 'react-loading-skeleton';
 import { FaMoon } from 'react-icons/fa';
+import { FaCog } from 'react-icons/fa';
+import { FaUser } from 'react-icons/fa';
+import { FaWindowClose } from 'react-icons/fa';
 import { useQuery } from '@apollo/react-hooks';
 import { GET_USER } from '../../graphql/queries/Users';
 
 const uLinks = [
 	{ href: '/browse', label: 'Browse' },
 	{ href: '/projects', label: 'Learn More' },
-	{ href: '#', label: 'Team' },
+	{ href: '/about', label: 'Team' },
 	{ href: '/login', label: 'Log In' },
 ].map(link => {
 	link.key = `nav-link-${link.href}-${link.label}`;
@@ -17,7 +20,7 @@ const uLinks = [
 const aLinks = [
 	{ href: '/browse', label: 'Browse' },
 	{ href: '/projects', label: 'Learn More' },
-	{ href: '#', label: 'Team' },
+	{ href: '/about', label: 'Team' },
 	{ href: '#', label: 'Logout' },
 ].map(link => {
 	link.key = `nav-link-${link.href}-${link.label}`;
@@ -107,15 +110,15 @@ const Nav = props => {
 							{clicked && (
 								<div className="dropdown">
 									<Link to="/dashboard" className="dropdown-option">
-										Profile
+									<FaUser className="icon"/>Profile
 									</Link>
-									<div className="dropdown-option">Setting</div>
+									<div className="dropdown-option"><FaCog className="icon"/> Setting</div>
 									<div onClick={toggleDarkMode} className="dropdown-option">
-										<FaMoon />
-										&nbsp; Dark mode: {darkModeActive ? 'on' : 'off'}
+										<FaMoon className="icon"/>
+										Dark mode
 									</div>
 									<div onClick={logout} className="dropdown-option">
-										Log out
+									<FaWindowClose className="icon"/>Log out
 									</div>
 								</div>
 							)}
