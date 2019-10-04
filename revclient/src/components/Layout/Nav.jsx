@@ -35,15 +35,17 @@ const Nav = props => {
 	// for testing
 	// const toggleLoggedIn = () => setLoggedIn(!loggedIn);
 
-
 	const toggleDarkMode = () => {
 		setDarkMode(!darkModeActive);
 		localStorage.setItem('dark-mode', !darkModeActive);
 	};
 
-	const setActive = () => {
+	const setActive = (e) => {	
+		if(e.target.className !== "dropdown"){	
 		setActiveHamburger(!activeHamburger);
 		setClicked(!clicked);
+		}
+
 	};
 
 	useEffect(() => {
@@ -68,8 +70,24 @@ const Nav = props => {
 		if (error) return <p>Error....</p>;
 	}
 
+	window.onclick = (e) => {
+		console.log(e.target.className)
+		
+	if(clicked === true){
+		if(e.target.className ==="user" || e.target.className ==="fun" || e.target.className ==="user fun"){
+			return
+		}
+		else if(e.target.className !== "dropdown"){
+			setClicked(false)
+		}
+	}
+		
+		
+	}
+
 	return (
 		<nav>
+			{console.log(clicked)}
 			<div className="leftNav">
 				<Link to="/" title="Home">
 					<div className="logo">
@@ -93,10 +111,10 @@ const Nav = props => {
 									</li>
 								),
 							)}
-							<div className="user" onClick={setActive}>
-								<div>
+							<div className="user fun" tabIndex="0" onClick={setActive} >
+								<div className="fun">
 									{data.me.firstName !== null ? (
-										<span>{`Welcome, ${data.me.firstName}`}</span>
+										<span className="fun">{`Welcome, ${data.me.firstName}`}</span>
 									) : (
 										<span>'Welcome'</span>
 									)}
@@ -106,22 +124,26 @@ const Nav = props => {
 								) : (
 									<Skeleton className="userIcon" circle={true} height={40} width={40} />
 								)}
+								
+									<div className={`dropdown ${!clicked && 'none'}`} name="drop" tabIndex="0" onBlur={console.log('hello')} >
+										<Link to="/dashboard" className="dropdown-option">
+											<FaUser className="icon" />
+											Profile
+										</Link>
+										<div className="dropdown-option">
+											<FaCog className="icon" /> Setting
+										</div>
+										<div onClick={toggleDarkMode} className="dropdown-option">
+											<FaMoon className="icon" />
+											Dark mode
+										</div>
+										<div onClick={logout} className="dropdown-option">
+											<FaWindowClose className="icon" />
+											Log out
+										</div>
+									</div>
+								
 							</div>
-							{clicked && (
-								<div className="dropdown">
-									<Link to="/dashboard" className="dropdown-option">
-									<FaUser className="icon"/>Profile
-									</Link>
-									<div className="dropdown-option"><FaCog className="icon"/> Setting</div>
-									<div onClick={toggleDarkMode} className="dropdown-option">
-										<FaMoon className="icon"/>
-										Dark mode
-									</div>
-									<div onClick={logout} className="dropdown-option">
-									<FaWindowClose className="icon"/>Log out
-									</div>
-								</div>
-							)}
 						</>
 					) : (
 						<>
@@ -139,17 +161,17 @@ const Nav = props => {
 							<div className="dark-mode-emoji">
 								<FaMoon onClick={() => toggleDarkMode()} />
 							</div>
-							{!localStorage.getItem('token') &&
-							<div
-								onClick={setActive}
-								className={`hamburger hamburger--squeeze ${activeHamburger && 'is-active'}`}
-								type="button"
-							>
-								<span className="hamburger-box">
-									<span className="hamburger-inner"></span>
-								</span>
-							</div>
-							}
+							{!localStorage.getItem('token') && (
+								<div
+									onClick={setActive}
+									className={`hamburger hamburger--squeeze ${activeHamburger && 'is-active'}`}
+									type="button"
+								>
+									<span className="hamburger-box">
+										<span className="hamburger-inner"></span>
+									</span>
+								</div>
+							)}
 						</>
 					)}
 				</ul>
@@ -162,16 +184,16 @@ const Nav = props => {
 							{localStorage.getItem('token') ? (
 								<>
 									{aLinks.map(({ key, href, label }) =>
-								label === 'Logout' ? (
-									<li className="navLinks-overlay logout" onClick={logout} key={key}>
-										<Link to={href}>{label}</Link>
-									</li>
-								) : (
-									<li className="navLinks-overlay" key={key}>
-										<Link to={href}>{label}</Link>
-									</li>
-								),
-							)}
+										label === 'Logout' ? (
+											<li className="navLinks-overlay logout" onClick={logout} key={key}>
+												<Link to={href}>{label}</Link>
+											</li>
+										) : (
+											<li className="navLinks-overlay" key={key}>
+												<Link to={href}>{label}</Link>
+											</li>
+										),
+									)}
 								</>
 							) : (
 								<ul>
