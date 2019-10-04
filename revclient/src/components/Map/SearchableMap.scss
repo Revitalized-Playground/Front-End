@@ -1,10 +1,33 @@
 .searchable-map {
     background-color: $erudite-purple;
     height: 100%; 
-    min-height: 700px;
-    max-height: 900px;
+    min-height: 500px;
     width: 100%;
     position: relative;
     display: flex;
     flex-direction: column;
+    .searchable-map-navigation {
+        position: absolute;
+        right: 0;
+    }
+    // .searchable-map-searchbar {}
+    .searchable-map-geolocate {
+        height: 150px;
+        width: 100%;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        div {
+            width: 30px;
+            margin: 0 0 0 auto;
+        }
+
+    }
+    .mapboxgl-ctrl-logo {
+        display: none;
+    }
+    .mapboxgl-ctrl-attrib-inner {
+        display: none;
+    }
 }

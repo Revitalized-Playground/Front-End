@@ -1,11 +1,20 @@
 import React, { Component } from 'react';
-// import MapGL, { Marker, Popup, GeolocateControl, NavigationControl } from "react-map-gl";
-import DeckGL, { 
-    // GeoJsonLayer 
-} from "deck.gl";
-// import Geocoder from "react-map-gl-geocoder";
 
-const token = process.env.REACT_APP_MAPBOX_TOKEN
+// Mapbox
+import ReactMapGL, 
+{ 
+    // Marker, 
+    // Popup, 
+    GeolocateControl, 
+    NavigationControl, 
+} from "react-map-gl";
+import Geocoder from "react-map-gl-geocoder"; // This provides search results
+import DeckGL, { GeoJsonLayer } from "deck.gl"; // This provides the ability to go to search results
+import { fromJS } from "immutable";
+import mapStyleJson from "./3dpitch/style.json"
+
+const token = process.env.REACT_APP_MAPBOX_TOKEN;
+const mapStyle = fromJS(mapStyleJson); // This imports the default style of map, which we can configure and adjust starting point based on location
 
 class SearchableMap extends Component {
     state = {
@@ -15,6 +24,8 @@ class SearchableMap extends Component {
             zoom: 15.82,
             pitch: 60,
             bearing: 9.6,
+            width: "100%",
+            height: 440,
         },
         searchResultLayer: null,
         selectedProject: null,
@@ -72,78 +83,70 @@ class SearchableMap extends Component {
         ]
     }
 
-    // This will be the API URL for Geocoding but we will need to request them independently 10 at a time (time consuming to convert an array to Lat and Long)
-    // `https://api.mapbox.com/geocoding/v5/mapbox.places/${queryStringForGeocoding}.json?type=address&proximity=${usersGeoLocationCSVLatLong}&access_token=${TOKEN}`
-
-    mapRef = React.createRef()
-
-    handleViewportChange = viewport => {
+    handleViewportChange = viewportObject => {
         this.setState({
-            viewport: { ...this.state.viewport, ...viewport }
+            viewport: { ...this.state.viewport, ...viewportObject }
         })
     }
-    // if you are happy with Geocoder default settings, you can just use handleViewportChange directly
-    handleGeocoderViewportChange = viewport => {
-        const geocoderDefaultOverrides = { transitionDuration: 50 };
 
+    handleGeocoderViewportChange = viewport => {
         return this.handleViewportChange({
             ...viewport,
-            ...geocoderDefaultOverrides
         });
     };
 
     handleOnResult = event => {
+        console.log("geocode result ",event.result)
         this.setState({
-            // searchResultLayer: new GeoJsonLayer({
-            //     id: "search-result",
-            //     data: event.result.geometry,
-            //     getFillColor: [255, 0, 0, 128],
-            //     getRadius: 1000,
-            //     pointRadiusMinPixels: 10,
-            //     pointRadiusMaxPixels: 10
-            // })
+            searchResultLayer: new GeoJsonLayer({
+                id: "search-result",
+                data: event.result.geometry,
+                getFillColor: [255, 0, 0, 128],
+                getRadius: 1000,
+                pointRadiusMinPixels: 10,
+                pointRadiusMaxPixels: 10
+            })
         })
     }
 
+    mapRef = React.createRef()
+
     render() {
         const { viewport, searchResultLayer } = this.state;
+
         return (
             <div className="searchable-map">
-                {/* 
-                <MapGL
-                    ref={this.mapRef}
+
+                <ReactMapGL
                     {...viewport}
-                    mapStyle={process.env.REACT_APP_MAPBOX_3DMAP}
+                    mapStyle={mapStyle}
                     mapboxApiAccessToken={token}
-                    width="inherit"
-                    height="650px"
-                    onViewportChange={this.handleViewportChange}
+                    ref={this.mapRef}
+                    onViewportChange={(viewport) => this.setState({viewport})}
                 >
-                <Geocoder
-                    mapRef={this.mapRef}
-                    onResult={this.handleOnResult}
-                    onViewportChange={this.handleGeocoderViewportChange}
-                    mapboxApiAccessToken={token}
-                    position='top-left'
-                />
-                <GeolocateControl
-                    style={{
-                        float: 'left',
-                        margin: '50px auto auto 10px',
-                        padding: '10px'
-                    }}
-                    positionOptions={{ enableHighAccuracy: true }}
-                    trackUserLocation={true}
-                />
-                <div style={{
-                    position: 'absolute',
-                    width: "50px",
-                    bottom: 10,
-                    right: 0,
-                    padding: '10px'
-                }}>
-                    <NavigationControl  onViewportChange={this.handleGeocoderViewportChange} />
-                </div>
+                    <div className="searchable-map-navigation">
+                        <NavigationControl />
+                    </div>
+                    <div className="searchable-map-searchbar">
+                        <Geocoder
+                            mapRef={this.mapRef}
+                            onResult={this.handleOnResult}
+                            onViewportChange={this.handleGeocoderViewportChange}
+                            mapboxApiAccessToken={token}
+                            position="top-left"
+                        />
+                    </div>
+                    <div className="searchable-map-geolocate">
+                        <GeolocateControl 
+                            positionOptions={{enableHighAccuracy: true}}
+                            trackUserLocation={false}
+                        />
+                    </div>
+                    <DeckGL {...viewport} layers={[searchResultLayer]} />
+                </ReactMapGL>
+
+
+                {/* 
 
                     {this.state.gpsArray.map((gps, i) => 
                         <Marker key={i} latitude={gps.lat} longitude={gps.long} >   
@@ -163,9 +166,8 @@ class SearchableMap extends Component {
                             <p>Location</p>
                             <p>Short Description</p>
                         </Popup>
-                    }
-                </MapGL> 
-                <DeckGL {...viewport} layers={[searchResultLayer]} /> */}
+                    }*/}
+
             </div>
         )
     }
