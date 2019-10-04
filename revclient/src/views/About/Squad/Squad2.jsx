@@ -1,16 +1,15 @@
 import React from 'react';
 
 // images
-import kerry from "../../../assets/AboutPage/kerry.png";
-import alex from "../../../assets/AboutPage/alex.png";
-import clark from "../../../assets/AboutPage/clark.png";
-import frank from "../../../assets/AboutPage/frank.png";
-import jose from "../../../assets/AboutPage/jose.png";
-import omar from "../../../assets/AboutPage/omar.png";
-import ruth from "../../../assets/AboutPage/ruth.png";
-import skyelar from "../../../assets/AboutPage/skyelar.png";
-import anthony from "../../../assets/AboutPage/anthony.png";
-
+import kerry from '../../../assets/AboutPage/Kerry.png';
+import alex from '../../../assets/AboutPage/alex.png';
+import clark from '../../../assets/AboutPage/clark.png';
+import frank from '../../../assets/AboutPage/frank.png';
+import jose from '../../../assets/AboutPage/jose.png';
+import omar from '../../../assets/AboutPage/omar.png';
+import ruth from '../../../assets/AboutPage/ruth.png';
+import skyelar from '../../../assets/AboutPage/skyelar.png';
+import anthony from '../../../assets/AboutPage/anthony.png';
 
 const Squad2 = () => {
 	const squad = [
