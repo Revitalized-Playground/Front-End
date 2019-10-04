@@ -34,7 +34,6 @@ const project = {
 	difficultyLevel: 'Medium',
 	projectBudget: '500000',
 	raised: '400000',
-	donors: 11600,
 	location: 'Detroit, MI',
 	projectPhotos: [pic1, pic2, pic3],
 	comments: [
@@ -246,7 +245,7 @@ const ProjectPage = ({ match }) => {
 					<Donate
 						raised={projectData.project.donations}
 						budget={projectData.project.goalAmount}
-						donors={project.donors}
+						projectData={projectData}
 						setModal={setModalVal}
 					/>
 				</div>
