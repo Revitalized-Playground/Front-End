@@ -23,7 +23,7 @@ const Squad = () => {
 			github: 'https://github.com/adventurini',
 			linkedIn: 'https://www.linkedin.com/in/adventurini/',
 			twitter: 'https://twitter.com/adventurini',
-			site: ''
+			site: '',
 		},
 		{
 			name: 'Kerry McPhearson',
@@ -35,7 +35,7 @@ const Squad = () => {
 			github: '',
 			linkedIn: 'https://www.linkedin.com/in/kerry-mcphearson-9b361193/',
 			twitter: 'https://twitter.com/kerrybtone',
-			site: ''
+			site: '',
 		},
 		{
 			name: 'Alexander Piroumian',
@@ -59,7 +59,7 @@ const Squad = () => {
 			github: '',
 			linkedIn: 'https://www.linkedin.com/in/ruth-philips/',
 			twitter: 'https://twitter.com/Ruthmatt3',
-			site: ''
+			site: '',
 		},
 		{
 			name: 'Jose Montero Jr',
@@ -71,7 +71,7 @@ const Squad = () => {
 			github: 'https://github.com/JoseMarioDev',
 			linkedIn: 'https://www.linkedin.com/in/josemariodev/',
 			twitter: 'https://twitter.com/josemariodev',
-			site: ''
+			site: 'https://josemariodev.github.io/',
 		},
 		{
 			name: 'Elan Riznis',
@@ -83,7 +83,7 @@ const Squad = () => {
 			github: 'https://github.com/Zealll',
 			linkedIn: 'https://www.linkedin.com/in/elan-riznis/',
 			twitter: 'https://twitter.com/Zeal_l3',
-			site: ''
+			site: '',
 		},
 		{
 			name: 'Omar Salah',
@@ -95,7 +95,7 @@ const Squad = () => {
 			github: 'https://github.com/OmarSalah95',
 			linkedIn: 'https://www.linkedin.com/in/omar-salah-78787a180/',
 			twitter: 'https://twitter.com/BugSquasher9000',
-			site: ''
+			site: '',
 		},
 
 		{
@@ -108,7 +108,7 @@ const Squad = () => {
 			github: 'https://github.com/Fractured2K',
 			linkedIn: 'https://www.linkedin.com/in/skyelar-carroll-7567b217a/',
 			twitter: 'https://twitter.com/Fractured2K',
-			site: ''
+			site: '',
 		},
 
 		{
@@ -121,7 +121,7 @@ const Squad = () => {
 			github: 'https://github.com/Cwill14',
 			linkedIn: 'https://www.linkedin.com/in/clark-williams14/',
 			twitter: 'https://twitter.com/clarktwilliams',
-			site: 'https://theclarkwilliams.com'
+			site: 'https://theclarkwilliams.com',
 		},
 		{
 			name: 'Frank Martinez',
@@ -133,7 +133,7 @@ const Squad = () => {
 			github: 'https://github.com/LeTanque',
 			linkedIn: 'https://www.linkedin.com/in/frankm3/',
 			twitter: 'https://twitter.com/_letanque',
-			site: ''
+			site: '',
 		},
 	];
 
@@ -156,13 +156,13 @@ const Squad = () => {
 									<a href={person.github} alt="Github" target="_blank" rel="noopener noreferrer">
 										<i className="fa fa-github"></i>
 									</a>
-									<a href={person.linkedIn} alt="LinkedIn" target="_blank" rel="noopener noreferrer">	
+									<a href={person.linkedIn} alt="LinkedIn" target="_blank" rel="noopener noreferrer">
 										<i className="fa fa-linkedin"></i>
 									</a>
-									<a href={person.twitter} alt="Twitter" target="_blank" rel="noopener noreferrer">	
+									<a href={person.twitter} alt="Twitter" target="_blank" rel="noopener noreferrer">
 										<i className="fa fa-twitter"></i>
 									</a>
-									<a href={person.site} alt="Personal Site" target="_blank" rel="noopener noreferrer">	
+									<a href={person.site} alt="Personal Site" target="_blank" rel="noopener noreferrer">
 										<i className="fa fa-user alt"></i>
 									</a>
 								</div>
