@@ -112,20 +112,20 @@ const project = {
 		},
 	],
 	projectDescription:
-		'Team Rubicon is a warehouse restoration project located in the heart of Detroit. The warehouse used to be an ancient machinery manufacturing plant and was later converted to an automative plant. Revitalize is partnering with city officials to restore the warehouse to a careers training high school. City officials are looking forward to collaborating with Revitalize to restore abandoned buildings and empower communities. Revitalize also partners with local construction and design firms in Detroit to ensure students are receiving hands-on training with local experts and ready to launch into their career. Team Rubicon has raised $50,000 so far and are grateful to all the donors who are supporting community growth and building restoration projects in Detroit. Revitalize also partners with local construction and design firms in Detroit to ensure students are receiving hands-on training with local experts and ready to launch into their career. Team Rubicon has raised $50,000 so far and are grateful to all the donors who are supporting community growth and building restoration projects in Detroit.',
+		'Project description goes here.',
 };
 
 const ProjectPage = ({ match }) => {
 	const [copied, setCopied] = useState(false);
 
 
-	const [modalVal, setModalVal, carouselVal, setCarouselVal ] = useWindowHook()
+	const [modalVal, setModalVal, carouselVal, setCarouselVal ] = useWindowHook();
 
 	const val = e => {
 		if(e.target.className === 'modal') {
 			setModalVal(false)
 		}
-	}
+	};
 
 	const carVal = e => {
 		if(e.target.className === 'carousel-large-project') {
@@ -133,7 +133,7 @@ const ProjectPage = ({ match }) => {
 		} else if (e.target.className === 'car-pic') {
 			setCarouselVal(true)
 		}
-	}
+	};
 
 	
 
@@ -141,7 +141,8 @@ const ProjectPage = ({ match }) => {
 		variables: { id: match.params.id },
 	});
 	const [projectData, setProjectData] = useState(data);
-	console.log('project', projectData)
+	
+	console.log('project', projectData);
 
 	useEffect(() => {
 		setProjectData(data);
@@ -247,7 +248,7 @@ const ProjectPage = ({ match }) => {
 						organizer={`${projectData.project.profile.firstName} ${projectData.project.profile.lastName}`}
 					/>
 					<Donate
-						raised={projectData.project.amountFunded}
+						raised={projectData.project.donations}
 						budget={projectData.project.goalAmount}
 						donors={project.donors}
 						setModal={setModalVal}

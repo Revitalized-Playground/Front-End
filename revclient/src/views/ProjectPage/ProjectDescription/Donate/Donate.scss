@@ -125,10 +125,12 @@
             border-radius: 50px;
             margin-bottom: 16px;
             border: 1px solid $snow-white;
-
             @media #{$mobile} {
                 width: 93%;
                 margin-bottom: 10px;
+            }
+            div {
+                background-color: $erudite-purple;
             }
         }
 

@@ -15,3 +15,13 @@ export function formatMoney(amount, decimalCount = 2, decimal = ".", thousands =
     }
 };
 
+
+export function numberWithCommas(number) {
+    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+};
+
+
+export function formatter(num) {
+    return Math.abs(num) > 999 ? Math.sign(num)*((Math.abs(num)/1000).toFixed(1)) + 'k' : Math.sign(num)*Math.abs(num)
+};
+

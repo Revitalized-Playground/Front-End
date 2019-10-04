@@ -28,6 +28,10 @@ export const GET_PROJECT = gql`
 			city
 			goalAmount
 			featuredImage
+			donations {
+				id
+				amount
+			}
 			comments {
 				id
 				comment
