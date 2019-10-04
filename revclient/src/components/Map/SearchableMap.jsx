@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import MapGL, { Marker, Popup, GeolocateControl, NavigationControl } from "react-map-gl";
-import DeckGL, { GeoJsonLayer } from "deck.gl";
-import Geocoder from "react-map-gl-geocoder";
+// import MapGL, { Marker, Popup, GeolocateControl, NavigationControl } from "react-map-gl";
+import DeckGL, { 
+    // GeoJsonLayer 
+} from "deck.gl";
+// import Geocoder from "react-map-gl-geocoder";
 
 const token = process.env.REACT_APP_MAPBOX_TOKEN
 
@@ -10,9 +12,9 @@ class SearchableMap extends Component {
         viewport: { // SF
             latitude: 37.78846,
             longitude: -122.399754,
+            zoom: 15.82,
             pitch: 60,
             bearing: 9.6,
-            zoom: 15.82,
         },
         searchResultLayer: null,
         selectedProject: null,
@@ -92,22 +94,24 @@ class SearchableMap extends Component {
 
     handleOnResult = event => {
         this.setState({
-            searchResultLayer: new GeoJsonLayer({
-                id: "search-result",
-                data: event.result.geometry,
-                getFillColor: [255, 0, 0, 128],
-                getRadius: 1000,
-                pointRadiusMinPixels: 10,
-                pointRadiusMaxPixels: 10
-            })
+            // searchResultLayer: new GeoJsonLayer({
+            //     id: "search-result",
+            //     data: event.result.geometry,
+            //     getFillColor: [255, 0, 0, 128],
+            //     getRadius: 1000,
+            //     pointRadiusMinPixels: 10,
+            //     pointRadiusMaxPixels: 10
+            // })
         })
     }
 
     render() {
-        const { viewport, searchResultLayer } = this.state
+        const { viewport, searchResultLayer } = this.state;
         return (
-            <div style={{ height: '100vh', width:"100%" }}>
-                <h1 style={{ textAlign: 'center', fontSize: '25px', fontWeight: 'bolder', marginBottom:"25px" }}>Search For Apprenticeship Projects Near You!</h1>
+            <div style={{ height: '100%', width:"100%" }}>
+                {/* <h1 
+                    style={{ textAlign: 'center', fontSize: '25px', fontWeight: 'bolder', marginBottom:"25px" }}
+                >Search For Apprenticeship Projects Near You!</h1>
                 <MapGL
                     ref={this.mapRef}
                     {...viewport}
@@ -117,14 +121,14 @@ class SearchableMap extends Component {
                     height="650px"
                     onViewportChange={this.handleViewportChange}
                 >
-                    <Geocoder
-                        mapRef={this.mapRef}
-                        onResult={this.handleOnResult}
-                        onViewportChange={this.handleGeocoderViewportChange}
-                        mapboxApiAccessToken={token}
-                        position='top-left'
-                    />
-                    <GeolocateControl
+                <Geocoder
+                    mapRef={this.mapRef}
+                    onResult={this.handleOnResult}
+                    onViewportChange={this.handleGeocoderViewportChange}
+                    mapboxApiAccessToken={token}
+                    position='top-left'
+                />
+                <GeolocateControl
                     style={{
                         float: 'left',
                         margin: '50px auto auto 10px',
@@ -140,7 +144,7 @@ class SearchableMap extends Component {
                     right: 0,
                     padding: '10px'
                 }}>
-                <NavigationControl  onViewportChange={this.handleGeocoderViewportChange} />
+                    <NavigationControl  onViewportChange={this.handleGeocoderViewportChange} />
                 </div>
 
                     {this.state.gpsArray.map((gps, i) => 
@@ -157,13 +161,13 @@ class SearchableMap extends Component {
                             onClose={() => this.setState({...this.state, selectedProject:null})}
                             anchor="bottom"
                         >
-                        <h2>Project Name</h2>
-                        <p>Location</p>
-                        <p>Short Description</p>
+                            <h2>Project Name</h2>
+                            <p>Location</p>
+                            <p>Short Description</p>
                         </Popup>
                     }
-                </MapGL>
-                <DeckGL {...viewport} layers={[searchResultLayer]} />
+                </MapGL> 
+                <DeckGL {...viewport} layers={[searchResultLayer]} /> */}
             </div>
         )
     }

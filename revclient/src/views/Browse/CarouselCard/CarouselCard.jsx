@@ -32,6 +32,9 @@ const CarouselCard = ( {card, view, index, name} ) => {
         card.images = ["https://res.cloudinary.com/revitalize/image/upload/v1569451117/start%20page/Camp_Crystal_Lake_jqewaz.jpg"]
     }
 
+
+    console.log('card', card)
+
     if (view === "recommended") {
         return (
             <section className="carousel-card-inner __recommended">
