@@ -16,21 +16,18 @@
 		margin-bottom: 9.7rem;
 	}
 	.flex-container {
+		display: flex;
+		justify-content: center;
 		.squad {
 			display: grid;
 			grid-gap: 0;
 			grid-template-columns: repeat(3, 46.2rem);
 			grid-auto-rows: repeat(20, 17rem);
-			// width: 100%;
-			margin: 0 14% 10% 14%;
-
 			.person {
 				position: relative;
 				padding: 1rem 1rem 0 1rem;
 				width: 46.2rem;
 				height: 65.5rem;
-				// margin-bottom: 17.3rem;
-
 				.name {
 					height: 7%;
 					font-family: Futura;
@@ -58,7 +55,6 @@
 					}
 				}
 			}
-
 			.overlay {
 				position: absolute;
 				display: flex;
@@ -90,23 +86,11 @@
 					}
 				}
 			}
-
 			.person:hover .overlay {
 				cursor: pointer;
 				height: 50%;
 			}
 		}
-
-		// .Kerry,
-		// .Jose,
-		// .Skyelar {
-		// 	margin-top: 17.3rem;
-		// }
-		// .Alexander,
-		// .Elan,
-		// .Clark {
-		// 	margin-top: calc(17.3rem * 2);
-		// }
 		.Anthony {
 			grid-area: 1/1/5/2;
 		}
