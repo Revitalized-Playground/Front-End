@@ -18,20 +18,16 @@
 	.flex-container {
 		display: flex;
 		justify-content: center;
-
-		.squad-flex-one,
-		.squad-flex-two,
-		.squad-flex-three {
-			display: flex;
-			flex-direction: column;
-
+		.squad {
+			display: grid;
+			grid-gap: 0;
+			grid-template-columns: repeat(3, 46.2rem);
+			grid-auto-rows: repeat(20, 17rem);
 			.person {
 				position: relative;
 				padding: 1rem 1rem 0 1rem;
 				width: 46.2rem;
 				height: 65.5rem;
-				margin-bottom: 17.3rem;
-
 				.name {
 					height: 7%;
 					font-family: Futura;
@@ -59,12 +55,11 @@
 					}
 				}
 			}
-
 			.overlay {
 				position: absolute;
 				display: flex;
 				flex-direction: column;
-				justify-content: space-between; 
+				justify-content: space-between;
 				bottom: 0;
 				left: 0;
 				right: 0;
@@ -91,18 +86,40 @@
 					}
 				}
 			}
-
 			.person:hover .overlay {
 				cursor: pointer;
 				height: 50%;
 			}
 		}
-
-		.squad-flex-two {
-			margin-top: 17.3rem;
+		.Anthony {
+			grid-area: 1/1/5/2;
 		}
-		.squad-flex-three {
-			margin-top: calc(17.3rem * 2);
+		.Kerry {
+			grid-area: 2/2/6/3;
+		}
+		.Alexander {
+			grid-area: 3/3/7/4;
+		}
+		.Ruth {
+			grid-area: 6/1/10/2;
+		}
+		.Jose {
+			grid-area: 7/2/11/2;
+		}
+		.Elan {
+			grid-area: 8/3/12/4;
+		}
+		.Omar {
+			grid-area: 11/1/15/2;
+		}
+		.Skyelar {
+			grid-area: 12/2/16/3;
+		}
+		.Clark {
+			grid-area: 13/3/17/4;
+		}
+		.Frank {
+			grid-area: 16/1/20/2;
 		}
 	}
 }
