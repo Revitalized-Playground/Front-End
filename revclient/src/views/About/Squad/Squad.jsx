@@ -47,7 +47,7 @@ const Squad = () => {
 			github: 'https://github.com/AlexxanderP',
 			linkedIn: 'https://www.linkedin.com/in/alexander-piroumian/',
 			twitter: 'https://twitter.com/expertgoogler',
-			site: ''
+			site: 'http://alexanderpiroumian.com'
 		},
 		{
 			name: 'Ruth Philips',
