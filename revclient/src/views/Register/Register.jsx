@@ -1,8 +1,3 @@
-/**
- * * Description of component
- * TODO: things to do
- * @props description
- */
 import React, { useState } from "react";
 import {
     useMutation,
@@ -10,9 +5,8 @@ import {
 import {
     CREATE_USER,
 } from "../../graphql/mutations";
-import { withRouter } from "react-router-dom";
-
-import {Link} from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa";
 
 import googleLogo from '../../assets/AuthPages/Google.png';
 import fbLogo from '../../assets/AuthPages/fb-logo.png';
@@ -47,16 +41,15 @@ const Register = props => {
 		props.history.push("/");
     };
 
+	const goBack = () => {
+		props.history.push("/");
+	}
+
 	return (
 		<div className="register-container">
+			<FaArrowLeft onClick={goBack} />
 			<div className="register-container-left">
-				<div className="revitalize-logo-container">
-					<Link to="/" title="Home">
-						<div>
-							<img src={revitalizeLogo} alt="Revitalize logo" />
-						</div>
-					</Link>
-				</div>
+
 				<div className="register-form">
 					<div className="register-third-party">
 						<div className="register-welcome">
@@ -64,7 +57,7 @@ const Register = props => {
 						</div>
 						<button>
 							<div>
-								<a className="register-Button" href={`${process.env.REACT_APP_OAUTH_GOOGLE_LINK}`}>
+								<a className="register-button" href={`${process.env.REACT_APP_OAUTH_GOOGLE_LINK}`}>
 									<img src={googleLogo} alt="Google logo" />
 									<h5>Register With Google</h5>
 								</a>
@@ -72,19 +65,19 @@ const Register = props => {
 						</button>
 						<button>
 							<div>
-								<a className="register-Button" href={`${process.env.REACT_APP_OAUTH_FACEBOOK_LINK}`}>
+								<a className="register-button" href={`${process.env.REACT_APP_OAUTH_FACEBOOK_LINK}`}>
 									<img src={fbLogo} alt="Facebook logo" />
 									<h5>Register With Facebook</h5>
 								</a>
 							</div>
 						</button>
 					</div>
-					<div className="register-Middle">
-						<div className="register-Line"></div>
+					<div className="register-middle">
+						<div className="register-line"></div>
 						<p>or</p>
-						<div className="register-Line"></div>
+						<div className="register-line"></div>
 					</div>
-					<form className="register-Local" onSubmit={handleSubmit}>
+					<form className="register-local" onSubmit={handleSubmit}>
 						<p className="register-title">Email</p>
 						<input
 							name='email'
@@ -93,7 +86,7 @@ const Register = props => {
 							value={state.email}
 							onChange={handleChanges}
                 		/>
-						<div className="register-Pass">
+						<div className="register-pass">
 							<p className="">Password</p>
 							<span className="">Forgot Password?</span>
 						</div>
@@ -104,7 +97,7 @@ const Register = props => {
 							value={state.password}
 							onChange={handleChanges}
                 		/>
-						<div className="register-Mid">
+						<div className="register-mid">
 							<p>
 								Don't have an account? <span>Create One</span>
 							</p>

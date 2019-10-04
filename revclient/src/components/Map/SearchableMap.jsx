@@ -2,23 +2,14 @@ import React, { Component } from 'react';
 import { FaMapMarker } from "react-icons/fa";
 
 // Mapbox
-import ReactMapGL, 
-{ 
-    Marker, 
-    Popup, 
-    GeolocateControl, 
-    NavigationControl, 
-} from "react-map-gl";
+import ReactMapGL, { Marker, Popup, GeolocateControl, NavigationControl, } from "react-map-gl";
 import Geocoder from "react-map-gl-geocoder"; // This provides search results
 import DeckGL, { GeoJsonLayer } from "deck.gl"; // This provides the ability to go to search results
 import { fromJS } from "immutable";
 
 // Data
 import mapStyleJson from "./3dpitch/style.json" // Default style for all users. This can be changed by utilizing the mapStyle variable. 
-import { 
-    gpsCoordinates, 
-    // sampleSearchResultObject, 
-} from "./sampleData"; // Sample data for testing
+import { gpsCoordinates } from "./sampleData"; // Sample data for testing
 
 const token = process.env.REACT_APP_MAPBOX_TOKEN;
 const mapStyle = fromJS(mapStyleJson); // This imports the default style of map, which we can configure and adjust starting point based on location
@@ -39,13 +30,6 @@ class SearchableMap extends Component {
         sampleGpsArray: gpsCoordinates,
         showPopup: false,
     }
-
-    // componentDidMount() {
-    //     this.setState({
-    //         ...this.state,
-    //         selectedProject: sampleSearchResultObject
-    //     })
-    // }
 
     handleViewportChange = viewportObject => { // This keeps view port and geo location in sync?
         // console.log("State viewport:  ", this.state.viewport, "\n\n viewport object:  ", viewportObject);

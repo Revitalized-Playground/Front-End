@@ -107,7 +107,7 @@ const Nav = props => {
 									{data.me.firstName !== null ? (
 										<span className="fun">{`Welcome, ${data.me.firstName}`}</span>
 									) : (
-										<span>'Welcome'</span>
+										<span className="fun">Welcome</span>
 									)}
 								</div>
 								{data.me.profileImage !== null ? (

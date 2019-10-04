@@ -30,12 +30,12 @@
 					color: $snow-white;
 				}
 				button {
+					background: $snow-white;
 					width: 100%;
 					margin-top: 30px;
 					height: 50px;
 					border-radius: 8px;
 					border: none;
-					background: $snow-white;
 					cursor: pointer;
 					.login-button {
 						display: flex;
@@ -58,7 +58,7 @@
 				.login-line {
 					height: 1px;
 					width: 40%;
-					background: white;
+					background: $snow-white;
 				}
 			}
 

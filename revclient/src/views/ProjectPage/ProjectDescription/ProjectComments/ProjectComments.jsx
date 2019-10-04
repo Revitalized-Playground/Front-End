@@ -1,5 +1,5 @@
 import React, {useState, useRef} from 'react'
-import { useMutation, useQuery } from '@apollo/react-hooks';
+import { useMutation } from '@apollo/react-hooks';
 import { ADD_COMMENT, REMOVE_COMMENT } from '../../../../graphql/mutations/Project';
 import { useAuth } from '../../../../components/Layout/useDecodeToken'
 import { withRouter } from 'react-router-dom'
