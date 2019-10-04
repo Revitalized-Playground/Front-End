@@ -25,6 +25,8 @@ import BasicDescription from './ProjectDescription/DetailedDescription/BasicDesc
 import { useQuery } from '@apollo/react-hooks';
 import { GET_PROJECT } from '../../graphql/queries';
 
+import {useWindowHook} from '../../components/Layout/windowOnClickHook.js'
+
 const project = {
 	projectOrganizer: 'Julian Crenshaw',
 	projStartDate: 'January 13, 2020',
@@ -114,26 +116,44 @@ const project = {
 };
 
 const ProjectPage = ({ match }) => {
-	const [modal, setModal] = useState(false);
-	const [large, setLarge] = useState(false);
 	const [copied, setCopied] = useState(false);
+
+
+	const [modalVal, setModalVal, carouselVal, setCarouselVal ] = useWindowHook()
+
+	const val = e => {
+		if(e.target.className === 'modal') {
+			setModalVal(false)
+		}
+	}
+
+	const carVal = e => {
+		if(e.target.className === 'carousel-large-project') {
+			setCarouselVal(false)
+		} else if (e.target.className === 'car-pic') {
+			setCarouselVal(true)
+		}
+	}
+
+	
 
 	const { loading, error, data } = useQuery(GET_PROJECT, {
 		variables: { id: match.params.id },
 	});
 	const [projectData, setProjectData] = useState(data);
+	console.log('project', projectData)
 
 	useEffect(() => {
 		setProjectData(data);
 	}, [data]);
 
-	window.onclick = function(e) {
-		if (e.target.className === 'modal') {
-			return setModal(false);
-		} else if (e.target.className === 'carousel-large-project') {
-			return setLarge(false);
-		}
-	};
+	// window.onclick = function(e) {
+	// 	if (e.target.className === 'modal') {
+	// 		return setModal(false);
+	// 	} else if (e.target.className === 'carousel-large-project') {
+	// 		return setLarge(false);
+	// 	}
+	// };
 
 	if (error) return <h2>ERROR! Someone call Elan</h2>;
 
@@ -142,12 +162,12 @@ const ProjectPage = ({ match }) => {
 		<>
 			<Nav />
 			<div className="project-page-container">
-				<div className={!modal ? 'none' : 'modal'}>
+				<div onClick={val} className={!modalVal ? 'none' : 'modal'}>
 					<div className="inner-modal">
 						<div className="button-div">
-							<div className="outer" onClick={() => setModal(false)}>
-								<div className="inner" onClick={() => setModal(false)}>
-									<label onClick={() => setModal(false)}>Back</label>
+							<div className="outer" onClick={() => setModalVal(false)}>
+								<div className="inner" onClick={() => setModalVal(false)}>
+									<label onClick={() => setModalVal(false)}>Back</label>
 								</div>
 							</div>
 						</div>
@@ -230,7 +250,7 @@ const ProjectPage = ({ match }) => {
 						raised={projectData.project.amountFunded}
 						budget={projectData.project.goalAmount}
 						donors={project.donors}
-						setModal={setModal}
+						setModal={setModalVal}
 					/>
 				</div>
 				<DetailedDescription
@@ -242,12 +262,13 @@ const ProjectPage = ({ match }) => {
 					projDescription={projectData.project.description}
 					projectCreator={projectData.project.profile}
 				/>
-				<ProjectPictures projectPhotos={projectData.project.images} large={large} setLarge={setLarge} />
+				<ProjectPictures projectPhotos={projectData.project.images} carouselVal={carouselVal} carVal={carVal} />
 				<ProjectComments
 					comments={projectData.project.comments}
 					projectData={projectData}
 					setProjectData={setProjectData}
 					id={projectData.project.id}
+					userId={projectData.project.profile.id}
 				/>
 			</div>
 			<Footer />

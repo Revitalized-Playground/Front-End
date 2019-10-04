@@ -8,6 +8,8 @@ import { FaWindowClose } from 'react-icons/fa';
 import { useQuery } from '@apollo/react-hooks';
 import { GET_USER } from '../../graphql/queries/Users';
 
+import {useWindowHook} from './windowOnClickHook.js'
+
 const uLinks = [
 	{ href: '/browse', label: 'Browse' },
 	{ href: '/projects', label: 'Learn More' },
@@ -30,7 +32,10 @@ const aLinks = [
 const Nav = props => {
 	const [activeHamburger, setActiveHamburger] = useState(false);
 	const [darkModeActive, setDarkMode] = useState(false);
-	const [clicked, setClicked] = useState(false);
+	
+
+	//custom hook for window.onClick
+	const [modal, setModal, carousel, setCarousel, clicked, setClicked] = useWindowHook()
 
 	// for testing
 	// const toggleLoggedIn = () => setLoggedIn(!loggedIn);
@@ -70,24 +75,10 @@ const Nav = props => {
 		if (error) return <p>Error....</p>;
 	}
 
-	window.onclick = (e) => {
-		console.log(e.target.className)
-		
-	if(clicked === true){
-		if(e.target.className ==="user" || e.target.className ==="fun" || e.target.className ==="user fun"){
-			return
-		}
-		else if(e.target.className !== "dropdown"){
-			setClicked(false)
-		}
-	}
-		
-		
-	}
+
 
 	return (
 		<nav>
-			{console.log(clicked)}
 			<div className="leftNav">
 				<Link to="/" title="Home">
 					<div className="logo">
@@ -125,7 +116,7 @@ const Nav = props => {
 									<Skeleton className="userIcon" circle={true} height={40} width={40} />
 								)}
 								
-									<div className={`dropdown ${!clicked && 'none'}`} name="drop" tabIndex="0" onBlur={console.log('hello')} >
+									<div className={`dropdown ${!clicked && 'none'}`} name="drop" tabIndex="0" >
 										<Link to="/dashboard" className="dropdown-option">
 											<FaUser className="icon" />
 											Profile

@@ -1,14 +1,17 @@
 import React, {useState, useRef} from 'react'
 import { useMutation, useQuery } from '@apollo/react-hooks';
 import { ADD_COMMENT, REMOVE_COMMENT } from '../../../../graphql/mutations/Project';
-import { GET_PROJECT} from '../../../../graphql/queries/Projects'
+import { useAuth } from '../../../../components/Layout/useDecodeToken'
+import { withRouter } from 'react-router-dom'
 // import { gql } from 'apollo-boost';
 // import { frob } from 'gl-matrix/src/gl-matrix/mat2';
 
-const ProjectComments = ({comments, id, setProjectData, projectData}) => {
+const ProjectComments = ({comments, id, setProjectData, projectData, history}) => {
     const [commentCount, setCommentCount] = useState(2)
     const [comment, setComment] = useState({comment: '', id})
     const inputRef = useRef()
+
+    const {currentUser} = useAuth(history)
 
     const [addComment] = useMutation(ADD_COMMENT)
 
@@ -34,6 +37,11 @@ const ProjectComments = ({comments, id, setProjectData, projectData}) => {
         setComment({...comment, comment: ''})
         inputRef.current.blur()
     }
+
+
+    // console.log(userId)
+    console.log(currentUser().profileId)
+
 
     const deleteComment = async (e, com) => {
         e.preventDefault()
@@ -67,7 +75,7 @@ const ProjectComments = ({comments, id, setProjectData, projectData}) => {
                         name='comment'
                         ref={inputRef}
                     />
-                    <button>Submit</button>
+                    <button disabled={comment.comment.length === 0 ? true : false} style={comment.comment.length === 0 ? {color: 'gray', cursor: 'default'} : null}>Submit</button>
                 </form>
             }
             <div>
@@ -83,7 +91,7 @@ const ProjectComments = ({comments, id, setProjectData, projectData}) => {
                                     </div>
                                     <p className='comment'>{each.comment}</p>
                                     <div className='lowerCommentSide'>
-                                        <button onClick={(e) => deleteComment(e, each.id)}>Delete</button>
+                                        {each.profile.id === currentUser().profileId && <button onClick={(e) => deleteComment(e, each.id)}>Delete</button>}
                                         {/* <p>{each.createdAt}</p> */}
                                         {/* <p>{each.likes.length} {each.likes.length === 1 ? 'Like' : 'Likes'}</p> */}
                                     </div>
@@ -101,4 +109,4 @@ const ProjectComments = ({comments, id, setProjectData, projectData}) => {
     )
 }
 
-export default ProjectComments
+export default withRouter(ProjectComments)

@@ -99,6 +99,10 @@ nav {
 				display:none;
 				
 			}
+
+			*:focus {
+				outline: none;
+			}
 			.user {
 				display: flex;
 				align-items: center;
@@ -113,6 +117,10 @@ nav {
 							display: none;
 						}
 					}
+				}
+
+				.fun {
+					user-select: none;
 				}
 				.userIcon {
 					width: 40px;

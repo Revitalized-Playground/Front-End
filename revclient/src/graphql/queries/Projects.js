@@ -33,12 +33,14 @@ export const GET_PROJECT = gql`
 				id
 				comment
 				profile {
+					id
 					profileImage
 					firstName
 					lastName
 				}
 			}
 			profile {
+				id
 				profileImage
 				firstName
 				lastName

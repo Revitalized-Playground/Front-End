@@ -12,8 +12,12 @@
     .comment-form {
         display: flex;
         margin-bottom: 30px;
+        *:focus {
+            outline: none;
+        }
         button {
             @include buttonStyler($chillFi-purple, $snow-white, 0, 0);
+            border: none
         }
     }
 
