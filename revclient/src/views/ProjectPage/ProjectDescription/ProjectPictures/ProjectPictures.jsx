@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Slider from 'react-slick';
 
-const ProjectPictures = ({ projectPhotos, large, setLarge }) => {
+const ProjectPictures = ({ projectPhotos, carouselVal, carVal }) => {
 	const [el, setEl] = useState({ holder: document.getElementsByClassName('projectImgCarousel') });
 	const [view, setView] = useState(window.innerWidth);
 
@@ -73,7 +73,7 @@ const ProjectPictures = ({ projectPhotos, large, setLarge }) => {
 		dots: false,
 		infinite: true,
 		speed: 500,
-		slidesToShow: large ? 1 : 2,
+		slidesToShow: carouselVal ? 1 : 2,
 		slidesToScroll: 1,
 		swipeToSlide: true,
 		// centerPadding: "400px",
@@ -103,19 +103,18 @@ const ProjectPictures = ({ projectPhotos, large, setLarge }) => {
 			// }
 		],
 	};
-	console.log(projectPhotos);
 	if (view > 500) {
 		return (
 			<div className="projectPictureContainer-desktop">
 				<p className="p">Project Photos</p>
 
-				<div className={large ? 'carousel-large-project' : 'carousel-small-project'}>
+				<div onClick={carVal} className={carouselVal? 'carousel-large-project' : 'carousel-small-project'}>
 					<Slider {...settings}>
 						{projectPhotos &&
 							projectPhotos.map(image => (
 								<section className="carousel-card-inner-project" key={image.id}>
 									<div className="carousel-card-image">
-										<img src={image.imageUrl} alt={image.id} onClick={() => setLarge(true)} />
+										<img className='car-pic' src={image.imageUrl} alt={image.id} onClick={carVal} />
 									</div>
 								</section>
 							))}

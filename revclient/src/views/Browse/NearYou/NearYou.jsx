@@ -89,8 +89,8 @@ const NearYou = () => {
             city: "Kalamazoo",
             goalAmount: 0.00,
             amountFunded: 0.00,
-            images: ["https://res.cloudinary.com/revitalize/image/upload/v1569451133/start%20page/Rustic_Road_Brewery_tulxbq.svg"],
-            featuredImage: "https://res.cloudinary.com/revitalize/image/upload/v1569451133/start%20page/Rustic_Road_Brewery_tulxbq.svg",
+            images: ["https://res.cloudinary.com/revitalize/image/upload/q_38/v1569451133/start%20page/Rustic_Road_Brewery_tulxbq.png"],
+            featuredImage: "https://res.cloudinary.com/revitalize/image/upload/q_38/v1569451133/start%20page/Rustic_Road_Brewery_tulxbq.png",
             liked: false,
         },
         {
