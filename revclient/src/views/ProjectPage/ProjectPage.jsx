@@ -135,7 +135,6 @@ const ProjectPage = ({ match }) => {
 		}
 	};
 
-	// if (error) return <h1>error fuck off</h1>
 	if (error) return <h2>ERROR! Someone call Elan</h2>;
 
 	if (loading || !projectData) return <h3>Summoning magic!</h3>;
@@ -193,7 +192,7 @@ const ProjectPage = ({ match }) => {
 								</CopyToClipboard>
 								<CopyToClipboard text={window.location.href}>
 									{copied ? (
-										<button disabled="true" className="copied">
+										<button disabled={true} className="copied">
 											Copied!
 										</button>
 									) : (

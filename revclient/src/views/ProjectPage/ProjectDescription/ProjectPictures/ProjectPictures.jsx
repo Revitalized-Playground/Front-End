@@ -103,7 +103,6 @@ const ProjectPictures = ({ projectPhotos, large, setLarge }) => {
 			// }
 		],
 	};
-	console.log(projectPhotos);
 	if (view > 500) {
 		return (
 			<div className="projectPictureContainer-desktop">

@@ -1,6 +1,9 @@
 import React, {useState, useRef} from 'react'
-import { useMutation } from '@apollo/react-hooks';
-import { ADD_COMMENT } from '../../../../graphql/mutations/Project';
+import { useMutation, useQuery } from '@apollo/react-hooks';
+import { ADD_COMMENT, REMOVE_COMMENT } from '../../../../graphql/mutations/Project';
+import { GET_PROJECT} from '../../../../graphql/queries/Projects'
+// import { gql } from 'apollo-boost';
+// import { frob } from 'gl-matrix/src/gl-matrix/mat2';
 
 const ProjectComments = ({comments, id, setProjectData, projectData}) => {
     const [commentCount, setCommentCount] = useState(2)
@@ -8,6 +11,8 @@ const ProjectComments = ({comments, id, setProjectData, projectData}) => {
     const inputRef = useRef()
 
     const [addComment] = useMutation(ADD_COMMENT)
+
+    const [removeComment] = useMutation(REMOVE_COMMENT)
 
     const commentHandle = e => {
         setComment({...comment, [e.target.name]: e.target.value})
@@ -28,6 +33,23 @@ const ProjectComments = ({comments, id, setProjectData, projectData}) => {
 
         setComment({...comment, comment: ''})
         inputRef.current.blur()
+    }
+
+    const deleteComment = async (e, com) => {
+        e.preventDefault()
+
+        const deleted = await removeComment({variables: {id: com}})
+
+        if (deleted) {
+            setProjectData({
+                ...projectData,
+                project: {
+                    ...projectData.project,
+                    comments: projectData.project.comments.filter(each => each.id !== deleted.data.deleteProjectComment.id)
+                }
+            })
+            
+        }
     }
 
     if(!comments) return <div>Loading Comments...</div>
@@ -61,6 +83,7 @@ const ProjectComments = ({comments, id, setProjectData, projectData}) => {
                                     </div>
                                     <p className='comment'>{each.comment}</p>
                                     <div className='lowerCommentSide'>
+                                        <button onClick={(e) => deleteComment(e, each.id)}>Delete</button>
                                         {/* <p>{each.createdAt}</p> */}
                                         {/* <p>{each.likes.length} {each.likes.length === 1 ? 'Like' : 'Likes'}</p> */}
                                     </div>
