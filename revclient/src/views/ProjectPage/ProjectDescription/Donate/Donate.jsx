@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components';
 import { Link, withRouter } from 'react-router-dom';
-import { formatMoney, formatter } from "../../../../helpers/formatMoney";
+import { formatMoney, donationCount, addUpDonations } from "../../../../helpers/formatMoney";
 
 
-const Donate = ({raised, budget, donors, setModal, match}) => {
+const Donate = ({raised, budget, projectData, setModal, match}) => {
     const percent = Number(raised) / Number(budget) * 100
     const Box = styled.div`
         height: 12px;
@@ -38,12 +38,7 @@ const Donate = ({raised, budget, donors, setModal, match}) => {
         animation: ${percent >= 100 ? '1s ease-out pulse;' : '1s ease-out pulse, progress-bar-stripes 1s linear infinite;'};
     `
 
-    const addUpDonations = (donationArray) => {
-        let totalDonations = 0
-        donationArray.map(donation => totalDonations = totalDonations + donation.amount);
-        return totalDonations;
-    }
-
+    const totalNumberOfDonations = projectData.project.donations ? donationCount(projectData.project.donations.length) : 0;
 
     return (
         <div className='donateContainer'>
@@ -55,8 +50,8 @@ const Donate = ({raised, budget, donors, setModal, match}) => {
                 <div className='progress-bar'>
                     <Box />
                 </div>
-                <p className='donatorCount'>{formatter(donors)}</p>
-                <p className='donorText'>Donors</p>
+                <p className='donatorCount'>{totalNumberOfDonations}</p>
+                <p className='donorText'>{`${totalNumberOfDonations === 1 ? "Donor" : "Donors"}`}</p>
                 <div className='donationButtons'>
                     <Link to={`/project/donate/${match.params.id}`}>
                         <button className="purple">Donate now</button>
