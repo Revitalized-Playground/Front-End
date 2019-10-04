@@ -1,7 +1,7 @@
 import React from 'react';
 
 // images
-import kerry from '../../../assets/AboutPage/kerry.png';
+import kerry from '../../../assets/AboutPage/Kerry.png';
 import alex from '../../../assets/AboutPage/alex.png';
 import clark from '../../../assets/AboutPage/clark.png';
 import frank from '../../../assets/AboutPage/frank.png';

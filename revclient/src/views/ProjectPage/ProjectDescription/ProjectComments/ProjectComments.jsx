@@ -1,14 +1,16 @@
 import React, {useState, useRef} from 'react'
 import { useMutation } from '@apollo/react-hooks';
-import { ADD_COMMENT, REMOVE_COMMENT } from '../../../../graphql/mutations/Project';
+import { ADD_COMMENT, REMOVE_COMMENT, EDIT_COMMENT } from '../../../../graphql/mutations/Project';
 import { useAuth } from '../../../../components/Layout/useDecodeToken'
 import { withRouter } from 'react-router-dom'
 // import { gql } from 'apollo-boost';
 // import { frob } from 'gl-matrix/src/gl-matrix/mat2';
+import SingleComment from './SingelComment'
 
 const ProjectComments = ({comments, id, setProjectData, projectData, history}) => {
     const [commentCount, setCommentCount] = useState(2)
     const [comment, setComment] = useState({comment: '', id})
+    
     const inputRef = useRef()
 
     const {currentUser} = useAuth(history)
@@ -17,9 +19,13 @@ const ProjectComments = ({comments, id, setProjectData, projectData, history}) =
 
     const [removeComment] = useMutation(REMOVE_COMMENT)
 
+    const [editCommentMutation] = useMutation(EDIT_COMMENT)
+
     const commentHandle = e => {
         setComment({...comment, [e.target.name]: e.target.value})
     }
+
+    
 
     const submitComment = async e => {
         e.preventDefault()
@@ -38,9 +44,8 @@ const ProjectComments = ({comments, id, setProjectData, projectData, history}) =
         inputRef.current.blur()
     }
 
+    
 
-    // console.log(userId)
-    console.log(currentUser().profileId)
 
 
     const deleteComment = async (e, com) => {
@@ -80,24 +85,10 @@ const ProjectComments = ({comments, id, setProjectData, projectData, history}) =
             }
             <div>
                 {comments ? comments.map((each, index) => {
+                    
+                
                     if(index <= commentCount - 1) {
-                        return (
-                            <div className='commentFlex' key={index}>
-                                <img src={each.profile.profileImage} alt='Profile icon' />
-                                <div>
-                                    <div className='commenter-name-flex'>
-                                        <p>{each.profile.firstName}</p>
-                                        <p>{each.profile.lastName}</p>
-                                    </div>
-                                    <p className='comment'>{each.comment}</p>
-                                    <div className='lowerCommentSide'>
-                                        {each.profile.id === currentUser().profileId && <button onClick={(e) => deleteComment(e, each.id)}>Delete</button>}
-                                        {/* <p>{each.createdAt}</p> */}
-                                        {/* <p>{each.likes.length} {each.likes.length === 1 ? 'Like' : 'Likes'}</p> */}
-                                    </div>
-                                </div>
-                            </div>
-                        )
+                        return <SingleComment currentUser={currentUser} deleteComment={deleteComment} editCommentMutation={editCommentMutation} each={each}/>
                     } else return null;
                 }) : null }
             </div>

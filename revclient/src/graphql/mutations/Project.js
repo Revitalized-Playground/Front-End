@@ -32,3 +32,17 @@ export const REMOVE_COMMENT = gql`
     }
 `
 
+export const EDIT_COMMENT = gql`
+    mutation($data: UpdateProjectCommentInput!) {
+        updateProjectComment(data: $data) {
+            id
+            comment
+            # likes {
+            #     id
+            #     profile
+            #     comment
+            # }
+        }
+    }
+`
+
