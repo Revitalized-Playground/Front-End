@@ -63,24 +63,29 @@ h5 {
 }
 
 input {
-	font-family: 'futura-pt';
+	font-family: 'Roboto';
 	font-size: 1.6rem;
+	padding: 10px 15px;
+	outline: none;
 	height: 35px;
-	padding: 0px 10px;
 	border-radius: 5px;
 	border: none;
 	border: 1px solid $mirage;
 }
 
 textarea {
-	font-family: 'futura-pt';
+	font-family: 'Roboto';
 	font-size: 1.6rem;
-	padding: 10px;
+	padding: 10px 15px;
+	margin: 10px 0 0;
+	outline: none;
 	border-radius: 5px;
 	border: 1px solid $mirage;
 }
 
 select {
-	font-family: 'futura-pt';
+	font-family: 'Roboto';
 	font-size: 1.6rem;
+	border-radius: 5px;
+	border: 1px solid $mirage;
 }
