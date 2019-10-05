@@ -77,15 +77,14 @@
 					justify-content: space-around;
 					width: 50%;
 					margin: 30px auto 45px 8%;
-					.active {
-						background-color: $chillFi-purple;
-						border: 1px solid $chillFi-purple;
-					}
 					.step {
 						border-radius: 5px;
-						border: 1px solid $mirage;
+						background: #ecebf3;
 						width: 32%;
 						height: 10px;
+					}
+					.active {
+						background-color: $chillFi-purple;
 					}
 				}
 			}
