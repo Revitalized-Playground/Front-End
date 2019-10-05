@@ -1,7 +1,10 @@
+// Fonts
+@import url('https://use.typekit.net/she4pxn.css');
+@import url('https://fonts.googleapis.com/css?family=Roboto:500&display=swap');
+
 @import 'reset';
 // Vars and Mixins
 @import 'variables';
-@import url('https://use.typekit.net/she4pxn.css');
 @import 'global';
 @import 'mixins';
 
@@ -40,7 +43,6 @@
 @import '../components/ProjectList/ProjectList.scss';
 
 // Mapbox
-@import "../../node_modules/mapbox-gl/dist/mapbox-gl.css";
-@import "../../node_modules/react-map-gl-geocoder/dist/mapbox-gl-geocoder.css";
-@import "../components/Map/SearchableMap.scss";
-
+@import '../../node_modules/mapbox-gl/dist/mapbox-gl.css';
+@import '../../node_modules/react-map-gl-geocoder/dist/mapbox-gl-geocoder.css';
+@import '../components/Map/SearchableMap.scss';

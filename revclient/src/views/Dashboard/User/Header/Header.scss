@@ -24,13 +24,11 @@
 		display: flex;
 		flex-direction: column;
 		h3 {
-			font-family: Futura;
 			font-size: 14px;
 			color: rgba(0, 23, 31, 0.9);
 		}
 		h2 {
 			margin-bottom: 16px;
-			font-family: Futura;
 			font-size: 32px;
 			color: #00171f;
 		}
@@ -114,7 +112,9 @@
 }
 .dark-mode {
 	.header-middle {
-		h2, h3, .header-middle-description {
+		h2,
+		h3,
+		.header-middle-description {
 			color: $snow-white;
 		}
 	}

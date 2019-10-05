@@ -40,7 +40,7 @@
 			white-space: nowrap;
 			h5 {
 				height: auto;
-				margin: auto 0 ;
+				margin: auto 0;
 				text-align: center;
 				letter-spacing: 0.06em;
 			}
@@ -103,7 +103,7 @@
 				}
 				h2 {
 					// margin: 3% auto auto 0;
-					
+
 					height: auto;
 					// font-size: 18px;
 					line-height: 24px;
@@ -144,10 +144,9 @@
 				}
 
 				.start-date {
-					font-family: "Futura";
-
+					font-family: 'futura-pt';
 				}
-				textarea { 
+				textarea {
 					border: 1px solid $mirage;
 				}
 			}
