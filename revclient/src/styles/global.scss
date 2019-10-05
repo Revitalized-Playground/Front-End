@@ -1,12 +1,11 @@
-
 html {
 	font-size: 62.5%;
 }
 
 body {
 	font-family: 'futura-pt';
-	button:focus { 
-		outline: none; 
+	button:focus {
+		outline: none;
 	}
 }
 
@@ -20,7 +19,7 @@ a {
 	color: inherit;
 }
 
-i { 
+i {
 	font-style: italic;
 }
 
@@ -29,10 +28,9 @@ p {
 	font-size: 1.8rem;
 }
 
-b { 
+b {
 	font-weight: bold;
 }
-
 
 h1 {
 	font-family: 'futura-pt';
@@ -65,25 +63,30 @@ h5 {
 }
 
 input {
-	font-family: "Futura";
+	font-family: 'Roboto';
 	font-size: 1.6rem;
+	padding: 10px 15px;
+	outline: none;
 	height: 35px;
-	padding: 0px 10px;
 	border-radius: 5px;
 	border: none;
 	border: 1px solid $mirage;
 }
 
 textarea {
-	font-family: "Futura";
+	font-family: 'Roboto';
 	font-size: 1.6rem;
-	padding: 10px;
+	padding: 10px 15px;
+	margin: 10px 0 0;
+	outline: none;
 	border-radius: 5px;
 	border: 1px solid $mirage;
 }
 
 select {
-	font-family: "Futura-pt";
+	font-family: 'Roboto';
 	font-size: 1.6rem;
+	border-radius: 5px;
+	border: 1px solid $mirage;
 }
 

@@ -30,7 +30,6 @@ const CreateProjectWizard = ({ history }) => {
 		state: '',
 		zip: null,
 		goalAmount: 0.0,
-		amountFunded: 0.0,
 		difficulty: '',
 		images: [],
 	});
@@ -50,13 +49,10 @@ const CreateProjectWizard = ({ history }) => {
 		}
 	};
 
-	const submitForm = async event => {
-		console.log('Project details ', projectDetails);
-		event.preventDefault();
+	const submitForm = async e => {
+		e.preventDefault();
 		const addedProj = await addProject({ variables: { data: projectDetails } });
-		if (addedProj) {
-			history.push(`/project/${addedProj.data.createProject.id}`);
-		}
+		history.push(`/project/${addedProj.data.createProject.id}`);
 	};
 
 	return (

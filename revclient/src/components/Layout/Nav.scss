@@ -3,8 +3,6 @@
 @import './Hamburger';
 @import './Overlay';
 
-
-
 nav {
 	display: flex;
 	height: 90px;
@@ -16,14 +14,13 @@ nav {
 	@media #{$tablet} {
 		width: 100%;
 		position: sticky;
-		top:0;
+		top: 0;
 		background: $chillFi-purple;
 		height: 90px;
 	}
 	@media #{$mobile} {
 		background: $chillFi-purple;
 	}
-	
 
 	.userIcon {
 		background-color: $static-grey;
@@ -38,8 +35,7 @@ nav {
 	.leftNav {
 		align-self: center;
 		margin-left: 10px;
-		a{
-
+		a {
 			text-decoration: none;
 		}
 		.logo {
@@ -48,12 +44,11 @@ nav {
 			// position: absolute;
 			// left: 4.5%;
 
-
 			span {
 				@media #{$tablet} {
-					color:$abatross;
+					color: $abatross;
 				}
-				font-family: "Futura-PT";
+				font-family: 'futura-pt';
 				align-self: center;
 				font-size: 2.8rem;
 				letter-spacing: 0.09em;
@@ -78,7 +73,7 @@ nav {
 		ul {
 			display: flex;
 			align-items: center;
-		
+
 			.navLinks {
 				margin-right: 65px;
 				@media #{$tablet} {
@@ -95,9 +90,8 @@ nav {
 				}
 			}
 
-			.logout{
-				display:none;
-				
+			.logout {
+				display: none;
 			}
 
 			*:focus {
@@ -109,11 +103,11 @@ nav {
 				cursor: pointer;
 				div {
 					margin-right: 10px;
-					span{
-						@media #{$tablet}{
+					span {
+						@media #{$tablet} {
 							color: white;
 						}
-						@media #{$mobile}{
+						@media #{$mobile} {
 							display: none;
 						}
 					}
@@ -127,18 +121,18 @@ nav {
 					height: 40px;
 					object-fit: cover;
 					border-radius: 100%;
-					&:hover{
+					&:hover {
 						cursor: pointer;
 					}
 				}
-				.none{
-					display:none;
+				.none {
+					display: none;
 				}
 				.dropdown {
 					background-color: $chillFi-purple;
 					color: $snow-white;
 					@include subtleBoxShadow;
-					border-radius:6px;
+					border-radius: 6px;
 					position: absolute;
 					top: 80px;
 					right: 0;
@@ -152,13 +146,13 @@ nav {
 					.dropdown-option {
 						margin: 15px 0;
 						cursor: pointer;
-						font-size:26px;
-						padding:5px;
+						font-size: 26px;
+						padding: 5px;
 						display: flex;
-						.icon{
-							width:26px;
-							padding:2px;
-							margin-right:25px;
+						.icon {
+							width: 26px;
+							padding: 2px;
+							margin-right: 25px;
 							align-content: center;
 						}
 					}
@@ -178,22 +172,20 @@ nav {
 					display: none;
 				}
 			}
-		
 		}
-		
+
 		.dark-mode-emoji {
 			font-size: 2rem;
 			display: flex;
 			align-items: center;
 			margin-right: 15px;
 			padding-left: 15px;
-			@media #{$tablet}{
+			@media #{$tablet} {
 				display: none;
 			}
 			svg {
 				color: $chillFi-purple;
 			}
-
 		}
 	}
 }
@@ -238,16 +230,16 @@ nav {
 		svg {
 			color: $maastricht-blue;
 		}
-		@media #{$tablet}{
+		@media #{$tablet} {
 			display: none;
 		}
 	}
 }
 
-nav.nav-frosted {  
+nav.nav-frosted {
 	// // This is the frosted glass effect
-    // background-color: rgba($erudite-purple, 0.75);
-	// backdrop-filter: blur(8px); 
+	// background-color: rgba($erudite-purple, 0.75);
+	// backdrop-filter: blur(8px);
 	width: 100%;
 	position: fixed;
 	@media #{$mobile} {
