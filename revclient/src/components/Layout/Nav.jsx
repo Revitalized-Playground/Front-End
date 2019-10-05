@@ -123,9 +123,9 @@ const Nav = props => {
 											<FaUser className="icon" />
 											Profile
 										</Link>
-										<div className="dropdown-option">
+										<Link to="/settings" className="dropdown-option">
 											<FaCog className="icon" /> Setting
-										</div>
+										</Link>
 										<div onClick={toggleDarkMode} className="dropdown-option">
 											<FaMoon className="icon" />
 											Dark mode
