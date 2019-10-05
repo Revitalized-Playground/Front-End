@@ -1,12 +1,11 @@
-
 html {
 	font-size: 62.5%;
 }
 
 body {
 	font-family: 'futura-pt';
-	button:focus { 
-		outline: none; 
+	button:focus {
+		outline: none;
 	}
 }
 
@@ -20,19 +19,18 @@ a {
 	color: inherit;
 }
 
-i { 
+i {
 	font-style: italic;
 }
 
 p {
-	font-family: 'Futura-pt';
+	font-family: 'futura-pt';
 	font-size: 1.8rem;
 }
 
-b { 
+b {
 	font-weight: bold;
 }
-
 
 h1 {
 	font-family: 'futura-pt';
@@ -65,7 +63,7 @@ h5 {
 }
 
 input {
-	font-family: "Futura";
+	font-family: 'Futura';
 	font-size: 1.6rem;
 	height: 35px;
 	padding: 0px 10px;
@@ -75,7 +73,7 @@ input {
 }
 
 textarea {
-	font-family: "Futura";
+	font-family: 'futura-pt';
 	font-size: 1.6rem;
 	padding: 10px;
 	border-radius: 5px;
@@ -83,6 +81,6 @@ textarea {
 }
 
 select {
-	font-family: "Futura-pt";
+	font-family: 'futura-pt';
 	font-size: 1.6rem;
 }

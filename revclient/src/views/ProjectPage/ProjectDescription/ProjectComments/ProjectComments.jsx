@@ -93,7 +93,7 @@ const ProjectComments = ({ comments, id, setProjectData, projectData, history })
 											</div>
 											<p className="comment">{each.comment}</p>
 											<div className="lowerCommentSide">
-												{currentUser() && each.profile.id === currentUser().profileId && (
+												{each.profile.id === currentUser().profileId && (
 													<button onClick={e => deleteComment(e, each.id)}>Delete</button>
 												)}
 												{/* <p>{each.createdAt}</p> */}
