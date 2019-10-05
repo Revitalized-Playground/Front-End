@@ -69,7 +69,7 @@ const Nav = props => {
 	const logout = () => {
 		localStorage.removeItem('token');
 		client.resetStore();
-		props.history.push('/login');
+		props.history.push('/');
 	};
 
 	if (localStorage.getItem('token')) {

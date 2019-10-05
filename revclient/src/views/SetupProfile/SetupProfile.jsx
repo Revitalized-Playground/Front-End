@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { withRouter } from "react-router-dom";
 import { MdArrowBack, MdClose } from "react-icons/md";
 // import { zipCodeChecker } from "../../../helpers/helpers.js";
-import { useMutation, useQuery, useLazyQuery } from "@apollo/react-hooks";
+import { useMutation, useLazyQuery } from "@apollo/react-hooks";
 import { UPDATE_USER_PROFILE } from "../../graphql/mutations";
 import { GET_USER } from "../../graphql/queries";
 import Nav from "../../components/Layout/Nav";
