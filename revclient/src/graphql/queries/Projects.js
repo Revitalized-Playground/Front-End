@@ -27,8 +27,11 @@ export const GET_PROJECT = gql`
 			zip
 			city
 			goalAmount
-			amountFunded
 			featuredImage
+			donations {
+				id
+				amount
+			}
 			comments {
 				id
 				comment

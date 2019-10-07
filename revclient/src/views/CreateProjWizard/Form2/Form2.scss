@@ -1,8 +1,7 @@
-
 .form-2 {
 	.address-details {
 		display: flex;
-		justify-content: space-between;	
+		justify-content: space-between;
 		align-items: flex-start;
 		width: 100%;
 		.address-details-city {
@@ -12,7 +11,6 @@
 		// .address-details-state {
 		// 	margin-right: 30px;
 		// }
-		
 	}
 	.address-details-zip {
 		input {
@@ -23,9 +21,9 @@
 	}
 	.address-details-state {
 		select {
-			font-family: "Futura-pt";
+			font-family: 'futura-pt';
 			font-size: 1.6rem;
-			height: 35px;
+			height: 58px;
 			margin: 6px 0 6px 0;
 			margin-bottom: 20px;
 			width: 100%;

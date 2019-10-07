@@ -10,14 +10,14 @@
     .donateInnerDiv {
         max-width: 630px;
         margin-left: 48px;
-        
+
         .mid-line-container {
             max-width: 515px;
 			display: flex;
 			justify-content: space-between;
             align-items: center;
-            
-            
+
+
             p {
                 font-size: 1.8rem;
                 line-height: 212.81%;
@@ -37,17 +37,17 @@
             }
 
             @media #{$mobile} {
-                width: 93%; 
+                width: 93%;
             }
         }
 
-        .apply-button { 
+        .apply-button {
             max-width: 515px;
             margin-bottom: 44px;
-            
+
 
             @media #{$mobile} {
-                width: 93%; 
+                width: 93%;
                 margin-bottom: 20px;
             }
 
@@ -72,10 +72,10 @@
                     font-size: 1.7rem;
                     line-height: 24px;
                     margin-bottom: 30px;
-                } 
+                }
             }
-                
-            
+
+
         }
         @media #{$mobile} {
             margin-left: 5.5%;;
@@ -104,11 +104,11 @@
                     margin-right: 3px;
                     width: 90%
                 }
-                
+
             }
 
             .small {
-                font-size: 2.2rem; 
+                font-size: 2.2rem;
 
                 @media #{$mobile} {
                     font-size: 1.6rem;
@@ -121,14 +121,16 @@
         .progress-bar {
             max-width: 515px;
             height: 14px;
-            background: #EBE7FD;
+            background: $elans-grey;
             border-radius: 50px;
             margin-bottom: 16px;
             border: 1px solid $snow-white;
-
             @media #{$mobile} {
                 width: 93%;
                 margin-bottom: 10px;
+            }
+            div {
+                background-color: $erudite-purple;
             }
         }
 
@@ -154,7 +156,7 @@
                 line-height: 19px;
             }
         }
-        
+
 
         .donationButtons {
             display: flex;
@@ -165,7 +167,7 @@
                 width: 93%;
                 margin-bottom: 30px;
             }
-            
+
             .purple {
                 font-family: "futura-pt";
                 font-size: 1.8rem;
@@ -179,13 +181,14 @@
                 margin:40px 0 24px 0;
                 border: none;
                 cursor: pointer;
+                width: 100%;
 
                 @media #{$mobile} {
                     padding: 15px 0;
                     margin: 18px 0 13px 0;
                     font-size: 1.7rem;
                     line-height: 24px;
-                } 
+                }
             }
 
             .white {
@@ -205,7 +208,7 @@
                     padding: 15px 0;
                     font-size: 1.7rem;
                     line-height: 24px;
-                } 
+                }
             }
         }
 
@@ -220,7 +223,7 @@
                 display: none
             }
         }
-        
+
     }
     .progress-bar {
         background-color: #2196F3;

@@ -5,22 +5,22 @@ import {
 import {
     CREATE_USER,
 } from "../../graphql/mutations";
-import { withRouter, Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
 
 import googleLogo from '../../assets/AuthPages/Google.png';
 import fbLogo from '../../assets/AuthPages/fb-logo.png';
-import revitalizeLogo from '../../assets/LandingPage/Logo.png';
-// import twitter from '../../assets/AuthPages/twitter.png';
+import SetupProfile from "../SetupProfile/SetupProfile";
 
 
 const Register = props => {
 	const [ createUser ] = useMutation(CREATE_USER);
 
-    const [state, setState] = useState({
-        email:"",
-        password:"",
-    });
+    const [ state, setState ] = useState({
+        email: "",
+		password: ""
+	});
+	
 
     const handleChanges = event => {
         setState({
@@ -31,83 +31,92 @@ const Register = props => {
 
     const handleSubmit = async event => {
         event.preventDefault();
-        localStorage.setItem("token", "");
+		localStorage.setItem("token", "");
+		
         const created = await createUser({ variables: { data: state } });
-        setState({
-            email:"",
-            password:"",
-        })
+        setState({ ...state, password: "" })
 		localStorage.setItem("token", created.data.createUser.token);
-		props.history.push("/");
+		
+		setForm({ toggleForm: true });
     };
 
-	const goBack = () => {
-		props.history.push("/");
-	}
+	const goBack = () => props.history.push("/");
 
+	const [ form, setForm ] = useState({toggleForm: false})
+	const toggleForm = () => setForm({ toggleForm: !state.toggleForm })
+
+
+	
 	return (
-		<div className="register-container">
-			<FaArrowLeft onClick={goBack} />
-			<div className="register-container-left">
+		<>
+			{form.toggleForm 
+				? 
+				<SetupProfile destination="modal" toggleForm={toggleForm} email={state.email} />
+				: null
+			}
+			<div className="register-container">
+				<FaArrowLeft onClick={goBack} />
+				<div className="register-container-left">
 
-				<div className="register-form">
-					<div className="register-third-party">
-						<div className="register-welcome">
-							<h2>Get Started!</h2>
-						</div>
-						<button>
-							<div>
-								<a className="register-button" href={`${process.env.REACT_APP_OAUTH_GOOGLE_LINK}`}>
-									<img src={googleLogo} alt="Google logo" />
-									<h5>Register With Google</h5>
-								</a>
+					<div className="register-form">
+						<div className="register-third-party">
+							<div className="register-welcome">
+								<h2>Get Started!</h2>
 							</div>
-						</button>
-						<button>
-							<div>
-								<a className="register-button" href={`${process.env.REACT_APP_OAUTH_FACEBOOK_LINK}`}>
-									<img src={fbLogo} alt="Facebook logo" />
-									<h5>Register With Facebook</h5>
-								</a>
+							<button>
+								<div>
+									<a className="register-button" href={`${process.env.REACT_APP_OAUTH_GOOGLE_LINK}`}>
+										<img src={googleLogo} alt="Google logo" />
+										<h5>Register With Google</h5>
+									</a>
+								</div>
+							</button>
+							<button>
+								<div>
+									<a className="register-button" href={`${process.env.REACT_APP_OAUTH_FACEBOOK_LINK}`}>
+										<img src={fbLogo} alt="Facebook logo" />
+										<h5>Register With Facebook</h5>
+									</a>
+								</div>
+							</button>
+						</div>
+						<div className="register-middle">
+							<div className="register-line"></div>
+							<p>or</p>
+							<div className="register-line"></div>
+						</div>
+						<form className="register-local" onSubmit={handleSubmit}>
+							<p className="register-title">Email</p>
+							<input
+								name='email'
+								type='email'
+								placeholder="Email..."
+								value={state.email}
+								onChange={handleChanges}
+							/>
+							<div className="register-pass">
+								<p className="">Password</p>
+								<span className="">Forgot Password?</span>
 							</div>
-						</button>
+							<input
+								name="password"
+								type="password"
+								placeholder="Password..."
+								value={state.password}
+								onChange={handleChanges}
+							/>
+							<div className="register-mid">
+								<p>
+									Don't have an account? <span>Create One</span>
+								</p>
+							</div>
+							<button>Register</button>
+						</form>
 					</div>
-					<div className="register-middle">
-						<div className="register-line"></div>
-						<p>or</p>
-						<div className="register-line"></div>
-					</div>
-					<form className="register-local" onSubmit={handleSubmit}>
-						<p className="register-title">Email</p>
-						<input
-							name='email'
-							type='email'
-							placeholder="Email..."
-							value={state.email}
-							onChange={handleChanges}
-                		/>
-						<div className="register-pass">
-							<p className="">Password</p>
-							<span className="">Forgot Password?</span>
-						</div>
-						<input
-							name="password"
-							type="password"
-							placeholder="Password..."
-							value={state.password}
-							onChange={handleChanges}
-                		/>
-						<div className="register-mid">
-							<p>
-								Don't have an account? <span>Create One</span>
-							</p>
-						</div>
-						<button>Register</button>
-					</form>
 				</div>
+				<div className="imgContainer"></div>
 			</div>
-			<div className="imgContainer"></div>
-		</div>
+		</>
 	);
 }
 

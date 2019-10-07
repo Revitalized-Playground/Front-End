@@ -15,9 +15,10 @@
     "dotenv": "^8.1.0",
     "graphql": "^14.5.6",
     "graphql-tag": "^2.10.1",
-    "jsonwebtoken": "^8.5.1",
     "immutable": "^4.0.0-rc.12",
+    "jsonwebtoken": "^8.5.1",
     "jwt-decode": "^2.2.0",
+    "jwt-simple": "^0.5.6",
     "moment": "^2.24.0",
     "node-sass": "^4.12.0",
     "react": "^16.9.0",
@@ -30,9 +31,11 @@
     "react-map-gl": "^5.0.11",
     "react-map-gl-geocoder": "^2.0.11",
     "react-router-dom": "^5.0.1",
+    "react-router-hash-link": "^1.2.2",
     "react-scripts": "^2.1.4",
     "react-slick": "^0.25.2",
     "react-stripe-elements": "^5.0.1",
+    "react-toggle": "^4.1.1",
     "read-more-react": "^1.0.9",
     "slick-carousel": "^1.8.1",
     "styled-components": "^4.3.2"
@@ -47,15 +50,16 @@
     "extends": "react-app"
   },
   "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
+    ],
+    "production": [
+      "last 1 version",
+      "> 0.2%",
+      "maintained node versions",
+      "not dead"
     ]
   },
   "devDependencies": {

@@ -1,7 +1,7 @@
 import React from 'react';
 
 // images
-import kerry from '../../../assets/AboutPage/Kerry.png';
+import kerry from '../../../assets/AboutPage/kerry-photo.png';
 import alex from '../../../assets/AboutPage/alex.png';
 import clark from '../../../assets/AboutPage/clark.png';
 import frank from '../../../assets/AboutPage/frank.png';
@@ -21,9 +21,9 @@ const Squad = () => {
 			bio:
 				'Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for will uncover many web sites still in their infancy. ',
 			github: 'https://github.com/adventurini',
-			facebook: '',
 			linkedIn: 'https://www.linkedin.com/in/adventurini/',
 			twitter: 'https://twitter.com/adventurini',
+			site: ''
 		},
 		{
 			name: 'Kerry McPhearson',
@@ -33,9 +33,9 @@ const Squad = () => {
 			bio:
 				'Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for will uncover many web sites still in their infancy. ',
 			github: '',
-			facebook: '',
 			linkedIn: 'https://www.linkedin.com/in/kerry-mcphearson-9b361193/',
 			twitter: 'https://twitter.com/kerrybtone',
+			site: ''
 		},
 		{
 			name: 'Alexander Piroumian',
@@ -45,9 +45,9 @@ const Squad = () => {
 			bio:
 				'Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for will uncover many web sites still in their infancy. ',
 			github: 'https://github.com/AlexxanderP',
-			facebook: '',
 			linkedIn: 'https://www.linkedin.com/in/alexander-piroumian/',
 			twitter: 'https://twitter.com/expertgoogler',
+			site: 'http://alexanderpiroumian.com'
 		},
 		{
 			name: 'Ruth Philips',
@@ -57,9 +57,9 @@ const Squad = () => {
 			bio:
 				'Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for will uncover many web sites still in their infancy. ',
 			github: '',
-			facebook: '',
 			linkedIn: 'https://www.linkedin.com/in/ruth-philips/',
 			twitter: 'https://twitter.com/Ruthmatt3',
+			site: ''
 		},
 		{
 			name: 'Jose Montero Jr',
@@ -69,9 +69,9 @@ const Squad = () => {
 			bio:
 				'Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for will uncover many web sites still in their infancy.',
 			github: 'https://github.com/JoseMarioDev',
-			facebook: '',
 			linkedIn: 'https://www.linkedin.com/in/josemariodev/',
 			twitter: 'https://twitter.com/josemariodev',
+			site: ''
 		},
 		{
 			name: 'Elan Riznis',
@@ -81,9 +81,9 @@ const Squad = () => {
 			bio:
 				'Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for will uncover many web sites still in their infancy.',
 			github: 'https://github.com/Zealll',
-			facebook: '',
 			linkedIn: 'https://www.linkedin.com/in/elan-riznis/',
 			twitter: 'https://twitter.com/Zeal_l3',
+			site: ''
 		},
 		{
 			name: 'Omar Salah',
@@ -93,9 +93,9 @@ const Squad = () => {
 			bio:
 				'Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for will uncover many web sites still in their infancy.',
 			github: 'https://github.com/OmarSalah95',
-			facebook: '',
 			linkedIn: 'https://www.linkedin.com/in/omar-salah-78787a180/',
 			twitter: 'https://twitter.com/BugSquasher9000',
+			site: ''
 		},
 
 		{
@@ -106,9 +106,9 @@ const Squad = () => {
 			bio:
 				'Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for will uncover many web sites still in their infancy.',
 			github: 'https://github.com/Fractured2K',
-			facebook: '',
 			linkedIn: 'https://www.linkedin.com/in/skyelar-carroll-7567b217a/',
 			twitter: 'https://twitter.com/Fractured2K',
+			site: ''
 		},
 
 		{
@@ -119,9 +119,9 @@ const Squad = () => {
 			bio:
 				'Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for will uncover many web sites still in their infancy.',
 			github: 'https://github.com/Cwill14',
-			facebook: '',
 			linkedIn: 'https://www.linkedin.com/in/clark-williams14/',
 			twitter: 'https://twitter.com/clarktwilliams',
+			site: 'https://theclarkwilliams.com'
 		},
 		{
 			name: 'Frank Martinez',
@@ -131,9 +131,9 @@ const Squad = () => {
 			bio:
 				'Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for will uncover many web sites still in their infancy.',
 			github: 'https://github.com/LeTanque',
-			facebook: '',
 			linkedIn: 'https://www.linkedin.com/in/frankm3/',
 			twitter: 'https://twitter.com/_letanque',
+			site: ''
 		},
 	];
 
@@ -153,21 +153,17 @@ const Squad = () => {
 							<div className="overlay">
 								<div className="text">{person.bio}</div>
 								<div className="social">
-									<a href={person.github} alt="Github" target="_blank">
-										{' '}
-										<i className="fa fa-github"></i>{' '}
+									<a href={person.github} alt="Github" target="_blank" rel="noopener noreferrer">
+										<i className="fa fa-github"></i>
 									</a>
-									<a href={person.facebook} alt="Facebook" target="_blank">
-										{' '}
-										<i className="fa fa-facebook"></i>{' '}
+									<a href={person.linkedIn} alt="LinkedIn" target="_blank" rel="noopener noreferrer">	
+										<i className="fa fa-linkedin"></i>
 									</a>
-									<a href={person.linkedIn} alt="LinkedIn" target="_blank">
-										{' '}
-										<i className="fa fa-linkedin"></i>{' '}
+									<a href={person.twitter} alt="Twitter" target="_blank" rel="noopener noreferrer">	
+										<i className="fa fa-twitter"></i>
 									</a>
-									<a href={person.twitter} alt="Twitter" target="_blank">
-										{' '}
-										<i className="fa fa-twitter" target="_blank"></i>{' '}
+									<a href={person.site} alt="Personal Site" target="_blank" rel="noopener noreferrer">	
+										<i className="fa fa-user alt"></i>
 									</a>
 								</div>
 							</div>

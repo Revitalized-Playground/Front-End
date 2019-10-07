@@ -16,7 +16,7 @@ const Start = () => {
     return (
         <>
             <Nav />
-                <div className="startContainer">
+                <div className="browse-container">
                     <Top />
                     <Spotlight />
                     <RecommendedProjects />
