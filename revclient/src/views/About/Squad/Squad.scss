@@ -7,30 +7,95 @@
 	.title {
 		text-align: center;
 		font-size: 90px;
+		font-size: 4.7vw;
 		line-height: 1.61;
 		letter-spacing: 5.4px;
 		color: $erudite-purple;
+
+		@media #{$tablet} {
+			font-size: 5vw;
+		}
+		@media #{$mobile} {
+			font-size: 9vw;
+		}
 	}
 	.description {
 		text-align: center;
-		font-size: 22px;
+		font-size: 1.15vw;
 		line-height: 1.61;
 		letter-spacing: 1.32px;
 		margin-bottom: 9.7rem;
+
+		@media #{$tablet} {
+			font-size: 1.6vw;
+		}
+		@media #{$mobile} {
+			font-size: 2.5vw;
+		}
 	}
 	.grid-container {
 		padding: 0 13.8%;
-		display: flex;
-		justify-content: center;
+
+		@media #{$mobile} {
+			padding: 0 11%;
+		}
+
 		.squad {
 			display: grid;
 			grid-gap: 0;
 			grid-template-columns: repeat(3, 1fr);
-			grid-auto-rows: repeat(20, 17rem);
+			grid-auto-rows: minmax(0, 4.83%);
+			grid-template-areas:
+				'anthony	        .           .'
+				'anthony        kerry         .'
+				'anthony        kerry        alex'
+				'anthony        kerry        alex'
+				'  .            kerry        alex'
+				'ruth             .          alex'
+				'ruth           jose           .'
+				'ruth           jose         elan'
+				'ruth           jose         elan'
+				' .             jose         elan'
+				'omar            .           elan'
+				'omar          skyelar        .'
+				'omar          skyelar      clark'
+				'omar          skyelar      clark'
+				' .            skyelar      clark'
+				'frank           .          clark'
+				'frank         blank1         .  '
+				'frank         blank1      blank2'
+				'frank         blank1      blank2'
+				'  .           blank1      blank2'
+				'  .             .         blank2';
 
 			@media #{$tablet} {
 				grid-template-columns: repeat(2, 1fr);
-				grid-auto-rows: repeat(25, 17rem);
+				grid-template-areas:
+					'anthony	        .  '
+					'anthony        kerry'
+					'anthony        kerry'
+					'anthony        kerry'
+					'  .            kerry'
+					'ruth             .  '
+					'ruth           jose '
+					'ruth           jose '
+					'ruth           jose '
+					' .             jose '
+					'omar            .   '
+					'omar          skyelar'
+					'omar          skyelar'
+					'omar          skyelar'
+					' .            skyelar'
+					'frank           .    '
+					'frank         alex'
+					'frank         alex'
+					'frank         alex'
+					'  .           alex'
+					'  elan          . '
+					'  elan       clark'
+					'  elan       clark'
+					'  elan       clark'
+					'    .        clark';
 			}
 			@media #{$mobile} {
 				display: flex;
@@ -40,27 +105,50 @@
 				position: relative;
 				padding: 1rem 1rem 0 1rem;
 				width: 100%;
-				height: 72rem;
+
+				@media #{$mobile} {
+					width: 100%;
+					height: 55rem;
+					margin-bottom: 5%;
+				}
 
 				.name {
 					height: 7%;
-
-					font-size: 30px;
+					font-size: 1.57vw;
 					line-height: 1.61;
 					letter-spacing: 1.8px;
 					color: $snow-white;
+
+					@media #{$tablet} {
+						font-size: 2.57vw;
+					}
+
+					@media #{$mobile} {
+						font-size: 5vw;
+					}
 				}
 				.role {
 					height: 13%;
-					font-size: 23px;
+					font-size: 1.2vw;
 					line-height: 1.61;
 					letter-spacing: 1.38px;
 					color: $snow-white;
+
+					@media #{$tablet} {
+						font-size: 1.6vw;
+					}
+					@media #{$mobile} {
+						font-size: 3vw;
+					}
 				}
 				.img-container {
 					margin: 0 auto;
 					width: 100%;
 					height: 80%;
+
+					@media #{$tablet} {
+						height: 70%;
+					}
 					img {
 						width: 100%;
 						height: 100%;
@@ -104,47 +192,55 @@
 				height: 50%;
 			}
 		}
-		.Anthony {
-			grid-area: 1/1/5/2;
-		}
-		.Kerry {
-			grid-area: 2/2/6/3;
-		}
-		.Ruth {
-			grid-area: 6/1/10/2;
-		}
-		.Jose {
-			grid-area: 7/2/11/2;
-		}
-		.Elan {
-			grid-area: 8/3/12/4;
 
+		.index0 {
+			grid-area: anthony;
+		}
+		.index1 {
+			grid-area: kerry;
+		}
+		.index2 {
+			grid-area: alex;
+		}
+		.index3 {
+			grid-area: ruth;
+		}
+		.index4 {
+			grid-area: jose;
+		}
+		.index5 {
+			grid-area: elan;
+		}
+		.index6 {
+			grid-area: omar;
+		}
+		.index7 {
+			grid-area: skyelar;
+		}
+		.index8 {
+			grid-area: clark;
+		}
+		.index9 {
+			grid-area: frank;
+		}
+		.index10 {
+			grid-area: blank1;
 			@media #{$tablet} {
-				grid-area: 21/1/25/2;
+				display: none;
+			}
+			@media #{$mobile} {
+				display: none;
 			}
 		}
-		.Alexander {
-			grid-area: 3/3/7/4;
+		.index11 {
+			grid-area: blank2;
 
 			@media #{$tablet} {
-				grid-area: 17/2/21/3;
+				display: none;
 			}
-		}
-		.Clark {
-			grid-area: 13/3/17/4;
-
-			@media #{$tablet} {
-				grid-area: 22/2/26/3;
+			@media #{$mobile} {
+				display: none;
 			}
-		}
-		.Omar {
-			grid-area: 11/1/15/2;
-		}
-		.Skyelar {
-			grid-area: 12/2/16/3;
-		}
-		.Frank {
-			grid-area: 16/1/20/2;
 		}
 	}
 }
