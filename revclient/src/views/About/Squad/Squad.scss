@@ -64,12 +64,40 @@
 				'omar          skyelar      clark'
 				' .            skyelar      clark'
 				'frank           .          clark'
-				'frank           .            .'
-				'frank           .            .'
-				'frank           .            .';
+				'frank         blank1         .  '
+				'frank         blank1      blank2'
+				'frank         blank1      blank2'
+				'  .           blank1      blank2'
+				'  .             .         blank2';
 
 			@media #{$tablet} {
 				grid-template-columns: repeat(2, 1fr);
+				grid-template-areas:
+					'anthony	        .  '
+					'anthony        kerry'
+					'anthony        kerry'
+					'anthony        kerry'
+					'  .            kerry'
+					'ruth             .  '
+					'ruth           jose '
+					'ruth           jose '
+					'ruth           jose '
+					' .             jose '
+					'omar            .   '
+					'omar          skyelar'
+					'omar          skyelar'
+					'omar          skyelar'
+					' .            skyelar'
+					'frank           .    '
+					'frank         alex'
+					'frank         alex'
+					'frank         alex'
+					'  .           alex'
+					'  elan          . '
+					'  elan       clark'
+					'  elan       clark'
+					'  elan       clark'
+					'    .        clark';
 			}
 			@media #{$mobile} {
 				display: flex;
@@ -168,49 +196,54 @@
 			}
 		}
 
-		// Xstart,Ystart, Xend, Yend
-
-		.Anthony {
+		.index0 {
 			grid-area: anthony;
 		}
-		.Kerry {
+		.index1 {
 			grid-area: kerry;
 		}
-		.Ruth {
+		.index2 {
+			grid-area: alex;
+		}
+		.index3 {
 			grid-area: ruth;
 		}
-		.Jose {
+		.index4 {
 			grid-area: jose;
 		}
-		.Elan {
+		.index5 {
 			grid-area: elan;
-
-			@media #{$tablet} {
-				grid-area: 21/1/25/2;
-			}
 		}
-		.Alexander {
-			grid-area: alex;
-
-			@media #{$tablet} {
-				grid-area: 17/2/21/3;
-			}
-		}
-		.Clark {
-			grid-area: clark;
-
-			@media #{$tablet} {
-				grid-area: 22/2/26/3;
-			}
-		}
-		.Omar {
+		.index6 {
 			grid-area: omar;
 		}
-		.Skyelar {
+		.index7 {
 			grid-area: skyelar;
 		}
-		.Frank {
+		.index8 {
+			grid-area: clark;
+		}
+		.index9 {
 			grid-area: frank;
+		}
+		.index10 {
+			grid-area: blank1;
+			@media #{$tablet} {
+				display: none;
+			}
+			@media #{$mobile} {
+				display: none;
+			}
+		}
+		.index11 {
+			grid-area: blank2;
+
+			@media #{$tablet} {
+				display: none;
+			}
+			@media #{$mobile} {
+				display: none;
+			}
 		}
 	}
 }

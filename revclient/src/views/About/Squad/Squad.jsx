@@ -135,6 +135,28 @@ const Squad = () => {
 			twitter: 'https://twitter.com/_letanque',
 			site: '',
 		},
+		{
+			name: ' ',
+			role: '',
+			image: ``,
+			background: '#82c7b3',
+			bio: '',
+			github: '',
+			linkedIn: '',
+			twitter: '',
+			site: '',
+		},
+		{
+			name: '',
+			role: '',
+			image: ``,
+			background: '#007ea7',
+			bio: '',
+			github: '',
+			linkedIn: '',
+			twitter: '',
+			site: '',
+		},
 	];
 
 	return (
@@ -143,30 +165,54 @@ const Squad = () => {
 			<h3 className="description">Meet the people that make all of the magic happen behind the scenes.</h3>
 			<div className="grid-container">
 				<div className="squad">
-					{squad.map(person => (
-						<div className={`person ${person.name}`} style={{ backgroundColor: `${person.background}` }}>
-							<h2 className="name"> {person.name}</h2>
-							<h3 className="role"> {person.role}</h3>
-							<div className="img-container">
-								<img src={person.image} alt="person" />
-							</div>
-							<div className="overlay">
-								<div className="text">{person.bio}</div>
-								<div className="social">
-									<a href={person.github} alt="Github" target="_blank" rel="noopener noreferrer">
-										<i className="fa fa-github"></i>
-									</a>
-									<a href={person.linkedIn} alt="LinkedIn" target="_blank" rel="noopener noreferrer">
-										<i className="fa fa-linkedin"></i>
-									</a>
-									<a href={person.twitter} alt="Twitter" target="_blank" rel="noopener noreferrer">
-										<i className="fa fa-twitter"></i>
-									</a>
-									<a href={person.site} alt="Personal Site" target="_blank" rel="noopener noreferrer">
-										<i className="fa fa-user alt"></i>
-									</a>
-								</div>
-							</div>
+					{squad.map((person, index) => (
+						<div className={`person index${index}`} style={{ backgroundColor: `${person.background}` }}>
+							{index !== 10 && index !== 11 ? (
+								<>
+									<h2 className="name"> {person.name}</h2>
+									<h3 className="role"> {person.role}</h3>
+									<div className="img-container">
+										<img src={person.image} alt="person" />
+									</div>
+									<div className="overlay">
+										<div className="text">{person.bio}</div>
+										<div className="social">
+											<a
+												href={person.github}
+												alt="Github"
+												target="_blank"
+												rel="noopener noreferrer"
+											>
+												<i className="fa fa-github"></i>
+											</a>
+											<a
+												href={person.linkedIn}
+												alt="LinkedIn"
+												target="_blank"
+												rel="noopener noreferrer"
+											>
+												<i className="fa fa-linkedin"></i>
+											</a>
+											<a
+												href={person.twitter}
+												alt="Twitter"
+												target="_blank"
+												rel="noopener noreferrer"
+											>
+												<i className="fa fa-twitter"></i>
+											</a>
+											<a
+												href={person.site}
+												alt="Personal Site"
+												target="_blank"
+												rel="noopener noreferrer"
+											>
+												<i className="fa fa-user alt"></i>
+											</a>
+										</div>
+									</div>
+								</>
+							) : null}
 						</div>
 					))}
 				</div>
