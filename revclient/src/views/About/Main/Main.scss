@@ -22,8 +22,8 @@
 		display: flex;
 		justify-content: space-between;
 		.main-left {
-			width: 34%;
-			margin: -14% 0 0 0;
+			width: 40%;
+			margin: -12% 0 0 0;
 
 			@media #{$mobile} {
 				display: none;
@@ -34,7 +34,7 @@
 			}
 
 			img {
-				width: 94%;
+				width: 93%;
 				@media #{$tablet} {
 					width: 98%;
 				}
@@ -47,7 +47,7 @@
 				width: 100%;
 			}
 			p {
-				padding-right: 30%;
+				padding-right: 35%;
 				font-size: 1.15vw;
 				line-height: 1.61;
 				letter-spacing: 1.32px;
