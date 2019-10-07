@@ -1,4 +1,4 @@
-.user-dashboard-sidebar {
+.dashboard-sidebar {
 	width: 25%;
 	height: 100%;
 	text-align: center;
@@ -27,7 +27,7 @@
 			letter-spacing: 1.08px;
 		}
 	}
-	.user-dashboard-stats {
+	.dashboard-stats {
 		color: $machiavellian;
 		display: flex;
 		justify-content: space-evenly;
@@ -92,7 +92,7 @@
 			margin: 6% 0;
 		}
 	}
-	.user-dashboard-sidebar-footer {
+	.dashboard-sidebar-footer {
 		display: flex;
 		flex-direction: column;
 		margin: 5% 0;
@@ -149,7 +149,7 @@
 			color: $snow-white;
 		}
 	}
-	.user-dashboard-stats {
+	.dashboard-stats {
 		color: $snow-white;
 	}
 	.info-container {
@@ -163,7 +163,7 @@
 			}
 		}
 	}
-	.user-dashboard-sidebar-footer {
+	.dashboard-sidebar-footer {
 		h4 {
 			color: $snow-white;
 		}

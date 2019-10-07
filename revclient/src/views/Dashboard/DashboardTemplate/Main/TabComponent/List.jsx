@@ -61,7 +61,7 @@ const List = props => {
 						{props.list.right.map(x => (
 							<>
 								{x.img ? (
-									<img src={x.img} alt={x.name} key={x.img + Date.now()} className="user-dashboard-picture-icons" />
+									<img src={x.img} alt={x.name} key={x.name + Date.now()} className="user-dashboard-picture-icons" />
 								) : (
 									<div className="no-picture"></div>
 								)}

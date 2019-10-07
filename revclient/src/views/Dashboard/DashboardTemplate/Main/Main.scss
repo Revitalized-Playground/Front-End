@@ -1,18 +1,18 @@
 @import './TabComponent/Lists.scss';
 @import './TabComponent/Tabs.scss';
 
-.user-dashboard-main {
+.dashboard-main {
 	width: 100%;
-	.user-dashboard-main-body {
+	.dashboard-main-body {
 		line-height: 3;
 	}
 }
-.user-dashboard-main.section {
+.dashboard-main.section {
 	hr {
 		margin-top: -3px;
 	}
 }
-.user-dashboard-title {
+.dashboard-title {
 	width: 100%;
 	display: flex;
 	justify-content: space-between;

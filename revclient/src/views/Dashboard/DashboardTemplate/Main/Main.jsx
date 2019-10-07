@@ -19,12 +19,12 @@ const Main = () => {
 				comment: 'Priority level: Mid-priority',
 				right: [
 					{
-						name: 'x',
+						name: 'a',
 						img:
 							'https://res.cloudinary.com/revitalize/image/upload/v1569861720/user%20dashboard/OliverCut_jsjnmx.png',
 					},
 					{
-						name: 'x',
+						name: 'b',
 						img:
 							'https://res.cloudinary.com/revitalize/image/upload/v1569861721/user%20dashboard/Selena_p2ndem.png',
 					},
@@ -41,17 +41,17 @@ const Main = () => {
 				comment: 'Priority level: High-priority',
 				right: [
 					{
-						name: 'x',
+						name: 'c',
 						img:
 							'https://res.cloudinary.com/revitalize/image/upload/v1569861720/user%20dashboard/OliverCut_jsjnmx.png',
 					},
 					{
-						name: 'x',
+						name: 'd',
 						img:
 							'https://res.cloudinary.com/revitalize/image/upload/v1569861715/user%20dashboard/Cliff_rkxqq5.png',
 					},
 					{
-						name: 'x',
+						name: 'e',
 						img:
 							'https://res.cloudinary.com/revitalize/image/upload/v1569861719/user%20dashboard/Mya_vrdanh.png',
 					},
@@ -67,7 +67,7 @@ const Main = () => {
 				comment: 'Priority level: High-priority',
 				right: [
 					{
-						name: 'x',
+						name: 'f',
 						img:
 							'https://res.cloudinary.com/revitalize/image/upload/v1569861717/user%20dashboard/Greg_zvzyrc.png',
 					},
@@ -84,12 +84,12 @@ const Main = () => {
 				comment: 'Priority level: Not a priority',
 				right: [
 					{
-						name: 'x',
+						name: 'g',
 						img:
 							'https://res.cloudinary.com/revitalize/image/upload/v1569861720/user%20dashboard/OliverCut_jsjnmx.png',
 					},
 					{
-						name: 'x',
+						name: 'h',
 						img:
 							'https://res.cloudinary.com/revitalize/image/upload/v1569861718/user%20dashboard/Milo_netcid.png',
 					},
@@ -106,17 +106,17 @@ const Main = () => {
 				comment: 'Priority level: Not a priority',
 				right: [
 					{
-						name: 'x',
+						name: 'i',
 						img:
 							'https://res.cloudinary.com/revitalize/image/upload/v1569861715/user%20dashboard/Cliff_rkxqq5.png',
 					},
 					{
-						name: 'x',
+						name: 'j',
 						img:
 							'https://res.cloudinary.com/revitalize/image/upload/v1569861719/user%20dashboard/Mya_vrdanh.png',
 					},
 					{
-						name: 'x',
+						name: 'k',
 						img:
 							'https://res.cloudinary.com/revitalize/image/upload/v1569861718/user%20dashboard/Milo_netcid.png',
 					},
@@ -133,11 +133,11 @@ const Main = () => {
 				comment: 'Priority level: High-priority',
 				right: [
 					{
-						name: 'x',
+						name: 'l',
 						img: '',
 					},
 					{
-						name: 'x',
+						name: 'm',
 						img:
 							'https://res.cloudinary.com/revitalize/image/upload/v1569861715/user%20dashboard/Cliff_rkxqq5.png',
 					},
@@ -154,17 +154,17 @@ const Main = () => {
 				comment: 'Priority level: Super high-priority',
 				right: [
 					{
-						name: 'x',
+						name: 'n',
 						img:
 							'https://res.cloudinary.com/revitalize/image/upload/v1569861718/user%20dashboard/Milo_netcid.png',
 					},
 					{
-						name: 'x',
+						name: 'o',
 						img:
 							'https://res.cloudinary.com/revitalize/image/upload/v1569861721/user%20dashboard/Selena_p2ndem.png',
 					},
 					{
-						name: 'x',
+						name: 'p',
 						img:
 							'https://res.cloudinary.com/revitalize/image/upload/v1569861715/user%20dashboard/Cliff_rkxqq5.png',
 					},
@@ -180,17 +180,17 @@ const Main = () => {
 				comment: 'Priority level: High-priority',
 				right: [
 					{
-						name: 'x',
+						name: 'q',
 						img:
 							'https://res.cloudinary.com/revitalize/image/upload/v1569861717/user%20dashboard/Greg_zvzyrc.png',
 					},
 					{
-						name: 'x',
+						name: 'r',
 						img:
 							'https://res.cloudinary.com/revitalize/image/upload/v1569861719/user%20dashboard/Mya_vrdanh.png',
 					},
 					{
-						name: 'x',
+						name: 's',
 						img:
 							'https://res.cloudinary.com/revitalize/image/upload/v1569861721/user%20dashboard/Selena_p2ndem.png',
 					},
@@ -207,12 +207,12 @@ const Main = () => {
 				comment: 'Priority level: Super high-priority',
 				right: [
 					{
-						name: 'x',
+						name: 't',
 						img:
 							'https://res.cloudinary.com/revitalize/image/upload/v1569861720/user%20dashboard/OliverCut_jsjnmx.png',
 					},
 					{
-						name: 'x',
+						name: 'u',
 						img: '',
 					},
 				],
@@ -228,12 +228,12 @@ const Main = () => {
 				comment: 'Priority level: Mid-priority',
 				right: [
 					{
-						name: 'x',
+						name: 'v',
 						img:
 							'https://res.cloudinary.com/revitalize/image/upload/v1569861720/user%20dashboard/OliverCut_jsjnmx.png',
 					},
 					{
-						name: 'x',
+						name: 'w',
 						img:
 							'https://res.cloudinary.com/revitalize/image/upload/v1569861717/user%20dashboard/Greg_zvzyrc.png',
 					},
@@ -255,7 +255,7 @@ const Main = () => {
 							'https://res.cloudinary.com/revitalize/image/upload/v1569861721/user%20dashboard/Selena_p2ndem.png',
 					},
 					{
-						name: 'x',
+						name: 'y',
 						img:
 							'https://res.cloudinary.com/revitalize/image/upload/v1569861715/user%20dashboard/Cliff_rkxqq5.png',
 					},
@@ -271,7 +271,7 @@ const Main = () => {
 				comment: 'Priority level: High-priority',
 				right: [
 					{
-						name: 'x',
+						name: 'z',
 						img: '',
 					},
 				],
@@ -322,8 +322,8 @@ const Main = () => {
 	};
 
 	return (
-		<div className="user-dashboard-main section">
-			<div className="user-dashboard-title">
+		<div className="dashboard-main section">
+			<div className="dashboard-title">
 				{<Tabs tabs={state.tabs} selected={state.selected} changeSelected={changeSelected} /> || (
 					<>
 						<Skeleton count={1} height={25} width={200} />
@@ -335,7 +335,7 @@ const Main = () => {
 			</div>
 
 			<hr />
-			<div className="user-dashboard-main-body">
+			<div className="dashboard-main-body">
 				{<Lists lists={state.lists.filter(list => list.tab === state.selected)} /> || (
 					<Skeleton count={5} height={125} />
 				)}

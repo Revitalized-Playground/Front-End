@@ -5,7 +5,7 @@ import { FaComments, FaFileInvoice } from "react-icons/fa";
 const Header = props => {
 	const { status, city, state, name, description, dueDate } = props.project;
 	return (
-		<div className="user-dashboard-header section">
+		<div className="dashboard-header section">
 			<div className="header-top">
 				<div className="project-status">{status}</div>
 				{/* <div className="add-tasks">
@@ -35,12 +35,12 @@ const Header = props => {
 						<img
 							src="https://res.cloudinary.com/revitalize/image/upload/v1569861720/user%20dashboard/OliverCut_jsjnmx.png"
 							alt="team member"
-							className="user-dashboard-picture-icons"
+							className="dashboard-picture-icons"
 						/>
 						<img
 							src="https://res.cloudinary.com/revitalize/image/upload/v1569861717/user%20dashboard/Greg_zvzyrc.png"
 							alt="team member 2"
-							className="user-dashboard-picture-icons"
+							className="dashboard-picture-icons"
 						/>
 						<div className="count">+10</div>
 					</div>

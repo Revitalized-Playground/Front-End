@@ -10,31 +10,31 @@ import { InitialAvatar } from "../../../../helpers/InitialAvatar";
 const Sidebar = props => {
     
     return (
-        <section className="user-dashboard-sidebar section">
+        <section className="dashboard-sidebar section">
             <div className="sidebar-top">
                 <Link to="/settings" origination="userDashboard"><h6>EDIT</h6></Link>
-                {props.realMe.profileImage ? (
-                    <img src={props.realMe.profileImage} alt="user" className="user-picture" />
+                {props.user.profileImage ? (
+                    <img src={props.user.profileImage} alt="user" className="user-picture" />
                 ) : (
                     // <Skeleton circle={true} height={110} width={110} />
                     <InitialAvatar 
-                        firstName={props.realMe.firstName} 
-                        lastName={props.realMe.lastName}
+                        firstName={props.user.firstName} 
+                        lastName={props.user.lastName}
                         height="164" 
                         width="164" 
                         useRandomColor={1}
                     />
                 )}
-                {props.realMe.firstName ? (
+                {props.user.firstName ? (
                     <>
-                        <h3>{`${props.realMe.firstName} ${props.realMe.lastName}`}</h3>
-                        {/* <p>{props.realMe.email}</p> */}
+                        <h3>{`${props.user.firstName} ${props.user.lastName}`}</h3>
+                        {/* <p>{props.user.email}</p> */}
                     </>
                 ) : (
                     <Skeleton count={2} />
                 )}
             </div>
-            <div className="user-dashboard-stats">
+            <div className="dashboard-stats">
                 {
                     <>
                         <div className="quick-stat">
@@ -84,7 +84,7 @@ const Sidebar = props => {
                         <div className="info">
                             <div className="text">
                                 <p>Email</p>
-                                <span>{props.realMe.email}</span>
+                                <span>{props.user.email}</span>
                             </div>
                             <Link to="#">
                                 <div className="sidebar-icon-container">
@@ -106,7 +106,7 @@ const Sidebar = props => {
                         <div className="info">
                             <div className="text">
                                 <p>Location</p>
-                                <span>{`${props.realMe.city}, ${props.realMe.state}`}</span>
+                                <span>{`${props.user.city}, ${props.user.state}`}</span>
                             </div>
                             <HashLink to="/#search-map">
                                 <div className="sidebar-icon-container">
@@ -122,7 +122,7 @@ const Sidebar = props => {
                 }
             </div>
             <hr/>
-            <div className="user-dashboard-sidebar-footer">
+            <div className="dashboard-sidebar-footer">
                 {/* {if(props.user.apprentice) {
 
                 } else if(props.user.master) {
@@ -130,8 +130,8 @@ const Sidebar = props => {
                 }} */}
                 <h5>Achievements</h5>
                 <div className="a-container">
-                    {
-                        props.user.achievements.map(a => (
+                    {props.user.achievements
+                        ? props.user.achievements.map(a => (
                             <div className="achievement" key={a.name + Date.now()}>
                                 <Link to="#">
                                     <img src={a.image} alt={`${a.name} achievement`} className="a-icon"/>
@@ -144,7 +144,7 @@ const Sidebar = props => {
                                 </div>
                             </div>
                         ))
-                        ||
+                        :
                         <>
                             <Skeleton circle={true} height={63} width={63} />
                             <Skeleton circle={true} height={63} width={63} />

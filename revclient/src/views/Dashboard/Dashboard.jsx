@@ -3,17 +3,27 @@ import React from 'react'
 
 import Nav from '../../components/Layout/Nav';
 
-import UserDashboard from "./User/UserDashboard";
 import Footer from "../../components/Layout/Footer";
+import DashboardTemplate from './DashboardTemplate/DashboardTemplate';
 
+import { useQuery } from '@apollo/react-hooks';
+import { GET_USER } from '../../graphql/queries/Users';
+
+import { users, projects } from './dashboarddummydata';
 
 export default function Dashboard() {
+    
+    const { loading, error, data } = useQuery(GET_USER);
+    
+    if (loading) return <p>loading....</p>;
+    if (error) return <p>Error....</p>;
+
     return (
         <>
 
             <div className="dashboard-container" >
                 <Nav />
-                <UserDashboard />
+                <DashboardTemplate user={data.me} projects={projects} />
                 <Footer />
             </div>
 

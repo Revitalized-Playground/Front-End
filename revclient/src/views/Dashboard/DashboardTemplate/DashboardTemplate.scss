@@ -2,7 +2,7 @@
 @import './Header/Header.scss';
 @import './Main/Main.scss';
 
-.user-dashboard {
+.dashboard {
 	width: 100%;
 	max-width: 1820px;
     margin: 0 auto;
@@ -10,9 +10,9 @@
 	padding-left: 10px;
 	padding-right: 10px;
 	margin-bottom: 60px;
-	.user-dashboard-body {
+	.dashboard-body {
 		width: calc(75% - 40px);
-		.user-dashboard-header {
+		.dashboard-header {
 			width: 100%;
 			display: flex;
 			span {
@@ -20,13 +20,13 @@
 			}
 		}
 	}
-	.section[class^='user-dashboard'] {
+	.section[class^='dashboard'] {
 		@include skeleton-section;
 		@include bottomBoxShadow;
 		background: $snow-white;
 		padding: 40px 15px 15px 15px;
 	}
-	.user-dashboard-picture-icons {
+	.dashboard-picture-icons {
 		width: 40px;
 		margin-left: -2px;
 		&:first-of-type {
@@ -42,8 +42,8 @@
 	}
 }
 .dark-mode {
-	.user-dashboard {
-		.section[class^='user-dashboard'] {
+	.dashboard {
+		.section[class^='dashboard'] {
 			// @include skeleton-section;
 			background-color: $darkness;
 			border: none;
