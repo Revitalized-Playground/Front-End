@@ -25,7 +25,7 @@ import BasicDescription from './ProjectDescription/DetailedDescription/BasicDesc
 import { useQuery } from '@apollo/react-hooks';
 import { GET_PROJECT } from '../../graphql/queries';
 
-import {useWindowHook} from '../../components/Layout/windowOnClickHook.js'
+import { useWindowHook } from '../../components/Layout/windowOnClickHook.js';
 
 const project = {
 	projectOrganizer: 'Julian Crenshaw',
@@ -34,7 +34,6 @@ const project = {
 	difficultyLevel: 'Medium',
 	projectBudget: '500000',
 	raised: '400000',
-	donors: 11600,
 	location: 'Detroit, MI',
 	projectPhotos: [pic1, pic2, pic3],
 	comments: [
@@ -111,37 +110,34 @@ const project = {
 			likes: ['name1', 'name2', 'name3', 'name1', 'name2', 'name3'],
 		},
 	],
-	projectDescription:
-		'Team Rubicon is a warehouse restoration project located in the heart of Detroit. The warehouse used to be an ancient machinery manufacturing plant and was later converted to an automative plant. Revitalize is partnering with city officials to restore the warehouse to a careers training high school. City officials are looking forward to collaborating with Revitalize to restore abandoned buildings and empower communities. Revitalize also partners with local construction and design firms in Detroit to ensure students are receiving hands-on training with local experts and ready to launch into their career. Team Rubicon has raised $50,000 so far and are grateful to all the donors who are supporting community growth and building restoration projects in Detroit. Revitalize also partners with local construction and design firms in Detroit to ensure students are receiving hands-on training with local experts and ready to launch into their career. Team Rubicon has raised $50,000 so far and are grateful to all the donors who are supporting community growth and building restoration projects in Detroit.',
+	projectDescription: 'Project description goes here.',
 };
 
 const ProjectPage = ({ match }) => {
 	const [copied, setCopied] = useState(false);
 
-
-	const [modalVal, setModalVal, carouselVal, setCarouselVal ] = useWindowHook()
+	const [modalVal, setModalVal, carouselVal, setCarouselVal] = useWindowHook();
 
 	const val = e => {
-		if(e.target.className === 'modal') {
-			setModalVal(false)
+		if (e.target.className === 'modal') {
+			setModalVal(false);
 		}
-	}
+	};
 
 	const carVal = e => {
-		if(e.target.className === 'carousel-large-project') {
-			setCarouselVal(false)
+		if (e.target.className === 'carousel-large-project') {
+			setCarouselVal(false);
 		} else if (e.target.className === 'car-pic') {
-			setCarouselVal(true)
+			setCarouselVal(true);
 		}
-	}
-
-	
+	};
 
 	const { loading, error, data } = useQuery(GET_PROJECT, {
 		variables: { id: match.params.id },
 	});
 	const [projectData, setProjectData] = useState(data);
-	console.log('project', projectData)
+
+	console.log('project', projectData);
 
 	useEffect(() => {
 		setProjectData(data);
@@ -241,15 +237,15 @@ const ProjectPage = ({ match }) => {
 
 				<div className="project-page-flex">
 					<BasicDescription
-						startDate={project.projStartDate}
-						duration={project.duration}
-						difficulty={project.difficultyLevel}
+						startDate={projectData.project.startDate}
+						duration={projectData.project.duration}
+						difficulty={projectData.project.difficulty}
 						organizer={`${projectData.project.profile.firstName} ${projectData.project.profile.lastName}`}
 					/>
 					<Donate
 						raised={projectData.project.amountFunded}
 						budget={projectData.project.goalAmount}
-						donors={project.donors}
+						projectData={projectData}
 						setModal={setModalVal}
 					/>
 				</div>

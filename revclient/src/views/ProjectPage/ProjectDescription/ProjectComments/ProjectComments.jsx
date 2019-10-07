@@ -1,8 +1,8 @@
-import React, {useState, useRef} from 'react'
+import React, { useState, useRef } from 'react';
 import { useMutation } from '@apollo/react-hooks';
 import { ADD_COMMENT, REMOVE_COMMENT, EDIT_COMMENT } from '../../../../graphql/mutations/Project';
-import { useAuth } from '../../../../components/Layout/useDecodeToken'
-import { withRouter } from 'react-router-dom'
+import { useAuth } from '../../../../hooks/useAuth';
+import { withRouter } from 'react-router-dom';
 // import { gql } from 'apollo-boost';
 // import { frob } from 'gl-matrix/src/gl-matrix/mat2';
 import SingleComment from './SingelComment'
@@ -10,6 +10,8 @@ import SingleComment from './SingelComment'
 const ProjectComments = ({comments, id, setProjectData, projectData, history}) => {
     const [commentCount, setCommentCount] = useState(2)
     const [comment, setComment] = useState({comment: '', id})
+    const [settings, setSettings] = useState(false)
+    const [bool, setBool] = useState(false)
     
     const inputRef = useRef()
 
@@ -20,6 +22,17 @@ const ProjectComments = ({comments, id, setProjectData, projectData, history}) =
     const [removeComment] = useMutation(REMOVE_COMMENT)
 
     const [editCommentMutation] = useMutation(EDIT_COMMENT)
+
+
+    const settingsBlur = e => {
+        
+        if(e.target.className === 'settings-drop' || e.target.className === 'dot-container' || e.target.className === 'dot') {
+            return ;
+        } else {
+            setSettings(false)
+            setBool(!bool)
+        }
+    }
 
     const commentHandle = e => {
         setComment({...comment, [e.target.name]: e.target.value})
@@ -67,7 +80,7 @@ const ProjectComments = ({comments, id, setProjectData, projectData, history}) =
 
     if(!comments) return <div>Loading Comments...</div>
     return (
-        <div className='projectCommentsContainer'>
+        <div onClick={settingsBlur} className='projectCommentsContainer'>
             <h2 className='commentsTitle'>Comments</h2>
             {
                 localStorage.getItem('token') 
@@ -88,7 +101,7 @@ const ProjectComments = ({comments, id, setProjectData, projectData, history}) =
                     
                 
                     if(index <= commentCount - 1) {
-                        return <SingleComment currentUser={currentUser} deleteComment={deleteComment} editCommentMutation={editCommentMutation} each={each}/>
+                        return <SingleComment key={index} bool={bool} settingsBlur={settingsBlur} settings={settings} currentUser={currentUser} deleteComment={deleteComment} editCommentMutation={editCommentMutation} each={each}/>
                     } else return null;
                 }) : null }
             </div>

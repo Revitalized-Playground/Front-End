@@ -6,11 +6,13 @@ import LandingPage from "./views/Landing/LandingPage";
 import Register from "./views/Register/Register";
 import Login from "./views/Login/Login";
 import ProjectsHome from "./views/ProjectsHome/ProjectsHome";  // May be deprecated
+
 // import Start from "./views/Start/Start";
 import Browse from "./views/Browse/Browse";
 import Dashboard from "./views/Dashboard/Dashboard";
 import CreateProjectWizard from './views/CreateProjWizard/CreateProjectWizard'
 import ProjectPage from './views/ProjectPage/ProjectPage'
+import ProjectDonationPage from './views/ProjectDonationPage/ProjectDonationPage';
 import About from './views/About/About';
 
 // Utils
@@ -70,6 +72,7 @@ export const Routes = () => {
                 )}
             />
 
+            {/* Project routes */}
             <Route
                 path="/projects"
                 render={() => (
@@ -78,10 +81,18 @@ export const Routes = () => {
             />
 
             <Route
+                exact
                 path="/project/:id"
                 render={() => (
                     <ProjectPage />
                 )}
+            />
+
+
+            <Route
+                exact
+                path="/project/donate/:id"
+                component={ProjectDonationPage}
             />
 
             <Route

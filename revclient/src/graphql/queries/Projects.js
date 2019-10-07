@@ -21,6 +21,7 @@ export const GET_PROJECT = gql`
 		project(id: $id) {
 			id
 			name
+			startDate
 			description
 			address
 			state
@@ -29,6 +30,12 @@ export const GET_PROJECT = gql`
 			goalAmount
 			amountFunded
 			featuredImage
+			difficulty
+			duration
+			donations {
+				id
+				amount
+			}
 			comments {
 				id
 				comment
