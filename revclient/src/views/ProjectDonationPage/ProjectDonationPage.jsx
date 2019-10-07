@@ -6,7 +6,6 @@ import { StripeProvider, Elements } from 'react-stripe-elements';
 import CheckoutForm from './CheckoutForm/CheckoutForm';
 
 const ProjectDonationPage = props => {
-	// useAuth(props.history);
 	return (
 		<StripeProvider apiKey={process.env.REACT_APP_STRIPE_PUBLIC_KEY}>
 			<Elements>

@@ -237,13 +237,13 @@ const ProjectPage = ({ match }) => {
 
 				<div className="project-page-flex">
 					<BasicDescription
-						startDate={project.projStartDate}
-						duration={project.duration}
-						difficulty={project.difficultyLevel}
+						startDate={projectData.project.startDate}
+						duration={projectData.project.duration}
+						difficulty={projectData.project.difficulty}
 						organizer={`${projectData.project.profile.firstName} ${projectData.project.profile.lastName}`}
 					/>
 					<Donate
-						raised={projectData.project.donations}
+						raised={projectData.project.amountFunded}
 						budget={projectData.project.goalAmount}
 						projectData={projectData}
 						setModal={setModalVal}
