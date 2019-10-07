@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import { Link, withRouter } from 'react-router-dom';
-import Skeleton from 'react-loading-skeleton';
-import { FaMoon } from 'react-icons/fa';
-import { FaCog } from 'react-icons/fa';
-import { FaUser } from 'react-icons/fa';
-import { FaWindowClose } from 'react-icons/fa';
-import { useQuery } from '@apollo/react-hooks';
-import { GET_USER } from '../../graphql/queries/Users';
+import React, { useState, useEffect } from "react";
+import { Link, withRouter } from "react-router-dom";
+import Skeleton from "react-loading-skeleton";
+import { FaMoon } from "react-icons/fa";
+import { FaCog } from "react-icons/fa";
+import { FaUser } from "react-icons/fa";
+import { FaWindowClose } from "react-icons/fa";
+import { useQuery } from "@apollo/react-hooks";
+import { GET_USER } from "../../graphql/queries/Users";
 
-import {useWindowHook} from './windowOnClickHook.js'
+import { useWindowHook } from "../../helpers/windowOnClickHook.js"
 
-const uLinks = [
+const unauthenticatedLinks = [
 	{ href: '/browse', label: 'Browse' },
 	{ href: '/projects', label: 'Learn More' },
 	{ href: '/about', label: 'Team' },
@@ -19,7 +19,8 @@ const uLinks = [
 	link.key = `nav-link-${link.href}-${link.label}`;
 	return link;
 });
-const aLinks = [
+
+const authenticatedLinks = [
 	{ href: '/browse', label: 'Browse' },
 	{ href: '/projects', label: 'Learn More' },
 	{ href: '/about', label: 'Team' },
@@ -33,14 +34,10 @@ const Nav = props => {
 	const [activeHamburger, setActiveHamburger] = useState(false);
 	const [darkModeActive, setDarkMode] = useState(false);
 	
-
 	//custom hook for window.onClick
 	const [
 		// modal, setModal, carousel, setCarousel, 
-		clicked, setClicked] = useWindowHook()
-
-	// for testing
-	// const toggleLoggedIn = () => setLoggedIn(!loggedIn);
+		clicked, setClicked] = useWindowHook();
 
 	const toggleDarkMode = () => {
 		setDarkMode(!darkModeActive);
@@ -78,7 +75,6 @@ const Nav = props => {
 	}
 
 
-
 	return (
 		<nav>
 			<div className="leftNav">
@@ -93,7 +89,7 @@ const Nav = props => {
 				<ul>
 					{localStorage.getItem('token') ? (
 						<>
-							{aLinks.map(({ key, href, label }) =>
+							{authenticatedLinks.map(({ key, href, label }) =>
 								label === 'Logout' ? (
 									<li className="navLinks logout" onClick={logout} key={key}>
 										<Link to={href}>{label}</Link>
@@ -118,30 +114,29 @@ const Nav = props => {
 									<Skeleton className="userIcon" circle={true} height={40} width={40} />
 								)}
 								
-									<div className={`dropdown ${!clicked && 'none'}`} name="drop" tabIndex="0" >
-										<Link to="/dashboard" className="dropdown-option">
-											<FaUser className="icon" />
-											Profile
-										</Link>
-										<Link to="/settings" className="dropdown-option">
-											<FaCog className="icon" /> Setting
-										</Link>
-										<div onClick={toggleDarkMode} className="dropdown-option">
-											<FaMoon className="icon" />
-											Dark mode
-										</div>
-										<div onClick={logout} className="dropdown-option">
-											<FaWindowClose className="icon" />
-											Log out
-										</div>
+								<div className={`dropdown ${!clicked && 'none'}`} name="drop" tabIndex="0" >
+									<Link to="/dashboard" className="dropdown-option">
+										<FaUser className="icon" />
+										Profile
+									</Link>
+									<Link to="/settings" className="dropdown-option" >
+										<FaCog className="icon" /> Setting
+									</Link>
+									<div onClick={toggleDarkMode} className="dropdown-option">
+										<FaMoon className="icon" />
+										Dark mode
 									</div>
-								
+									<div onClick={logout} className="dropdown-option">
+										<FaWindowClose className="icon" />
+										Log out
+									</div>
+								</div>
+							
 							</div>
 						</>
 					) : (
 						<>
-							{' '}
-							{uLinks.map(({ key, href, label }) => (
+							{unauthenticatedLinks.map(({ key, href, label }) => (
 								<li className="navLinks" key={key}>
 									<Link to={href}>{label}</Link>
 								</li>
@@ -176,7 +171,7 @@ const Nav = props => {
 						<ul>
 							{localStorage.getItem('token') ? (
 								<>
-									{aLinks.map(({ key, href, label }) =>
+									{authenticatedLinks.map(({ key, href, label }) =>
 										label === 'Logout' ? (
 											<li className="navLinks-overlay logout" onClick={logout} key={key}>
 												<Link to={href}>{label}</Link>
@@ -191,7 +186,7 @@ const Nav = props => {
 							) : (
 								<ul>
 									{' '}
-									{uLinks.map(({ key, href, label }) => (
+									{unauthenticatedLinks.map(({ key, href, label }) => (
 										<li className="navLinks-overlay" key={key}>
 											<Link to={href}>{label}</Link>
 										</li>

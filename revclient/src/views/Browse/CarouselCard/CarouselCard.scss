@@ -53,6 +53,9 @@
                 }
             }
             .carousel-card-body-money {
+                div {
+                    background-color: $erudite-purple;
+                }
                 p {
                     margin: 10px 0;
                     font-size: 1.4rem;
@@ -151,8 +154,23 @@
 }
 
 .dark-mode {
-    .carousel-card-inner {
-        color: $machiavellian;
+    .carousel-card {
+        .carousel-card-inner {
+            color: $snow-white;
+            background-color: $darkness;
+            .carousel-card-body {
+                .carousel-card-body-money {
+                    div {
+                        background-color: $maastricht-blue;
+                    }
+                }
+            }
+        }
+        .carousel-card-inner.__near-you {
+            a {
+                color: $maastricht-blue;
+            }
+        }
     }
 }
 

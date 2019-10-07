@@ -25,7 +25,7 @@ import BasicDescription from './ProjectDescription/DetailedDescription/BasicDesc
 import { useQuery } from '@apollo/react-hooks';
 import { GET_PROJECT } from '../../graphql/queries';
 
-import { useWindowHook } from '../../components/Layout/windowOnClickHook.js';
+import { useWindowHook } from "../../helpers/windowOnClickHook.js";
 
 const project = {
 	projectOrganizer: 'Julian Crenshaw',

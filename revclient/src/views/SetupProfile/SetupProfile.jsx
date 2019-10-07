@@ -51,13 +51,15 @@ const SetupProfile = props => {
     if (!localStorage.getItem("token")) props.history.push("/");
     if (data) console.log(data, profileData);
 
+    console.log(props)
+
     return (
         <>
-            {props.fromSettings === "true" ? (
+            {props.destination === "settings" ? (
                 <Nav />
             ) : null}
             <section 
-                className={`setup-profile-container ${props.fromSettings === "true" ? "settings-view" : ""}`} 
+                className={`setup-profile-container ${props.destination === "settings" ? "settings-view" : ""}`} 
             >
                 <div className="setup-profile-container-card">
                     <div className="setup-profile-interaction-overlay">
@@ -66,7 +68,7 @@ const SetupProfile = props => {
                             <MdArrowBack onClick={formBack} />
                         ) : null}
 
-                        {props.fromSettings !== "true" && page === 1 ? (
+                        {props.destination === "settings" && page === 1 ? (
                             <MdClose onClick={props.toggleForm} />
                         ) : null}
 
@@ -75,8 +77,7 @@ const SetupProfile = props => {
                         <>
                             <div className="setup-profile-form">
                                 <div className="setup-profile-heading-container">
-                                    <div className="setup-profile-heading">{props.fromSettings === "true" ? "Settings" : "Hello!"}</div>
-                                    <h3>Let's talk about you!</h3>
+                                    <div className="setup-profile-heading">{props.destination === "settings" ? "Settings" : "Hello!"}</div>
                                 </div>
                                 <form onSubmit={formForward}>
                                     <input 
@@ -158,7 +159,7 @@ const SetupProfile = props => {
                     ) : null}
                 </div>
             </section>
-            {props.fromSettings === "true" ? (
+            {props.destination === "settings" ? (
                 <Footer />
             ) : null}
         </>

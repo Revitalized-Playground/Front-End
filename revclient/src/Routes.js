@@ -85,7 +85,7 @@ export const Routes = () => {
                 // exact
                 path="/settings"
                 render={() => (
-                    <SetupProfile fromSettings="true" />
+                    <SetupProfile destination="settings" />
                 )}
             />
 

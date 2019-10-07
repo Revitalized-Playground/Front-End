@@ -51,7 +51,7 @@ const Register = props => {
 		<>
 			{form.toggleForm 
 				? 
-				<SetupProfile  fromSettings="false" toggleForm={toggleForm} email={state.email} />
+				<SetupProfile destination="modal" toggleForm={toggleForm} email={state.email} />
 				: null
 			}
 			<div className="register-container">
@@ -63,9 +63,6 @@ const Register = props => {
 							<div className="register-welcome">
 								<h2>Get Started!</h2>
 							</div>
-							<button onClick={toggleForm}>
-								Launch Modal
-							</button>
 							<button>
 								<div>
 									<a className="register-button" href={`${process.env.REACT_APP_OAUTH_GOOGLE_LINK}`}>

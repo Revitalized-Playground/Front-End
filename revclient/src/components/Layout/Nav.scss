@@ -41,8 +41,6 @@ nav {
 		.logo {
 			display: flex;
 			margin: 20px;
-			// position: absolute;
-			// left: 4.5%;
 
 			span {
 				@media #{$tablet} {
@@ -64,12 +62,6 @@ nav {
 		font-size: 2.3rem;
 		width: 100%;
 		margin-right: 20px;
-		// a {
-		// 	// text-decoration: none;
-		// 	@media #{$tablet} {
-		// 		display: none;
-		// 	}
-		// }
 		ul {
 			display: flex;
 			align-items: center;
@@ -105,7 +97,7 @@ nav {
 					margin-right: 10px;
 					span {
 						@media #{$tablet} {
-							color: white;
+							color: $snow-white;
 						}
 						@media #{$mobile} {
 							display: none;
@@ -146,7 +138,7 @@ nav {
 					.dropdown-option {
 						margin: 15px 0;
 						cursor: pointer;
-						font-size: 26px;
+						font-size: 2.6rem;
 						padding: 5px;
 						display: flex;
 						.icon {
@@ -163,7 +155,7 @@ nav {
 			}
 			button {
 				@include buttonStyler($chillFi-purple, $snow-white, none, auto 10px auto 0);
-				font-size: 24px;
+				font-size: 2.4rem;
 				height: 60px;
 				width: 200px;
 				vertical-align: center;
@@ -175,7 +167,7 @@ nav {
 		}
 
 		.dark-mode-emoji {
-			font-size: 2rem;
+			font-size: 2.6rem;
 			display: flex;
 			align-items: center;
 			margin-right: 15px;
@@ -192,12 +184,14 @@ nav {
 
 .dark-mode {
 	nav {
-		background-color: $machiavellian;
 		.logo {
 			img {
 				filter: hue-rotate(-25deg);
 			}
 			h2 {
+				color: $maastricht-blue;
+			}
+			span {
 				color: $maastricht-blue;
 			}
 		}

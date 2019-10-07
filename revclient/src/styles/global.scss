@@ -10,7 +10,7 @@ body {
 }
 
 .dark-mode {
-	background-color: $machiavellian;
+	background-color: $bleached-black;
 	color: $snow-white;
 }
 
@@ -62,6 +62,11 @@ h5 {
 	font-size: 2rem;
 }
 
+h6 {
+	font-size: 1.8rem;
+	font-weight: 500;
+}
+
 input {
 	font-family: 'Roboto';
 	font-size: 1.6rem;
@@ -90,3 +95,15 @@ select {
 	border: 1px solid $mirage;
 }
 
+hr {
+	width: calc(100% + 20px);
+	margin-left: -10px;
+	border: none;
+	border-top-color: $silver-lining;
+	border-top-width: 1px;
+	border-top-style: solid;
+}
+
+.display-none {
+	display: none;
+}
