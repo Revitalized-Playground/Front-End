@@ -2,13 +2,18 @@ import React, { useState, useEffect } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import Skeleton from 'react-loading-skeleton';
 import { FaMoon } from 'react-icons/fa';
+import { FaCog } from 'react-icons/fa';
+import { FaUser } from 'react-icons/fa';
+import { FaWindowClose } from 'react-icons/fa';
 import { useQuery } from '@apollo/react-hooks';
 import { GET_USER } from '../../graphql/queries/Users';
+
+import {useWindowHook} from './windowOnClickHook.js'
 
 const uLinks = [
 	{ href: '/browse', label: 'Browse' },
 	{ href: '/projects', label: 'Learn More' },
-	{ href: '#', label: 'Team' },
+	{ href: '/about', label: 'Team' },
 	{ href: '/login', label: 'Log In' },
 ].map(link => {
 	link.key = `nav-link-${link.href}-${link.label}`;
@@ -17,7 +22,7 @@ const uLinks = [
 const aLinks = [
 	{ href: '/browse', label: 'Browse' },
 	{ href: '/projects', label: 'Learn More' },
-	{ href: '#', label: 'Team' },
+	{ href: '/about', label: 'Team' },
 	{ href: '#', label: 'Logout' },
 ].map(link => {
 	link.key = `nav-link-${link.href}-${link.label}`;
@@ -27,20 +32,25 @@ const aLinks = [
 const Nav = props => {
 	const [activeHamburger, setActiveHamburger] = useState(false);
 	const [darkModeActive, setDarkMode] = useState(false);
-	const [clicked, setClicked] = useState(false);
+	
+
+	//custom hook for window.onClick
+	const [modal, setModal, carousel, setCarousel, clicked, setClicked] = useWindowHook()
 
 	// for testing
 	// const toggleLoggedIn = () => setLoggedIn(!loggedIn);
-
 
 	const toggleDarkMode = () => {
 		setDarkMode(!darkModeActive);
 		localStorage.setItem('dark-mode', !darkModeActive);
 	};
 
-	const setActive = () => {
+	const setActive = (e) => {	
+		if(e.target.className !== "dropdown"){	
 		setActiveHamburger(!activeHamburger);
 		setClicked(!clicked);
+		}
+
 	};
 
 	useEffect(() => {
@@ -64,6 +74,8 @@ const Nav = props => {
 		if (loading) return <p>loading....</p>;
 		if (error) return <p>Error....</p>;
 	}
+
+
 
 	return (
 		<nav>
@@ -90,12 +102,12 @@ const Nav = props => {
 									</li>
 								),
 							)}
-							<div className="user" onClick={setActive}>
-								<div>
+							<div className="user fun" tabIndex="0" onClick={setActive} >
+								<div className="fun">
 									{data.me.firstName !== null ? (
-										<span>{`Welcome, ${data.me.firstName}`}</span>
+										<span className="fun">{`Welcome, ${data.me.firstName}`}</span>
 									) : (
-										<span>'Welcome'</span>
+										<span className="fun">Welcome</span>
 									)}
 								</div>
 								{data.me.profileImage !== null ? (
@@ -103,22 +115,26 @@ const Nav = props => {
 								) : (
 									<Skeleton className="userIcon" circle={true} height={40} width={40} />
 								)}
+								
+									<div className={`dropdown ${!clicked && 'none'}`} name="drop" tabIndex="0" >
+										<Link to="/dashboard" className="dropdown-option">
+											<FaUser className="icon" />
+											Profile
+										</Link>
+										<div className="dropdown-option">
+											<FaCog className="icon" /> Setting
+										</div>
+										<div onClick={toggleDarkMode} className="dropdown-option">
+											<FaMoon className="icon" />
+											Dark mode
+										</div>
+										<div onClick={logout} className="dropdown-option">
+											<FaWindowClose className="icon" />
+											Log out
+										</div>
+									</div>
+								
 							</div>
-							{clicked && (
-								<div className="dropdown">
-									<Link to="/dashboard" className="dropdown-option">
-										Profile
-									</Link>
-									<div className="dropdown-option">Setting</div>
-									<div onClick={toggleDarkMode} className="dropdown-option">
-										<FaMoon />
-										&nbsp; Dark mode: {darkModeActive ? 'on' : 'off'}
-									</div>
-									<div onClick={logout} className="dropdown-option">
-										Log out
-									</div>
-								</div>
-							)}
 						</>
 					) : (
 						<>
@@ -136,17 +152,17 @@ const Nav = props => {
 							<div className="dark-mode-emoji">
 								<FaMoon onClick={() => toggleDarkMode()} />
 							</div>
-							{!localStorage.getItem('token') &&
-							<div
-								onClick={setActive}
-								className={`hamburger hamburger--squeeze ${activeHamburger && 'is-active'}`}
-								type="button"
-							>
-								<span className="hamburger-box">
-									<span className="hamburger-inner"></span>
-								</span>
-							</div>
-							}
+							{!localStorage.getItem('token') && (
+								<div
+									onClick={setActive}
+									className={`hamburger hamburger--squeeze ${activeHamburger && 'is-active'}`}
+									type="button"
+								>
+									<span className="hamburger-box">
+										<span className="hamburger-inner"></span>
+									</span>
+								</div>
+							)}
 						</>
 					)}
 				</ul>
@@ -159,16 +175,16 @@ const Nav = props => {
 							{localStorage.getItem('token') ? (
 								<>
 									{aLinks.map(({ key, href, label }) =>
-								label === 'Logout' ? (
-									<li className="navLinks-overlay logout" onClick={logout} key={key}>
-										<Link to={href}>{label}</Link>
-									</li>
-								) : (
-									<li className="navLinks-overlay" key={key}>
-										<Link to={href}>{label}</Link>
-									</li>
-								),
-							)}
+										label === 'Logout' ? (
+											<li className="navLinks-overlay logout" onClick={logout} key={key}>
+												<Link to={href}>{label}</Link>
+											</li>
+										) : (
+											<li className="navLinks-overlay" key={key}>
+												<Link to={href}>{label}</Link>
+											</li>
+										),
+									)}
 								</>
 							) : (
 								<ul>

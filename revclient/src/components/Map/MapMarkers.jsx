@@ -1,11 +1,15 @@
 import React, {Component} from 'react';
 import MapGL, {Marker, Popup, NavigationControl} from 'react-map-gl';
-import Pin from './Pin'const TOKEN = 'your_token'; // Set your mapbox token hereconst navStyle = {
+import Pin from './Pin';
+
+const TOKEN = 'your_token'; // Set your mapbox token here
+const navStyle = {
   position: 'absolute',
   top: 0,
   left: 0,
   padding: '10px'
-};export default class Map extends Component {constructor(props) {
+};
+export default class Map extends Component {constructor(props) {
     super(props);
     this.state = {
       viewport: {

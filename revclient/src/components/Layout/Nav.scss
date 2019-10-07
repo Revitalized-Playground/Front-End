@@ -97,9 +97,11 @@ nav {
 
 			.logout{
 				display:none;
-				@media #{$tablet} {
-					display: flex;
-				}
+				
+			}
+
+			*:focus {
+				outline: none;
 			}
 			.user {
 				display: flex;
@@ -116,6 +118,10 @@ nav {
 						}
 					}
 				}
+
+				.fun {
+					user-select: none;
+				}
 				.userIcon {
 					width: 40px;
 					height: 40px;
@@ -123,6 +129,38 @@ nav {
 					border-radius: 100%;
 					&:hover{
 						cursor: pointer;
+					}
+				}
+				.none{
+					display:none;
+				}
+				.dropdown {
+					background-color: $chillFi-purple;
+					color: $snow-white;
+					@include subtleBoxShadow;
+					border-radius:6px;
+					position: absolute;
+					top: 80px;
+					right: 0;
+					width: 265px;
+					padding: 20px 10px 15px 20px;
+					margin-right: 25px;
+					z-index: 10;
+					@media #{$tablet} {
+						display: none;
+					}
+					.dropdown-option {
+						margin: 15px 0;
+						cursor: pointer;
+						font-size:26px;
+						padding:5px;
+						display: flex;
+						.icon{
+							width:26px;
+							padding:2px;
+							margin-right:25px;
+							align-content: center;
+						}
 					}
 				}
 			}
@@ -140,22 +178,7 @@ nav {
 					display: none;
 				}
 			}
-			.dropdown {
-				background-color: $chillFi-purple;
-				color: $snow-white;
-				position: absolute;
-				top: 80px;
-				right: 0;
-				padding: 10px 20px 10px 10px;
-				margin-right: 20px;
-				@media #{$tablet} {
-					display: none;
-				}
-				.dropdown-option {
-					margin: 5px 0;
-					cursor: pointer;
-				}
-			}
+		
 		}
 		
 		.dark-mode-emoji {

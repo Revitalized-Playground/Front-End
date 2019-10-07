@@ -75,7 +75,7 @@ const Sidebar = props => {
                         <div className="info">
                             <div className="text">
                                 <p>Email</p>
-                                <span>{props.user.email}</span>
+                                <span>{props.realMe.email}</span>
                             </div>
                             <Link to="#"><img 
                                 src="https://res.cloudinary.com/revitalize/image/upload/v1569861717/user%20dashboard/Email_o1fyfc.svg" 
@@ -97,7 +97,7 @@ const Sidebar = props => {
                         <div className="info">
                             <div className="text">
                                 <p>Location</p>
-                                <span>{`${props.user.city}, ${props.user.state}`}</span>
+                                <span>{`${props.realMe.city}, ${props.realMe.state}`}</span>
                             </div>
                             <Link to="#"><img 
                                 src="https://res.cloudinary.com/revitalize/image/upload/v1569861716/user%20dashboard/Location_Bubble_bwgq6m.svg" 

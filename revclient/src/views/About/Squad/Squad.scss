@@ -5,7 +5,7 @@
 		font-size: 90px;
 		line-height: 1.61;
 		letter-spacing: 5.4px;
-		color: #0b096f;
+		color: $erudite-purple;
 	}
 	.description {
 		text-align: center;
@@ -13,32 +13,28 @@
 		font-size: 22px;
 		line-height: 1.61;
 		letter-spacing: 1.32px;
-		color: #000000;
 		margin-bottom: 9.7rem;
 	}
-	.flex-container {
+	.grid-container {
 		display: flex;
 		justify-content: center;
-
-		.squad-flex-one,
-		.squad-flex-two,
-		.squad-flex-three {
-			display: flex;
-			flex-direction: column;
-
+		.squad {
+			display: grid;
+			grid-gap: 0;
+			grid-template-columns: repeat(3, 46.2rem);
+			grid-auto-rows: repeat(20, 17rem);
 			.person {
+				position: relative;
 				padding: 1rem 1rem 0 1rem;
 				width: 46.2rem;
 				height: 65.5rem;
-				margin-bottom: 17.3rem;
-
 				.name {
 					height: 7%;
 					font-family: Futura;
 					font-size: 30px;
 					line-height: 1.61;
 					letter-spacing: 1.8px;
-					color: #ffffff;
+					color: $snow-white;
 				}
 				.role {
 					height: 13%;
@@ -46,7 +42,7 @@
 					font-size: 23px;
 					line-height: 1.61;
 					letter-spacing: 1.38px;
-					color: #ffffff;
+					color: $snow-white;
 				}
 				.img-container {
 					margin: 0 auto;
@@ -59,12 +55,76 @@
 					}
 				}
 			}
+			.overlay {
+				position: absolute;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				background-color: rgba(0, 0, 0, 0.5);
+				overflow: hidden;
+				width: 100%;
+				height: 0;
+				transition: 0.5s ease;
+				padding: 0 10px;
+
+				.text {
+					color: white;
+					font-size: 2.5rem;
+					text-align: left;
+					line-height: 160.81%;
+					letter-spacing: 0.06rem;
+					margin-top: 10px;
+				}
+				.social {
+					font-size: 30px;
+					i {
+						margin: 7.5px;
+						color: $snow-white;
+					}
+				}
+			}
+			.person:hover .overlay {
+				cursor: pointer;
+				height: 50%;
+			}
 		}
-		.squad-flex-two {
-			margin-top: 17.3rem;
+		.Anthony {
+			grid-area: 1/1/5/2;
 		}
-		.squad-flex-three {
-			margin-top: calc(17.3rem * 2);
+		.Kerry {
+			grid-area: 2/2/6/3;
 		}
+		.Alexander {
+			grid-area: 3/3/7/4;
+		}
+		.Ruth {
+			grid-area: 6/1/10/2;
+		}
+		.Jose {
+			grid-area: 7/2/11/2;
+		}
+		.Elan {
+			grid-area: 8/3/12/4;
+		}
+		.Omar {
+			grid-area: 11/1/15/2;
+		}
+		.Skyelar {
+			grid-area: 12/2/16/3;
+		}
+		.Clark {
+			grid-area: 13/3/17/4;
+		}
+		.Frank {
+			grid-area: 16/1/20/2;
+		}
+	}
+}
+.dark-mode {
+	.title {
+		color: $snow-white;
 	}
 }
