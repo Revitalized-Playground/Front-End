@@ -1,7 +1,7 @@
 .crowdfunding-container {
 	margin-top: 7.1%;
 	margin-bottom: 35px;
-	
+
 	@media #{$mobile} {
 		margin-top: 0;
 		padding: 40px 35px 40px 35px;
@@ -9,10 +9,10 @@
 	}
 
 	.crowdfunding-header {
-		font-family: "Futura-pt";
+		font-family: 'futura-pt';
 		line-height: 160.81%;
 		margin-left: 6%;
-		letter-spacing: .04em;
+		letter-spacing: 0.04em;
 		font-weight: 500;
 		color: $erudite-purple;
 		@media #{$tablet} {
@@ -28,7 +28,7 @@
 		}
 	}
 	p.explore {
-		font-family: "Futura-pt";
+		font-family: 'futura-pt';
 		font-size: 1.8rem;
 		line-height: 160.81%;
 		letter-spacing: 0.06em;
@@ -43,15 +43,15 @@
 		br {
 			@media #{$mobile} {
 				display: none;
-			}	
+			}
 		}
 	}
 	p.do-you-know {
 		margin: 0 auto;
-		font-family: "Futura-pt";
+		font-family: 'futura-pt';
 		font-size: 1.8rem;
 		letter-spacing: 0.06em;
-		font-family: "futura-pt";
+		font-family: 'futura-pt';
 		margin-top: 2.4%;
 		margin-top: 55px;
 		text-align: center;
@@ -60,7 +60,7 @@
 		@media #{$tablet} {
 			font-size: 1.6rem;
 			line-height: 147.81%;
-			margin-bottom: 15px 
+			margin-bottom: 15px;
 		}
 
 		@media #{$mobile} {
@@ -70,7 +70,7 @@
 			color: $erudite-purple;
 		}
 		@media #{$mobile} {
-			display: none
+			display: none;
 		}
 	}
 	.img-container {
@@ -91,7 +91,8 @@
 				margin-bottom: 40px;
 			}
 		}
-		img.image-2, img.image-3 {
+		img.image-2,
+		img.image-3 {
 			@media #{$mobile} {
 				display: none;
 			}
@@ -111,7 +112,7 @@
 			@media #{$mobile} {
 				margin: 0 auto;
 				font-size: 2rem;
-				padding: .7rem 2rem;
+				padding: 0.7rem 2rem;
 				width: 200px;
 			}
 		}
@@ -128,9 +129,8 @@
 			color: $snow-white;
 			&:hover {
 				background-color: $snow-white;
-				color: $maastricht-blue
+				color: $maastricht-blue;
 			}
 		}
 	}
 }
-

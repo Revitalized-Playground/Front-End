@@ -1,5 +1,6 @@
 .user-dashboard-sidebar {
 	width: 25%;
+	height: 100%;
 	text-align: center;
 	.sidebar-top {
 		.user-picture {
@@ -9,36 +10,29 @@
 			border-radius: 50%;
 		}
 		h3 {
-			font-size: 2.4rem;
+			color: $machiavellian;
 			font-weight: 500;
 			line-height: 1.61;
 			letter-spacing: 1.44px;
-			color: $machiavellian;
 		}
 		h6 {
-			text-align: right;
 			color: $blue-valentine;
-			font-size: 1.8rem;
-			font-weight: 500;
+			text-align: right;
 		}
 		p {
+			color: $machiavellian;
 			font-size: 1.8rem;
 			font-weight: 500;
 			line-height: 1.61;
 			letter-spacing: 1.08px;
-			color: $machiavellian;
 		}
 	}
 	.user-dashboard-stats {
+		color: $machiavellian;
 		display: flex;
 		justify-content: space-evenly;
 		margin: 10% 0 5% 0;
-		color: $machiavellian;
-		font-family: Roboto;
-		h4 {
-			font-size: 2.4rem;
-			letter-spacing: 1.44px;
-		}
+		font-family: 'Roboto';
 		p {
 			font-size: 1.3rem;
 			letter-spacing: 0.78px;
@@ -46,9 +40,9 @@
 	}
 	.info-container {
 		margin: 5% 0;
-		font-family: Roboto;
+		font-family: 'Roboto';
 		p {
-			color: #6f6f6f;
+			color: $mirage;
 			font-size: 1.6rem;
 			font-weight: 500;
 			line-height: 1.61;
@@ -69,20 +63,32 @@
 				flex-direction: column;
 				text-align: left;
 			}
-			.icon {
-				width: 48px;
-				height: 47px;
-				border-radius: 12px;
-			}
 			.percent {
-				font-family: Roboto;
-				font-size: 20px;
+				font-family: 'Roboto';
+				font-size: 2rem;
 				letter-spacing: 1.2px;
 				color: $machiavellian;
 			}
+			.sidebar-icon-container {
+				@include bottomBoxShadow;
+				font-size: 3.2rem;
+				color: $chillFi-purple;
+				background-color: $franks-grey;
+				border-radius: 15px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				.sidebar-icon {
+					padding: 10px;
+				}
+			}
+			// .icon {
+			// 	width: 48px;
+			// 	height: 47px;
+			// 	border-radius: 12px;
+			// }
 		}
-		.progress,
-		.info {
+		.progress, .info {
 			margin: 6% 0;
 		}
 	}
@@ -90,12 +96,11 @@
 		display: flex;
 		flex-direction: column;
 		margin: 5% 0;
-		h4 {
-			font-size: 2rem;
+		h5 {
+			color: $machiavellian;
 			font-weight: 500;
 			line-height: 1.61;
 			letter-spacing: 1.2px;
-			color: $machiavellian;
 			margin-bottom: 5%;
 		}
 		.a-container {
@@ -113,11 +118,12 @@
 					height: 75px;
 				}
 				.number {
-					font-family: Roboto;
+					background-color: $franks-grey;
+					@include bottomBoxShadow;
+					font-family: 'Roboto';
 					font-size: 1.3rem;
 					font-weight: 500;
 					letter-spacing: 0.72px;
-					background-color: $static-grey;
 					width: 45px;
 					height: 30px;
 					position: relative;
@@ -137,7 +143,9 @@
 }
 .dark-mode {
 	.sidebar-top {
-		h3, h6, p {
+		h3,
+		h6,
+		p {
 			color: $snow-white;
 		}
 	}
@@ -145,7 +153,8 @@
 		color: $snow-white;
 	}
 	.info-container {
-		p, span {
+		p,
+		span {
 			color: $snow-white;
 		}
 		.info {

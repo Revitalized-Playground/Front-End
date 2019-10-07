@@ -4,6 +4,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 // Routes
 import LandingPage from "./views/Landing/LandingPage";
 import Register from "./views/Register/Register";
+import SetupProfile from "./views/SetupProfile/SetupProfile";
 import Login from "./views/Login/Login";
 import ProjectsHome from "./views/ProjectsHome/ProjectsHome";  // May be deprecated
 
@@ -69,6 +70,22 @@ export const Routes = () => {
                 path="/dashboard"
                 render={() => (
                     <Dashboard />
+                )}
+            />
+
+            {/* <Route
+                // exact
+                path="/profile/setup"
+                render={() => (
+                    <SetupProfile />
+                )}
+            /> */}
+
+            <Route
+                // exact
+                path="/settings"
+                render={() => (
+                    <SetupProfile destination="settings" />
                 )}
             />
 

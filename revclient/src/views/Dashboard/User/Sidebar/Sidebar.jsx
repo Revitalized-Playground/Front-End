@@ -1,43 +1,52 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 // import styled from "styled-components";
+import { FaVideo, FaEnvelope, FaPhone, FaLocationArrow } from "react-icons/fa";
 import Skeleton,  { SkeletonTheme } from "react-loading-skeleton";
+import { InitialAvatar } from "../../../../helpers/InitialAvatar";
+
 
 const Sidebar = props => {
     
     return (
         <section className="user-dashboard-sidebar section">
             <div className="sidebar-top">
-                <Link to="#"><h6>EDIT</h6></Link>
-                {
-                    // <img src={props.user.profileImage} alt="user" className="user-picture" />
+                <Link to="/settings" origination="userDashboard"><h6>EDIT</h6></Link>
+                {props.realMe.profileImage ? (
                     <img src={props.realMe.profileImage} alt="user" className="user-picture" />
-                    ||
-                    <Skeleton circle={true} height={110} width={110} />
-                }
-                {
+                ) : (
+                    // <Skeleton circle={true} height={110} width={110} />
+                    <InitialAvatar 
+                        firstName={props.realMe.firstName} 
+                        lastName={props.realMe.lastName}
+                        height="164" 
+                        width="164" 
+                        useRandomColor={1}
+                    />
+                )}
+                {props.realMe.firstName ? (
                     <>
-                        {/* <h3>{`${props.user.firstName} ${props.user.lastName}`}</h3> */}
                         <h3>{`${props.realMe.firstName} ${props.realMe.lastName}`}</h3>
-                        <p>{props.user.handle}</p>
+                        {/* <p>{props.realMe.email}</p> */}
                     </>
-                    ||
+                ) : (
                     <Skeleton count={2} />
-                }
+                )}
             </div>
             <div className="user-dashboard-stats">
                 {
                     <>
                         <div className="quick-stat">
-                            <h4>{props.user.certifications}</h4>
+                            <h3>{props.user.certifications}</h3>
                             <p>Certifications</p>
                         </div>
                         <div className="quick-stat">
-                            <h4>{props.user.hoursLogged}</h4>
+                            <h3>{props.user.hoursLogged}</h3>
                             <p>Hours Logged</p>
                         </div>
                         <div className="quick-stat">
-                            <h4>{props.user.creditHours}</h4>
+                            <h3>{props.user.creditHours}</h3>
                             <p>Credit Hours</p>
                         </div>
                     </>
@@ -66,44 +75,44 @@ const Sidebar = props => {
                                 <p>Zoom</p>
                                 <span>{props.user.zoom}</span>
                             </div>
-                            <Link to="#"><img 
-                                src="https://res.cloudinary.com/revitalize/image/upload/v1569861722/user%20dashboard/Zoom_dzderj.svg" 
-                                alt="zoom icon" 
-                                className="icon"
-                            /></Link>
+                            <Link to="#">
+                                <div className="sidebar-icon-container">
+                                    <FaVideo className="sidebar-icon" />
+                                </div>
+                            </Link>
                         </div>
                         <div className="info">
                             <div className="text">
                                 <p>Email</p>
                                 <span>{props.realMe.email}</span>
                             </div>
-                            <Link to="#"><img 
-                                src="https://res.cloudinary.com/revitalize/image/upload/v1569861717/user%20dashboard/Email_o1fyfc.svg" 
-                                alt="email icon" 
-                                className="icon"
-                            /></Link>
+                            <Link to="#">
+                                <div className="sidebar-icon-container">
+                                    <FaEnvelope className="sidebar-icon" />
+                                </div>
+                            </Link>
                         </div>
                         <div className="info">
                             <div className="text">
                                 <p>Phone Number</p>
                                 <span>{props.user.phoneNumber}</span>
                             </div>
-                            <Link to="#"><img 
-                                src="https://res.cloudinary.com/revitalize/image/upload/v1569861721/user%20dashboard/Telephone_kel6du.svg" 
-                                alt="phone icon" 
-                                className="icon"
-                            /></Link>
+                            <Link to="#">
+                                <div className="sidebar-icon-container">
+                                    <FaPhone className="sidebar-icon" />
+                                </div>
+                            </Link>
                         </div>
                         <div className="info">
                             <div className="text">
                                 <p>Location</p>
                                 <span>{`${props.realMe.city}, ${props.realMe.state}`}</span>
                             </div>
-                            <Link to="#"><img 
-                                src="https://res.cloudinary.com/revitalize/image/upload/v1569861716/user%20dashboard/Location_Bubble_bwgq6m.svg" 
-                                alt="location icon" 
-                                className="icon"
-                            /></Link>
+                            <HashLink to="/#search-map">
+                                <div className="sidebar-icon-container">
+                                    <FaLocationArrow className="sidebar-icon" />
+                                </div>
+                            </HashLink>
                         </div>
                     </>
                     ||
@@ -119,7 +128,7 @@ const Sidebar = props => {
                 } else if(props.user.master) {
 
                 }} */}
-                <h4>Achievements</h4>
+                <h5>Achievements</h5>
                 <div className="a-container">
                     {
                         props.user.achievements.map(a => (

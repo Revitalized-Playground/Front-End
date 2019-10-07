@@ -25,7 +25,7 @@ import BasicDescription from './ProjectDescription/DetailedDescription/BasicDesc
 import { useQuery } from '@apollo/react-hooks';
 import { GET_PROJECT } from '../../graphql/queries';
 
-import {useWindowHook} from '../../components/Layout/windowOnClickHook.js'
+import { useWindowHook } from "../../helpers/windowOnClickHook.js";
 
 const project = {
 	projectOrganizer: 'Julian Crenshaw',
@@ -110,37 +110,33 @@ const project = {
 			likes: ['name1', 'name2', 'name3', 'name1', 'name2', 'name3'],
 		},
 	],
-	projectDescription:
-		'Project description goes here.',
+	projectDescription: 'Project description goes here.',
 };
 
 const ProjectPage = ({ match }) => {
 	const [copied, setCopied] = useState(false);
 
-
-	const [modalVal, setModalVal, carouselVal, setCarouselVal ] = useWindowHook();
+	const [modalVal, setModalVal, carouselVal, setCarouselVal] = useWindowHook();
 
 	const val = e => {
-		if(e.target.className === 'modal') {
-			setModalVal(false)
+		if (e.target.className === 'modal') {
+			setModalVal(false);
 		}
 	};
 
 	const carVal = e => {
-		if(e.target.className === 'carousel-large-project') {
-			setCarouselVal(false)
+		if (e.target.className === 'carousel-large-project') {
+			setCarouselVal(false);
 		} else if (e.target.className === 'car-pic') {
-			setCarouselVal(true)
+			setCarouselVal(true);
 		}
 	};
-
-	
 
 	const { loading, error, data } = useQuery(GET_PROJECT, {
 		variables: { id: match.params.id },
 	});
 	const [projectData, setProjectData] = useState(data);
-	
+
 	console.log('project', projectData);
 
 	useEffect(() => {
