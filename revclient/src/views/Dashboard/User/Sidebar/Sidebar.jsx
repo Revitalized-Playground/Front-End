@@ -20,8 +20,8 @@ const Sidebar = props => {
                     <InitialAvatar 
                         firstName={props.realMe.firstName} 
                         lastName={props.realMe.lastName}
-                        height="100" 
-                        width="100" 
+                        height="164" 
+                        width="164" 
                         useRandomColor={1}
                     />
                 )}

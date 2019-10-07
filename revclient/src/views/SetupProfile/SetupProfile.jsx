@@ -58,21 +58,24 @@ const SetupProfile = props => {
             {props.destination === "settings" ? (
                 <Nav />
             ) : null}
+                
             <section 
                 className={`setup-profile-container ${props.destination === "settings" ? "settings-view" : ""}`} 
             >
                 <div className="setup-profile-container-card">
+                    
                     <div className="setup-profile-interaction-overlay">
                         
                         {page === 2 ? (
                             <MdArrowBack onClick={formBack} />
                         ) : null}
 
-                        {props.destination === "settings" && page === 1 ? (
+                        {props.destination === "modal" && page === 1 ? (
                             <MdClose onClick={props.toggleForm} />
                         ) : null}
 
                     </div>
+
                     {page === 1 ? (
                         <>
                             <div className="setup-profile-form">

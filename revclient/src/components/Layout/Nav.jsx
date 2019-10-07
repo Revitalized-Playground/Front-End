@@ -8,6 +8,7 @@ import { FaWindowClose } from "react-icons/fa";
 import { useQuery } from "@apollo/react-hooks";
 import { GET_USER } from "../../graphql/queries/Users";
 
+import { InitialAvatar } from "../../helpers/InitialAvatar.js";
 import { useWindowHook } from "../../helpers/windowOnClickHook.js"
 
 const unauthenticatedLinks = [
@@ -109,9 +110,16 @@ const Nav = props => {
 									)}
 								</div>
 								{data.me.profileImage !== null ? (
-									<img className="userIcon" src={data.me.profileImage} alt={data.me.firstName} />
+									<img className="user-icon" src={data.me.profileImage} alt={data.me.firstName} />
 								) : (
-									<Skeleton className="userIcon" circle={true} height={40} width={40} />
+									<InitialAvatar 
+										height={40} 
+										width={40} 
+										className="user-icon"
+										firstName={data.me.firstName} 
+										lastName={data.me.lastName}
+										useRandomColor={1}
+									/>
 								)}
 								
 								<div className={`dropdown ${!clicked && 'none'}`} name="drop" tabIndex="0" >

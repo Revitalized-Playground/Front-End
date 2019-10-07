@@ -14,8 +14,8 @@
         color: $snow-white;
         box-shadow: 0px 0px 40px -10px rgba(0, 0, 0, 0.75);
         height: 60%;
-        min-height: 500px;
-        max-height: 750px;
+        min-height: 600px;
+        max-height: 850px;
         width: 60%;
         min-width: 500px;
         max-width: 750px;
@@ -28,14 +28,11 @@
         .setup-profile-interaction-overlay {
             color: $snow-white;
             font-size: 3.6rem;
-            position: fixed;
-            height: 60%;
-            min-height: 500px;
-            max-height: 750px;
-            width: 60%;
-            min-width: 500px;
-            max-width: 750px;
-            padding: 20px 0 0 20px;
+            position: sticky;
+            width: 100%;
+            padding: 0 0 0 20px;
+            // top: -50px;
+            transform: translate(0px, -50px);
             svg {
                 cursor: pointer;
             }
@@ -78,7 +75,8 @@
                 .setup-profile-button-container {
                     margin-top: 30px;
                     button {
-                        @include buttonStyler($cerulean, $snow-white, none, 0)
+                        @include buttonStyler($cerulean, $snow-white, none, 0);
+                        font-size: 2.4rem;
                     }
                 }
                 .setup-profile-statezip {
