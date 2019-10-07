@@ -13,6 +13,9 @@
 		letter-spacing: 5.4px;
 		color: $erudite-purple;
 
+		@media #{$tablet} {
+			font-size: 5vw;
+		}
 		@media #{$mobile} {
 			font-size: 9vw;
 		}
@@ -25,6 +28,9 @@
 		letter-spacing: 1.32px;
 		margin-bottom: 9.7rem;
 
+		@media #{$tablet} {
+			font-size: 1.6vw;
+		}
 		@media #{$mobile} {
 			font-size: 2.5vw;
 		}
