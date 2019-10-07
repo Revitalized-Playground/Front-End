@@ -12,6 +12,10 @@
 		line-height: 1.61;
 		letter-spacing: 5.4px;
 		color: $erudite-purple;
+
+		@media #{$mobile} {
+			font-size: 9vw;
+		}
 	}
 	.description {
 		text-align: center;
@@ -20,20 +24,46 @@
 		line-height: 1.61;
 		letter-spacing: 1.32px;
 		margin-bottom: 9.7rem;
+
+		@media #{$mobile} {
+			font-size: 2.5vw;
+		}
 	}
 	.grid-container {
 		padding: 0 13.8%;
-		display: flex;
-		justify-content: center;
+
+		@media #{$mobile} {
+			padding: 0 11%;
+		}
+
 		.squad {
 			display: grid;
 			grid-gap: 0;
 			grid-template-columns: repeat(3, 1fr);
-			grid-auto-rows: repeat(20, 17rem);
+			grid-auto-rows: minmax(0, 4.83%);
+			grid-template-areas:
+				'anthony	        .           .'
+				'anthony        kerry         .'
+				'anthony        kerry        alex'
+				'anthony        kerry        alex'
+				'  .            kerry        alex'
+				'ruth             .          alex'
+				'ruth           jose           .'
+				'ruth           jose         elan'
+				'ruth           jose         elan'
+				' .             jose         elan'
+				'omar            .           elan'
+				'omar          skyelar        .'
+				'omar          skyelar      clark'
+				'omar          skyelar      clark'
+				' .            skyelar      clark'
+				'frank           .          clark'
+				'frank           .            .'
+				'frank           .            .'
+				'frank           .            .';
 
 			@media #{$tablet} {
 				grid-template-columns: repeat(2, 1fr);
-				grid-auto-rows: repeat(25, 17rem);
 			}
 			@media #{$mobile} {
 				display: flex;
@@ -43,15 +73,27 @@
 				position: relative;
 				padding: 1rem 1rem 0 1rem;
 				width: 100%;
-				height: 72rem;
+
+				@media #{$mobile} {
+					width: 100%;
+					height: 55rem;
+					margin-bottom: 5%;
+				}
 
 				.name {
-					// height: 7%;
 					font-family: Futura;
 					font-size: 1.57vw;
 					line-height: 1.61;
 					letter-spacing: 1.8px;
 					color: $snow-white;
+
+					@media #{$tablet} {
+						font-size: 2.57vw;
+					}
+
+					@media #{$mobile} {
+						font-size: 5vw;
+					}
 				}
 				.role {
 					height: 13%;
@@ -60,11 +102,22 @@
 					line-height: 1.61;
 					letter-spacing: 1.38px;
 					color: $snow-white;
+
+					@media #{$tablet} {
+						font-size: 1.6vw;
+					}
+					@media #{$mobile} {
+						font-size: 3vw;
+					}
 				}
 				.img-container {
 					margin: 0 auto;
 					width: 100%;
 					height: 80%;
+
+					@media #{$tablet} {
+						height: 70%;
+					}
 					img {
 						width: 100%;
 						height: 100%;
@@ -108,47 +161,50 @@
 				height: 50%;
 			}
 		}
+
+		// Xstart,Ystart, Xend, Yend
+
 		.Anthony {
-			grid-area: 1/1/5/2;
+			grid-area: anthony;
 		}
 		.Kerry {
-			grid-area: 2/2/6/3;
+			grid-area: kerry;
 		}
 		.Ruth {
-			grid-area: 6/1/10/2;
+			grid-area: ruth;
 		}
 		.Jose {
-			grid-area: 7/2/11/2;
+			grid-area: jose;
 		}
 		.Elan {
-			grid-area: 8/3/12/4;
+			grid-area: elan;
 
 			@media #{$tablet} {
 				grid-area: 21/1/25/2;
 			}
 		}
 		.Alexander {
-			grid-area: 3/3/7/4;
+			grid-area: alex;
 
 			@media #{$tablet} {
 				grid-area: 17/2/21/3;
 			}
 		}
 		.Clark {
-			grid-area: 13/3/17/4;
+			grid-area: clark;
 
 			@media #{$tablet} {
 				grid-area: 22/2/26/3;
 			}
 		}
 		.Omar {
-			grid-area: 11/1/15/2;
+			grid-area: omar;
 		}
 		.Skyelar {
-			grid-area: 12/2/16/3;
+			grid-area: skyelar;
 		}
 		.Frank {
-			grid-area: 16/1/20/2;
+			grid-area: frank;
 		}
 	}
 }
