@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components';
 import { Link, withRouter } from 'react-router-dom';
-import { formatMoney, donationCount, addUpDonations } from "../../../../helpers/formatMoney";
+import { formatMoney, donationCount } from "../../../../helpers/formatMoney";
 
 
 const Donate = ({raised, budget, projectData, setModal, match}) => {
@@ -44,7 +44,7 @@ const Donate = ({raised, budget, projectData, setModal, match}) => {
         <div className='donateContainer'>
             <div className='donateInnerDiv'>
                 <p className='donationMoney'>
-                    <span className='large'>${formatMoney(addUpDonations(raised))}</span>
+                    <span className='large'>${formatMoney(raised)}</span>
                     <span className='small'>raised out of ${formatMoney(budget)}</span>
                 </p>
                 <div className='progress-bar'>
