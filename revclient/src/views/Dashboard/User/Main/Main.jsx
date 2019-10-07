@@ -97,6 +97,33 @@ const Main = () => {
 				tab: 'New Tasks',
 			},
 			{
+				left: '#4840ba',
+				image:
+					'https://res.cloudinary.com/revitalize/image/upload/v1569861718/user%20dashboard/Maintenance_q9et8e.svg',
+				name: 'Remove and Replace Doors to Restroom and Cafe Entrance',
+				description:
+					'Measure door heights and replace door handles with sleek handles. Leave space to hand exit signs.',
+				comment: 'Priority level: Not a priority',
+				right: [
+					{
+						name: 'x',
+						img:
+							'https://res.cloudinary.com/revitalize/image/upload/v1569861715/user%20dashboard/Cliff_rkxqq5.png',
+					},
+					{
+						name: 'x',
+						img:
+							'https://res.cloudinary.com/revitalize/image/upload/v1569861719/user%20dashboard/Mya_vrdanh.png',
+					},
+					{
+						name: 'x',
+						img:
+							'https://res.cloudinary.com/revitalize/image/upload/v1569861718/user%20dashboard/Milo_netcid.png',
+					},
+				],
+				tab: 'New Tasks',
+			},
+			{
 				left: '#ffc100',
 				image:
 					'https://res.cloudinary.com/revitalize/image/upload/v1569861718/user%20dashboard/Maintenance_q9et8e.svg',

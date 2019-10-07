@@ -185,19 +185,16 @@ nav {
 .dark-mode {
 	nav {
 		.logo {
-			img {
-				filter: hue-rotate(-25deg);
-			}
-			h2 {
-				color: $maastricht-blue;
-			}
+			// h2 {
+			// 	color: $maastricht-blue;
+			// }
 			span {
-				color: $maastricht-blue;
+				color: $snow-white;
 			}
 		}
 		ul {
 			.navLinks a {
-				color: $maastricht-blue;
+				color: $snow-white;
 			}
 			.login {
 				color: $snow-white;
@@ -216,32 +213,35 @@ nav {
 				}
 			}
 			.user {
-				color: $maastricht-blue;
+				color: $snow-white;
 			}
 		}
-	}
-	.right-nav .dark-mode-emoji {
-		svg {
-			color: $maastricht-blue;
+		.right-nav .dark-mode-emoji {
+			svg {
+				color: $maastricht-blue;
+			}
+			@media #{$tablet} {
+				display: none;
+			}
 		}
-		@media #{$tablet} {
-			display: none;
+		.right-nav ul .user .dropdown {
+			background-color: $maastricht-blue;
 		}
 	}
 }
 
-nav.nav-frosted {
-	// // This is the frosted glass effect
-	// background-color: rgba($erudite-purple, 0.75);
-	// backdrop-filter: blur(8px);
-	width: 100%;
-	position: fixed;
-	@media #{$mobile} {
-		background: inherit;
-		height: 90px;
-	}
-	@media #{$tablet} {
-		background: inherit;
-		height: 90px;
-	}
-}
+// nav.nav-frosted {
+// 	// // This is the frosted glass effect
+// 	// background-color: rgba($erudite-purple, 0.75);
+// 	// backdrop-filter: blur(8px);
+// 	width: 100%;
+// 	position: fixed;
+// 	@media #{$mobile} {
+// 		background: inherit;
+// 		height: 90px;
+// 	}
+// 	@media #{$tablet} {
+// 		background: inherit;
+// 		height: 90px;
+// 	}
+// }

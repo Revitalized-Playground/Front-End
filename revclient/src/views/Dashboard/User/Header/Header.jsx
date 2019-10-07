@@ -23,7 +23,7 @@ const Header = props => {
 
 			<div className="header-bottom">
 				<div className="bottom-left">
-					<p className="dueDate">Due Date: {dueDate}</p>
+					<p className="due-date">Due Date: {dueDate}</p>
 					<div className="bottom-icons">
 						<FaComments />
 						<FaFileInvoice />

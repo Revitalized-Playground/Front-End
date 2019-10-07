@@ -76,7 +76,7 @@ const SetupProfile = props => {
 
                     </div>
 
-                    {page === 1 ? (
+                    {page === 1 || props.destination === "settings" ? (
                         <>
                             <div className="setup-profile-form">
                                 <div className="setup-profile-heading-container">
@@ -104,20 +104,24 @@ const SetupProfile = props => {
                                         value={profileData.email}
                                         onChange={handleChanges}
                                     />
-                                    <div className="setup-profile-button-container">
-                                        <button onClick={formForward}>Next</button>
-                                    </div>
+                                    {props.destination === "settings" ? null : (
+                                        <div className="setup-profile-button-container">
+                                            <button onClick={formForward}>Next</button>
+                                        </div>
+                                    )}
                                 </form>
                             </div>
                         </>
                     ) : null}
-                    {page === 2 ? (
+                    {page === 2 || props.destination === "settings" ? (
                         <>
                             <div className="setup-profile-form">
+                            {props.destination === "settings" ? null : (
                                 <div className="setup-profile-heading-container">
                                     <div className="setup-profile-heading">Hi {profileData.firstName ? profileData.firstName : null}</div>
                                     <h3>Where are you from?</h3>
                                 </div>
+                            )}
                                 <form onSubmit={formSubmit}>
                                     <input 
                                         name="address"

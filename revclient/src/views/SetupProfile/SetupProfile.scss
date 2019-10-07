@@ -91,7 +91,28 @@
 };
 
 .setup-profile-container.settings-view {
-    background-color: $snow-white;
+    background-color: unset;
     position: relative;
     margin: 20px auto 10%;
+    .setup-profile-container-card {
+        max-width: 900px;
+        justify-content: flex-start;
+        padding: 60px 0;
+    }
+}
+
+
+.dark-mode {
+    .setup-profile-container.settings-view {
+        .setup-profile-container-card {
+            background-color: $darkness;
+            box-shadow: unset;
+            .setup-profile-form {
+                form input {
+                    background-color: rgba($machiavellian, 0.75);
+                    background-color: $bleached-black;
+                }
+            }
+        }
+    }
 }
