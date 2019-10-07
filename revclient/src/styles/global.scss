@@ -10,13 +10,14 @@ body {
 }
 
 .dark-mode {
-	background-color: $machiavellian;
+	background-color: $bleached-black;
 	color: $snow-white;
 }
 
 a {
 	text-decoration: none;
 	color: inherit;
+	user-select: none;
 }
 
 i {
@@ -62,25 +63,53 @@ h5 {
 	font-size: 2rem;
 }
 
+h6 {
+	font-size: 1.8rem;
+	font-weight: 500;
+}
+
 input {
-	font-family: 'futura-pt';
+	font-family: 'Roboto';
 	font-size: 1.6rem;
+	padding: 10px 15px;
+	outline: none;
 	height: 35px;
-	padding: 0px 10px;
 	border-radius: 5px;
 	border: none;
 	border: 1px solid $mirage;
 }
 
 textarea {
-	font-family: 'futura-pt';
+	font-family: 'Roboto';
 	font-size: 1.6rem;
-	padding: 10px;
+	padding: 10px 15px;
+	margin: 10px 0 0;
+	outline: none;
 	border-radius: 5px;
 	border: 1px solid $mirage;
 }
 
 select {
-	font-family: 'futura-pt';
+	font-family: 'Roboto';
 	font-size: 1.6rem;
+	border-radius: 5px;
+	border: 1px solid $mirage;
 }
+
+hr {
+	width: calc(100% + 20px);
+	margin-left: -10px;
+	border: none;
+	border-top-color: $silver-lining;
+	border-top-width: 1px;
+	border-top-style: solid;
+}
+
+.display-none {
+	display: none;
+}
+
+.react-toggle-track {
+	background-color: $erudite-purple;
+}
+

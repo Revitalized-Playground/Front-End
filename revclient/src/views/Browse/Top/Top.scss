@@ -15,9 +15,6 @@
         @media #{$tablet} {
             font-size:2.8rem;
         }
-        .questionMark {
-            font-family: Arial, Helvetica, sans-serif;
-        }
     }
     .interests {
         display: flex;
@@ -96,7 +93,8 @@
 
         .interests {
             .interest {
-                background-color: $police-blue;
+                background-color: $darkness;
+                color: $static-grey;
             }
 
         }

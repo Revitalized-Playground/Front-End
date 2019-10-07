@@ -12,7 +12,6 @@ const CarouselCard = ( {card, view, index, name} ) => {
 
     const Box = styled.div`
         height: 12px;
-        background: #0B096F;
         border-radius: 50px;
 
         @keyframes pulse {
@@ -20,9 +19,7 @@ const CarouselCard = ( {card, view, index, name} ) => {
                 width: 0;
                 background: #0B096F;
                 }
-            100% {
-                /* width: ${card.amountFunded > card.goalAmount ? 100 : (Number(card.amountFunded) / Number(card.goalAmount) * 100)}%; */
-            }
+            100% {}
         }
         width: ${card.amountFunded > card.goalAmount ? 100 : (Number(card.amountFunded) / Number(card.goalAmount) * 100)}%;
         animation: 1s ease-out pulse;

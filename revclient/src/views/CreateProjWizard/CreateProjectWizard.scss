@@ -43,11 +43,13 @@
 				margin: auto 0;
 				text-align: center;
 				letter-spacing: 0.06em;
+				color: $elans-grey;
 			}
 			p {
 				height: auto;
 				padding-bottom: 120px;
 				font-size: 1.8rem;
+				color: $elans-grey;
 			}
 			@media #{$tablet} {
 				display: none;
@@ -77,23 +79,22 @@
 					justify-content: space-around;
 					width: 50%;
 					margin: 30px auto 45px 8%;
-					.active {
-						background-color: $chillFi-purple;
-						border: 1px solid $chillFi-purple;
-					}
 					.step {
 						border-radius: 5px;
-						border: 1px solid $mirage;
+						background: #ecebf3;
 						width: 32%;
 						height: 10px;
+					}
+					.active {
+						background-color: $chillFi-purple;
 					}
 				}
 			}
 			form {
 				display: flex;
 				flex-direction: column;
-				width: 45%;
-				margin: 0 auto 0 12%;
+				width: 50%;
+				margin: 0 auto 0 8%;
 				height: 500px;
 				@media #{$tablet} {
 					width: 60%;
@@ -110,10 +111,14 @@
 					letter-spacing: 0.06em;
 				}
 				input {
+					border: 1px solid $mirage;
 					margin: 6px 0 6px 0;
 					margin-bottom: 30px;
-					// height: 3rem;
-					border: 1px solid $mirage;
+
+					&:focus {
+						color: $chillFi-purple;
+						border: 1px solid $chillFi-purple;
+					}
 				}
 				button {
 					@include buttonStyler($chillFi-purple, $snow-white, none);
@@ -148,6 +153,11 @@
 				}
 				textarea {
 					border: 1px solid $mirage;
+
+					&:focus {
+						color: $chillFi-purple;
+						border: 1px solid $chillFi-purple;
+					}
 				}
 			}
 		}

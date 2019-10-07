@@ -1,6 +1,6 @@
 // Fonts
 @import url('https://use.typekit.net/she4pxn.css');
-@import url('https://fonts.googleapis.com/css?family=Roboto:500&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap');
 
 @import 'reset';
 // Vars and Mixins
@@ -39,10 +39,13 @@
 @import '../components/Card/Card.scss';
 @import '../components/Layout/Footer.scss';
 @import '../components/Layout/Nav.scss';
-@import '../components/Project/Project.scss';
-@import '../components/ProjectList/ProjectList.scss';
 
 // Mapbox
-@import '../../node_modules/mapbox-gl/dist/mapbox-gl.css';
-@import '../../node_modules/react-map-gl-geocoder/dist/mapbox-gl-geocoder.css';
-@import '../components/Map/SearchableMap.scss';
+@import "../../node_modules/mapbox-gl/dist/mapbox-gl.css";
+@import "../../node_modules/react-map-gl-geocoder/dist/mapbox-gl-geocoder.css";
+@import "../components/Map/SearchableMap.scss";
+
+// Settings page
+@import "../views/SetupProfile/SetupProfile.scss";
+
+

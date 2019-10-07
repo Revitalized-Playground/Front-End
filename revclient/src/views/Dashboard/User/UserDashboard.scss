@@ -1,20 +1,11 @@
-// Move to global?
 @import './Sidebar/Sidebar.scss';
 @import './Header/Header.scss';
 @import './Main/Main.scss';
 
-hr {
-	width: calc(100% + 20px);
-	margin-left: -10px;
-	border: none;
-	border-top-color: $silver-lining;
-	border-top-width: 1px;
-	border-top-style: solid;
-}
-// END Move to global?
-
 .user-dashboard {
 	width: 100%;
+	max-width: 1820px;
+    margin: 0 auto;
 	display: flex;
 	padding-left: 10px;
 	padding-right: 10px;
@@ -33,17 +24,36 @@ hr {
 		@include skeleton-section;
 		@include bottomBoxShadow;
 		background: $snow-white;
-
+		padding: 40px 15px 15px 15px;
+	}
+	.user-dashboard-picture-icons {
+		width: 40px;
+		margin-left: -2px;
+		&:first-of-type {
+			margin-left: 0;
+		}
+	}
+	.no-picture {
+		background-color: $silver-lining;
+		border-radius: 100%;
+		height: 40px;
+		width: 40px;
+		margin-right: -2px;
 	}
 }
 .dark-mode {
-	.section[class^='user-dashboard'] {
-		@include skeleton-section;
-		background-color: #152531;
-		border: none;
-	}
-	hr {
-		border-top-color: rgba(255, 255, 255, 0.18);
-
+	.user-dashboard {
+		.section[class^='user-dashboard'] {
+			// @include skeleton-section;
+			background-color: $darkness;
+			border: none;
+			border-bottom-color: $bleached-black;
+			border-bottom-style: solid;
+			border-bottom-width: 3px;
+		}
+		hr {
+			border-top-color: rgba(255, 255, 255, 0.18);
+		}
 	}
 }
+
