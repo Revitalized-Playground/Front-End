@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { withRouter } from "react-router-dom";
 import { MdArrowBack, MdClose } from "react-icons/md";
-// import { zipCodeChecker } from "../../../helpers/helpers.js";
+import { FaMoon } from "react-icons/fa";
 import { useMutation, useLazyQuery } from "@apollo/react-hooks";
 import { UPDATE_USER_PROFILE } from "../../graphql/mutations";
 import { GET_USER } from "../../graphql/queries";
+import Toggle from "react-toggle";
+import "react-toggle/style.css"
+
 import Nav from "../../components/Layout/Nav";
 import Footer from "../../components/Layout/Footer";
 
@@ -24,6 +27,7 @@ const SetupProfile = props => {
         zip: "",
         country: "USA",
     });
+    const [darkModeState, setDarkMode] = useState(false);
     
     const handleChanges = event => {
         if (event.target.name === 'zip' || event.target.name === 'goalAmount') {
@@ -45,13 +49,25 @@ const SetupProfile = props => {
 			props.history.push("/dashboard");
 		}
     };
+
+    const toggleDarkMode = () => {
+		setDarkMode(!darkModeState);
+		localStorage.setItem('dark-mode', !darkModeState);
+    };
     
+    useEffect(() => {
+		if (JSON.parse(localStorage.getItem('dark-mode')) === true) {
+			document.querySelector('body').classList.add('dark-mode');
+		} else {
+			document.querySelector('body').classList.remove('dark-mode');
+		}
+	}, [darkModeState]);
     
     if (loading) return <h1>Loading</h1>
     if (!localStorage.getItem("token")) props.history.push("/");
     if (data) console.log(data, profileData);
 
-    console.log(props)
+    // console.log(props)
 
     return (
         <>
@@ -82,6 +98,19 @@ const SetupProfile = props => {
                                 <div className="setup-profile-heading-container">
                                     <div className="setup-profile-heading">{props.destination === "settings" ? "Settings" : "Hello!"}</div>
                                 </div>
+                                {props.destination === "settings" ? (
+                                    <div className="setup-profile-settings-options">
+                                        <div className="setting-label">
+                                            <FaMoon />&nbsp; Toggle Dark Mode
+                                        </div>
+                                        <div className="setting-toggle">
+                                            <Toggle 
+                                                defaultChecked={darkModeState}
+                                                onChange={toggleDarkMode}
+                                            />
+                                        </div>
+                                    </div>
+                                ) : null}
                                 <form onSubmit={formForward}>
                                     <input 
                                         name="firstName"

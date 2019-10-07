@@ -14,7 +14,6 @@ const RecommendedProjects = () => {
         const { loading, error, data } = useQuery(GET_PROJECTS);
 
         const settings = {
-            // arrows: true,
             dots: false,
             infinite: true,
             speed: 500,

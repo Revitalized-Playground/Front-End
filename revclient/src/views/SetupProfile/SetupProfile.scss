@@ -16,9 +16,10 @@
         height: 60%;
         min-height: 600px;
         max-height: 850px;
-        width: 60%;
-        min-width: 500px;
+        width: 100%;
+        // min-width: 500px;
         max-width: 750px;
+        margin: 0 20px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -42,6 +43,7 @@
             justify-content: center;
             align-items: center;
             flex-direction: column;
+            padding: 0 20px;
             width: 100%;
             z-index: 100; // The form needs to be indexed higher than the back button box
             .setup-profile-heading-container {
@@ -53,14 +55,29 @@
                 .setup-profile-heading {
                     font-size: 4rem;
                 }
-            } 
+            }
+            .setup-profile-settings-options {
+                width: 75%;
+                max-width: 450px;
+                display: flex;
+                justify-content: space-between;
+                align-self: center;
+                .setting-label {
+                    font-size: 1.6rem;
+                    display: flex;
+                    align-items: center;
+                }
+            }
             form {
-                width: 100%;
+                width: 80%;
                 max-width: 450px;
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 flex-direction: column;
+                @media #{$mobile} {
+
+                }
                 input {
                     background-color: rgba($erudite-purple, 0.75) ;
                     color: $snow-white;

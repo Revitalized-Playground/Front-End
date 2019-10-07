@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, withRouter } from "react-router-dom";
 import Skeleton from "react-loading-skeleton";
-import { FaMoon } from "react-icons/fa";
-import { FaCog } from "react-icons/fa";
-import { FaUser } from "react-icons/fa";
-import { FaWindowClose } from "react-icons/fa";
+import { FaMoon, FaCog, FaUser, FaWindowClose } from "react-icons/fa";
 import { useQuery } from "@apollo/react-hooks";
 import { GET_USER } from "../../graphql/queries/Users";
 
@@ -15,6 +12,7 @@ const unauthenticatedLinks = [
 	{ href: '/browse', label: 'Browse' },
 	{ href: '/projects', label: 'Learn More' },
 	{ href: '/about', label: 'Team' },
+	{ href: '/settings', label: 'Settings' },
 	{ href: '/login', label: 'Log In' },
 ].map(link => {
 	link.key = `nav-link-${link.href}-${link.label}`;
@@ -25,6 +23,7 @@ const authenticatedLinks = [
 	{ href: '/browse', label: 'Browse' },
 	{ href: '/projects', label: 'Learn More' },
 	{ href: '/about', label: 'Team' },
+	{ href: '/settings', label: 'Settings' },
 	{ href: '#', label: 'Logout' },
 ].map(link => {
 	link.key = `nav-link-${link.href}-${link.label}`;
@@ -193,7 +192,6 @@ const Nav = props => {
 								</>
 							) : (
 								<ul>
-									{' '}
 									{unauthenticatedLinks.map(({ key, href, label }) => (
 										<li className="navLinks-overlay" key={key}>
 											<Link to={href}>{label}</Link>
