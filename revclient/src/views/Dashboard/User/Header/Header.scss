@@ -1,6 +1,7 @@
-.user-dashboard-header {
+.user-dashboard .user-dashboard-body .user-dashboard-header.section {
 	display: flex;
 	flex-direction: column;
+	padding-top: 15px;
 	.header-top {
 		display: flex;
 		justify-content: space-between;

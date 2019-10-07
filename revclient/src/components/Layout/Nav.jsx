@@ -50,7 +50,6 @@ const Nav = props => {
 		setActiveHamburger(!activeHamburger);
 		setClicked(!clicked);
 		}
-
 	};
 
 	useEffect(() => {
@@ -101,14 +100,14 @@ const Nav = props => {
 									</li>
 								),
 							)}
-							<div className="user fun" tabIndex="0" onClick={setActive} >
-								<div className="fun">
-									{data.me.firstName !== null ? (
-										<span className="fun">{`Welcome, ${data.me.firstName}`}</span>
-									) : (
-										<span className="fun">Welcome</span>
-									)}
-								</div>
+							<div className="user" tabIndex="0" onClick={setActive} >
+								
+								{data.me.firstName !== null ? (
+									<span className="user-personal-greeting">{`Welcome, ${data.me.firstName}`}</span>
+								) : (
+									<span className="user-personal-greeting">Welcome</span>
+								)}
+
 								{data.me.profileImage !== null ? (
 									<img className="user-icon" src={data.me.profileImage} alt={data.me.firstName} />
 								) : (
@@ -122,7 +121,8 @@ const Nav = props => {
 									/>
 								)}
 								
-								<div className={`dropdown ${!clicked && 'none'}`} name="drop" tabIndex="0" >
+								<div className={`dropdown ${!clicked && 'display-none'}`} name="drop" tabIndex="0" >
+									<div class="arrow-up"></div>
 									<Link to="/dashboard" className="dropdown-option">
 										<FaUser className="icon" />
 										Profile

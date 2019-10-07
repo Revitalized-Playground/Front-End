@@ -8,7 +8,7 @@
 // @import './NearYou/NearYou.scss';
 
 
-.startContainer {
+.browse-container {
     width: 100%;
     max-width: 1500px; // You want to cap the container size at 1920 or smaller so that content doesn't go crazy wide. -fm
     margin: 0 auto;
@@ -24,32 +24,24 @@
             z-index: 3;
             left: -25px;
             top: 50%;
-            transform: translate(0px, -22.5px) rotate(180deg);
         }
         .slick-next {
             z-index: 3;
             right: -25px;
             top: 50%;
         }
-        .slick-next, .slick-prev {
-            height: unset;
-            width: unset;
-            border-radius: 100%;
-            @include subtleBoxShadow;
-            &:before {
-                background-image: url("../assets/BrowsePage/arrow-left.svg");
-                font-size: 4.5rem;
-                opacity: 1;
-                color: rgba(0,0,0,0);
-                background-repeat: no-repeat;
+        .slick-arrow-container {
+            .slick-next, .slick-prev {
+                height: unset;
+                width: unset;
+                border-radius: 100%;
+                font-size: 4rem;
+                background-color: $silver-lining;
+                color: rgba($static-grey, 0.25);
+                @include subtleBoxShadow;
             }
         }
     }
-
-    // .recommened-projects-section {}
-    // .near-you-section {}
-    // .noteworthy-section {}
-    // .hireContainer {}
 
     .skeleton-slider {
         display: flex;

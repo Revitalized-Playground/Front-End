@@ -62,10 +62,12 @@ nav {
 		font-size: 2.3rem;
 		width: 100%;
 		margin-right: 20px;
+		*:focus {
+			outline: none;
+		}
 		ul {
 			display: flex;
 			align-items: center;
-
 			.navLinks {
 				margin-right: 65px;
 				@media #{$tablet} {
@@ -81,32 +83,22 @@ nav {
 					line-height: 0.9;
 				}
 			}
-
 			.logout {
 				display: none;
-			}
-
-			*:focus {
-				outline: none;
 			}
 			.user {
 				display: flex;
 				align-items: center;
 				cursor: pointer;
-				div {
-					margin-right: 10px;
-					span {
-						@media #{$tablet} {
-							color: $snow-white;
-						}
-						@media #{$mobile} {
-							display: none;
-						}
-					}
-				}
-
-				.fun {
+				.user-personal-greeting {
 					user-select: none;
+					margin-right: 20px;
+					@media #{$tablet} {
+						color: $snow-white;
+					}
+					@media #{$mobile} {
+						display: none;
+					}
 				}
 				.user-icon {
 					width: 40px;
@@ -117,23 +109,30 @@ nav {
 						cursor: pointer;
 					}
 				}
-				.none {
-					display: none;
-				}
 				.dropdown {
+					@include subtleBoxShadow;
 					background-color: $chillFi-purple;
 					color: $snow-white;
-					@include subtleBoxShadow;
 					border-radius: 6px;
 					position: absolute;
-					top: 80px;
+					top: 90px;
 					right: 0;
 					width: 265px;
-					padding: 20px 10px 15px 20px;
+					padding: 15px 20px;
 					margin-right: 25px;
 					z-index: 10;
 					@media #{$tablet} {
 						display: none;
+					}
+					.arrow-up {
+						width: 0; 
+						height: 0; 
+						border-left: 15px solid transparent;
+						border-right: 15px solid transparent;	
+						border-bottom: 15px solid $chillFi-purple;
+						position: absolute;
+						top: -15px;
+						right: 15px;
 					}
 					.dropdown-option {
 						margin: 15px 0;
@@ -141,6 +140,9 @@ nav {
 						font-size: 2.6rem;
 						padding: 5px;
 						display: flex;
+						&:hover {
+							background-color: darken($chillFi-purple, 7.5%);
+						}
 						.icon {
 							width: 26px;
 							padding: 2px;
@@ -226,6 +228,14 @@ nav {
 		}
 		.right-nav ul .user .dropdown {
 			background-color: $maastricht-blue;
+			.arrow-up {
+				border-bottom: 15px solid $maastricht-blue;
+			}
+			.dropdown-option {
+				&:hover {
+					background-color: darken($maastricht-blue, 7.5%);
+				}
+			}
 		}
 	}
 }

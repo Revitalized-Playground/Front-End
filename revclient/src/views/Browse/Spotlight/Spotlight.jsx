@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { FaAngleRight } from "react-icons/fa";
 
-import building from '../../../assets/BrowsePage/SpotlightBuilding.png';
-// import heart from '../../../assets/BrowsePage/HeartVector.png';
 
 const Spotlight = () => {
     
@@ -10,23 +9,17 @@ const Spotlight = () => {
         // setSpotlight
     ] = useState({
         description: "Milwaukee's Red Cypress building was home to iron manufacturing and now the ancient building is transforming to a coworking space.",
-        image: `${building}`,
+        image: "https://res.cloudinary.com/revitalize/image/upload/c_scale,q_32,w_1400/v1570416497/browse-page/SpotlightBuilding_hyddaa.png",
         link: "/project"
     })
 
     return (
-        <div className="spotlightContainer">
-            {/* <div
-                className="spotlightImage"
-                
-            ></div> */}
-            <div className="window"></div>
-            <div className="text" style={{backgroundImage: `url(${spotlight.image})`}}>
-                <h3>SPOTLIGHT</h3>
+        <div className="spotlight-container">
+            <div className="spotlight-card" style={{backgroundImage: `url(${spotlight.image})`}}>
+                <h2>SPOTLIGHT</h2>
                 <p>{spotlight.description}</p>
-                <Link to={spotlight.link}>Learn more &gt;</Link>
+                <Link to={spotlight.link}>Learn more <FaAngleRight /></Link>
             </div>
-            {/* <img src={heart} alt="heart" className="heart" /> */}
         </div>
     );
 };
