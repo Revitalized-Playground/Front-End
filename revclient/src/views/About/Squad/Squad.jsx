@@ -1,7 +1,7 @@
 import React from 'react';
 
 // images
-// import kerry from '../../../assets/AboutPage/Kerry.png';
+import kerry from '../../../assets/AboutPage/kerry.png';
 import alex from '../../../assets/AboutPage/alex.png';
 import clark from '../../../assets/AboutPage/clark.png';
 import frank from '../../../assets/AboutPage/frank.png';
@@ -28,7 +28,7 @@ const Squad = () => {
 		{
 			name: 'Kerry McPhearson',
 			role: 'Product Design Evangelist',
-			image: ``,
+			image: `${kerry}`,
 			background: '#4840ba',
 			bio:
 				'Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for will uncover many web sites still in their infancy. ',
