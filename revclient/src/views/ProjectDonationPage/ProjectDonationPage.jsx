@@ -1,6 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { } from 'react';
 import { withRouter } from 'react-router-dom';
-import { useAuth } from '../../hooks/useAuth';
+import { 
+	// useAuth 
+} from '../../hooks/useAuth';
 
 import { StripeProvider, Elements } from 'react-stripe-elements';
 import CheckoutForm from './CheckoutForm/CheckoutForm';

@@ -38,16 +38,12 @@ const Sidebar = props => {
                 {
                     <>
                         <div className="quick-stat">
-                            <h3>{props.user.certifications}</h3>
-                            <p>Certifications</p>
+                            <h3>{props.user.projects.length}</h3>
+                            <p>Projects</p>
                         </div>
                         <div className="quick-stat">
                             <h3>{props.user.hoursLogged}</h3>
                             <p>Hours Logged</p>
-                        </div>
-                        <div className="quick-stat">
-                            <h3>{props.user.creditHours}</h3>
-                            <p>Credit Hours</p>
                         </div>
                     </>
                     ||
@@ -70,17 +66,21 @@ const Sidebar = props => {
                             </div>
                             <p className="percent">22%</p>
                         </div>
-                        <div className="info">
-                            <div className="text">
-                                <p>Zoom</p>
-                                <span>{props.user.zoom}</span>
-                            </div>
-                            <Link to="#">
-                                <div className="sidebar-icon-container">
-                                    <FaVideo className="sidebar-icon" />
+
+                        {props.user.zoom ? (
+                            <div className="info">
+                                <div className="text">
+                                    <p>Zoom</p>
+                                    <span>{props.user.zoom}</span>
                                 </div>
-                            </Link>
-                        </div>
+                                <Link to="#">
+                                    <div className="sidebar-icon-container">
+                                        <FaVideo className="sidebar-icon" />
+                                    </div>
+                                </Link>
+                            </div>
+                        ) : null }
+
                         <div className="info">
                             <div className="text">
                                 <p>Email</p>
@@ -92,17 +92,21 @@ const Sidebar = props => {
                                 </div>
                             </Link>
                         </div>
-                        <div className="info">
-                            <div className="text">
-                                <p>Phone Number</p>
-                                <span>{props.user.phoneNumber}</span>
-                            </div>
-                            <Link to="#">
-                                <div className="sidebar-icon-container">
-                                    <FaPhone className="sidebar-icon" />
+
+                        {props.user.phone ? (
+                            <div className="info">
+                                <div className="text">
+                                    <p>Phone Number</p>
+                                    <span>{props.user.phoneNumber}</span>
                                 </div>
-                            </Link>
-                        </div>
+                                <Link to="#">
+                                    <div className="sidebar-icon-container">
+                                        <FaPhone className="sidebar-icon" />
+                                    </div>
+                                </Link>
+                            </div>
+                        ) : null}
+
                         <div className="info">
                             <div className="text">
                                 <p>Location</p>

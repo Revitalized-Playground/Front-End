@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { withRouter } from 'react-router-dom';
-import { injectStripe, CardElement, CardNumberElement, CardExpiryElement, CardCvcElement } from 'react-stripe-elements';
+import { injectStripe, 
+	// CardElement, 
+	CardNumberElement, CardExpiryElement, CardCvcElement } from 'react-stripe-elements';
 
 import { useMutation } from '@apollo/react-hooks';
 import { DONATE_TO_PROJECT } from '../../../graphql/mutations';

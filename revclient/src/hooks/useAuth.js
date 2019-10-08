@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import { useState } from 'react';
 import jwt from 'jsonwebtoken';
 
 export const useAuth = history => {
-	let [token, setStoken] = useState(localStorage.getItem('token'));
+	let [token] = useState(localStorage.getItem('token'));
 
 	function authenticateUser() {
 		try {

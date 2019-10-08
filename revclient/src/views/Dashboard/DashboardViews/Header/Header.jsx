@@ -1,16 +1,24 @@
 import React from 'react';
-import { FaComments, FaFileInvoice } from "react-icons/fa";
+import { FaComments, FaFileInvoice, FaPlus, FaWindowMaximize } from "react-icons/fa";
+import { calculateDueDate } from "../../../../helpers/helpers.js";
 
 
 const Header = props => {
-	const { status, city, state, name, description, dueDate } = props.project;
+	const { id, city, state, name, description } = props.project;
+
+
+
 	return (
 		<div className="dashboard-header section">
 			<div className="header-top">
-				<div className="project-status">{status}</div>
-				{/* <div className="add-tasks">
-					<p>Add Tasks</p>
-				</div> */}
+				{props.project.isLive ? (
+					<div className="project-status started">In Progress</div>
+				) : (
+					<div className="project-status not-started">Not Started</div>
+				)}
+				<div className="add-tasks">
+					<p>Add Tasks <FaPlus /></p>
+				</div>
 			</div>
 
 			<div className="header-middle">
@@ -23,10 +31,13 @@ const Header = props => {
 
 			<div className="header-bottom">
 				<div className="bottom-left">
-					<p className="due-date">Due Date: {dueDate}</p>
+					<p className="due-date">Due Date: {calculateDueDate(props.project.startDate, props.project.duration)}</p>
 					<div className="bottom-icons">
 						<FaComments />
 						<FaFileInvoice />
+						<FaWindowMaximize
+							onClick={() => props.selectProject(id)}
+						/>
 					</div>
 				</div>
 				<div className="team-members">

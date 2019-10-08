@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, withRouter } from "react-router-dom";
-import Skeleton from "react-loading-skeleton";
+// import Skeleton from "react-loading-skeleton";
 import { FaMoon, FaCog, FaUser, FaWindowClose } from "react-icons/fa";
 import { useQuery } from "@apollo/react-hooks";
 import { GET_USER } from "../../graphql/queries/Users";
@@ -120,7 +120,7 @@ const Nav = props => {
 								)}
 								
 								<div className={`dropdown ${!clicked && 'display-none'}`} name="drop" tabIndex="0" >
-									<div class="arrow-up"></div>
+									<div className="arrow-up"></div>
 									<Link to="/dashboard" className="dropdown-option">
 										<FaUser className="icon" />
 										Profile

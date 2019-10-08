@@ -12,6 +12,14 @@ export const GET_PROJECTS = gql`
 			city
 			goalAmount
 			amountFunded
+			duration
+			difficulty
+			startDate
+			featuredImage
+			donations {
+				id
+				amount
+			}
 		}
 	}
 `;
@@ -62,3 +70,32 @@ export const GET_PROJECT = gql`
 		}
 	}
 `;
+
+
+
+export const GET_MY_PROJECTS = gql`
+	query myProject {
+		myProject {
+			id
+			name
+			description
+			address
+			state
+			zip
+			city
+			goalAmount
+			amountFunded
+			duration
+			difficulty
+			startDate
+			featuredImage
+			donations {
+				id
+				amount
+			}
+
+		}
+	}
+`;
+
+

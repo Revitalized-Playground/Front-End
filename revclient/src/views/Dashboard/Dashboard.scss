@@ -1,18 +1,73 @@
-  
+@import './DashboardViews/Sidebar/Sidebar.scss';
+@import './DashboardViews/Header/Header.scss';
+@import './DashboardViews/Main/Main.scss';
+
+
+
 .dashboard-container {
     background-color: scale-color($silver-lining, $alpha: -65%);
     height: 100%;
+    .dashboard {
+        width: 100%;
+        max-width: 1820px;
+        margin: 0 auto;
+        display: flex;
+        padding-left: 10px;
+        padding-right: 10px;
+        margin-bottom: 60px;
+        .dashboard-body {
+            width: calc(75% - 40px);
+            .dashboard-header {
+                width: 100%;
+                display: flex;
+                span {
+                    margin-right: 50px;
+                }
+            }
+        }
+        .section[class^='dashboard'] {
+            @include skeleton-section;
+            @include bottomBoxShadow;
+            background: $snow-white;
+            padding: 40px 15px 15px 15px;
+        }
+        .dashboard-picture-icons {
+            width: 40px;
+            margin-left: -2px;
+            &:first-of-type {
+                margin-left: 0;
+            }
+        }
+        .no-picture {
+            background-color: $silver-lining;
+            border-radius: 100%;
+            height: 40px;
+            width: 40px;
+            margin-right: -2px;
+        }
+    }
 }
 
 .dark-mode {
     .dashboard-container {
         background-color: $bleached-black;
+        .dashboard {
+            .section[class^='dashboard'] {
+                // @include skeleton-section;
+                background-color: $darkness;
+                border: none;
+                border-bottom-color: $bleached-black;
+                border-bottom-style: solid;
+                border-bottom-width: 3px;
+            }
+            hr {
+                border-top-color: rgba(255, 255, 255, 0.18);
+            }
+        }
     }
 }
 
 
-// .footer {
-//     background-color: $mirage;
-//     color: $snow-white;
-// }
+
+
 

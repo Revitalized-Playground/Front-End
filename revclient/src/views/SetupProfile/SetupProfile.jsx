@@ -18,19 +18,18 @@ const SetupProfile = props => {
     const [ profileData, setProfileData ] = useState({
         firstName: "",
         lastName: "",
-        // email: props.email ? props.email : "",
         email: "",
         address: "",
         aptNumber: "",
         city: "",
         state: "",
-        zip: "",
+        zip: 0,
         country: "USA",
     });
     const [darkModeState, setDarkMode] = useState(false);
     
     const handleChanges = event => {
-        if (event.target.name === 'zip' || event.target.name === 'goalAmount') {
+        if (event.target.name === 'zip') {
 			setProfileData({ ...profileData, [event.target.name]: Number(event.target.value) });
 		} else {
 			setProfileData({ ...profileData, [event.target.name]: event.target.value });
@@ -60,21 +59,32 @@ const SetupProfile = props => {
 			document.querySelector('body').classList.add('dark-mode');
 		} else {
 			document.querySelector('body').classList.remove('dark-mode');
-		}
-	}, [darkModeState]);
-    
+        };
+        getUser();
+        if (data) {
+            setProfileData({
+                ...profileData,
+                firstName: data.me.firstName,
+                lastName: data.me.lastName,
+                email: data.me.email,
+                address: data.me.address,
+                city: data.me.city,
+                state: data.me.state,
+                zip: data.me.zip
+            });
+        };
+    }, [darkModeState, data]);
+
+
     if (loading) return <h1>Loading</h1>
     if (!localStorage.getItem("token")) props.history.push("/");
-    if (data) console.log(data, profileData);
 
-    // console.log(props)
 
     return (
         <>
             {props.destination === "settings" ? (
                 <Nav />
             ) : null}
-                
             <section 
                 className={`setup-profile-container ${props.destination === "settings" ? "settings-view" : ""}`} 
             >

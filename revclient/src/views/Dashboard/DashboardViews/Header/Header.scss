@@ -1,4 +1,4 @@
-.dashboard .dashboard-body .dashboard-header.section {
+.dashboard-container .dashboard .dashboard-body .dashboard-header.section {
 	display: flex;
 	flex-direction: column;
 	padding-top: 15px;
@@ -8,8 +8,6 @@
 		margin-bottom: 16px;
 
 		.project-status {
-			color: $upcoming-fg;
-			background-color: $upcoming-bg;
 			display: flex;
 			justify-content: center;
 			align-items: center;
@@ -17,6 +15,14 @@
 			height: 40px;
 			border-radius: 5px;
 			font-size: 1.8rem;
+		}
+		.project-status.started {
+			color: $live-fg;
+			background-color: $live-bg;
+		}
+		.project-status.not-started {
+			color: $notlive-fg;
+			background-color: $notlive-bg;
 		}
 	}
 
@@ -48,6 +54,7 @@
 		justify-content: space-between;
 		.bottom-left {
 			display: flex;
+			justify-content: flex-start;
 			width: 50%;
 			.due-date {
 				background-color: $franks-grey;
@@ -56,11 +63,10 @@
 				display: flex;
 				justify-content: left;
 				align-items: center;
-				width: 237px;
 				height: 40px;
 				border-radius: 5px;
 				margin-right: 40px;
-				padding-left: 15px;
+				padding: 0 15px;
 			}
 			.bottom-icons {
 				color: $chillFi-purple;
@@ -99,43 +105,47 @@
 		}
 	}
 }
-
 .dark-mode {
-	.header-top {
-		.project-status {
-			background-color: rgba($upcoming-bg, 0.5); 
+	.dashboard .dashboard-body .dashboard-header.section {
+		.header-top {
+			.project-status.started {
+				background-color: rgba($live-bg, 0.5); 
+			}
+			.project-status.not-started {
+				background-color: rgba($notlive-bg, 0.5); 
+			}
 		}
-	}
-	.header-middle {
-		.header-middle-geo {
-			color: $static-grey;
-		}
-		.header-middle-title {
-			color: $snow-white;
-		}
-		h2,
-		h3,
-		.header-middle-description {
-			color: $snow-white;
-		}
-	}
-	.header-bottom {
-		.bottom-left {
-			.due-date {
-				background-color: $bleached-black;
+		.header-middle {
+			.header-middle-geo {
 				color: $static-grey;
 			}
-			.bottom-icons {
-				color: $maastricht-blue;
-			}
-		}
-		.team-members {
-			p {
+			.header-middle-title {
 				color: $snow-white;
 			}
-			.member-icons {
-				.count {
+			h2,
+			h3,
+			.header-middle-description {
+				color: $snow-white;
+			}
+		}
+		.header-bottom {
+			.bottom-left {
+				.due-date {
+					background-color: $bleached-black;
+					color: $static-grey;
+				}
+				.bottom-icons {
+					color: $maastricht-blue;
+				}
+			}
+			.team-members {
+				p {
 					color: $snow-white;
+				}
+				.member-icons {
+					.count {
+						color: $snow-white;
+					}
 				}
 			}
 		}

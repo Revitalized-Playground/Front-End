@@ -14,10 +14,12 @@ const httpLink = createUploadLink({
 
 const authLink = setContext(({ headers }) => {
     const token = localStorage.getItem('token');
-    return {
-        headers: {
-            ...headers,
-            authorization: token ? `Bearer ${token}` : "",
+    if(token) {
+        return {
+            headers: {
+                ...headers,
+                authorization: token ? `Bearer ${token}` : "",
+            }
         }
     }
 });

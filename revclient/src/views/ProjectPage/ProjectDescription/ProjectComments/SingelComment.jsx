@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import { FaRegEdit } from "react-icons/fa";
+// import { FaRegEdit } from "react-icons/fa";
 
 
 const SingleComment = ({each, editCommentMutation, deleteComment, currentUser, settings, settingsBlur, bool}) => {

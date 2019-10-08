@@ -23,7 +23,7 @@ const DashboardTemplate = props => {
 
 				<section className="dashboard-body">
 					{props.projects.map(project => {
-                        return <Header key={project.id} project={project} />;
+                        return <Header key={project.id+Math.random()} project={project} />;
 					})}
                     <Main
                         defaultTab={props.defaultTab}

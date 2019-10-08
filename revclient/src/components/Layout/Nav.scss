@@ -125,14 +125,17 @@ nav {
 						display: none;
 					}
 					.arrow-up {
-						width: 0; 
-						height: 0; 
-						border-left: 15px solid transparent;
-						border-right: 15px solid transparent;	
+						width: 0;
+						height: 0;
+						border-left: 8px solid $chillFi-purple;
+						border-top: 8px solid $chillFi-purple;
+						border-right: 15px solid $chillFi-purple;
 						border-bottom: 15px solid $chillFi-purple;
 						position: absolute;
-						top: -15px;
-						right: 15px;
+						top: -9px;
+						right: calc(50% - 14.5px);
+						transform: rotate(45deg);
+						border-radius: 3px;
 					}
 					.dropdown-option {
 						margin: 15px 0;
@@ -229,6 +232,9 @@ nav {
 		.right-nav ul .user .dropdown {
 			background-color: $maastricht-blue;
 			.arrow-up {
+				border-left: 8px solid $maastricht-blue;
+				border-top: 8px solid $maastricht-blue;
+				border-right: 15px solid $maastricht-blue;
 				border-bottom: 15px solid $maastricht-blue;
 			}
 			.dropdown-option {

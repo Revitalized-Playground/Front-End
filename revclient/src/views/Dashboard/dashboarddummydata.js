@@ -1,72 +1,4 @@
-export const users = [
-    {
-        id: 1,
-        userAccountId: 1,
-        email: "fractured2k@gmail.com",
-        firstName: "Skyelar",
-        lastName: "Carrol",
-        handle: "@Skyelar",
-        profileImage: "https://res.cloudinary.com/revitalize/image/upload/v1569861721/user%20dashboard/Skyelar_Carrol_PROFILE_PICTURE_left_side_yjinm3.png",
-        city: "Grand Haven",
-        zip: "",
-        address: "",
-        state: "MI",
-        aptNumber: "",
-        projects: [],
-        phoneNumber: "889-214-8971",
-        zoom: "SkyfiCrole",
-        certifications: 2,
-        hoursLogged: 396,
-        creditHours: 22,
-        achievements: [
-            {
-                name: "Master Key Award",
-                image: "https://res.cloudinary.com/revitalize/image/upload/v1569861718/user%20dashboard/Master_Key_Award_rq39jb.svg",
-                number: 2
-            },
-            {
-                name: "Thanos Grip Award",
-                image: "https://res.cloudinary.com/revitalize/image/upload/v1569861722/user%20dashboard/Thanos_Grip_Award_bk41rq.svg",
-                number: 1
-            },
-            {
-                name: "Magic Wand",
-                image: "https://res.cloudinary.com/revitalize/image/upload/v1569861718/user%20dashboard/Magic_Wand_ixlwzs.svg",
-                number: 12
-            },
-            {
-                name: "Rupee Award",
-                image: "https://res.cloudinary.com/revitalize/image/upload/v1569861720/user%20dashboard/Rupee_Award_xupbpz.svg",
-                number: 36
-            }
-        ],
-        apprentice: true,
-        master: false
-    },
-    {
-        id: 2,
-        userAccountId: 2,
-        email: "Maleescha Mclarin@gmail.com",
-        firstName: "Maleescha",
-        lastName: "Mclarin",
-        handle: "@TheeMclarin ",
-        profileImage: "https://res.cloudinary.com/revitalize/image/upload/v1569861718/user%20dashboard/Maleescha_Mclarin_qsafnt.png",
-        city: "Detroit",
-        zip: "",
-        address: "",
-        state: "MI",
-        aptNumber: "",
-        projects: [],
-        phoneNumber: "356-230-9971",
-        zoom: "TheeMclarin",
-        certifications: 2,
-        hoursLogged: 396,            
-        creditHours: 22,
-        achievements: [],
-        apprentice: false,
-        master: true
-    }
-];
+
 export const projects = [
     {
         id: 1,
@@ -84,8 +16,9 @@ export const projects = [
         dueDate: 'Oct 25, 2019',
     },
 ];
+// New tasks is a time filter. 
 export const tabs = ['New Tasks', 'Tasks In Progress', 'Completed Tasks', 'Activity Feed'];
-export const defaultTab = 'New Tasks';
+export const defaultTab = tabs[0];
 export const list = [
     {
         left: '#f38c01',
@@ -363,3 +296,4 @@ export const list = [
         tab: 'Activity Feed',
     },
 ];
+
