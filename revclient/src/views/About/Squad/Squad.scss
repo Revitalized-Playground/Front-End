@@ -4,6 +4,10 @@
 	max-width: 1920px;
 	width: 100%;
 	margin-bottom: 37rem;
+	@media #{$mobile} {
+		margin-bottom: 15rem;
+	}
+
 	.title {
 		text-align: center;
 		font-size: 90px;
