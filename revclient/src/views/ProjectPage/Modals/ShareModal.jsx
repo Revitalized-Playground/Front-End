@@ -2,6 +2,9 @@ import React from 'react'
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import fb from '../../../assets/AuthPages/fb-logo.png';
 import twtr from '../../../assets/AuthPages/twitter.png';
+import email from '../../../assets/ProjectPage/email.png';
+import linked from '../../../assets/ProjectPage/linked.png';
+import slack from '../../../assets/ProjectPage/slack.png';
 
 
 
@@ -31,15 +34,15 @@ const ShareModal = ({val, setModalVal, copied, setCopied, modalVal}) => {
                             <p>Twitter</p>
                         </div>
                         <div>
-                            <img alt="LinkedIn Logo" />
+                            <img src={linked} alt="LinkedIn Logo" />
                             <p>LinkedIn</p>
                         </div>
                         <div>
-                            <img alt="Email Logo" />
+                            <img src={email} alt="Email Logo" />
                             <p>Email</p>
                         </div>
                         <div>
-                            <img alt="Slack Logo" />
+                            <img src={slack} alt="Slack Logo" />
                             <p>Slack</p>
                         </div>
                     </div>

@@ -3,14 +3,6 @@ import ShareModal from './Modals/ShareModal'
 import DonateModal from './Modals/DonateModal'
 import { withRouter } from 'react-router-dom';
 
-//Image Imports (To be deleted once we have a back end)
-import pic1 from '../../assets/SingleProjectPage/pic1.jpeg';
-import pic2 from '../../assets/SingleProjectPage/pic2.jpeg';
-import pic3 from '../../assets/SingleProjectPage/pic3.jpeg';
-import commentProfile1 from '../../assets/SingleProjectPage/commentProfile1.png';
-import commentProfile2 from '../../assets/SingleProjectPage/commentProfile2.png';
-// import userProfile from '../../assets/SingleProjectPage/userProfile.png'
-
 //Component Imports
 import Nav from '../../components/Layout/Nav';
 import Footer from '../../components/Layout/Footer';
@@ -26,91 +18,6 @@ import { GET_PROJECT } from '../../graphql/queries';
 
 import { useWindowHook } from "../../helpers/windowOnClickHook.js";
 
-const project = {
-	projectOrganizer: 'Julian Crenshaw',
-	projStartDate: 'January 13, 2020',
-	duration: '9 months',
-	difficultyLevel: 'Medium',
-	projectBudget: '500000',
-	raised: '400000',
-	location: 'Detroit, MI',
-	projectPhotos: [pic1, pic2, pic3],
-	comments: [
-		{
-			profilePic: commentProfile1,
-			comment: 'I love what Team Rubicon is doing to promote community and growth!',
-			createdAt: '',
-			likes: ['name1', 'name2', 'name3'],
-		},
-		{
-			profilePic: commentProfile2,
-			comment: 'I love what Team Rubicon is doing to promote community and growth!',
-			createdAt: '',
-			likes: ['name1', 'name2', 'name3', 'name1', 'name2', 'name3'],
-		},
-		{
-			profilePic: commentProfile2,
-			comment: 'I love what Team Rubicon is doing to promote community and growth!',
-			createdAt: '',
-			likes: ['name1', 'name2', 'name3', 'name1', 'name2', 'name3'],
-		},
-		{
-			profilePic: commentProfile2,
-			comment: 'I love what Team Rubicon is doing to promote community and growth!',
-			createdAt: '',
-			likes: ['name1', 'name2', 'name3', 'name1', 'name2', 'name3'],
-		},
-		{
-			profilePic: commentProfile2,
-			comment: 'I love what Team Rubicon is doing to promote community and growth!',
-			createdAt: '',
-			likes: ['name1', 'name2', 'name3', 'name1', 'name2', 'name3'],
-		},
-		{
-			profilePic: commentProfile2,
-			comment: 'I love what Team Rubicon is doing to promote community and growth!',
-			createdAt: '',
-			likes: ['name1', 'name2', 'name3', 'name1', 'name2', 'name3'],
-		},
-		{
-			profilePic: commentProfile2,
-			comment: 'I love what Team Rubicon is doing to promote community and growth!',
-			createdAt: '',
-			likes: ['name1', 'name2', 'name3', 'name1', 'name2', 'name3'],
-		},
-		{
-			profilePic: commentProfile2,
-			comment: 'I love what Team Rubicon is doing to promote community and growth!',
-			createdAt: '',
-			likes: ['name1', 'name2', 'name3', 'name1', 'name2', 'name3'],
-		},
-		{
-			profilePic: commentProfile2,
-			comment: 'I love what Team Rubicon is doing to promote community and growth!',
-			createdAt: '',
-			likes: ['name1', 'name2', 'name3', 'name1', 'name2', 'name3'],
-		},
-		{
-			profilePic: commentProfile2,
-			comment: 'I love what Team Rubicon is doing to promote community and growth!',
-			createdAt: '',
-			likes: ['name1', 'name2', 'name3', 'name1', 'name2', 'name3'],
-		},
-		{
-			profilePic: commentProfile2,
-			comment: 'I love what Team Rubicon is doing to promote community and growth!',
-			createdAt: '',
-			likes: ['name1', 'name2', 'name3', 'name1', 'name2', 'name3'],
-		},
-		{
-			profilePic: commentProfile2,
-			comment: 'I love what Team Rubicon is doing to promote community and growth!',
-			createdAt: '',
-			likes: ['name1', 'name2', 'name3', 'name1', 'name2', 'name3'],
-		},
-	],
-	projectDescription: 'Project description goes here.',
-};
 
 const ProjectPage = ({ match }) => {
 	const [copied, setCopied] = useState(false);
@@ -137,7 +44,12 @@ const ProjectPage = ({ match }) => {
 	});
 	const [projectData, setProjectData] = useState(data);
 
-	console.log('project', projectData);
+
+	const donateModalBlur = e => {
+		if(e.target.className === 'donate-modal') {
+			setDonateModal(false)
+		}
+	}
 
 	useEffect(() => {
 		setProjectData(data);
@@ -167,7 +79,7 @@ const ProjectPage = ({ match }) => {
 						</div>
 					</div>
 				</div>
-				<DonateModal donateModal={donateModal} setDonateModal={setDonateModal} />
+				<DonateModal donateModalBlur={donateModalBlur} donateModal={donateModal} setDonateModal={setDonateModal} />
 				<ShareModal copied={copied} setCopied={setCopied} modalVal={modalVal} setModalVal={setModalVal} val={val} />
 				<div className="project-page-flex">
 					<BasicDescription
@@ -185,9 +97,6 @@ const ProjectPage = ({ match }) => {
 					/>
 				</div>
 				<DetailedDescription
-					startDate={project.projStartDate}
-					duration={project.duration}
-					difficulty={project.difficultyLevel}
 					organizer={`${projectData.project.profile.firstName} ${projectData.project.profile.lastName}`}
 					location={`${projectData.project.city}, ${projectData.project.state}`}
 					projDescription={projectData.project.description}
