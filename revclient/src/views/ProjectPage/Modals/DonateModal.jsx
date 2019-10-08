@@ -67,3 +67,6 @@ const DonateModal = ({donateModal, setDonateModal, donateModalBlur}) => {
 
 
 export default DonateModal
+
+
+

@@ -16,7 +16,8 @@ import BasicDescription from './ProjectDescription/DetailedDescription/BasicDesc
 import { useQuery } from '@apollo/react-hooks';
 import { GET_PROJECT } from '../../graphql/queries';
 
-import { useWindowHook } from "../../helpers/windowOnClickHook.js";
+import { useWindowHook } from '../../helpers/windowOnClickHook.js';
+import CreatorProfile from './ProjectDescription/CreatorProfile/CreatorProfile';
 
 
 const ProjectPage = ({ match }) => {
@@ -88,6 +89,7 @@ const ProjectPage = ({ match }) => {
 						difficulty={projectData.project.difficulty}
 						organizer={`${projectData.project.profile.firstName} ${projectData.project.profile.lastName}`}
 					/>
+
 					<Donate
 						raised={projectData.project.amountFunded}
 						budget={projectData.project.goalAmount}
@@ -96,12 +98,42 @@ const ProjectPage = ({ match }) => {
 						setDonateModal={setDonateModal}
 					/>
 				</div>
-				<DetailedDescription
-					organizer={`${projectData.project.profile.firstName} ${projectData.project.profile.lastName}`}
-					location={`${projectData.project.city}, ${projectData.project.state}`}
-					projDescription={projectData.project.description}
-					projectCreator={projectData.project.profile}
-				/>
+				<div className="detailed-creator">
+					<DetailedDescription
+						startDate={projectData.projStartDate}
+						duration={projectData.duration}
+						difficulty={projectData.difficultyLevel}
+						organizer={`${projectData.project.profile.firstName} ${projectData.project.profile.lastName}`}
+						location={`${projectData.project.city}, ${projectData.project.state}`}
+						projDescription={projectData.project.description}
+					/>
+
+					<CreatorProfile projectCreator={projectData.project.profile} />
+				</div>
+				<div className="tablet">
+					<BasicDescription
+						startDate={projectData.project.startDate}
+						duration={projectData.project.duration}
+						difficulty={projectData.project.difficulty}
+						organizer={`${projectData.project.profile.firstName} ${projectData.project.profile.lastName}`}
+					/>
+
+					<DetailedDescription
+						startDate={projectData.projStartDate}
+						duration={projectData.duration}
+						difficulty={projectData.difficultyLevel}
+						organizer={`${projectData.project.profile.firstName} ${projectData.project.profile.lastName}`}
+						location={`${projectData.project.city}, ${projectData.project.state}`}
+						projDescription={projectData.project.description}
+					/>
+					<Donate
+						raised={projectData.project.amountFunded}
+						budget={projectData.project.goalAmount}
+						projectData={projectData}
+						setModal={setModalVal}
+					/>
+					<CreatorProfile projectCreator={projectData.project.profile} />
+				</div>
 				<ProjectPictures projectPhotos={projectData.project.images} carouselVal={carouselVal} carVal={carVal} />
 				<ProjectComments
 					comments={projectData.project.comments}
@@ -110,6 +142,7 @@ const ProjectPage = ({ match }) => {
 					id={projectData.project.id}
 					userId={projectData.project.profile.id}
 				/>
+
 			</div>
 			<Footer />
 		</>
