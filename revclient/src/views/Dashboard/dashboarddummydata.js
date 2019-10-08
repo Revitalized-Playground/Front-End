@@ -185,7 +185,7 @@ export const list = [
         right: [
             {
                 name: 'l',
-                img: '',
+                img: 'https://res.cloudinary.com/revitalize/image/upload/v1570558819/user%20dashboard/Collin_qxg29g.png',
             },
             {
                 name: 'm',
@@ -264,7 +264,7 @@ export const list = [
             },
             {
                 name: 'u',
-                img: '',
+                img: 'https://res.cloudinary.com/revitalize/image/upload/v1570558819/user%20dashboard/Collin_qxg29g.png',
             },
         ],
         tab: 'Tasks In Progress',
@@ -323,7 +323,7 @@ export const list = [
         right: [
             {
                 name: 'z',
-                img: '',
+                img: 'https://res.cloudinary.com/revitalize/image/upload/v1570559132/user%20dashboard/Max_David_ixj8r8.png',
             },
         ],
         tab: 'Completed Tasks',

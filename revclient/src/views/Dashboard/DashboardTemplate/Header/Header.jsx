@@ -17,7 +17,7 @@ const Header = props => {
 				<div className="header-middle-geo">
 					{city}, {state}
 				</div>
-				<div className="header-middle-title">{name}</div>
+				<div className="header-middle-title" id="hmt">{name}</div>
 				<p className="header-middle-description">{description}</p>
 			</div>
 
@@ -31,7 +31,7 @@ const Header = props => {
 				</div>
 				<div className="team-members">
 					<div className="member-icons">
-						<p>Team Members</p>
+						<p id="tmp">Team Members</p>
 						<img
 							src="https://res.cloudinary.com/revitalize/image/upload/v1569861720/user%20dashboard/OliverCut_jsjnmx.png"
 							alt="team member"

@@ -9,11 +9,12 @@ import DashboardTemplate from './DashboardTemplate/DashboardTemplate';
 import { useQuery } from '@apollo/react-hooks';
 import { GET_USER } from '../../graphql/queries/Users';
 
-import { users, projects, defaultTab, tabs, list } from './dashboarddummydata';
+import { projects, defaultTab, tabs, list } from './dashboarddummydata';
 
 export default function Dashboard() {
     
     const { loading, error, data } = useQuery(GET_USER);
+    console.log(data);
     
     if (loading) return <p>loading....</p>;
     if (error) return <p>Error....</p>;

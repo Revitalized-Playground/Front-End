@@ -110,7 +110,8 @@
 		.header-middle-geo {
 			color: $static-grey;
 		}
-		.header-middle-title {
+		// .header-middle-title {
+		#hmt {		
 			color: $snow-white;
 		}
 		h2,
@@ -130,10 +131,11 @@
 			}
 		}
 		.team-members {
-			p {
-				color: $snow-white;
-			}
 			.member-icons {
+				// p {
+				#tmp {
+					color: $snow-white;
+				}
 				.count {
 					color: $snow-white;
 				}
