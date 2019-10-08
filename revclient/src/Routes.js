@@ -10,7 +10,7 @@ import ProjectsHome from "./views/ProjectsHome/ProjectsHome";  // May be depreca
 
 // import Start from "./views/Start/Start";
 import Browse from "./views/Browse/Browse";
-// import Dashboard from "./views/Dashboard/Dashboard";
+import DashboardOld from "./views/DashboardOld/Dashboard";
 import Dashboard from "./views/DashboardV2/Dashboard";
 import CreateProjectWizard from './views/CreateProjWizard/CreateProjectWizard'
 import ProjectPage from './views/ProjectPage/ProjectPage'
@@ -66,13 +66,13 @@ export const Routes = () => {
 
             {/* private routes */}
 
-            {/* <Route
+            <Route
                 // exact
-                path="/dashboard"
+                path="/dashboard-old"
                 render={() => (
-                    <Dashboard />
+                    <DashboardOld />
                 )}
-            /> */}
+            />
 
             <Route
                 // exact
