@@ -3,7 +3,7 @@
 // 	text-align: center;
 // }
 
-.lists .list {
+.list .item {
 	background-color: $franks-grey;
 	display: flex;
 	justify-content: space-between;
@@ -11,15 +11,15 @@
 	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.12);
 	margin: 20px 0;
 	border-radius: 5px;
-	.list-card-indicator.left-bg {
+	.item-card-indicator.left-bg {
 		width: 10px;
 		margin-right: 20px;
 	}
-	.list-card-container {
+	.item-card-container {
 		width: 100%;
 		display: flex;
 		justify-content: space-between;
-		.list-card-img-container {
+		.item-card-img-container {
 			display: flex;
 			align-items: center;
 			margin-right: 10px;
@@ -27,7 +27,7 @@
 				width: 60px;
 			}
 		}
-		.list-card-text {
+		.item-card-text {
 			width: 80%;
 			color: $machiavellian;
 			display: flex;
@@ -53,7 +53,7 @@
 				
 			}
 		}
-		.list-card-icon-container {
+		.item-card-icon-container {
 			width: 20%;
 			display: flex;
 			align-items: center;
@@ -63,11 +63,11 @@
 }
 
 
-.lists .list.activity {
+.list .item.activity {
 	padding: 25px 20px;
-	.list-activity-container {
+	.item-activity-container {
 		width: 100%;
-		.list-activity-category {
+		.item-activity-category {
 			font-size: 1.4rem;
 			font-family: "Roboto";
 			font-weight: lighter;
@@ -75,12 +75,12 @@
 			text-transform: uppercase;
 			margin: 0;
 		}
-		.list-activity-body {
+		.item-activity-body {
 			width: 100%;
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
-			.list-activity-img-container {
+			.item-activity-img-container {
 				width: 120px;
 				margin-right: 15px;
 				margin-top: 20px;
@@ -102,7 +102,7 @@
 					font-weight: lighter;
 				}
 			}
-			.list-activity-date {
+			.item-activity-date {
 				width: 15%;
     			min-width: 130px;
 				display: flex;
@@ -115,10 +115,10 @@
 
 
 .dark-mode {
-	.lists .list {
+	.list .item {
 		background-color: $bleached-black;
-		.list-card-container {
-			.list-card-text {
+		.item-card-container {
+			.item-card-text {
 				color: $snow-white;
 			}
 		}
