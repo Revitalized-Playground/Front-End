@@ -1,6 +1,19 @@
 .form-3 {
+	.duration {
+		display: flex;
+		align-items: baseline;
+		.duration-input {
+			width: 50%;
+			max-width: 40px;
+		}
+		span { 
+			font-size: 1.6rem; 
+		}
+	}
 	select {
 		height: 3.25rem;
 		margin: 2% 0 0 0;
+		margin-bottom: 20px;
 	}
+	
 }

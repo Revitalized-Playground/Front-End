@@ -10,6 +10,8 @@ import App from "./App.jsx";
 import "./styles/base.scss";
 import "../node_modules/slick-carousel/slick/slick.scss";
 import "../node_modules/slick-carousel/slick/slick-theme.scss";
+import 'mapbox-gl/dist/mapbox-gl.css';
+import 'react-map-gl-geocoder/dist/mapbox-gl-geocoder.css'
 
 
 const elRoot = document.getElementById('root');

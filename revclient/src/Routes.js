@@ -4,19 +4,22 @@ import { BrowserRouter, Route } from "react-router-dom";
 // Routes
 import LandingPage from "./views/Landing/LandingPage";
 import Register from "./views/Register/Register";
+import SetupProfile from "./views/SetupProfile/SetupProfile";
 import Login from "./views/Login/Login";
 import ProjectsHome from "./views/ProjectsHome/ProjectsHome";  // May be deprecated
+
 // import Start from "./views/Start/Start";
 import Browse from "./views/Browse/Browse";
-import Dashboard from "./views/Dashboard/Dashboard";
+import DashboardOld from "./views/DashboardOld/Dashboard";
+import Dashboard from "./views/DashboardV2/Dashboard";
 import CreateProjectWizard from './views/CreateProjWizard/CreateProjectWizard'
 import ProjectPage from './views/ProjectPage/ProjectPage'
+import ProjectDonationPage from './views/ProjectDonationPage/ProjectDonationPage';
+import About from './views/About/About';
 
 // Utils
 import AuthenticateUser from "./utils/AuthenticateUser";
 
-// Test
-import Dropzone from "./Dropzone";
 
 
 export const Routes = () => {
@@ -54,6 +57,24 @@ export const Routes = () => {
 		    />
 
             <Route
+                exact
+                path="/about"
+                render={() => (
+                    <About />
+                )}
+            />
+
+            {/* private routes */}
+
+            <Route
+                // exact
+                path="/dashboard-old"
+                render={() => (
+                    <DashboardOld />
+                )}
+            />
+
+            <Route
                 // exact
                 path="/dashboard"
                 render={() => (
@@ -61,15 +82,23 @@ export const Routes = () => {
                 )}
             />
 
-<Route
-    path="/dropzone"
-    render={() => (
-        <Dropzone />
-    )}
-/>
+            {/* <Route
+                // exact
+                path="/profile/setup"
+                render={() => (
+                    <SetupProfile />
+                )}
+            /> */}
 
-            {/* private routes */}
+            <Route
+                // exact
+                path="/settings"
+                render={() => (
+                    <SetupProfile destination="settings" />
+                )}
+            />
 
+            {/* Project routes */}
             <Route
                 path="/projects"
                 render={() => (
@@ -78,10 +107,18 @@ export const Routes = () => {
             />
 
             <Route
+                exact
                 path="/project/:id"
                 render={() => (
                     <ProjectPage />
                 )}
+            />
+
+
+            <Route
+                exact
+                path="/project/donate/:id"
+                component={ProjectDonationPage}
             />
 
             <Route

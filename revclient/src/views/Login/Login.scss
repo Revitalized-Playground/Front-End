@@ -1,3 +1,4 @@
+
 .login-container {
 	background: $erudite-purple;
 	color: $snow-white;
@@ -6,124 +7,117 @@
 	letter-spacing: 0.06em;
 	height: 100%;
 	font-size: 1.4rem;
-	.login-container-left{
-		min-height: 100vh;
-		padding-bottom: 140px;
-		min-width: 525px;
-
-	.revitalizeLogo-container {
-		width: 70px;
-		text-align: center;
-		margin: 10px 0 0 20px;
-		img {
-			width: 100%;
-		}
+	svg {
+		font-size: 4rem;
+		position: fixed;
+		margin: 20px;
 	}
-	.login-form {
-		width: 80%;
-		margin: 0 auto;
-
-		.login-third-party {
-			width: 65%;
+	.login-container-left {
+		min-height: 100vh;
+		width: 100%;
+		min-width: 320px;
+		max-width: 800px;
+		padding-bottom: 140px;
+		padding-top: 100px;
+		.login-form {
+			width: 80%;
+			max-width: 400px;
 			margin: 0 auto;
-
-			.login-welcome {
-				text-align: center;
-				color: $snow-white;
-			}
-
-			button {
-				width: 100%;
-				margin-top: 30px;
-				height: 50px;
-				border-radius: 8px;
-				border: none;
-				background: $snow-white;
-				cursor: pointer;
-
-				.login-button {
-					display: flex;
-					align-items: center;
-					margin: 0 20px;
-					img {
-						margin-right: 20px;
-						height: 40px;
-						width: 40px;
+			.login-third-party {
+				margin: 0 auto;
+				.login-welcome {
+					text-align: center;
+					color: $snow-white;
+				}
+				button {
+					background: $snow-white;
+					width: 100%;
+					margin-top: 30px;
+					height: 50px;
+					border-radius: 8px;
+					border: none;
+					cursor: pointer;
+					.login-button {
+						display: flex;
+						align-items: center;
+						margin: 0 20px;
+						img {
+							margin-right: 20px;
+							height: 40px;
+							width: 40px;
+						}
 					}
 				}
 			}
-		}
-
-		.login-middle {
-			width: 65%;
-			margin: 0 auto;
-			padding: 40px 0;
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-
-			.login-line {
-				height: 1px;
-				width: 40%;
-				background: white;
-			}
-		}
-
-		.login-local {
-			width: 65%;
-			margin: 0 auto;
-			display: flex;
-			flex-direction: column;
-
-			.login-title {
-				margin: 0 0 5px 0;
-			}
-
-			.login-mid {
-				text-align: center;
-				padding: 5px 0 0 0;
-				p {
-					font-style: italic;
+			.login-middle {
+				margin: 0 auto;
+				padding: 40px 0;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				.login-line {
+					height: 1px;
+					width: 40%;
+					background: $snow-white;
 				}
 			}
 
-			span {
-				text-decoration: underline;
-				font-style: italic;
-				cursor: pointer;
-			}
-
-
-
-			.login-pass {
-				display: flex;
-				align-items: center;
-				justify-content: space-between;
-				margin: 30px 0 5px 0;
-			}
-
-			button {
-				height: 50px;
-				background: $ruby-enchantment;
-				width: 50%;
+			.login-local {
 				margin: 0 auto;
-				margin-top: 40px;
-				border: none;
-				color: $snow-white;
-				font-size: 2rem;
-				border-radius: 5px;
-				cursor: pointer;
+				display: flex;
+				flex-direction: column;
+				.login-title {
+					margin: 0 0 5px 0;
+				}
+				.login-mid {
+					text-align: center;
+					padding: 5px 0 0 0;
+					p {
+						font-style: italic;
+					}
+				}
+				span {
+					text-decoration: underline;
+					font-style: italic;
+					cursor: pointer;
+				}
+				.login-pass {
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+					margin: 30px 0 5px 0;
+				}
+				button {
+					height: 50px;
+					width: 50%;
+					max-width: 200px;
+					background: $ruby-enchantment;
+					margin: 0 auto;
+					margin-top: 40px;
+					border: none;
+					color: $snow-white;
+					font-size: 2rem;
+					border-radius: 5px;
+					cursor: pointer;
+				}
 			}
 		}
 	}
-}
 
 	.imgContainer {
 		background-attachment: fixed;
 		width: 100%;
-		background-image: url('../assets/AuthPages/Login.png');
+		background-image: url('https://res.cloudinary.com/revitalize/image/upload/c_scale,q_auto:good,w_1200/v1570043579/AuthPages/Login_p3rdln.png');
 		background-size: 100%;
-		background-position-y: center;
+		background-position-y: 25%;
 		background-repeat: no-repeat;
+		@media #{$tablet} {
+			background-size: cover;
+			background-position-y: unset;
+			background-position-x: -50%;
+		}
+		@media #{$tablet-small} {
+			display: none;
+		}
 	}
 }

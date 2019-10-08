@@ -17,19 +17,19 @@ const ProjectSpotlight = () => {
 		<section className="project-spotlight">
 			<h2 className="section-title">Project Spotlight</h2>
 			<div className="project-spotlight-content">
-			<div className='phoneContainer'>
+				<div className='phoneContainer'>
+					
+					<img className="phone-left phone" src={phoneLeft} alt="cell phone" />
+				</div>
 				
-				<img className="phone-left phone" src={phoneLeft} alt="cell phone" />
-			</div>
-			
-			<div className="user-story">
-				<img className="user-photo" src={Theatre} alt="Alger-Theater" />
-				<h2 className="user-info">{projectTitle}</h2>
-				<p>{projectStory}</p>
-			</div>
-			<div className='phoneContainer'>
-			<img className="phone-right phone" src={rubiconPhones} alt="cell phone" />
-			</div>
+				<div className="user-story">
+					<img className="user-photo" src={Theatre} alt="Alger-Theater" />
+					<h3 className="user-info">{projectTitle}</h3>
+					<p>{projectStory}</p>
+				</div>
+				<div className='phoneContainer'>
+					<img className="phone-right phone" src={rubiconPhones} alt="cell phone" />
+				</div>
 			
 			</div>
 		</section>

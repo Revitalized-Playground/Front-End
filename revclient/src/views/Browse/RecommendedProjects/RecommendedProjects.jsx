@@ -14,7 +14,6 @@ const RecommendedProjects = () => {
         const { loading, error, data } = useQuery(GET_PROJECTS);
 
         const settings = {
-            // arrows: true,
             dots: false,
             infinite: true,
             speed: 500,
@@ -28,14 +27,21 @@ const RecommendedProjects = () => {
             prevArrow: <PrevArrow />,
             responsive: [
                 {
-                    breakpoint: 1200,
+                    breakpoint: 1400,
+                    settings: {
+                        slidesToShow: 4,
+                        slidesToScroll: 2,
+                    }
+                },
+                {
+                    breakpoint: 1000,
                     settings: {
                         slidesToShow: 3,
                         slidesToScroll: 2,
                     }
                 },
                 {
-                    breakpoint: 600,
+                    breakpoint: 700,
                     settings: {
                         slidesToShow: 2,
                         slidesToScroll: 2
@@ -67,7 +73,6 @@ const RecommendedProjects = () => {
                 </div>
             </section>
         );
-
 }
 
 

@@ -1,0 +1,86 @@
+
+.overlay {
+    display: none;
+    @media #{$tablet} {
+        display: block;
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        top: 90px;
+        left: 0;
+        background: $chillFi-purple;
+        opacity: 0;
+    }
+
+    .nav-overlay {
+        margin: 40px auto;
+        width: 100%;
+        height: 400px;
+        display:flex;
+        @media #{$tablet}{
+            height: 500px;
+        }
+        @media #{$tablet-small}{
+            height: 400px;
+        }
+        @media #{$mobile}{
+            height: 400px;
+        }
+        @media#{$tablet-short}{
+            height: 250px;
+        }
+
+        ul {
+            display: flex;
+            margin: 0 auto;
+            text-align:center;
+            height: 600px;
+            justify-content: space-between;
+            flex-direction: column;
+
+            @media #{$tablet}{
+                height: 500px;
+            }
+            @media #{$tablet-small}{
+                height: 400px;
+            }
+            @media #{$mobile}{
+                height: 400px;
+            }
+            @media#{$tablet-short}{
+                height: 250px;
+            }
+
+            .navLinks-overlay{
+                display: flex;
+            
+                color: $abatross;
+                text-align: center;
+                margin: 10px auto;
+                @media#{$tablet-short}{
+                    margin: 0 auto;
+                }
+            }
+            a {
+                font-size: 2.9rem;
+                text-align: center;
+                margin: auto;
+            }
+            button {
+                @include buttonStyler($snow-white, $chillFi-purple, none, auto 10px auto 0);
+                font-size: 2.9rem;
+                height: 60px;
+                width: 200px;
+                vertical-align: center;
+                margin: 25px auto;
+                @include subtleBoxShadow;
+                
+            }
+        }
+    }
+}
+
+.overlay-hugeinc {
+    opacity: .94;
+    transition: .4s ease-in-out;
+}

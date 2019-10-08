@@ -1,27 +1,32 @@
-
 .form-2 {
 	.address-details {
 		display: flex;
-		justify-content: space-between;	
-		align-items: center;
+		justify-content: space-between;
+		align-items: flex-start;
 		width: 100%;
 		.address-details-city {
 			margin-right: 30px;
-			width: 100%;
-			input {
-				width: 100%;
-			}
+			width: 80%;
 		}
 		// .address-details-state {
 		// 	margin-right: 30px;
 		// }
-		
 	}
 	.address-details-zip {
 		input {
 			// width: 100%;
 			-webkit-appearance: none;
 			margin: 0;
+		}
+	}
+	.address-details-state {
+		select {
+			font-family: 'futura-pt';
+			font-size: 1.6rem;
+			height: 58px;
+			margin: 6px 0 6px 0;
+			margin-bottom: 20px;
+			width: 100%;
 		}
 	}
 }

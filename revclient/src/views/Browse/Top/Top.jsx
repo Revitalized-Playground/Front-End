@@ -3,10 +3,9 @@ import React from 'react';
 const Top = () => {
     return (
         <div className="topContainer">
-            <div className="title">
-                <p>What are your interests</p>
-                <p className="questionMark">?</p>    
-            </div>
+            <h2 className="title">
+                <div>What are your interests?</div>
+            </h2>
             <div className="interests">
                 <div className="interests-left">
                 <div className="interest one">

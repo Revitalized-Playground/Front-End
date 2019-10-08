@@ -29,82 +29,61 @@
             display: flex;
             flex-direction: column;
             padding: 10px;
-            height: calc(100% - 150px);
+            height: calc(100% - 140px);
             justify-content: space-between;
             .carousel-card-body-descript {
                 h5 {
                     margin-top: 10px;
+                    width: 100%;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    &:hover {
+                        @include text-shadow;
+                    }
                 }
-                p {
+                .display-text-group {
                     margin: 10px 0;
+                    font-size: 1.4rem;
+                    .displayed-text {
+                        .read-more-button {
+                            display:none;
+                        }
+                    }
                 }
             }
             .carousel-card-body-money {
+                div {
+                    background-color: $erudite-purple;
+                }
                 p {
                     margin: 10px 0;
+                    font-size: 1.4rem;
+                    width: 100%;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
                 }
             }
         }
-    }
-    .carousel-card-inner.__recommended {
-        height: 325px;
-        .carousel-card-image {
-            justify-content: flex-end;
-        }
-    }
-    .carousel-card-inner.__near-you {
-        height: 275px;
-        .carousel-card-image {
-            justify-content: flex-start;
-            .carousel-card-location {
-                position: absolute;
-                color: $snow-white;
-                padding: 10px;
-                font-size: 1.4rem;
-            }
-        }
-        a {
-            color: $chillFi-purple;
-            display: flex;
-            align-items: flex-end;
-            font-size: 1.6rem;
-        }
-    }
-    .carousel-card-inner.__noteworthy {
-        height: 300px;
-        .carousel-card-image {
-            img {
-                height: 300px;
-            }
-            div.carousel-card-location {
-                position: absolute;
-                color: $snow-white;
-                padding: 10px;
-                font-size: 1.8rem;
-            }
-        }
-        .carousel-card-body {
-            color: $snow-white;
-            display: flex;
-            flex-direction: column;
-            padding: 10px;
-            height: calc(100% - 150px);
-            justify-content: space-between;
-            position: absolute;
-            top: 20%;
-            width: 30%;
-            a {
-                display: flex;
-                align-items: flex-end;
-                font-size: 1.6rem;
-            }
-        }
-    }
+    } 
 }
 
+
+
 .dark-mode {
-    .carousel-card-inner {
-        color: $machiavellian;
+    .carousel-card {
+        .carousel-card-inner {
+            color: $snow-white;
+            background-color: $darkness;
+            .carousel-card-body {
+                .carousel-card-body-money {
+                    div {
+                        background-color: $maastricht-blue;
+                    }
+                }
+            }
+        }
     }
 }
 

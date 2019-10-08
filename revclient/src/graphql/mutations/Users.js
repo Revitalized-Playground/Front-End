@@ -1,4 +1,4 @@
-import { gql } from 'apollo-boost';
+import gql from 'graphql-tag';
 
 
 export const CREATE_USER = gql`
@@ -13,7 +13,6 @@ export const CREATE_USER = gql`
     }
 `;
 
-
 export const LOGIN_USER = gql`
     mutation LoginUser($data: UserAccountInput!) {
         loginUser(data: $data) {
@@ -26,4 +25,10 @@ export const LOGIN_USER = gql`
     }
 `;
 
-
+export const UPDATE_USER_PROFILE = gql`
+    mutation UpdateUser($data: UpdateUserProfileInput!) {
+        updateUserProfile(data: $data) {
+            id
+        }
+    }
+`

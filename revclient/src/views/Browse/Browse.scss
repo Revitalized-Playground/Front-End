@@ -3,54 +3,43 @@
 @import './CreateProject/CreateProject.scss';
 @import './Hire/Hire.scss';
 @import "./CarouselCard/CarouselCard.scss";
-// @import './RecommendedProjects/RecommendedProjects.scss';
-// @import './NearYou/NearYou.scss';
-// @import './Noteworthy/Noteworthy.scss';
+@import './Noteworthy/Noteworthy.scss';
+@import './NearYou/NearYou.scss';
+@import './RecommendedProjects/RecommendedProjects.scss';
 
 
-.startContainer {
+.browse-container {
     width: 100%;
-    max-width: 1920px; // You want to cap the container size at 1920 or smaller so that content doesn't go crazy wide. -fm
+    max-width: 1500px; // You want to cap the container size at 1920 or smaller so that content doesn't go crazy wide. -fm
     margin: 0 auto;
     padding: 0 35px;
     section {
-        margin: 10px auto;
+        margin: 40px auto;
     }
-    // @media #{$tablet} {
-    //     padding: 0 40px;
-    // }
-    // @media #{$tablet-small} {
-    //     padding: 0 40px;
-    // }
-    // @media #{$mobile} {
-    //     padding: 0 40px;
-    // }
-
     .slider {
         width: 100%;
-        margin: 1% auto 2%;
+        margin: 0 auto 20px;
         padding: 0 0px;
-        .slick-prev, .slick-next {
-            height: unset;
-            width: unset;
-            &:before {
-                color: $static-grey;
-                opacity: 1;
-                font-size: 4rem;
-            }
-            &:hover {
-                &:before {
-                    color: darken($static-grey, 10%);
-                }
-            }
-        }
         .slick-prev {
             z-index: 3;
-            left: -20px;
+            left: -25px;
+            top: 50%;
         }
         .slick-next {
             z-index: 3;
-            right: -20px;
+            right: -25px;
+            top: 50%;
+        }
+        .slick-arrow-container {
+            .slick-next, .slick-prev {
+                height: unset;
+                width: unset;
+                border-radius: 100%;
+                font-size: 4rem;
+                background-color: $silver-lining;
+                color: rgba($static-grey, 0.6);
+                @include subtleBoxShadow;
+            }
         }
     }
 
@@ -59,3 +48,15 @@
     }
 }
 
+.dark-mode {
+    .browse-container {
+        .slider {
+            .slick-arrow-container {
+                .slick-next, .slick-prev {
+                    background-color: darken($mirage, 25%);
+                    color: darken($mirage, 10%);
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,50 @@
+.about-header {
+	background-color: $chillFi-purple;
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 23rem;
+	overflow: hidden;
+
+	@media (max-width: 500px) {
+		margin-bottom: 8rem;
+		// margin-top: 2rem;
+		height: 10rem;
+	}
+
+	h1 {
+		color: $snow-white;
+		font-family: 'futura-pt';
+		font-size: 9rem;
+		font-weight: 500;
+		line-height: 1.61;
+		letter-spacing: 5px;
+		align-self: center;
+		z-index: 1;
+		width: 100%;
+		text-align: center;
+		@media (max-width: 1860px) {
+			font-size: 7rem;
+		}
+		@media (max-width: 1135px) {
+			font-size: 5rem;
+		}
+	}
+	img {
+		object-fit: contain;
+		@media (max-width: 1860px) {
+			width: 32%;
+		}
+		@media (max-width: 855px) {
+			width: 30%;
+		}
+		@media (max-width: 770px) {
+			display: none;
+		}
+	}
+	.img2 {
+		margin-bottom: -66px;
+		@media (max-width: 1860px) {
+			margin-bottom: -90px;
+		}
+	}
+}
