@@ -9,7 +9,7 @@ import DashboardTemplate from './DashboardTemplate/DashboardTemplate';
 import { useQuery } from '@apollo/react-hooks';
 import { GET_USER } from '../../graphql/queries/Users';
 
-import { users, projects } from './dashboarddummydata';
+import { users, projects, defaultTab, tabs, list } from './dashboarddummydata';
 
 export default function Dashboard() {
     
@@ -23,7 +23,13 @@ export default function Dashboard() {
 
             <div className="dashboard-container" >
                 <Nav />
-                <DashboardTemplate user={data.me} projects={projects} />
+                <DashboardTemplate 
+                    user={data.me}
+                    projects={projects}
+                    defaultTab={defaultTab}
+                    tabs={tabs}
+                    list={list}
+                />
                 <Footer />
             </div>
 

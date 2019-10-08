@@ -19,19 +19,17 @@ const DashboardTemplate = props => {
     return (
         <>
             <section className="dashboard">
-
-                {/* <Sidebar user={data.me} /> */}
                 <Sidebar user={props.user} />
-
-                
 
 				<section className="dashboard-body">
 					{props.projects.map(project => {
                         return <Header key={project.id} project={project} />;
 					})}
-					{/* <Header project={project} /> */}
-					{/* <br/> */}
-                    <Main />
+                    <Main
+                        defaultTab={props.defaultTab}
+                        tabs={props.tabs}
+                        list={props.list}
+                    />
 				</section>
 			</section>
 		</>
