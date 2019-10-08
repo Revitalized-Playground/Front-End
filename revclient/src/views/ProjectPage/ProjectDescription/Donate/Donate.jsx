@@ -4,7 +4,7 @@ import { Link, withRouter } from 'react-router-dom';
 import { formatMoney, donationCount } from "../../../../helpers/formatMoney";
 
 
-const Donate = ({raised, budget, projectData, setModal, match}) => {
+const Donate = ({raised, budget, projectData, setModal, match, setDonateModal}) => {
     const percent = Number(raised) / Number(budget) * 100
     const Box = styled.div`
         height: 12px;
@@ -53,9 +53,9 @@ const Donate = ({raised, budget, projectData, setModal, match}) => {
                 <p className='donatorCount'>{totalNumberOfDonations}</p>
                 <p className='donorText'>{`${totalNumberOfDonations === 1 ? "Donor" : "Donors"}`}</p>
                 <div className='donationButtons'>
-                    <Link to={`/project/donate/${match.params.id}`}>
-                        <button className="purple">Donate now</button>
-                    </Link>
+                    {/* <Link to={`/project/donate/${match.params.id}`}> */}
+                    <button className="purple" onClick={()=> setDonateModal(true)}>Donate now</button>
+                    {/* </Link> */}
                     <button className='white' onClick={() => setModal(true)}>Share</button>
                 </div>
                 <div className="mid-line-container">
