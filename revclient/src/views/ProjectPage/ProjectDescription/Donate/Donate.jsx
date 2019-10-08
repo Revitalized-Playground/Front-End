@@ -1,11 +1,18 @@
 import React from 'react'
 import styled from 'styled-components';
 import { Link, withRouter } from 'react-router-dom';
-import { formatMoney, donationCount } from "../../../../helpers/formatMoney";
+// import { formatMoney, donationCount } from "../../../../helpers/formatMoney";
+import { formatMoney, addUpDonations, donationCount } from "../../../../helpers/helpers";
 
-
-const Donate = ({raised, budget, projectData, setModal, match, setDonateModal}) => {
+const Donate = props => {
+    const raised = addUpDonations(props.projectData.project.donations);
+    const budget = formatMoney(props.projectData.project.goalAmount);
+    const totalDonations = donationCount(props.projectData.project.donations.length);
+    const totalNumberOfDonations = props.projectData.project.donations ? totalDonations : 0;
     const percent = Number(raised) / Number(budget) * 100
+    
+    console.log("These are the props in donate", props);
+
     const Box = styled.div`
         height: 12px;
         border-radius: 50px;
@@ -37,15 +44,15 @@ const Donate = ({raised, budget, projectData, setModal, match, setDonateModal}) 
 
         animation: ${percent >= 100 ? '1s ease-out pulse;' : '1s ease-out pulse, progress-bar-stripes 1s linear infinite;'};
     `
-
-    const totalNumberOfDonations = projectData.project.donations ? donationCount(projectData.project.donations.length) : 0;
+    
+    
 
     return (
         <div className='donateContainer'>
             <div className='donateInnerDiv'>
                 <p className='donationMoney'>
-                    <span className='large'>${formatMoney(raised)}</span>
-                    <span className='small'>raised out of ${formatMoney(budget)}</span>
+                    <span className='large'>${raised}</span>
+                    <span className='small'>raised out of ${budget}</span>
                 </p>
                 <div className='progress-bar'>
                     <Box />
@@ -54,9 +61,9 @@ const Donate = ({raised, budget, projectData, setModal, match, setDonateModal}) 
                 <p className='donorText'>{`${totalNumberOfDonations === 1 ? "Donor" : "Donors"}`}</p>
                 <div className='donationButtons'>
                     {/* <Link to={`/project/donate/${match.params.id}`}> */}
-                    <button className="purple" onClick={()=> setDonateModal(true)}>Donate now</button>
+                    <button className="purple" onClick={()=> props.setDonateModal(true)}>Donate now</button>
                     {/* </Link> */}
-                    <button className='white' onClick={() => setModal(true)}>Share</button>
+                    <button className='white' onClick={() => props.setModal(true)}>Share</button>
                 </div>
                 <div className="mid-line-container">
 					<div className="mid-line"></div>

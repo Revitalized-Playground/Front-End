@@ -1,0 +1,29 @@
+section.dashboard-dash-nav.section {
+    background-color: $silver-lining;
+    display: flex;
+    justify-content: space-around;
+    padding: 0 15px;
+    width: 100%;
+    box-shadow: none;
+    border: 1px solid $static-grey;
+    border: none;
+    border-radius: 5px;
+    .tab {
+        color: $black-void;
+        padding: 20px;
+    }
+    .unavailable-tab.tab {
+        color: $static-grey;
+        &:hover {
+            cursor: none;
+        }
+    }
+    .active-tab.tab {
+        color: $chillFi-purple;
+        background-color: white;
+    }
+}
+
+.dark-mode {
+
+}

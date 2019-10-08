@@ -113,3 +113,10 @@ hr {
 	background-color: $erudite-purple;
 }
 
+.tab {
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+
