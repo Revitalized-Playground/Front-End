@@ -1,3 +1,4 @@
+import moment from "moment";
 
 export const zipCodeChecker = (e) => {
     if (e.target.value.length === 5 || e.target.value.length === 0) {
@@ -28,8 +29,18 @@ export function donationCount(num) {
     return Math.abs(num) > 999 ? Math.sign(num)*((Math.abs(num)/1000).toFixed(1)) + 'k' : Math.sign(num)*Math.abs(num)
 };
 
+
 export const addUpDonations = (donationArray) => {
     let totalDonations = 0
     donationArray.map(donation => totalDonations = totalDonations + donation.amount);
-    return totalDonations;
+    return formatMoney(totalDonations);
 }
+
+
+
+export const calculateDueDate = (startDate, duration) => {
+    let dueDate = moment(startDate).clone().add(duration, 'month').format("MMMM Do YYYY");
+    console.log(dueDate);
+    return dueDate;
+}
+

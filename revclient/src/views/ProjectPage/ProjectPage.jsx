@@ -20,6 +20,7 @@ import { useWindowHook } from '../../helpers/windowOnClickHook.js';
 import CreatorProfile from './ProjectDescription/CreatorProfile/CreatorProfile';
 
 
+
 const ProjectPage = ({ match }) => {
 	const [copied, setCopied] = useState(false);
 	const [donateModal, setDonateModal] = useState(false)
@@ -91,8 +92,6 @@ const ProjectPage = ({ match }) => {
 					/>
 
 					<Donate
-						raised={projectData.project.amountFunded}
-						budget={projectData.project.goalAmount}
 						projectData={projectData}
 						setModal={setModalVal}
 						setDonateModal={setDonateModal}

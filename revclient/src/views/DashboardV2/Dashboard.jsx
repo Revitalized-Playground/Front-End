@@ -59,7 +59,10 @@ export default function Dashboard() {
                             {data.me.projects && tabState.selectedTab === "Projects" && 
                                 data.me.projects.map(project => (
                                     <Header key={project.id} project={project} />
-                                )),
+                                ))
+                            }
+
+                            {data.me.projects && tabState.selectedTab === "Projects" && 
                                 (
                                     <Main
                                         defaultTab={defaultTab}
@@ -68,6 +71,7 @@ export default function Dashboard() {
                                     />
                                 )
                             }
+
 
                             {data.me.donations && tabState.selectedTab === "Donations" ? (
                                 <Donations 
@@ -86,4 +90,4 @@ export default function Dashboard() {
         </>
     )
 }
- 
+
