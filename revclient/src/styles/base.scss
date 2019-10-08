@@ -11,9 +11,6 @@
 // Pages Here
 @import '../views/Landing/LandingPage.scss';
 
-@import '../views/Dashboard/Dashboard.scss';
-@import '../views/Dashboard/DashboardTemplate/DashboardTemplate.scss';
-
 @import '../views/Login/Login.scss';
 @import '../views/Register/Register.scss';
 
@@ -49,3 +46,7 @@
 @import "../views/SetupProfile/SetupProfile.scss";
 
 
+// Dashboard
+// @import '../views/Dashboard/Dashboard.scss';
+// @import '../views/Dashboard/DashboardTemplate/DashboardTemplate.scss';
+@import '../views/DashboardV2/Dashboard.scss';
