@@ -67,7 +67,7 @@ export const users = [
         master: true
     }
 ];
-export const projects = [
+export const projectList = [
     {
         id: 1,
         profile: 1,
@@ -84,9 +84,9 @@ export const projects = [
         dueDate: 'Oct 25, 2019',
     },
 ];
-export const tabs = ['New Tasks', 'Tasks In Progress', 'Completed Tasks', 'Activity Feed'];
-export const defaultTab = 'New Tasks';
-export const list = [
+export const apprenticeTabs = ['New Tasks', 'Tasks In Progress', 'Completed Tasks', 'Activity Feed'];
+export const defaultApprenticeTab = 'New Tasks';
+export const apprenticeList = [
     {
         left: '#f38c01',
         image:

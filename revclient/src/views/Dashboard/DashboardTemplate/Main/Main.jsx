@@ -33,7 +33,7 @@ const Main = props => {
 
 			<hr />
 			<div className="dashboard-main-body">
-				{<List list={state.list.filter(item => item.tab === state.selected)} /> || (
+				{<List list={state.list.filter(item => item.tab === state.selected)} usertype={props.usertype} /> || (
 					<Skeleton count={5} height={125} />
 				)}
 			</div>

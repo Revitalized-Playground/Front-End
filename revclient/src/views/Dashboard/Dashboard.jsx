@@ -1,5 +1,4 @@
-import React from 'react'
-
+import React, { useState } from 'react'
 
 import Nav from '../../components/Layout/Nav';
 
@@ -9,31 +8,49 @@ import DashboardTemplate from './DashboardTemplate/DashboardTemplate';
 import { useQuery } from '@apollo/react-hooks';
 import { GET_USER } from '../../graphql/queries/Users';
 
-import { projects, defaultTab, tabs, list } from './dashboarddummydata';
+import { projectList, defaultApprenticeTab, apprenticeTabs, apprenticeList } from './dashboarddummydata';
+import { set } from 'gl-matrix/src/gl-matrix/mat2d';
 
 export default function Dashboard() {
     
+    const [state, setState] = useState({
+        usertype: 'apprentice',
+        projects: projectList,
+        defaultTab: defaultApprenticeTab,
+        tabs: apprenticeTabs,
+        list: apprenticeList
+    })
     const { loading, error, data } = useQuery(GET_USER);
-    console.log(data);
     
+    const someQueryFunction = () => {
+        setState({
+            usertype: '',
+            projects: '',
+            defaultTab: '',
+            tabs: '',
+            list: ''
+        })
+    }
+    if(true === false) {
+        someQueryFunction();
+    }
     if (loading) return <p>loading....</p>;
     if (error) return <p>Error....</p>;
 
     return (
         <>
-
             <div className="dashboard-container" >
                 <Nav />
                 <DashboardTemplate 
                     user={data.me}
-                    projects={projects}
-                    defaultTab={defaultTab}
-                    tabs={tabs}
-                    list={list}
+                    usertype={state.usertype}
+                    projects={state.projects}
+                    defaultTab={state.defaultTab}
+                    tabs={state.tabs}
+                    list={state.list}
                 />
                 <Footer />
             </div>
-
         </>
     )
 }

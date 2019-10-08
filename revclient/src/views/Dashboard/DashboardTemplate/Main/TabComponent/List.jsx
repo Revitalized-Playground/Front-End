@@ -1,16 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import AdminItem from './ItemTypes/AdminItem';
 import ApprenticeItem from './ItemTypes/ApprenticeItem';
 import MasterItem from './ItemTypes/MasterItem';
 
-const List = props => {
-    const [usertype, setUsertype] = useState('apprentice')
-    
+const List = props => {    
     return (
         <div className="list">
             {props.list.map(item => {
-                switch(usertype) {
+                switch(props.usertype) {
                     default:
                         return <ApprenticeItem item={item} key={item.name+Date.now()}/>;
                     case 'apprentice':

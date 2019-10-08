@@ -4,22 +4,16 @@ import Sidebar from './Sidebar/Sidebar';
 import Header from './Header/Header';
 import Main from './Main/Main';
 
-// import { useQuery } from '@apollo/react-hooks';
-// import { GET_USER } from '../../../graphql/queries/Users';
-
-// import { users, projects } from '../dashboarddummydata';
-
 const DashboardTemplate = props => {
     
-    // const { loading, error, data } = useQuery(GET_USER);
-    
-    // if (loading) return <p>loading....</p>;
-    // if (error) return <p>Error....</p>;
-
     return (
         <>
             <section className="dashboard">
                 <Sidebar user={props.user} />
+
+                {/* conditionally render header to initially show list of projects? 
+                    use different routes?
+                */ }
 
 				<section className="dashboard-body">
 					{props.projects.map(project => {
