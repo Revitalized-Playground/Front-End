@@ -4,6 +4,13 @@
 	justify-content: space-between;
 	margin-bottom: 23rem;
 	overflow: hidden;
+
+	@media (max-width: 500px) {
+		margin-bottom: 8rem;
+		// margin-top: 2rem;
+		height: 10rem;
+	}
+
 	h1 {
 		color: $snow-white;
 		font-family: 'futura-pt';
