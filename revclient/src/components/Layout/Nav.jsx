@@ -120,7 +120,7 @@ const Nav = props => {
 								)}
 								
 								<div className={`dropdown ${!clicked && 'display-none'}`} name="drop" tabIndex="0" >
-									<div className="arrow-up"></div>
+									<div class="arrow-up"></div>
 									<Link to="/dashboard" className="dropdown-option">
 										<FaUser className="icon" />
 										Profile
