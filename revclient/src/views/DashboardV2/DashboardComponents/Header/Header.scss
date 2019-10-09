@@ -54,6 +54,7 @@
 		justify-content: space-between;
 		.bottom-left {
 			display: flex;
+			justify-content: flex-start;
 			width: 50%;
 			.due-date {
 				background-color: $franks-grey;
@@ -62,11 +63,10 @@
 				display: flex;
 				justify-content: left;
 				align-items: center;
-				width: 237px;
 				height: 40px;
 				border-radius: 5px;
 				margin-right: 40px;
-				padding-left: 15px;
+				padding: 0 15px;
 			}
 			.bottom-icons {
 				color: $chillFi-purple;
@@ -80,8 +80,19 @@
 		}
 
 		.header-bottom-seemore {
-			font-size: 2rem;
-			color: $static-grey;
+			font-size: 3.4rem;
+			color: $silver-lining;
+			display: flex;
+			align-items: flex-end;
+			margin-bottom: -5px;
+			&:hover {
+				color: $mirage;
+				transition-duration: 0.75s;
+			}
+			&:active {
+				margin-bottom: -10px;
+				transition-duration: 0.2s;
+			}
 		}
 
 

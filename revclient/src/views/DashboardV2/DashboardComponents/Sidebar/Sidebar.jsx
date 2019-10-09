@@ -5,10 +5,14 @@ import { HashLink } from "react-router-hash-link";
 import { FaVideo, FaEnvelope, FaPhone, FaLocationArrow } from "react-icons/fa";
 import Skeleton,  { SkeletonTheme } from "react-loading-skeleton";
 import { InitialAvatar } from "../../../../helpers/InitialAvatar";
+import ProgressBar, { calculatePercentageProgressBar } from "../../../../helpers/ProgressBar";
 
 
 const Sidebar = props => {
-    
+    const moneyProgress = [100, 1800]
+    const getPercentage = calculatePercentageProgressBar(moneyProgress[0], moneyProgress[1]);
+
+
     return (
         <section className="dashboard-sidebar section">
             <div className="sidebar-top">
@@ -37,18 +41,26 @@ const Sidebar = props => {
             <div className="dashboard-stats">
                 {
                     <>
+                        {props.user.projects && props.user.projects.length > 0 ? (
                         <div className="quick-stat">
-                            <h3>{props.user.certifications}</h3>
-                            <p>Certifications</p>
-                        </div>
+                            <h3>{props.user.projects.length}</h3>
+                                <p>{props.user.projects.length === 1 ? "Project" : "Projects"}</p>
+                            </div>    
+                        ) : null}
+                        
+                        {props.user.donations && props.user.donations.length > 0 ? (
                         <div className="quick-stat">
-                            <h3>{props.user.hoursLogged}</h3>
-                            <p>Hours Logged</p>
-                        </div>
+                            <h3>{props.user.donations.length}</h3>
+                                <p>{props.user.donations.length === 1 ? "Donation" : "Donations"}</p>
+                            </div>    
+                        ) : null}
+
+                        {props.user.certifications && props.user.certifications.length > 0 ? (
                         <div className="quick-stat">
-                            <h3>{props.user.creditHours}</h3>
-                            <p>Credit Hours</p>
-                        </div>
+                            <h3>{props.user.certifications.length}</h3>
+                                <p>{props.user.certifications.length === 1 ? "Certificate" : "Certificates"}</p>
+                            </div>    
+                        ) : null}
                     </>
                     ||
                     <>
@@ -62,24 +74,12 @@ const Sidebar = props => {
             <div className="info-container">
                 {
                     <>
-                        <div className="info">
+                        <div className="info progress-bar-container">
                             <div className="text">
                                 <p>Overall progress of project</p>
-                                {/* <Box /> */}
-                                <span>progress bar here</span>
+                                <p className="percent">{getPercentage}</p>
                             </div>
-                            <p className="percent">22%</p>
-                        </div>
-                        <div className="info">
-                            <div className="text">
-                                <p>Zoom</p>
-                                <span>{props.user.zoom}</span>
-                            </div>
-                            <Link to="#">
-                                <div className="sidebar-icon-container">
-                                    <FaVideo className="sidebar-icon" />
-                                </div>
-                            </Link>
+                            <ProgressBar progress={moneyProgress[0]} startingPoint={moneyProgress[1]} />
                         </div>
                         <div className="info">
                             <div className="text">
@@ -92,17 +92,21 @@ const Sidebar = props => {
                                 </div>
                             </Link>
                         </div>
-                        <div className="info">
-                            <div className="text">
-                                <p>Phone Number</p>
-                                <span>{props.user.phoneNumber}</span>
-                            </div>
-                            <Link to="#">
-                                <div className="sidebar-icon-container">
-                                    <FaPhone className="sidebar-icon" />
+                        
+                        {props.user.phoneNumber && (
+                            <div className="info">
+                                <div className="text">
+                                    <p>Phone Number</p>
+                                    <span>{props.user.phoneNumber}</span>
                                 </div>
-                            </Link>
-                        </div>
+                                <Link to="#">
+                                    <div className="sidebar-icon-container">
+                                        <FaPhone className="sidebar-icon" />
+                                    </div>
+                                </Link>
+                            </div>
+                        )}
+
                         <div className="info">
                             <div className="text">
                                 <p>Location</p>

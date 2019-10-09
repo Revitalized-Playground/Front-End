@@ -10,7 +10,6 @@ import { useWindowHook } from "../../helpers/windowOnClickHook.js"
 
 const unauthenticatedLinks = [
 	{ href: '/browse', label: 'Browse' },
-	{ href: '/projects', label: 'Learn More' },
 	{ href: '/about', label: 'Team' },
 	{ href: '/login', label: 'Log In' },
 ].map(link => {
@@ -20,8 +19,8 @@ const unauthenticatedLinks = [
 
 const authenticatedLinks = [
 	{ href: '/browse', label: 'Browse' },
-	{ href: '/projects', label: 'Learn More' },
 	{ href: '/about', label: 'Team' },
+	{ href: '/dashboard', label: 'Dashboard' },
 	{ href: '/settings', label: 'Settings' },
 	{ href: '#', label: 'Logout' },
 ].map(link => {
@@ -123,10 +122,10 @@ const Nav = props => {
 									<div className="arrow-up"></div>
 									<Link to="/dashboard" className="dropdown-option">
 										<FaUser className="icon" />
-										Profile
+										Dashboard
 									</Link>
 									<Link to="/settings" className="dropdown-option" >
-										<FaCog className="icon" /> Setting
+										<FaCog className="icon" /> Settings
 									</Link>
 									<div onClick={toggleDarkMode} className="dropdown-option">
 										<FaMoon className="icon" />

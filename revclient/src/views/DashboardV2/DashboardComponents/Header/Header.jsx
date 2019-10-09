@@ -1,9 +1,14 @@
 import React from 'react';
 import { FaComments, FaFileInvoice, FaAngleDown } from "react-icons/fa";
 
+import { calculateDueDate } from "../../../../helpers/helpers";
+
 
 const Header = props => {
-	const { city, state, name, description, dueDate } = props.project;
+	const { city, state, name, description, startDate, duration } = props.project;
+
+
+
 	return (
 		<div className="dashboard-header section">
 			<div className="header-top">
@@ -27,7 +32,7 @@ const Header = props => {
 
 			<div className="header-bottom">
 				<div className="bottom-left">
-					<p className="due-date">Due Date: {dueDate}</p>
+					<p className="due-date">Due Date: {calculateDueDate(startDate, duration)}</p>
 					<div className="bottom-icons">
 						<FaComments />
 						<FaFileInvoice />
