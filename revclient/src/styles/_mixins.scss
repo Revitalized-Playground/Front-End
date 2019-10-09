@@ -13,11 +13,11 @@
 // // 
 @mixin buttonStyler($bgc, $textColor, $borderStyle, $margin: 8% 0) {
 	font-family: 'futura-pt';
-	font-size: 1.6rem;
+	font-size: 1.8rem;
 	background: $bgc;
 	color: $textColor;
 	margin: $margin;
-	padding: 0.9rem 2rem;
+	padding: 1.6rem 2rem;
 	border-radius: 0.25rem;
 	border-width: 3px;
 	border-color: $textColor;
