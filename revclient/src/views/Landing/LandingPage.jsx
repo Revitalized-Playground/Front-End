@@ -33,8 +33,8 @@ export default function LandingPage() {
 			{/* <OnTheJob /> */}
 			{/* <FullScaleApp /> */}
 			{/* <Testimonials /> */}
+			<SearchProjects />
 		</div>
-		<SearchProjects />
 		<Footer />
 		</>
 	);
