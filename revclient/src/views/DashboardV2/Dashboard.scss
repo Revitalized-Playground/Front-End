@@ -1,4 +1,3 @@
-  
 @import './DashboardComponents/Sidebar/Sidebar.scss';
 @import './DashboardComponents/Header/Header.scss';
 @import './DashboardComponents/Main/Main.scss';
@@ -10,7 +9,6 @@
     @include skeleton-section;
     @include bottomBoxShadow;
     background: $snow-white;
-    padding: 40px 15px 15px 15px;
 }
 
 .dashboard-container {

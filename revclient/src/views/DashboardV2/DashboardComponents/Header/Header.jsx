@@ -1,13 +1,17 @@
 import React from 'react';
-import { FaComments, FaFileInvoice } from "react-icons/fa";
+import { FaComments, FaFileInvoice, FaAngleDown } from "react-icons/fa";
 
 
 const Header = props => {
-	const { status, city, state, name, description, dueDate } = props.project;
+	const { city, state, name, description, dueDate } = props.project;
 	return (
 		<div className="dashboard-header section">
 			<div className="header-top">
-				<div className="project-status">{status}</div>
+				{props.project.isLive ? (
+					<div className="project-status started">In Progress</div>
+				) : (
+					<div className="project-status not-started">Not Started</div>
+				)}
 				{/* <div className="add-tasks">
 					<p>Add Tasks</p>
 				</div> */}
@@ -28,6 +32,11 @@ const Header = props => {
 						<FaComments />
 						<FaFileInvoice />
 					</div>
+				</div>
+				<div className="header-bottom-seemore">
+					<FaAngleDown
+						onClick={() => props.setSelectedProject(props.project.id)}
+					/>
 				</div>
 				<div className="team-members">
 					<div className="member-icons">
