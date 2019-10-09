@@ -91,11 +91,11 @@ const Nav = props => {
 									<li className="navLinks logout" onClick={logout} key={link.key}>
 										<Link to={link.href}>{link.label}</Link>
 									</li>
-								) : link.label === "Settings" ? null : (
+								) : link.label === "Settings" || link.label === "Dashboard" ? null : (
 									<li className="navLinks" key={link.key}>
 										<Link to={link.href}>{link.label}</Link>
 									</li>
-								),
+								)
 							)}
 							<div className="user" tabIndex="0" onClick={setActive} >
 								
