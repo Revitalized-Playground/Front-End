@@ -27,13 +27,14 @@ export default function LandingPage() {
 			<CrowdFunding />
 			<ProjectSpotlight />
 			<FeaturedProjects />
-			<SearchProjects />
+			
 			
 			{/* <OurPurpose /> */}
 			{/* <OnTheJob /> */}
 			{/* <FullScaleApp /> */}
 			{/* <Testimonials /> */}
 		</div>
+		<SearchProjects />
 		<Footer />
 		</>
 	);

@@ -1,7 +1,6 @@
 .crowdfunding-container {
-	margin-top: 7.1%;
-	margin-bottom: 35px;
-
+	max-width: 1500px;
+	margin: 7.1% auto 35px auto;
 	@media #{$mobile} {
 		margin-top: 0;
 		padding: 40px 35px 40px 35px;
@@ -55,7 +54,6 @@
 		margin-top: 2.4%;
 		margin-top: 55px;
 		text-align: center;
-		font-size: 1.8rem;
 		letter-spacing: 1px;
 		@media #{$tablet} {
 			font-size: 1.6rem;

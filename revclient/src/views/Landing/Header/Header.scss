@@ -4,7 +4,9 @@
 	.cta-container {
 		display: flex;
 		justify-content: space-between;
-		margin: 15px 55px 125px 6%;
+		// margin: 15px 55px 125px 6%;
+		margin: 15px auto 125px auto;
+		max-width: 1500px;
 		@media #{$tablet} {
 			flex-direction: column-reverse;
 			margin: 0 auto;
@@ -122,6 +124,7 @@
 		.value-tiles {
 			display: flex;
 			width: 100%;
+			max-width: 1500px;
 			margin: 0 auto;
 			text-align: center;
 			padding-bottom: 5rem;
@@ -206,6 +209,8 @@
 			max-width: 100%;
 			display: flex;
 			justify-content: space-evenly;
+			max-width: 1500px;
+    		margin: 58px auto 0 auto;
 			@media #{$mobile} {
 				flex-direction: column;
 			}

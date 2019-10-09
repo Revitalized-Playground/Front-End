@@ -56,14 +56,14 @@ const FeaturedProjects = () => {
 
 	if (!projects) return <div>Loading...</div>;
 	return (
-		<div className="FPContainer">
+		<section className="featured-projects-container">
 			<h2>Featured Projects</h2>
-			<div className="FPProjectList">
+			<div className="featured-projects-list">
 				{featured.map(({ img, title, description }, i) =>
 					i < 3 ? <Card className="card" img={img} title={title} description={description} key={i} /> : null,
 				)}
 			</div>
-		</div>
+		</section>
 	);
 };
 

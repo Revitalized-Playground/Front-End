@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, withRouter } from "react-router-dom";
-import Skeleton from "react-loading-skeleton";
+// import Skeleton from "react-loading-skeleton";
 import { FaMoon, FaCog, FaUser, FaWindowClose } from "react-icons/fa";
 import { useQuery } from "@apollo/react-hooks";
 import { GET_USER } from "../../graphql/queries/Users";
@@ -67,8 +67,29 @@ const Nav = props => {
 	};
 
 	if (localStorage.getItem('token')) {
-		if (loading) return <p>loading....</p>;
-		if (error) return <p>Error....</p>;
+		if (loading) return (
+			<nav>
+				<div className="leftNav">
+					<Link to="/" title="Home">
+						<div className="logo">
+							<span>Revitalize </span>
+							{/* <p className="loading-banner">loading....</p> */}
+						</div>
+					</Link>
+				</div>
+			</nav>
+		);
+		if (error) return (
+			<nav>
+				<div className="leftNav">
+					<Link to="/" title="Home">
+						<div className="logo">
+							<span>Revitalize </span>
+						</div>
+					</Link>
+				</div>
+			</nav>
+		);
 	}
 
 
