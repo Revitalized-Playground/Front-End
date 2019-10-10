@@ -17,8 +17,9 @@
 		align-items: flex-end;
 		background-position: center;
 		background-size: cover;
-		margin-right: 4%;
+		margin-right: 20px;
 		height: 32vh;
+		max-height: 260px;
 		max-width: 1600px;
 		@media #{$tablet} {
 			height: 200px;

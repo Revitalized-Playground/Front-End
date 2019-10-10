@@ -10,7 +10,7 @@ export const useWindowHook = () => {
 
     window.onclick = (e) => {
 		if(clicked === true){
-			if(e.target.className ==="user" || e.target.className ==="fun" || e.target.className ==="user fun"){
+			if(e.target.className ==="user" ){
 				return
 			} 
 		}

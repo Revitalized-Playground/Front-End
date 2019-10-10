@@ -8,8 +8,6 @@
 		margin-bottom: 16px;
 
 		.project-status {
-			color: $upcoming-fg;
-			background-color: $upcoming-bg;
 			display: flex;
 			justify-content: center;
 			align-items: center;
@@ -18,14 +16,22 @@
 			border-radius: 5px;
 			font-size: 1.8rem;
 		}
+		.project-status.started {
+			color: $live-fg;
+			background-color: $live-bg;
+		}
+		.project-status.not-started {
+			color: $notlive-fg;
+			background-color: $notlive-bg;
+		}
 	}
 
 	.header-middle {
 		display: flex;
 		flex-direction: column;
 		.header-middle-geo {
-			font-size: 1.6rem;
 			color: $mirage;
+			font-size: 1.6rem;
 		}
 		.header-middle-title {
 			color: $machiavellian;
@@ -33,8 +39,8 @@
 			margin-bottom: 16px;
 		}
 		.header-middle-description {
-			font-size: 2rem;
 			color: $mirage;
+			font-size: 2rem;
 			max-width: 970px;
 			width: 100%;
 			line-height: 1.34;
@@ -48,6 +54,7 @@
 		justify-content: space-between;
 		.bottom-left {
 			display: flex;
+			justify-content: flex-start;
 			width: 50%;
 			.due-date {
 				background-color: $franks-grey;
@@ -56,11 +63,10 @@
 				display: flex;
 				justify-content: left;
 				align-items: center;
-				width: 237px;
 				height: 40px;
 				border-radius: 5px;
 				margin-right: 40px;
-				padding-left: 15px;
+				padding: 0 15px;
 			}
 			.bottom-icons {
 				color: $chillFi-purple;
@@ -70,6 +76,22 @@
 				svg {
 					margin-right: 20px;
 				}
+			}
+		}
+
+		.header-bottom-seemore {
+			font-size: 3.4rem;
+			color: $silver-lining;
+			display: flex;
+			align-items: flex-end;
+			margin-bottom: -5px;
+			&:hover {
+				color: $mirage;
+				transition-duration: 0.75s;
+			}
+			&:active {
+				margin-bottom: -10px;
+				transition-duration: 0.2s;
 			}
 		}
 
@@ -102,8 +124,13 @@
 
 .dark-mode {
 	.header-top {
-		.project-status {
-			background-color: rgba($upcoming-bg, 0.5); 
+		.project-status.started {
+			color: $live-fg;
+			background-color: rgba($live-bg, 0.5); 
+		}
+		.project-status.not-started {
+			color: $notlive-fg;
+			background-color: rgba($notlive-bg, 0.5); 
 		}
 	}
 	.header-middle {

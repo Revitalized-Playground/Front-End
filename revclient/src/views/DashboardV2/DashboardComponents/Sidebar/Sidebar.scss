@@ -82,11 +82,15 @@
 					padding: 10px;
 				}
 			}
-			// .icon {
-			// 	width: 48px;
-			// 	height: 47px;
-			// 	border-radius: 12px;
-			// }
+		}
+		.info.progress-bar-container {
+			flex-direction: column;
+			.progress-bar {
+				width: 100%;
+			}
+		}
+		.info.progress-bar-container .text { 
+			flex-direction: row;
 		}
 		.progress, .info {
 			margin: 6% 0;

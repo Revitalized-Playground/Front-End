@@ -102,7 +102,55 @@ export const GET_USER_PROFILE = gql`
                     }
                 }
             }
+
+            studentProjects {
+                id
+                project {
+                id
+                name
+                }
+            }
+                tasks {
+                id
+                projectTask {
+                id
+                trade {
+                    id
+                    name
+                    description
+                }
+                description
+                priority 
+                dueDate
+                budgetHours
+                apprentices {
+                    id
+                }
+                }
+            }
+            applications {
+            id
+            coverLetter
+            status
+            project {
+                id
+                name
+            }
+            trade {
+                id
+                name
+                description
+            }
+            }
+            tradeMasterProjects {
+            id
+            project {
+                id
+                name
+            }
+            }
         }
+
     }
 
 

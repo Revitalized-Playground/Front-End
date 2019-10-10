@@ -7,41 +7,56 @@ import Footer from "../../components/Layout/Footer";
 import Sidebar from './DashboardComponents/Sidebar/Sidebar';
 import Header from './DashboardComponents/Header/Header';
 import Main from './DashboardComponents/Main/Main';
-import HeaderNoProjects from "./DashboardComponents/HeaderNoProjects/HeaderNoProjects";
+// import MainNoBody from "./DashboardComponents/MainNoBody/MainNoBody";
 import DashNav from "./DashboardComponents/DashNav/DashNav";
 import Donations from "./DashboardComponents/Donations/Donations";
-
 
 import { useQuery } from '@apollo/react-hooks';
 import { GET_USER_PROFILE } from '../../graphql/queries/Users';
 
-import { defaultTab, tabs, list } from './dashboarddummydata';
+// import { defaultTab, tabs, list } from './dashboarddummydata';
 
 
 
 export default function Dashboard() {
-    const [tabState, setTab] = useState({
-        selectedTab: "",
-        tabs: ["Projects", 
+    const [tabState, setTab] = useState({ selectedTab: "",tabs: ["Projects", 
             // "Learning", "Working", 
-            "Donations"
-        ]
-	});
+            "Donations"] });
+    const [selectedProject, setSelectedProject] = useState({ projectId: null })
 
-	const changeSelected = selectedTab => {
-		setTab({
-            ...tabState,
-            selectedTab: selectedTab
-        });
-    };
+	const changeSelected = selectedTab => {setTab({ ...tabState, selectedTab: selectedTab }) };
+    
+
     
     const { loading, error, data } = useQuery(GET_USER_PROFILE);
-    
     if (loading) return <p>loading....</p>;
     if (error) return <p>Error....</p>;
 
-    console.log("This is the data object coming into dashboard  \n ", data,
-    "This is dashboard tab state  \n ", tabState);
+
+    const getProjectAdminHeader = () => {
+        
+
+        const projectAdminHeader = data.me.projects.map(project => (
+            <>
+                <Header key={project.id} project={project} setSelectedProject={setSelectedProject} />
+                
+            </>
+        ))
+
+        return (    
+            <>
+                {projectAdminHeader}
+                {/* {selectedProject && selectedProject === data.me.tasks.id ? (
+                    <Main
+                        defaultTab={defaultTab}
+                        tabs={tabs}
+                        list={list}
+                    />
+                ) : null} */}
+            </>
+        )
+    }
+
 
     return (
         <>
@@ -56,28 +71,18 @@ export default function Dashboard() {
 
                             <DashNav changeSelected={changeSelected} tabs={tabState.tabs} selectedTab={tabState.selectedTab} />
 
-                            {data.me.projects && tabState.selectedTab === "Projects" && 
-                                data.me.projects.map(project => (
-                                    <Header key={project.id} project={project} />
-                                ))
-                            }
-
-                            {data.me.projects && tabState.selectedTab === "Projects" && 
-                                (
-                                    <Main
-                                        defaultTab={defaultTab}
-                                        tabs={tabs}
-                                        list={list}
-                                    />
-                                )
+                            { // Renders the project admin components
+                                data.me.projects && tabState.selectedTab === "Projects" && getProjectAdminHeader()
                             }
 
 
-                            {data.me.donations && tabState.selectedTab === "Donations" ? (
+                            { // Renders the donations components
+                                data.me.donations && tabState.selectedTab === "Donations" ? (
                                 <Donations 
                                     me={data.me}
                                 />
-                            ) : null}
+                            ) : null
+                            }
 
 
 

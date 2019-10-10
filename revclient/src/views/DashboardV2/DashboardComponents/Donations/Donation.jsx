@@ -3,7 +3,9 @@ import { formatMoney } from "../../../../helpers/helpers";
 
 
 const Donation = props => {
-    console.log("Props in donation  ", props)
+    console.log("Props in donation  ", props);
+
+    
 
     return (
         

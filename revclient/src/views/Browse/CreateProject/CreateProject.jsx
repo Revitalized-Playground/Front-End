@@ -5,10 +5,13 @@ import Houseplay from '../../../assets/BrowsePage/Houseplay.png';
 
 const CreateProject = () => {
     return (
-        <section className="createProjectContainer">
-            <img src={Houseplay} alt="man at desk" />
+        <section className="create-project-container">
+            <div className="create-project-image-container">
+                <img src={Houseplay} alt="man at desk" />
+            </div>
             <div className="right">
-                <p>Like what you see so far? Creating a project is made easier by using our simple wizard form.</p>
+                <h4 className="create-project-cta-title">Like what you see?<br/>
+                Create your own project</h4> 
                 <Link to="/createproject"><button className="createButton">Create a Project</button></Link>
             </div>
         </section>
