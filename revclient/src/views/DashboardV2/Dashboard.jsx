@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import Nav from '../../components/Layout/Nav';
 
@@ -19,19 +19,21 @@ import { GET_USER_PROFILE } from '../../graphql/queries/Users';
 
 
 export default function Dashboard() {
-    const [tabState, setTab] = useState({ selectedTab: "",tabs: ["Projects", 
+    const [tabState, setTab] = useState({ selectedTab: "Projects",tabs: ["Projects", 
             // "Learning", "Working", 
             "Donations"] });
     const [selectedProject, setSelectedProject] = useState({ projectId: null })
 
-	const changeSelected = selectedTab => {setTab({ ...tabState, selectedTab: selectedTab }) };
+    const { loading, error, data, refetch } = useQuery(GET_USER_PROFILE);
     
-
+    const changeSelected = selectedTab => {setTab({ ...tabState, selectedTab: selectedTab }) };
     
-    const { loading, error, data } = useQuery(GET_USER_PROFILE);
+    useEffect(() => {
+        refetch();
+    }, [])
+    
     if (loading) return <p>loading....</p>;
     if (error) return <p>Error....</p>;
-
 
     const getProjectAdminHeader = () => {
         
