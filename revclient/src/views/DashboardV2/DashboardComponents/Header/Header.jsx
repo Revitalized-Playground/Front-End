@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { FaComments, FaFileInvoice, FaAngleDown } from "react-icons/fa";
 
 import { calculateDueDate } from "../../../../helpers/helpers";
@@ -26,7 +27,7 @@ const Header = props => {
 				<div className="header-middle-geo">
 					{city}, {state}
 				</div>
-				<div className="header-middle-title">{name}</div>
+				<div className="header-middle-title"><Link to={`/project/${props.project.id}`}>{name}</Link></div>
 				<p className="header-middle-description">{description}</p>
 			</div>
 
@@ -41,22 +42,27 @@ const Header = props => {
 				<div className="header-bottom-seemore">
 
 					{!props.toggle
-					? <button
-						className="toggle-button"
-						onClick={() => {
-							props.setSelectedProject(props.project.id)
-							props.setToggle(true)
-							}}>
-						View
+						? <button
+							className="toggle-button"
+							onClick={() => {
+								props.setSelectedProject(props.project.id)
+								props.setToggle(true)
+								}}>
+							Details
+						</button>
+						: <button
+							className="toggle-button"
+							onClick={() => {
+								props.setToggle(false)
+								}}>
+							Back
+						</button>
+					}
+					<button>						
+						<Link to={`/project/${props.project.id}`}>
+							View
+						</Link>
 					</button>
-					: <button
-						className="toggle-button"
-						onClick={() => {
-							props.setToggle(false)
-							}}>
-						Back
-					</button>}
-
 				</div>
 				<div className="team-members">
 					<div className="member-icons">

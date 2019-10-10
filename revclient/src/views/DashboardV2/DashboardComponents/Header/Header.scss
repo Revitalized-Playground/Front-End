@@ -85,13 +85,16 @@
 			display: flex;
 			align-items: flex-end;
 			margin-bottom: -5px;
-			&:hover {
-				color: $mirage;
-				transition-duration: 0.75s;
-			}
-			&:active {
-				margin-bottom: -10px;
-				transition-duration: 0.2s;
+			// &:hover {
+			// 	color: $mirage;
+			// 	transition-duration: 0.75s;
+			// }
+			// &:active {
+			// 	margin-bottom: -10px;
+			// 	transition-duration: 0.2s;
+			// }
+			button {
+				margin: 1rem;
 			}
 		}
 
