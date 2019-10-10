@@ -6,6 +6,7 @@
 		justify-content: space-between;
 		// margin: 15px 55px 125px 6%;
 		margin: 15px auto 125px auto;
+		width: 90%;
 		max-width: 1500px;
 		@media #{$tablet} {
 			flex-direction: column-reverse;
