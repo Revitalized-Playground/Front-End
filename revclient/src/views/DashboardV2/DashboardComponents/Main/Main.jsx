@@ -4,11 +4,14 @@ import Skeleton from 'react-loading-skeleton';
 import Tabs from './TabComponent/Tabs';
 import List from './TabComponent/List';
 
+import { apprenticeTabs, defaultApprenticeTab, apprenticeList } from '../../dashboarddummydata';
+
 const Main = props => {
 	const [state, setState] = useState({
-		selected: props.defaultTab,
-		tabs: props.tabs,
-		list: props.list,
+		// selected: props.defaultTab,
+		selected: defaultApprenticeTab,
+		tabs: apprenticeTabs,
+		list: apprenticeList
 	});
 
 	const changeSelected = tab => {

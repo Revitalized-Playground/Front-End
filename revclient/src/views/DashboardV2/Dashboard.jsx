@@ -22,7 +22,8 @@ export default function Dashboard() {
     const [tabState, setTab] = useState({ selectedTab: "Projects",tabs: ["Projects", 
             // "Learning", "Working", 
             "Donations"] });
-    const [selectedProject, setSelectedProject] = useState({ projectId: null })
+    const [selectedProject, setSelectedProject] = useState();
+    const [toggle, setToggle] = useState(false);
 
     const { loading, error, data, refetch } = useQuery(GET_USER_PROFILE);
     
@@ -35,29 +36,39 @@ export default function Dashboard() {
     if (loading) return <p>loading....</p>;
     if (error) return <p>Error....</p>;
 
-    const getProjectAdminHeader = () => {
-        
-
-        const projectAdminHeader = data.me.projects.map(project => (
-            <>
-                <Header key={project.id} project={project} setSelectedProject={setSelectedProject} />
+    // const getProjectAdminHeader = () => {
                 
-            </>
-        ))
+    //     // selectedProject
+    //     // ? <Header key={project.id} selectedProject={selectedProject} />
+        
+    //     data.me.projects.map(project => (
+    //         // project.id === selectedProject
+    //         // ? 
+    //         //     <>
+    //         //         <Header key={project.id} selectedProject={selectedProject} />
+    //         //         <Main />
+    //         //     </>
+    //         // :
+    //         <>
+    //             <p>Hello</p>
+    //             {console.log(project)}
+    //             <Header key={project.id} project={project} setSelectedProject={setSelectedProject} />
+    //         </>
+    //     ))
 
-        return (    
-            <>
-                {projectAdminHeader}
-                {/* {selectedProject && selectedProject === data.me.tasks.id ? (
-                    <Main
-                        defaultTab={defaultTab}
-                        tabs={tabs}
-                        list={list}
-                    />
-                ) : null} */}
-            </>
-        )
-    }
+    //     // return (    
+    //     //     <>
+    //     //         {/* {projectAdminHeader} */}
+    //     //         {/* {selectedProject && selectedProject === data.me.tasks.id ? (
+    //     //             <Main
+    //     //                 defaultTab={defaultTab}
+    //     //                 tabs={tabs}
+    //     //                 list={list}
+    //     //             />
+    //     //         ) : null} */}
+    //     //     </>
+    //     // )
+    // }
 
 
     return (
@@ -74,7 +85,29 @@ export default function Dashboard() {
                             <DashNav changeSelected={changeSelected} tabs={tabState.tabs} selectedTab={tabState.selectedTab} />
 
                             { // Renders the project admin components
-                                data.me.projects && tabState.selectedTab === "Projects" && getProjectAdminHeader()
+                                // getProjectAdminHeader()
+                                data.me.projects && tabState.selectedTab === "Projects" && toggle
+                                // getProjectAdminHeader()
+                                ? data.me.projects.map(project => {
+                                    if (project.id === selectedProject){
+                                        return <>
+                                            <Header key={project.id} project={project} setSelectedProject={setSelectedProject} setToggle={setToggle} toggle={toggle} />
+                                            <Main />
+                                        </>
+                                    }
+                                })
+                                :
+                                data.me.projects.map(project => (
+                                    //     <>
+                                    //         <Header key={project.id} selectedProject={selectedProject} />
+                                    //         <Main />
+                                    //     </>
+                                    // :
+                                    <>
+                                        {console.log(project)}
+                                        <Header key={project.id} project={project} setSelectedProject={setSelectedProject} setToggle={setToggle} toggle={toggle}/>
+                                    </>
+                                ))
                             }
 
 
@@ -85,8 +118,6 @@ export default function Dashboard() {
                                 />
                             ) : null
                             }
-
-
 
                         </section>
                     </section>

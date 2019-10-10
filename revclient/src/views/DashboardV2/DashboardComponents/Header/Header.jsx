@@ -3,10 +3,17 @@ import { FaComments, FaFileInvoice, FaAngleDown } from "react-icons/fa";
 
 import { calculateDueDate } from "../../../../helpers/helpers";
 
+import { GET_PROJECT } from '../../../../graphql/queries/Projects';
+import { useQuery } from '@apollo/react-hooks';
 
 const Header = props => {
 	const { city, state, name, description, startDate, duration } = props.project;
 
+    // const { loading, error, data } = useQuery(GET_PROJECT);
+
+	// const getProject = id => {
+
+    // }
 
 
 	return (
@@ -39,9 +46,22 @@ const Header = props => {
 					</div>
 				</div>
 				<div className="header-bottom-seemore">
-					<FaAngleDown
-						onClick={() => props.setSelectedProject(props.project.id)}
-					/>
+					{/* <FaAngleDown
+					 */}
+					{!props.toggle
+					? <button
+						onClick={() => {
+							props.setSelectedProject(props.project.id)
+							props.setToggle(true)
+							}}>
+						View
+					</button>
+					: <button
+						onClick={() => {
+							props.setToggle(false)
+							}}>
+						Back
+					</button>}
 				</div>
 				<div className="team-members">
 					<div className="member-icons">
