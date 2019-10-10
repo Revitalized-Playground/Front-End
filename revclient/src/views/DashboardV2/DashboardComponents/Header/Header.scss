@@ -123,46 +123,48 @@
 }
 
 .dark-mode {
-	.header-top {
-		.project-status.started {
-			color: $live-fg;
-			background-color: rgba($live-bg, 0.5); 
+	.dashboard .dashboard-body .dashboard-header.section {
+		.header-top {
+			.project-status.started {
+				color: $live-fg;
+				background-color: rgba($live-bg, 0.5); 
+			}
+			.project-status.not-started {
+				color: $notlive-fg;
+				background-color: rgba($notlive-bg, 0.5); 
+			}
 		}
-		.project-status.not-started {
-			color: $notlive-fg;
-			background-color: rgba($notlive-bg, 0.5); 
-		}
-	}
-	.header-middle {
-		.header-middle-geo {
-			color: $static-grey;
-		}
-		.header-middle-title {
-			color: $snow-white;
-		}
-		h2,
-		h3,
-		.header-middle-description {
-			color: $snow-white;
-		}
-	}
-	.header-bottom {
-		.bottom-left {
-			.due-date {
-				background-color: $bleached-black;
+		.header-middle {
+			.header-middle-geo {
 				color: $static-grey;
 			}
-			.bottom-icons {
-				color: $maastricht-blue;
-			}
-		}
-		.team-members {
-			p {
+			.header-middle-title {
 				color: $snow-white;
 			}
-			.member-icons {
-				.count {
+			h2,
+			h3,
+			.header-middle-description {
+				color: $snow-white;
+			}
+		}
+		.header-bottom {
+			.bottom-left {
+				.due-date {
+					background-color: $bleached-black;
+					color: $static-grey;
+				}
+				.bottom-icons {
+					color: $maastricht-blue;
+				}
+			}
+			.team-members {
+				p {
 					color: $snow-white;
+				}
+				.member-icons {
+					.count {
+						color: $snow-white;
+					}
 				}
 			}
 		}
