@@ -8,7 +8,9 @@ import { calculateDueDate } from "../../../../helpers/helpers";
 // import { useQuery } from '@apollo/react-hooks';
 
 const Header = props => {
-	const { city, state, name, description, startDate, duration } = props.project;
+	console.log('props donations', props.project.donations);
+	const { city, state, name, description, startDate, duration, donations } = props.project;
+
 
 	return (
 		<div className="dashboard-header section">
@@ -18,9 +20,6 @@ const Header = props => {
 				) : (
 					<div className="project-status not-started">Not Started</div>
 				)}
-				{/* <div className="add-tasks">
-					<p>Add Tasks</p>
-				</div> */}
 			</div>
 
 			<div className="header-middle">
@@ -29,6 +28,7 @@ const Header = props => {
 				</div>
 				<div className="header-middle-title"><Link to={`/project/${props.project.id}`}>{name}</Link></div>
 				<p className="header-middle-description">{description}</p>
+				{donations && donations.map(donation => <p>Donation Amount: ${donation.amount}</p>)}
 			</div>
 
 			<div className="header-bottom">
