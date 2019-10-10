@@ -39,7 +39,7 @@ const ProgressBar = ({progress, startingPoint}) => {
     `
 
     return (
-        <div className={percent < 100 ? "progress-bar" : "progress-bar empty"} >
+        <div className={percent < 100 ? "progress-bar" : "progress-bar full"} >
             <Box />
         </div> 
     );

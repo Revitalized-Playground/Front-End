@@ -12,3 +12,11 @@
     background-image: unset;
     background-size: 40px 40px;
 }
+
+.progress-bar.full div {
+    width: 100%;
+    background-image: unset;
+    background-color: $mutant-turtle;
+}
+
+

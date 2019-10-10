@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import Nav from '../../components/Layout/Nav';
 
@@ -19,13 +19,18 @@ import { GET_USER_PROFILE } from '../../graphql/queries/Users';
 
 
 export default function Dashboard() {
-    const [tabState, setTab] = useState({ selectedTab: "",tabs: ["Projects", 
-            // "Learning", "Working", 
+    const [tabState, setTab] = useState({ selectedTab: "", tabs: ["Projects", 
+            // "Learning", 
+            // "Working", 
             "Donations"] });
     const [selectedProject, setSelectedProject] = useState({ projectId: null })
 
-	const changeSelected = selectedTab => {setTab({ ...tabState, selectedTab: selectedTab }) };
-    
+	const changeSelected = selectedTab => { setTab({ ...tabState, selectedTab: selectedTab }) };
+
+    useEffect(() => {
+        setTab({ ...tabState, selectedTab: "Projects" })
+    }, [] )
+
 
     
     const { loading, error, data } = useQuery(GET_USER_PROFILE);
@@ -33,13 +38,13 @@ export default function Dashboard() {
     if (error) return <p>Error....</p>;
 
 
+
+
     const getProjectAdminHeader = () => {
-        
 
         const projectAdminHeader = data.me.projects.map(project => (
             <>
                 <Header key={project.id} project={project} setSelectedProject={setSelectedProject} />
-                
             </>
         ))
 
@@ -56,6 +61,7 @@ export default function Dashboard() {
             </>
         )
     }
+
 
 
     return (
@@ -79,7 +85,7 @@ export default function Dashboard() {
                             { // Renders the donations components
                                 data.me.donations && tabState.selectedTab === "Donations" ? (
                                 <Donations 
-                                    me={data.me}
+                                    donations={data.me.donations}
                                 />
                             ) : null
                             }
