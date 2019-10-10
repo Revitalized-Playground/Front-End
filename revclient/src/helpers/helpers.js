@@ -40,7 +40,7 @@ export const addUpDonations = (donationArray) => {
 
 export const calculateDueDate = (startDate, duration) => {
     let dueDate = moment(startDate).clone().add(duration, 'month').format("MMMM Do YYYY");
-    console.log(dueDate);
+    // console.log(dueDate);
     return dueDate;
 }
 
