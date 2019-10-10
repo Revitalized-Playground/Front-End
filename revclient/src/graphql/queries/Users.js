@@ -65,6 +65,16 @@ export const GET_USER_PROFILE = gql`
                     id
                     amount
                 }
+                applicants {
+                    id
+                    status
+                }
+                tradeMasters {
+                    id
+                }
+                students {
+                    id
+                }
             }
             likedProjects {
                 id
