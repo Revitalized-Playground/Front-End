@@ -1,13 +1,11 @@
 import React from 'react';
-import { FaComments, FaFileInvoice, FaAngleDown } from "react-icons/fa";
+import { FaComments, FaFileInvoice, FaAngleDown } from 'react-icons/fa';
 
-import { calculateDueDate } from "../../../../helpers/helpers";
-
+import { calculateDueDate } from '../../../../helpers/helpers';
 
 const Header = props => {
-	const { city, state, name, description, startDate, duration } = props.project;
-
-
+	console.log('props donations', props.project.donations);
+	const { city, state, name, description, startDate, duration, donations } = props.project;
 
 	return (
 		<div className="dashboard-header section">
@@ -28,6 +26,7 @@ const Header = props => {
 				</div>
 				<div className="header-middle-title">{name}</div>
 				<p className="header-middle-description">{description}</p>
+				{donations && donations.map(donation => <p>Donation Amount: ${donation.amount}</p>)}
 			</div>
 
 			<div className="header-bottom">
@@ -39,9 +38,7 @@ const Header = props => {
 					</div>
 				</div>
 				<div className="header-bottom-seemore">
-					<FaAngleDown
-						onClick={() => props.setSelectedProject(props.project.id)}
-					/>
+					<FaAngleDown onClick={() => props.setSelectedProject(props.project.id)} />
 				</div>
 				<div className="team-members">
 					<div className="member-icons">
