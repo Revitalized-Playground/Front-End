@@ -35,8 +35,8 @@ export default function Dashboard() {
 
     useEffect(() => {
         refetch();
-        let availTabs = []
-        const addProjects = data ? data.me.projects.length > 0 ? availTabs.push("Projects") : null : null;
+        let availTabs = [];
+        const addProjects = data ? data.me.projects.length > 0 ? availTabs.push("Projects") : null : null; 
         const addStudentProjects = data ? data.me.studentProjects.length > 0 ? availTabs.push("Student") : null : null;
         const addDonations = data ? data.me.donations.length > 0 ? availTabs.push("Donations") : null : null;
         const addTrademaster = data ? data.me.tradeMasterProjects.length > 0 ? availTabs.push("Tradesman") : null : null;
