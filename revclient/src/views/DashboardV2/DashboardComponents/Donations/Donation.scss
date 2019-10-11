@@ -37,14 +37,12 @@ section.dashboard-donation-card.section {
         }
     }
 }
-
-
-
-
-// 	.dark-mode section.dashboard-donation-card.section {
-// 		background-color: $bleached-black;
-// 		.dashboard-donation-container {
-//
-// 		}
-// 	}
+.dark-mode {
+    section.dashboard-donation-card.section {
+        .dashboard-donation-container {
+            background-color: $bleached-black;
+            color: $snow-white;
+        }
+    }
+}
 

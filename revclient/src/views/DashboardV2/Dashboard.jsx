@@ -45,28 +45,6 @@ export default function Dashboard() {
         setAvailableTabs(availTabs);
         
     }, [data]);
-
-    // useEffect(() => {
-    //     refetch();
-    //     if(data) {
-    //         data.me.projects.map(project => {
-    //             project.type = "admin";
-    //             setArray(array => [...array, project])
-    //         })
-    //         data.me.donations.map(project => {
-    //             project.type = "donation";
-    //             setArray(array => [...array, project])
-    //         })
-    //         data.me.studentProjects.map(project => {
-    //             project.type = "student";
-    //             setArray(array => [...array, project])
-    //         })
-    //         data.me.tradeMasterProjects.map(project => {
-    //             project.type = "master";
-    //             setArray(array => [...array, project])
-    //         })
-    //     }
-    // }, [data])
     
     if (loading) return <p>loading....</p>;
     if (error) return <p>Error....</p>;
@@ -111,33 +89,6 @@ export default function Dashboard() {
     }
     // const getStudentView = getHeaderWithTasks // this is just for dev. Soon it will be real.
 
-    {/* {}
-
-    useEffect(() => {
-        refetch();
-        if(data) {
-            data.me.projects.map(project => {
-                project.type = "admin";
-                setArray(array => [...array, project])
-            })
-            data.me.donations.map(project => {
-                project.type = "donation";
-                setArray(array => [...array, project])
-            })
-            data.me.studentProjects.map(project => {
-                project.type = "student";
-                setArray(array => [...array, project])
-            })
-            data.me.tradeMasterProjects.map(project => {
-                project.type = "master";
-                setArray(array => [...array, project])
-            })
-        }
-    }, [data])
-    */}
-
-
-
     return (
         <>
             {data.me.projects ? setAvailableTabs : null}
@@ -174,41 +125,6 @@ export default function Dashboard() {
                                     <BoringUser />
                                 ) : null
                             }
-
-
-
-
-                                {/* toggle
-                                ? 
-                                    array.map(project => {
-                                        if (project.id === selectedProject){
-                                            return <>
-                                                <Header
-                                                    key={project.id}
-                                                    project={project}
-                                                    setSelectedProject={setSelectedProject}
-                                                    setToggle={setToggle}
-                                                    toggle={toggle}
-                                                />
-                                                <Main project={project} />
-                                            </>
-                                        }
-                                    })
-                                :
-                                    array.map(project => (
-                                        <>
-                                            <Header
-                                                key={project.id}
-                                                project={project}
-                                                setSelectedProject={setSelectedProject}
-                                                setToggle={setToggle}
-                                                toggle={toggle}
-                                            />
-                                        </>
-                                    ))
-                            } */}
-
-
                         </section>
                     </section>        
                 <Footer />
