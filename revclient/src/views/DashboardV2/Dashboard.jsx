@@ -40,12 +40,22 @@ export default function Dashboard() {
 
         const projectAdminHeader = data.me.projects.map(project => (
             <>
-                <Header 
-                    key={project.id} 
-                    project={project} 
-                    setProject={setProject}
-                    selectedProject={selectedProject}
-                />
+                {!selectedProject.id ? (
+                    <Header 
+                        key={project.id} 
+                        project={project} 
+                        setProject={setProject}
+                        selectedProject={selectedProject}
+                    />
+                ) : project.id === selectedProject.id ? (
+                    <Header 
+                        key={project.id} 
+                        project={project} 
+                        setProject={setProject}
+                        selectedProject={selectedProject}
+                    />
+                ) : null}
+                
 
                 {project.id === selectedProject.id ? (
                     <Main
@@ -60,11 +70,11 @@ export default function Dashboard() {
 
         return (
             <>
-                {projectAdminHeader}
+                {selectedProject.id ? projectAdminHeader : projectAdminHeader}
             </>
         )
     }
-    const getStudentView = getProjectAdminView
+    const getStudentView = getProjectAdminView // this is just for dev. Soon it will be real.
 
 
 
