@@ -239,7 +239,10 @@ nav {
 		.right-nav ul .user .dropdown {
 			background-color: $maastricht-blue;
 			.arrow-up {
+				border-left: 15px solid $maastricht-blue;
+				border-right: 15px solid $maastricht-blue;	
 				border-bottom: 15px solid $maastricht-blue;
+				border-top: 15px solid $maastricht-blue;
 			}
 			.dropdown-option {
 				&:hover {
