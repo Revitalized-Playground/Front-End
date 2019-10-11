@@ -36,9 +36,10 @@ export default function Dashboard() {
     if (error) return <p>Error....</p>;
 
 
-    const getProjectAdminView = () => {
+    const getProjectAdminView = (projectArray) => {
+        if (!projectArray) return null
 
-        const projectAdminHeader = data.me.projects.map(project => (
+        const projectAdminHeader = projectArray.map(project => (
             <>
                 {!selectedProject.id ? (
                     <Header 
@@ -92,9 +93,14 @@ export default function Dashboard() {
                             <DashNav changeSelected={changeSelected} tabs={tabState.tabs} selectedTab={tabState.selectedTab} />
 
                             { // Renders the project admin components
-                                data.me.projects && tabState.selectedTab === "Projects" ? getProjectAdminView() : null
+                                data.me.projects && tabState.selectedTab === "Projects" ? getProjectAdminView(data.me.projects) : null
                             }
 
+                            { // Renders the student components
+                                data.me.studentProjects.project && tabState.selectedTab === "Student" ? (
+                                    getProjectAdminView(data.me.studentProjects.project)
+                                ) : null
+                            }
 
                             { // Renders the donations components
                                 data.me.donations && tabState.selectedTab === "Donations" ? (
@@ -104,11 +110,6 @@ export default function Dashboard() {
                                 ) : null
                             }
 
-                            { // Renders the donations components
-                                data.me.studentProjects && tabState.selectedTab === "Student" ? (
-                                    getStudentView()
-                                ) : null
-                            }
 
 
 

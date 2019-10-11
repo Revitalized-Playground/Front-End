@@ -44,7 +44,7 @@ export const GET_USER_PROFILE = gql`
 				amount
 			}
 
-            # This is an array with items if the user has created a project
+			# This is an array with items if the user has created a project
 			projects {
 				id
 				name
@@ -99,7 +99,7 @@ export const GET_USER_PROFILE = gql`
 				}
 			}
 
-            # This is an array with items if the user has left comments
+			# This is an array with items if the user has left comments
 			comments {
 				id
 				comment
@@ -113,7 +113,7 @@ export const GET_USER_PROFILE = gql`
 				}
 			}
 
-            # This is an array with items if the user has liked comments
+			# This is an array with items if the user has liked comments
 			likedComments {
 				id
 				comment {
@@ -132,16 +132,18 @@ export const GET_USER_PROFILE = gql`
 				}
 			}
 
-            # This is an array with items if the user is a student
+			# This is an array with items if the user is a student
 			studentProjects {
 				id
-				project {
-					id
-					name
-				}
+				# project {  # not working at the moment
+				# 	id
+				# 	name
+				# 	description
+				# 	featuredImage
+				# }
 			}
 
-            # This is an array with items if the user has tasks
+			# This is an array with items if the user has tasks
 			tasks {
 				id
 				projectTask {
@@ -161,7 +163,7 @@ export const GET_USER_PROFILE = gql`
 				}
 			}
 
-            # This is an array with items if the user has submitted an application to join a project
+			# This is an array with items if the user has submitted an application to join a project
 			applications {
 				id
 				coverLetter
@@ -177,7 +179,7 @@ export const GET_USER_PROFILE = gql`
 				}
 			}
 
-            # This is an array with items if the user is a trades master
+			# This is an array with items if the user is a trades master
 			tradeMasterProjects {
 				id
 				project {

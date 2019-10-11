@@ -17,7 +17,7 @@ const Header = props => {
 	const [ deleteProject ] = useMutation(DELETE_PROJECT);
 
 	const submitDeleteProject = async e => {
-		e.preventDefault();
+		// e.preventDefault();
 		const deletedProject = await deleteProject({ variables: { id: id } });
 		console.log(`${deletedProject} has been deleted.`)
 		props.history.push("/dashboard");

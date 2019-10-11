@@ -4,7 +4,7 @@ import Skeleton from 'react-loading-skeleton';
 
 import Tabs from './TabComponent/Tabs';
 // import List from './TabComponent/List';
-import Tasks from "./TasksComponent/Tasks";
+// import Tasks from "./TasksComponent/Tasks";
 import Task from "./TasksComponent/Task";
 
 const Main = props => {
