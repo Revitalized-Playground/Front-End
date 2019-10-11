@@ -3,7 +3,7 @@
 @import './DashboardComponents/Main/Main.scss';
 @import './DashboardComponents/DashNav/DashNav.scss';
 @import "./DashboardComponents/Donations/Donation.scss";
-
+@import "./DashboardComponents/BoringUser/BoringUser.scss";
 
 .section[class^='dashboard'] {
     @include skeleton-section;

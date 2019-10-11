@@ -4,7 +4,7 @@ import ProgressBar, {  } from "../../../../helpers/ProgressBar";
 import { calculateDueDate } from "../../../../helpers/helpers";
 
 const Donation = props => {
-    console.log("Props in donation  ", props);
+
     const fakeProps = {
         donation: {
             id: "",

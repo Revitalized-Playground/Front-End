@@ -86,7 +86,7 @@
 		.bottom-left {
 			display: flex;
 			justify-content: flex-start;
-			width: 50%;
+			width: 75%;
 			.due-date {
 				background-color: $franks-grey;
 				color: $machiavellian;
@@ -94,46 +94,41 @@
 				display: flex;
 				justify-content: left;
 				align-items: center;
-				height: 40px;
 				border-radius: 5px;
 				margin-right: 40px;
-				padding: 0 15px;
+				padding: 10px 15px;
 			}
 			.bottom-icons {
 				color: $chillFi-purple;
-				font-size: 3.8rem;
+				font-size: 3.2rem;
 				display: flex;
 				align-items: center;
+				justify-content: center;
+				a { 
+					display: flex;
+				}
 				svg {
 					margin-right: 20px;
+				}
+				.bottom-icon-seemore  {
+					font-size: 3.6rem;
+					&:hover {
+						color: lighten($chillFi-purple, 20%);
+						transition-duration: 0.75s;
+					}
+					&:active {
+						margin-bottom: -10px;
+						transition-duration: 0.2s;
+					}
 				}
 			}
 		}
 
-		.header-bottom-seemore {
-			font-size: 3.4rem;
-			color: $silver-lining;
-			display: flex;
-			align-items: flex-end;
-			margin-bottom: -5px;
-			// &:hover {
-			// 	color: $mirage;
-			// 	transition-duration: 0.75s;
-			// }
-			// &:active {
-			// 	margin-bottom: -10px;
-			// 	transition-duration: 0.2s;
-			// }
-			button {
-				margin: 1rem;
-			}
-		}
-
-
 		.team-members {
 			display: flex;
 			align-items: center;
-			width: 50%;
+			width: 25%;
+			min-width: 250px;
 			.member-icons {
 				display: flex;
 				justify-content: flex-end;
@@ -154,6 +149,28 @@
 			}
 		}
 	}
+}
+.header-bottom-seemore {
+	font-size: 3.4rem;
+	color: $static-grey;
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+    margin-bottom: 10px;
+	margin-top: -5px;
+	svg {
+		&:hover {
+			color: $mirage;
+			transition-duration: 0.75s;
+		}
+		&:active {
+			margin-bottom: -10px;
+			transition-duration: 0.2s;
+		}
+	}
+	// button {
+	// 	margin: 1rem;
+	// }
 }
 
 .dark-mode {
