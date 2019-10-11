@@ -2,14 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 // import styled from "styled-components";
-import { FaVideo, FaEnvelope, FaPhone, FaLocationArrow } from "react-icons/fa";
+import {  FaEnvelope, FaPhone, FaLocationArrow } from "react-icons/fa";
 import Skeleton,  { SkeletonTheme } from "react-loading-skeleton";
 import { InitialAvatar } from "../../../../helpers/InitialAvatar";
 import ProgressBar, { calculatePercentageProgressBar } from "../../../../helpers/ProgressBar";
 
 
 const Sidebar = props => {
-    const moneyProgress = [100, 1800]
+    const moneyProgress = [800, 1800]
     const getPercentage = calculatePercentageProgressBar(moneyProgress[0], moneyProgress[1]);
 
 
@@ -76,7 +76,7 @@ const Sidebar = props => {
                     <>
                         <div className="info progress-bar-container">
                             <div className="text">
-                                <p>Overall progress of project</p>
+                                <p>Project Completion</p>
                                 <p className="percent">{getPercentage}</p>
                             </div>
                             <ProgressBar progress={moneyProgress[0]} startingPoint={moneyProgress[1]} />

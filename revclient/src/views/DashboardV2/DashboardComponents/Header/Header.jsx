@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaComments, FaFileInvoice, FaAngleDown } from "react-icons/fa";
 
+// Helper functions
 import { calculateDueDate } from "../../../../helpers/helpers";
 
 // import { GET_PROJECT } from '../../../../graphql/queries/Projects';
@@ -11,6 +12,12 @@ const Header = props => {
 	console.log('props donations', props.project.donations);
 	const { city, state, name, description, startDate, duration, donations } = props.project;
 
+	const submitDeleteProject = async e => {
+		e.preventDefault();
+		const deletedProject = await deleteProject({ variables: { id: id } });
+		console.log(`${deletedProject} has been deleted.`)
+		props.history.push("/dashboard");
+	};
 
 	return (
 		<div className="dashboard-header section">
@@ -85,4 +92,4 @@ const Header = props => {
 	);
 };
 
-export default Header;
+export default withRouter(Header);

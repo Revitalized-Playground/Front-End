@@ -9,12 +9,12 @@ import Main from './DashboardComponents/Main/Main';
 import { useQuery } from '@apollo/react-hooks';
 import { GET_USER_PROFILE } from '../../graphql/queries/Users';
 
-export default function Dashboard() {
-    
-    const [selectedProject, setSelectedProject] = useState();
-    const [toggle, setToggle] = useState(false);
 
     const { loading, error, data, refetch } = useQuery(GET_USER_PROFILE);
+    
+    const changeSelected = selectedTab => {
+        setTab({ ...tabState, selectedTab: selectedTab }) 
+    };
     
     useEffect(() => {
         refetch();
@@ -22,6 +22,42 @@ export default function Dashboard() {
     
     if (loading) return <p>loading....</p>;
     if (error) return <p>Error....</p>;
+
+
+        const projectAdminHeader = data.me.projects.map(project => (
+            <>
+                <Header 
+                    key={project.id} 
+                    project={project} 
+                    setProject={setProject}
+                    selectedProject={selectedProject}
+                />
+
+                {project.id === selectedProject.id ? (
+                    <Main
+                        defaultTab={defaultTab}
+                        tabs={tabs}
+                        list={list}
+                    />
+                ) : null}
+            </>
+        ))
+
+        return (    
+            <>
+                {projectAdminHeader}
+                {/* {selectedProject && selectedProject === data.me.tasks.id ? (
+                    <Main
+                        defaultTab={defaultTab}
+                        tabs={tabs}
+                        list={list}
+                    />
+                ) : null} */}
+            </>
+        )
+    }
+
+
 
     return (
         <>
@@ -35,34 +71,16 @@ export default function Dashboard() {
                         <section className="dashboard-body">
 
                             { // Renders the project admin components
-                                toggle
-                                ? data.me.projects.map(project => {
-                                    if (project.id === selectedProject){
-                                        return <>
-                                            <Header
-                                                key={project.id}
-                                                project={project}
-                                                setSelectedProject={setSelectedProject}
-                                                setToggle={setToggle}
-                                                toggle={toggle}
-                                            />
-                                            <Main />
-                                        </>
-                                    }
-                                })
-                                :
-                                data.me.projects.map(project => (
-                                    <>
-                                        {console.log(project)}
-                                        <Header
-                                            key={project.id}
-                                            project={project}
-                                            setSelectedProject={setSelectedProject}
-                                            setToggle={setToggle}
-                                            toggle={toggle}
-                                        />
-                                    </>
-                                ))
+                                data.me.projects && tabState.selectedTab === "Projects" && getProjectAdminHeader()
+                            }
+
+
+                            { // Renders the donations components
+                                data.me.donations && tabState.selectedTab === "Donations" ? (
+                                <Donations 
+                                    donations={data.me.donations}
+                                />
+                            ) : null
                             }
 
                         </section>
