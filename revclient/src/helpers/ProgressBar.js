@@ -3,8 +3,10 @@ import styled from 'styled-components';
 
 export const calculatePercentageProgressBar = (progress, startingPoint) => {
     const finalPercent = Number(progress) / Number(startingPoint) * 100;
-    console.log(finalPercent);
-    return `${finalPercent}%`;
+    const digitCount = Math.log(finalPercent) * Math.LOG10E + 1 | 0;  // for positive integers
+    if (digitCount === 3) return `${finalPercent}%`;
+    if (digitCount === 2) return `${finalPercent.toPrecision(3)}%`;
+    if (digitCount === 1) return `${finalPercent.toPrecision(2)}%`;
 };
 
 const ProgressBar = ({progress, startingPoint}) => {
@@ -37,7 +39,7 @@ const ProgressBar = ({progress, startingPoint}) => {
     `
 
     return (
-        <div className={percent < 100 ? "progress-bar" : "progress-bar empty"} >
+        <div className={percent < 100 ? "progress-bar" : "progress-bar full"} >
             <Box />
         </div> 
     );
