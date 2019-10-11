@@ -22,10 +22,6 @@ const Donation = props => {
     
 
     return (
-        
-            
-
-
             <div className="dashboard-donation-container" key={props.donation.id + Date.now()}>
 
                 <div className="donation-details">
@@ -45,16 +41,5 @@ const Donation = props => {
 
     );
 }
-
-	return (
-		<div className="donations-container">
-            <div className="donation">
-
-
-			<h5>${formatMoney(props.donation.amount)}</h5>
-            </div>
-		</div>
-	);
-};
 
 export default Donation;

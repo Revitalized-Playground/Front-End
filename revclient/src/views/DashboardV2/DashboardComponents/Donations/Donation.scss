@@ -1,4 +1,50 @@
 section.dashboard-donation-card.section {
-	width: 100%;
-	padding-top: 15px;
+    width: 100%;
+    padding-top: 15px;
+    .dashboard-donation-container {
+        background-color: $franks-grey;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 30px 15px 30px 15px;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.12);
+        margin: 20px 0;
+        border-radius: 5px;
+        .donation-details {
+            width: 55%;
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: column;
+            .donation-details-completion {
+                font-size: 1.2rem;
+            }
+            p {
+                font-size: 1.6rem;
+            }
+        }
+        .donation-progress {
+            width: 30%;
+        }
+        .donation-amount {
+            width: 15%;
+            max-width: 150px;
+            display: flex;
+            justify-content: flex-end;
+            h5 {
+                width: 100%;
+                text-align: right;
+            }
+        }
+    }
 }
+
+
+
+
+// 	.dark-mode section.dashboard-donation-card.section {
+// 		background-color: $bleached-black;
+// 		.dashboard-donation-container {
+//
+// 		}
+// 	}
+
