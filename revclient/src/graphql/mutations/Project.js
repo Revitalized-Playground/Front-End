@@ -23,6 +23,15 @@ export const ADD_PROJECT = gql`
 	}
 `;
 
+export const DELETE_PROJECT = gql`
+	mutation($id: ID!) {
+		deleteProject(id: $id) {
+			name
+		}
+	}
+`;
+
+
 export const DONATE_TO_PROJECT = gql`
 	mutation($id: ID!, $data: CreateProjectDonationInput!) {
 		createProjectDonation(id: $id, data: $data) {

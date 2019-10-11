@@ -24,6 +24,37 @@
 			color: $notlive-fg;
 			background-color: $notlive-bg;
 		}
+		.project-settings {
+			color: $static-grey;
+			display: flex;
+			align-items: center;
+			justify-content: right;
+			font-size: 1.6rem;
+			margin: 0 0 auto 0;
+			.project-settings-dropdown {
+				@include subtleBoxShadow;
+				color: $bleached-black;
+				background-color: $snow-white;
+				position: absolute;
+				transform: translate(-165px, 30px);
+				width: 160px;
+				padding: 10px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				.project-settings-dropdown-option {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					cursor: pointer;
+				}
+				.project-settings-dropdown-option.delete {
+					svg {
+						color: $ruby-enchantment;
+					}
+				}
+			}
+		}
 	}
 
 	.header-middle {

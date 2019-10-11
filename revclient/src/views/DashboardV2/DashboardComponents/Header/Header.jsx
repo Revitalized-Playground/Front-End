@@ -1,13 +1,27 @@
-import React from 'react';
-import { FaComments, FaFileInvoice, FaAngleDown } from "react-icons/fa";
+import React, { useState } from 'react';
+import { withRouter } from 'react-router-dom';
+import { FaComments, FaFileInvoice, FaAngleDown, FaBan } from "react-icons/fa";
+import { GoKebabVertical } from "react-icons/go";
 
+// Helper functions
 import { calculateDueDate } from "../../../../helpers/helpers";
+
+// GQL
+import { useMutation } from '@apollo/react-hooks';
+import { DELETE_PROJECT } from "../../../../graphql/mutations";
 
 
 const Header = props => {
-	const { city, state, name, description, startDate, duration } = props.project;
+	const { city, state, name, description, startDate, duration, id } = props.project;
+	const [ settingsToggle, setSettingsToggle ] = useState({ settingsDropdown: false });
+	const [ deleteProject ] = useMutation(DELETE_PROJECT);
 
-
+	const submitDeleteProject = async e => {
+		e.preventDefault();
+		const deletedProject = await deleteProject({ variables: { id: id } });
+		console.log(`${deletedProject} has been deleted.`)
+		props.history.push("/dashboard");
+	};
 
 	return (
 		<div className="dashboard-header section">
@@ -17,9 +31,16 @@ const Header = props => {
 				) : (
 					<div className="project-status not-started">Not Started</div>
 				)}
-				{/* <div className="add-tasks">
-					<p>Add Tasks</p>
-				</div> */}
+				<div className="project-settings">
+					<GoKebabVertical onClick={() => setSettingsToggle({ settingsDropdown: !settingsToggle.settingsDropdown })}/>
+					{settingsToggle.settingsDropdown ? (
+						<div className="project-settings-dropdown">
+							<div className="project-settings-dropdown-option delete">
+								<FaBan onClick={submitDeleteProject} />&nbsp; Delete Project
+							</div>
+						</div>
+					) : null}
+				</div>
 			</div>
 
 			<div className="header-middle">
@@ -64,4 +85,4 @@ const Header = props => {
 	);
 };
 
-export default Header;
+export default withRouter(Header);
