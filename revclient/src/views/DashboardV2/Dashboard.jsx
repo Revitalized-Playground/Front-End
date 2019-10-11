@@ -15,7 +15,7 @@ import { GET_USER_PROFILE } from '../../graphql/queries/Users';
 // import { defaultTab, tabs, list } from './dashboarddummydata';
 
 export default function Dashboard() {
-    const [ tabState, setTab ] = useState({ selectedTab: "Projects", tabs: [] });
+    const [ navTabState, setNavTab ] = useState({ selectedTab: "Projects", tabs: [] });
     const [ mainTabState, setMainTabState ] = useState({ defaultMainTab: "New Tasks", mainTabs: ["New Tasks", "Tasks In Progress", "Completed Tasks", "Activity Feed"] })
     const [ selectedProject, setProject ] = useState({ showMore: false, id: null, buttonToggle: false });
     
@@ -26,11 +26,11 @@ export default function Dashboard() {
     const { loading, error, data, refetch } = useQuery(GET_USER_PROFILE); // This pulls in tons of data and can pull more!
     
     const changeSelected = selectedTab => {
-        setTab({ ...tabState, selectedTab: selectedTab }) 
+        setNavTab({ ...navTabState, selectedTab: selectedTab }) 
     };
 
     const setAvailableTabs = (availTabArray) => {
-        setTab({ ...tabState, tabs:availTabArray })
+        setNavTab({ ...navTabState, tabs:availTabArray })
     }
 
     useEffect(() => {
@@ -147,22 +147,22 @@ export default function Dashboard() {
                         <Sidebar user={data.me} />
                         <section className="dashboard-body">
                             
-                            {tabState.tabs.length <= 1 ? null : ( // Only renders the dash nav IF there are more than 1 categories
-                                <DashNav changeSelected={changeSelected} tabs={tabState.tabs} selectedTab={tabState.selectedTab} />
+                            {navTabState.tabs.length <= 1 ? null : ( // Only renders the dash nav IF there are more than 1 categories
+                                <DashNav changeSelected={changeSelected} tabs={navTabState.tabs} selectedTab={navTabState.selectedTab} />
                             )}
 
                             { // Renders the project admin components
-                                data.me.projects && tabState.selectedTab === "Projects" ? getHeaderWithTasks(data.me.projects) : null
+                                data.me.projects && navTabState.selectedTab === "Projects" ? getHeaderWithTasks(data.me.projects) : null
                             }
 
                             { // Renders the student components
-                                data.me.studentProjects.project && tabState.selectedTab === "Student" ? (
+                                data.me.studentProjects.project && navTabState.selectedTab === "Student" ? (
                                     getHeaderWithTasks(data.me.studentProjects.project)
                                 ) : null
                             }
 
                             { // Renders the donations components
-                                data.me.donations && tabState.selectedTab === "Donations" ? (
+                                data.me.donations && navTabState.selectedTab === "Donations" ? (
                                     <Donations 
                                         donations={data.me.donations}
                                     />
@@ -170,7 +170,7 @@ export default function Dashboard() {
                             }
 
                             { // This means the user has nothing. Push them to browse
-                                tabState.tabs.length === 0 ? (
+                                navTabState.tabs.length === 0 ? (
                                     <BoringUser />
                                 ) : null
                             }
