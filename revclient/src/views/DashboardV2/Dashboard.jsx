@@ -147,9 +147,9 @@ export default function Dashboard() {
                         <Sidebar user={data.me} />
                         <section className="dashboard-body">
                             
-                            {}
-
-                            <DashNav changeSelected={changeSelected} tabs={tabState.tabs} selectedTab={tabState.selectedTab} />
+                            {tabState.tabs.length <= 1 ? null : ( // Only renders the dash nav IF there are more than 1 categories
+                                <DashNav changeSelected={changeSelected} tabs={tabState.tabs} selectedTab={tabState.selectedTab} />
+                            )}
 
                             { // Renders the project admin components
                                 data.me.projects && tabState.selectedTab === "Projects" ? getHeaderWithTasks(data.me.projects) : null
