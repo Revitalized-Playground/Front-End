@@ -6,8 +6,6 @@ export const useWindowHook = () => {
     const [carousel, setCarousel] = useState(false)
     const [clicked, setClicked] = useState(false);
 
-	console.log('modal', modal)
-
     window.onclick = (e) => {
 		if(clicked === true){
 			if(e.target.className ==="user" || e.target.className ==="fun" || e.target.className ==="user fun"){

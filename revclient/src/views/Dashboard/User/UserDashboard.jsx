@@ -98,7 +98,6 @@ const UserDashboard = () => {
 	];
     
     const { loading, error, data } = useQuery(GET_USER);
-    console.log("data: ", data);
     
     if (loading) return <p>loading....</p>;
     if (error) return <p>Error....</p>;

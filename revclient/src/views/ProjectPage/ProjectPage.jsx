@@ -18,10 +18,15 @@ import { GET_PROJECT } from '../../graphql/queries';
 
 import { useWindowHook } from "../../helpers/windowOnClickHook.js";
 
+import { StripeProvider, Elements } from 'react-stripe-elements';
+
 
 const ProjectPage = ({ match }) => {
 	const [copied, setCopied] = useState(false);
 	const [donateModal, setDonateModal] = useState(false)
+	const [bool, setBool] = useState(false)
+
+	console.log(bool)
 
 	const [modalVal, setModalVal, carouselVal, setCarouselVal] = useWindowHook();
 
@@ -39,10 +44,12 @@ const ProjectPage = ({ match }) => {
 		}
 	};
 
-	const { loading, error, data } = useQuery(GET_PROJECT, {
+	const { loading, error, data, refetch} = useQuery(GET_PROJECT, {
 		variables: { id: match.params.id },
 	});
 	const [projectData, setProjectData] = useState(data);
+
+	console.log(data, 'newproj data')
 
 
 	const donateModalBlur = e => {
@@ -51,17 +58,20 @@ const ProjectPage = ({ match }) => {
 		}
 	}
 
+	const update = (amount) => {
+		setBool(!bool)
+		setProjectData({
+			...projectData,
+			project: {
+				...projectData.project,
+				donations: [...projectData.project.donations, {amount}]
+			}
+		})
+	}
+
 	useEffect(() => {
 		setProjectData(data);
 	}, [data]);
-
-	// window.onclick = function(e) {
-	// 	if (e.target.className === 'modal') {
-	// 		return setModal(false);
-	// 	} else if (e.target.className === 'carousel-large-project') {
-	// 		return setLarge(false);
-	// 	}
-	// };
 
 	if (error) return <h2>ERROR! Someone call Elan</h2>;
 
@@ -79,7 +89,12 @@ const ProjectPage = ({ match }) => {
 						</div>
 					</div>
 				</div>
-				<DonateModal donateModalBlur={donateModalBlur} donateModal={donateModal} setDonateModal={setDonateModal} />
+				<StripeProvider apiKey={process.env.REACT_APP_STRIPE_PUBLIC_KEY}>
+					<Elements>
+						<DonateModal update={update} donateModalBlur={donateModalBlur} donateModal={donateModal} setDonateModal={setDonateModal} />
+					</Elements>
+				</StripeProvider>
+				
 				<ShareModal copied={copied} setCopied={setCopied} modalVal={modalVal} setModalVal={setModalVal} val={val} />
 				<div className="project-page-flex">
 					<BasicDescription
@@ -89,7 +104,7 @@ const ProjectPage = ({ match }) => {
 						organizer={`${projectData.project.profile.firstName} ${projectData.project.profile.lastName}`}
 					/>
 					<Donate
-						raised={projectData.project.amountFunded}
+						raised={projectData.project.donations.reduce((acc, each) => Number(each.amount) + acc, 0)}
 						budget={projectData.project.goalAmount}
 						projectData={projectData}
 						setModal={setModalVal}

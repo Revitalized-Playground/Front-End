@@ -12,8 +12,6 @@
     .comment-form {
         display: flex;
         margin-bottom: 30px;
-        // height: 45px;
-        // border: 1px solid red;
         
         *:focus {
             outline: none;
@@ -21,19 +19,12 @@
         button {
             @include buttonStyler($chillFi-purple, $snow-white, 0, 0);
             border: none;
-            cursor: pointer
+            cursor: pointer;
         }
 
         textarea {
             resize: none;
-            margin-right: 10px;
-            height: 20px;
-        }
-
-        textarea:focus {
-            width: 25%;
-            height: 40px;
-            transition: 1s
+            margin: 0 10px 0 0;
         }
     }
 
