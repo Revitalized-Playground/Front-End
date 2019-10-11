@@ -61,7 +61,7 @@ const Header = props => {
 				</div>
 				<div className="header-bottom-seemore">
 					<FaAngleDown
-						onClick={() => props.setSelectedProject(props.project.id)}
+						onClick={() => props.setProject({ showMore: !props.selectedProject.showMore, id: props.selectedProject.id ? null : id })}
 					/>
 				</div>
 				<div className="team-members">

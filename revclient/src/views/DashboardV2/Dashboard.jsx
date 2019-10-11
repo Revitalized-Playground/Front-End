@@ -14,7 +14,7 @@ import Donations from "./DashboardComponents/Donations/Donations";
 import { useQuery } from '@apollo/react-hooks';
 import { GET_USER_PROFILE } from '../../graphql/queries/Users';
 
-// import { defaultTab, tabs, list } from './dashboarddummydata';
+import { defaultTab, tabs, list } from './dashboarddummydata';
 
 
 
@@ -22,11 +22,13 @@ export default function Dashboard() {
     const [tabState, setTab] = useState({ selectedTab: "Projects",tabs: ["Projects", 
             // "Learning", "Working", 
             "Donations"] });
-    const [selectedProject, setSelectedProject] = useState({ projectId: null })
+    const [selectedProject, setProject] = useState({ showMore: false, id: null })
 
     const { loading, error, data, refetch } = useQuery(GET_USER_PROFILE);
     
-    const changeSelected = selectedTab => {setTab({ ...tabState, selectedTab: selectedTab }) };
+    const changeSelected = selectedTab => {
+        setTab({ ...tabState, selectedTab: selectedTab }) 
+    };
     
     useEffect(() => {
         refetch();
@@ -39,7 +41,20 @@ export default function Dashboard() {
 
         const projectAdminHeader = data.me.projects.map(project => (
             <>
-                <Header key={project.id} project={project} setSelectedProject={setSelectedProject} />
+                <Header 
+                    key={project.id} 
+                    project={project} 
+                    setProject={setProject}
+                    selectedProject={selectedProject}
+                />
+
+                {project.id === selectedProject.id ? (
+                    <Main
+                        defaultTab={defaultTab}
+                        tabs={tabs}
+                        list={list}
+                    />
+                ) : null}
             </>
         ))
 
