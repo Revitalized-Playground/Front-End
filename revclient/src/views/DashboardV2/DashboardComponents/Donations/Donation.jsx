@@ -22,10 +22,6 @@ const Donation = props => {
     
 
     return (
-        
-            
-
-
             <div className="dashboard-donation-container" key={props.donation.id + Date.now()}>
 
                 <div className="donation-details">
@@ -46,6 +42,4 @@ const Donation = props => {
     );
 }
 
-
-export default Donation
-
+export default Donation;

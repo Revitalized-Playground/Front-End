@@ -135,12 +135,52 @@ export const GET_USER_PROFILE = gql`
 			# This is an array with items if the user is a student
 			studentProjects {
 				id
-				# project {  # not working at the moment
-				# 	id
-				# 	name
-				# 	description
-				# 	featuredImage
-				# }
+				project {
+					id
+					name
+					description
+					address
+					state
+					zip
+					city
+					goalAmount
+					duration
+					difficulty
+					startDate
+					featuredImage
+					images {
+						id
+						imageUrl
+					}
+					donations {
+						id
+						amount
+					}
+					likes {
+						id
+					}
+					comments {
+						id
+						comment
+					}
+					applicants {
+						id
+						status
+					}
+					tradeMasters {
+						id
+					}
+					students {
+						id
+					}
+					tasks {
+						id
+						description
+						priority
+						dueDate
+						budgetHours
+					}
+				}
 			}
 
 			# This is an array with items if the user has tasks

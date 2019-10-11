@@ -4,7 +4,11 @@ import styled from "styled-components";
 
 export const InitialAvatar = props => {
 
+
     const getInitials = (firstName, lastName) => {
+        if (!props.firstName || !props.lastName) {
+            return "HI"
+        }
         const firstPlusLast = firstName.slice(0,1) + lastName.slice(0,1);
         return firstPlusLast;
     }

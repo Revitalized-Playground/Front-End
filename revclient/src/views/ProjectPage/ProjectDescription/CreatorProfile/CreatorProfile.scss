@@ -99,3 +99,16 @@
 		}
 	}
 }
+.dark-mode {
+	.creatorProfile {
+		.profile-center {
+			background-color: #444;
+			box-shadow: 0px 2px 3px rgba(245, 242, 255, 0.2);
+			.creatorInfo {
+				h2, p {
+					color: $snow-white;
+				}
+			}
+		}
+	}
+}

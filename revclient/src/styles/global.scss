@@ -119,4 +119,12 @@ hr {
 	}
 }
 
+a svg {
+	&:hover {
+		color: lighten($chillFi-purple, 20%);
+	}
+	&:focus, &:active {
+		color: darken($chillFi-purple, 20%);
+	}
+}
 

@@ -3,9 +3,9 @@ import React from 'react';
 // import { IoIosWater } from "react-icons/io";
 
 
-
 const Item = props => {
-
+	
+	console.log(props.item);
 	if (props.item.tab === 'Activity Feed') {
 		return (
 			<>

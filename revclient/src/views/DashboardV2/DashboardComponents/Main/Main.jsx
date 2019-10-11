@@ -7,12 +7,18 @@ import Tabs from './TabComponent/Tabs';
 // import Tasks from "./TasksComponent/Tasks";
 import Task from "./TasksComponent/Task";
 
+import { apprenticeTabs, apprenticeList } from '../../dashboarddummydata';
+
 const Main = props => {
 	const tabs = ['New Tasks', 'Tasks In Progress', 'Completed Tasks', 'Activity Feed'];
 	const [state, setState] = useState({
-		selected: props.defaultTab,
-		list: props.list,
 		project: props.project,
+		// selected: props.defaultTab,
+		// selected: defaultApprenticeTab,
+		// selected: props.defaultTab,
+		// list: props.list,
+		list: apprenticeList,
+		tabs: apprenticeTabs,
 	});
 
 	const changeSelected = tab => {
@@ -23,7 +29,6 @@ const Main = props => {
 	};
 
 	const projectAdminMainView = () => {
-
 		const newTasksArray = state.project.tasks.map(task => (
 				<div className="list">
 					<Task task={task} tab={state.selected} />

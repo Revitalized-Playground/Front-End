@@ -255,3 +255,19 @@
 		}
 	}
 }
+.dark-mode {
+	.donateContainer {
+		// box-shadow: 0px 2px 3px #eeedef;
+		box-shadow: none;
+		.donateInnerDiv {
+			p {
+				color: $snow-white;
+			}
+			.mid-line-container {
+				p {
+					color: $snow-white;
+				}
+			}
+		}
+	}
+}

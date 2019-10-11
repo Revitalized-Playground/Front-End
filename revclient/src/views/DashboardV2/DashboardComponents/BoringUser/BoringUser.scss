@@ -1,0 +1,19 @@
+.boring-user {
+    color: $static-grey;
+    font-size: 4rem;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    width: 100%;
+    flex-direction: column;
+    height: 50%;
+    text-align: center;
+    button {
+        @include buttonStyler($chillFi-purple, $snow-white, none, 10px 0);
+        font-size: 3rem;
+        width: 30%;
+        max-width: 200px;
+        padding: 10px 20px;
+        cursor: pointer;
+    }
+}
