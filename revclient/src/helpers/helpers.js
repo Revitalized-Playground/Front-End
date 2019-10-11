@@ -44,3 +44,10 @@ export const calculateDueDate = (startDate, duration) => {
     return dueDate;
 }
 
+
+
+export const inLastWeek = (startDate) => {
+    let lastWeek = moment(startDate).clone().subtract(1, 'week').format();
+    console.log(lastWeek);
+    return lastWeek;
+}

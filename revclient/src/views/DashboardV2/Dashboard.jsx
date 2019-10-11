@@ -7,7 +7,6 @@ import Footer from "../../components/Layout/Footer";
 import Sidebar from './DashboardComponents/Sidebar/Sidebar';
 import Header from './DashboardComponents/Header/Header';
 import Main from './DashboardComponents/Main/Main';
-// import MainNoBody from "./DashboardComponents/MainNoBody/MainNoBody";
 import DashNav from "./DashboardComponents/DashNav/DashNav";
 import Donations from "./DashboardComponents/Donations/Donations";
 
@@ -19,25 +18,25 @@ import { defaultTab, tabs, list } from './dashboarddummydata';
 
 
 export default function Dashboard() {
-    const [tabState, setTab] = useState({ selectedTab: "Projects",tabs: ["Projects", 
-            // "Learning", "Working", 
-            "Donations"] });
-    const [selectedProject, setProject] = useState({ showMore: false, id: null })
+    const [ tabState, setTab ] = useState({ selectedTab: "Projects", tabs: ["Projects", "Donations", "Student"] });
+    const [ selectedProject, setProject ] = useState({ showMore: false, id: null });
 
-    const { loading, error, data, refetch } = useQuery(GET_USER_PROFILE);
+    const { loading, error, data, refetch } = useQuery(GET_USER_PROFILE); // This pulls in tons of data and can pull more!
     
     const changeSelected = selectedTab => {
         setTab({ ...tabState, selectedTab: selectedTab }) 
     };
-    
+
     useEffect(() => {
         refetch();
-    }, [])
+    }, []);
+
     
     if (loading) return <p>loading....</p>;
     if (error) return <p>Error....</p>;
 
-    const getProjectAdminHeader = () => {
+
+    const getProjectAdminView = () => {
 
         const projectAdminHeader = data.me.projects.map(project => (
             <>
@@ -53,30 +52,25 @@ export default function Dashboard() {
                         defaultTab={defaultTab}
                         tabs={tabs}
                         list={list}
+                        project={project}
                     />
                 ) : null}
             </>
         ))
 
-        return (    
+        return (
             <>
                 {projectAdminHeader}
-                {/* {selectedProject && selectedProject === data.me.tasks.id ? (
-                    <Main
-                        defaultTab={defaultTab}
-                        tabs={tabs}
-                        list={list}
-                    />
-                ) : null} */}
             </>
         )
     }
+    const getStudentView = getProjectAdminView
 
 
 
     return (
         <>
-
+            {}
             <div className="dashboard-container" >
                 <Nav />
 
@@ -88,16 +82,22 @@ export default function Dashboard() {
                             <DashNav changeSelected={changeSelected} tabs={tabState.tabs} selectedTab={tabState.selectedTab} />
 
                             { // Renders the project admin components
-                                data.me.projects && tabState.selectedTab === "Projects" && getProjectAdminHeader()
+                                data.me.projects && tabState.selectedTab === "Projects" ? getProjectAdminView() : null
                             }
 
 
                             { // Renders the donations components
                                 data.me.donations && tabState.selectedTab === "Donations" ? (
-                                <Donations 
-                                    donations={data.me.donations}
-                                />
-                            ) : null
+                                    <Donations 
+                                        donations={data.me.donations}
+                                    />
+                                ) : null
+                            }
+
+                            { // Renders the donations components
+                                data.me.studentProjects && tabState.selectedTab === "Student" ? (
+                                    getStudentView()
+                                ) : null
                             }
 
 

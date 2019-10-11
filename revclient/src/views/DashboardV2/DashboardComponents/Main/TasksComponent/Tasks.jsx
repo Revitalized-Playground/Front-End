@@ -1,15 +1,15 @@
 import React from 'react';
-import Item from './Item';
+import Task from './Task';
 
-const List = props => {
+const Tasks = props => {
     // console.log("Props in List", props)
     return (
         <div className="list">
             {props.tasks.map(task => {
-                return <Item item={task} key={task.id+Date.now()}/>
+                return <Task task={task} key={task.id+Date.now()} tab={props.tab} />
             })}
         </div>
     );
 };
 
-export default List;
+export default Tasks;
