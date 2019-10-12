@@ -15,7 +15,7 @@ import { GET_USER_PROFILE } from '../../graphql/queries/Users';
 // import { defaultTab, tabs, list } from './dashboarddummydata';
 
 export default function Dashboard() {
-    const [ tabState, setTab ] = useState({ selectedTab: "Projects", tabs: [] });
+    const [ navTabState, setNavTab ] = useState({ selectedTab: "Projects", tabs: [] });
     const [ mainTabState, setMainTabState ] = useState({ defaultMainTab: "New Tasks", mainTabs: ["New Tasks", "Tasks In Progress", "Completed Tasks", "Activity Feed"] })
     const [ selectedProject, setProject ] = useState({ showMore: false, id: null, buttonToggle: false });
     
@@ -26,11 +26,11 @@ export default function Dashboard() {
     const { loading, error, data, refetch } = useQuery(GET_USER_PROFILE); // This pulls in tons of data and can pull more!
     
     const changeSelected = selectedTab => {
-        setTab({ ...tabState, selectedTab: selectedTab }) 
+        setNavTab({ ...navTabState, selectedTab: selectedTab }) 
     };
 
     const setAvailableTabs = (availTabArray) => {
-        setTab({ ...tabState, tabs:availTabArray })
+        setNavTab({ ...navTabState, tabs:availTabArray })
     }
 
     useEffect(() => {
@@ -45,28 +45,6 @@ export default function Dashboard() {
         setAvailableTabs(availTabs);
         
     }, [data]);
-
-    // useEffect(() => {
-    //     refetch();
-    //     if(data) {
-    //         data.me.projects.map(project => {
-    //             project.type = "admin";
-    //             setArray(array => [...array, project])
-    //         })
-    //         data.me.donations.map(project => {
-    //             project.type = "donation";
-    //             setArray(array => [...array, project])
-    //         })
-    //         data.me.studentProjects.map(project => {
-    //             project.type = "student";
-    //             setArray(array => [...array, project])
-    //         })
-    //         data.me.tradeMasterProjects.map(project => {
-    //             project.type = "master";
-    //             setArray(array => [...array, project])
-    //         })
-    //     }
-    // }, [data])
     
     if (loading) return <p>loading....</p>;
     if (error) return <p>Error....</p>;
@@ -111,33 +89,6 @@ export default function Dashboard() {
     }
     // const getStudentView = getHeaderWithTasks // this is just for dev. Soon it will be real.
 
-    {/* {}
-
-    useEffect(() => {
-        refetch();
-        if(data) {
-            data.me.projects.map(project => {
-                project.type = "admin";
-                setArray(array => [...array, project])
-            })
-            data.me.donations.map(project => {
-                project.type = "donation";
-                setArray(array => [...array, project])
-            })
-            data.me.studentProjects.map(project => {
-                project.type = "student";
-                setArray(array => [...array, project])
-            })
-            data.me.tradeMasterProjects.map(project => {
-                project.type = "master";
-                setArray(array => [...array, project])
-            })
-        }
-    }, [data])
-    */}
-
-
-
     return (
         <>
             {data.me.projects ? setAvailableTabs : null}
@@ -147,22 +98,22 @@ export default function Dashboard() {
                         <Sidebar user={data.me} />
                         <section className="dashboard-body">
                             
-                            {tabState.tabs.length <= 1 ? null : ( // Only renders the dash nav IF there are more than 1 categories
-                                <DashNav changeSelected={changeSelected} tabs={tabState.tabs} selectedTab={tabState.selectedTab} />
+                            {navTabState.tabs.length <= 1 ? null : ( // Only renders the dash nav IF there are more than 1 categories
+                                <DashNav changeSelected={changeSelected} tabs={navTabState.tabs} selectedTab={navTabState.selectedTab} />
                             )}
 
                             { // Renders the project admin components
-                                data.me.projects && tabState.selectedTab === "Projects" ? getHeaderWithTasks(data.me.projects) : null
+                                data.me.projects && navTabState.selectedTab === "Projects" ? getHeaderWithTasks(data.me.projects) : null
                             }
 
                             { // Renders the student components
-                                data.me.studentProjects.project && tabState.selectedTab === "Student" ? (
+                                data.me.studentProjects.project && navTabState.selectedTab === "Student" ? (
                                     getHeaderWithTasks(data.me.studentProjects.project)
                                 ) : null
                             }
 
                             { // Renders the donations components
-                                data.me.donations && tabState.selectedTab === "Donations" ? (
+                                data.me.donations && navTabState.selectedTab === "Donations" ? (
                                     <Donations 
                                         donations={data.me.donations}
                                     />
@@ -170,45 +121,10 @@ export default function Dashboard() {
                             }
 
                             { // This means the user has nothing. Push them to browse
-                                tabState.tabs.length === 0 ? (
+                                navTabState.tabs.length === 0 ? (
                                     <BoringUser />
                                 ) : null
                             }
-
-
-
-
-                                {/* toggle
-                                ? 
-                                    array.map(project => {
-                                        if (project.id === selectedProject){
-                                            return <>
-                                                <Header
-                                                    key={project.id}
-                                                    project={project}
-                                                    setSelectedProject={setSelectedProject}
-                                                    setToggle={setToggle}
-                                                    toggle={toggle}
-                                                />
-                                                <Main project={project} />
-                                            </>
-                                        }
-                                    })
-                                :
-                                    array.map(project => (
-                                        <>
-                                            <Header
-                                                key={project.id}
-                                                project={project}
-                                                setSelectedProject={setSelectedProject}
-                                                setToggle={setToggle}
-                                                toggle={toggle}
-                                            />
-                                        </>
-                                    ))
-                            } */}
-
-
                         </section>
                     </section>        
                 <Footer />
