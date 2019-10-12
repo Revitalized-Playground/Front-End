@@ -1,115 +1,70 @@
 import gql from 'graphql-tag';
+import { 
+	USER_SUMMARY_FRAG, 
+	PROJECT_SUMMARY_FRAG, 
+	COMMENTS_FRAG, 
+} from '../fragments';
 
 export const GET_USERS = gql`
 	{
 		users {
-			id
-			password
-			email
-			firstName
+			...UserSummary
 		}
 	}
+	${USER_SUMMARY_FRAG}
 `;
+
 export const GET_USER = gql`
 	query me {
 		me {
-			email
-			firstName
-			lastName
-			profileImage
-			city
-			zip
-			address
-			state
-			aptNumber
+			...UserSummary
 		}
 	}
+	${USER_SUMMARY_FRAG}
 `;
+
+
+
 
 export const GET_USER_PROFILE = gql`
 	query me {
 		me {
-			id
-			email
-			firstName
-			lastName
-			profileImage
-			city
-			zip
-			address
-			state
-			aptNumber
+			...UserSummary
+
 			donations {
 				id
 				amount
-			}
+
+				### These two don't work
+				# project {  
+				# 	...ProjectSummary
+				# }
+				# profile {
+				# 	...UserSummary
+				# }
+        	}
 
 			# This is an array with items if the user has created a project
 			projects {
-				id
-				name
-				description
-				address
-				state
-				zip
-				city
-				goalAmount
-				duration
-				difficulty
-				startDate
-				featuredImage
-				images {
-					id
-					imageUrl
-				}
-				donations {
-					id
-					amount
-				}
-				likes {
-					id
-				}
-				comments {
-					id
-					comment
-				}
-				applicants {
-					id
-					status
-				}
-				tradeMasters {
-					id
-				}
-				students {
-					id
-				}
-				tasks {
-					id
-					description
-					priority
-					dueDate
-					budgetHours
-				}
+				...ProjectSummary
 			}
+
+			# Projects the user has liked
 			likedProjects {
 				id
 				project {
-					id
-					name
+					...ProjectSummary
+				}
+				profile {
+					...UserSummary
 				}
 			}
 
 			# This is an array with items if the user has left comments
 			comments {
-				id
-				comment
-				likes {
-					id
-				}
+				...Comments
 				project {
-					id
-					name
-					featuredImage
+					...ProjectSummary
 				}
 			}
 
@@ -117,69 +72,36 @@ export const GET_USER_PROFILE = gql`
 			likedComments {
 				id
 				comment {
-					id
-					comment
+					...Comments
 					profile {
-						id
-						firstName
-						profileImage
+						...UserSummary
 					}
 					project {
-						id
-						name
-						featuredImage
+						...ProjectSummary
 					}
 				}
+			}
+
+			# This is an array with items if the user has submitted an application to join a project
+			applications {
+				id
+				project {
+					...ProjectSummary
+				}
+				trade {
+					id
+					name
+					description
+				}
+				coverLetter
+				status
 			}
 
 			# This is an array with items if the user is a student
 			studentProjects {
 				id
 				project {
-					id
-					name
-					description
-					address
-					state
-					zip
-					city
-					goalAmount
-					duration
-					difficulty
-					startDate
-					featuredImage
-					images {
-						id
-						imageUrl
-					}
-					donations {
-						id
-						amount
-					}
-					likes {
-						id
-					}
-					comments {
-						id
-						comment
-					}
-					applicants {
-						id
-						status
-					}
-					tradeMasters {
-						id
-					}
-					students {
-						id
-					}
-					tasks {
-						id
-						description
-						priority
-						dueDate
-						budgetHours
-					}
+					...ProjectSummary
 				}
 			}
 
@@ -188,34 +110,27 @@ export const GET_USER_PROFILE = gql`
 				id
 				projectTask {
 					id
+					description
+					budgetHours
+					dueDate
+					priority
+					apprentices {
+						id
+						profile {
+							...UserSummary
+						}
+					}
+					project {
+						...ProjectSummary
+					}
 					trade {
 						id
 						name
 						description
 					}
-					description
-					priority
-					dueDate
-					budgetHours
-					apprentices {
-						id
-					}
 				}
-			}
-
-			# This is an array with items if the user has submitted an application to join a project
-			applications {
-				id
-				coverLetter
-				status
-				project {
-					id
-					name
-				}
-				trade {
-					id
-					name
-					description
+				profile {
+					...UserSummary
 				}
 			}
 
@@ -223,10 +138,28 @@ export const GET_USER_PROFILE = gql`
 			tradeMasterProjects {
 				id
 				project {
-					id
-					name
+					...ProjectSummary
 				}
+				
+				### Redundant. This query returns the projects the user is a trademaster on.
+				### No need to return the profile we already have
+				# profile {  
+				# 	...UserSummary
+				# 	applications {
+				# 		id
+				# 	}
+				# }  
 			}
+
+
+
 		}
 	}
+	${USER_SUMMARY_FRAG}
+	${PROJECT_SUMMARY_FRAG}
+	${COMMENTS_FRAG}
+	 
 `;
+
+
+

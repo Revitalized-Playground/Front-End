@@ -5,7 +5,7 @@ import { HashLink } from "react-router-hash-link";
 import {  FaEnvelope, FaPhone, FaLocationArrow } from "react-icons/fa";
 import Skeleton,  { SkeletonTheme } from "react-loading-skeleton";
 import { InitialAvatar } from "../../../../helpers/InitialAvatar";
-import ProgressBar, { calculatePercentageProgressBar } from "../../../../helpers/ProgressBar";
+import ProgressBar, { calculatePercentageProgressBar } from "../../../../components/ProgressBar/ProgressBar";
 
 
 const Sidebar = props => {

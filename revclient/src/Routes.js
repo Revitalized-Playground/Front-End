@@ -32,24 +32,21 @@ export const Routes = () => {
             <Route
                 exact
                 path="/"
-                render={() => (
-                    <LandingPage />
-                )}
+                component={LandingPage }
 		    />
+
             <Route
                 exact
                 path="/register"
-                render={() => (
-                    <Register />
-                )}
+                component={Register }
             />
+
             <Route
                 exact
                 path="/login"
-                render={() => (
-                    <Login />
-                )}
+                component={Login }
             />
+
             <Route
                 exact
                 path="/oauth/:token"
@@ -59,36 +56,32 @@ export const Routes = () => {
             <Route
                 exact
                 path="/about"
-                render={() => (
-                    <About />
-                )}
+                component={About }
             />
+
 
             {/* private routes */}
 
             <Route
                 // exact
                 path="/dashboard-old"
-                render={() => (
-                    <DashboardOld />
-                )}
+                component={DashboardOld }
             />
+
 
             <Route
                 // exact
                 path="/dashboard"
-                render={() => (
-                    <Dashboard />
-                )}
+                component={Dashboard}
+
             />
 
             {/* <Route
                 // exact
                 path="/profile/setup"
-                render={() => (
-                    <SetupProfile />
-                )}
+                component={SetupProfile }
             /> */}
+
 
             <Route
                 // exact
@@ -98,21 +91,20 @@ export const Routes = () => {
                 )}
             />
 
+
             {/* Project routes */}
             <Route
                 path="/projects"
-                render={() => (
-                    <ProjectsHome />
-                )}
+                component={ProjectsHome }
             />
+
 
             <Route
                 exact
                 path="/project/:id"
-                render={() => (
-                    <ProjectPage />
-                )}
+                component={ProjectPage }
             />
+
 
 
             <Route
@@ -123,17 +115,15 @@ export const Routes = () => {
 
             <Route
                 path="/createproject"
-                render={() => (
-                    <CreateProjectWizard />
-                )}
+                component={CreateProjectWizard }
             />
+
 
             <Route
                 path="/browse"
-                render={() => (
-                    <Browse />
-                )}
+                component={Browse }
             />
+
 
         </BrowserRouter>
     );

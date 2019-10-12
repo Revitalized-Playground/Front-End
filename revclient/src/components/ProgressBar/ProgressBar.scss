@@ -10,7 +10,7 @@
 
 .progress-bar.empty div {
     background-image: unset;
-    background-size: 40px 40px;
+    background-color: rgba($silver-lining, 0.75);
 }
 
 .progress-bar.full div {

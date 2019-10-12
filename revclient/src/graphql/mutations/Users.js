@@ -1,4 +1,5 @@
 import gql from 'graphql-tag';
+import { USER_SUMMARY_FRAG } from '../fragments';
 
 
 export const CREATE_USER = gql`
@@ -6,11 +7,11 @@ export const CREATE_USER = gql`
         createUser(data: $data) {
             token
             profile {
-                id
-                email
+                ...UserSummary
             }
         }
     }
+    ${USER_SUMMARY_FRAG}
 `;
 
 export const LOGIN_USER = gql`
@@ -18,11 +19,11 @@ export const LOGIN_USER = gql`
         loginUser(data: $data) {
             token
             profile {
-                id
-                email
+                ...UserSummary
             }
         }
     }
+    ${USER_SUMMARY_FRAG}
 `;
 
 export const UPDATE_USER_PROFILE = gql`

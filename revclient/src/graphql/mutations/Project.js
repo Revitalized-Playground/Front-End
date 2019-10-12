@@ -1,4 +1,6 @@
-import { gql } from 'apollo-boost';
+import gql from 'graphql-tag';
+import { USER_SUMMARY_FRAG } from '../fragments';
+
 
 export const ADD_COMMENT = gql`
 	mutation($data: CreateProjectCommentInput!) {
@@ -6,13 +8,11 @@ export const ADD_COMMENT = gql`
 			id
 			comment
 			profile {
-				id
-				firstName
-				lastName
-				profileImage
+				...UserSummary
 			}
 		}
 	}
+	${USER_SUMMARY_FRAG}
 `;
 
 export const ADD_PROJECT = gql`
@@ -53,11 +53,6 @@ export const EDIT_COMMENT = gql`
         updateProjectComment(data: $data) {
             id
             comment
-            # likes {
-            #     id
-            #     profile
-            #     comment
-            # }
         }
     }
 `

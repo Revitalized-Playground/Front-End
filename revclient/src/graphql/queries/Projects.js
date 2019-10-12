@@ -1,64 +1,28 @@
 import gql from 'graphql-tag';
+import { PROJECT_SUMMARY_FRAG, USER_SUMMARY_FRAG, COMMENTS_FRAG } from '../fragments';
+
 
 export const GET_PROJECTS = gql`
 	query projects {
 		projects {
-			id
-			name
-			description
-			address
-			state
-			zip
-			city
-			goalAmount
-			amountFunded
+			...ProjectSummary
 		}
 	}
+	${USER_SUMMARY_FRAG}
+	${COMMENTS_FRAG}
+	${PROJECT_SUMMARY_FRAG}
 `;
 
 export const GET_PROJECT = gql`
 	query project($id: ID!) {
 		project(id: $id) {
-			id
-			name
-			startDate
-			description
-			address
-			state
-			zip
-			city
-			goalAmount
-			amountFunded
-			featuredImage
-			difficulty
-			duration
-			donations {
-				id
-				amount
-			}
-			comments {
-				id
-				comment
-				profile {
-					id
-					profileImage
-					firstName
-					lastName
-				}
-			}
+			...ProjectSummary
 			profile {
-				id
-				profileImage
-				firstName
-				lastName
-				email
-				state
-				city
-			}
-			images {
-				id
-				imageUrl
+				...UserSummary
 			}
 		}
 	}
+	${USER_SUMMARY_FRAG}
+	${COMMENTS_FRAG}
+	${PROJECT_SUMMARY_FRAG}
 `;
