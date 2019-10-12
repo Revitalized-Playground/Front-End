@@ -18,24 +18,25 @@ import CrowdFunding from './CrowdFunding/CrowdFunding';
 // import Testimonials from './Testimonials/Testimonials';
 // import FullScaleApp from './FullScaleApp/FullScaleApp';
 
-export default function LandingPage() {
-	return (
-		<>
-		<Nav />
-		<div className="landing">
-			<Header />
-			<CrowdFunding />
-			<ProjectSpotlight />
-			<FeaturedProjects />
-			
-			
-			{/* <OurPurpose /> */}
-			{/* <OnTheJob /> */}
-			{/* <FullScaleApp /> */}
-			{/* <Testimonials /> */}
-			<SearchProjects />
-		</div>
-		<Footer />
-		</>
-	);
+
+class LandingPage extends React.Component {
+
+	render() {
+		return (
+			<>
+			<Nav />
+			<div className="landing">
+				<Header />
+				<CrowdFunding />
+				<ProjectSpotlight />
+				<FeaturedProjects />
+				<SearchProjects />
+			</div>
+			<Footer />
+			</>
+		);
+	}
 }
+
+
+export default LandingPage;
