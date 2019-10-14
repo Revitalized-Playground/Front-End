@@ -7,11 +7,11 @@ import Donations from "../DashboardComponents/Main/Donations/Donations";
 
 
 export default function HeaderMainSort(props) {
-    const { projectArray, selectedProject, setProject, mainTabs, setMainTabs, dashNavTabState, possibleDashNavTabs } = props
+    const { projectArray, selectedProject, setProject, mainTabs, setMainTabs, dashNavTabState, possibleDashNavTabs } = props;
     if (!projectArray) return null;
     let renderedHeaderMain;
-    console.log("props in HeaderMainSort: ", props);
-    console.log("dashNavTabState ",dashNavTabState);
+    // console.log("props in HeaderMainSort: ", props);
+    // console.log("dashNavTabState ",dashNavTabState);
 
 
     // Selected tab is PROJECT ADMIN
@@ -40,8 +40,8 @@ export default function HeaderMainSort(props) {
                 {project.id === selectedProject.id ? ( // Render the main tab of the selected header
                     <MainProjectAdmin
                         project={project}
-                        mainTabs={mainTabs.projectAdminTabs}
-                        defaultTab={mainTabs.projectAdminTabs[0]}
+                        mainTabs={mainTabs}
+                        selectedMainTab={mainTabs.selectedMainTab}
                         setMainTabs={setMainTabs}
                     />
                 ) : null}
@@ -75,10 +75,10 @@ export default function HeaderMainSort(props) {
                 
                 {project.project.id === selectedProject.id ? (
                     <MainStudent
-                        // defaultTab={mainTab.defaultMainTab}
-                        // setMainTab={setMainTab}
-                        // tabs={mainTab.studentTabs}
-                        // project={project.project}
+                        defaultTab={mainTabs.defaultMainTab}
+                        setMainTab={setMainTabs}
+                        tabs={mainTabs.studentTabs}
+                        project={project.project}
                     />
                 ) : null}
             </React.Fragment>

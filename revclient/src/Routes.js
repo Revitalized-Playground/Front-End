@@ -103,7 +103,7 @@ export const Routes = () => {
 
             <Route
                 exact
-                path="/project/:id"
+                path="/project/:slug"
                 component={ProjectPage }
             />
 
@@ -126,7 +126,7 @@ export const Routes = () => {
                 component={Browse }
             />
 
-            <Route 
+            <Route
                 exact
                 path='/studentapplicationform'
                 render={() => (

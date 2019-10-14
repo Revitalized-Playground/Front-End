@@ -23,8 +23,6 @@ const SingleComment = ({ each, editCommentMutation, deleteComment, currentUser, 
 		}
 	};
 
-	console.log(comment);
-
 	return (
 		<div className="commentFlex" key={comment.id}>
 			{comment.profile.profileImage === undefined ? null : (

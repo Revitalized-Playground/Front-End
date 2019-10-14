@@ -30,10 +30,10 @@ const CarouselCard = ( {card, view, index, name} ) => {
                     <div className="carousel-card-body">
                         <div className="carousel-card-body-descript">
                             <i>{card.city}, {card.state}</i>
-                            <Link to={`/project/${card.id}`}>
+                            <Link to={`/project/${card.slug}`}>
                                 <h5>{card.name}</h5>
                             </Link>
-                            <ReadMoreReact 
+                            <ReadMoreReact
                                 text={card.description}
                                 min={40}
                                 ideal={80}

@@ -6,13 +6,15 @@ import {
 
 import {
   GET_PROJECTS,
-  GET_PROJECT,
+  GET_PROJECT_BY_ID,
+  GET_PROJECT_BY_SLUG,
 } from './Projects';
 
 export {
   GET_USERS,
   GET_USER,
   GET_PROJECTS,
-  GET_PROJECT,
+  GET_PROJECT_BY_ID,
+  GET_PROJECT_BY_SLUG,
   GET_USER_PROFILE,
 }

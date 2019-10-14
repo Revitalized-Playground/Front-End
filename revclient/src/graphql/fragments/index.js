@@ -36,6 +36,7 @@ export const COMMENTS_FRAG = gql`
 export const PROJECT_SUMMARY_FRAG = gql`
     fragment ProjectSummary on Project {
         id
+        slug
         name
         description
         address

@@ -1,7 +1,6 @@
 import gql from 'graphql-tag';
 import { PROJECT_SUMMARY_FRAG, USER_SUMMARY_FRAG, COMMENTS_FRAG } from '../fragments';
 
-
 export const GET_PROJECTS = gql`
 	query projects {
 		projects {
@@ -13,9 +12,27 @@ export const GET_PROJECTS = gql`
 	${PROJECT_SUMMARY_FRAG}
 `;
 
-export const GET_PROJECT = gql`
-	query project($id: ID!) {
-		project(id: $id) {
+export const GET_PROJECT_BY_ID = gql`
+	query projectById($id: ID!) {
+		projectById(id: $id) {
+			...ProjectSummary
+			profile {
+				...UserSummary
+			}
+			comments {
+				...Comments
+			}
+		}
+	}
+	${USER_SUMMARY_FRAG}
+	${COMMENTS_FRAG}
+	${PROJECT_SUMMARY_FRAG}
+`;
+
+
+export const GET_PROJECT_BY_SLUG = gql`
+	query projectById($slug: String!) {
+		projectBySlug(slug: $slug) {
 			...ProjectSummary
 			profile {
 				...UserSummary
