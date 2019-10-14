@@ -1,6 +1,43 @@
 
 
-// .recommened-projects-section {
-
-// }
+.browse-container .recommened-projects-section {
+    .slider {
+        .carousel-card-inner.__recommended {
+            height: 360px;
+            .carousel-card-image {
+                svg {
+                    color: $ruby-enchantment;
+                    padding: 10px;
+                    font-size: 1.8rem;
+                }
+                img {
+                    height: 155px;
+                }
+            }
+            .carousel-card-body {
+                height: calc(100% - 155px);
+                .carousel-card-body-descript {
+                    h5 {
+                
+                        &:hover {
+    
+                        }
+                    }
+                    .display-text-group {
+                        .displayed-text {
+                            .read-more-button {
+                            }
+                        }
+                    }
+                }
+                .carousel-card-body-money {
+                    div {
+                    }
+                    p {
+                    }
+                }
+            }
+        } 
+    }
+}
 

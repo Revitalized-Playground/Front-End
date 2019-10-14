@@ -1,7 +1,7 @@
 import React from 'react';
-import { formatMoney } from "../../../../helpers/helpers";
-import ProgressBar from "../../../../components/ProgressBar/ProgressBar";
-import { calculateDueDate } from "../../../../helpers/helpers";
+import { formatMoney } from "../../../../../helpers/helpers";
+import ProgressBar from "../../../../../components/ProgressBar/ProgressBar";
+import { calculateDueDate } from "../../../../../helpers/helpers";
 
 const Donation = props => {
 

@@ -4,7 +4,9 @@ import Donation from "./Donation";
 
 
 const Donations = props => {
-console.log("Props in donations  ", props.donations)
+
+    // console.log("Props in donations  ", props.donations);
+
     return (
         <section className="dashboard-donation-card section">
             <h3>Donations you have made</h3>

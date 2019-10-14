@@ -5,6 +5,7 @@
         background-color: $snow-white;
         margin: 10px;
         border-radius: 5px;
+        height: 360px;
         font-size: 1.2rem;
         @include subtleBoxShadow;
         .carousel-card-image {
@@ -13,9 +14,6 @@
             justify-content: flex-start;
             svg {
                 position: absolute;
-                color: $ruby-enchantment;
-                padding: 10px;
-                font-size: 1.8rem;
                 z-index: 1;
             }
             img {
@@ -29,7 +27,7 @@
             display: flex;
             flex-direction: column;
             padding: 10px;
-            height: calc(100% - 140px);
+            height: calc(100% - 150px);
             justify-content: space-between;
             .carousel-card-body-descript {
                 h5 {
@@ -53,9 +51,6 @@
                 }
             }
             .carousel-card-body-money {
-                div {
-                    background-color: $erudite-purple;
-                }
                 p {
                     margin: 10px 0;
                     font-size: 1.4rem;

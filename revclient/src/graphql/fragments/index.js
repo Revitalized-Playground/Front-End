@@ -43,6 +43,7 @@ export const PROJECT_SUMMARY_FRAG = gql`
         zip
         city
         goalAmount
+        amountFunded
         duration
         difficulty
         startDate
