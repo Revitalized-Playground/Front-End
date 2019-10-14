@@ -1,7 +1,8 @@
 import React from 'react';
 import Slider from "react-slick";
 
-import RecommendedProjectsSkeleton from './RecommendedProjectsSkeleton';
+// import RecommendedProjectsSkeleton from './RecommendedProjectsSkeleton';
+import LoadingSpinner from "../../../components/LoadingSpinner/LoadingSpinner";
 import CarouselCard from '../CarouselCard/CarouselCard';
 import { NextArrow, PrevArrow } from "../CarouselCard/Arrows";
 
@@ -18,10 +19,10 @@ const RecommendedProjects = () => {
             infinite: true,
             speed: 500,
             slidesToShow: 5,
-            slidesToScroll: 2,
+            slidesToScroll: 1,
             swipeToSlide: true,
             centerPadding: "400px",
-            lazyLoad: "progressive",
+            lazyLoad: "on-demand",
             className: "carousel-card",
             nextArrow: <NextArrow />,
             prevArrow: <PrevArrow />,
@@ -30,7 +31,7 @@ const RecommendedProjects = () => {
                     breakpoint: 1400,
                     settings: {
                         slidesToShow: 4,
-                        slidesToScroll: 2,
+                        slidesToScroll: 1,
                     }
                 },
                 {
@@ -57,7 +58,7 @@ const RecommendedProjects = () => {
             ]
         }
 
-        if (loading) return <RecommendedProjectsSkeleton/>
+        if (loading) return <LoadingSpinner />
 
         if (error) return console.log(error)
 

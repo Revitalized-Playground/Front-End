@@ -120,7 +120,6 @@ const NearYou = () => {
     ]
 
     const settings = {
-        // arrows: true,
         dots: false,
         infinite: true,
         speed: 500,
@@ -128,7 +127,7 @@ const NearYou = () => {
         slidesToScroll: 3,
         swipeToSlide: true,
         centerPadding: "400px",
-        lazyLoad: "progressive",
+        lazyLoad: "on-demand",
         className: "carousel-card",
         nextArrow: <NextArrow />,
         prevArrow: <PrevArrow />,

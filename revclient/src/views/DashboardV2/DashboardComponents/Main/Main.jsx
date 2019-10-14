@@ -1,30 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Skeleton from 'react-loading-skeleton';
+import LoadingSpinner from "../../../../components/LoadingSpinner/LoadingSpinner";
 // import { inLastWeek } from "../../../../helpers/helpers";
 
 import Tabs from './TabComponent/Tabs';
-// import List from './TabComponent/List';
-// import Tasks from "./TasksComponent/Tasks";
 import Task from "./TasksComponent/Task";
 
-import { apprenticeTabs, apprenticeList } from '../../dashboarddummydata';
+// import { apprenticeTabs, apprenticeList } from '../../dashboarddummydata';
 
 const Main = props => {
-	const tabs = ['New Tasks', 'Tasks In Progress', 'Completed Tasks', 'Activity Feed'];
+
 	const [state, setState] = useState({
-		project: props.project,
-		// selected: props.defaultTab,
-		// selected: defaultApprenticeTab,
-		// selected: props.defaultTab,
-		// list: props.list,
-		list: apprenticeList,
-		tabs: apprenticeTabs,
+		project: "",
+		selected: "",
+		tabs: "",
 	});
 
-	const changeSelected = tab => {
+	useEffect(() => {
+		setState({
+			project: props.project,
+			selected: props.defaultTab,
+			tabs: props.mainTabs,
+		})
+	}, [])
+
+	const changeSelected = userSelectedTab => {
 		setState({
 			...state,
-			selected: tab,
+			selected: userSelectedTab,
 		});
 	};
 
@@ -42,10 +45,17 @@ const Main = props => {
 		)
 	}
 
+
+	if (!state.tabs) {
+		return (
+			<LoadingSpinner />
+		)
+	}
+
 	return (
 		<div className="dashboard-main section">
 			<div className="dashboard-title">
-				{<Tabs tabs={tabs} selected={state.selected} changeSelected={changeSelected} /> || (
+				{<Tabs tabs={state.tabs} selected={state.selected} changeSelected={changeSelected} /> || (
 					<>
 						<Skeleton count={1} height={25} width={200} />
 						<Skeleton count={1} height={25} width={200} />

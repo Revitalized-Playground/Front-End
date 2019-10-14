@@ -11,6 +11,9 @@ section.dashboard-dash-nav.section {
     .tab {
         color: $black-void;
         padding: 10px 60px;
+        @media #{$tablet} {
+            padding: 10px 30px;   
+        }
     }
     .unavailable-tab.tab {
         color: $static-grey;
@@ -26,8 +29,16 @@ section.dashboard-dash-nav.section {
         border-right: 1px solid $static-grey;;
         border-left: 1px solid $static-grey;;
         border-bottom: 1px solid white;
+
     }
 }
-
-// .dark-mode {
-// }
+.dark-mode {
+    section.dashboard-dash-nav.section {
+        .tab {
+            color: $snow-white;
+        }
+        .active-tab {
+            color: $black-void;
+        }
+    }
+}

@@ -27,6 +27,7 @@
     "react-dom": "^16.9.0",
     "react-dropzone": "^10.1.9",
     "react-icons": "^3.7.0",
+    "react-loader-spinner": "^3.1.4",
     "react-loading-skeleton": "^1.1.2",
     "react-map-gl": "^5.0.11",
     "react-map-gl-geocoder": "^2.0.11",

@@ -3,212 +3,153 @@ import React, { useState, useEffect } from 'react';
 import Nav from '../../components/Layout/Nav';
 import Footer from "../../components/Layout/Footer";
 import Sidebar from './DashboardComponents/Sidebar/Sidebar';
-import Header from './DashboardComponents/Header/Header';
-import Main from './DashboardComponents/Main/Main';
 import DashNav from "./DashboardComponents/DashNav/DashNav";
-import Donations from "./DashboardComponents/Donations/Donations";
+
 import BoringUser from "./DashboardComponents/BoringUser/BoringUser";
+
+import HeaderMainSort from "./HeaderMainSort/HeaderMainSort";
 
 import { useQuery } from '@apollo/react-hooks';
 import { GET_USER_PROFILE } from '../../graphql/queries/Users';
 
-// import { defaultTab, tabs, list } from './dashboarddummydata';
 
-export default function Dashboard() {
-    const [ tabState, setTab ] = useState({ selectedTab: "Projects", tabs: [] });
-    const [ mainTabState, setMainTabState ] = useState({ defaultMainTab: "New Tasks", mainTabs: ["New Tasks", "Tasks In Progress", "Completed Tasks", "Activity Feed"] })
-    const [ selectedProject, setProject ] = useState({ showMore: false, id: null, buttonToggle: false });
-    
-    // const [selectedProject, setSelectedProject] = useState();
-    // const [toggle, setToggle] = useState(false);
-    // const [array, setArray] = useState([]);
+const Dashboard = () => {
+    // Change these array values if you need to change the name of the dashnav tabs
+    let possibleDashNavTabs = ["Project Admin", "Student", "Trade Master", "Donations"]; 
+    const [ dashNavTabState, setDashNavTab ] = useState({ selectedDashNavTab: null, dashTabs: [], dashTabCount: null, });
 
-    const { loading, error, data, refetch } = useQuery(GET_USER_PROFILE); // This pulls in tons of data and can pull more!
-    
-    const changeSelected = selectedTab => {
-        setTab({ ...tabState, selectedTab: selectedTab }) 
+    // Change these values to adjust the names of the tabs in the main view.
+    let possibleMainTabs = { 
+        projectAdminTabs: ["Students", "Trade Masters", "Tasks", "Metrics"],
+        studentTabs: ["New Tasks", "Tasks In Progress", "Completed Tasks"],
+        tradeMasterTabs: ["Students", "Tasks", "Metrics"],
+        donationTabs: ["All Donations", "Project Donations"],
     };
+    const [ mainTabs, setMainTabs ] = useState({ ...possibleMainTabs, defaultMainTab:"" });
 
-    const setAvailableTabs = (availTabArray) => {
-        setTab({ ...tabState, tabs:availTabArray })
-    }
+    const [ selectedProject, setProject ] = useState({ project: null, id: null, showMore: false, buttonToggle: false });
+
+    // This useQuery pulls in tons of data and can pull more! See graphql/queries to adjust what it pulls in
+    const { loading, error, data, refetch } = useQuery( GET_USER_PROFILE );
+
+
+    // The following 2 functions and useEffect deal with determining what dash nav options should be shown based
+    // on what the user has available to them in the useQuery data. This piece of logic could probably be written
+    // more efficiently. 
+    const setAvailableDashNavTabs = (newAvailTabArray, howMany) => { 
+        setDashNavTab({ ...dashNavTabState, selectedDashNavTab: newAvailTabArray[0], dashTabs: newAvailTabArray, dashTabCount: howMany }) 
+    };
+    const selectDashNavTab = userSelectedTab => { setDashNavTab({ ...dashNavTabState, selectedDashNavTab: userSelectedTab }) };
 
     useEffect(() => {
         refetch();
-        let availTabs = []
-        const addProjects = data ? data.me.projects.length > 0 ? availTabs.push("Projects") : null : null;
-        const addStudentProjects = data ? data.me.studentProjects.length > 0 ? availTabs.push("Student") : null : null;
-        const addDonations = data ? data.me.donations.length > 0 ? availTabs.push("Donations") : null : null;
-        const addTrademaster = data ? data.me.tradeMasterProjects.length > 0 ? availTabs.push("Tradesman") : null : null;
-        console.log(addProjects, addStudentProjects, addDonations, addTrademaster);
-        
-        setAvailableTabs(availTabs);
-        
-    }, [data]);
+        let availDashTabs = [];
+        let count = "";
+        count = data ? data.me.projects.length > 0 ? availDashTabs.push(possibleDashNavTabs[0]) : null : null;
+        count = data ? data.me.studentProjects.length > 0 ? availDashTabs.push(possibleDashNavTabs[1]) : null : null;
+        count = data ? data.me.tradeMasterProjects.length > 0 ? availDashTabs.push(possibleDashNavTabs[2]) : null : null;
+        count = data ? data.me.donations.length > 0 ? availDashTabs.push(possibleDashNavTabs[3]) : null : null;
 
-    // useEffect(() => {
-    //     refetch();
-    //     if(data) {
-    //         data.me.projects.map(project => {
-    //             project.type = "admin";
-    //             setArray(array => [...array, project])
-    //         })
-    //         data.me.donations.map(project => {
-    //             project.type = "donation";
-    //             setArray(array => [...array, project])
-    //         })
-    //         data.me.studentProjects.map(project => {
-    //             project.type = "student";
-    //             setArray(array => [...array, project])
-    //         })
-    //         data.me.tradeMasterProjects.map(project => {
-    //             project.type = "master";
-    //             setArray(array => [...array, project])
-    //         })
-    //     }
-    // }, [data])
+        setAvailableDashNavTabs(availDashTabs, count);
+    }, [data]);
     
     if (loading) return <p>loading....</p>;
     if (error) return <p>Error....</p>;
 
-    const getHeaderWithTasks = (projectArray) => {
-        if (!projectArray) return null
-
-        const projectAdminHeader = projectArray.map(project => (
-            <>
-                {!selectedProject.id ? (
-                    <Header 
-                        key={project.id} 
-                        project={project} 
-                        setProject={setProject}
-                        selectedProject={selectedProject}
-                    />
-                ) : project.id === selectedProject.id ? (
-                    <Header 
-                        key={project.id} 
-                        project={project} 
-                        setProject={setProject}
-                        selectedProject={selectedProject}
-                    />
-                ) : null}
-                
-                {project.id === selectedProject.id ? (
-                    <Main
-                        defaultTab={mainTabState.defaultMainTab}
-                        setMainTabState={setMainTabState}
-                        tabs={mainTabState.mainTabs}
-                        project={project}
-                    />
-                ) : null}
-            </>
-        ))
-
-        return (
-            <>
-                {selectedProject.id ? projectAdminHeader : projectAdminHeader}
-            </>
-        )
-    }
-    // const getStudentView = getHeaderWithTasks // this is just for dev. Soon it will be real.
-
-    {/* {}
-
-    useEffect(() => {
-        refetch();
-        if(data) {
-            data.me.projects.map(project => {
-                project.type = "admin";
-                setArray(array => [...array, project])
-            })
-            data.me.donations.map(project => {
-                project.type = "donation";
-                setArray(array => [...array, project])
-            })
-            data.me.studentProjects.map(project => {
-                project.type = "student";
-                setArray(array => [...array, project])
-            })
-            data.me.tradeMasterProjects.map(project => {
-                project.type = "master";
-                setArray(array => [...array, project])
-            })
-        }
-    }, [data])
-    */}
-
-
-
     return (
         <>
-            {data.me.projects ? setAvailableTabs : null}
+            {data.me.projects ? setAvailableDashNavTabs : null}
             <div className="dashboard-container" >
                 <Nav />
                     <section className="dashboard">
-                        <Sidebar user={data.me} />
+                        <Sidebar 
+                            user={data.me}
+                            selectedProject={selectedProject ? selectedProject : null}
+                        />
                         <section className="dashboard-body">
                             
-                            {tabState.tabs.length <= 1 ? null : ( // Only renders the dash nav IF there are more than 1 categories
-                                <DashNav changeSelected={changeSelected} tabs={tabState.tabs} selectedTab={tabState.selectedTab} />
+                            {dashNavTabState.dashTabs.length <= 1 ? null : ( // Only renders the dash nav IF there are more than 1 categories
+                                <DashNav 
+                                    selectDashNavTab={selectDashNavTab} 
+                                    dashTabs={dashNavTabState.dashTabs} 
+                                    selectedTab={dashNavTabState.selectedDashNavTab} 
+                                />
                             )}
 
-                            { // Renders the project admin components
-                                data.me.projects && tabState.selectedTab === "Projects" ? getHeaderWithTasks(data.me.projects) : null
-                            }
-
-                            { // Renders the student components
-                                data.me.studentProjects.project && tabState.selectedTab === "Student" ? (
-                                    getHeaderWithTasks(data.me.studentProjects.project)
-                                ) : null
-                            }
-
-                            { // Renders the donations components
-                                data.me.donations && tabState.selectedTab === "Donations" ? (
-                                    <Donations 
-                                        donations={data.me.donations}
+                            { // Renders the header and main components for PROJECT ADMIN
+                                data.me.projects && dashNavTabState.selectedDashNavTab === possibleDashNavTabs[0] ? (
+                                    <HeaderMainSort 
+                                        projectArray={data.me.projects}     // <-- depending on view, this is what changes. This is the project array being sent
+                                        selectedProject={selectedProject}   // --- These handle choosing a project to view
+                                        setProject={setProject}             // -/
+                                        
+                                        mainTabs={mainTabs}                 // --- These handle display and selecting tabs in the main section depending on view
+                                        setMainTabs={setMainTabs}           // -/
+                                        possibleMainTabs={possibleMainTabs}   // <-- This an array of main tab options                                    
+                                        
+                                        dashNavTabState={dashNavTabState}           // <-- This handles the potential dashnav
+                                        possibleDashNavTabs={possibleDashNavTabs}   // <-- This an array of options for dash nav tabs
                                     />
                                 ) : null
                             }
 
-                            { // This means the user has nothing. Push them to browse
-                                tabState.tabs.length === 0 ? (
-                                    <BoringUser />
+                            { // Renders the header and main components for STUDENT
+                                data.me.studentProjects && dashNavTabState.selectedDashNavTab === possibleDashNavTabs[1] ? (
+                                    <HeaderMainSort 
+                                        projectArray={data.me.studentProjects} 
+                                        selectedProject={selectedProject}
+                                        setProject={setProject}
+                                        
+                                        mainTabs={mainTabs}
+                                        setMainTabs={setMainTabs}
+                                        possibleMainTabs={possibleMainTabs}
+
+                                        dashNavTabState={dashNavTabState}
+                                        possibleDashNavTabs={possibleDashNavTabs}
+                                    />
                                 ) : null
                             }
 
 
+                            { // Renders the header and main components for TRADES MASTER
+                                data.me.tradeMasterProjects && dashNavTabState.selectedDashNavTab === possibleDashNavTabs[2] ? (
+                                    <HeaderMainSort 
+                                        projectArray={data.me.tradeMasterProjects}
+                                        selectedProject={selectedProject}
+                                        setProject={setProject}
+                                        mainTabs={mainTabs}
+                                        setMainTabs={setMainTabs}
+                                        possibleMainTabs={possibleMainTabs}
+                                        dashNavTabState={dashNavTabState}
+                                        possibleDashNavTabs={possibleDashNavTabs}
+                                    />
+                                ) : null
+                            } 
 
 
-                                {/* toggle
-                                ? 
-                                    array.map(project => {
-                                        if (project.id === selectedProject){
-                                            return <>
-                                                <Header
-                                                    key={project.id}
-                                                    project={project}
-                                                    setSelectedProject={setSelectedProject}
-                                                    setToggle={setToggle}
-                                                    toggle={toggle}
-                                                />
-                                                <Main project={project} />
-                                            </>
-                                        }
-                                    })
-                                :
-                                    array.map(project => (
-                                        <>
-                                            <Header
-                                                key={project.id}
-                                                project={project}
-                                                setSelectedProject={setSelectedProject}
-                                                setToggle={setToggle}
-                                                toggle={toggle}
-                                            />
-                                        </>
-                                    ))
-                            } */}
+                            { // Renders the header and main components for DONATIONS
+                                data.me.donations && dashNavTabState.selectedDashNavTab === possibleDashNavTabs[3]  ? (
+                                    <HeaderMainSort 
+                                        projectArray={data.me.donations}
+                                        selectedProject={selectedProject}
+                                        setProject={setProject}
+                                        mainTabs={mainTabs}
+                                        setMainTabs={setMainTabs}
+                                        possibleMainTabs={possibleMainTabs}
+                                        dashNavTabState={dashNavTabState}
+                                        possibleDashNavTabs={possibleDashNavTabs}
+                                    />
+                                    
+                                    
+                                ) : null
+                            }
 
 
+                            { // User with no views. Push them to browse.  Not a student, tradesmaster, project admin, or donator
+                                dashNavTabState.dashTabs.length === 0 ? (
+                                    <BoringUser />
+                                ) : null
+                            }
                         </section>
                     </section>        
                 <Footer />
@@ -218,3 +159,4 @@ export default function Dashboard() {
     )
 }
 
+export default Dashboard;

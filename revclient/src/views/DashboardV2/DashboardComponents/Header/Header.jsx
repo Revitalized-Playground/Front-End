@@ -16,8 +16,7 @@ const Header = props => {
 	const [ settingsToggle, setSettingsToggle ] = useState({ settingsDropdown: false });
 	const [ deleteProject ] = useMutation(DELETE_PROJECT);
 
-	const submitDeleteProject = async e => {
-		// e.preventDefault();
+	const submitDeleteProject = async () => {
 		const deletedProject = await deleteProject({ variables: { id: id } });
 		console.log(`${deletedProject} has been deleted.`)
 		props.history.push("/dashboard");
@@ -50,7 +49,6 @@ const Header = props => {
 					</div>
 					<div className="header-middle-title"><Link to={`/project/${props.project.id}`}>{name}</Link></div>
 					<p className="header-middle-description">{description}</p>
-					{/* {donations && donations.map(donation => <p>Donation Amount: ${donation.amount}</p>)} */}
 				</div>
 
 				<div className="header-bottom">
@@ -68,10 +66,6 @@ const Header = props => {
 											id: props.selectedProject.id ? null : id, 
 											buttonToggle: !props.selectedProject.buttonToggle, 
 										})}
-										// onClick={() => {
-										// 	props.setSelectedProject(props.project.id)
-										// 	props.setToggle(true)
-										// }}
 									/>
 								: 
 									<FaAngleUp 

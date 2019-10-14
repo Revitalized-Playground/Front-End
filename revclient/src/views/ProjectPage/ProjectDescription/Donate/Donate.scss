@@ -2,7 +2,8 @@
 	position: sticky;
 	top: 500px;
 	max-width: 800px;
-	box-shadow: 0px 0px 8px #eeedef;
+	// box-shadow: 0px 0px 8px #eeedef;
+	@include subtleBoxShadow;
 	margin: 0 0 auto auto;
 	@media #{$tablet} {
 		position: unset;
@@ -30,13 +31,13 @@
 				font-size: 1.8rem;
 				line-height: 212.81%;
 				letter-spacing: 0.06em;
-				color: rgba(48, 48, 48, 0.3);
+				color: $mirage;
 				margin-top: -5px;
 				opacity: 0.5;
 			}
 
 			.mid-line {
-				border: 1px solid rgba(0, 0, 0, 0.3);
+				border: 1px solid $mirage;
 				transform: rotate(180deg);
 				height: 1px;
 				width: 45%;
@@ -66,9 +67,9 @@
 				font-size: 1.8rem;
 				line-height: 32px;
 				font-family: futura-pt;
-				background: #285fd7;
+				background: $chillFi-purple;
 				border-radius: 5px;
-				color: #ffffff;
+				color: $snow-white;
 				letter-spacing: 0.06em;
 				margin: 40px 0 24px 0;
 				border: none;
@@ -108,7 +109,7 @@
 			}
 		}
 		p {
-			color: #0b096f;
+			color: $erudite-purple;
 			.large {
 				line-height: 4.5rem;
 				font-size: 5.2rem;
@@ -144,9 +145,6 @@
 				width: 93%;
 				margin-bottom: 10px;
 			}
-			div {
-				background-color: $erudite-purple;
-			}
 		}
 
 		.donatorCount {
@@ -164,10 +162,10 @@
 			font-size: 2rem;
 			line-height: 24px;
 			letter-spacing: 0.06em;
-			color: #969696;
+			color: $mirage;
 
 			@media #{$mobile} {
-				font-size: 1.7rem;
+				font-size: 1.8rem;
 				line-height: 19px;
 			}
 		}
@@ -186,11 +184,11 @@
 				font-family: 'futura-pt';
 				font-size: 1.8rem;
 				line-height: 32px;
-				background: #544cbe;
+				background: $chillFi-purple;
 				padding: 25px 0;
 				font-family: futura-pt;
 				border-radius: 5px;
-				color: #ffffff;
+				color: $snow-white;
 				letter-spacing: 0.06em;
 				margin: 40px 0 24px 0;
 				border: none;
@@ -200,7 +198,7 @@
 				@media #{$mobile} {
 					padding: 15px 0;
 					margin: 18px 0 13px 0;
-					font-size: 1.7rem;
+					font-size: 1.8rem;
 					line-height: 24px;
 				}
 			}
@@ -209,13 +207,13 @@
 				font-family: 'futura-pt';
 				font-size: 1.8rem;
 				line-height: 32px;
-				background: #ffffff;
+				background: $snow-white;
 				font-family: futura-pt;
 				padding: 25px 0;
 				border-radius: 5px;
-				color: #544cbe;
+				color: $chillFi-purple;
 				letter-spacing: 0.06em;
-				border: 1.2px solid #544cbe;
+				border: 1.2px solid $chillFi-purple;
 				cursor: pointer;
 
 				@media #{$mobile} {
@@ -239,7 +237,7 @@
 		}
 	}
 	.progress-bar {
-		background-color: #2196f3;
+		background-color: $cerulean;
 		box-shadow: none;
 		&.text-left {
 			text-align: left;
@@ -257,7 +255,6 @@
 }
 .dark-mode {
 	.donateContainer {
-		// box-shadow: 0px 2px 3px #eeedef;
 		box-shadow: none;
 		.donateInnerDiv {
 			p {

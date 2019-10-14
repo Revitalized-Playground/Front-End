@@ -13,6 +13,10 @@ import { gpsCoordinates } from './sampleData'; // Sample data for testing
 
 const token = process.env.REACT_APP_MAPBOX_TOKEN;
 const mapStyle = fromJS(mapStyleJson); // This imports the default style of map, which we can configure and adjust starting point based on location
+// let windowWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+
+
+
 
 class SearchableMap extends Component {
 	state = {
@@ -23,8 +27,6 @@ class SearchableMap extends Component {
 			zoom: 13.97, // 15.82 = big buildings
 			pitch: 60,
 			bearing: 11.1,
-			width: '100%',
-			height: 440,
 		},
 		searchResultLayer: null,
 		selectedProject: null,
@@ -34,10 +36,11 @@ class SearchableMap extends Component {
 
 	handleViewportChange = viewportObject => {
 		// This keeps view port and geo location in sync?
-		// console.log("State viewport:  ", this.state.viewport, "\n\n viewport object:  ", viewportObject);
-
 		this.setState({
-			viewport: { ...this.state.viewport, ...viewportObject },
+			viewport: { 
+				...this.state.viewport, 
+				...viewportObject,
+			},
 		});
 	};
 
@@ -70,27 +73,29 @@ class SearchableMap extends Component {
 
 	handleClickOnMarker = (event, gpsObject) => {
 		// console.log("You Clicked the marker --->", gpsObject, );
-
 		this.setState({
 			...this.state,
 			showPopup: true,
 			selectedProject: gpsObject,
 		});
 	};
-
+	
 	mapRef = React.createRef(); // I suspect this ties into the geo locations + map
 
 	render() {
 		const { viewport, selectedProject, searchResultLayer, sampleGpsArray, showPopup } = this.state;
-
+		
 		return (
 			<div className="searchable-map">
 				<ReactMapGL
 					{...viewport}
+					className="react-map-gl-test"
 					mapStyle={mapStyle}
 					mapboxApiAccessToken={token}
 					ref={this.mapRef}
 					onViewportChange={viewport => this.setState({ viewport })}
+					width="100%"
+					height="100%"
 				>
 					{sampleGpsArray.map((
 						gpsObject,

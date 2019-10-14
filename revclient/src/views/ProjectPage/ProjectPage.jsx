@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import ShareModal from './Modals/ShareModal'
-import DonateModal from './Modals/DonateModal'
 import { withRouter } from 'react-router-dom';
 
 //Component Imports
 import Nav from '../../components/Layout/Nav';
 import Footer from '../../components/Layout/Footer';
+
+import ShareModal from './Modals/ShareModal'
+import DonateModal from './Modals/DonateModal'
 
 import Donate from './ProjectDescription/Donate/Donate';
 import DetailedDescription from './ProjectDescription/DetailedDescription/DetailedDescription';
@@ -13,19 +14,22 @@ import ProjectPictures from './ProjectDescription/ProjectPictures/ProjectPicture
 import ProjectComments from './ProjectDescription/ProjectComments/ProjectComments';
 import BasicDescription from './ProjectDescription/DetailedDescription/BasicDescription/BasicDescription';
 
+import CreatorProfile from './ProjectDescription/CreatorProfile/CreatorProfile';
+
+// Graphql
 import { useQuery } from '@apollo/react-hooks';
 import { GET_PROJECT } from '../../graphql/queries';
 
+// Helpers
 import { useWindowHook } from '../../helpers/windowOnClickHook.js';
-import CreatorProfile from './ProjectDescription/CreatorProfile/CreatorProfile';
 
 
 
 const ProjectPage = ({ match }) => {
 	const [copied, setCopied] = useState(false);
 	const [donateModal, setDonateModal] = useState(false)
-
 	const [modalVal, setModalVal, carouselVal, setCarouselVal] = useWindowHook();
+	const [projectData, setProjectData] = useState();
 
 	const val = e => {
 		if (e.target.className === 'modal') {
@@ -44,8 +48,6 @@ const ProjectPage = ({ match }) => {
 	const { loading, error, data } = useQuery(GET_PROJECT, {
 		variables: { id: match.params.id },
 	});
-	const [projectData, setProjectData] = useState(data);
-
 
 	const donateModalBlur = e => {
 		if(e.target.className === 'donate-modal') {
@@ -53,21 +55,14 @@ const ProjectPage = ({ match }) => {
 		}
 	}
 
-	useEffect(() => {
-		setProjectData(data);
-	}, [data]);
 
-	// window.onclick = function(e) {
-	// 	if (e.target.className === 'modal') {
-	// 		return setModal(false);
-	// 	} else if (e.target.className === 'carousel-large-project') {
-	// 		return setLarge(false);
-	// 	}
-	// };
+	if (error) return <h3>Error</h3>;
 
-	if (error) return <h2>ERROR! Someone call Elan</h2>;
+	if (loading) return <h3>Summoning magic!</h3>;
 
-	if (loading || !projectData) return <h3>Summoning magic!</h3>;
+	if (data && !projectData) return setProjectData(data); 
+
+
 	return (
 		<>
 			<Nav />
