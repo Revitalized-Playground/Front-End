@@ -15,7 +15,7 @@ const Header = props => {
 	const { city, state, name, description, startDate, duration, id, donations } = props.project;
 	const { project, setProject, selectedProject } = props;
 	const [ settingsToggle, setSettingsToggle ] = useState({ settingsDropdown: false });
-	const [ deleteProject ] = useMutation(DELETE_PROJECT);
+	const [ deleteProject ] = useMutation( DELETE_PROJECT );
 
 	const submitDeleteProject = async () => {
 		const deletedProject = await deleteProject({ variables: { id: id } });
@@ -48,7 +48,7 @@ const Header = props => {
 					<div className="header-middle-geo">
 						{city}, {state}
 					</div>
-					<div className="header-middle-title"><Link to={`/project/${project.id}`}>{name}</Link></div>
+					<div className="header-middle-title"><Link to={`/project/${project.slug}`}>{name}</Link></div>
 					<p className="header-middle-description">{description}</p>
 				</div>
 
@@ -78,7 +78,7 @@ const Header = props => {
 										})}
 									/>
 							}
-							<Link to={`/project/${project.id}`}>
+							<Link to={`/project/${project.slug}`}>
 								<FaAngleRight 
 									className="bottom-icon-next"
 								/>

@@ -10,8 +10,6 @@ export default function HeaderMainSort(props) {
     const { projectArray, selectedProject, setProject, mainTabs, setMainTabs, dashNavTabState, possibleDashNavTabs } = props;
     if (!projectArray) return null;
     let renderedHeaderMain;
-    // console.log("props in HeaderMainSort: ", props);
-    // console.log("dashNavTabState ",dashNavTabState);
 
 
     // Selected tab is PROJECT ADMIN

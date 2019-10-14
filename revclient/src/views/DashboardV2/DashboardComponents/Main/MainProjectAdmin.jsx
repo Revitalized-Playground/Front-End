@@ -3,8 +3,8 @@ import Skeleton from 'react-loading-skeleton';
 import LoadingSpinner from "../../../../components/LoadingSpinner/LoadingSpinner";
 // import { inLastWeek } from "../../../../helpers/helpers";
 
-import Tab from './TabComponent/Tab';
 // import Tabs from './TabComponent/Tabs';
+import Tab from './TabComponent/Tab';
 import Task from "./TasksComponent/Task";
 import People from "./People/People";
 import PeopleHeader from "./People/PeopleHeader";
