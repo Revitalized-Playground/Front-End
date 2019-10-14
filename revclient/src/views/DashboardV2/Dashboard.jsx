@@ -25,13 +25,14 @@ const Dashboard = () => {
         tradeMasterTabs: ["Students", "Tasks", "Metrics"],
         donationTabs: ["All Donations", "Project Donations"],
     };
-    const [ mainTabs, setMainTabs ] = useState({ ...possibleMainTabs, defaultMainTab:"" });
+    const [ mainTabs, setMainTabs ] = useState({ ...possibleMainTabs, selectedMainTab:"" });
 
     const [ selectedProject, setProject ] = useState({ project: null, id: null, showMore: false, buttonToggle: false });
 
     // This useQuery pulls in tons of data and can pull more! See graphql/queries to adjust what it pulls in
     const { loading, error, data, refetch } = useQuery( GET_USER_PROFILE );
 
+    const setCurrentProject = object => setProject(object)
 
     // The following 2 functions and useEffect deal with determining what dash nav options should be shown based
     // on what the user has available to them in the useQuery data. This piece of logic could probably be written
@@ -81,7 +82,7 @@ const Dashboard = () => {
                                     <HeaderMainSort 
                                         projectArray={data.me.projects}     // <-- depending on view, this is what changes. This is the project array being sent
                                         selectedProject={selectedProject}   // --- These handle choosing a project to view
-                                        setProject={setProject}             // -/
+                                        setProject={setCurrentProject}          // -/
                                         
                                         mainTabs={mainTabs}                 // --- These handle display and selecting tabs in the main section depending on view
                                         setMainTabs={setMainTabs}           // -/

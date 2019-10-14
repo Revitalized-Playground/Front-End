@@ -13,6 +13,7 @@ import { DELETE_PROJECT } from "../../../../graphql/mutations";
 
 const Header = props => {
 	const { city, state, name, description, startDate, duration, id, donations } = props.project;
+	const { project, setProject, selectedProject } = props;
 	const [ settingsToggle, setSettingsToggle ] = useState({ settingsDropdown: false });
 	const [ deleteProject ] = useMutation(DELETE_PROJECT);
 
@@ -26,7 +27,7 @@ const Header = props => {
 		<>
 			<div className="dashboard-header section">
 				<div className="header-top">
-					{props.project.isLive ? (
+					{project.isLive ? (
 						<div className="project-status started">In Progress</div>
 					) : (
 						<div className="project-status not-started">Not Started</div>
@@ -47,7 +48,7 @@ const Header = props => {
 					<div className="header-middle-geo">
 						{city}, {state}
 					</div>
-					<div className="header-middle-title"><Link to={`/project/${props.project.id}`}>{name}</Link></div>
+					<div className="header-middle-title"><Link to={`/project/${project.id}`}>{name}</Link></div>
 					<p className="header-middle-description">{description}</p>
 				</div>
 
@@ -57,27 +58,27 @@ const Header = props => {
 						<div className="bottom-icons">
 							<FaComments />
 							<FaFileInvoice />
-							{!props.selectedProject.buttonToggle
+							{!selectedProject.buttonToggle
 								?
 									<FaAngleDown 
 										className="bottom-icon-seemore"
-										onClick={() => props.setProject({ 
-											showMore: !props.selectedProject.showMore, 
-											id: props.selectedProject.id ? null : id, 
-											buttonToggle: !props.selectedProject.buttonToggle, 
+										onClick={() => setProject({ 
+											showMore: !selectedProject.showMore, 
+											id: selectedProject.id ? null : id, 
+											buttonToggle: !selectedProject.buttonToggle, 
 										})}
 									/>
 								: 
 									<FaAngleUp 
 										className="bottom-icon-seemore"
-										onClick={() => props.setProject({ 
-											showMore: !props.selectedProject.showMore, 
-											id: props.selectedProject.id ? null : id, 
-											buttonToggle: !props.selectedProject.buttonToggle, 
+										onClick={() => setProject({ 
+											showMore: !selectedProject.showMore, 
+											id: selectedProject.id ? null : id, 
+											buttonToggle: !selectedProject.buttonToggle, 
 										})}
 									/>
 							}
-							<Link to={`/project/${props.project.id}`}>
+							<Link to={`/project/${project.id}`}>
 								<FaAngleRight 
 									className="bottom-icon-next"
 								/>
