@@ -13,16 +13,12 @@
 	.profile-center {
 		display: flex;
 		align-content: center;
-<<<<<<< HEAD
-		@media #{$tablet} {
-=======
 		padding: 10px 0;
 		@media #{$tablet} {
 			padding: 20px 40px;
 			width: 100%;
 		}
 		@media #{$tablet-small} {
->>>>>>> 682385a684a0dfd65560a364d2ee127e4deb4711
 			margin: 0 auto;
 			width: 90%;
 		}
@@ -30,7 +26,7 @@
 			width: 120px;
 			border-radius: 50%;
 			margin: 32px;
-	
+
 			@media #{$tablet} {
 				width: 35%;
 				max-width: 150px;
@@ -67,23 +63,10 @@
 		}
 	}
 
-
-<<<<<<< HEAD
-		@media #{$tablet} {
-			width: 35%;
-			margin: 25px 25px 25px 0;
-		}
-	}
-
-	.creatorInfo {
-		margin: 35px 25px 25px 0;
-=======
-
 	.creatorInfo {
 		margin: 35px 25px 25px 0;
 		line-height: 0.5;
 		width: 50%;
->>>>>>> 682385a684a0dfd65560a364d2ee127e4deb4711
 		@media #{$tablet} {
 			margin-top: 25px;
 			width: 100%;
@@ -113,24 +96,9 @@
 				line-height: 1;
 
 				@media #{$tablet} {
-<<<<<<< HEAD
-					font-size: 1.5rem;
-					line-height: 16px;
-				}
-			}
-
-			img {
-				max-height: 18px;
-				width: 20%;
-				margin-right: 6px;
-
-				@media #{$tablet} {
-					width: 8%;
-=======
 					font-size: 1.6rem;
 				}
 			}
-
 		}
 	}
 }
@@ -140,9 +108,9 @@
 			background-color: $dark-grey;
 			box-shadow: 0px 2px 3px rgba(245, 242, 255, 0.2);
 			.creatorInfo {
-				h2, p {
+				h2,
+				p {
 					color: $snow-white;
->>>>>>> 682385a684a0dfd65560a364d2ee127e4deb4711
 				}
 			}
 		}
