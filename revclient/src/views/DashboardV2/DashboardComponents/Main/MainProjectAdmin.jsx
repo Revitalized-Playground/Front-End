@@ -6,6 +6,8 @@ import LoadingSpinner from "../../../../components/LoadingSpinner/LoadingSpinner
 import Tab from './TabComponent/Tab';
 // import Tabs from './TabComponent/Tabs';
 import Task from "./TasksComponent/Task";
+import People from "./People/People";
+import PeopleHeader from "./People/PeopleHeader";
 
 // import { apprenticeTabs, apprenticeList } from '../../dashboarddummydata';
 
@@ -17,7 +19,7 @@ const MainProjectAdmin = props => {
 			...mainTabs,
 			selectedMainTab: mainTabs.projectAdminTabs[0]
 		})
-	}, [])
+	}, []);
 
 	const changeSelected = userSelectedTab => {
 		setMainTabs({
@@ -29,14 +31,18 @@ const MainProjectAdmin = props => {
 	const projectAdminMainView = selectedTabView => {
 		
 		console.log("ProjectadminMainView function ", props);
-		let viewSelected=""
+		let viewSelected="";
 
 		if (selectedTabView === "Students") {
-			const view = project.students.map(students => (
-					<div className="list">
-						{/* <Task task={task} tab={mainTabs.selectedMainTab} /> */}
-					</div>
-				) 
+			const view = (
+				<>
+					<PeopleHeader />
+					{project.students.map(student => (
+						<div className="list">
+							<People person={student} tab={mainTabs.selectedMainTab} />
+						</div>
+					))}
+				</>
 			)
 			return viewSelected = view
 		}
