@@ -2,11 +2,15 @@ import React, {useState} from 'react'
 import './StudentApplicationForm.scss'
 import swirly from '../../assets/StudentApplicationWizard/swirly.png'
 import Step1 from './Steps/Step1'
+import Step2 from './Steps/Step2'
+import Step3 from './Steps/Step3'
 
 
 const ApplicationForm = () => {
     const [chosenTrade, setChosenTrade] = useState(false)
-    const [step, setStep] = useState(1)
+    const [step, setStep] = useState(3)
+
+    console.log(step)
 
     return(
         <div className='student-application-form-container'>
@@ -24,31 +28,18 @@ const ApplicationForm = () => {
             </div>
             <div className='right-div'>
                 <div className='right-div-content'>
-                    <Step1 />
-                    <h2 className='title'>Tell Who You Are</h2>
-                    <form>
-                        <div className='welcome-container'>
-                            <h2>Hey [will be dynamic]</h2>
-                        </div>
-                        <select onChange={() => setChosenTrade(true)}>
-                            <option selected disabled>Choose Your Trade</option>
-                            <option>Construction/Maintenance</option>
-                            <option>Heating/Air</option>
-                            <option>Lighting</option>
-                            <option>Plumbing</option>
-                        </select>
-                    </form>
-                    {chosenTrade && 
-                    <div>
-                        <h4>Are you licensed in this trade?</h4>
-                        <form className='radio-form'>
-                            <input type='radio' name='choice'/>
-                            <label>Yes</label>
-                            <input type='radio' name='choice'/>
-                            <label>No</label>
-                        </form>
-                    </div>}
-                    
+                    {step === 1 
+                    ?
+                    <Step1 setStep={setStep} chosenTrade={chosenTrade} setChosenTrade={setChosenTrade} />
+                    : step === 2
+                    ?
+                    <Step2 setStep={setStep} />
+                    : step === 3
+                    ?
+                    <Step3 setStep={setStep} />
+                    :
+                    null
+                    }
                 </div>
             </div>
         </div>

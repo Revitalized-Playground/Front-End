@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import { formatMoney, addUpDonations, donationCount } from "../../../../helpers/helpers";
 import ProgressBar from "../../../../components/ProgressBar/ProgressBar";
 
@@ -35,7 +35,9 @@ const Donate = props => {
 					<div className="mid-line"></div>
 				</div>
                 <div className='apply-button'>
-                    <button >Apply to Project</button>
+                    {/* <Link to={`/project/${}/studentapplicationform`}>
+                        <button >Apply to Project</button>
+                    </Link>   */}
                 </div>
                 <p className='lastText'>Partner with growing donors who are eager to see the transformation and economical growth of Detroit.</p>
             </div>

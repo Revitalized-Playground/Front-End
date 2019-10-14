@@ -4,6 +4,23 @@
     max-width: 1920px;
     margin: 0 auto;
     display: flex;
+    .button-container {
+        display: flex;
+        justify-content: flex-end;
+
+        button {
+            background: #0B096F;
+            color: $snow-white;
+            border: none;
+            font-size: 2rem;
+            padding: 10px 30px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    }
+    .two {
+        justify-content: space-between;
+    }
     .swirly-div {
         border: 1px solid blue;
         width: 50%;
@@ -11,7 +28,6 @@
         background-repeat: no-repeat;
         background-size: 100% 100%;
         display: flex;
-        // background-image: url('../assets/StudentApplicationWizard/swirly.png');
 
         .student-app-steps {
             display: flex;
@@ -35,6 +51,7 @@
         border: 5px solid black;
         width: 50%;
         display: flex;
+        
 
         .right-div-content {
             width: 500px;
@@ -122,14 +139,35 @@
                     
                     position: relative;
                     top: 4px;
-                    }
+                }
                     
-                    input:checked {
-                    border: 6px solid #4840ba;
-                    }
+                input:checked {
+                border: 6px solid #4840ba;
+                }
+            }
+        }
+
+        .right-div-content {
+            .second-page {
+                text-align: start
             }
             
-            
+            .page-two-text-area {
+                resize: none;
+                width: 100%;
+                height: 100px;
+                margin-bottom: 60px;
+                padding: 10px;
+                box-sizing: border-box;
+            }
+
+            .second {
+                margin-bottom: 0px
+            }
+
+            .email-text {
+                margin-bottom: 40px
+            }
         }
     }
     

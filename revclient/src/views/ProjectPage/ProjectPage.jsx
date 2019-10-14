@@ -38,6 +38,8 @@ const ProjectPage = ({ match }) => {
 		variables: { id: match.params.id },
 	});
 
+	console.log(projectData)
+
 
 	useEffect(() => {
 		setProjectData(data);

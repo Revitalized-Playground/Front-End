@@ -128,7 +128,7 @@ export const Routes = () => {
 
             <Route 
                 exact
-                path='/studentapplicationform'
+                path='/project/:id/studentapplicationform'
                 render={() => (
                     <StudentApplicationForm />
                 )}
