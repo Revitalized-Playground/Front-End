@@ -40,7 +40,9 @@ const Dashboard = () => {
     const setAvailableDashNavTabs = (newAvailTabArray, howMany) => { 
         setDashNavTab({ ...dashNavTabState, selectedDashNavTab: newAvailTabArray[0], dashTabs: newAvailTabArray, dashTabCount: howMany }) 
     };
-    const selectDashNavTab = userSelectedTab => { setDashNavTab({ ...dashNavTabState, selectedDashNavTab: userSelectedTab }) };
+    const selectDashNavTab = userSelectedTab => { 
+        setDashNavTab({ ...dashNavTabState, selectedDashNavTab: userSelectedTab }) 
+    };
 
     useEffect(() => {
         refetch();

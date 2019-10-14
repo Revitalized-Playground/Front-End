@@ -33,7 +33,7 @@ const MainProjectAdmin = props => {
 		console.log("ProjectadminMainView function ", props);
 		let viewSelected="";
 
-		if (selectedTabView === "Students") {
+		if (selectedTabView === mainTabs.projectAdminTabs[0]) {
 			const view = (
 				<>
 					<PeopleHeader />

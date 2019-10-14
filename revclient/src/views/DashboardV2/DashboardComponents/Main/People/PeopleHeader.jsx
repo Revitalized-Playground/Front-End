@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const PeopleHeader = props => {
+const PeopleHeader = () => {
 
     return (
         <>

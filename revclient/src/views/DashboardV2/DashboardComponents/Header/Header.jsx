@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import { FaComments, FaFileInvoice, FaAngleRight, FaAngleDown, FaAngleUp, FaBan } from "react-icons/fa";
+import { FaComments, FaFileInvoice, FaAngleRight, FaAngleDown, FaAngleUp, FaBan, FaPlus } from "react-icons/fa";
 import { GoKebabVertical } from "react-icons/go";
+
+import AddTrade from "./AddTrade/AddTrade";
 
 // Helper functions
 import { calculateDueDate } from "../../../../helpers/helpers";
@@ -15,14 +17,28 @@ const Header = props => {
 	const { city, state, name, description, startDate, duration, id, donations } = props.project;
 	const { project, setProject, selectedProject } = props;
 	const [ settingsToggle, setSettingsToggle ] = useState({ settingsDropdown: false });
+	const [ addTrade, setAddTrade ] = useState({ show: false })
 	const [ deleteProject ] = useMutation( DELETE_PROJECT );
 
+	useEffect(() => {
+		console.log(addTrade)
+	}, [addTrade])
+	
 	const submitDeleteProject = async () => {
 		const deletedProject = await deleteProject({ variables: { id: id } });
 		console.log(`${deletedProject} has been deleted.`)
 		props.history.push("/dashboard");
 	};
+	
+	
+	
+	if (addTrade.show === true) {
+		return (
+			<AddTrade setAddTrade={setAddTrade} addTrade={addTrade} projectId={id} />
+		)
+	}
 
+	
 	return (
 		<>
 			<div className="dashboard-header section">
@@ -36,8 +52,11 @@ const Header = props => {
 						<GoKebabVertical onClick={() => setSettingsToggle({ settingsDropdown: !settingsToggle.settingsDropdown })}/>
 						{settingsToggle.settingsDropdown ? (
 							<div className="project-settings-dropdown">
-								<div className="project-settings-dropdown-option delete">
-									<FaBan onClick={submitDeleteProject} />&nbsp; Delete Project
+								<div className="project-settings-dropdown-option add-trade" onClick={() => setAddTrade({ show: true })} >
+									<FaPlus />&nbsp; Add Project Trade
+								</div>
+								<div className="project-settings-dropdown-option delete" onClick={submitDeleteProject} >
+									<FaBan />&nbsp; Delete Project
 								</div>
 							</div>
 						) : null}
