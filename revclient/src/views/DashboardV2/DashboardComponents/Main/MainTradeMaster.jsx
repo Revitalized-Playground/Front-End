@@ -8,7 +8,7 @@ import Task from "./TasksComponent/Task";
 
 // import { apprenticeTabs, apprenticeList } from '../../dashboarddummydata';
 
-const Main = props => {
+const MainTradeMaster = props => {
 
 	const [state, setState] = useState({
 		project: "",
@@ -31,10 +31,10 @@ const Main = props => {
 		});
 	};
 
-	const projectAdminMainView = () => {
-		const newTasksArray = state.project.tasks.map(task => (
+	const tradeMasterView = () => {
+		const newTasksArray = state.project.students.map(task => (
 				<div className="list">
-					<Task task={task} tab={state.selected} />
+					{/* <Students task={task} tab={state.selected} /> */}
 				</div>
 			) 
 		)
@@ -67,13 +67,10 @@ const Main = props => {
 
 			<hr />
 			<div className="dashboard-main-body">
-				{/* {<List list={state.list.filter(item => item.tab === state.selected)} /> || (
-					<Skeleton count={5} height={125} />
-				)} */}
-				{projectAdminMainView()}
+				{tradeMasterView()}
 			</div>
 		</div>
 	);
 };
 
-export default Main;
+export default MainTradeMaster;

@@ -1,6 +1,8 @@
 import React from "react";
 import Header from "../DashboardComponents/Header/Header";
-import Main from "../DashboardComponents/Main/Main";
+import MainProjectAdmin from "../DashboardComponents/Main/MainProjectAdmin";
+import MainTradesMaster from "../DashboardComponents/Main/MainTradeMaster";
+import MainStudent from "../DashboardComponents/Main/MainStudent";
 import Donations from "../DashboardComponents/Main/Donations/Donations";
 
 
@@ -36,7 +38,7 @@ export default function HeaderMainSort(props) {
                 ) : null}
                 
                 {project.id === selectedProject.id ? ( // Render the main tab of the selected header
-                    <Main
+                    <MainProjectAdmin
                         project={project}
                         mainTabs={mainTabs.projectAdminTabs}
                         defaultTab={mainTabs.projectAdminTabs[0]}
@@ -72,7 +74,7 @@ export default function HeaderMainSort(props) {
                 ) : null}
                 
                 {project.project.id === selectedProject.id ? (
-                    <Main
+                    <MainStudent
                         // defaultTab={mainTabState.defaultMainTab}
                         // setMainTabState={setMainTabState}
                         // tabs={mainTabState.mainTabs}
@@ -108,7 +110,7 @@ export default function HeaderMainSort(props) {
                 ) : null}
                 
                 {project.project.id === selectedProject.id ? (
-                    <Main
+                    <MainTradesMaster
                         // defaultTab={mainTabState.defaultMainTab}
                         // setMainTabState={setMainTabState}
                         // tabs={mainTabState.mainTabs}
