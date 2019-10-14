@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "../DashboardComponents/Header/Header";
 import MainProjectAdmin from "../DashboardComponents/Main/MainProjectAdmin";
-import MainTradesMaster from "../DashboardComponents/Main/MainTradeMaster";
+import MainTradeMaster from "../DashboardComponents/Main/MainTradeMaster";
 import MainStudent from "../DashboardComponents/Main/MainStudent";
 import Donations from "../DashboardComponents/Main/Donations/Donations";
 
@@ -89,27 +89,27 @@ export default function HeaderMainSort(props) {
 
         // console.log("Trade Master main sort array  ", projectArray);
 
-        return renderedHeaderMain = projectArray.map(project => (
-            <React.Fragment key={project.id} >
+        return renderedHeaderMain = projectArray.map(projectObject => (
+            <React.Fragment key={projectObject.id} >
                 {!selectedProject.id ? (
                     <Header 
-                        key={project.id} 
-                        project={project} 
+                        key={projectObject.project.id} 
+                        project={projectObject.project} 
                         setProject={setProject}
                         selectedProject={selectedProject}
                     />
-                ) : project.id === selectedProject.id ? (
+                ) : projectObject.project.id === selectedProject.id ? (
                     <Header 
-                        key={project.id} 
-                        project={project} 
+                        key={projectObject.project.id} 
+                        project={projectObject.project} 
                         setProject={setProject}
                         selectedProject={selectedProject}
                     />
                 ) : null}
-
-                {project.id === selectedProject.id ? (
-                    <MainTradesMaster
-                        project={project}
+                
+                {projectObject.project.id === selectedProject.id ? (
+                    <MainTradeMaster
+                        project={projectObject.project}
                         mainTabs={mainTabs}
                         selectedMainTab={mainTabs.selectedMainTab}
                         setMainTabs={setMainTabs}
