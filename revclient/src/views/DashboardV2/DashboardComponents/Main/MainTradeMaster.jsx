@@ -5,10 +5,12 @@ import LoadingSpinner from "../../../../components/LoadingSpinner/LoadingSpinner
 
 import Tabs from './TabComponent/Tabs';
 import Task from "./TasksComponent/Task";
-
+import People from './People/People';
 // import { apprenticeTabs, apprenticeList } from '../../dashboarddummydata';
 
-const Main = props => {
+const MainTradeMaster = props => {
+
+	// console.log("props in MainTradeMaster: ", props);
 
 	const [state, setState] = useState({
 		project: "",
@@ -20,9 +22,11 @@ const Main = props => {
 		setState({
 			project: props.project,
 			selected: props.defaultTab,
-			tabs: props.mainTabs,
+			tabs: props.tabs,
 		})
 	}, [])
+
+	// console.log("state.tabs: ", state.tabs);
 
 	const changeSelected = userSelectedTab => {
 		setState({
@@ -31,10 +35,12 @@ const Main = props => {
 		});
 	};
 
-	const projectAdminMainView = () => {
-		const newTasksArray = state.project.tasks.map(task => (
+	const tradeMasterView = () => {
+		const newTasksArray = state.project.students.map(task => (
 				<div className="list">
-					<Task task={task} tab={state.selected} />
+					{/* <Students task={task} tab={state.selected} /> */}
+					<React.Fragment key={task + Math.random()} />
+					<People />
 				</div>
 			) 
 		)
@@ -51,6 +57,7 @@ const Main = props => {
 			<LoadingSpinner />
 		)
 	}
+	
 
 	return (
 		<div className="dashboard-main section">
@@ -67,13 +74,10 @@ const Main = props => {
 
 			<hr />
 			<div className="dashboard-main-body">
-				{/* {<List list={state.list.filter(item => item.tab === state.selected)} /> || (
-					<Skeleton count={5} height={125} />
-				)} */}
-				{projectAdminMainView()}
+				{tradeMasterView()}
 			</div>
 		</div>
 	);
 };
 
-export default Main;
+export default MainTradeMaster;

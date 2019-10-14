@@ -37,7 +37,6 @@ const Login = props => {
             email:"",
             password:"",
 		})
-		console.log(created)
 		localStorage.setItem("token", created.data.loginUser.token);
 		props.history.push("/");
 	};

@@ -20,6 +20,9 @@ export const GET_PROJECT = gql`
 			profile {
 				...UserSummary
 			}
+			comments {
+				...Comments
+			}
 		}
 	}
 	${USER_SUMMARY_FRAG}
