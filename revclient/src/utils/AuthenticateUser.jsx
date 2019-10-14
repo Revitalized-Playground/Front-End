@@ -11,8 +11,6 @@ class AuthenticateUser extends React.Component {
         const token = this.props.match.params.token.replace("#", "");
         const decoded = jwtdecode(token);
         
-        console.log(token);
-        
         if(Date.now() / 1000 > decoded.exp) {
             localStorage.removeItem("token");
             this.props.history.push("/login");

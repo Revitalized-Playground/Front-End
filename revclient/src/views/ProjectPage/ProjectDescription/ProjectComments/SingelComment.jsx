@@ -24,9 +24,13 @@ const SingleComment = ({each, editCommentMutation, deleteComment, currentUser, s
         }
     }
 
+    console.log(comment);
+    
     return (
         <div className='commentFlex' key={comment.id}>
-            <img src={comment.profile.profileImage} alt='Profile icon' />
+            {comment.profile.profileImage === undefined ? null : (
+                <img src={comment.profile.profileImage} alt='Profile icon' />
+            )}
             <div className='comment-inner-container'>
                 <div className='commenter-name-flex'>
                     <p>{comment.profile.firstName}</p>

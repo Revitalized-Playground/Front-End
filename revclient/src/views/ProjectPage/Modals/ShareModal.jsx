@@ -2,7 +2,7 @@ import React from 'react'
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import fb from '../../../assets/AuthPages/fb-logo.png';
 import twtr from '../../../assets/AuthPages/twitter.png';
-import email from '../../../assets/ProjectPage/email.png';
+import email from '../../../assets/ProjectPage/email.svg';
 import linked from '../../../assets/ProjectPage/linked.png';
 import slack from '../../../assets/ProjectPage/slack.png';
 

@@ -13,7 +13,6 @@ const CheckoutForm = ({ stripe, match }) => {
 		e.preventDefault();
 		const { token } = await stripe.createToken({ name: 'Name here' });
 
-		console.log(token);
 
 		donateToProject({
 			variables: {
