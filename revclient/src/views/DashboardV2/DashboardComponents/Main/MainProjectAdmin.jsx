@@ -3,50 +3,70 @@ import Skeleton from 'react-loading-skeleton';
 import LoadingSpinner from "../../../../components/LoadingSpinner/LoadingSpinner";
 // import { inLastWeek } from "../../../../helpers/helpers";
 
-import Tabs from './TabComponent/Tabs';
+import Tab from './TabComponent/Tab';
+// import Tabs from './TabComponent/Tabs';
 import Task from "./TasksComponent/Task";
 
 // import { apprenticeTabs, apprenticeList } from '../../dashboarddummydata';
 
 const MainProjectAdmin = props => {
-
-	const [state, setState] = useState({
-		project: "",
-		selected: "",
-		tabs: "",
-	});
+	const { project, mainTabs, setMainTabs } = props;
 
 	useEffect(() => {
-		setState({
-			project: props.project,
-			selected: props.defaultTab,
-			tabs: props.mainTabs,
+		setMainTabs({
+			...mainTabs,
+			selectedMainTab: mainTabs.projectAdminTabs[0]
 		})
 	}, [])
 
 	const changeSelected = userSelectedTab => {
-		setState({
-			...state,
-			selected: userSelectedTab,
+		setMainTabs({
+			...mainTabs,
+			selectedMainTab: userSelectedTab,
 		});
 	};
 
-	const projectAdminMainView = () => {
-		const newTasksArray = state.project.tasks.map(task => (
-				<div className="list">
-					<Task task={task} tab={state.selected} />
-				</div>
-			) 
-		)
+	const projectAdminMainView = selectedTabView => {
+		
+		console.log("ProjectadminMainView function ", props);
+		let viewSelected=""
+
+		if (selectedTabView === "Students") {
+			const view = project.students.map(students => (
+					<div className="list">
+						{/* <Task task={task} tab={mainTabs.selectedMainTab} /> */}
+					</div>
+				) 
+			)
+			return viewSelected = view
+		}
+		if (selectedTabView === "Trade Masters") {
+			const view = project.tradeMasters.map(trademasters => (
+					<div className="list">
+						{/* <Task task={task} tab={mainTabs.selectedMainTab} /> */}
+					</div>
+				) 
+			)
+			return viewSelected = view
+		}
+		if (selectedTabView === "Tasks") {
+			const view = project.tasks.map(task => (
+					<div className="list">
+						<Task task={task} tab={mainTabs.selectedMainTab} />
+					</div>
+				) 
+			)
+			return viewSelected = view
+		}
+
 		return (
 			<>
-				{newTasksArray}
+				{viewSelected}
 			</>
 		)
 	}
 
-
-	if (!state.tabs) {
+	if (!mainTabs) {
 		return (
 			<LoadingSpinner />
 		)
@@ -55,14 +75,21 @@ const MainProjectAdmin = props => {
 	return (
 		<div className="dashboard-main section">
 			<div className="dashboard-title">
-				{<Tabs tabs={state.tabs} selected={state.selected} changeSelected={changeSelected} /> || (
-					<>
-						<Skeleton count={1} height={25} width={200} />
-						<Skeleton count={1} height={25} width={200} />
-						<Skeleton count={1} height={25} width={200} />
-						<Skeleton count={1} height={25} width={200} />
-					</>
-				)}
+				<div className="tabs">
+				{mainTabs ? 
+					mainTabs.projectAdminTabs.map(tab => (
+						<Tab changeSelected={changeSelected} selected={mainTabs.selectedMainTab} tab={tab} key={tab + Date.now()} />
+					)) :
+					(
+						<>
+							<Skeleton count={1} height={25} width={200} />
+							<Skeleton count={1} height={25} width={200} />
+							<Skeleton count={1} height={25} width={200} />
+							<Skeleton count={1} height={25} width={200} />
+						</>
+					)
+				}
+				</div> 
 			</div>
 
 			<hr />
@@ -70,7 +97,7 @@ const MainProjectAdmin = props => {
 				{/* {<List list={state.list.filter(item => item.tab === state.selected)} /> || (
 					<Skeleton count={5} height={125} />
 				)} */}
-				{projectAdminMainView()}
+				{projectAdminMainView(mainTabs.selectedMainTab)}
 			</div>
 		</div>
 	);
