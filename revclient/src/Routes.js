@@ -64,13 +64,6 @@ export const Routes = () => {
 
             {/* private routes */}
 
-            {/* <Route
-                // exact
-                path="/dashboard-old"
-                component={DashboardOld}
-            /> */}
-
-
             <Route
                 // exact
                 path="/dashboard"
