@@ -7,11 +7,9 @@ import Donations from "../DashboardComponents/Main/Donations/Donations";
 
 
 export default function HeaderMainSort(props) {
-    const { projectArray, selectedProject, setProject, mainTabs, setMainTabs, dashNavTabState, possibleDashNavTabs } = props
+    const { projectArray, selectedProject, setProject, mainTabs, setMainTabs, dashNavTabState, possibleDashNavTabs } = props;
     if (!projectArray) return null;
     let renderedHeaderMain;
-
-    console.log("dashNavTabState ",dashNavTabState);
 
 
     // Selected tab is PROJECT ADMIN
@@ -40,8 +38,8 @@ export default function HeaderMainSort(props) {
                 {project.id === selectedProject.id ? ( // Render the main tab of the selected header
                     <MainProjectAdmin
                         project={project}
-                        mainTabs={mainTabs.projectAdminTabs}
-                        defaultTab={mainTabs.projectAdminTabs[0]}
+                        mainTabs={mainTabs}
+                        selectedMainTab={mainTabs.selectedMainTab}
                         setMainTabs={setMainTabs}
                     />
                 ) : null}
@@ -75,10 +73,10 @@ export default function HeaderMainSort(props) {
                 
                 {project.project.id === selectedProject.id ? (
                     <MainStudent
-                        // defaultTab={mainTabState.defaultMainTab}
-                        // setMainTabState={setMainTabState}
-                        // tabs={mainTabState.mainTabs}
-                        // project={project.project}
+                        defaultTab={mainTabs.defaultMainTab}
+                        setMainTab={setMainTabs}
+                        tabs={mainTabs.studentTabs}
+                        project={project.project}
                     />
                 ) : null}
             </React.Fragment>
@@ -108,13 +106,14 @@ export default function HeaderMainSort(props) {
                         selectedProject={selectedProject}
                     />
                 ) : null}
-                
+                {/* {console.log("project.project.id :", project.project.id)}
+                {console.log("selectedProject.id :", selectedProject.id)} */}
                 {project.project.id === selectedProject.id ? (
                     <MainTradesMaster
-                        // defaultTab={mainTabState.defaultMainTab}
-                        // setMainTabState={setMainTabState}
-                        // tabs={mainTabState.mainTabs}
-                        // project={project.project}
+                        defaultTab={mainTabs.defaultMainTab}
+                        tabs={mainTabs.tradeMasterTabs}
+                        project={project.project}
+                        setMainTabState={setMainTabs}
                     />
                 ) : null}
             </React.Fragment>

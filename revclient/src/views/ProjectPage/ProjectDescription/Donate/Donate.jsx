@@ -4,13 +4,13 @@ import { formatMoney, addUpDonations, donationCount } from "../../../../helpers/
 import ProgressBar from "../../../../components/ProgressBar/ProgressBar";
 
 const Donate = props => {
-    const raised = addUpDonations(props.projectData.project.donations);
-    const budget = formatMoney(props.projectData.project.goalAmount);
-    const budgetProgressBar = props.projectData.project.goalAmount;
-    const totalDonations = donationCount(props.projectData.project.donations.length);
-    const totalNumberOfDonations = props.projectData.project.donations ? totalDonations : 0;
-    
-    
+    const raised = addUpDonations(props.projectData.donations);
+    const budget = formatMoney(props.projectData.goalAmount);
+    const budgetProgressBar = props.projectData.goalAmount;
+    const totalDonations = donationCount(props.projectData.donations.length);
+    const totalNumberOfDonations = props.projectData.donations ? totalDonations : 0;
+
+
     return (
         <div className='donateContainer'>
             <div className='donateInnerDiv'>

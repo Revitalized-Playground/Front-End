@@ -10,7 +10,7 @@ import ProjectsHome from "./views/ProjectsHome/ProjectsHome";  // May be depreca
 
 // import Start from "./views/Start/Start";
 import Browse from "./views/Browse/Browse";
-import DashboardOld from "./views/DashboardOld/Dashboard";
+// import DashboardOld from "./views/DashboardOld/Dashboard";
 import Dashboard from "./views/DashboardV2/Dashboard";
 import CreateProjectWizard from './views/CreateProjWizard/CreateProjectWizard'
 import ProjectPage from './views/ProjectPage/ProjectPage'
@@ -64,11 +64,11 @@ export const Routes = () => {
 
             {/* private routes */}
 
-            <Route
+            {/* <Route
                 // exact
                 path="/dashboard-old"
-                component={DashboardOld }
-            />
+                component={DashboardOld}
+            /> */}
 
 
             <Route
@@ -103,7 +103,7 @@ export const Routes = () => {
 
             <Route
                 exact
-                path="/project/:id"
+                path="/project/:slug"
                 component={ProjectPage }
             />
 
@@ -126,7 +126,7 @@ export const Routes = () => {
                 component={Browse }
             />
 
-            <Route 
+            <Route
                 exact
                 path='/project/:id/studentapplicationform'
                 render={() => (

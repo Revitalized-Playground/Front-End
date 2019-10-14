@@ -34,14 +34,12 @@ export const GET_USER_PROFILE = gql`
 			donations {
 				id
 				amount
-
-				### These two don't work
-				# project {  
-				# 	...ProjectSummary
-				# }
-				# profile {
-				# 	...UserSummary
-				# }
+				project {  
+					...ProjectSummary
+				}
+				profile {
+					...UserSummary
+				}
         	}
 
 			# This is an array with items if the user has created a project
