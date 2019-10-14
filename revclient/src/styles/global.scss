@@ -18,6 +18,7 @@ a {
 	text-decoration: none;
 	color: inherit;
 	user-select: none;
+	cursor: pointer;
 }
 
 i {
@@ -111,5 +112,20 @@ hr {
 
 .react-toggle-track {
 	background-color: $erudite-purple;
+}
+
+.tab {
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+a svg {
+	&:hover {
+		color: lighten($chillFi-purple, 20%);
+	}
+	&:focus, &:active {
+		color: darken($chillFi-purple, 20%);
+	}
 }
 

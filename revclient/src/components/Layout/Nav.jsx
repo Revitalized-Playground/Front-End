@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, withRouter } from "react-router-dom";
-import Skeleton from "react-loading-skeleton";
+// import Skeleton from "react-loading-skeleton";
 import { FaMoon, FaCog, FaUser, FaWindowClose } from "react-icons/fa";
 import { useQuery } from "@apollo/react-hooks";
 import { GET_USER } from "../../graphql/queries/Users";
@@ -10,7 +10,6 @@ import { useWindowHook } from "../../helpers/windowOnClickHook.js"
 
 const unauthenticatedLinks = [
 	{ href: '/browse', label: 'Browse' },
-	{ href: '/projects', label: 'Learn More' },
 	{ href: '/about', label: 'Team' },
 	{ href: '/login', label: 'Log In' },
 ].map(link => {
@@ -20,8 +19,8 @@ const unauthenticatedLinks = [
 
 const authenticatedLinks = [
 	{ href: '/browse', label: 'Browse' },
-	{ href: '/projects', label: 'Learn More' },
 	{ href: '/about', label: 'Team' },
+	{ href: '/dashboard', label: 'Dashboard' },
 	{ href: '/settings', label: 'Settings' },
 	{ href: '#', label: 'Logout' },
 ].map(link => {
@@ -68,8 +67,29 @@ const Nav = props => {
 	};
 
 	if (localStorage.getItem('token')) {
-		if (loading) return <p>loading....</p>;
-		if (error) return <p>Error....</p>;
+		if (loading) return (
+			<nav>
+				<div className="leftNav">
+					<Link to="/" title="Home">
+						<div className="logo">
+							<span>Revitalize </span>
+							{/* <p className="loading-banner">loading....</p> */}
+						</div>
+					</Link>
+				</div>
+			</nav>
+		);
+		if (error) return (
+			<nav>
+				<div className="leftNav">
+					<Link to="/" title="Home">
+						<div className="logo">
+							<span>Revitalize </span>
+						</div>
+					</Link>
+				</div>
+			</nav>
+		);
 	}
 
 
@@ -92,11 +112,11 @@ const Nav = props => {
 									<li className="navLinks logout" onClick={logout} key={link.key}>
 										<Link to={link.href}>{link.label}</Link>
 									</li>
-								) : link.label === "Settings" ? null : (
+								) : link.label === "Settings" || link.label === "Dashboard" ? null : (
 									<li className="navLinks" key={link.key}>
 										<Link to={link.href}>{link.label}</Link>
 									</li>
-								),
+								)
 							)}
 							<div className="user" tabIndex="0" onClick={setActive} >
 								
@@ -120,13 +140,13 @@ const Nav = props => {
 								)}
 								
 								<div className={`dropdown ${!clicked && 'display-none'}`} name="drop" tabIndex="0" >
-									<div class="arrow-up"></div>
+									<div className="arrow-up"></div>
 									<Link to="/dashboard" className="dropdown-option">
 										<FaUser className="icon" />
-										Profile
+										Dashboard
 									</Link>
 									<Link to="/settings" className="dropdown-option" >
-										<FaCog className="icon" /> Setting
+										<FaCog className="icon" /> Settings
 									</Link>
 									<div onClick={toggleDarkMode} className="dropdown-option">
 										<FaMoon className="icon" />

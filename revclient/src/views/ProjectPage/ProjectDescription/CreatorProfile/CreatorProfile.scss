@@ -1,7 +1,7 @@
 .creatorProfile {
 	margin-top: 60px;
-	border-left: 7px solid #544cbe;
-	background: #f9f8fd;
+	border-left: 7px solid $chillFi-purple;
+	background: $franks-grey;
 	letter-spacing: 0.06em;
 	width: 52%;
 
@@ -13,9 +13,38 @@
 	.profile-center {
 		display: flex;
 		align-content: center;
+<<<<<<< HEAD
 		@media #{$tablet} {
+=======
+		padding: 10px 0;
+		@media #{$tablet} {
+			padding: 20px 40px;
+			width: 100%;
+		}
+		@media #{$tablet-small} {
+>>>>>>> 682385a684a0dfd65560a364d2ee127e4deb4711
 			margin: 0 auto;
 			width: 90%;
+		}
+		.profilePic {
+			width: 120px;
+			border-radius: 50%;
+			margin: 32px;
+	
+			@media #{$tablet} {
+				width: 35%;
+				max-width: 150px;
+				margin: 25px 25px 25px 0;
+			}
+		}
+		.creator-profile-image {
+			@media #{$tablet} {
+				font-size: 76px;
+				height: 150px;
+				width: 150px;
+				min-width: 150px;
+				min-height: 150px;
+			}
 		}
 	}
 
@@ -38,11 +67,8 @@
 		}
 	}
 
-	.profilePic {
-		width: 120px;
-		border-radius: 50%;
-		margin: 32px;
 
+<<<<<<< HEAD
 		@media #{$tablet} {
 			width: 35%;
 			margin: 25px 25px 25px 0;
@@ -51,9 +77,26 @@
 
 	.creatorInfo {
 		margin: 35px 25px 25px 0;
+=======
+
+	.creatorInfo {
+		margin: 35px 25px 25px 0;
+		line-height: 0.5;
+		width: 50%;
+>>>>>>> 682385a684a0dfd65560a364d2ee127e4deb4711
 		@media #{$tablet} {
 			margin-top: 25px;
 			width: 100%;
+			padding-left: 30px;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+		}
+		h2 {
+			line-height: unset;
+		}
+		p {
+			line-height: 1.5;
 		}
 		.email {
 			display: flex;
@@ -61,11 +104,16 @@
 			align-content: center;
 			margin-top: 17px;
 
+			svg {
+				font-size: 2.4rem;
+				margin-right: 6px;
+			}
 			h2 {
 				font-size: 2rem;
-				line-height: 16px;
+				line-height: 1;
 
 				@media #{$tablet} {
+<<<<<<< HEAD
 					font-size: 1.5rem;
 					line-height: 16px;
 				}
@@ -78,6 +126,23 @@
 
 				@media #{$tablet} {
 					width: 8%;
+=======
+					font-size: 1.6rem;
+				}
+			}
+
+		}
+	}
+}
+.dark-mode {
+	.creatorProfile {
+		.profile-center {
+			background-color: $dark-grey;
+			box-shadow: 0px 2px 3px rgba(245, 242, 255, 0.2);
+			.creatorInfo {
+				h2, p {
+					color: $snow-white;
+>>>>>>> 682385a684a0dfd65560a364d2ee127e4deb4711
 				}
 			}
 		}

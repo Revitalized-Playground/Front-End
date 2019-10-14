@@ -1,9 +1,11 @@
 @import '../../../styles/mixins';
 
-.FPContainer {
-	margin: 150px 70px 100px 70px;
+.featured-projects-container {
+	margin: 150px auto 100px auto;
+	width: 95%;
+	max-width: 1500px;
 	@media #{$tablet} {
-		margin: 75px 30px 75px 30px;
+		margin: 75px auto 75px auto;
 	}
 	@media #{$tablet-small} {
 		text-align:center;
@@ -11,7 +13,7 @@
 		margin-top: 45px;
 	}
 
-	.FPProjectList {
+	.featured-projects-list {
 		display: flex;
 		justify-content: space-between;
 		@media #{$tablet-small} {

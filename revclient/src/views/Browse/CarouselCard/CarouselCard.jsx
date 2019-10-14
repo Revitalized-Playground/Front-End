@@ -2,42 +2,30 @@ import React from 'react';
 import  { Link } from "react-router-dom";
 import { FaHeart, FaAngleRight } from "react-icons/fa";
 import ReadMoreReact from "read-more-react";
-// import { Skeleton, SkeletonTheme } from "react-loading-skeleton";
 
+import ProgressBar from "../../../components/ProgressBar/ProgressBar";
 import { formatMoney } from "../../../helpers/formatMoney";
-import styled from "styled-components";
 
 
 const CarouselCard = ( {card, view, index, name} ) => {
-
-    const Box = styled.div`
-        height: 12px;
-        border-radius: 50px;
-
-        @keyframes pulse {
-            0% {
-                width: 0;
-                background: #0B096F;
-                }
-            100% {}
-        }
-        width: ${card.amountFunded > card.goalAmount ? 100 : (Number(card.amountFunded) / Number(card.goalAmount) * 100)}%;
-        animation: 1s ease-out pulse;
-    `
 
     if(!card.images) {
         card.images = ["https://res.cloudinary.com/revitalize/image/upload/v1569451117/start%20page/Camp_Crystal_Lake_jqewaz.jpg"]
     }
 
+    if(!card.featuredImage) {
+        card.featuredImage = "https://res.cloudinary.com/revitalize/image/upload/v1569451117/start%20page/Camp_Crystal_Lake_jqewaz.jpg"
+    }
 
-    console.log('card', card)
+
+    // console.log('card', card)
 
     if (view === "recommended") {
         return (
             <section className="carousel-card-inner __recommended">
                     <div className="carousel-card-image">
                         <FaHeart />
-                        <img src={card.images[0]} alt={card.name} />
+                        <img src={card.featuredImage} alt={card.name} />
                     </div>
                     <div className="carousel-card-body">
                         <div className="carousel-card-body-descript">
@@ -54,7 +42,7 @@ const CarouselCard = ( {card, view, index, name} ) => {
                             />
                         </div>
                         <div className="carousel-card-body-money" >
-                            <Box />
+                            <ProgressBar startingPoint={card.goalAmount} progress={card.amountFunded} />
                             <p><b>${formatMoney(card.amountFunded)}</b> out of ${formatMoney(card.goalAmount)}</p>
                         </div>
                     </div>

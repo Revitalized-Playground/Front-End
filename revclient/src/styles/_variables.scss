@@ -23,6 +23,7 @@ $colress: #fcede3;
 
 //basic grey shades
 $black-void: #000;
+$dark-grey: #444;
 $mirage: #979797;
 $static-grey: #c4c4c4;
 $silver-lining: #ededef;
@@ -39,8 +40,10 @@ $maastricht-blue: #007ea7;
 $dark-electric-blue: #00a8e8;
 
 // Status colors
-$upcoming-bg: #e3fff7;
-$upcoming-fg: #15630e;
+$live-bg: #e3fff7;
+$live-fg: #15630e;
+$notlive-bg: #ffe3e3;
+$notlive-fg: #630e0e;
 
 //media queries
 $mobile: 'only screen and (max-width:500px)';

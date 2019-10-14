@@ -11,9 +11,6 @@
 // Pages Here
 @import '../views/Landing/LandingPage.scss';
 
-@import '../views/Dashboard/Dashboard.scss';
-@import '../views/Dashboard/User/UserDashboard.scss';
-
 @import '../views/Login/Login.scss';
 @import '../views/Register/Register.scss';
 
@@ -49,3 +46,14 @@
 @import "../views/SetupProfile/SetupProfile.scss";
 
 
+// Dashboard
+@import '../views/DashboardV2/Dashboard.scss';
+
+// Progress Bar
+@import "../components/ProgressBar/ProgressBar.scss";
+
+// Loading spinner
+@import "../components/LoadingSpinner/LoadingSpinner.scss";
+
+// Initial Avatar
+@import "../components/InitialAvatar/InitialAvatar.scss";

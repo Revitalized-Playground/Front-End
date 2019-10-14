@@ -2,8 +2,15 @@
 	background-color: $chillFi-purple;
 	display: flex;
 	justify-content: space-between;
-	margin-bottom: 16rem;
+	margin-bottom: 23rem;
 	overflow: hidden;
+
+	@media (max-width: 500px) {
+		margin-bottom: 8rem;
+		// margin-top: 2rem;
+		height: 10rem;
+	}
+
 	h1 {
 		color: $snow-white;
 		font-family: 'futura-pt';
@@ -20,7 +27,7 @@
 		}
 		@media (max-width: 1135px) {
 			font-size: 5rem;
-		} 
+		}
 	}
 	img {
 		object-fit: contain;
@@ -32,12 +39,12 @@
 		}
 		@media (max-width: 770px) {
 			display: none;
-		} 
+		}
 	}
 	.img2 {
 		margin-bottom: -66px;
 		@media (max-width: 1860px) {
 			margin-bottom: -90px;
-		} 
+		}
 	}
 }

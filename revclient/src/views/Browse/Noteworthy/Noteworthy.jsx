@@ -33,38 +33,6 @@ const Noteworthy = () => {
         }
     ]
 
-    // const settings = {
-    //     arrows: false,
-    //     dots: false,
-    //     infinite: true,
-    //     speed: 500,
-    //     slidesToShow: 2,
-    //     slidesToScroll: 0,
-    //     centerPadding: "400px",
-    //     lazyLoad: "progressive",
-    //     className: "carousel-card",
-    //     responsive: [
-    //         {
-    //             breakpoint: 1200,
-    //             settings: {
-    //                 slidesToShow: 2,
-    //             }
-    //         },
-    //         {
-    //             breakpoint: 800,
-    //             settings: {
-    //                 slidesToShow: 1,
-    //             }
-    //         },
-    //         {
-    //             breakpoint: 480,
-    //             settings: {
-    //                 slidesToShow: 1,
-    //             }
-    //         }
-    //     ]
-    // };
-
     return (
         <section className="noteworthy-section">
             <h4>New & Noteworthy</h4>

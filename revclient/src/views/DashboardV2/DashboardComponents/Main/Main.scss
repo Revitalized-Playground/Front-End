@@ -1,0 +1,20 @@
+@import './TabComponent/List.scss';
+@import './TabComponent/Tabs.scss';
+@import "./TasksComponent/Tasks.scss";
+
+.dashboard-main {
+	width: 100%;
+	.dashboard-main-body {
+		line-height: 3;
+	}
+}
+.dashboard-main.section {
+	hr {
+		margin-top: -3px;
+	}
+}
+.dashboard-title {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+}
