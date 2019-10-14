@@ -22,14 +22,28 @@ import { GET_PROJECT } from '../../graphql/queries';
 
 // Helpers
 import { useWindowHook } from '../../helpers/windowOnClickHook.js';
+import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 
+
+import { StripeProvider, Elements } from 'react-stripe-elements';
 
 
 const ProjectPage = ({ match }) => {
 	const [copied, setCopied] = useState(false);
 	const [donateModal, setDonateModal] = useState(false)
-	const [modalVal, setModalVal, carouselVal, setCarouselVal] = useWindowHook();
+	const [bool, setBool] = useState(false)
 	const [projectData, setProjectData] = useState();
+	const [modalVal, setModalVal, carouselVal, setCarouselVal] = useWindowHook();
+	const { loading, error, data, refetch} = useQuery(GET_PROJECT, {
+		variables: { id: match.params.id },
+	});
+
+
+	useEffect(() => {
+		setProjectData(data);
+	}, [data]);
+
+
 
 	const val = e => {
 		if (e.target.className === 'modal') {
@@ -45,22 +59,43 @@ const ProjectPage = ({ match }) => {
 		}
 	};
 
-	const { loading, error, data } = useQuery(GET_PROJECT, {
-		variables: { id: match.params.id },
-	});
-
 	const donateModalBlur = e => {
 		if(e.target.className === 'donate-modal') {
 			setDonateModal(false)
 		}
 	}
 
+	const update = (amount) => {
+		setBool(!bool)
+		setProjectData({
+			...projectData,
+			project: {
+				...projectData.project,
+				donations: [...projectData.project.donations, {amount}]
+			}
+		})
+	}
 
-	if (error) return <h3>Error</h3>;
 
-	if (loading) return <h3>Summoning magic!</h3>;
 
-	if (data && !projectData) return setProjectData(data); 
+	console.log("data in project page", data);
+
+	if (error) return <h2>ERROR! Someone call Elan</h2>;
+	if (loading || !data || !projectData) {
+		return (
+			<>
+				<LoadingSpinner />
+			</>
+		)
+	};
+	
+
+	
+
+
+
+	console.log(data, 'newproj data', "\n", projectData)
+
 
 
 	return (
@@ -76,7 +111,12 @@ const ProjectPage = ({ match }) => {
 						</div>
 					</div>
 				</div>
-				<DonateModal donateModalBlur={donateModalBlur} donateModal={donateModal} setDonateModal={setDonateModal} />
+				<StripeProvider apiKey={process.env.REACT_APP_STRIPE_PUBLIC_KEY}>
+					<Elements>
+						<DonateModal update={update} donateModalBlur={donateModalBlur} donateModal={donateModal} setDonateModal={setDonateModal} />
+					</Elements>
+				</StripeProvider>
+				
 				<ShareModal copied={copied} setCopied={setCopied} modalVal={modalVal} setModalVal={setModalVal} val={val} />
 				<div className="project-page-flex">
 					<BasicDescription
@@ -121,7 +161,7 @@ const ProjectPage = ({ match }) => {
 						projDescription={projectData.project.description}
 					/>
 					<Donate
-						raised={projectData.project.amountFunded}
+						raised={projectData.project.donations.reduce((acc, each) => Number(each.amount) + acc, 0)}
 						budget={projectData.project.goalAmount}
 						projectData={projectData}
 						setModal={setModalVal}

@@ -23,6 +23,23 @@ const ProjectComments = ({comments, id, setProjectData, projectData, history}) =
 
     const [editCommentMutation] = useMutation(EDIT_COMMENT)
 
+    const [inputClicked, setInptuClicked] = useState(false)
+
+    const textAreaFocus = {
+        width: '25%',
+        height: '40px',
+        transition: '1s'
+    }
+    const textarea = {
+        height: '20px'
+    }
+
+    const onBlurForm = e => {
+        if(e.target.className !== 'click') {
+            setInptuClicked(false)
+        }
+    }
+
 
     const settingsBlur = e => {
         
@@ -80,20 +97,23 @@ const ProjectComments = ({comments, id, setProjectData, projectData, history}) =
 
     if(!comments) return <div>Loading Comments...</div>
     return (
-        <div onClick={settingsBlur} className='projectCommentsContainer'>
+        <div onClick={(e) => {settingsBlur(e); onBlurForm(e)}} className='projectCommentsContainer'>
             <h2 className='commentsTitle'>Comments</h2>
             {
                 localStorage.getItem('token') 
                 && 
-                <form className='comment-form' onSubmit={submitComment}>
+                <form className='comment-form click' onSubmit={submitComment}>
                     <textarea 
+                        style={inputClicked ? textAreaFocus : textarea}
+                        className='click'
                         placeholder='comment'
                         onChange={commentHandle}
+                        onClick={() => setInptuClicked(true)}
                         value={comment.comment}
                         name='comment'
                         ref={inputRef}
                     />
-                    <button disabled={comment.comment.length === 0 ? true : false} style={comment.comment.length === 0 ? {color: 'gray', cursor: 'default'} : null}>Submit</button>
+                    <button onClick={() => setInptuClicked(false)} className='click' disabled={comment.comment.length === 0 ? true : false} style={comment.comment.length === 0 ? {color: 'gray', cursor: 'default'} : null}>Submit</button>
                 </form>
             }
             <div>

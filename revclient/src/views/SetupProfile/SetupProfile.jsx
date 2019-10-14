@@ -67,8 +67,6 @@ const SetupProfile = props => {
     if (!localStorage.getItem("token")) props.history.push("/");
     if (data) console.log(data, profileData);
 
-    // console.log(props)
-
     return (
         <>
             {props.destination === "settings" ? (

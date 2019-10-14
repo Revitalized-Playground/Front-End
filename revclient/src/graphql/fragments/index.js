@@ -62,6 +62,9 @@ export const PROJECT_SUMMARY_FRAG = gql`
         comments {
             id
             ...Comments
+            profile {
+                ...UserSummary
+            }
         }
         applicants {
             id

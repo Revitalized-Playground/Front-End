@@ -18,8 +18,6 @@ const BasicDescription = ({startDate, duration, difficulty, organizer}) => {
         }
     }
 
-    console.log(durationFunc())
-
     return (
         <div className='basicDescriptionContainer'>
             <div className='descriptionInnerDiv'>

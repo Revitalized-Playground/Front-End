@@ -20,6 +20,8 @@ import About from './views/About/About';
 // Utils
 import AuthenticateUser from "./utils/AuthenticateUser";
 
+import StudentApplicationForm from './views/StudentApplicationForm/StudentApplicationForm'
+
 
 
 export const Routes = () => {
@@ -124,6 +126,13 @@ export const Routes = () => {
                 component={Browse }
             />
 
+            <Route 
+                exact
+                path='/studentapplicationform'
+                render={() => (
+                    <StudentApplicationForm />
+                )}
+            />
 
         </BrowserRouter>
     );
