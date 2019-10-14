@@ -14,7 +14,7 @@ const MainTradeMaster = props => {
 
 	const [state, setState] = useState({
 		project: "",
-		selected: "",
+		selected: "Students",
 		tabs: "",
 	});
 
@@ -35,11 +35,13 @@ const MainTradeMaster = props => {
 		});
 	};
 
+	// console.log("state.selected: ", state.selected);
 	const tradeMasterView = () => {
 		const newTasksArray = state.project.students.map(person => (
 				<React.Fragment key={person + Math.random()} >
 					<div className="list">
 						{/* <Students person={person} tab={state.selected} /> */}
+
 						<People person={person} />
 					</div>
 				</React.Fragment>

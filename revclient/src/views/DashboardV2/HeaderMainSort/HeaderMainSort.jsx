@@ -106,8 +106,8 @@ export default function HeaderMainSort(props) {
                         selectedProject={selectedProject}
                     />
                 ) : null}
-                {/* {console.log("project.project.id :", project.project.id)}
-                {console.log("selectedProject.id :", selectedProject.id)} */}
+                {console.log("project.project.id :", project.project.id)}
+                {console.log("selectedProject.id :", selectedProject.id)}
                 {project.project.id === selectedProject.id ? (
                     <MainTradesMaster
                         defaultTab={mainTabs.defaultMainTab}

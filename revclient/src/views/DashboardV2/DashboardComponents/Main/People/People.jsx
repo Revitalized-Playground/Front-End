@@ -3,8 +3,8 @@ import React from 'react';
 
 const People = props => {
     const { person } = props;
-    console.log("props: ", props);
-    console.log("person: ", person);
+    // console.log("props: ", props);
+    // console.log("person: ", person);
 
     return (
         <>
