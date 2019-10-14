@@ -25,7 +25,7 @@ const Dashboard = () => {
         tradeMasterTabs: ["Students", "Tasks", "Metrics"],
         donationTabs: ["All Donations", "Project Donations"],
     };
-    const [ mainTabs, setMainTabs ] = useState({ ...possibleMainTabs, selectedMainTab:"" });
+    const [ mainTabs, setMainTabs ] = useState({ ...possibleMainTabs, selectedMainTab: "" });
 
     const [ selectedProject, setProject ] = useState({ project: null, id: null, showMore: false, buttonToggle: false });
 
@@ -41,7 +41,9 @@ const Dashboard = () => {
         setDashNavTab({ ...dashNavTabState, selectedDashNavTab: newAvailTabArray[0], dashTabs: newAvailTabArray, dashTabCount: howMany }) 
     };
     const selectDashNavTab = userSelectedTab => { 
-        setDashNavTab({ ...dashNavTabState, selectedDashNavTab: userSelectedTab }) 
+        setMainTabs({ ...mainTabs, selectedMainTab: "" });
+        setProject({ project: null, id: null, showMore: false, buttonToggle: false });
+        setDashNavTab({ ...dashNavTabState, selectedDashNavTab: userSelectedTab });
     };
 
     useEffect(() => {

@@ -30,7 +30,6 @@ const MainProjectAdmin = props => {
 
 	const projectAdminMainView = selectedTabView => {
 		
-		console.log("ProjectadminMainView function ", props);
 		let viewSelected="";
 
 		if (selectedTabView === mainTabs.projectAdminTabs[0]) {
@@ -46,7 +45,8 @@ const MainProjectAdmin = props => {
 			)
 			return viewSelected = view
 		}
-		if (selectedTabView === "Trade Masters") {
+		
+		if (selectedTabView === mainTabs.projectAdminTabs[1]) {
 			const view = project.tradeMasters.map(trademasters => (
 					<div className="list">
 						{/* <Task task={task} tab={mainTabs.selectedMainTab} /> */}
@@ -55,7 +55,18 @@ const MainProjectAdmin = props => {
 			)
 			return viewSelected = view
 		}
-		if (selectedTabView === "Tasks") {
+
+		if (selectedTabView === mainTabs.projectAdminTabs[2]) {
+			const view = project.tasks.map(task => (
+					<div className="list">
+						<Task task={task} tab={mainTabs.selectedMainTab} />
+					</div>
+				) 
+			)
+			return viewSelected = view
+		}
+
+		if (selectedTabView === mainTabs.projectAdminTabs[3]) {
 			const view = project.tasks.map(task => (
 					<div className="list">
 						<Task task={task} tab={mainTabs.selectedMainTab} />
