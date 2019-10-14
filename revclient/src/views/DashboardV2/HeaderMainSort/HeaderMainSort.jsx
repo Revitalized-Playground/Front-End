@@ -53,27 +53,27 @@ export default function HeaderMainSort(props) {
         
         console.log("Student header main sort array  ", projectArray);
 
-        return renderedHeaderMain = projectArray.map(project => (
-            <React.Fragment key={project.id} >
+        return renderedHeaderMain = projectArray.map(projectObject => (
+            <React.Fragment key={projectObject.id} >
                 {!selectedProject.id ? (
                     <Header 
-                        key={project.id} 
-                        project={project} 
+                        key={projectObject.project.id} 
+                        project={projectObject.project} 
                         setProject={setProject}
                         selectedProject={selectedProject}
                     />
-                ) : project.id === selectedProject.id ? (
+                ) : projectObject.project.id === selectedProject.id ? (
                     <Header 
-                        key={project.id} 
-                        project={project} 
+                        key={projectObject.project.id} 
+                        project={projectObject.project} 
                         setProject={setProject}
                         selectedProject={selectedProject}
                     />
                 ) : null}
                 
-                {project.id === selectedProject.id ? (
+                {projectObject.project.id === selectedProject.id ? (
                     <MainStudent
-                        project={project}
+                        project={projectObject.project}
                         mainTabs={mainTabs}
                         selectedMainTab={mainTabs.selectedMainTab}
                         setMainTabs={setMainTabs}
