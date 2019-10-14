@@ -10,6 +10,7 @@ import Task from "./TasksComponent/Task";
 
 const MainStudent = props => {
 
+
 	const [state, setState] = useState({
 		project: "",
 		selected: "",
@@ -20,7 +21,7 @@ const MainStudent = props => {
 		setState({
 			project: props.project,
 			selected: props.defaultTab,
-			tabs: props.mainTabs,
+			tabs: props.tabs,
 		})
 	}, [])
 

@@ -75,10 +75,10 @@ export default function HeaderMainSort(props) {
                 
                 {project.project.id === selectedProject.id ? (
                     <MainStudent
-                        // defaultTab={mainTab.defaultMainTab}
-                        // setMainTab={setMainTab}
-                        // tabs={mainTab.studentTabs}
-                        // project={project.project}
+                        defaultTab={mainTabs.defaultMainTab}
+                        setMainTab={setMainTabs}
+                        tabs={mainTabs.studentTabs}
+                        project={project.project}
                     />
                 ) : null}
             </React.Fragment>
