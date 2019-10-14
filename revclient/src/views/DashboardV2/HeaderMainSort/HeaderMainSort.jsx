@@ -10,7 +10,7 @@ export default function HeaderMainSort(props) {
     const { projectArray, selectedProject, setProject, mainTabs, setMainTabs, dashNavTabState, possibleDashNavTabs } = props
     if (!projectArray) return null;
     let renderedHeaderMain;
-
+    console.log("props in HeaderMainSort: ", props);
     console.log("dashNavTabState ",dashNavTabState);
 
 
@@ -75,9 +75,9 @@ export default function HeaderMainSort(props) {
                 
                 {project.project.id === selectedProject.id ? (
                     <MainStudent
-                        // defaultTab={mainTabState.defaultMainTab}
-                        // setMainTabState={setMainTabState}
-                        // tabs={mainTabState.mainTabs}
+                        // defaultTab={mainTab.defaultMainTab}
+                        // setMainTab={setMainTab}
+                        // tabs={mainTab.studentTabs}
                         // project={project.project}
                     />
                 ) : null}
@@ -108,13 +108,14 @@ export default function HeaderMainSort(props) {
                         selectedProject={selectedProject}
                     />
                 ) : null}
-                
+                {/* {console.log("project.project.id :", project.project.id)}
+                {console.log("selectedProject.id :", selectedProject.id)} */}
                 {project.project.id === selectedProject.id ? (
                     <MainTradesMaster
-                        // defaultTab={mainTabState.defaultMainTab}
-                        // setMainTabState={setMainTabState}
-                        // tabs={mainTabState.mainTabs}
-                        // project={project.project}
+                        defaultTab={mainTabs.defaultMainTab}
+                        tabs={mainTabs.tradeMasterTabs}
+                        project={project.project}
+                        setMainTabState={setMainTabs}
                     />
                 ) : null}
             </React.Fragment>
