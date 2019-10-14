@@ -36,12 +36,13 @@ const MainTradeMaster = props => {
 	};
 
 	const tradeMasterView = () => {
-		const newTasksArray = state.project.students.map(task => (
-				<div className="list">
-					{/* <Students task={task} tab={state.selected} /> */}
-					<React.Fragment key={task + Math.random()} />
-					<People />
-				</div>
+		const newTasksArray = state.project.students.map(person => (
+				<React.Fragment key={person + Math.random()} >
+					<div className="list">
+						{/* <Students person={person} tab={state.selected} /> */}
+						<People person={person} />
+					</div>
+				</React.Fragment>
 			) 
 		)
 		return (

@@ -34,9 +34,11 @@ const MainStudent = props => {
 
 	const tradeMasterView = () => {
 		const newTasksArray = state.project.students.map(task => (
+			<React.Fragment key={task+Math.random()}>
 				<div className="list">
 					<Task task={task} tab={state.selected} />
 				</div>
+			</React.Fragment>
 			) 
 		)
 		return (
