@@ -20,7 +20,7 @@ const Dashboard = () => {
 
     // Change these values to adjust the names of the tabs in the main view.
     let possibleMainTabs = { 
-        projectAdminTabs: ["Students", "Trade Masters", "Tasks", "Metrics"],
+        projectAdminTabs: ["Students", "Trade Masters", "Trades", "Tasks", "Metrics"],
         studentTabs: ["New Tasks", "Tasks In Progress", "Completed Tasks"],
         tradeMasterTabs: ["Students", "Tasks", "Metrics"],
         donationTabs: ["All Donations", "Project Donations"],

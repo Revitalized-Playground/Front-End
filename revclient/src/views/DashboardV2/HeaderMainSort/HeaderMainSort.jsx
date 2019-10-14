@@ -107,12 +107,15 @@ export default function HeaderMainSort(props) {
                     />
                 ) : null}
                 
+                {/* {console.log("project.project.id :", project.project.id)}
+                {console.log("selectedProject.id :", selectedProject.id)} */}
                 {projectObject.project.id === selectedProject.id ? (
                     <MainTradeMaster
                         project={projectObject.project}
                         mainTabs={mainTabs}
                         selectedMainTab={mainTabs.selectedMainTab}
                         setMainTabs={setMainTabs}
+                        defaultTab={mainTabs.defaultMainTab}
                     />
                 ) : null}
             </React.Fragment>
