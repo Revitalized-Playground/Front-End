@@ -9,7 +9,7 @@ import { useMutation } from '@apollo/react-hooks';
 import { DONATE_TO_PROJECT } from '../../../graphql/mutations';
 
 
-const DonateModal = ({update, bool, setBool, donateModal, setDonateModal, donateModalBlur, stripe, match}) => {
+const DonateModal = ({id, update,donateModal, setDonateModal, donateModalBlur, stripe, match}) => {
     const [amount, setAmount] = useState('$');
     const [donateToProject] = useMutation(DONATE_TO_PROJECT);
     const [error, setError] = useState({
@@ -61,15 +61,17 @@ const DonateModal = ({update, bool, setBool, donateModal, setDonateModal, donate
 	async function handleSubmit(e) {
 		e.preventDefault();
         const { token } = await stripe.createToken({ name: 'Name here' }); 
-        const newAmount = amount.split(' ')[1]
+        const newAmount = Number(amount.split(' ')[1])
 
         if(amount.length < 3) {
             setError({...error, amount: true})
+        } else if(newAmount < 0.50) {
+            window.alert('Can\'t donate less than $0.50')
         } else {
             update(newAmount)
             donateToProject({
                 variables: {
-                    id: match.params.id,
+                    id: id,
                     data: {
                         token: token.id,
                         amount: parseInt(newAmount, 10),

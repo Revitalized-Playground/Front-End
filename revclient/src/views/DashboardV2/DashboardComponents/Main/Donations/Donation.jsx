@@ -13,7 +13,6 @@ const Donation = props => {
                 name: "Revitalize Chicago",
                 description: "The most famous theatre in all of Chicago is getting an overhaul by Revitalize",
                 goalAmount: 1383.00,
-                amountFunded: 300.00,
                 duration: 2,
                 startDate: "2019-10-03T00:00:00.000Z"
             }
