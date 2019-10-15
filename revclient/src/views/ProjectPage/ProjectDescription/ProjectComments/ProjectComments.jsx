@@ -54,9 +54,6 @@ const ProjectComments = ({comments, id, setProjectData, projectData, history}) =
     const commentHandle = e => {
         setComment({...comment, [e.target.name]: e.target.value})
     }
-
-
-    console.log(projectData.comments)
     
 
     const submitComment = async e => {

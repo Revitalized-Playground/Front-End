@@ -7,9 +7,6 @@ const SingleComment = ({ each, editCommentMutation, deleteComment, currentUser, 
 	const [eachSetting, setSettings] = useState(settings);
 	const [editing, setEditing] = useState(false);
 
-	console.log('current User', comment.profile.id, currentUser().profileId)
-	console.log('eachSetting', eachSetting)
-
 	useEffect(() => {
 		setSettings(settings);
 	}, [bool]);
