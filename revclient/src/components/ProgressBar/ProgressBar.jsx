@@ -9,13 +9,20 @@ export const calculatePercentageProgressBar = (progress, startingPoint) => {
     if (digitCount === 1) return `${finalPercent.toPrecision(2)}%`;
 };
 
-const ProgressBar = ({progress, startingPoint}) => {
+const ProgressBar = ({ progress, startingPoint }) => {
     const regex = /,/gi;
-    let progressInt = progress.replace(regex, "");
+    let progressInt;
+    if (Number.isInteger(progress)) {
+        progressInt = progress
+    }
+    if (!Number.isInteger(progress)) {
+        progressInt = progress.replace(regex, "");
+    }
 
     const percent = Number(progressInt) / Number(startingPoint) * 100;
     // const brightness = percent < 50 ? percent / 100 * 3 : percent >= 100 ? 4 : percent / 100 * 2;
     // /* filter: brightness(${brightness}); */
+    
 
     const Box = styled.div`
         height: 12px;
@@ -37,9 +44,10 @@ const ProgressBar = ({progress, startingPoint}) => {
             from  { background-position: 40px 0; }
             to    { background-position: 0 0; }
         };
-
     `
+
     
+
     return (
         <div className={percent < 100 ? "progress-bar" : percent === NaN ? "progress-bar empty" : "progress-bar full"} >
             <Box />

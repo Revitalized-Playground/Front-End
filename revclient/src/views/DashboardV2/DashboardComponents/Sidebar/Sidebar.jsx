@@ -9,7 +9,7 @@ import ProgressBar, { calculatePercentageProgressBar } from "../../../../compone
 
 
 const Sidebar = props => {
-    const moneyProgress = [800, 1800]
+    const moneyProgress = [800.00, 1800.00]
     const getPercentage = calculatePercentageProgressBar(moneyProgress[0], moneyProgress[1]);
 
 
@@ -20,7 +20,6 @@ const Sidebar = props => {
                 {props.user.profileImage ? (
                     <img src={props.user.profileImage} alt="user" className="user-picture" />
                 ) : (
-                    // <Skeleton circle={true} height={110} width={110} />
                     <InitialAvatar 
                         firstName={props.user.firstName} 
                         lastName={props.user.lastName}
@@ -79,7 +78,10 @@ const Sidebar = props => {
                                 <p>Project Completion</p>
                                 <p className="percent">{getPercentage}</p>
                             </div>
-                            <ProgressBar progress={moneyProgress[0]} startingPoint={moneyProgress[1]} />
+                            <ProgressBar 
+                                progress={moneyProgress[0]} 
+                                startingPoint={moneyProgress[1]} 
+                            />
                         </div>
                         <div className="info">
                             <div className="text">
