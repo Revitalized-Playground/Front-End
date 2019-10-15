@@ -127,16 +127,6 @@ const Sidebar = props => {
                                         <h4>{project.name}</h4>
                                     </Link>
                                 </div>
-                                <div className="text">
-                                    <p>Percentage Funded</p>
-                                    <p className="text-value">
-                                        {calculatePercentageProgressBar(project.goalAmount, addUpDonations(project.donations))}
-                                    </p>
-                                </div>
-                                <ProgressBar 
-                                    progress={addUpDonations(project.donations)} 
-                                    startingPoint={project.goalAmount} 
-                                />
                                 {project.donations.length > 0 && (
                                     <div className="text">
                                         <p>Donations</p>
@@ -161,6 +151,16 @@ const Sidebar = props => {
                                         </p>
                                     </div>
                                 )}
+                                <div className="text">
+                                    <p>Percentage Funded</p>
+                                    <p className="text-value">
+                                        {calculatePercentageProgressBar(project.goalAmount, addUpDonations(project.donations))}
+                                    </p>
+                                </div>
+                                <ProgressBar 
+                                    progress={addUpDonations(project.donations)} 
+                                    startingPoint={project.goalAmount} 
+                                />
                             </div>
                         ) : null}
                         
