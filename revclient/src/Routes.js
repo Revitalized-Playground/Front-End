@@ -8,9 +8,8 @@ import SetupProfile from "./views/SetupProfile/SetupProfile";
 import Login from "./views/Login/Login";
 import ProjectsHome from "./views/ProjectsHome/ProjectsHome";  // May be deprecated
 
-// import Start from "./views/Start/Start";
+
 import Browse from "./views/Browse/Browse";
-// import DashboardOld from "./views/DashboardOld/Dashboard";
 import Dashboard from "./views/DashboardV2/Dashboard";
 import CreateProjectWizard from './views/CreateProjWizard/CreateProjectWizard'
 import ProjectPage from './views/ProjectPage/ProjectPage'

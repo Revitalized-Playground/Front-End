@@ -1,11 +1,11 @@
 import React from 'react';
 import Slider from "react-slick";
 
-// import RecommendedProjectsSkeleton from './RecommendedProjectsSkeleton';
-import LoadingSpinner from "../../../components/LoadingSpinner/LoadingSpinner";
+import RecommendedProjectsSkeleton from './RecommendedProjectsSkeleton';
 import CarouselCard from '../CarouselCard/CarouselCard';
 import { NextArrow, PrevArrow } from "../CarouselCard/Arrows";
 
+// Graphql
 import { useQuery } from '@apollo/react-hooks';
 import { GET_PROJECTS } from '../../../graphql/queries';
 
@@ -38,14 +38,14 @@ const RecommendedProjects = () => {
                     breakpoint: 1000,
                     settings: {
                         slidesToShow: 3,
-                        slidesToScroll: 2,
+                        slidesToScroll: 1,
                     }
                 },
                 {
                     breakpoint: 700,
                     settings: {
                         slidesToShow: 2,
-                        slidesToScroll: 2
+                        slidesToScroll: 1,
                     }
                 },
                 {
@@ -58,7 +58,7 @@ const RecommendedProjects = () => {
             ]
         }
 
-        if (loading) return <LoadingSpinner />
+        if (loading) return <RecommendedProjectsSkeleton />
 
         if (error) return console.log(error)
 
@@ -69,7 +69,9 @@ const RecommendedProjects = () => {
                     <Slider {...settings}>
                         {data.projects ? data.projects.map(recommendedItem => (
                             <CarouselCard key={recommendedItem.id} card={recommendedItem} view="recommended" />
-                        )) : null}
+                        )) : (
+                            <RecommendedProjectsSkeleton />
+                        )}
                     </Slider>
                 </div>
             </section>
