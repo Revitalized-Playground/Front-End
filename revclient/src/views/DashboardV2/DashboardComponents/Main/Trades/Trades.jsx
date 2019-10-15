@@ -19,7 +19,7 @@ const ProjectTrades = props => {
 		)
 	}
 
-    console.log("projectTrades props  ", props);
+    // console.log("projectTrades props  ", props);
 
     return (
         <>

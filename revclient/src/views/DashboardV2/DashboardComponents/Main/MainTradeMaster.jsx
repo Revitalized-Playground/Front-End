@@ -13,6 +13,9 @@ import Metrics from "./Metrics/Metrics";
 
 const MainTradeMaster = props => {
 	const { project, mainTabs, setMainTabs } = props;
+	// console.log("project: ", project);
+	// console.log("project.students top: ", project.students);
+	const [selected, setSelected] = useState("Tasks");
 
 	useEffect(() => {
 		setMainTabs({
@@ -29,46 +32,68 @@ const MainTradeMaster = props => {
 	};
 
 	const tradeMasterView = selectedTabView => {
-		console.log("tradeMasterView function ", props);
+		// console.log("tradeMasterView function ", props);
 		let viewSelected="";
+		if (selected === mainTabs.tradeMasterTabs[0]) {
+			const view = (
+				<>
+					{/* <PeopleHeader />
+					{project.applicants.map(applicant => (
+						<div className="list students">
+							<People person={applicant} tab={mainTabs.selectedMainTab} />
+						</div>
+					))} */}
+				</>
+			)
+			return viewSelected = view
+		}
+		console.log("selectedTabView: ", selectedTabView);
+		// console.log("mainTabs: ", mainTabs);
+		// console.log("mainTabs.tradeMasterTabs: ", mainTabs.tradeMasterTabs);
+		if (selected === mainTabs.tradeMasterTabs[1]) {
 
-		if (selectedTabView === mainTabs.tradeMasterTabs[0]) {
+			// console.log("project.students inside if: ", project.students);
 			const view = (
 				<>
 					<PeopleHeader />
-					{project.tradeMasterProjects.map(student => (
+					{/* {console.log("project.tradeMasterProjects :", project.tradeMasterProjects)} */}
+					{project.students.map(student => (
 						<div className="list students">
+							{/* {console.log("student: ", student)} */}
 							<People person={student} tab={mainTabs.selectedMainTab} />
 						</div>
 					))}
 				</>
 			)
-			return viewSelected = view
-		}
-
-		if (selectedTabView === mainTabs.tradeMasterTabs[1]) {
-			const view = project.tradeMasterProjects.project.trades.map(trade => (
-					<div className="list trades">
-						<Trades trade={trade} tab={mainTabs.selectedMainTab} />
-					</div>
-				) 
-			)
+			// console.log("viewSelected: ", viewSelected);
 			return viewSelected = view
 		}
 
 
-		if (selectedTabView === mainTabs.tradeMasterTabs[2]) {
-			const view = project.tradeMasterProjects.project.tasks.map(task => (
-					<div className="list tasks">
-						<Task task={task} tab={mainTabs.selectedMainTab} />
-					</div>
-				) 
-			)
+		if (selected === mainTabs.tradeMasterTabs[2]) {
+
+			// )
+			const view = project.trades.map(trade => (
+				<div className="list trades">
+					<Trades trade={trade} tab={mainTabs.selectedMainTab} />
+				</div>
+			) 
+		)
+			// console.log("viewSelected: ", viewSelected);			
 			return viewSelected = view
 		}
 
 
-		if (selectedTabView === mainTabs.tradeMasterTabs[3]) {
+		if (selected === mainTabs.tradeMasterTabs[3]) {
+			const view = project.tasks.map(task => (
+				<div className="list tasks">
+					<Task task={task} tab={mainTabs.selectedMainTab} />
+				</div>
+			) 
+		)
+			return viewSelected = view
+		}
+		if (selected === mainTabs.tradeMasterTabs[4]) {
 			const view = (
 				<div className="list metrics">
 					<Metrics tab={mainTabs.selectedMainTab} />
@@ -76,7 +101,6 @@ const MainTradeMaster = props => {
 			)
 			return viewSelected = view
 		}
-
 
 		return (
 			<>
@@ -99,7 +123,14 @@ const MainTradeMaster = props => {
 				<div className="tabs">
 					{mainTabs ? 
 						mainTabs.tradeMasterTabs.map(tab => (
-							<Tab changeSelected={changeSelected} selected={mainTabs.selectedMainTab} tab={tab} key={tab + Date.now()} />
+							<Tab
+								// changeSelected={changeSelected}
+								setSelected={setSelected}
+								// selected={mainTabs.selectedMainTab}
+								selected={selected}
+								tab={tab}
+								key={tab + Date.now()}
+							/>
 						)) :
 						(
 							<>
@@ -115,7 +146,16 @@ const MainTradeMaster = props => {
 
 			<hr />
 			<div className="dashboard-main-body">
-				{tradeMasterView()}
+				{
+					// mainTabs.tradeMasterTabs.map(t => {
+					// 	return tradeMasterView(t)
+					// }) 
+					// tradeMasterView("Applicants")
+					tradeMasterView()
+					// tradeMasterView("Trades"),
+					// tradeMasterView("Tasks")
+					// tradeMasterView("Metrics")
+				}
 			</div>
 		</div>
 	);
