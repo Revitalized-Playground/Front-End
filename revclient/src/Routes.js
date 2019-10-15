@@ -10,7 +10,7 @@ import ProjectsHome from './views/ProjectsHome/ProjectsHome'; // May be deprecat
 
 // import Start from "./views/Start/Start";
 import Browse from './views/Browse/Browse';
-import DashboardOld from './views/DashboardOld/Dashboard';
+// import DashboardOld from "./views/DashboardOld/Dashboard";
 import Dashboard from './views/DashboardV2/Dashboard';
 import CreateProjectWizard from './views/CreateProjWizard/CreateProjectWizard';
 import ProjectPage from './views/ProjectPage/ProjectPage';
@@ -36,6 +36,14 @@ export const Routes = () => {
 			<Route exact path="/oauth/:token" component={AuthenticateUser} />
 
 			<Route exact path="/about" component={About} />
+
+			{/* private routes */}
+
+			<Route
+				// exact
+				path="/dashboard"
+				component={Dashboard}
+			/>
 
 			{/* private routes */}
 

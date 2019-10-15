@@ -1,74 +1,105 @@
 import React, { useState, useEffect } from 'react';
 import Skeleton from 'react-loading-skeleton';
 import LoadingSpinner from "../../../../components/LoadingSpinner/LoadingSpinner";
-// import { inLastWeek } from "../../../../helpers/helpers";
 
-import Tabs from './TabComponent/Tabs';
+import Tab from './TabComponent/Tab';
 import Task from "./TasksComponent/Task";
+import People from "./People/People";
+import PeopleHeader from "./People/PeopleHeader";
 
 // import { apprenticeTabs, apprenticeList } from '../../dashboarddummydata';
 
 const MainStudent = props => {
-
-
-	const [state, setState] = useState({
-		project: "",
-		selected: "",
-		tabs: "",
-	});
+	const { project, mainTabs, setMainTabs } = props;
 
 	useEffect(() => {
-		setState({
-			project: props.project,
-			selected: props.defaultTab,
-			tabs: props.tabs,
+		setMainTabs({
+			...mainTabs,
+			selectedMainTab: mainTabs.studentTabs[0]
 		})
-	}, [])
+	}, []);
 
 	const changeSelected = userSelectedTab => {
-		setState({
-			...state,
-			selected: userSelectedTab,
+		setMainTabs({
+			...mainTabs,
+			selectedMainTab: userSelectedTab,
 		});
 	};
 
-	const tradeMasterView = () => {
-		const newTasksArray = state.project.students.map(task => (
-				<div className="list">
-					<Task task={task} tab={state.selected} />
-				</div>
-			) 
-		)
+	const studentMainView = selectedTabView => {
+		
+		console.log("studentMainView function ", props);
+		let viewSelected="";
+
+		if (selectedTabView === mainTabs.studentTabs[0]) {
+			const view = (
+				<>
+					<PeopleHeader />
+					{project.students.map(student => (
+						<div className="list">
+							<People person={student} tab={mainTabs.selectedMainTab} />
+						</div>
+					))}
+				</>
+			)
+			return viewSelected = view
+		}
+		if (selectedTabView === mainTabs.studentTabs[1]) {
+			const view = project.tradeMasters.map(trademasters => (
+					<div className="list">
+						{/* <Task task={task} tab={mainTabs.selectedMainTab} /> */}
+					</div>
+				) 
+			)
+			return viewSelected = view
+		}
+		if (selectedTabView === mainTabs.studentTabs[2]) {
+			const view = project.tasks.map(task => (
+					<div className="list">
+						<Task task={task} tab={mainTabs.selectedMainTab} />
+					</div>
+				) 
+			)
+			return viewSelected = view
+		}
+
 		return (
 			<>
-				{newTasksArray}
+				{viewSelected}
 			</>
 		)
 	}
 
 
-	if (!state.tabs) {
+	if (!mainTabs) {
 		return (
 			<LoadingSpinner />
 		)
-	}
+	};
 
 	return (
 		<div className="dashboard-main section">
 			<div className="dashboard-title">
-				{<Tabs tabs={state.tabs} selected={state.selected} changeSelected={changeSelected} /> || (
-					<>
-						<Skeleton count={1} height={25} width={200} />
-						<Skeleton count={1} height={25} width={200} />
-						<Skeleton count={1} height={25} width={200} />
-						<Skeleton count={1} height={25} width={200} />
-					</>
-				)}
+				<div className="tabs">
+					{mainTabs ? 
+						mainTabs.studentTabs.map(tab => (
+							<Tab changeSelected={changeSelected} selected={mainTabs.selectedMainTab} tab={tab} key={tab + Date.now()} />
+						)) :
+						(
+							<>
+								<Skeleton count={1} height={25} width={200} />
+								<Skeleton count={1} height={25} width={200} />
+								<Skeleton count={1} height={25} width={200} />
+								<Skeleton count={1} height={25} width={200} />
+							</>
+						)
+					}
+				</div> 
 			</div>
 
 			<hr />
 			<div className="dashboard-main-body">
-				{tradeMasterView()}
+				{studentMainView()}
 			</div>
 		</div>
 	);
