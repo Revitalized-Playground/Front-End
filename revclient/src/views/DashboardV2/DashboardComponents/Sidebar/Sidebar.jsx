@@ -15,9 +15,6 @@ import donorIcon from "../../../../assets/SidebarIcons/donorIcon.png";
 const Sidebar = props => {
     const moneyProgress = [800.00, 1800.00]
     const getPercentage = calculatePercentageProgressBar(moneyProgress[0], moneyProgress[1]);
-
-    // console.log("props: ", props);
-
     const countArray = [
     {
         name: "admin",
@@ -184,7 +181,11 @@ const Sidebar = props => {
                             </p>
                         :
                             countArray.map(y => {
-                                return displayCount(y)
+                                return (
+                                    <React.Fragment key={y.name+Math.random()}>
+                                        {displayCount(y)}
+                                    </React.Fragment>
+                                )
                             })
                     }
                 </div>
