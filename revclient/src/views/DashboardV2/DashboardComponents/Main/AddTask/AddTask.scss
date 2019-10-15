@@ -1,4 +1,4 @@
-.add-trade-container {
+.add-task-container {
     background-color: rgba($bleached-black, 0.75);
     height: 100vh;
     width: 100vw;
@@ -10,15 +10,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    .add-trade-card {
+    z-index: 100;
+    .add-task-card {
         background-color: $snow-white;
         font-size: 1.8rem;
-        width: 50%;
+        width: 60%;
         max-width: 600px;
         height: 80%;
         max-height: 400px;
         padding: 20px;
-        .add-trade-actions {
+        .add-task-actions {
             width: 100%;
             text-align: right;
         }
@@ -37,7 +38,7 @@
                 width: 100%;
                 max-width: 340px;
             }
-            .add-trade-button-container {
+            .add-task-button-container {
                 width: 100%;
                 display: flex;
                 justify-content: center;

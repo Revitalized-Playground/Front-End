@@ -6,11 +6,11 @@ import { CREATE_PROJECT_TRADE } from '../../../../../graphql/mutations';
 
 
 const AddTrade = props => {
-    const { setAddTrade, addTrade, id } = props;
+    const { setAddTradeModal, projectId } = props;
 
     const [ createProjectTrade ] = useMutation( CREATE_PROJECT_TRADE );
     const [ addTradeState, setAddTradeState ] = useState({
-        project: id,
+        project: projectId,
         name:"",
         description:""
     })
@@ -21,8 +21,9 @@ const AddTrade = props => {
         const created = await createProjectTrade({ variables: { data: addTradeState } });
 
         setAddTradeState({ ...addTradeState, project: "", name: "", description: "" })
-		setAddTrade({ show: false });
+		setAddTradeModal({ show: false });
     };
+
 
     return (
         <>
@@ -30,10 +31,12 @@ const AddTrade = props => {
                 className="add-trade-container" 
             >
                 <div className="add-trade-card">
-                    Add Trade
-                    <MdClose onClick={() => setAddTrade({ show: false })} />
+                    
+                    <div className="add-trade-actions">
+                        <MdClose onClick={() => setAddTradeModal({ show: false })} />
+                    </div>
 
-
+                    <h3>Add Trade</h3>
                     <form onSubmit={submitAddTrade} >
                         <input 
                             name='name'
@@ -49,9 +52,11 @@ const AddTrade = props => {
                             value={addTradeState.description}
                             onChange={(event) => setAddTradeState({ ...addTradeState, [event.target.name]:event.target.value })}
                         />
-                        <button className="add-trade-button" onClick={submitAddTrade} >
-                            Submit
-                        </button>
+                        <div className="add-trade-button-container" >
+                            <button className="add-trade-button" onClick={submitAddTrade} >
+                                Submit
+                            </button>
+                        </div>
                     </form>
                   
                 </div>

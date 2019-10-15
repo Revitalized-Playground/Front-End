@@ -8,6 +8,9 @@ import Tab from './TabComponent/Tab';
 import Task from "./TasksComponent/Task";
 import People from "./People/People";
 import PeopleHeader from "./People/PeopleHeader";
+import Trades from "./Trades/Trades";
+import TradesHeader from "./Trades/TradesHeader";
+import Metrics from "./Metrics/Metrics";
 
 // import { apprenticeTabs, apprenticeList } from '../../dashboarddummydata';
 
@@ -37,9 +40,9 @@ const MainProjectAdmin = props => {
 				<>
 					<PeopleHeader />
 					{project.students.map(student => (
-						<div className="list">
+						<section className="list students" key={student.profile.id + Date.now()}>
 							<People person={student} tab={mainTabs.selectedMainTab} />
-						</div>
+						</section>
 					))}
 				</>
 			)
@@ -47,31 +50,48 @@ const MainProjectAdmin = props => {
 		}
 		
 		if (selectedTabView === mainTabs.projectAdminTabs[1]) {
-			const view = project.tradeMasters.map(trademasters => (
-					<div className="list">
-						{/* <Task task={task} tab={mainTabs.selectedMainTab} /> */}
-					</div>
-				) 
+			const view = (
+				<>
+					<PeopleHeader />
+					{project.tradeMasters.map(trademaster => (
+						<section className="list trademasters" key={trademaster.profile.id + Date.now()}>
+							<People person={trademaster} tab={mainTabs.selectedMainTab} />
+						</section>
+					))}
+				</>
 			)
 			return viewSelected = view
 		}
 
 		if (selectedTabView === mainTabs.projectAdminTabs[2]) {
-			const view = project.tasks.map(task => (
-					<div className="list">
-						<Task task={task} tab={mainTabs.selectedMainTab} />
-					</div>
-				) 
+			const view = (
+				<>
+					<TradesHeader />
+					{project.trades.map(trade => (
+						<section className="list trades"  key={trade.id + Date.now()}>
+							<Trades trade={trade} tab={mainTabs.selectedMainTab} project={project} />
+						</section>
+					))}
+				</>
 			)
 			return viewSelected = view
 		}
 
 		if (selectedTabView === mainTabs.projectAdminTabs[3]) {
 			const view = project.tasks.map(task => (
-					<div className="list">
+					<div className="list tasks" >
 						<Task task={task} tab={mainTabs.selectedMainTab} />
 					</div>
 				) 
+			)
+			return viewSelected = view
+		}
+
+		if (selectedTabView === mainTabs.projectAdminTabs[4]) {
+			const view = (
+				<div className="metrics">
+					<Metrics tab={mainTabs.selectedMainTab} />
+				</div>
 			)
 			return viewSelected = view
 		}
@@ -96,16 +116,15 @@ const MainProjectAdmin = props => {
 				{mainTabs ? 
 					mainTabs.projectAdminTabs.map(tab => (
 						<Tab changeSelected={changeSelected} selected={mainTabs.selectedMainTab} tab={tab} key={tab + Date.now()} />
-					)) :
-					(
-						<>
-							<Skeleton count={1} height={25} width={200} />
-							<Skeleton count={1} height={25} width={200} />
-							<Skeleton count={1} height={25} width={200} />
-							<Skeleton count={1} height={25} width={200} />
-						</>
 					)
-				}
+				) : (
+					<>
+						<Skeleton count={1} height={25} width={200} />
+						<Skeleton count={1} height={25} width={200} />
+						<Skeleton count={1} height={25} width={200} />
+						<Skeleton count={1} height={25} width={200} />
+					</>
+				)}
 				</div> 
 			</div>
 

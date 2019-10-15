@@ -17,12 +17,8 @@ const Header = props => {
 	const { city, state, name, description, startDate, duration, id, donations } = props.project;
 	const { project, setProject, selectedProject } = props;
 	const [ settingsToggle, setSettingsToggle ] = useState({ settingsDropdown: false });
-	const [ addTrade, setAddTrade ] = useState({ show: false })
+	const [ addTradeModal, setAddTradeModal ] = useState({ show: false })
 	const [ deleteProject ] = useMutation( DELETE_PROJECT );
-
-	useEffect(() => {
-		console.log(addTrade)
-	}, [addTrade])
 	
 	const submitDeleteProject = async () => {
 		const deletedProject = await deleteProject({ variables: { id: id } });
@@ -32,9 +28,9 @@ const Header = props => {
 	
 	
 	
-	if (addTrade.show === true) {
+	if (addTradeModal.show === true) {
 		return (
-			<AddTrade setAddTrade={setAddTrade} addTrade={addTrade} projectId={id} />
+			<AddTrade setAddTradeModal={setAddTradeModal} addTradeModal={addTradeModal} projectId={id} />
 		)
 	}
 
@@ -52,7 +48,7 @@ const Header = props => {
 						<GoKebabVertical onClick={() => setSettingsToggle({ settingsDropdown: !settingsToggle.settingsDropdown })}/>
 						{settingsToggle.settingsDropdown ? (
 							<div className="project-settings-dropdown">
-								<div className="project-settings-dropdown-option add-trade" onClick={() => setAddTrade({ show: true })} >
+								<div className="project-settings-dropdown-option add-trade" onClick={() => setAddTradeModal({ show: true })} >
 									<FaPlus />&nbsp; Add Project Trade
 								</div>
 								<div className="project-settings-dropdown-option delete" onClick={submitDeleteProject} >
@@ -67,7 +63,9 @@ const Header = props => {
 					<div className="header-middle-geo">
 						{city}, {state}
 					</div>
-					<div className="header-middle-title"><Link to={`/project/${project.slug}`}>{name}</Link></div>
+					<div className="header-middle-title">
+						<Link to={`/project/${project.slug}`}>{name}</Link>
+					</div>
 					<p className="header-middle-description">{description}</p>
 				</div>
 

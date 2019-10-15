@@ -2,12 +2,24 @@
 @import './TabComponent/Tabs.scss';
 @import "./TasksComponent/Tasks.scss";
 @import "./People/People.scss";
+@import "./Trades/Trades.scss";
+@import "./Metrics/Metrics.scss";
+@import "./AddTask/AddTask.scss";
 
 
 .dashboard-main {
 	width: 100%;
 	.dashboard-main-body {
 		line-height: 3;
+		.list {
+			background-color: $franks-grey;
+			display: flex;
+			justify-content: space-between;
+			padding: 30px 15px;
+			box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.12);
+			margin: 20px 0;
+			border-radius: 5px;
+		}
 	}
 }
 .dashboard-main.section {
@@ -19,4 +31,17 @@
 	width: 100%;
 	display: flex;
 	justify-content: space-between;
+}
+
+
+
+
+.dark-mode .dashboard-main {
+	width: 100%;
+	.dashboard-main-body { 
+		.list {
+			background-color: $bleached-black;
+			color: $snow-white;
+		}
+	}
 }

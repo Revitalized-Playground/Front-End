@@ -22,7 +22,7 @@ const Dashboard = () => {
     let possibleMainTabs = { 
         projectAdminTabs: ["Students", "Trade Masters", "Trades", "Tasks", "Metrics"],
         studentTabs: ["New Tasks", "Tasks In Progress", "Completed Tasks"],
-        tradeMasterTabs: ["Students", "Tasks", "Metrics"],
+        tradeMasterTabs: ["Students", "Trades", "Tasks", "Metrics"],
         donationTabs: ["All Donations", "Project Donations"],
     };
     const [ mainTabs, setMainTabs ] = useState({ ...possibleMainTabs, selectedMainTab: "" });
