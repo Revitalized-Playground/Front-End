@@ -59,7 +59,7 @@ const Sidebar = props => {
         }
     }
     
-    console.log("slected project in sidebar",project, props);
+    // console.log("slected project in sidebar",project, props);
     
     return (
         <section className="dashboard-sidebar section">
