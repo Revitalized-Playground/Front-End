@@ -1,6 +1,12 @@
 import gql from 'graphql-tag';
 import { PROJECT_SUMMARY_FRAG, USER_SUMMARY_FRAG, COMMENTS_FRAG } from '../fragments';
 
+export const IP = gql`
+	query ip {
+		ip
+	}
+`;
+
 export const GET_PROJECTS = gql`
 	query projects {
 		projects {
