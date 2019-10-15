@@ -5,6 +5,8 @@ import { HashLink } from "react-router-hash-link";
 import {  FaEnvelope, FaPhone, FaLocationArrow } from "react-icons/fa";
 import Skeleton,  { SkeletonTheme } from "react-loading-skeleton";
 import { InitialAvatar } from "../../../../helpers/InitialAvatar";
+import { addUpDonations } from "../../../../helpers/helpers";
+
 import ProgressBar, { calculatePercentageProgressBar } from "../../../../components/ProgressBar/ProgressBar";
 
 import adminIcon from "../../../../assets/SidebarIcons/adminIcon.png";
@@ -13,30 +15,33 @@ import masterIcon from "../../../../assets/SidebarIcons/masterIcon.png";
 import donorIcon from "../../../../assets/SidebarIcons/donorIcon.png";
 
 const Sidebar = props => {
-    const moneyProgress = [800.00, 1800.00]
-    const getPercentage = calculatePercentageProgressBar(moneyProgress[0], moneyProgress[1]);
+    const { user, project } = props;
+
+    
     const countArray = [
     {
         name: "admin",
-        count: props.user.projects.length,
+        count: user.projects.length,
         icon: adminIcon
     }, 
     {
         name: "student",
-        count: props.user.studentProjects.length,
+        count: user.studentProjects.length,
         icon: apprenticeIcon
     }, 
     {
         name: "master",
-        count: props.user.tradeMasterProjects.length,
+        count: user.tradeMasterProjects.length,
         icon: masterIcon
     }, 
     {
         name: "donor",
-        count: props.user.donations.length,
+        count: user.donations.length,
         icon: donorIcon
     }]
-    let totalAchievements = countArray[0].count+countArray[1].count+countArray[2].count+countArray[3].count
+
+    let totalAchievements = countArray[0].count+countArray[1].count+countArray[2].count+countArray[3].count;
+
     const displayCount = x => {
         if(x.count > 0) {
             return (
@@ -53,25 +58,27 @@ const Sidebar = props => {
             )    
         }
     }
-
+    
+    console.log("slected project in sidebar",project, props);
+    
     return (
         <section className="dashboard-sidebar section">
             <div className="sidebar-top">
                 <Link to="/settings" origination="userDashboard"><h6>EDIT</h6></Link>
-                {props.user.profileImage ? (
-                    <img src={props.user.profileImage} alt="user" className="user-picture" />
+                {user.profileImage ? (
+                    <img src={user.profileImage} alt="user" className="user-picture" />
                 ) : (
                     <InitialAvatar 
-                        firstName={props.user.firstName} 
-                        lastName={props.user.lastName}
+                        firstName={user.firstName} 
+                        lastName={user.lastName}
                         height="164" 
                         width="164" 
                         useRandomColor={1}
                     />
                 )}
-                {props.user.firstName ? (
+                {user.firstName ? (
                     <>
-                        <h3>{`${props.user.firstName} ${props.user.lastName}`}</h3>
+                        <h3>{`${user.firstName} ${user.lastName}`}</h3>
                     </>
                 ) : (
                     <Skeleton count={2} />
@@ -80,24 +87,24 @@ const Sidebar = props => {
             <div className="dashboard-stats">
                 {
                     <>
-                        {props.user.projects && props.user.projects.length > 0 ? (
+                        {user.projects && user.projects.length > 0 ? (
                         <div className="quick-stat">
-                            <h3>{props.user.projects.length}</h3>
-                                <p>{props.user.projects.length === 1 ? "Project" : "Projects"}</p>
+                            <h3>{user.projects.length}</h3>
+                                <p>{user.projects.length === 1 ? "Project" : "Projects"}</p>
                             </div>    
                         ) : null}
                         
-                        {props.user.donations && props.user.donations.length > 0 ? (
+                        {user.donations && user.donations.length > 0 ? (
                         <div className="quick-stat">
-                            <h3>{props.user.donations.length}</h3>
-                                <p>{props.user.donations.length === 1 ? "Donation" : "Donations"}</p>
+                            <h3>{user.donations.length}</h3>
+                                <p>{user.donations.length === 1 ? "Donation" : "Donations"}</p>
                             </div>    
                         ) : null}
 
-                        {props.user.certifications && props.user.certifications.length > 0 ? (
+                        {user.certifications && user.certifications.length > 0 ? (
                         <div className="quick-stat">
-                            <h3>{props.user.certifications.length}</h3>
-                                <p>{props.user.certifications.length === 1 ? "Certificate" : "Certificates"}</p>
+                            <h3>{user.certifications.length}</h3>
+                                <p>{user.certifications.length === 1 ? "Certificate" : "Certificates"}</p>
                             </div>    
                         ) : null}
                     </>
@@ -113,20 +120,28 @@ const Sidebar = props => {
             <div className="info-container">
                 {
                     <>
-                        <div className="info progress-bar-container">
-                            <div className="text">
-                                <p>Project Completion</p>
-                                <p className="percent">{getPercentage}</p>
+                        {project ? (
+                            <div className="info progress-bar-container">
+                                <div className="text">
+                                    <h4>{project.name}</h4>
+                                </div>
+                                <div className="text">
+                                    <p>Project Completion</p>
+                                    <p className="percent">
+                                        {calculatePercentageProgressBar(project.goalAmount, addUpDonations(project.donations))}
+                                    </p>
+                                </div>
+                                <ProgressBar 
+                                    progress={addUpDonations(project.donations)} 
+                                    startingPoint={project.goalAmount} 
+                                />
                             </div>
-                            <ProgressBar 
-                                progress={moneyProgress[0]} 
-                                startingPoint={moneyProgress[1]} 
-                            />
-                        </div>
+                        ) : null}
+                        
                         <div className="info">
                             <div className="text">
                                 <p>Email</p>
-                                <span>{props.user.email}</span>
+                                <span>{user.email}</span>
                             </div>
                             <Link to="#">
                                 <div className="sidebar-icon-container">
@@ -135,11 +150,11 @@ const Sidebar = props => {
                             </Link>
                         </div>
                         
-                        {props.user.phoneNumber && (
+                        {user.phoneNumber && (
                             <div className="info">
                                 <div className="text">
                                     <p>Phone Number</p>
-                                    <span>{props.user.phoneNumber}</span>
+                                    <span>{user.phoneNumber}</span>
                                 </div>
                                 <Link to="#">
                                     <div className="sidebar-icon-container">
@@ -152,7 +167,7 @@ const Sidebar = props => {
                         <div className="info">
                             <div className="text">
                                 <p>Location</p>
-                                <span>{`${props.user.city}, ${props.user.state}`}</span>
+                                <span>{`${user.city}, ${user.state}`}</span>
                             </div>
                             <HashLink to="/#search-map">
                                 <div className="sidebar-icon-container">
