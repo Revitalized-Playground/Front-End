@@ -94,6 +94,7 @@ export const PROJECT_SUMMARY_FRAG = gql`
         }
         tasks {
             id
+            title
             description
             priority
             dueDate
