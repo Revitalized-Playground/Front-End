@@ -5,14 +5,15 @@
 	width: 100%;
 	display: flex;
 	justify-content: space-around;
+	
 	.tab {
 		font-family: 'Roboto';
 		font-size: 1.8rem;
 		font-weight: 500;
 		letter-spacing: 1.08px;
-		&:hover {
+		// &:hover {
 			cursor: pointer;
-		}
+		// }
 	}
 	.active-tab {
 		border-bottom: 5px solid $erudite-purple;
