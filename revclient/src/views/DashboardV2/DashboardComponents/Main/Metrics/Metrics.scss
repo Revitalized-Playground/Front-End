@@ -1,0 +1,64 @@
+
+
+.metrics-header {
+	display: flex;
+	justify-content: space-between;
+	font-size: 1.4rem;
+	font-family: "Roboto";
+	text-transform: uppercase;
+	color: $mirage;
+	text-align: left;
+	margin-top: 20px;
+	.profile-image {
+		width: 180px;
+		min-width: 180px;
+		max-width: 180px;
+	} 
+	.name {
+		width: 25%;
+	}
+	.contact {
+		width: 30%;
+	}
+	.address {
+		width: 35%;
+	}
+	.verified {
+		width: 15%;
+	}
+}
+
+.metrics {
+	background-color: $franks-grey;
+	display: flex;
+	justify-content: space-between;
+	padding: 15px 30px;
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.12);
+	margin: 20px 0;
+	border-radius: 5px;
+	.metrics-card-container {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		.metrics-body {
+			width: 100%;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+	}
+}
+
+
+
+
+.dark-mode {
+	.people {
+		background-color: $bleached-black;
+		.metrics-card-container {
+			.metrics-body {
+				color: inherit;
+			}
+		}
+	}
+}

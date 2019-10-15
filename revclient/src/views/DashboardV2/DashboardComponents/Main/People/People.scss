@@ -28,66 +28,58 @@
 	}
 }
 
-.people {
-	background-color: $franks-grey;
+
+.people-card-container {
+	width: 100%;
 	display: flex;
 	justify-content: space-between;
-	padding: 15px 30px;
-	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.12);
-	margin: 20px 0;
-	border-radius: 5px;
-	.people-card-container {
+	.people-body {
 		width: 100%;
 		display: flex;
 		justify-content: space-between;
-		.people-body {
-			width: 100%;
+		align-items: center;
+		.people-img-container {
+			width: 120px;
+			min-width: 120px;
+			margin: auto 30px auto 0;
+			img {
+				width: 100%;
+				object-fit: cover;
+				border-radius: 100%;
+			}
+		}
+		.people-profile {
 			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			.people-img-container {
-				width: 120px;
-				min-width: 120px;
-				margin: auto 30px auto 0;
-				img {
-					width: 100%;
-					object-fit: cover;
-					border-radius: 100%;
-				}
+			flex-direction: column;
+		}
+		.people-profile.name {
+			width: 25%;
+			padding: 0 20px 0 0;
+			h5 {
+				margin-bottom: 10px;
 			}
-			.people-profile {
-				display: flex;
-				flex-direction: column;
+			p {
+				font-family: "Roboto";
+				font-size: 1.4rem;
+				font-weight: lighter;
 			}
-			.people-profile.name {
-				width: 25%;
-				padding: 0 20px 0 0;
-				h5 {
-					margin-bottom: 10px;
-				}
-				p {
-					font-family: "Roboto";
-					font-size: 1.4rem;
-					font-weight: lighter;
-				}
-			}
-			.people-profile.contact {
-				width: 30%;
-				justify-content: flex-start;
-				text-align: left;
-			}
-			.people-profile.address {
-				width: 35%;
-				min-width: 130px;
-				justify-content: flex-start;
-				text-align: left;
-			}
-			.people-profile.verified {
-				width: 15%;
-				min-width: 130px;
-				justify-content: flex-end;
-				text-align: right;
-			}
+		}
+		.people-profile.contact {
+			width: 30%;
+			justify-content: flex-start;
+			text-align: left;
+		}
+		.people-profile.address {
+			width: 35%;
+			min-width: 130px;
+			justify-content: flex-start;
+			text-align: left;
+		}
+		.people-profile.verified {
+			width: 15%;
+			min-width: 130px;
+			justify-content: flex-end;
+			text-align: right;
 		}
 	}
 }
@@ -95,13 +87,13 @@
 
 
 
+
 .dark-mode {
-	.people {
+	.people-card-container {
 		background-color: $bleached-black;
-		.people-card-container {
-			.people-body {
-				color: $snow-white;
-			}
+		.people-body {
+			color: inherit;
 		}
 	}
+
 }

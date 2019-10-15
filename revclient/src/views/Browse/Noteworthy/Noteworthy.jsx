@@ -2,10 +2,19 @@ import React from 'react';
 import Slider from "react-slick";
 
 import CarouselCard from '../CarouselCard/CarouselCard';
+import NoteworthySkeleton from "./NoteworthySkeleton";
+
+// Graphql
+import { useQuery } from '@apollo/react-hooks';
+import { GET_PROJECTS } from '../../../graphql/queries';
+
+
 
 
 const Noteworthy = () => {
-    
+    const { loading, error, data } = useQuery(GET_PROJECTS);
+
+
     const noteworthyData = [
         {
             id: 1,
@@ -31,7 +40,15 @@ const Noteworthy = () => {
             featuredImage: "https://res.cloudinary.com/revitalize/image/upload/v1569451143/start%20page/Alger_theater_Dark_Mode_Pic_inlldb.svg",
             liked: false,
         }
-    ]
+    ];
+ 
+
+
+    if (loading) return <NoteworthySkeleton />
+
+    if (error) return console.log(error)
+
+
 
     return (
         <section className="noteworthy-section">

@@ -57,3 +57,21 @@ export const EDIT_COMMENT = gql`
     }
 `
 
+
+export const CREATE_PROJECT_TRADE = gql`
+    mutation($data: CreateProjectTrade!) {
+        createProjectTrade(data: $data) {
+            id
+        }
+    }
+`
+
+export const CREATE_PROJECT_TASK = gql`
+    mutation($data: CreateProjectTask!) {
+        createProjectTask(data: $data) {
+            id
+        }
+    }
+`
+
+

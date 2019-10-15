@@ -1,3 +1,5 @@
+@import "./AddTrade/AddTrade.scss";
+
 .dashboard .dashboard-body .dashboard-header.section {
 	display: flex;
 	flex-direction: column;
@@ -36,16 +38,20 @@
 				color: $bleached-black;
 				background-color: $snow-white;
 				position: absolute;
-				transform: translate(-165px, 30px);
-				width: 160px;
+				transform: translate(-205px, 30px);
+				width: 200px;
 				padding: 10px;
 				display: flex;
 				justify-content: center;
-				align-items: center;
+				align-items: flex-start;
+				flex-direction: column;
 				.project-settings-dropdown-option {
 					display: flex;
-					justify-content: center;
+					justify-content: left;
 					align-items: center;
+					text-align: left;
+					margin: 10px 0;
+					padding: 10px 5px;
 					cursor: pointer;
 				}
 				.project-settings-dropdown-option.delete {

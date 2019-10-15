@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import { FaComments, FaFileInvoice, FaAngleRight, FaAngleDown, FaAngleUp, FaBan } from "react-icons/fa";
+import { FaComments, FaFileInvoice, FaAngleRight, FaAngleDown, FaAngleUp, FaBan, FaPlus } from "react-icons/fa";
 import { GoKebabVertical } from "react-icons/go";
+
+import AddTrade from "./AddTrade/AddTrade";
 
 // Helper functions
 import { calculateDueDate } from "../../../../helpers/helpers";
@@ -15,14 +17,24 @@ const Header = props => {
 	const { city, state, name, description, startDate, duration, id, donations } = props.project;
 	const { project, setProject, selectedProject } = props;
 	const [ settingsToggle, setSettingsToggle ] = useState({ settingsDropdown: false });
+	const [ addTradeModal, setAddTradeModal ] = useState({ show: false })
 	const [ deleteProject ] = useMutation( DELETE_PROJECT );
-
+	
 	const submitDeleteProject = async () => {
 		const deletedProject = await deleteProject({ variables: { id: id } });
 		console.log(`${deletedProject} has been deleted.`)
 		props.history.push("/dashboard");
 	};
+	
+	
+	
+	if (addTradeModal.show === true) {
+		return (
+			<AddTrade setAddTradeModal={setAddTradeModal} addTradeModal={addTradeModal} projectId={id} />
+		)
+	}
 
+	
 	return (
 		<>
 			<div className="dashboard-header section">
@@ -36,8 +48,11 @@ const Header = props => {
 						<GoKebabVertical onClick={() => setSettingsToggle({ settingsDropdown: !settingsToggle.settingsDropdown })}/>
 						{settingsToggle.settingsDropdown ? (
 							<div className="project-settings-dropdown">
-								<div className="project-settings-dropdown-option delete">
-									<FaBan onClick={submitDeleteProject} />&nbsp; Delete Project
+								<div className="project-settings-dropdown-option add-trade" onClick={() => setAddTradeModal({ show: true })} >
+									<FaPlus />&nbsp; Add Project Trade
+								</div>
+								<div className="project-settings-dropdown-option delete" onClick={submitDeleteProject} >
+									<FaBan />&nbsp; Delete Project
 								</div>
 							</div>
 						) : null}
@@ -48,7 +63,9 @@ const Header = props => {
 					<div className="header-middle-geo">
 						{city}, {state}
 					</div>
-					<div className="header-middle-title"><Link to={`/project/${project.slug}`}>{name}</Link></div>
+					<div className="header-middle-title">
+						<Link to={`/project/${project.slug}`}>{name}</Link>
+					</div>
 					<p className="header-middle-description">{description}</p>
 				</div>
 

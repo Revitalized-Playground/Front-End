@@ -53,6 +53,11 @@ export const PROJECT_SUMMARY_FRAG = gql`
             id
             imageUrl
         }
+        trades {
+            id
+            name
+            description
+        }
         donations {
             id
             amount
