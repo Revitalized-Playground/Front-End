@@ -13,7 +13,7 @@ import masterIcon from "../../../../assets/SidebarIcons/masterIcon.png";
 import donorIcon from "../../../../assets/SidebarIcons/donorIcon.png";
 
 const Sidebar = props => {
-    const moneyProgress = [800, 1800]
+    const moneyProgress = [800.00, 1800.00]
     const getPercentage = calculatePercentageProgressBar(moneyProgress[0], moneyProgress[1]);
 
     // console.log("props: ", props);
@@ -121,7 +121,10 @@ const Sidebar = props => {
                                 <p>Project Completion</p>
                                 <p className="percent">{getPercentage}</p>
                             </div>
-                            <ProgressBar progress={moneyProgress[0]} startingPoint={moneyProgress[1]} />
+                            <ProgressBar 
+                                progress={moneyProgress[0]} 
+                                startingPoint={moneyProgress[1]} 
+                            />
                         </div>
                         <div className="info">
                             <div className="text">

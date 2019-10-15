@@ -54,8 +54,8 @@ const CarouselCard = props => {
                             />
                         </div>
                         <div className="carousel-card-body-money" >
-                            <ProgressBar startingPoint={card.goalAmount} progress={card.amountFunded} />
-                            <p><b>${addUpDonations(formatMoney(card.donations))}</b> out of ${formatMoney(card.goalAmount)}</p>
+                            <ProgressBar startingPoint={card.goalAmount} progress={addUpDonations(card.donations)} />
+                            <p><b>${addUpDonations(card.donations)}</b> out of ${formatMoney(card.goalAmount)}</p>
                         </div>
                     </div>
             </section>

@@ -32,8 +32,9 @@ export function donationCount(num) {
 
 export const addUpDonations = (donationArray) => {
     let totalDonations = 0
-    donationArray.map(donation => totalDonations = totalDonations + donation.amount);
-    return formatMoney(totalDonations);
+    donationArray.forEach(donation => totalDonations = totalDonations + donation.amount);
+    return formatMoney(totalDonations); 
+    // return totalDonations;
 }
 
 
