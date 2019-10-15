@@ -21,7 +21,7 @@ const ProgressBar = props => {
         newProgress = cleanNumber;
     }
     
-    console.log("progress bar props ",props, "\n", newProgress)
+    // console.log("progress bar props ",props, "\n", newProgress)
 
     const percent = Number(newProgress) / Number(startingPoint) * 100;
     

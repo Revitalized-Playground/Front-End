@@ -47,6 +47,14 @@ export const calculateDueDate = (startDate, duration) => {
 }
 
 
+export const formatDate = (date) => {
+    let prettyDate = moment(date).format("MMMM Do YYYY");
+    // console.log(dueDate);
+    return prettyDate;
+}
+
+
+
 
 export const inLastWeek = (startDate) => {
     let lastWeek = moment(startDate).clone().subtract(1, 'week').format();
