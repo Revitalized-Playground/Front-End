@@ -45,10 +45,10 @@ const AddTask = props => {
                     <h3>Add Task</h3>
                     <form onSubmit={submitAddTask} >
                         <input 
-                            name='description'
+                            name='title'
                             type='text'
-                            placeholder='Description...'
-                            value={addTaskState.description}
+                            placeholder='Title'
+                            value={addTaskState.title}
                             onChange={(event) => setAddTaskState({ ...addTaskState, [event.target.name]:event.target.value })}
                         />
                         <input 
@@ -61,15 +61,22 @@ const AddTask = props => {
                         <input 
                             name='dueDate'
                             type='date'
-                            placeholder='Due date...'
+                            placeholder='Due Date...'
                             value={addTaskState.dueDate}
                             onChange={(event) => setAddTaskState({ ...addTaskState, [event.target.name]:event.target.value })}
                         />
                         <input 
                             name='budgetHours'
                             type='number'
-                            placeholder='Budget hours...'
+                            placeholder='Hours Budgeted...'
                             value={addTaskState.budgetHours}
+                            onChange={(event) => setAddTaskState({ ...addTaskState, [event.target.name]:event.target.value })}
+                        />
+                         <input 
+                            name='description'
+                            type='text'
+                            placeholder='Description...'
+                            value={addTaskState.description}
                             onChange={(event) => setAddTaskState({ ...addTaskState, [event.target.name]:event.target.value })}
                         />
                         <div className="add-task-button-container" >
