@@ -30,7 +30,9 @@ section.dashboard-donation-card.section {
             max-width: 150px;
             display: flex;
             justify-content: flex-end;
-            h5 {
+            flex-direction: column;
+            align-items: flex-end;
+            h3 {
                 width: 100%;
                 text-align: right;
             }

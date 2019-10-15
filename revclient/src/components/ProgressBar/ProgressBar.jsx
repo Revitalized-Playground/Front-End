@@ -9,26 +9,28 @@ export const calculatePercentageProgressBar = (progress, startingPoint) => {
     if (digitCount === 1) return `${finalPercent.toPrecision(2)}%`;
 };
 
-const ProgressBar = ({ progress, startingPoint }) => {
+const ProgressBar = props => {
+    const { progress, startingPoint } = props;
     const regex = /,/gi;
-    let progressInt;
-    if (Number.isInteger(progress)) {
-        progressInt = progress
-    }
-    if (!Number.isInteger(progress)) {
-        progressInt = progress.replace(regex, "");
-    }
+    let newProgress = progress
 
-    const percent = Number(progressInt) / Number(startingPoint) * 100;
-    // const brightness = percent < 50 ? percent / 100 * 3 : percent >= 100 ? 4 : percent / 100 * 2;
-    // /* filter: brightness(${brightness}); */
+    
+    if (typeof newProgress === "string") {
+        let removedChar = newProgress.replace(regex, "")
+        let cleanNumber = parseInt(removedChar);
+        newProgress = cleanNumber;
+    }
+    
+    console.log("progress bar props ",props, "\n", newProgress)
+
+    const percent = Number(newProgress) / Number(startingPoint) * 100;
     
 
     const Box = styled.div`
         height: 12px;
         border-radius: 50px;
         transition: 1s ease;
-        width: ${progressInt > startingPoint ? 100 : percent}%;
+        width: ${newProgress > startingPoint ? 100 : percent}%;
         animation: ${percent >= 100 ? '1s ease-out pulse;' : '1s ease-out pulse, progress-bar-stripes 1s linear infinite;'};
         filter: brightness(120%);
         @keyframes pulse {
@@ -37,7 +39,7 @@ const ProgressBar = ({ progress, startingPoint }) => {
                 background: $erudite-purple;
             }
             100% {
-                width: ${progressInt > startingPoint ? "100" : percent}%;
+                width: ${newProgress > startingPoint ? "100" : percent}%;
             }
         };
         @keyframes progress-bar-stripes {
