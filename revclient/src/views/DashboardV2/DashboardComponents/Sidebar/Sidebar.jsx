@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 // import styled from "styled-components";
@@ -7,11 +7,55 @@ import Skeleton,  { SkeletonTheme } from "react-loading-skeleton";
 import { InitialAvatar } from "../../../../helpers/InitialAvatar";
 import ProgressBar, { calculatePercentageProgressBar } from "../../../../components/ProgressBar/ProgressBar";
 
+import adminIcon from "../../../../assets/SidebarIcons/adminIcon.png";
+
 
 const Sidebar = props => {
     const moneyProgress = [800, 1800]
     const getPercentage = calculatePercentageProgressBar(moneyProgress[0], moneyProgress[1]);
 
+    console.log("props: ", props);
+
+    const countArray = [
+    {
+        name: "admin",
+        count: props.user.projects.length,
+        icon: adminIcon
+    }, 
+    {
+        name: "student",
+        count: props.user.studentProjects.length,
+        icon: adminIcon
+    }, 
+    {
+        name: "master",
+        count: props.user.tradeMasterProjects.length,
+        icon: adminIcon
+    }, 
+    {
+        name: "donor",
+        count: props.user.donations.length,
+        icon: adminIcon
+    }]
+    const displayCount = arr => {
+        arr.forEach(x => {
+            if(x.count > 0) {
+                return (
+                    <div className={x.name}>
+                        <img src={x.icon} alt={`${x.name} icon`} />
+                    </div>    
+                )
+            }
+            else if(x.count > 1) {
+                return (
+                    <div className={x.name}>
+                        <img src={x.icon} alt={`${x.name} icon`} />
+                        <p className="count">{x.count}</p>
+                    </div>
+                )
+            } 
+        })
+    }
 
     return (
         <section className="dashboard-sidebar section">
@@ -20,7 +64,6 @@ const Sidebar = props => {
                 {props.user.profileImage ? (
                     <img src={props.user.profileImage} alt="user" className="user-picture" />
                 ) : (
-                    // <Skeleton circle={true} height={110} width={110} />
                     <InitialAvatar 
                         firstName={props.user.firstName} 
                         lastName={props.user.lastName}
@@ -32,7 +75,6 @@ const Sidebar = props => {
                 {props.user.firstName ? (
                     <>
                         <h3>{`${props.user.firstName} ${props.user.lastName}`}</h3>
-                        {/* <p>{props.user.email}</p> */}
                     </>
                 ) : (
                     <Skeleton count={2} />
@@ -127,14 +169,12 @@ const Sidebar = props => {
             </div>
             <hr/>
             <div className="dashboard-sidebar-footer">
-                {/* {if(props.user.apprentice) {
-
-                } else if(props.user.master) {
-
-                }} */}
                 <h5>Achievements</h5>
                 <div className="a-container">
-                    {props.user.achievements
+                    {
+                        displayCount(countArray)   
+                    }
+                    {/* {props.user.achievements
                         ? props.user.achievements.map(a => (
                             <div className="achievement" key={a.name + Date.now()}>
                                 <Link to="#">
@@ -155,9 +195,8 @@ const Sidebar = props => {
                             <Skeleton circle={true} height={63} width={63} />
                             <Skeleton circle={true} height={63} width={63} />
                         </>
-                    }
+                    } */}
                 </div>
-                <Link to="#">View All...</Link>
             </div>
         </section>
     );
