@@ -143,6 +143,8 @@ export const GET_USER_PROFILE = gql`
 					# 		# lastName
 					# 		# phone
 					# 		# email
+					# 		# profileImage
+					#		# verified
 
 					# 	}
 					# }

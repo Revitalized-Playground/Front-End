@@ -13,9 +13,7 @@ import Metrics from "./Metrics/Metrics";
 
 const MainTradeMaster = props => {
 	const { project, mainTabs, setMainTabs } = props;
-	// console.log("project: ", project);
-	// console.log("project.students top: ", project.students);
-	const [selected, setSelected] = useState("Tasks");
+	const [selected, setSelected] = useState("Students");
 
 	useEffect(() => {
 		setMainTabs({
@@ -32,7 +30,6 @@ const MainTradeMaster = props => {
 	};
 
 	const tradeMasterView = selectedTabView => {
-		// console.log("tradeMasterView function ", props);
 		let viewSelected="";
 		if (selected === mainTabs.tradeMasterTabs[0]) {
 			const view = (
@@ -46,43 +43,32 @@ const MainTradeMaster = props => {
 				</>
 			)
 			return viewSelected = view
-		}
-		console.log("selectedTabView: ", selectedTabView);
-		// console.log("mainTabs: ", mainTabs);
-		// console.log("mainTabs.tradeMasterTabs: ", mainTabs.tradeMasterTabs);
-		if (selected === mainTabs.tradeMasterTabs[1]) {
+		};
 
-			// console.log("project.students inside if: ", project.students);
+		if (selected === mainTabs.tradeMasterTabs[1]) {
 			const view = (
 				<>
 					<PeopleHeader />
-					{/* {console.log("project.tradeMasterProjects :", project.tradeMasterProjects)} */}
 					{project.students.map(student => (
 						<div className="list students">
-							{/* {console.log("student: ", student)} */}
 							<People person={student} tab={mainTabs.selectedMainTab} />
 						</div>
 					))}
 				</>
 			)
-			// console.log("viewSelected: ", viewSelected);
 			return viewSelected = view
 		}
 
-
 		if (selected === mainTabs.tradeMasterTabs[2]) {
 
-			// )
 			const view = project.trades.map(trade => (
 				<div className="list trades">
 					<Trades trade={trade} tab={mainTabs.selectedMainTab} />
 				</div>
 			) 
 		)
-			// console.log("viewSelected: ", viewSelected);			
 			return viewSelected = view
 		}
-
 
 		if (selected === mainTabs.tradeMasterTabs[3]) {
 			const view = project.tasks.map(task => (
@@ -124,9 +110,7 @@ const MainTradeMaster = props => {
 					{mainTabs ? 
 						mainTabs.tradeMasterTabs.map(tab => (
 							<Tab
-								// changeSelected={changeSelected}
 								setSelected={setSelected}
-								// selected={mainTabs.selectedMainTab}
 								selected={selected}
 								tab={tab}
 								key={tab + Date.now()}
@@ -146,16 +130,7 @@ const MainTradeMaster = props => {
 
 			<hr />
 			<div className="dashboard-main-body">
-				{
-					// mainTabs.tradeMasterTabs.map(t => {
-					// 	return tradeMasterView(t)
-					// }) 
-					// tradeMasterView("Applicants")
-					tradeMasterView()
-					// tradeMasterView("Trades"),
-					// tradeMasterView("Tasks")
-					// tradeMasterView("Metrics")
-				}
+				{tradeMasterView()}
 			</div>
 		</div>
 	);
