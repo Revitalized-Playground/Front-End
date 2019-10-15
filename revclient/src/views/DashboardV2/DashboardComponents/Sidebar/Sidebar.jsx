@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, {  } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
-// import styled from "styled-components";
+
 import {  FaEnvelope, FaPhone, FaLocationArrow } from "react-icons/fa";
 import Skeleton,  { SkeletonTheme } from "react-loading-skeleton";
 import { InitialAvatar } from "../../../../helpers/InitialAvatar";
@@ -121,13 +121,15 @@ const Sidebar = props => {
                 {
                     <>
                         {project ? (
-                            <div className="info progress-bar-container">
+                            <div className="info project-details-container">
                                 <div className="text">
-                                    <h4>{project.name}</h4>
+                                    <Link to={`/project/${project.slug}`} >
+                                        <h4>{project.name}</h4>
+                                    </Link>
                                 </div>
                                 <div className="text">
-                                    <p>Project Completion</p>
-                                    <p className="percent">
+                                    <p>Percentage Funded</p>
+                                    <p className="text-value">
                                         {calculatePercentageProgressBar(project.goalAmount, addUpDonations(project.donations))}
                                     </p>
                                 </div>
@@ -135,6 +137,30 @@ const Sidebar = props => {
                                     progress={addUpDonations(project.donations)} 
                                     startingPoint={project.goalAmount} 
                                 />
+                                {project.donations.length > 0 && (
+                                    <div className="text">
+                                        <p>Donations</p>
+                                        <p className="text-value">
+                                            {project.donations.length}
+                                        </p>
+                                    </div>
+                                )}
+                                {project.students.length > 0 && (
+                                    <div className="text">
+                                        <p>Students</p>
+                                        <p className="text-value">
+                                            {project.students.length}
+                                        </p>
+                                    </div>
+                                )}
+                                {project.tradeMasters.length > 0 && (
+                                    <div className="text">
+                                        <p>Trade Masters</p>
+                                        <p className="text-value">
+                                            {project.tradeMasters.length}
+                                        </p>
+                                    </div>
+                                )}
                             </div>
                         ) : null}
                         

@@ -8,23 +8,31 @@
 		display: flex;
 		justify-content: space-between;
 		margin-bottom: 16px;
-
-		.project-status {
+		.header-status {
 			display: flex;
-			justify-content: center;
-			align-items: center;
-			width: 152px;
-			height: 40px;
-			border-radius: 5px;
-			font-size: 1.8rem;
-		}
-		.project-status.started {
-			color: $live-fg;
-			background-color: $live-bg;
-		}
-		.project-status.not-started {
-			color: $notlive-fg;
-			background-color: $notlive-bg;
+			flex-direction: row;
+			justify-content: flex-start;
+			align-items: flex-start;
+			.project-status {
+				background-color: $franks-grey;
+				color: $chillFi-purple;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				width: 152px;
+				height: 40px;
+				border-radius: 5px;
+				font-size: 1.8rem;
+				margin-right: 10px;
+			}
+			.project-status.started {
+				color: $live-fg;
+				background-color: $live-bg;
+			}
+			.project-status.not-started {
+				color: $notlive-fg;
+				background-color: $notlive-bg;
+			}
 		}
 		.project-settings {
 			color: $static-grey;

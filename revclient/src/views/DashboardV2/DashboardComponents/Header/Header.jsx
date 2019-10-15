@@ -14,8 +14,8 @@ import { DELETE_PROJECT } from "../../../../graphql/mutations";
 
 
 const Header = props => {
-	const { city, state, name, description, startDate, duration, id, donations } = props.project;
-	const { project, setProject, selectedProject } = props;
+	const { city, state, name, description, startDate, duration, id } = props.project;
+	const { project, setProject, selectedProject, type, possibleDashNavTabs } = props;
 	const [ settingsToggle, setSettingsToggle ] = useState({ settingsDropdown: false });
 	const [ addTradeModal, setAddTradeModal ] = useState({ show: false })
 	const [ deleteProject ] = useMutation( DELETE_PROJECT );
@@ -25,7 +25,6 @@ const Header = props => {
 		console.log(`${deletedProject} has been deleted.`)
 		props.history.push("/dashboard");
 	};
-	
 	
 	
 	if (addTradeModal.show === true) {
@@ -39,11 +38,18 @@ const Header = props => {
 		<>
 			<div className="dashboard-header section">
 				<div className="header-top">
-					{project.isLive ? (
-						<div className="project-status started">In Progress</div>
-					) : (
-						<div className="project-status not-started">Not Started</div>
-					)}
+					
+					<div className="header-status">
+						{type === possibleDashNavTabs[0] ? (
+							<div className="project-status">{possibleDashNavTabs[0]}</div>
+						) : null}
+						{type ? (
+							<div className="project-status started">In Progress</div>
+						) : (
+							<div className="project-status not-started">Not Started</div>
+						)}
+					</div>
+
 					<div className="project-settings">
 						<GoKebabVertical onClick={() => setSettingsToggle({ settingsDropdown: !settingsToggle.settingsDropdown })}/>
 						{settingsToggle.settingsDropdown ? (

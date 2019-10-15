@@ -21,6 +21,8 @@ export default function HeaderMainSort(props) {
             <React.Fragment key={project.id} >
                 {!selectedProject.id ? ( // If there is no selected project, render all the headers in this view
                     <Header 
+                        type={dashNavTabState.selectedDashNavTab}
+                        possibleDashNavTabs={possibleDashNavTabs}
                         key={project.id} 
                         project={project} 
                         setProject={setProject}
@@ -28,6 +30,8 @@ export default function HeaderMainSort(props) {
                     />
                 ) : project.id === selectedProject.id ? ( // If there is a selected project, only render that header
                     <Header 
+                        type={dashNavTabState.selectedDashNavTab}
+                        possibleDashNavTabs={possibleDashNavTabs}
                         key={project.id} 
                         project={project} 
                         setProject={setProject}
@@ -57,6 +61,8 @@ export default function HeaderMainSort(props) {
             <React.Fragment key={projectObject.id} >
                 {!selectedProject.id ? (
                     <Header 
+                        type={dashNavTabState.selectedDashNavTab}
+                        possibleDashNavTabs={possibleDashNavTabs}
                         key={projectObject.project.id} 
                         project={projectObject.project} 
                         setProject={setProject}
@@ -64,6 +70,8 @@ export default function HeaderMainSort(props) {
                     />
                 ) : projectObject.project.id === selectedProject.id ? (
                     <Header 
+                        type={dashNavTabState.selectedDashNavTab}
+                        possibleDashNavTabs={possibleDashNavTabs}
                         key={projectObject.project.id} 
                         project={projectObject.project} 
                         setProject={setProject}
@@ -93,6 +101,8 @@ export default function HeaderMainSort(props) {
             <React.Fragment key={projectObject.id} >
                 {!selectedProject.id ? (
                     <Header 
+                        type={dashNavTabState.selectedDashNavTab}
+                        possibleDashNavTabs={possibleDashNavTabs}
                         key={projectObject.project.id} 
                         project={projectObject.project} 
                         setProject={setProject}
@@ -100,6 +110,8 @@ export default function HeaderMainSort(props) {
                     />
                 ) : projectObject.project.id === selectedProject.id ? (
                     <Header 
+                        type={dashNavTabState.selectedDashNavTab}
+                        possibleDashNavTabs={possibleDashNavTabs}
                         key={projectObject.project.id} 
                         project={projectObject.project} 
                         setProject={setProject}
