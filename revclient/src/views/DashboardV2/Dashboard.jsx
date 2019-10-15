@@ -20,12 +20,12 @@ const Dashboard = () => {
 
     // Change these values to adjust the names of the tabs in the main view.
     let possibleMainTabs = { 
-        projectAdminTabs: ["Students", "Trade Masters", "Tasks", "Metrics"],
+        projectAdminTabs: ["Students", "Trade Masters", "Trades", "Tasks", "Metrics"],
         studentTabs: ["New Tasks", "Tasks In Progress", "Completed Tasks"],
         tradeMasterTabs: ["Students", "Tasks", "Metrics"],
         donationTabs: ["All Donations", "Project Donations"],
     };
-    const [ mainTabs, setMainTabs ] = useState({ ...possibleMainTabs, selectedMainTab:"" });
+    const [ mainTabs, setMainTabs ] = useState({ ...possibleMainTabs, selectedMainTab: "" });
 
     const [ selectedProject, setProject ] = useState({ project: null, id: null, showMore: false, buttonToggle: false });
 
@@ -40,7 +40,11 @@ const Dashboard = () => {
     const setAvailableDashNavTabs = (newAvailTabArray, howMany) => { 
         setDashNavTab({ ...dashNavTabState, selectedDashNavTab: newAvailTabArray[0], dashTabs: newAvailTabArray, dashTabCount: howMany }) 
     };
-    const selectDashNavTab = userSelectedTab => { setDashNavTab({ ...dashNavTabState, selectedDashNavTab: userSelectedTab }) };
+    const selectDashNavTab = userSelectedTab => { 
+        setMainTabs({ ...mainTabs, selectedMainTab: "" });
+        setProject({ project: null, id: null, showMore: false, buttonToggle: false });
+        setDashNavTab({ ...dashNavTabState, selectedDashNavTab: userSelectedTab });
+    };
 
     useEffect(() => {
         refetch();
@@ -159,5 +163,4 @@ const Dashboard = () => {
         </>
     )
 }
-
 export default Dashboard;
