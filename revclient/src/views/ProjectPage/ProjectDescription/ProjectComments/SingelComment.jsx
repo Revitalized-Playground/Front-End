@@ -7,6 +7,9 @@ const SingleComment = ({ each, editCommentMutation, deleteComment, currentUser, 
 	const [eachSetting, setSettings] = useState(settings);
 	const [editing, setEditing] = useState(false);
 
+	console.log('current User', comment.profile.id, currentUser().profileId)
+	console.log('eachSetting', eachSetting)
+
 	useEffect(() => {
 		setSettings(settings);
 	}, [bool]);
@@ -60,19 +63,21 @@ const SingleComment = ({ each, editCommentMutation, deleteComment, currentUser, 
 							</div>
 						)}
 					</div>
+					{comment.profile.id === currentUser().profileId && (
 					<div className="settings-drop" onClick={() => setSettings(!eachSetting)}>
 						<div className="dot-container">
 							<div onClick={() => setSettings(!eachSetting)} className="dot"></div>
 							<div className="dot"></div>
 							<div className="dot"></div>
 						</div>
-						{comment.profile.id === currentUser().profileId && eachSetting ? (
+						{eachSetting && 
 							<div className="settings-drop-buttons">
 								<button onClick={() => setEditing(true)}>Edit</button>
 								<button onClick={e => deleteComment(e, comment.id)}>Delete</button>
 							</div>
-						) : null}
-					</div>
+						}
+					</div>)
+					}
 					{/* <FaRegEdit onClick={submitEditComment} style={{fontSize: '2rem', color:'red'}}/> */}
 				</div>
 			</div>

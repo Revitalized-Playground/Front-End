@@ -18,6 +18,7 @@
         }
         button {
             @include buttonStyler($chillFi-purple, $snow-white, 0, 0);
+            padding: 10px;
             border: none;
             cursor: pointer;
         }

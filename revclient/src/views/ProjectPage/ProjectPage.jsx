@@ -82,8 +82,6 @@ const ProjectPage = ({ match }) => {
 		);
 	}
 
-	// console.log(data, 'newproj data', '\n', projectData);
-	console.log(projectData)
 	return (
 		<>
 			<Nav />

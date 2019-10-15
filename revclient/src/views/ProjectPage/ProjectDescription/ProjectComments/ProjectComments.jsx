@@ -55,6 +55,8 @@ const ProjectComments = ({comments, id, setProjectData, projectData, history}) =
         setComment({...comment, [e.target.name]: e.target.value})
     }
 
+
+    console.log(projectData.comments)
     
 
     const submitComment = async e => {
@@ -64,9 +66,7 @@ const ProjectComments = ({comments, id, setProjectData, projectData, history}) =
         if(newComment) {
             setProjectData({
                 ...projectData,
-                project: {...projectData.project,
-                    comments: [...projectData.project.comments, newComment.data.createProjectComment]
-                },
+                comments: [...projectData.comments, newComment.data.createProjectComment]
             })
         }
 
@@ -86,10 +86,7 @@ const ProjectComments = ({comments, id, setProjectData, projectData, history}) =
         if (deleted) {
             setProjectData({
                 ...projectData,
-                project: {
-                    ...projectData.project,
-                    comments: projectData.project.comments.filter(each => each.id !== deleted.data.deleteProjectComment.id)
-                }
+                comments: projectData.comments.filter(each => each.id !== deleted.data.deleteProjectComment.id)
             })
             
         }
