@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 // import styled from "styled-components";
 import {  FaEnvelope, FaPhone, FaLocationArrow } from "react-icons/fa";
@@ -8,13 +8,15 @@ import { InitialAvatar } from "../../../../helpers/InitialAvatar";
 import ProgressBar, { calculatePercentageProgressBar } from "../../../../components/ProgressBar/ProgressBar";
 
 import adminIcon from "../../../../assets/SidebarIcons/adminIcon.png";
-
+import apprenticeIcon from "../../../../assets/SidebarIcons/apprenticeIcon.png";
+import masterIcon from "../../../../assets/SidebarIcons/masterIcon.png";
+import donorIcon from "../../../../assets/SidebarIcons/donorIcon.png";
 
 const Sidebar = props => {
     const moneyProgress = [800, 1800]
     const getPercentage = calculatePercentageProgressBar(moneyProgress[0], moneyProgress[1]);
 
-    console.log("props: ", props);
+    // console.log("props: ", props);
 
     const countArray = [
     {
@@ -25,36 +27,34 @@ const Sidebar = props => {
     {
         name: "student",
         count: props.user.studentProjects.length,
-        icon: adminIcon
+        icon: apprenticeIcon
     }, 
     {
         name: "master",
         count: props.user.tradeMasterProjects.length,
-        icon: adminIcon
+        icon: masterIcon
     }, 
     {
         name: "donor",
         count: props.user.donations.length,
-        icon: adminIcon
+        icon: donorIcon
     }]
-    const displayCount = arr => {
-        arr.forEach(x => {
-            if(x.count > 0) {
-                return (
-                    <div className={x.name}>
-                        <img src={x.icon} alt={`${x.name} icon`} />
-                    </div>    
-                )
-            }
-            else if(x.count > 1) {
-                return (
-                    <div className={x.name}>
-                        <img src={x.icon} alt={`${x.name} icon`} />
-                        <p className="count">{x.count}</p>
-                    </div>
-                )
-            } 
-        })
+    let totalAchievements = countArray[0].count+countArray[1].count+countArray[2].count+countArray[3].count
+    const displayCount = x => {
+        if(x.count > 0) {
+            return (
+                <div className={x.name}>
+                    <img src={x.icon} alt={`${x.name} icon`} />
+                    {
+                        x.count > 1 
+                        ? x.count < 31
+                        ? <p className="count">{x.count}</p>
+                        : <p className="count">30+</p>
+                        : null
+                    }
+                </div> 
+            )    
+        }
     }
 
     return (
@@ -172,30 +172,18 @@ const Sidebar = props => {
                 <h5>Achievements</h5>
                 <div className="a-container">
                     {
-                        displayCount(countArray)   
-                    }
-                    {/* {props.user.achievements
-                        ? props.user.achievements.map(a => (
-                            <div className="achievement" key={a.name + Date.now()}>
-                                <Link to="#">
-                                    <img src={a.image} alt={`${a.name} achievement`} className="a-icon"/>
-                                </Link>
-                                <div className="number">
-                                    { a.number < 31
-                                        ? `${a.number}`
-                                        : `30+`
-                                    }
-                                </div>
-                            </div>
-                        ))
+                        totalAchievements === 0
+                        ?
+                            <p>
+                                You currently have no achievements.
+                                Look <NavLink to="/browse">here</NavLink> for projects to join,
+                                or <NavLink to="/createproject">create a project</NavLink>!
+                            </p>
                         :
-                        <>
-                            <Skeleton circle={true} height={63} width={63} />
-                            <Skeleton circle={true} height={63} width={63} />
-                            <Skeleton circle={true} height={63} width={63} />
-                            <Skeleton circle={true} height={63} width={63} />
-                        </>
-                    } */}
+                            countArray.map(y => {
+                                return displayCount(y)
+                            })
+                    }
                 </div>
             </div>
         </section>
