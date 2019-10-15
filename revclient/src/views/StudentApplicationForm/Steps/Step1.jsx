@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-const Step1 = ({chosenTrade, setChosenTrade, setStep}) => {
+const Step1 = ({chosenTrade, setChosenTrade, setStep, trades}) => {
 
     return (
         <>
@@ -12,10 +12,7 @@ const Step1 = ({chosenTrade, setChosenTrade, setStep}) => {
                 </div>
                 <select onChange={() => setChosenTrade(true)}>
                     <option selected disabled>Choose Your Trade</option>
-                    <option>Construction/Maintenance</option>
-                    <option>Heating/Air</option>
-                    <option>Lighting</option>
-                    <option>Plumbing</option>
+                    {trades.map(each => <option>{each.name}</option>)}
                 </select>
             </form>
             {chosenTrade && 

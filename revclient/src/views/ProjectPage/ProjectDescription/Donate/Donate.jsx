@@ -35,9 +35,9 @@ const Donate = props => {
 					<div className="mid-line"></div>
 				</div>
                 <div className='apply-button'>
-                    {/* <Link to={`/project/${}/studentapplicationform`}>
+                    <Link to={`/project/${props.match.params.slug}/studentapplicationform`}>
                         <button >Apply to Project</button>
-                    </Link>   */}
+                    </Link>  
                 </div>
                 <p className='lastText'>Partner with growing donors who are eager to see the transformation and economical growth of Detroit.</p>
             </div>

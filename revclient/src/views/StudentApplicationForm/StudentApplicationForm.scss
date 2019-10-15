@@ -22,7 +22,6 @@
         justify-content: space-between;
     }
     .swirly-div {
-        border: 1px solid blue;
         width: 50%;
         height: 100vh;
         background-repeat: no-repeat;
@@ -42,13 +41,30 @@
         }
 
         .student-app-images {
-            border: 1px solid yellow;
             width: 50%;
+            display: flex;
+            flex-direction: column;
+
+            .large {
+                width: 70%;
+                margin-left: 30%
+            }
+
+            .med {
+                width: 50%;
+                margin-left: 40%;
+                margin-top: 40px
+            }
+
+            .small {
+                width: 25%;
+                margin-left: 40%;
+                margin-top: 40px
+            }
         }
     }
 
     .right-div {
-        border: 5px solid black;
         width: 50%;
         display: flex;
         

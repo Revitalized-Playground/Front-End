@@ -67,6 +67,11 @@ export const PROJECT_SUMMARY_FRAG = gql`
                 ...UserSummary
             }
         }
+        trades {
+            id
+            name
+            description
+        }
         applicants {
             id
             status

@@ -35,6 +35,9 @@ const ProjectPage = ({ match }) => {
 	const { loading, error, data, refetch } = useQuery(GET_PROJECT_BY_SLUG, {
 		variables: { slug: match.params.slug },
 	});
+
+	
+
 	useEffect(() => {
 		data && setProjectData(data.projectBySlug);
 	}, [data]);
@@ -79,8 +82,8 @@ const ProjectPage = ({ match }) => {
 		);
 	}
 
-	console.log(data, 'newproj data', '\n', projectData);
-
+	// console.log(data, 'newproj data', '\n', projectData);
+	console.log(projectData)
 	return (
 		<>
 			<Nav />
