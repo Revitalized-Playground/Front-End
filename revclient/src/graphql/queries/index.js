@@ -8,7 +8,6 @@ import {
   GET_PROJECTS,
   GET_PROJECT_BY_ID,
   GET_PROJECT_BY_SLUG,
-  IP
 } from './Projects';
 
 export {
@@ -18,5 +17,4 @@ export {
   GET_PROJECT_BY_ID,
   GET_PROJECT_BY_SLUG,
   GET_USER_PROFILE,
-  IP
 }
