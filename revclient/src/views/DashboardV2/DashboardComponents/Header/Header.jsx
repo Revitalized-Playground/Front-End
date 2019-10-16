@@ -96,8 +96,8 @@ const Header = props => {
 						<div className="bottom-icons">
 							{!selectedProject.buttonToggle
 								?
-									<button 
-										className="bottom-icon-seemore"
+									<p 
+										className="bottom-button"
 										onClick={() => setProject({ 
 											project: project,
 											showMore: !selectedProject.showMore, 
@@ -105,10 +105,10 @@ const Header = props => {
 											buttonToggle: !selectedProject.buttonToggle, 
 										})}>
 										Manage Project
-									</button>
+									</p>
 								: 
-									<button 
-										className="bottom-icon-seemore"
+									<p
+										className="bottom-button"
 										onClick={() => setProject({ 
 											project: null,
 											showMore: !selectedProject.showMore, 
@@ -116,14 +116,14 @@ const Header = props => {
 											buttonToggle: !selectedProject.buttonToggle, 
 										})}>
 										Close
-									</button>
+									</p>
 							}
 							<Link to={`/project/${project.slug}`}>
-								<button 
-									className="bottom-icon-next"
+								<p 
+									className="bottom-button"
 								>
 									View Project
-								</button>
+								</p>
 							</Link>
 						</div>
 					</div>
