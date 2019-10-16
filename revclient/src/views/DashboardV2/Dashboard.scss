@@ -4,6 +4,8 @@
 @import './DashboardComponents/DashNav/DashNav.scss';
 @import "./DashboardComponents/Main/Donations/Donation.scss";
 @import "./DashboardComponents/BoringUser/BoringUser.scss";
+@import "./DashboardComponents/Skeleton/HeaderSkeleton.scss";
+
 
 .section[class^='dashboard'] {
     @include skeleton-section;
