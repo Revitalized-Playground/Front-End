@@ -12,11 +12,14 @@ const AddTask = props => {
     const [ addTaskState, setAddTaskState ] = useState({
         project: projectId,
         trade: tradeId,
+        title:"",
         description: "",
+        apprentices:"",
         priority: "",
         dueDate: "",
         budgetHours: "",
     })
+
 
     const submitAddTask = async event => {
         event.preventDefault();
@@ -65,7 +68,13 @@ const AddTask = props => {
                             value={addTaskState.priority}
                             onChange={(event) => setAddTaskState({ ...addTaskState, [event.target.name]:event.target.value })}
                         />
-                        
+                        <h3>Trade</h3>
+                         <input 
+                            name='trade'
+                            type='text'
+                            value={addTaskState.trade}
+                            onChange={(event) => setAddTaskState({ ...addTaskState, [event.target.name]:event.target.value })}
+                        />
                     <div className="two-column">
                         <div className="column-left">
                     <h3>Due Date</h3>
@@ -75,7 +84,7 @@ const AddTask = props => {
                         <h3># of Hours</h3>
                         </div>
                         </div>
-
+                       
                         <div className="two-column">
                         <div className="column-left">
                         <input 
@@ -86,6 +95,7 @@ const AddTask = props => {
                         />
                         </div>
                         <div className="column-right">
+                        
                         <input 
                             name='budgetHours'
                             type='number'
