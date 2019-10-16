@@ -137,6 +137,18 @@ export const GET_USER_PROFILE = gql`
 			tradeMasterProjects {
 				id
 				project {
+					# applicants {
+					# 	profile {
+					# 		id
+					# 		# firstName
+					# 		# lastName
+					# 		# phone
+					# 		# email
+					# 		# profileImage
+					#		# verified
+
+					# 	}
+					# }
 					...ProjectSummary
 				}
 

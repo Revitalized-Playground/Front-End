@@ -4,7 +4,7 @@ import Toggle from "react-toggle";
 
 const People = props => {
     const { person, tab } = props;
-
+    // console.log("person: ", person);
     const [ verified, setVerified ] = useState(false);
 
     useEffect(() => {
