@@ -1,4 +1,4 @@
-import React, {  } from "react";
+import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 
@@ -16,26 +16,35 @@ import donorIcon from "../../../../assets/SidebarIcons/donorIcon.png";
 
 const Sidebar = props => {
     const { user, project } = props;
-
-    
+    const [hovered, setHovered] = useState({
+        admin: false,
+        student: false,
+        master: false,
+        donor: false
+    })
+    console.log("hovered: ", hovered);
     const countArray = [
     {
-        name: "admin",
+        name: "Admin Projects",
+        codename: "admin",
         count: user.projects.length,
         icon: adminIcon
     }, 
     {
-        name: "student",
+        name: "Student Projects",
+        codename: "student",
         count: user.studentProjects.length,
         icon: apprenticeIcon
     }, 
     {
-        name: "master",
+        name: "Master Projects",
+        codename: "master",
         count: user.tradeMasterProjects.length,
         icon: masterIcon
     }, 
     {
-        name: "donor",
+        name: "Donations",
+        codename: "donor",
         count: user.donations.length,
         icon: donorIcon
     }]
@@ -44,15 +53,25 @@ const Sidebar = props => {
 
     const displayCount = x => {
         if(x.count > 0) {
+            // if (x.codename == hovered.){
+
+            // }
             return (
-                <div className={x.name}>
+                <div
+                    className="figure"
+                    onMouseOver={() => setHovered({
+                        ...hovered,
+                        
+                    })}
+                >
+                    <p>{x.name}</p>
                     <img src={x.icon} alt={`${x.name} icon`} />
                     {
-                        x.count > 1 
-                        ? x.count < 31
+                        // x.count > 1 
+                        x.count < 31
                         ? <p className="count">{x.count}</p>
                         : <p className="count">30+</p>
-                        : null
+                        // : null
                     }
                 </div> 
             )    
@@ -84,30 +103,29 @@ const Sidebar = props => {
                     <Skeleton count={2} />
                 )}
             </div>
+            <hr/>            
             <div className="dashboard-stats">
                 {
-                    <>
-                        {user.projects && user.projects.length > 0 ? (
-                        <div className="quick-stat">
-                            <h3>{user.projects.length}</h3>
-                                <p>{user.projects.length === 1 ? "Project" : "Projects"}</p>
-                            </div>    
-                        ) : null}
-                        
-                        {user.donations && user.donations.length > 0 ? (
-                        <div className="quick-stat">
-                            <h3>{user.donations.length}</h3>
-                                <p>{user.donations.length === 1 ? "Donation" : "Donations"}</p>
-                            </div>    
-                        ) : null}
-
-                        {user.certifications && user.certifications.length > 0 ? (
-                        <div className="quick-stat">
-                            <h3>{user.certifications.length}</h3>
-                                <p>{user.certifications.length === 1 ? "Certificate" : "Certificates"}</p>
-                            </div>    
-                        ) : null}
-                    </>
+                    
+                    <div className="a-container">
+                    {
+                        totalAchievements === 0
+                        ?
+                            <p>
+                                You currently have no achievements.
+                                Look <NavLink to="/browse">here</NavLink> for projects to join,
+                                or <NavLink to="/createproject">create a project</NavLink>!
+                            </p>
+                        :
+                            countArray.map(y => {
+                                return (
+                                    <React.Fragment key={y.name+Math.random()}>
+                                        {displayCount(y)}
+                                    </React.Fragment>
+                                )
+                            })
+                    }
+                    </div>
                     ||
                     <>
                         <Skeleton count={1} height={25} width={200} />
@@ -208,10 +226,8 @@ const Sidebar = props => {
                     </SkeletonTheme>
                 }
             </div>
-            <hr/>
-            <div className="dashboard-sidebar-footer">
-                <h5>Achievements</h5>
-                <div className="a-container">
+            {/* <div className="dashboard-sidebar-footer"> */}
+                {/* <div className="a-container">
                     {
                         totalAchievements === 0
                         ?
@@ -229,8 +245,8 @@ const Sidebar = props => {
                                 )
                             })
                     }
-                </div>
-            </div>
+                </div> */}
+            {/* </div> */}
         </section>
     );
 };
