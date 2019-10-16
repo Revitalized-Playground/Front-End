@@ -1,4 +1,4 @@
-@import "./AddTrade/AddTrade.scss";
+@import './AddTrade/AddTrade.scss';
 
 .dashboard .dashboard-body .dashboard-header.section {
 	display: flex;
@@ -71,6 +71,30 @@
 		}
 	}
 
+	.add-tasks {
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+		margin-right: 2rem;
+
+		.create-task-button {
+			margin-right: 1rem;
+			font-size: 16px;
+			line-height: 181.14%;
+			letter-spacing: 0.06em;
+			color: rgba(0, 23, 31, 0.8);
+		}
+		img {
+			width: 80%;
+			&:hover {
+				cursor: pointer;
+			}
+		}
+	}
+	.header-top-right {
+		display: flex;
+	}
+
 	.header-middle {
 		display: flex;
 		flex-direction: column;
@@ -100,7 +124,7 @@
 		.bottom-left {
 			display: flex;
 			justify-content: flex-start;
-			width: 75%;
+			// width: 75%;
 			.due-date {
 				background-color: $franks-grey;
 				color: $machiavellian;
@@ -112,20 +136,39 @@
 				margin-right: 40px;
 				padding: 10px 15px;
 			}
-			.bottom-icons {
-				color: $chillFi-purple;
-				font-size: 3.2rem;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				a { 
-					display: flex;
+		}
+		.bottom-icons {
+			color: $chillFi-purple;
+			font-size: 3.2rem;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+
+			svg {
+				margin-right: 20px;
+			}
+			.bottom-button {
+				font-size: 2.5rem;
+				margin-left: 15px;
+				margin-right: 15px;
+				justify-self: flex-end;
+				position: relative;
+				cursor: pointer;
+				// .manage, .close {
+				// 	min-width: 160px;
+				// @media($tablet) {
+
+				// }
+				// }
+				&:hover {
+					color: lighten($chillFi-purple, 20%);
+					transition-duration: 0.75s;
 				}
-				svg {
-					margin-right: 20px;
-				}
-				.bottom-icon-seemore  {
-					font-size: 3.6rem;
+				.bottom-button {
+					font-size: 2.5rem;
+					margin-left: 10px;
+					margin-right: 10px;
+					justify-self: flex-end;
 					&:hover {
 						color: lighten($chillFi-purple, 20%);
 						transition-duration: 0.75s;
@@ -137,7 +180,6 @@
 				}
 			}
 		}
-
 		.team-members {
 			display: flex;
 			align-items: center;
@@ -173,7 +215,7 @@
 	display: flex;
 	align-items: flex-end;
 	justify-content: center;
-    margin-bottom: 10px;
+	margin-bottom: 10px;
 	margin-top: -5px;
 	svg {
 		&:hover {
@@ -195,11 +237,17 @@
 		.header-top {
 			.project-status.started {
 				color: $live-fg;
-				background-color: rgba($live-bg, 0.5); 
+				background-color: rgba($live-bg, 0.5);
 			}
 			.project-status.not-started {
 				color: $notlive-fg;
-				background-color: rgba($notlive-bg, 0.5); 
+				background-color: rgba($notlive-bg, 0.5);
+			}
+		}
+
+		.add-tasks {
+			.create-task-button {
+				color: $snow-white;
 			}
 		}
 		.header-middle {

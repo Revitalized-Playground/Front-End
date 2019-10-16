@@ -6,12 +6,17 @@ import { CREATE_PROJECT_TASK } from '../../../../../graphql/mutations';
 
 
 const AddTask = props => {
-    const { setAddTaskModal, projectId, tradeId } = props;
+    const {
+        setAddTaskModal,
+        projectId,
+        // tradeId 
+    } = props;
 
     const [ createProjectTask ] = useMutation( CREATE_PROJECT_TASK );
     const [ addTaskState, setAddTaskState ] = useState({
         project: projectId,
-        trade: tradeId,
+        // trade: tradeId,
+        trade: "",
         title:"",
         description: "",
         apprentices:"",
@@ -62,6 +67,13 @@ const AddTask = props => {
                             onChange={(event) => setAddTaskState({ ...addTaskState, [event.target.name]:event.target.value })}
                         />
                         <h3>Priority Level</h3>
+                        <input 
+                            name='trade'
+                            type='text'
+                            placeholder='Trade...'
+                            value={addTaskState.trade}
+                            onChange={(event) => setAddTaskState({ ...addTaskState, [event.target.name]:event.target.value })}
+                        />
                         <input 
                             name='priority'
                             type='text'
