@@ -4,6 +4,7 @@ import { FaComments, FaFileInvoice, FaAngleRight, FaAngleDown, FaAngleUp, FaBan,
 import { GoKebabVertical } from "react-icons/go";
 
 import AddTrade from "./AddTrade/AddTrade";
+import AddTask from "../Main/AddTask/AddTask";
 import MemberIcons from "./MemberIcons/MemberIcons";
 
 // Helper functions
@@ -19,14 +20,14 @@ const Header = props => {
 	const { project, setProject, selectedProject, type, possibleDashNavTabs } = props;
 	const [ settingsToggle, setSettingsToggle ] = useState({ settingsDropdown: false });
 	const [ addTradeModal, setAddTradeModal ] = useState({ show: false })
+	const [ addTaskModal, setAddTaskModal ] = useState({ show: false })
 	const [ deleteProject ] = useMutation( DELETE_PROJECT );
-	
+
 	const submitDeleteProject = async () => {
 		const deletedProject = await deleteProject({ variables: { id: id } });
 		console.log(`${deletedProject} has been deleted.`)
 		props.history.push("/dashboard");
 	};
-	
 	
 	if (addTradeModal.show === true) {
 		return (
@@ -34,7 +35,11 @@ const Header = props => {
 		)
 	}
 
-	console.log("Header props",props);
+    if (addTaskModal.show === true) {
+		return (
+			<AddTask setAddTaskModal={setAddTaskModal} addTaskModal={addTaskModal} projectId={project.id}  />
+		)
+	}
 
 	return (
 		<>
@@ -53,6 +58,12 @@ const Header = props => {
 							)
 						}
 					</div>
+
+					<button 
+						className="create-task-button" 
+						onClick={() => setAddTaskModal({ show: true })}>
+							Add Task
+					</button>
 
 					<div className="project-settings">
 						<GoKebabVertical onClick={() => setSettingsToggle({ settingsDropdown: !settingsToggle.settingsDropdown })}/>
@@ -83,34 +94,36 @@ const Header = props => {
 					<div className="bottom-left">
 						<p className="due-date">Due Date: {calculateDueDate(startDate, duration)}</p>
 						<div className="bottom-icons">
-							<FaComments />
-							<FaFileInvoice />
 							{!selectedProject.buttonToggle
 								?
-									<FaAngleDown 
+									<button 
 										className="bottom-icon-seemore"
 										onClick={() => setProject({ 
 											project: project,
 											showMore: !selectedProject.showMore, 
 											id: selectedProject.id ? null : id, 
 											buttonToggle: !selectedProject.buttonToggle, 
-										})}
-									/>
+										})}>
+										Manage Project
+									</button>
 								: 
-									<FaAngleUp 
+									<button 
 										className="bottom-icon-seemore"
 										onClick={() => setProject({ 
 											project: null,
 											showMore: !selectedProject.showMore, 
 											id: selectedProject.id ? null : id, 
 											buttonToggle: !selectedProject.buttonToggle, 
-										})}
-									/>
+										})}>
+										Close
+									</button>
 							}
 							<Link to={`/project/${project.slug}`}>
-								<FaAngleRight 
+								<button 
 									className="bottom-icon-next"
-								/>
+								>
+									View Project
+								</button>
 							</Link>
 						</div>
 					</div>
