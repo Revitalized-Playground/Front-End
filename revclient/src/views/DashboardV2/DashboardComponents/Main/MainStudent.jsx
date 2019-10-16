@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import Skeleton from 'react-loading-skeleton';
 import LoadingSpinner from "../../../../components/LoadingSpinner/LoadingSpinner";
 
@@ -6,12 +6,14 @@ import Tab from './TabComponent/Tab';
 import Task from "./TasksComponent/Task";
 import People from "./People/People";
 import PeopleHeader from "./People/PeopleHeader";
+import NoContent from "./NoContent/NoContent";
 
 // import { apprenticeTabs, apprenticeList } from '../../dashboarddummydata';
 
 const MainStudent = props => {
 	const { project, mainTabs, setMainTabs } = props;
-
+	// Moving away from managing any tab information anywhere other than in dashboard.
+	
 	useEffect(() => {
 		setMainTabs({
 			...mainTabs,
@@ -19,12 +21,8 @@ const MainStudent = props => {
 		})
 	}, []);
 
-	const changeSelected = userSelectedTab => {
-		setMainTabs({
-			...mainTabs,
-			selectedMainTab: userSelectedTab,
-		});
-	};
+
+	
 
 	const studentMainView = selectedTabView => {
 		
@@ -34,7 +32,13 @@ const MainStudent = props => {
 		if (selectedTabView === mainTabs.studentTabs[0]) {
 			const view = (
 				<>
-					<PeopleHeader />
+					{
+						project.students.length === 0 
+						? 
+							<NoContent message="No Applicants" />
+						:
+							<PeopleHeader />
+					}
 					{project.students.map(student => (
 						<div className="list">
 							<People person={student} tab={mainTabs.selectedMainTab} />
@@ -44,15 +48,29 @@ const MainStudent = props => {
 			)
 			return viewSelected = view
 		}
+
+		
 		if (selectedTabView === mainTabs.studentTabs[1]) {
-			const view = project.tradeMasters.map(trademasters => (
-					<div className="list">
-						{/* <Task task={task} tab={mainTabs.selectedMainTab} /> */}
-					</div>
-				) 
+			const view = (
+				<>
+					{
+						project.tradeMasters.length === 0 
+						? 
+							<NoContent message="No Applicants" />
+						:
+							<PeopleHeader />
+					}
+					{project.tradeMasters.map(tradeMaster => (
+						<div className="list">
+							<People person={tradeMaster} tab={mainTabs.selectedMainTab} />
+						</div>
+					))}
+				</>
 			)
 			return viewSelected = view
 		}
+
+
 		if (selectedTabView === mainTabs.studentTabs[2]) {
 			const view = project.tasks.map(task => (
 					<div className="list">
@@ -83,7 +101,12 @@ const MainStudent = props => {
 				<div className="tabs">
 					{mainTabs ? 
 						mainTabs.studentTabs.map(tab => (
-							<Tab changeSelected={changeSelected} selected={mainTabs.selectedMainTab} tab={tab} key={tab + Date.now()} />
+							<Tab
+								mainTabs={mainTabs}
+								setMainTabs={setMainTabs}
+								tab={tab}
+								key={tab + Date.now()}
+							/>
 						)) :
 						(
 							<>
@@ -99,7 +122,7 @@ const MainStudent = props => {
 
 			<hr />
 			<div className="dashboard-main-body">
-				{studentMainView()}
+				{studentMainView(mainTabs.selectedMainTab)}
 			</div>
 		</div>
 	);

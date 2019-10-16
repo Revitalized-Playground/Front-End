@@ -147,6 +147,9 @@
 				display: flex;
 				justify-content: flex-end;
 				width: 100%;
+				.dashboard-picture-icons {
+					border-radius: 100%;
+				}
 				p {
 					color: $machiavellian;
 					font-size: 1.6rem;

@@ -48,6 +48,23 @@ export const PROJECT_SUMMARY_FRAG = gql`
         difficulty
         startDate
         featuredImage
+        applicants {
+            id
+            licensed
+            coverLetter
+            jobExperience
+            education
+            availability
+            status
+            trade {
+                id
+                name
+                description
+            }
+            profile {
+                ...UserSummary
+            }
+        }
         images {
             id
             imageUrl

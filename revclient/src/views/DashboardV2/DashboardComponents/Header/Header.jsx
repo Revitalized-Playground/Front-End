@@ -4,6 +4,7 @@ import { FaComments, FaFileInvoice, FaAngleRight, FaAngleDown, FaAngleUp, FaBan,
 import { GoKebabVertical } from "react-icons/go";
 
 import AddTrade from "./AddTrade/AddTrade";
+import MemberIcons from "./MemberIcons/MemberIcons";
 
 // Helper functions
 import { calculateDueDate } from "../../../../helpers/helpers";
@@ -33,7 +34,8 @@ const Header = props => {
 		)
 	}
 
-	
+	console.log("Header props",props);
+
 	return (
 		<>
 			<div className="dashboard-header section">
@@ -112,20 +114,35 @@ const Header = props => {
 							</Link>
 						</div>
 					</div>
+
+
+					
 					<div className="team-members">
 						<div className="member-icons">
 							<p>Team</p>
-							<img
-								src="https://res.cloudinary.com/revitalize/image/upload/v1569861720/user%20dashboard/OliverCut_jsjnmx.png"
-								alt="team member"
-								className="dashboard-picture-icons"
-							/>
-							<img
-								src="https://res.cloudinary.com/revitalize/image/upload/v1569861717/user%20dashboard/Greg_zvzyrc.png"
-								alt="team member 2"
-								className="dashboard-picture-icons"
-							/>
-							<div className="count">+10</div>
+
+							{type === possibleDashNavTabs[0] || type === possibleDashNavTabs[1] || type === possibleDashNavTabs[2] ? (
+								<MemberIcons 
+									arrayOfUsers={project.students} // Should work for student view, but not tested yet
+									// possibleDashNavTabs={possibleDashNavTabs}
+									// type={type}
+								/>
+
+							) : (
+								<>
+									<img
+										src="https://res.cloudinary.com/revitalize/image/upload/v1569861720/user%20dashboard/OliverCut_jsjnmx.png"
+										alt="team member"
+										className="dashboard-picture-icons"
+									/>
+									<img
+										src="https://res.cloudinary.com/revitalize/image/upload/v1569861717/user%20dashboard/Greg_zvzyrc.png"
+										alt="team member 2"
+										className="dashboard-picture-icons"
+									/>
+									<div className="count">{`${project.students ? project.students.length : "?"}`}</div>
+								</>
+							)}
 						</div>
 					</div>
 				</div>

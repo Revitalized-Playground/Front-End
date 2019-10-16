@@ -13,11 +13,9 @@ const People = props => {
         setVerified(false)
     }, [])
 
-    // if (selectedMainTab === mainTabs.projectAdminTabs[0]) { // Applicants
-    //     return (
-
-    //     )    
-    // }
+    if (selectedMainTab === mainTabs.projectAdminTabs[0]) { // Applicants
+        console.log("this is an applicant")
+    }
 
     return (
         <>

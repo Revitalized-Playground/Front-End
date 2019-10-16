@@ -156,6 +156,9 @@ export const GET_USER_PROFILE = gql`
 				project {
 					...ProjectSummary
 				}
+				profile {
+					...UserSummary
+				}
 
 				### Redundant. This query returns the projects the user is a trademaster on.
 				### No need to return the profile we already have
