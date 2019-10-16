@@ -16,36 +16,6 @@
     section {
         margin: 40px auto;
     }
-    .slider {
-        width: 100%;
-        margin: 0 auto 20px;
-        padding: 0 0px;
-        .slick-prev {
-            z-index: 3;
-            left: -25px;
-            top: 50%;
-        }
-        .slick-next {
-            z-index: 3;
-            right: -25px;
-            top: 50%;
-        }
-        .slick-arrow-container {
-            .slick-next, .slick-prev {
-                height: unset;
-                width: unset;
-                border-radius: 100%;
-                font-size: 4rem;
-                background-color: $silver-lining;
-                color: rgba($static-grey, 0.6);
-                @include subtleBoxShadow;
-            }
-        }
-    }
-
-    .skeleton-slider {
-        display: flex;
-    }
 }
 
 .dark-mode {
