@@ -1,5 +1,4 @@
 .browse-container section.create-project-container {
-    background-color: $snow-white;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -71,17 +70,20 @@
 }
 
 .dark-mode {
-    section.createProjectContainer {
+    .browse-container section.create-project-container {
         background-color: unset;
         .right {
             margin: 5% unset;
+            .create-project-cta-title {
+                color: $snow-white;
+            }
             p {
                 color: $snow-white;
                 margin-bottom: 5%;
             }
             button {
                 @include buttonStyler($maastricht-blue, $snow-white, none, 0);
-                width: 45%;
+                width: 100%;
                 font-size: 2.2rem;
                 line-height: 1;
                 letter-spacing: 0.06rem;

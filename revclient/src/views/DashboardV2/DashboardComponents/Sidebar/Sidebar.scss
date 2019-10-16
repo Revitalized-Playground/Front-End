@@ -69,12 +69,12 @@
 					white-space: nowrap;
 					text-overflow: ellipsis;
 				}
-			}
-			.percent {
-				font-family: 'Roboto';
-				font-size: 2rem;
-				letter-spacing: 1.2px;
-				color: $machiavellian;
+				.text-value {
+					font-family: 'Roboto';
+					font-size: 2rem;
+					letter-spacing: 1.2px;
+					color: $machiavellian;
+				}
 			}
 			.sidebar-icon-container {
 				@include bottomBoxShadow;
@@ -90,7 +90,7 @@
 				}
 			}
 		}
-		.info.progress-bar-container {
+		.info.project-details-container {
 			flex-direction: column;
 			.text { 
 				flex-direction: row;

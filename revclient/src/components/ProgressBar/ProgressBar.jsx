@@ -2,11 +2,17 @@ import React from 'react';
 import styled from 'styled-components';
 
 export const calculatePercentageProgressBar = (progress, startingPoint) => {
-    const finalPercent = Number(progress) / Number(startingPoint) * 100;
+    let finalPercent = Number(progress) / Number(startingPoint) * 100;
     const digitCount = Math.log(finalPercent) * Math.LOG10E + 1 | 0;  // for positive integers
+
+    // console.log("calcPercentageProgressBar variables  ", progress, startingPoint, finalPercent, digitCount);
+
+    // if (typeof finalPercent === "NaN") return finalPercent = "0%";
+    // if (finalPercent < 1) return finalPercent = "0%";
     if (digitCount === 3) return `${finalPercent}%`;
     if (digitCount === 2) return `${finalPercent.toPrecision(3)}%`;
     if (digitCount === 1) return `${finalPercent.toPrecision(2)}%`;
+    if (digitCount === 0) return `<1%`;
 };
 
 const ProgressBar = props => {

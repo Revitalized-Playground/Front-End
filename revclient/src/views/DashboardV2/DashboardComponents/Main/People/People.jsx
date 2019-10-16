@@ -3,8 +3,8 @@ import Toggle from "react-toggle";
 
 
 const People = props => {
-    const { person, tab } = props;
-    // console.log("person: ", person);
+    const { person, selectedMainTab, mainTabs } = props;
+
     const [ verified, setVerified ] = useState(false);
 
     useEffect(() => {
@@ -13,7 +13,9 @@ const People = props => {
         setVerified(false)
     }, [])
 
-    
+    if (selectedMainTab === mainTabs.projectAdminTabs[0]) { // Applicants
+        console.log("this is an applicant")
+    }
 
     return (
         <>

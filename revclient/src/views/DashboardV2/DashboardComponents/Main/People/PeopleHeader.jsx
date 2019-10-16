@@ -1,8 +1,9 @@
 import React from 'react';
 
 
-const PeopleHeader = () => {
-
+const PeopleHeader = props => {
+    const {} = props;
+    
     return (
         <>
             <section className="people-header" >

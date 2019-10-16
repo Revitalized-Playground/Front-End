@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import Skeleton from 'react-loading-skeleton';
 import LoadingSpinner from "../../../../components/LoadingSpinner/LoadingSpinner";
 // import { inLastWeek } from "../../../../helpers/helpers";
@@ -9,14 +9,13 @@ import People from './People/People';
 import PeopleHeader from "./People/PeopleHeader";
 import Trades from "./Trades/Trades";
 import Metrics from "./Metrics/Metrics";
+import NoContent from "./NoContent/NoContent";
 
 
 const MainTradeMaster = props => {
 	const { project, mainTabs, setMainTabs } = props;
-	// console.log("project: ", project);
-	// console.log("project.students top: ", project.students);
-	const [selected, setSelected] = useState("Tasks");
-
+	// Moving away from managing any tab information anywhere other than in dashboard.
+	
 	useEffect(() => {
 		setMainTabs({
 			...mainTabs,
@@ -24,83 +23,82 @@ const MainTradeMaster = props => {
 		})
 	}, []);
 
-	const changeSelected = userSelectedTab => {
-		setMainTabs({
-			...mainTabs,
-			selectedMainTab: userSelectedTab,
-		});
-	};
+
+	console.log("MainTradeMaster props", props);
 
 	const tradeMasterView = selectedTabView => {
-		// console.log("tradeMasterView function ", props);
-		let viewSelected="";
-		if (selected === mainTabs.tradeMasterTabs[0]) {
+		let viewSelected = "";
+		
+		
+		if (selectedTabView === mainTabs.tradeMasterTabs[0]) {  // Applicants
 			const view = (
 				<>
-					{/* <PeopleHeader />
+					{project.applicants.length === 0 ? ( 
+						<NoContent message="No Applicants" />
+					) : (
+						<PeopleHeader />
+					)}
 					{project.applicants.map(applicant => (
-						<div className="list students">
-							<People person={applicant} tab={mainTabs.selectedMainTab} />
-						</div>
-					))} */}
-				</>
-			)
-			return viewSelected = view
-		}
-		console.log("selectedTabView: ", selectedTabView);
-		// console.log("mainTabs: ", mainTabs);
-		// console.log("mainTabs.tradeMasterTabs: ", mainTabs.tradeMasterTabs);
-		if (selected === mainTabs.tradeMasterTabs[1]) {
-
-			// console.log("project.students inside if: ", project.students);
-			const view = (
-				<>
-					<PeopleHeader />
-					{/* {console.log("project.tradeMasterProjects :", project.tradeMasterProjects)} */}
-					{project.students.map(student => (
-						<div className="list students">
-							{/* {console.log("student: ", student)} */}
-							<People person={student} tab={mainTabs.selectedMainTab} />
-						</div>
+						<section className="list applicants" key={applicant.profile.id + Date.now()}>
+							<People person={applicant} mainTabs={mainTabs} selectedMainTab={mainTabs.selectedMainTab}  />
+						</section>
 					))}
 				</>
 			)
-			// console.log("viewSelected: ", viewSelected);
 			return viewSelected = view
 		}
+		
 
-
-		if (selected === mainTabs.tradeMasterTabs[2]) {
-
-			// )
-			const view = project.trades.map(trade => (
-				<div className="list trades">
-					<Trades trade={trade} tab={mainTabs.selectedMainTab} />
-				</div>
-			) 
-		)
-			// console.log("viewSelected: ", viewSelected);			
-			return viewSelected = view
-		}
-
-
-		if (selected === mainTabs.tradeMasterTabs[3]) {
-			const view = project.tasks.map(task => (
-				<div className="list tasks">
-					<Task task={task} tab={mainTabs.selectedMainTab} />
-				</div>
-			) 
-		)
-			return viewSelected = view
-		}
-		if (selected === mainTabs.tradeMasterTabs[4]) {
+		if (selectedTabView === mainTabs.tradeMasterTabs[1]) {  // Students
 			const view = (
-				<div className="list metrics">
-					<Metrics tab={mainTabs.selectedMainTab} />
+				<>
+					{project.students.length === 0 ? (
+						<NoContent message="No Students" />
+					) : (
+						<PeopleHeader />
+					)}
+					{project.students.map(student => (
+						<section className="list students" key={student.profile.id + Date.now()}>
+							<People person={student} mainTabs={mainTabs} selectedMainTab={mainTabs.selectedMainTab}  />
+						</section>
+					))}
+				</>
+			)
+			return viewSelected = view
+		}
+
+
+
+
+		if (selectedTabView === mainTabs.tradeMasterTabs[2]) {  // Tasks
+
+			const view = (
+				<>
+					{project.tasks.length === 0 ? (
+						<NoContent message="No Tasks" />
+					) : null }
+					{project.tasks.map(task => (
+							<div className="list tasks">
+								<Task task={task} tab={mainTabs.selectedMainTab} />
+							</div>
+						))
+					}
+				</>
+			)
+		
+			return viewSelected = view
+		}
+
+
+		if (selectedTabView === mainTabs.tradeMasterTabs[3]) {   // Metrics
+			const view = (
+				<div className="metrics">
+					<Metrics tab={mainTabs.selectedMainTab} project={project} />
 				</div>
 			)
 			return viewSelected = view
 		}
+
 
 		return (
 			<>
@@ -124,10 +122,8 @@ const MainTradeMaster = props => {
 					{mainTabs ? 
 						mainTabs.tradeMasterTabs.map(tab => (
 							<Tab
-								// changeSelected={changeSelected}
-								setSelected={setSelected}
-								// selected={mainTabs.selectedMainTab}
-								selected={selected}
+								mainTabs={mainTabs}
+								setMainTabs={setMainTabs}
 								tab={tab}
 								key={tab + Date.now()}
 							/>
@@ -146,16 +142,7 @@ const MainTradeMaster = props => {
 
 			<hr />
 			<div className="dashboard-main-body">
-				{
-					// mainTabs.tradeMasterTabs.map(t => {
-					// 	return tradeMasterView(t)
-					// }) 
-					// tradeMasterView("Applicants")
-					tradeMasterView()
-					// tradeMasterView("Trades"),
-					// tradeMasterView("Tasks")
-					// tradeMasterView("Metrics")
-				}
+				{tradeMasterView(mainTabs.selectedMainTab)}
 			</div>
 		</div>
 	);

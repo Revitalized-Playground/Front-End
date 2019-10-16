@@ -3,7 +3,8 @@ import Header from "../DashboardComponents/Header/Header";
 import MainProjectAdmin from "../DashboardComponents/Main/MainProjectAdmin";
 import MainTradeMaster from "../DashboardComponents/Main/MainTradeMaster";
 import MainStudent from "../DashboardComponents/Main/MainStudent";
-import Donations from "../DashboardComponents/Main/Donations/Donations";
+import MainDonor from "../DashboardComponents/Main/MainDonor";
+// import Donations from "../DashboardComponents/Main/Donations/Donations";
 
 
 export default function HeaderMainSort(props) {
@@ -21,6 +22,8 @@ export default function HeaderMainSort(props) {
             <React.Fragment key={project.id} >
                 {!selectedProject.id ? ( // If there is no selected project, render all the headers in this view
                     <Header 
+                        type={dashNavTabState.selectedDashNavTab}
+                        possibleDashNavTabs={possibleDashNavTabs}
                         key={project.id} 
                         project={project} 
                         setProject={setProject}
@@ -28,6 +31,8 @@ export default function HeaderMainSort(props) {
                     />
                 ) : project.id === selectedProject.id ? ( // If there is a selected project, only render that header
                     <Header 
+                        type={dashNavTabState.selectedDashNavTab}
+                        possibleDashNavTabs={possibleDashNavTabs}
                         key={project.id} 
                         project={project} 
                         setProject={setProject}
@@ -57,6 +62,8 @@ export default function HeaderMainSort(props) {
             <React.Fragment key={projectObject.id} >
                 {!selectedProject.id ? (
                     <Header 
+                        type={dashNavTabState.selectedDashNavTab}
+                        possibleDashNavTabs={possibleDashNavTabs}
                         key={projectObject.project.id} 
                         project={projectObject.project} 
                         setProject={setProject}
@@ -64,6 +71,8 @@ export default function HeaderMainSort(props) {
                     />
                 ) : projectObject.project.id === selectedProject.id ? (
                     <Header 
+                        type={dashNavTabState.selectedDashNavTab}
+                        possibleDashNavTabs={possibleDashNavTabs}
                         key={projectObject.project.id} 
                         project={projectObject.project} 
                         setProject={setProject}
@@ -93,6 +102,8 @@ export default function HeaderMainSort(props) {
             <React.Fragment key={projectObject.id} >
                 {!selectedProject.id ? (
                     <Header 
+                        type={dashNavTabState.selectedDashNavTab}
+                        possibleDashNavTabs={possibleDashNavTabs}
                         key={projectObject.project.id} 
                         project={projectObject.project} 
                         setProject={setProject}
@@ -100,6 +111,8 @@ export default function HeaderMainSort(props) {
                     />
                 ) : projectObject.project.id === selectedProject.id ? (
                     <Header 
+                        type={dashNavTabState.selectedDashNavTab}
+                        possibleDashNavTabs={possibleDashNavTabs}
                         key={projectObject.project.id} 
                         project={projectObject.project} 
                         setProject={setProject}
@@ -107,15 +120,13 @@ export default function HeaderMainSort(props) {
                     />
                 ) : null}
                 
-                {/* {console.log("project.project.id :", project.project.id)}
-                {console.log("selectedProject.id :", selectedProject.id)} */}
+
                 {projectObject.project.id === selectedProject.id ? (
                     <MainTradeMaster
                         project={projectObject.project}
                         mainTabs={mainTabs}
                         selectedMainTab={mainTabs.selectedMainTab}
                         setMainTabs={setMainTabs}
-                        defaultTab={mainTabs.defaultMainTab}
                     />
                 ) : null}
             </React.Fragment>
@@ -158,11 +169,11 @@ export default function HeaderMainSort(props) {
         //     </React.Fragment>
         // ))
         return renderedHeaderMain = (
-            <Donations 
+            <MainDonor 
                 donations={projectArray}
-                mainTabs={mainTabs.donationTabs}
-                defaultTab={mainTabs.donationTabs[0]}
+                mainTabs={mainTabs}
                 setMainTabs={setMainTabs}
+                defaultTab={mainTabs.defaultMainTab}
             />
         )
     }
