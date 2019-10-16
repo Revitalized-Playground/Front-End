@@ -35,7 +35,7 @@ const MainTradeMaster = props => {
 			const view = (
 				<>
 					{
-						project.applicants.lengthx === 0
+						project.applicants.length === 0
 						?
 							<p>No applicants</p>
 						:
