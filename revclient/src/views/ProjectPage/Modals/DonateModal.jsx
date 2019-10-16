@@ -13,7 +13,7 @@ import { DONATE_TO_PROJECT } from '../../../graphql/mutations';
 const DonateModal = ({id, update,donateModal, setDonateModal, donateModalBlur, stripe, match}) => {
     const [amount, setAmount] = useState('');
     const [success, setSuccess] = useState(false)
-    const [donateToProject, {data, error}] = useMutation(DONATE_TO_PROJECT);
+    const [donateToProject, {data}] = useMutation(DONATE_TO_PROJECT);
     const [textError, setError] = useState({
         cardNumber: {
             error: '',
@@ -73,10 +73,8 @@ const DonateModal = ({id, update,donateModal, setDonateModal, donateModalBlur, s
         if(data) {
             update(Number(amount))
             setSuccess(true)
-            console.log('data', data)
-            console.log('error', error)
         }
-    }, [data, error])
+    }, [data])
    
     
     return (
