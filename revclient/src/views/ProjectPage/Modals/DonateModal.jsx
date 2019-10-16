@@ -1,6 +1,7 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import paypal from '../../../assets/ProjectPage/paypal-logo.png'
 import { withRouter } from 'react-router-dom';
+import CurrencyInput from 'react-currency-input'
 
 
 import { injectStripe, CardNumberElement, CardExpiryElement, CardCvcElement } from 'react-stripe-elements';
@@ -10,8 +11,9 @@ import { DONATE_TO_PROJECT } from '../../../graphql/mutations';
 
 
 const DonateModal = ({id, update,donateModal, setDonateModal, donateModalBlur, stripe, match}) => {
-    const [amount, setAmount] = useState('$');
-    const [donateToProject] = useMutation(DONATE_TO_PROJECT);
+    const [amount, setAmount] = useState('');
+    const [focused, setFocused] = useState(false)
+    const [donateToProject, {data}] = useMutation(DONATE_TO_PROJECT);
     const [error, setError] = useState({
         cardNumber: {
             error: '',
@@ -30,7 +32,7 @@ const DonateModal = ({id, update,donateModal, setDonateModal, donateModalBlur, s
         },
         amount: false
     })
-
+    
     const errorChecker = e => {
         setError({...error, amount: false, [e.elementType]: {blurComplete: false, error: !e.error ? '' : e.error.message, complete: e.complete}})
     }
@@ -39,36 +41,20 @@ const DonateModal = ({id, update,donateModal, setDonateModal, donateModalBlur, s
         setError({...error, [e.elementType]: {...error[e.elementType], blurComeplete: true}})
     }
 
-    const handleChange = e => {
-        const checker = e.target.value.split(' ')[1]
-        if(e.target.value === '$'){return;} 
-        if(isNaN(Number(checker)) === true && e.target.value.length > 2) {return;}
-        if(amount.length < 2 && isNaN(Number(e.target.value)) === true) {return;} 
-        if(amount === '$' || amount==='') {
-            setAmount('$ ' + e.target.value)
-        } else {
-            setAmount(e.target.value)
-        }
-        
+    const handleChange = (e, value, value2) => {
+        setAmount(e.target.value)
     }
 
-    const onBlurFunc = e => {
-        if(e.target.value === '$ ') {
-            setAmount('$')
-        }
-    }
     
 	async function handleSubmit(e) {
 		e.preventDefault();
         const { token } = await stripe.createToken({ name: 'Name here' }); 
-        const newAmount = Number(amount.split(' ')[1])
+        const newAmount = Number(amount)
 
-        if(amount.length < 3) {
-            setError({...error, amount: true})
-        } else if(newAmount < 0.50) {
+        if(newAmount < 0.50) {
             window.alert('Can\'t donate less than $0.50')
         } else {
-            update(newAmount)
+            
             donateToProject({
                 variables: {
                     id: id,
@@ -78,11 +64,19 @@ const DonateModal = ({id, update,donateModal, setDonateModal, donateModalBlur, s
                     },
                 },
             });
+
+            
         }
     }
+
+    useEffect(() => {
+        if(data) {
+            update(Number(amount))
+        }
+    }, [data])
+   
     
     return (
-        
         <div onClick={donateModalBlur} className={donateModal ? 'donate-modal' : 'none'}>
             <div className='exit-button'>
                 <div className="button-div">
@@ -93,27 +87,33 @@ const DonateModal = ({id, update,donateModal, setDonateModal, donateModalBlur, s
                         </div>
                     </div>
                 <div className='inner-donate-modal'>
+                    
                     <h2>$ Amount</h2>
                     <form className='donate-form'>
-                        <input 
-                          placeholder='$ 5.00'
-                          value={amount === '$' ? '' : amount}
-                          onChange={(e) => {handleChange(e); errorChecker(e)}}
-                          onBlur={onBlurFunc}
-                        />
+                        <div className="flex">
+                            <div className="currency" style={{color: amount.length > 0 ? 'black' : null}}>$</div>
+                            <CurrencyInput 
+                                value={amount}
+                                style={{color: amount.length <= 0 ? 'gray' : null}}
+                                onChangeEvent={(e) => {handleChange(e); errorChecker(e)}}
+                                // onBlur={() => setFocused(amount.length > 0? true: false)}
+                                onClick={() => setFocused(true)}
+                            />
+                        </div>
                         {error.amount && <p className='card-error'>Please Provide a Donation Amount!</p>}
                     </form>
+                    
                     <div className="mid-line-container">
                         <div className="mid-line"></div>
                         <p>or</p>
                         <div className="mid-line"></div>
                     </div>
                     <div className='donation-suggestions'>
-                        <button onClick={() => setAmount('$ ' + 5)}>$5</button>
-                        <button onClick={() => setAmount('$ ' + 10)}>$10</button>
-                        <button onClick={() => setAmount('$ ' + 20)}>$20</button>
-                        <button onClick={() => setAmount('$ ' + 50)}>$50</button>
-                        <button onClick={() => setAmount('$ ' + 100)}>$100</button>
+                        <button onClick={() => setAmount('5')}>$5</button>
+                        <button onClick={() => setAmount('10')}>$10</button>
+                        <button onClick={() => setAmount('20')}>$20</button>
+                        <button onClick={() => setAmount('50')}>$50</button>
+                        <button onClick={() => setAmount('100')}>$100</button>
                     </div>
                     <p>Card Number</p>
                     <div style={{marginBottom: '40px'}}>
