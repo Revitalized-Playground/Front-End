@@ -53,14 +53,13 @@ const Header = props => {
 						)}
 					</div>
 
-					<div className="add-tasks">
-						<div className="create-task-button">Add Tasks</div>
-						<div className="button-container" onClick={() => setAddTaskModal({ show: true })}>
-							<img src={plusCircle} alt="plus circle" />
-						</div>
-					</div>
-
 					<div className="project-settings">
+						<div className="add-tasks">
+							<div className="create-task-button">Add Tasks</div>
+							<div className="button-container" onClick={() => setAddTaskModal({ show: true })}>
+								<img src={plusCircle} alt="plus circle" />
+							</div>
+						</div>
 						<GoKebabVertical
 							onClick={() => setSettingsToggle({ settingsDropdown: !settingsToggle.settingsDropdown })}
 						/>
@@ -98,38 +97,40 @@ const Header = props => {
 					</div>
 
 					<div className="bottom-icons">
-						{!selectedProject.buttonToggle
-							?
-								<p 
-									className="bottom-button manage"
-									onClick={() => setProject({ 
+						{!selectedProject.buttonToggle ? (
+							<p
+								className="bottom-button manage"
+								onClick={() =>
+									setProject({
 										project: project,
-										showMore: !selectedProject.showMore, 
-										id: selectedProject.id ? null : id, 
-										buttonToggle: !selectedProject.buttonToggle, 
-									})}>
-									Manage Project
-								</p>
-							: 
-								<p
-									className="bottom-button close"
-									onClick={() => setProject({ 
+										showMore: !selectedProject.showMore,
+										id: selectedProject.id ? null : id,
+										buttonToggle: !selectedProject.buttonToggle,
+									})
+								}
+							>
+								Manage Project
+							</p>
+						) : (
+							<p
+								className="bottom-button close"
+								onClick={() =>
+									setProject({
 										project: null,
-										showMore: !selectedProject.showMore, 
-										id: selectedProject.id ? null : id, 
-										buttonToggle: !selectedProject.buttonToggle, 
-									})}>
-									Close
-								</p>
-						}
-						<Link 
-							to={`/project/${project.slug}`}
-							className="bottom-button"
-						>
+										showMore: !selectedProject.showMore,
+										id: selectedProject.id ? null : id,
+										buttonToggle: !selectedProject.buttonToggle,
+									})
+								}
+							>
+								Close
+							</p>
+						)}
+						<Link to={`/project/${project.slug}`} className="bottom-button">
 							View Project
 						</Link>
 					</div>
-					
+
 					<div className="team-members">
 						<div className="member-icons">
 							<p>Team</p>

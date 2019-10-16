@@ -72,13 +72,13 @@
 	}
 
 	.add-tasks {
-		// outline: 1px solid red;
-		margin-left: 60rem;
 		display: flex;
+		justify-content: flex-end;
 		align-items: center;
+		margin-right: 2rem;
 
 		.create-task-button {
-			margin-right: 1.6rem;
+			margin-right: 1rem;
 			font-size: 16px;
 			line-height: 181.14%;
 			letter-spacing: 0.06em;
@@ -144,7 +144,7 @@
 			svg {
 				margin-right: 20px;
 			}
-			.bottom-button  {
+			.bottom-button {
 				font-size: 2.5rem;
 				margin-left: 15px;
 				margin-right: 15px;
@@ -153,9 +153,9 @@
 				cursor: pointer;
 				// .manage, .close {
 				// 	min-width: 160px;
-					// @media($tablet) {
+				// @media($tablet) {
 
-					// }
+				// }
 				// }
 				&:hover {
 					color: lighten($chillFi-purple, 20%);
@@ -239,6 +239,12 @@
 			.project-status.not-started {
 				color: $notlive-fg;
 				background-color: rgba($notlive-bg, 0.5);
+			}
+		}
+
+		.add-tasks {
+			.create-task-button {
+				color: $snow-white;
 			}
 		}
 		.header-middle {
