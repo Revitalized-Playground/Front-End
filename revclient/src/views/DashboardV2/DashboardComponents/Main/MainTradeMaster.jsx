@@ -64,7 +64,7 @@ const MainTradeMaster = props => {
 						:
 							<PeopleHeader />}
 							{project.students.map(student => (
-								<div className="list students">
+								<div className="list students" key={student+Date.now()}>
 									<People person={student} tab={mainTabs.selectedMainTab} />
 								</div>
 							))}

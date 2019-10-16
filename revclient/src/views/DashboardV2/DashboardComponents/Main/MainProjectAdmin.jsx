@@ -11,7 +11,7 @@ import PeopleHeader from "./People/PeopleHeader";
 import Trades from "./Trades/Trades";
 import TradesHeader from "./Trades/TradesHeader";
 import Metrics from "./Metrics/Metrics";
-import ProjectTrades from './Trades/Trades';
+// import ProjectTrades from './Trades/Trades';
 
 // import { apprenticeTabs, apprenticeList } from '../../dashboarddummydata';
 
@@ -26,12 +26,12 @@ const MainProjectAdmin = props => {
 		})
 	}, []);
 
-	const changeSelected = userSelectedTab => {
-		setMainTabs({
-			...mainTabs,
-			selectedMainTab: userSelectedTab,
-		});
-	};
+	// const changeSelected = userSelectedTab => {
+	// 	setMainTabs({
+	// 		...mainTabs,
+	// 		selectedMainTab: userSelectedTab,
+	// 	});
+	// };
 
 	const projectAdminMainView = selectedTabView => {
 		
