@@ -100,7 +100,7 @@
 		.bottom-left {
 			display: flex;
 			justify-content: flex-start;
-			width: 75%;
+			// width: 75%;
 			.due-date {
 				background-color: $franks-grey;
 				color: $machiavellian;
@@ -112,35 +112,40 @@
 				margin-right: 40px;
 				padding: 10px 15px;
 			}
-			.bottom-icons {
-				color: $chillFi-purple;
-				font-size: 3.2rem;
-				display: flex;
-				align-items: center;
-				justify-content: space-between;
-				// a { 
-				// 	display: flex;
+		}
+		.bottom-icons {
+			color: $chillFi-purple;
+			font-size: 3.2rem;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+
+			svg {
+				margin-right: 20px;
+			}
+			.bottom-button  {
+				font-size: 2.5rem;
+				margin-left: 15px;
+				margin-right: 15px;
+				justify-self: flex-end;
+				position: relative;
+				cursor: pointer;
+				// .manage, .close {
+				// 	min-width: 160px;
+					// @media($tablet) {
+
+					// }
 				// }
-				svg {
-					margin-right: 20px;
+				&:hover {
+					color: lighten($chillFi-purple, 20%);
+					transition-duration: 0.75s;
 				}
-				.bottom-button  {
-					font-size: 2.5rem;
-					margin-left: 10px;
-					margin-right: 10px;
-					justify-self: flex-end;
-					&:hover {
-						color: lighten($chillFi-purple, 20%);
-						transition-duration: 0.75s;
-					}
-					&:active {
-						margin-bottom: -10px;
-						transition-duration: 0.2s;
-					}
+				&:active {
+					margin-bottom: -10px;
+					transition-duration: 0.2s;
 				}
 			}
 		}
-
 		.team-members {
 			display: flex;
 			align-items: center;
