@@ -34,12 +34,21 @@ const MainTradeMaster = props => {
 		if (selected === mainTabs.tradeMasterTabs[0]) {
 			const view = (
 				<>
-					{/* <PeopleHeader />
-					{project.applicants.map(applicant => (
+					{
+						project.applicants.lengthx === 0
+						?
+							<p>No applicants</p>
+						:
+							<PeopleHeader />
+						}
+						{/* {project.applicants.map(applicant => (
 						<div className="list students">
 							<People person={applicant} tab={mainTabs.selectedMainTab} />
-						</div>
-					))} */}
+						</div> */}
+						<p>WIP</p>
+					{/* ))}
+					} */}
+					
 				</>
 			)
 			return viewSelected = view
@@ -48,12 +57,18 @@ const MainTradeMaster = props => {
 		if (selected === mainTabs.tradeMasterTabs[1]) {
 			const view = (
 				<>
-					<PeopleHeader />
-					{project.students.map(student => (
-						<div className="list students">
-							<People person={student} tab={mainTabs.selectedMainTab} />
-						</div>
-					))}
+					{
+						project.students.length === 0
+						? 
+							<p>No students</p>
+						:
+							<PeopleHeader />}
+							{project.students.map(student => (
+								<div className="list students">
+									<People person={student} tab={mainTabs.selectedMainTab} />
+								</div>
+							))}
+					}
 				</>
 			)
 			return viewSelected = view
@@ -61,29 +76,50 @@ const MainTradeMaster = props => {
 
 		if (selected === mainTabs.tradeMasterTabs[2]) {
 
-			const view = project.trades.map(trade => (
-				<div className="list trades">
-					<Trades trade={trade} tab={mainTabs.selectedMainTab} />
-				</div>
-			) 
-		)
+			const view = (
+				<>
+				{
+					project.trades.length === 0
+						?
+							<p>No trades</p>
+						: 
+							project.trades.map(trade => (
+								<div className="list trades">
+								<Trades trade={trade} tab={mainTabs.selectedMainTab} />
+							</div>
+							))
+				}
+				</>
+			)
+		
 			return viewSelected = view
 		}
 
 		if (selected === mainTabs.tradeMasterTabs[3]) {
-			const view = project.tasks.map(task => (
-				<div className="list tasks">
-					<Task task={task} tab={mainTabs.selectedMainTab} />
-				</div>
-			) 
-		)
+			const view = (
+				<>
+					{project.tasks.length ===  0
+						?
+							<p>No tasks</p>
+						:
+						project.tasks.map(task => (
+								<div className="list tasks">
+									<Task task={task} tab={mainTabs.selectedMainTab} />
+								</div>
+							))
+					}
+				</>
+			)
+		
 			return viewSelected = view
 		}
 		if (selected === mainTabs.tradeMasterTabs[4]) {
 			const view = (
-				<div className="list metrics">
-					<Metrics tab={mainTabs.selectedMainTab} />
-				</div>
+				<>
+					<div className="list metrics">
+						<Metrics tab={mainTabs.selectedMainTab} />
+					</div>
+				</>
 			)
 			return viewSelected = view
 		}
