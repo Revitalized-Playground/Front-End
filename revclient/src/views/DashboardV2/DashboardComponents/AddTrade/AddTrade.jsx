@@ -1,28 +1,17 @@
-import React, { useState } from 'react';
-import { MdArrowBack, MdClose } from "react-icons/md";
+import React, {  } from 'react';
+import { MdClose } from "react-icons/md";
 
-import { useMutation } from "@apollo/react-hooks";
-import { CREATE_PROJECT_TRADE } from '../../../../../graphql/mutations';
 
 
 const AddTrade = props => {
-    const { setAddTradeModal, projectId } = props;
+    const { 
+        setAddTradeState, 
+        addTradeState, 
+        submitAddTrade,
+        
+        setAddTradeModal, 
 
-    const [ createProjectTrade ] = useMutation( CREATE_PROJECT_TRADE );
-    const [ addTradeState, setAddTradeState ] = useState({
-        project: projectId,
-        name:"",
-        description:""
-    })
-
-    const submitAddTrade = async event => {
-        event.preventDefault();
-		
-        const created = await createProjectTrade({ variables: { data: addTradeState } });
-
-        setAddTradeState({ ...addTradeState, project: "", name: "", description: "" })
-		setAddTradeModal({ show: false });
-    };
+    } = props;
 
 
     return (
@@ -68,4 +57,7 @@ const AddTrade = props => {
 
 
 export default AddTrade
+
+
+
 

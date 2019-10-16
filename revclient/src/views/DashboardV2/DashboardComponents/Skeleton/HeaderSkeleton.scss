@@ -1,0 +1,8 @@
+.header-skeleton {
+    @include bottomBoxShadow;
+    background: $snow-white;
+    width: 100%;
+    .skeleton-card-inner.__skeleton {
+        width: 100%;
+    }
+}

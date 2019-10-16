@@ -8,6 +8,7 @@ import {
   GET_PROJECTS,
   GET_PROJECT_BY_ID,
   GET_PROJECT_BY_SLUG,
+  // GET_TRADES_BY_PROJECT_ID,
 } from './Projects';
 
 export {
@@ -17,4 +18,5 @@ export {
   GET_PROJECT_BY_ID,
   GET_PROJECT_BY_SLUG,
   GET_USER_PROFILE,
+  // GET_TRADES_BY_PROJECT_ID,
 }
