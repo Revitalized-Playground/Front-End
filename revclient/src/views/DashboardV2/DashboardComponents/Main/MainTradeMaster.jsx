@@ -13,7 +13,7 @@ import Metrics from "./Metrics/Metrics";
 
 const MainTradeMaster = props => {
 	const { project, mainTabs, setMainTabs } = props;
-	const [selected, setSelected] = useState("Students");
+	const [selected, setSelected] = useState("Applicants");
 
 	useEffect(() => {
 		setMainTabs({
@@ -22,14 +22,14 @@ const MainTradeMaster = props => {
 		})
 	}, []);
 
-	const changeSelected = userSelectedTab => {
-		setMainTabs({
-			...mainTabs,
-			selectedMainTab: userSelectedTab,
-		});
-	};
+	// const changeSelected = userSelectedTab => {
+	// 	setMainTabs({
+	// 		...mainTabs,
+	// 		selectedMainTab: userSelectedTab,
+	// 	});
+	// };
 
-	const tradeMasterView = selectedTabView => {
+	const tradeMasterView = () => {
 		let viewSelected="";
 		if (selected === mainTabs.tradeMasterTabs[0]) {
 			const view = (
@@ -39,15 +39,9 @@ const MainTradeMaster = props => {
 						?
 							<p>No applicants</p>
 						:
-							<PeopleHeader />
-						}
-						{/* {project.applicants.map(applicant => (
-						<div className="list students">
-							<People person={applicant} tab={mainTabs.selectedMainTab} />
-						</div> */}
-						<p>WIP</p>
-					{/* ))}
-					} */}
+							<><PeopleHeader />
+							<p>WIP</p></>
+					} 
 					
 				</>
 			)
@@ -68,7 +62,7 @@ const MainTradeMaster = props => {
 									<People person={student} tab={mainTabs.selectedMainTab} />
 								</div>
 							))}
-					}
+					
 				</>
 			)
 			return viewSelected = view
