@@ -21,7 +21,7 @@ const AddTask = props => {
     const submitAddTask = async event => {
         event.preventDefault();
 		
-        const created = await createProjectTask({ variables: { data: {
+        await createProjectTask({ variables: { data: {
             ...addTaskState,
             budgetHours: Number(addTaskState.budgetHours),
         } } });
@@ -42,40 +42,65 @@ const AddTask = props => {
                         <MdClose onClick={() => setAddTaskModal({ show: false })} />
                     </div>
 
-                    <h3>Add Task</h3>
+                    <h1>Add Task</h1>
                     <form onSubmit={submitAddTask} >
+                        <h3>Title</h3>
                         <input 
                             name='title'
                             type='text'
-                            placeholder='Title'
                             value={addTaskState.title}
                             onChange={(event) => setAddTaskState({ ...addTaskState, [event.target.name]:event.target.value })}
                         />
+                        <h3>Assign Task</h3>
+                        <input 
+                            name='apprentices'
+                            type='text'
+                            value={addTaskState.apprentices}
+                            onChange={(event) => setAddTaskState({ ...addTaskState, [event.target.name]:event.target.value })}
+                        />
+                        <h3>Priority Level</h3>
                         <input 
                             name='priority'
                             type='text'
-                            placeholder='Priority...'
                             value={addTaskState.priority}
                             onChange={(event) => setAddTaskState({ ...addTaskState, [event.target.name]:event.target.value })}
                         />
+                        
+                    <div className="two-column">
+                        <div className="column-left">
+                    <h3>Due Date</h3>
+                        
+                        </div>
+                        <div className="column-right">
+                        <h3># of Hours</h3>
+                        </div>
+                        </div>
+
+                        <div className="two-column">
+                        <div className="column-left">
                         <input 
                             name='dueDate'
                             type='date'
-                            placeholder='Due Date...'
                             value={addTaskState.dueDate}
                             onChange={(event) => setAddTaskState({ ...addTaskState, [event.target.name]:event.target.value })}
                         />
+                        </div>
+                        <div className="column-right">
                         <input 
                             name='budgetHours'
                             type='number'
-                            placeholder='Hours Budgeted...'
                             value={addTaskState.budgetHours}
                             onChange={(event) => setAddTaskState({ ...addTaskState, [event.target.name]:event.target.value })}
                         />
-                         <input 
+                        </div>
+                        </div>
+
+
+                        <h3>Description</h3>
+                         <textarea
                             name='description'
                             type='text'
-                            placeholder='Description...'
+                            placeholder=''
                             value={addTaskState.description}
                             onChange={(event) => setAddTaskState({ ...addTaskState, [event.target.name]:event.target.value })}
                         />

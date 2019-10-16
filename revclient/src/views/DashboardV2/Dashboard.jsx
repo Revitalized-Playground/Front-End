@@ -22,7 +22,7 @@ const Dashboard = () => {
     let possibleMainTabs = { 
         projectAdminTabs: ["Students", "Trade Masters", "Trades", "Tasks", "Metrics"],
         studentTabs: ["New Tasks", "Tasks In Progress", "Completed Tasks"],
-        tradeMasterTabs: ["Students", "Trades", "Tasks", "Metrics"],
+        tradeMasterTabs: ["Applicants", "Students", "Trades", "Tasks", "Metrics"],
         donationTabs: ["All Donations", "Project Donations"],
     };
     const [ mainTabs, setMainTabs ] = useState({ ...possibleMainTabs, selectedMainTab: "" });
@@ -32,7 +32,7 @@ const Dashboard = () => {
     // This useQuery pulls in tons of data and can pull more! See graphql/queries to adjust what it pulls in
     const { loading, error, data, refetch } = useQuery( GET_USER_PROFILE );
 
-    const setCurrentProject = object => setProject(object)
+    const setCurrentProject = object => setProject(object);
 
     // The following 2 functions and useEffect deal with determining what dash nav options should be shown based
     // on what the user has available to them in the useQuery data. This piece of logic could probably be written
@@ -69,7 +69,7 @@ const Dashboard = () => {
                     <section className="dashboard">
                         <Sidebar 
                             user={data.me}
-                            selectedProject={selectedProject ? selectedProject : null}
+                            project={selectedProject.project ? selectedProject.project : null}
                         />
                         <section className="dashboard-body">
                             

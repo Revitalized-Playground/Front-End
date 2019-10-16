@@ -36,7 +36,6 @@ const ProjectPage = ({ match }) => {
 		variables: { slug: match.params.slug },
 	});
 
-	
 
 	useEffect(() => {
 		data && setProjectData(data.projectBySlug);
@@ -66,12 +65,11 @@ const ProjectPage = ({ match }) => {
 		setBool(!bool);
 		setProjectData({
 			...projectData,
-			project: {
-				...projectData.project,
-				donations: [...projectData.project.donations, { amount }],
-			},
+			donations: [...projectData.donations, {amount} ]
 		});
 	};
+
+	
 
 	if (error) return <h2>ERROR! Someone call Elan</h2>;
 	if (loading || !data || !projectData) {
@@ -81,9 +79,8 @@ const ProjectPage = ({ match }) => {
 			</>
 		);
 	}
+	console.log('donation projectData', projectData.donations)
 
-	// console.log(data, 'newproj data', '\n', projectData);
-	console.log(projectData)
 	return (
 		<>
 			<Nav />
@@ -103,6 +100,7 @@ const ProjectPage = ({ match }) => {
 							donateModalBlur={donateModalBlur}
 							donateModal={donateModal}
 							setDonateModal={setDonateModal}
+							id={projectData.id}
 						/>
 					</Elements>
 				</StripeProvider>

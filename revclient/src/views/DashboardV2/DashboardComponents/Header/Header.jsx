@@ -80,6 +80,7 @@ const Header = props => {
 									<FaAngleDown 
 										className="bottom-icon-seemore"
 										onClick={() => setProject({ 
+											project: project,
 											showMore: !selectedProject.showMore, 
 											id: selectedProject.id ? null : id, 
 											buttonToggle: !selectedProject.buttonToggle, 
@@ -89,6 +90,7 @@ const Header = props => {
 									<FaAngleUp 
 										className="bottom-icon-seemore"
 										onClick={() => setProject({ 
+											project: null,
 											showMore: !selectedProject.showMore, 
 											id: selectedProject.id ? null : id, 
 											buttonToggle: !selectedProject.buttonToggle, 

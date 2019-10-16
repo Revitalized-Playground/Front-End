@@ -29,7 +29,6 @@ export const GET_PROJECT_BY_ID = gql`
 	${PROJECT_SUMMARY_FRAG}
 `;
 
-
 export const GET_PROJECT_BY_SLUG = gql`
 	query projectById($slug: String!) {
 		projectBySlug(slug: $slug) {

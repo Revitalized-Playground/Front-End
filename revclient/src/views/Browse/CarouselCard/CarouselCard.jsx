@@ -6,6 +6,7 @@ import Skeleton from 'react-loading-skeleton';
 
 import ProgressBar from "../../../components/ProgressBar/ProgressBar";
 import { formatMoney } from "../../../helpers/formatMoney";
+import { addUpDonations } from "../../../helpers/helpers";
 
 
 const CarouselCard = props => {
@@ -53,8 +54,8 @@ const CarouselCard = props => {
                             />
                         </div>
                         <div className="carousel-card-body-money" >
-                            <ProgressBar startingPoint={card.goalAmount} progress={card.amountFunded} />
-                            <p><b>${formatMoney(card.amountFunded)}</b> out of ${formatMoney(card.goalAmount)}</p>
+                            <ProgressBar startingPoint={card.goalAmount} progress={addUpDonations(card.donations)} />
+                            <p><b>${addUpDonations(card.donations)}</b> out of ${formatMoney(card.goalAmount)}</p>
                         </div>
                     </div>
             </section>
