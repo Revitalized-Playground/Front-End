@@ -117,15 +117,18 @@
 				font-size: 3.2rem;
 				display: flex;
 				align-items: center;
-				justify-content: center;
-				a { 
-					display: flex;
-				}
+				justify-content: space-between;
+				// a { 
+				// 	display: flex;
+				// }
 				svg {
 					margin-right: 20px;
 				}
-				.bottom-icon-seemore  {
-					font-size: 3.6rem;
+				.bottom-button  {
+					font-size: 2.5rem;
+					margin-left: 10px;
+					margin-right: 10px;
+					justify-self: flex-end;
 					&:hover {
 						color: lighten($chillFi-purple, 20%);
 						transition-duration: 0.75s;
