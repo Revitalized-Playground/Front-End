@@ -106,6 +106,12 @@
 			color: $machiavellian;
 			font-size: 3.2rem;
 			margin-bottom: 16px;
+
+			svg {
+				color: $chillFi-purple;
+				font-size: 1rem;
+				margin-left: -1rem;
+			}
 		}
 		.header-middle-description {
 			color: $mirage;

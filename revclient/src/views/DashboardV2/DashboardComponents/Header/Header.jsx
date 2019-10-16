@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import { FaComments, FaFileInvoice, FaAngleRight, FaAngleDown, FaAngleUp, FaBan, FaPlus } from 'react-icons/fa';
+import { FaComments, FaFileInvoice, FaAngleRight, FaAngleDown, FaAngleUp, FaBan, FaPlus, FaLink } from 'react-icons/fa';
 import { GoKebabVertical } from 'react-icons/go';
 import plusCircle from '../../../../assets/dashboard/Add-tasks.png';
 
@@ -92,7 +92,10 @@ const Header = props => {
 						{city}, {state}
 					</div>
 					<div className="header-middle-title">
-						<Link to={`/project/${project.slug}`}>{name}</Link>
+						<Link to={`/project/${project.slug}`}>
+							{name} &nbsp;
+							<FaLink />
+						</Link>
 					</div>
 					<p className="header-middle-description">{description}</p>
 				</div>
@@ -132,9 +135,9 @@ const Header = props => {
 								Close
 							</p>
 						)}
-						<Link to={`/project/${project.slug}`} className="bottom-button">
+						{/* <Link to={`/project/${project.slug}`} className="bottom-button">
 							View Project
-						</Link>
+						</Link> */}
 					</div>
 
 					<div className="team-members">
