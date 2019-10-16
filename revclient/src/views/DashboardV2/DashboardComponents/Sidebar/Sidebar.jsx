@@ -16,35 +16,24 @@ import donorIcon from "../../../../assets/SidebarIcons/donorIcon.png";
 
 const Sidebar = props => {
     const { user, project } = props;
-    const [hovered, setHovered] = useState({
-        admin: false,
-        student: false,
-        master: false,
-        donor: false
-    })
-    console.log("hovered: ", hovered);
     const countArray = [
     {
         name: "Admin Projects",
-        codename: "admin",
         count: user.projects.length,
         icon: adminIcon
     }, 
     {
         name: "Student Projects",
-        codename: "student",
         count: user.studentProjects.length,
         icon: apprenticeIcon
     }, 
     {
         name: "Master Projects",
-        codename: "master",
         count: user.tradeMasterProjects.length,
         icon: masterIcon
     }, 
     {
         name: "Donations",
-        codename: "donor",
         count: user.donations.length,
         icon: donorIcon
     }]
@@ -53,32 +42,19 @@ const Sidebar = props => {
 
     const displayCount = x => {
         if(x.count > 0) {
-            // if (x.codename == hovered.){
-
-            // }
             return (
-                <div
-                    className="figure"
-                    onMouseOver={() => setHovered({
-                        ...hovered,
-                        
-                    })}
-                >
-                    <p>{x.name}</p>
+                <div className="figure">
+                    <p className="overlay">{x.name}</p>
                     <img src={x.icon} alt={`${x.name} icon`} />
                     {
-                        // x.count > 1 
                         x.count < 31
                         ? <p className="count">{x.count}</p>
                         : <p className="count">30+</p>
-                        // : null
                     }
                 </div> 
             )    
         }
     }
-    
-    // console.log("slected project in sidebar",project, props);
     
     return (
         <section className="dashboard-sidebar section">
@@ -103,7 +79,7 @@ const Sidebar = props => {
                     <Skeleton count={2} />
                 )}
             </div>
-            <hr/>            
+                       
             <div className="dashboard-stats">
                 {
                     
@@ -138,7 +114,46 @@ const Sidebar = props => {
             <div className="info-container">
                 {
                     <>
+                        <div className="info">
+                            <div className="text">
+                                <p>Email</p>
+                                <span>{user.email}</span>
+                            </div>
+                            <Link to="#">
+                                <div className="sidebar-icon-container">
+                                    <FaEnvelope className="sidebar-icon" />
+                                </div>
+                            </Link>
+                        </div>
+                        
+                        {user.phoneNumber && (
+                            <div className="info">
+                                <div className="text">
+                                    <p>Phone Number</p>
+                                    <span>{user.phoneNumber}</span>
+                                </div>
+                                <Link to="#">
+                                    <div className="sidebar-icon-container">
+                                        <FaPhone className="sidebar-icon" />
+                                    </div>
+                                </Link>
+                            </div>
+                        )}
+
+                        <div className="info">
+                            <div className="text">
+                                <p>Location</p>
+                                <span>{`${user.city}, ${user.state}`}</span>
+                            </div>
+                            <HashLink to="/#search-map">
+                                <div className="sidebar-icon-container">
+                                    <FaLocationArrow className="sidebar-icon" />
+                                </div>
+                            </HashLink>
+                        </div>
                         {project ? (
+                            <>
+                            <hr/>
                             <div className="info project-details-container">
                                 <div className="text">
                                     <Link to={`/project/${project.slug}`} >
@@ -180,45 +195,9 @@ const Sidebar = props => {
                                     startingPoint={project.goalAmount} 
                                 />
                             </div>
+                            </>
                         ) : null}
                         
-                        <div className="info">
-                            <div className="text">
-                                <p>Email</p>
-                                <span>{user.email}</span>
-                            </div>
-                            <Link to="#">
-                                <div className="sidebar-icon-container">
-                                    <FaEnvelope className="sidebar-icon" />
-                                </div>
-                            </Link>
-                        </div>
-                        
-                        {user.phoneNumber && (
-                            <div className="info">
-                                <div className="text">
-                                    <p>Phone Number</p>
-                                    <span>{user.phoneNumber}</span>
-                                </div>
-                                <Link to="#">
-                                    <div className="sidebar-icon-container">
-                                        <FaPhone className="sidebar-icon" />
-                                    </div>
-                                </Link>
-                            </div>
-                        )}
-
-                        <div className="info">
-                            <div className="text">
-                                <p>Location</p>
-                                <span>{`${user.city}, ${user.state}`}</span>
-                            </div>
-                            <HashLink to="/#search-map">
-                                <div className="sidebar-icon-container">
-                                    <FaLocationArrow className="sidebar-icon" />
-                                </div>
-                            </HashLink>
-                        </div>
                     </>
                     ||
                     <SkeletonTheme>
@@ -226,27 +205,6 @@ const Sidebar = props => {
                     </SkeletonTheme>
                 }
             </div>
-            {/* <div className="dashboard-sidebar-footer"> */}
-                {/* <div className="a-container">
-                    {
-                        totalAchievements === 0
-                        ?
-                            <p>
-                                You currently have no achievements.
-                                Look <NavLink to="/browse">here</NavLink> for projects to join,
-                                or <NavLink to="/createproject">create a project</NavLink>!
-                            </p>
-                        :
-                            countArray.map(y => {
-                                return (
-                                    <React.Fragment key={y.name+Math.random()}>
-                                        {displayCount(y)}
-                                    </React.Fragment>
-                                )
-                            })
-                    }
-                </div> */}
-            {/* </div> */}
         </section>
     );
 };
