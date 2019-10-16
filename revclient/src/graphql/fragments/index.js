@@ -76,10 +76,6 @@ export const PROJECT_SUMMARY_FRAG = gql`
             name
             description
         }
-        applicants {
-            id
-            status
-        }
         tradeMasters {
             id
             profile {

@@ -3,7 +3,8 @@ import Header from "../DashboardComponents/Header/Header";
 import MainProjectAdmin from "../DashboardComponents/Main/MainProjectAdmin";
 import MainTradeMaster from "../DashboardComponents/Main/MainTradeMaster";
 import MainStudent from "../DashboardComponents/Main/MainStudent";
-import Donations from "../DashboardComponents/Main/Donations/Donations";
+import MainDonor from "../DashboardComponents/Main/MainDonor";
+// import Donations from "../DashboardComponents/Main/Donations/Donations";
 
 
 export default function HeaderMainSort(props) {
@@ -170,7 +171,7 @@ export default function HeaderMainSort(props) {
         //     </React.Fragment>
         // ))
         return renderedHeaderMain = (
-            <Donations 
+            <MainDonor 
                 donations={projectArray}
                 mainTabs={mainTabs.donationTabs}
                 defaultTab={mainTabs.donationTabs[0]}

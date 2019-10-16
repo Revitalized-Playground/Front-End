@@ -40,14 +40,16 @@ const Header = props => {
 				<div className="header-top">
 					
 					<div className="header-status">
-						{type === possibleDashNavTabs[0] ? (
+						{type === possibleDashNavTabs[0] ? ( // PROJECT ADMIN
 							<div className="project-status">{possibleDashNavTabs[0]}</div>
 						) : null}
-						{type ? (
-							<div className="project-status started">In Progress</div>
-						) : (
-							<div className="project-status not-started">Not Started</div>
-						)}
+						{  // IF a Project has tradesMaster, student, and trades, it is considered "LIVE"
+							(project.tradeMasters.length > 0) && (project.students.length > 0) && (project.trades.length > 0) ? ( 
+								<div className="project-status started">In Progress!</div>
+							) : (
+								<div className="project-status not-started">Not Started</div>
+							)
+						}
 					</div>
 
 					<div className="project-settings">

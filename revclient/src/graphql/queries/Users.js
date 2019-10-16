@@ -45,6 +45,23 @@ export const GET_USER_PROFILE = gql`
 			# This is an array with items if the user has created a project
 			projects {
 				...ProjectSummary
+				applicants {
+					id
+					licensed
+					coverLetter
+					jobExperience
+					education
+					availability
+					status
+					trade {
+						id
+						name
+						description
+					}
+					profile {
+						...UserSummary
+					}
+				}
 			}
 
 			# Projects the user has liked

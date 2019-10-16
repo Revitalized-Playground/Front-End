@@ -35,13 +35,13 @@ const MainProjectAdmin = props => {
 		
 		let viewSelected="";
 
-		if (selectedTabView === mainTabs.projectAdminTabs[0]) {
+		if (selectedTabView === mainTabs.projectAdminTabs[0]) {  // Applicants
 			const view = (
 				<>
 					<PeopleHeader />
-					{project.students.map(student => (
-						<section className="list students" key={student.profile.id + Date.now()}>
-							<People person={student} tab={mainTabs.selectedMainTab} />
+					{project.applicants.map(applicant => (
+						<section className="list applicants" key={applicant.profile.id + Date.now()}>
+							<People person={applicant} mainTabs={mainTabs} selectedMainTab={mainTabs.selectedMainTab}  />
 						</section>
 					))}
 				</>
@@ -49,13 +49,27 @@ const MainProjectAdmin = props => {
 			return viewSelected = view
 		}
 		
-		if (selectedTabView === mainTabs.projectAdminTabs[1]) {
+		if (selectedTabView === mainTabs.projectAdminTabs[1]) {  // Students
+			const view = (
+				<>
+					<PeopleHeader />
+					{project.students.map(student => (
+						<section className="list students" key={student.profile.id + Date.now()}>
+							<People person={student} mainTabs={mainTabs} selectedMainTab={mainTabs.selectedMainTab}  />
+						</section>
+					))}
+				</>
+			)
+			return viewSelected = view
+		}
+
+		if (selectedTabView === mainTabs.projectAdminTabs[2]) {  // Trade Masters
 			const view = (
 				<>
 					<PeopleHeader />
 					{project.tradeMasters.map(trademaster => (
-						<section className="list trademasters" key={trademaster.profile.id + Date.now()}>
-							<People person={trademaster} tab={mainTabs.selectedMainTab} />
+						<section className="list trade-masters"  key={trademaster.profile.id + Date.now()} >
+							<People person={trademaster} mainTabs={mainTabs} selectedMainTab={mainTabs.selectedMainTab}  />
 						</section>
 					))}
 				</>
@@ -63,31 +77,21 @@ const MainProjectAdmin = props => {
 			return viewSelected = view
 		}
 
-		if (selectedTabView === mainTabs.projectAdminTabs[2]) {
+		if (selectedTabView === mainTabs.projectAdminTabs[3]) {  // Trades
 			const view = (
 				<>
 					<TradesHeader />
 					{project.trades.map(trade => (
-						<section className="list trades"  key={trade.id + Date.now()}>
-							<Trades trade={trade} tab={mainTabs.selectedMainTab} project={project} />
-						</section>
+						<div className="list trades" key={trade.id + Date.now()}>
+							<Trades trade={trade} tab={mainTabs.selectedMainTab} project={project}  />
+						</div>
 					))}
 				</>
 			)
 			return viewSelected = view
 		}
 
-		if (selectedTabView === mainTabs.projectAdminTabs[3]) {
-			const view = project.tasks.map(task => (
-					<div className="list tasks" >
-						<Task task={task} tab={mainTabs.selectedMainTab} />
-					</div>
-				) 
-			)
-			return viewSelected = view
-		}
-
-		if (selectedTabView === mainTabs.projectAdminTabs[4]) {
+		if (selectedTabView === mainTabs.projectAdminTabs[4]) {   // Metrics
 			const view = (
 				<div className="metrics">
 					<Metrics tab={mainTabs.selectedMainTab} />
