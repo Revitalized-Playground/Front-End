@@ -52,32 +52,38 @@ const Header = props => {
 							<div className="project-status not-started">Not Started</div>
 						)}
 					</div>
-
-					<div className="project-settings">
+					<div className="header-top-right">
 						<div className="add-tasks">
-							<div className="create-task-button">Add Tasks</div>
+							<div className="create-task-button">Add Task</div>
 							<div className="button-container" onClick={() => setAddTaskModal({ show: true })}>
 								<img src={plusCircle} alt="plus circle" />
 							</div>
 						</div>
-						<GoKebabVertical
-							onClick={() => setSettingsToggle({ settingsDropdown: !settingsToggle.settingsDropdown })}
-						/>
-						{settingsToggle.settingsDropdown ? (
-							<div className="project-settings-dropdown">
-								<div
-									className="project-settings-dropdown-option add-trade"
-									onClick={() => setAddTradeModal({ show: true })}
-								>
-									<FaPlus />
-									&nbsp; Add Project Trade
+						<div className="project-settings">
+							<GoKebabVertical
+								onClick={() =>
+									setSettingsToggle({ settingsDropdown: !settingsToggle.settingsDropdown })
+								}
+							/>
+							{settingsToggle.settingsDropdown ? (
+								<div className="project-settings-dropdown">
+									<div
+										className="project-settings-dropdown-option add-trade"
+										onClick={() => setAddTradeModal({ show: true })}
+									>
+										<FaPlus />
+										&nbsp; Add Project Trade
+									</div>
+									<div
+										className="project-settings-dropdown-option delete"
+										onClick={submitDeleteProject}
+									>
+										<FaBan />
+										&nbsp; Delete Project
+									</div>
 								</div>
-								<div className="project-settings-dropdown-option delete" onClick={submitDeleteProject}>
-									<FaBan />
-									&nbsp; Delete Project
-								</div>
-							</div>
-						) : null}
+							) : null}
+						</div>
 					</div>
 				</div>
 
