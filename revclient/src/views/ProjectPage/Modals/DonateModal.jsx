@@ -12,9 +12,9 @@ import { DONATE_TO_PROJECT } from '../../../graphql/mutations';
 
 const DonateModal = ({id, update,donateModal, setDonateModal, donateModalBlur, stripe, match}) => {
     const [amount, setAmount] = useState('');
-    const [focused, setFocused] = useState(false)
-    const [donateToProject, {data}] = useMutation(DONATE_TO_PROJECT);
-    const [error, setError] = useState({
+    const [success, setSuccess] = useState(false)
+    const [donateToProject, {data, error}] = useMutation(DONATE_TO_PROJECT);
+    const [textError, setError] = useState({
         cardNumber: {
             error: '',
             complete: false,
@@ -34,11 +34,11 @@ const DonateModal = ({id, update,donateModal, setDonateModal, donateModalBlur, s
     })
     
     const errorChecker = e => {
-        setError({...error, amount: false, [e.elementType]: {blurComplete: false, error: !e.error ? '' : e.error.message, complete: e.complete}})
+        setError({...textError, amount: false, [e.elementType]: {blurComplete: false, error: !e.error ? '' : e.error.message, complete: e.complete}})
     }
 
     const errorSetter = e => {
-        setError({...error, [e.elementType]: {...error[e.elementType], blurComeplete: true}})
+        setError({...textError, [e.elementType]: {...textError[e.elementType], blurComeplete: true}})
     }
 
     const handleChange = (e, value, value2) => {
@@ -49,7 +49,7 @@ const DonateModal = ({id, update,donateModal, setDonateModal, donateModalBlur, s
 	async function handleSubmit(e) {
 		e.preventDefault();
         const { token } = await stripe.createToken({ name: 'Name here' }); 
-        const newAmount = Number(amount)
+        const newAmount = amount
 
         if(newAmount < 0.50) {
             window.alert('Can\'t donate less than $0.50')
@@ -72,8 +72,11 @@ const DonateModal = ({id, update,donateModal, setDonateModal, donateModalBlur, s
     useEffect(() => {
         if(data) {
             update(Number(amount))
+            setSuccess(true)
+            console.log('data', data)
+            console.log('error', error)
         }
-    }, [data])
+    }, [data, error])
    
     
     return (
@@ -96,11 +99,9 @@ const DonateModal = ({id, update,donateModal, setDonateModal, donateModalBlur, s
                                 value={amount}
                                 style={{color: amount.length <= 0 ? 'gray' : null}}
                                 onChangeEvent={(e) => {handleChange(e); errorChecker(e)}}
-                                // onBlur={() => setFocused(amount.length > 0? true: false)}
-                                onClick={() => setFocused(true)}
                             />
                         </div>
-                        {error.amount && <p className='card-error'>Please Provide a Donation Amount!</p>}
+                        {textError.amount && <p className='card-error'>Please Provide a Donation Amount!</p>}
                     </form>
                     
                     <div className="mid-line-container">
@@ -118,22 +119,23 @@ const DonateModal = ({id, update,donateModal, setDonateModal, donateModalBlur, s
                     <p>Card Number</p>
                     <div style={{marginBottom: '40px'}}>
                         <CardNumberElement onChange={errorChecker} onBlur={errorSetter} style={{base:{fontSize: '20px', margin: '40px'}}} className='stripe-card' />
-                        {!error.cardNumber.blurComplete && <p className='card-error'>{error.cardNumber.error}</p>}
+                        {!textError.cardNumber.blurComplete && <p className='card-error'>{textError.cardNumber.error}</p>}
                     </div>
                     <div className='expiration-cvc-container'>
                         <div className='expiration'>
                             <p>Expiration</p>
                             <CardExpiryElement onChange={errorChecker} style={{base:{fontSize: '20px'}}} className='expiration-input' />
-                            {!error.cardExpiry.blurComplete && <p className='card-error'>{error.cardExpiry.error}</p>}
+                            {!textError.cardExpiry.blurComplete && <p className='card-error'>{textError.cardExpiry.error}</p>}
                         </div>
                         <div className='cvc'>
                             <p>CVC</p>
                             <CardCvcElement onChange={errorChecker} style={{base:{fontSize: '20px'}}} className='cvc-input' />
-                            {!error.cardCvc.blurComplete && <p className='card-error'>{error.cardCvc.error}</p>}
+                            {!textError.cardCvc.blurComplete && <p className='card-error'>{textError.cardCvc.error}</p>}
                         </div>
                         
                     </div>
                     <button onClick={handleSubmit} className='submit-donate'>Donate</button>
+                    {success && <p className='donate-success-text'>Successfully Donated!</p>}
                 </div>
             </div>
         </div>

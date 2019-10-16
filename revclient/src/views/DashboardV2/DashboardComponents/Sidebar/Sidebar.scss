@@ -69,12 +69,12 @@
 					white-space: nowrap;
 					text-overflow: ellipsis;
 				}
-			}
-			.percent {
-				font-family: 'Roboto';
-				font-size: 2rem;
-				letter-spacing: 1.2px;
-				color: $machiavellian;
+				.text-value {
+					font-family: 'Roboto';
+					font-size: 2rem;
+					letter-spacing: 1.2px;
+					color: $machiavellian;
+				}
 			}
 			.sidebar-icon-container {
 				@include bottomBoxShadow;
@@ -90,7 +90,7 @@
 				}
 			}
 		}
-		.info.progress-bar-container {
+		.info.project-details-container {
 			flex-direction: column;
 			.text { 
 				flex-direction: row;
@@ -119,37 +119,33 @@
 			display: flex;
 			flex-flow: row wrap;
 			justify-content: space-evenly;
-			.achievement {
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				margin: 3.5% 3.5%;
-
-				.a-icon {
-					width: 75px;
-					height: 75px;
-				}
-				.number {
-					background-color: $franks-grey;
-					@include bottomBoxShadow;
-					font-family: 'Roboto';
-					font-size: 1.3rem;
-					font-weight: 500;
-					letter-spacing: 0.72px;
-					width: 45px;
-					height: 30px;
-					position: relative;
-					bottom: 10%;
-					border-radius: 50%;
-					display: flex;
-					justify-content: center;
-					align-items: center;
-				}
+			a {
+				color: $blue-valentine;
+				font-size: 1.6rem;
 			}
-		}
-		a {
-			color: $machiavellian;
-			font-size: 1.6rem;
+			img {
+				width: 66px;
+				height: 66px;
+				z-index: 1;
+				// position: relative;
+			}
+			.count {
+				// color: $ruby-enchantment;
+				border-radius: 50%;
+				height: 40px;
+				width: 40px;
+				background-color: $static-grey;
+				padding: 2px;
+				// margin-top: -7.5px;
+				margin: -15px auto 0 auto;
+				z-index: 10;
+				position: relative;
+				// text-align: center;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				// font-weight: bold;
+			}
 		}
 	}
 }
@@ -176,12 +172,17 @@
 		}
 	}
 	.dashboard-sidebar-footer {
-		h4 {
+		h5 {
 			color: $snow-white;
 		}
 		.number {
 			background-color: $snow-white;
 			color: $black-void;
+		}
+		.a-container {
+			.count {
+				color: $black-void;
+			}
 		}
 	}
 }

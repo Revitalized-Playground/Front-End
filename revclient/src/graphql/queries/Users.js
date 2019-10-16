@@ -1,8 +1,8 @@
 import gql from 'graphql-tag';
-import { 
-	USER_SUMMARY_FRAG, 
-	PROJECT_SUMMARY_FRAG, 
-	COMMENTS_FRAG, 
+import {
+	USER_SUMMARY_FRAG,
+	PROJECT_SUMMARY_FRAG,
+	COMMENTS_FRAG,
 } from '../fragments';
 
 export const GET_USERS = gql`
@@ -34,7 +34,7 @@ export const GET_USER_PROFILE = gql`
 			donations {
 				id
 				amount
-				project {  
+				project {
 					...ProjectSummary
 				}
 				profile {
@@ -45,6 +45,23 @@ export const GET_USER_PROFILE = gql`
 			# This is an array with items if the user has created a project
 			projects {
 				...ProjectSummary
+				applicants {
+					id
+					licensed
+					coverLetter
+					jobExperience
+					education
+					availability
+					status
+					trade {
+						id
+						name
+						description
+					}
+					profile {
+						...UserSummary
+					}
+				}
 			}
 
 			# Projects the user has liked
@@ -108,6 +125,7 @@ export const GET_USER_PROFILE = gql`
 				id
 				projectTask {
 					id
+					title
 					description
 					budgetHours
 					dueDate
@@ -138,15 +156,18 @@ export const GET_USER_PROFILE = gql`
 				project {
 					...ProjectSummary
 				}
-				
+				profile {
+					...UserSummary
+				}
+
 				### Redundant. This query returns the projects the user is a trademaster on.
 				### No need to return the profile we already have
-				# profile {  
+				# profile {
 				# 	...UserSummary
 				# 	applications {
 				# 		id
 				# 	}
-				# }  
+				# }
 			}
 
 
@@ -156,7 +177,7 @@ export const GET_USER_PROFILE = gql`
 	${USER_SUMMARY_FRAG}
 	${PROJECT_SUMMARY_FRAG}
 	${COMMENTS_FRAG}
-	 
+
 `;
 
 

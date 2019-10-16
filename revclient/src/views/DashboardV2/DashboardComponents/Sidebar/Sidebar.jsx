@@ -1,38 +1,84 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, {  } from "react";
+import { Link, NavLink } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
-// import styled from "styled-components";
+
 import {  FaEnvelope, FaPhone, FaLocationArrow } from "react-icons/fa";
 import Skeleton,  { SkeletonTheme } from "react-loading-skeleton";
 import { InitialAvatar } from "../../../../helpers/InitialAvatar";
+import { addUpDonations } from "../../../../helpers/helpers";
+
 import ProgressBar, { calculatePercentageProgressBar } from "../../../../components/ProgressBar/ProgressBar";
 
+import adminIcon from "../../../../assets/SidebarIcons/adminIcon.png";
+import apprenticeIcon from "../../../../assets/SidebarIcons/apprenticeIcon.png";
+import masterIcon from "../../../../assets/SidebarIcons/masterIcon.png";
+import donorIcon from "../../../../assets/SidebarIcons/donorIcon.png";
 
 const Sidebar = props => {
-    const moneyProgress = [800, 1800]
-    const getPercentage = calculatePercentageProgressBar(moneyProgress[0], moneyProgress[1]);
+    const { user, project } = props;
 
+    
+    const countArray = [
+    {
+        name: "admin",
+        count: user.projects.length,
+        icon: adminIcon
+    }, 
+    {
+        name: "student",
+        count: user.studentProjects.length,
+        icon: apprenticeIcon
+    }, 
+    {
+        name: "master",
+        count: user.tradeMasterProjects.length,
+        icon: masterIcon
+    }, 
+    {
+        name: "donor",
+        count: user.donations.length,
+        icon: donorIcon
+    }]
 
+    let totalAchievements = countArray[0].count+countArray[1].count+countArray[2].count+countArray[3].count;
+
+    const displayCount = x => {
+        if(x.count > 0) {
+            return (
+                <div className={x.name}>
+                    <img src={x.icon} alt={`${x.name} icon`} />
+                    {
+                        x.count > 1 
+                        ? x.count < 31
+                        ? <p className="count">{x.count}</p>
+                        : <p className="count">30+</p>
+                        : null
+                    }
+                </div> 
+            )    
+        }
+    }
+    
+    // console.log("slected project in sidebar",project, props);
+    
     return (
         <section className="dashboard-sidebar section">
             <div className="sidebar-top">
                 <Link to="/settings" origination="userDashboard"><h6>EDIT</h6></Link>
-                {props.user.profileImage ? (
-                    <img src={props.user.profileImage} alt="user" className="user-picture" />
+                {user.profileImage ? (
+                    <img src={user.profileImage} alt="user" className="user-picture" />
                 ) : (
-                    // <Skeleton circle={true} height={110} width={110} />
                     <InitialAvatar 
-                        firstName={props.user.firstName} 
-                        lastName={props.user.lastName}
+                        firstName={user.firstName} 
+                        lastName={user.lastName}
                         height="164" 
                         width="164" 
                         useRandomColor={1}
                     />
                 )}
-                {props.user.firstName ? (
+                {user.firstName ? (
                     <>
-                        <h3>{`${props.user.firstName} ${props.user.lastName}`}</h3>
-                        {/* <p>{props.user.email}</p> */}
+                        <h3>{`${user.firstName} ${user.lastName}`}</h3>
                     </>
                 ) : (
                     <Skeleton count={2} />
@@ -41,24 +87,24 @@ const Sidebar = props => {
             <div className="dashboard-stats">
                 {
                     <>
-                        {props.user.projects && props.user.projects.length > 0 ? (
+                        {user.projects && user.projects.length > 0 ? (
                         <div className="quick-stat">
-                            <h3>{props.user.projects.length}</h3>
-                                <p>{props.user.projects.length === 1 ? "Project" : "Projects"}</p>
+                            <h3>{user.projects.length}</h3>
+                                <p>{user.projects.length === 1 ? "Project" : "Projects"}</p>
                             </div>    
                         ) : null}
                         
-                        {props.user.donations && props.user.donations.length > 0 ? (
+                        {user.donations && user.donations.length > 0 ? (
                         <div className="quick-stat">
-                            <h3>{props.user.donations.length}</h3>
-                                <p>{props.user.donations.length === 1 ? "Donation" : "Donations"}</p>
+                            <h3>{user.donations.length}</h3>
+                                <p>{user.donations.length === 1 ? "Donation" : "Donations"}</p>
                             </div>    
                         ) : null}
 
-                        {props.user.certifications && props.user.certifications.length > 0 ? (
+                        {user.certifications && user.certifications.length > 0 ? (
                         <div className="quick-stat">
-                            <h3>{props.user.certifications.length}</h3>
-                                <p>{props.user.certifications.length === 1 ? "Certificate" : "Certificates"}</p>
+                            <h3>{user.certifications.length}</h3>
+                                <p>{user.certifications.length === 1 ? "Certificate" : "Certificates"}</p>
                             </div>    
                         ) : null}
                     </>
@@ -74,17 +120,54 @@ const Sidebar = props => {
             <div className="info-container">
                 {
                     <>
-                        <div className="info progress-bar-container">
-                            <div className="text">
-                                <p>Project Completion</p>
-                                <p className="percent">{getPercentage}</p>
+                        {project ? (
+                            <div className="info project-details-container">
+                                <div className="text">
+                                    <Link to={`/project/${project.slug}`} >
+                                        <h4>{project.name}</h4>
+                                    </Link>
+                                </div>
+                                {project.donations.length > 0 && (
+                                    <div className="text">
+                                        <p>Donations</p>
+                                        <p className="text-value">
+                                            {project.donations.length}
+                                        </p>
+                                    </div>
+                                )}
+                                {project.students.length > 0 && (
+                                    <div className="text">
+                                        <p>Students</p>
+                                        <p className="text-value">
+                                            {project.students.length}
+                                        </p>
+                                    </div>
+                                )}
+                                {project.tradeMasters.length > 0 && (
+                                    <div className="text">
+                                        <p>Trade Masters</p>
+                                        <p className="text-value">
+                                            {project.tradeMasters.length}
+                                        </p>
+                                    </div>
+                                )}
+                                <div className="text">
+                                    <p>Percentage Funded</p>
+                                    <p className="text-value">
+                                        {calculatePercentageProgressBar(project.goalAmount, addUpDonations(project.donations))}
+                                    </p>
+                                </div>
+                                <ProgressBar 
+                                    progress={addUpDonations(project.donations)} 
+                                    startingPoint={project.goalAmount} 
+                                />
                             </div>
-                            <ProgressBar progress={moneyProgress[0]} startingPoint={moneyProgress[1]} />
-                        </div>
+                        ) : null}
+                        
                         <div className="info">
                             <div className="text">
                                 <p>Email</p>
-                                <span>{props.user.email}</span>
+                                <span>{user.email}</span>
                             </div>
                             <Link to="#">
                                 <div className="sidebar-icon-container">
@@ -93,11 +176,11 @@ const Sidebar = props => {
                             </Link>
                         </div>
                         
-                        {props.user.phoneNumber && (
+                        {user.phoneNumber && (
                             <div className="info">
                                 <div className="text">
                                     <p>Phone Number</p>
-                                    <span>{props.user.phoneNumber}</span>
+                                    <span>{user.phoneNumber}</span>
                                 </div>
                                 <Link to="#">
                                     <div className="sidebar-icon-container">
@@ -110,7 +193,7 @@ const Sidebar = props => {
                         <div className="info">
                             <div className="text">
                                 <p>Location</p>
-                                <span>{`${props.user.city}, ${props.user.state}`}</span>
+                                <span>{`${user.city}, ${user.state}`}</span>
                             </div>
                             <HashLink to="/#search-map">
                                 <div className="sidebar-icon-container">
@@ -127,37 +210,26 @@ const Sidebar = props => {
             </div>
             <hr/>
             <div className="dashboard-sidebar-footer">
-                {/* {if(props.user.apprentice) {
-
-                } else if(props.user.master) {
-
-                }} */}
                 <h5>Achievements</h5>
                 <div className="a-container">
-                    {props.user.achievements
-                        ? props.user.achievements.map(a => (
-                            <div className="achievement" key={a.name + Date.now()}>
-                                <Link to="#">
-                                    <img src={a.image} alt={`${a.name} achievement`} className="a-icon"/>
-                                </Link>
-                                <div className="number">
-                                    { a.number < 31
-                                        ? `${a.number}`
-                                        : `30+`
-                                    }
-                                </div>
-                            </div>
-                        ))
+                    {
+                        totalAchievements === 0
+                        ?
+                            <p>
+                                You currently have no achievements.
+                                Look <NavLink to="/browse">here</NavLink> for projects to join,
+                                or <NavLink to="/createproject">create a project</NavLink>!
+                            </p>
                         :
-                        <>
-                            <Skeleton circle={true} height={63} width={63} />
-                            <Skeleton circle={true} height={63} width={63} />
-                            <Skeleton circle={true} height={63} width={63} />
-                            <Skeleton circle={true} height={63} width={63} />
-                        </>
+                            countArray.map(y => {
+                                return (
+                                    <React.Fragment key={y.name+Math.random()}>
+                                        {displayCount(y)}
+                                    </React.Fragment>
+                                )
+                            })
                     }
                 </div>
-                <Link to="#">View All...</Link>
             </div>
         </section>
     );

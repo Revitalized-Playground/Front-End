@@ -18,6 +18,13 @@
     display: flex;
     justify-content: flex-start;
 }
+
+.donate-success-text {
+    color: green;
+    border: 1px solid red;
+    text-align: center;
+    margin-top: 20px
+}
 .flex .currency {
     display: flex;
     align-items: center;

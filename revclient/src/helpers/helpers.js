@@ -33,6 +33,7 @@ export function donationCount(num) {
 export const addUpDonations = (donationArray) => {
     let totalDonations = 0
     donationArray.forEach(donation => totalDonations = totalDonations + donation.amount);
+    // console.log(totalDonations, formatMoney(totalDonations))
     return formatMoney(totalDonations); 
     // return totalDonations;
 }
@@ -46,9 +47,17 @@ export const calculateDueDate = (startDate, duration) => {
 }
 
 
+export const formatDate = (date) => {
+    let prettyDate = moment(date).format("MMMM Do YYYY");
+    // console.log(dueDate);
+    return prettyDate;
+}
+
+
+
 
 export const inLastWeek = (startDate) => {
     let lastWeek = moment(startDate).clone().subtract(1, 'week').format();
-    console.log(lastWeek);
+    // console.log(lastWeek);
     return lastWeek;
 }
