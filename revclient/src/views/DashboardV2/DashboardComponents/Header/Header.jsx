@@ -95,42 +95,41 @@ const Header = props => {
 				<div className="header-bottom">
 					<div className="bottom-left">
 						<p className="due-date">Due Date: {calculateDueDate(startDate, duration)}</p>
-						<div className="bottom-icons">
-							{!selectedProject.buttonToggle ? (
-								<p
-									className="bottom-button"
-									onClick={() =>
-										setProject({
-											project: project,
-											showMore: !selectedProject.showMore,
-											id: selectedProject.id ? null : id,
-											buttonToggle: !selectedProject.buttonToggle,
-										})
-									}
-								>
-									Manage Project
-								</p>
-							) : (
-								<p
-									className="bottom-button"
-									onClick={() =>
-										setProject({
-											project: null,
-											showMore: !selectedProject.showMore,
-											id: selectedProject.id ? null : id,
-											buttonToggle: !selectedProject.buttonToggle,
-										})
-									}
-								>
-									Close
-								</p>
-							)}
-							<Link to={`/project/${project.slug}`}>
-								<p className="bottom-button">View Project</p>
-							</Link>
-						</div>
 					</div>
 
+					<div className="bottom-icons">
+						{!selectedProject.buttonToggle
+							?
+								<p 
+									className="bottom-button manage"
+									onClick={() => setProject({ 
+										project: project,
+										showMore: !selectedProject.showMore, 
+										id: selectedProject.id ? null : id, 
+										buttonToggle: !selectedProject.buttonToggle, 
+									})}>
+									Manage Project
+								</p>
+							: 
+								<p
+									className="bottom-button close"
+									onClick={() => setProject({ 
+										project: null,
+										showMore: !selectedProject.showMore, 
+										id: selectedProject.id ? null : id, 
+										buttonToggle: !selectedProject.buttonToggle, 
+									})}>
+									Close
+								</p>
+						}
+						<Link 
+							to={`/project/${project.slug}`}
+							className="bottom-button"
+						>
+							View Project
+						</Link>
+					</div>
+					
 					<div className="team-members">
 						<div className="member-icons">
 							<p>Team</p>
