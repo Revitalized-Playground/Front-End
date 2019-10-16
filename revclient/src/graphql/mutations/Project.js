@@ -74,4 +74,13 @@ export const CREATE_PROJECT_TASK = gql`
     }
 `
 
+export const APPLY_TO_PROJECT = gql`
+	mutation($data: CreateProjectApplicant!){
+		createProjectApplicant(data: $data) {
+			id
+			status
+		}
+	}
+`
+
 

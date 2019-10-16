@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import './StudentApplicationForm.scss'
 import swirly from '../../assets/StudentApplicationWizard/swirly.png'
 import Step1 from './Steps/Step1'
@@ -8,8 +8,9 @@ import large from '../../assets/StudentApplicationWizard/large.svg'
 import med from '../../assets/StudentApplicationWizard/med.svg'
 import small from '../../assets/StudentApplicationWizard/small.svg'
 
-import { useQuery } from '@apollo/react-hooks';
+import { useQuery, useMutation } from '@apollo/react-hooks';
 import { GET_PROJECT_BY_SLUG } from '../../graphql/queries/Projects'
+import { APPLY_TO_PROJECT } from '../../graphql/mutations/Project'
 import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner';
 
 const ApplicationForm = (props) => {
@@ -19,9 +20,33 @@ const ApplicationForm = (props) => {
         variables: {slug: props.match.params.name}
     })
 
-    const [obj, setObj] = useState({
+    const [apply] = useMutation(APPLY_TO_PROJECT)
 
-    })
+    const [obj, setObj] = useState({})
+
+    useEffect(() => {
+        if(data) {
+            setObj({
+                project: data.projectBySlug.id,
+                trade: '',
+                licensed: false,
+                coverLetter: '',
+                jobExperience: '',
+                education: '',
+                availability: ''
+            })
+        }
+
+    }, [data])
+
+
+    const submit = async (e) => {
+        e.preventDefault()
+        const applied = await apply({variables: {data: obj}})
+
+        console.log('applied',applied)
+    }
+    
 
 
 
@@ -31,7 +56,9 @@ const ApplicationForm = (props) => {
 				<LoadingSpinner />
 			</>
 		);
-	}
+    }
+    console.log(data)
+    console.log('obj', obj)
     return(
         <div className='student-application-form-container'>
             <div style={{backgroundImage: `url(${swirly})`}} className='swirly-div'>
@@ -52,13 +79,13 @@ const ApplicationForm = (props) => {
                 <div className='right-div-content'>
                     {step === 1 
                     ?
-                    <Step1 trades={data.projectBySlug.trades} setStep={setStep} chosenTrade={chosenTrade} setChosenTrade={setChosenTrade} />
+                    <Step1 trades={data.projectBySlug.trades} setStep={setStep} chosenTrade={chosenTrade} setChosenTrade={setChosenTrade} obj={obj} setObj={setObj}/>
                     : step === 2
                     ?
-                    <Step2 setStep={setStep} />
+                    <Step2 setStep={setStep} obj={obj} setObj={setObj} />
                     : step === 3
                     ?
-                    <Step3 setStep={setStep} />
+                    <Step3 setStep={setStep} obj={obj} setObj={setObj} submit={submit} />
                     :
                     null
                     }
