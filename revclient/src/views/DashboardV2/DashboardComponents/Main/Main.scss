@@ -3,7 +3,7 @@
 @import "./TasksComponent/Tasks.scss";
 @import "./People/People.scss";
 @import "./Trades/Trades.scss";
-@import "./Metrics/Metrics.scss";
+@import "./Analytics/Analytics.scss";
 @import "./AddTask/AddTask.scss";
 
 
@@ -48,7 +48,7 @@
 
 .dark-mode .dashboard-main {
 	width: 100%;
-	.dashboard-main-body { 
+	.dashboard-main-body {
 		.list {
 			background-color: $bleached-black;
 			color: $snow-white;
