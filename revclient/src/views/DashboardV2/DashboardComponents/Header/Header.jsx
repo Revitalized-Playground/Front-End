@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import { FaPlusCircle, FaComments, FaFileInvoice, FaAngleRight, FaAngleDown, FaAngleUp, FaBan, FaPlus, FaLink } from 'react-icons/fa';
+import { FaPlusCircle, FaComments, FaFileInvoice, FaAngleRight, FaAngleDown, FaAngleUp, FaBan, FaPlus, FaLink, FaArrowDown } from 'react-icons/fa';
 import { GoKebabVertical } from 'react-icons/go';
 
 // Sub components
@@ -112,20 +112,21 @@ const Header = props => {
 
 	return (
 		<>
-			<div className="dashboard-header section">
+			<div className={`dashboard-header section ${selectedProject.showMore ? "show-more" : null}`}  >
 				<div className="header-top">
 					<div className="header-status">
-						{type === possibleDashNavTabs[0] ? ( // PROJECT ADMIN
-							<div className="project-status">{possibleDashNavTabs[0]}</div>
-						) : null}
 						{// IF a Project has tradesMaster, student, and trades, it is considered "LIVE"
 						projectData.tradeMasters.length > 0 &&
 						projectData.students.length > 0 &&
 						projectData.trades.length > 0 ? (
 							<div className="project-status started">In Progress!</div>
-						) : (
-							<div className="project-status not-started">Not Started</div>
-						)}
+							) : (
+								<div className="project-status not-started">Not Started</div>
+							)
+						}
+						{type === possibleDashNavTabs[0] ? ( // PROJECT ADMIN
+							<div className="project-status">{possibleDashNavTabs[0]}</div>
+						) : null}
 					</div>
 
 					<div className="header-top-right">
@@ -185,37 +186,33 @@ const Header = props => {
 
 					<div className="bottom-icons">
 						{!selectedProject.buttonToggle ? (
-							<p
-								className="bottom-button manage"
-								onClick={() =>
-									setProject({
-										project: project,
-										showMore: !selectedProject.showMore,
-										id: selectedProject.id ? null : projectData.id,
-										buttonToggle: !selectedProject.buttonToggle,
-									})
-								}
+
+							<div className="manage-project-button-container"  onClick={() => {
+								setProject({
+									project: project,
+									showMore: !selectedProject.showMore,
+									id: selectedProject.id ? null : projectData.id,
+									buttonToggle: !selectedProject.buttonToggle,
+								})}}
 							>
-								Manage Project
-							</p>
+								<p  className="bottom-button manage" >Manage</p>
+								<FaAngleDown className="bottom-button arrow" />
+							</div>
+
 						) : (
-							<p
-								className="bottom-button close"
-								onClick={() =>
-									setProject({
-										project: null,
-										showMore: !selectedProject.showMore,
-										id: selectedProject.id ? null : projectData.id,
-										buttonToggle: !selectedProject.buttonToggle,
-									})
-								}
+
+							<div className="manage-project-button-container" onClick={() => {
+								setProject({
+									project: null,
+									showMore: !selectedProject.showMore,
+									id: selectedProject.id ? null : projectData.id,
+									buttonToggle: !selectedProject.buttonToggle,
+								})}}
 							>
-								Close
-							</p>
+								<p  className="bottom-button close" >Close</p>
+								<FaAngleUp className="bottom-button arrow" />
+							</div>
 						)}
-						{/* <Link to={`/project/${project.slug}`} className="bottom-button">
-							View Project
-						</Link> */}
 					</div>
 
 					<div className="team-members">

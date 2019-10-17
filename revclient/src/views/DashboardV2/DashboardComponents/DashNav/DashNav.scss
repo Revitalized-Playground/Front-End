@@ -1,5 +1,5 @@
 section.dashboard-dash-nav.section {
-    background-color: $silver-lining;
+    background-color: $franks-grey;
     display: flex;
     justify-content: space-around;
     padding: 0;
@@ -9,7 +9,7 @@ section.dashboard-dash-nav.section {
     border-radius: 5px;
     margin-bottom: -6px;
     .tab {
-        color: $black-void;
+        color: $static-grey;
         padding: 10px 60px;
         @media #{$tablet} {
             padding: 10px 30px;   
@@ -22,12 +22,12 @@ section.dashboard-dash-nav.section {
         }
     }
     .active-tab.tab {
-        color: $chillFi-purple;
+        color: $mirage;
         background-color: $snow-white;
         // border: 1px solid $static-grey;
-        border-top: 1px solid $static-grey;;
-        border-right: 1px solid $static-grey;;
-        border-left: 1px solid $static-grey;;
+        // border-top: 1px solid $static-grey;
+        // border-right: 1px solid $static-grey;
+        // border-left: 1px solid $static-grey;
         border-bottom: 1px solid white;
 
     }

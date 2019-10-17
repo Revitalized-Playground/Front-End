@@ -20,15 +20,15 @@ const AddTask = props => {
     const [ createProjectTask ] = useMutation( CREATE_PROJECT_TASK );
     const [ addTaskState, setAddTaskState ] = useState({
         project: project.id,
-        trade: trade.id,
+        trade: trade ? trade.id : "",
         title: "",
         description: "",
         priority: "",
         dueDate: formatDateForDateInput(Date.now()),
         budgetHours: "",
-        // apprentices: {
-        //     profile: "",
-        // },
+        apprentices: {
+            profile: "",
+        },
     })
 
 
@@ -57,7 +57,11 @@ const AddTask = props => {
                         <MdClose onClick={() => setAddTaskModal({ show: false })} />
                     </div>
 
-                    <h1>Add Task for {trade.name}</h1>
+                    {trade ? (
+                        <h1>Add Task for {trade.name}</h1>
+                    ) : (
+                        <h1>Add Task</h1>
+                    )}
 
                     <form onSubmit={submitAddTask} >
 
@@ -66,6 +70,7 @@ const AddTask = props => {
                             <input 
                                 name='title'
                                 type='text'
+                                placeholder="Title..."
                                 value={addTaskState.title}
                                 onChange={(event) => setAddTaskState({ ...addTaskState, [event.target.name]:event.target.value })}
                             />
@@ -74,23 +79,44 @@ const AddTask = props => {
 
                         <div className="add-task-input-container" >
                             <h5 className="add-task-input-label">Trade</h5>
-                            <input 
-                                disabled
-                                name='trade'
-                                type='text'
-                                placeholder='Trade...'
-                                value={trade.name}
-                                onChange={(event) => setAddTaskState({ ...addTaskState, [event.target.name]: event.target.value })}
-                            />
+                            {trade ? (
+                                <input 
+                                    disabled
+                                    name='trade'
+                                    type='text'
+                                    value={trade.name}
+                                    onChange={(event) => setAddTaskState({ ...addTaskState, [event.target.name]: event.target.value })}
+                                />
+                            ) : (
+                                <select
+                                    value={addTaskState.trade}
+                                    onChange={(event) => setAddTaskState({ ...addTaskState, trade: event.target.value })}
+                                >
+                                    <option value="0">Select trade</option>
+                                    {
+                                        project.trades.map(trade => (
+                                            <option 
+                                                name="trade"
+                                                value={trade.id}
+                                            >
+
+                                                {trade.name}
+
+                                            </option>
+                                        ))
+                                    }
+                                </select>
+                            )}
+                            
                         </div>
                         
                         <div className="add-task-input-container" >
                             <h5 className="add-task-input-label">Assign Task</h5>
                             <select
-                                value={addTaskState.apprentices}
+                                value={addTaskState.apprentices.profile}
                                 onChange={(event) => setAddTaskState({ ...addTaskState, apprentices: { profile: event.target.value } })}
                             >
-                                <option value="0">Select apprentice</option>
+                                <option value={null}>Select apprentice</option>
                                 {
                                     project.students.map(eachStudent => (
                                         <option 

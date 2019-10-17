@@ -169,6 +169,14 @@ const Sidebar = props => {
                                         </p>
                                     </div>
                                 )}
+                                {project.applicants.length > 0 && (
+                                    <div className="text">
+                                        <p>Applicants</p>
+                                        <p className="text-value">
+                                            {project.applicants.length}
+                                        </p>
+                                    </div>
+                                )}
                                 {project.students.length > 0 && (
                                     <div className="text">
                                         <p>Students</p>

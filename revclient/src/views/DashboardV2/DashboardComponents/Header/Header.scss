@@ -15,7 +15,7 @@
 			align-items: flex-start;
 			.project-status {
 				background-color: $franks-grey;
-				color: $chillFi-purple;
+				color: $mirage;
 				display: flex;
 				justify-content: center;
 				align-items: center;
@@ -80,9 +80,17 @@
 		svg {
 			height: 35px;
 			width: 35px;
-			color: #285fd7;
+			color: $chillFi-purple;
+			cursor: pointer;
 			&:hover {
-				cursor: pointer;
+				transform: translate(0px, 2px);
+				color: lighten($chillFi-purple, 25%);
+				transition-duration: 0.3s;
+			}
+			&:active {
+				transform: translate(0px, 7px);
+				color: lighten($chillFi-purple, 25%);
+				transition-duration: 0.5s;
 			}
 		}
 
@@ -156,47 +164,52 @@
 			}
 		}
 		.bottom-icons {
-			color: $chillFi-purple;
-			font-size: 3.2rem;
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
-
-			svg {
-				margin-right: 20px;
-			}
-			.bottom-button {
-				font-size: 1.8rem;
-				margin-left: 15px;
-				margin-right: 15px;
-				justify-self: flex-end;
-				position: relative;
-				cursor: pointer;
-				// .manage, .close {
-				// 	min-width: 160px;
-				// @media($tablet) {
-
-				// }
-				// }
-				&:hover {
-					color: lighten($chillFi-purple, 10%);
-					transition-duration: 0.75s;
+			.manage-project-button-container {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				margin-bottom: -20px;
+				&:active {
+					transform: translate(0px, 7px);
+					opacity: 0.15;
+					transition-duration: 0.2s;
+				}
+				.bottom-button {
+					cursor: pointer;
+					&:hover {
+						color: lighten($chillFi-purple, 25%);
+						transition-duration: 0.5s;
+					}
+				}
+				.bottom-button.manage, .bottom-button.close {
+					color: $mirage;
+					font-size: 1.2rem;
+					font-family: "Roboto";
+					text-transform: uppercase;
+					padding-top: 10px;
+					line-height: 1;
+					
+				}
+				.bottom-button.arrow {
+					font-size: 3rem;
+					color: $chillFi-purple;
+					margin-top: -1px;
+					&:hover {
+						transform: translate(0px, 2px);
+						color: lighten($chillFi-purple, 25%);
+						transition-duration: 0.5s;
+					}
+					// &:active {
+					// 	// transform: translate(0px, 7px);
+					// 	// opacity: 0.1;
+					// 	// transition-duration: 0.2s;
+					// }
 				}
 			}
-			// .bottom-button {
-			// 	font-size: 2.5rem;
-			// 	margin-left: 10px;
-			// 	margin-right: 10px;
-			// 	justify-self: flex-end;
-			// 	&:hover {
-			// 		color: lighten($chillFi-purple, 20%);
-			// 		transition-duration: 0.75s;
-			// 	}
-			// 	&:active {
-			// 		margin-bottom: -10px;
-			// 		transition-duration: 0.2s;
-			// 	}
-			// }
 		}
 		.team-members {
 			display: flex;

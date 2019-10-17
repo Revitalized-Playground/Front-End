@@ -7,7 +7,7 @@ const TradesHeader = () => {
         <>
             <section className="trades-header" >
                 <div className="icon"></div>
-                <div className="description">Name</div>
+                <div className="description">Trade</div>
                 <div className="verified">Create Task</div>
             </section>
         </>

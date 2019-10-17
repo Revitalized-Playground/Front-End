@@ -51,13 +51,20 @@
 	box-shadow: 0px 4px 3px -3px rgba(10, 10, 10, 0.25);
 }
 
+@mixin innerBoxShadow {
+	box-shadow: inset 0px 19px 10px -16px rgba(10, 10, 10, 0.25);
+}
+
+
+
+
 @mixin text-shadow {
 	text-shadow: 1px 1px 3px rgba(10, 10, 10, 0.25);
 	transition-duration: 0.5s;
 }
 
 @mixin skeleton-section {
-	border: 1px solid $static-grey;
+	// border: 1px solid $static-grey;
 	border-bottom-color: $static-grey;
     border-bottom-style: solid;
     border-bottom-width: 3px;

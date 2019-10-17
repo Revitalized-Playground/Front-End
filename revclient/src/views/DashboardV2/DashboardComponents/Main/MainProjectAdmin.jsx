@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react';
 import Skeleton from 'react-loading-skeleton';
-import LoadingSpinner from "../../../../components/LoadingSpinner/LoadingSpinner";
-// import { inLastWeek } from "../../../../helpers/helpers";
 
+// Components
 import Tab from './TabComponent/Tab';
 // import Task from "./TasksComponent/Task";
 import People from "./People/People";
@@ -11,6 +10,10 @@ import Trades from "./Trades/Trades";
 import TradesHeader from "./Trades/TradesHeader";
 import Metrics from "./Metrics/Metrics";
 import NoContent from "./NoContent/NoContent";
+
+// Helpers
+// import { inLastWeek } from "../../../../helpers/helpers";
+import LoadingSpinner from "../../../../components/LoadingSpinner/LoadingSpinner";
 
 
 const MainProjectAdmin = props => {
@@ -24,15 +27,6 @@ const MainProjectAdmin = props => {
 		})
 	}, []);
 	
-	
-	// console.log("project: ", project);
-	// const [ selected, setSelected ] = useState("Applicants");
-	// const changeSelected = userSelectedTab => {
-	// 	setMainTabs({
-	// 		...mainTabs,
-	// 		selectedMainTab: userSelectedTab,
-	// 	});
-	// };
 
 	const projectAdminMainView = selectedTabView => {
 		
@@ -167,3 +161,4 @@ const MainProjectAdmin = props => {
 };
 
 export default MainProjectAdmin;
+
