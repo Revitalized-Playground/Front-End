@@ -7,14 +7,14 @@ import { NextArrow, PrevArrow } from "../CarouselCard/Arrows";
 
 // Graphql
 import { useQuery } from '@apollo/react-hooks';
-import { GET_PROJECTS } from '../../../graphql/queries';
+import { GET_PROJECTS_NEAR_ME } from '../../../graphql/queries';
 
 
 
 const NearYou = () => {
-    const { loading, error, data } = useQuery(GET_PROJECTS);
-    
-    
+    const { loading, error, data } = useQuery(GET_PROJECTS_NEAR_ME);
+
+
 
     const settings = {
         dots: false,
@@ -52,7 +52,7 @@ const NearYou = () => {
             }
         ]
     };
-
+    console.log(data, "project data")
 
     if (loading) return <NearYouSkeleton />
 
@@ -64,7 +64,7 @@ const NearYou = () => {
             <h4>Local Projects</h4>
             <div className="slider">
                 <Slider {...settings}>
-                    {data.projects ? data.projects.map((nearYou) => (
+                    {data.projectsNearMe ? data.projectsNearMe.map((nearYou) => (
                         <CarouselCard key={nearYou.id} card={nearYou} view="nearYou"  />
                     )) : (
                         <NearYouSkeleton />
