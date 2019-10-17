@@ -23,7 +23,6 @@ export const GET_RECOMMENDED_PROJECTS = gql`
 		}
 	}
 	${USER_SUMMARY_FRAG}
-	${COMMENTS_FRAG}
 	${PROJECT_SUMMARY_FRAG}
 `;
 
