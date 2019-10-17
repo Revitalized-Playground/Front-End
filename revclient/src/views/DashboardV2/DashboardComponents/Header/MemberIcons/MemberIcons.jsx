@@ -9,6 +9,7 @@ const MemberIcons = props => {
         <>
             {(arrayOfUsers[0] && arrayOfUsers[1]) ? ( //  PROJECT ADMIN and TRADES MASTER Students on Project
                 <>
+                    <p>Team</p>
                     <img
                         src={arrayOfUsers[0].profile.profileImage}
                         alt={arrayOfUsers[0].profile.firstName}
@@ -23,6 +24,7 @@ const MemberIcons = props => {
                 </>
             ) : (arrayOfUsers[0] ) ? (
                 <>
+                    <p>Team</p>
                     <img
                         src={arrayOfUsers[0].profile.profileImage}
                         alt={arrayOfUsers[0].profile.firstName}
@@ -32,17 +34,7 @@ const MemberIcons = props => {
                 </>
             ) : (
                 <>
-                    <img
-                        src="https://res.cloudinary.com/revitalize/image/upload/v1569861720/user%20dashboard/OliverCut_jsjnmx.png"
-                        alt="team member"
-                        className="dashboard-picture-icons"
-                    />
-                    <img
-                        src="https://res.cloudinary.com/revitalize/image/upload/v1569861717/user%20dashboard/Greg_zvzyrc.png"
-                        alt="team member 2"
-                        className="dashboard-picture-icons"
-                    />
-                    <div className="count">{arrayOfUsers.length}</div>
+                    <div className="count">{arrayOfUsers.length} Team Members</div>
                 </>
             )}
         </>

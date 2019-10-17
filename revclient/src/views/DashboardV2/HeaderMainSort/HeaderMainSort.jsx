@@ -24,7 +24,6 @@ export default function HeaderMainSort(props) {
                     <Header 
                         type={dashNavTabState.selectedDashNavTab}
                         possibleDashNavTabs={possibleDashNavTabs}
-                        key={project.id} 
                         project={project} 
                         setProject={setProject}
                         selectedProject={selectedProject}
@@ -33,7 +32,6 @@ export default function HeaderMainSort(props) {
                     <Header 
                         type={dashNavTabState.selectedDashNavTab}
                         possibleDashNavTabs={possibleDashNavTabs}
-                        key={project.id} 
                         project={project} 
                         setProject={setProject}
                         selectedProject={selectedProject}
@@ -64,7 +62,6 @@ export default function HeaderMainSort(props) {
                     <Header 
                         type={dashNavTabState.selectedDashNavTab}
                         possibleDashNavTabs={possibleDashNavTabs}
-                        key={projectObject.project.id} 
                         project={projectObject.project} 
                         setProject={setProject}
                         selectedProject={selectedProject}
@@ -73,7 +70,6 @@ export default function HeaderMainSort(props) {
                     <Header 
                         type={dashNavTabState.selectedDashNavTab}
                         possibleDashNavTabs={possibleDashNavTabs}
-                        key={projectObject.project.id} 
                         project={projectObject.project} 
                         setProject={setProject}
                         selectedProject={selectedProject}
@@ -104,7 +100,6 @@ export default function HeaderMainSort(props) {
                     <Header 
                         type={dashNavTabState.selectedDashNavTab}
                         possibleDashNavTabs={possibleDashNavTabs}
-                        key={projectObject.project.id} 
                         project={projectObject.project} 
                         setProject={setProject}
                         selectedProject={selectedProject}
@@ -113,7 +108,6 @@ export default function HeaderMainSort(props) {
                     <Header 
                         type={dashNavTabState.selectedDashNavTab}
                         possibleDashNavTabs={possibleDashNavTabs}
-                        key={projectObject.project.id} 
                         project={projectObject.project} 
                         setProject={setProject}
                         selectedProject={selectedProject}

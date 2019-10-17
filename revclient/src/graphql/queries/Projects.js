@@ -13,7 +13,6 @@ export const GET_PROJECTS = gql`
 		}
 	}
 	${USER_SUMMARY_FRAG}
-	${COMMENTS_FRAG}
 	${PROJECT_SUMMARY_FRAG}
 `;
 
@@ -24,7 +23,6 @@ export const GET_PROJECTS_NEAR_ME = gql`
 		}
 	}
 	${USER_SUMMARY_FRAG}
-	${COMMENTS_FRAG}
 	${PROJECT_SUMMARY_FRAG}
 `;
 
@@ -69,6 +67,9 @@ export const GET_PROJECT_BY_SLUG = gql`
 			}
 			comments {
 				...Comments
+				profile {
+					...UserSummary
+				}
 			}
 		}
 	}

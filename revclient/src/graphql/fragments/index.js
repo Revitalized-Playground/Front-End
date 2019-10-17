@@ -22,7 +22,7 @@ export const USER_SUMMARY_FRAG = gql`
 export const COMMENTS_FRAG = gql`
     fragment Comments on ProjectComment {
         id
-        comment
+        comment 
         likes {
             id
             profile {

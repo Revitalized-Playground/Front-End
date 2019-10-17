@@ -7,7 +7,7 @@ import Tab from './TabComponent/Tab';
 import Task from "./TasksComponent/Task";
 import People from './People/People';
 import PeopleHeader from "./People/PeopleHeader";
-import Trades from "./Trades/Trades";
+// import Trades from "./Trades/Trades";
 import Metrics from "./Metrics/Metrics";
 import NoContent from "./NoContent/NoContent";
 

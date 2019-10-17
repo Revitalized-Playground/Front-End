@@ -2,9 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { FaPlusCircle, FaBan, FaPlus } from 'react-icons/fa';
 import { GoKebabVertical } from 'react-icons/go';
-import plusCircle from '../../../../assets/dashboard/Add-tasks.png';
 
-
+// Sub components
 import AddTrade from "../AddTrade/AddTrade";
 import AddTask from '../Main/AddTask/AddTask';
 import MemberIcons from "./MemberIcons/MemberIcons";
@@ -24,12 +23,11 @@ import { GET_PROJECT_BY_ID } from "../../../../graphql/queries";
 
 
 const Header = props => {
-	const { city, state, name, description, startDate, duration } = props.project;
 	const { project, setProject, selectedProject, type, possibleDashNavTabs } = props;
 
 	const [ settingsToggle, setSettingsToggle ] = useState({ settingsDropdown: false });
 	const [ addTaskModal, setAddTaskModal ] = useState({ show: false });
-	const [ deleteProject ] = useMutation(DELETE_PROJECT);
+	const [ deleteProject ] = useMutation( DELETE_PROJECT );
 	const [ projectData, setProjectData ] = useState(project);
 	
 	const [ addTradeModal, setAddTradeModal ] = useState({ show: false })
@@ -96,7 +94,9 @@ const Header = props => {
 			<AddTask 
 				setAddTaskModal={setAddTaskModal} 
 				addTaskModal={addTaskModal} 
-				projectId={project.id} 
+				project={project} 
+
+				tradeId={null}
 			/>
 		)
 	}
@@ -144,49 +144,51 @@ const Header = props => {
 								{/* <img src={plusCircle} alt="plus circle" />     */}
 							<FaPlusCircle className="add-task-button"  onClick={() => setAddTaskModal({ show: true })} />
 						</div>
-						<div className="project-settings">
-							<GoKebabVertical
-								onClick={() =>
-									setSettingsToggle({ settingsDropdown: !settingsToggle.settingsDropdown })
-								}
-							/>
-							{settingsToggle.settingsDropdown ? (
-								<div className="project-settings-dropdown">
-									<div
-										className="project-settings-dropdown-option add-trade"
-										onClick={() => setAddTradeModal({ show: true })}
-									>
-										<FaPlus />
-										&nbsp; Add Project Trade
+						{(type === possibleDashNavTabs[0]) ? (  // Only PROJECT ADMIN can add trades or delete the project. If we have more items for the kebab, we can adjust this logic
+							<div className="project-settings">
+								<GoKebabVertical
+									onClick={() =>
+										setSettingsToggle({ settingsDropdown: !settingsToggle.settingsDropdown })
+									}
+								/>
+								{(settingsToggle.settingsDropdown && type === possibleDashNavTabs[0]) ? (   // Only PROJECT ADMIN; Rendundant, but built to be added to
+									<div className="project-settings-dropdown">
+										<div
+											className="project-settings-dropdown-option add-trade"
+											onClick={() => setAddTradeModal({ show: true })}
+										>
+											<FaPlus />
+											&nbsp; Add Project Trade
+										</div>
+										<div
+											className="project-settings-dropdown-option delete"
+											onClick={submitDeleteProject}
+										>
+											<FaBan />
+											&nbsp; Delete Project
+										</div>
 									</div>
-									<div
-										className="project-settings-dropdown-option delete"
-										onClick={submitDeleteProject}
-									>
-										<FaBan />
-										&nbsp; Delete Project
-									</div>
-								</div>
-							) : null}
-						</div>
+								) : null}
+							</div>
+						) : null }
 					</div>
 
 				</div>
 
 				<div className="header-middle">
 					<div className="header-middle-geo">
-						{city}, {state}
+						{projectData.city}, {projectData.state}
 					</div>
 					<div className="header-middle-title">
-						<Link to={`/project/${projectData.slug}`}>{name}</Link>
+						<Link to={`/project/${projectData.slug}`}>{projectData.name}</Link>
 					</div>
-					<p className="header-middle-description">{description}</p>
+					<p className="header-middle-description">{projectData.description}</p>
 				</div>
 
 				<div className="header-bottom">
 					
 					<div className="bottom-left">
-						<p className="due-date">Due Date: {calculateDueDate(startDate, duration)}</p>
+						<p className="due-date">Due Date: {calculateDueDate(projectData.startDate, projectData.duration)}</p>
 					</div>
 
 					<div className="bottom-icons">
@@ -226,8 +228,6 @@ const Header = props => {
 
 					<div className="team-members">
 						<div className="member-icons">
-							<p>Team</p>
-
 							{type === possibleDashNavTabs[0] 
 							|| type === possibleDashNavTabs[1] 
 							|| type === possibleDashNavTabs[2] 
@@ -239,6 +239,7 @@ const Header = props => {
 								/>
 							) : (
 								<>
+									<p>Team</p>
 									<img
 										src="https://res.cloudinary.com/revitalize/image/upload/v1569861720/user%20dashboard/OliverCut_jsjnmx.png"
 										alt="team member"

@@ -35,7 +35,7 @@
 			justify-content: space-between;
 			align-items: center;
 			.trade-icon {
-				width: 20%;
+				width: 10%;
 				display: flex;
 				justify-content: flex-start;
 				align-items: center;
@@ -50,9 +50,10 @@
 			.trade-detail {
 				display: flex;
 				flex-direction: column;
+				font-size: 1.8rem;
 			}
 			.trade-detail.description {
-				width: 60%;
+				width: 50%;
 				justify-content: flex-start;
 				text-align: left;
 				h3 {
@@ -65,16 +66,14 @@
 				}
 			}
 			.trade-detail.create-task {
-				width: 20%;
+				width: 40%;
 				padding: 0 20px 0 0;
-				justify-content: center;
+				justify-content: flex-end;
 				align-items: center;
 				flex-direction: row;
-				.create-task-button {
+				.add-task-button {
+					font-size: 3.6rem;
 					color: $chillFi-purple;
-					font-size: 3.2rem;
-					margin-left: 15px;
-					cursor: pointer;
 				}
 			}
 		}
