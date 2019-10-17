@@ -8,7 +8,7 @@ import People from "./People/People";
 import PeopleHeader from "./People/PeopleHeader";
 import Trades from "./Trades/Trades";
 import TradesHeader from "./Trades/TradesHeader";
-import Metrics from "./Metrics/Metrics";
+import Analytics from "./Analytics/Analytics";
 import NoContent from "./NoContent/NoContent";
 
 // Helpers
@@ -19,7 +19,7 @@ import LoadingSpinner from "../../../../components/LoadingSpinner/LoadingSpinner
 const MainProjectAdmin = props => {
 	const { project, mainTabs, setMainTabs } = props;
 	// Moving away from managing any tab information anywhere other than in dashboard.
-	
+
 	useEffect(() => {
 		setMainTabs({
 			...mainTabs,
@@ -29,15 +29,15 @@ const MainProjectAdmin = props => {
 	
 
 	const projectAdminMainView = selectedTabView => {
-		
+
 		let viewSelected="";
 
 		if (selectedTabView === mainTabs.projectAdminTabs[0]) {  // Applicants
 			const view = (
 				<>
 					{
-						project.applicants.length === 0 
-						? 
+						project.applicants.length === 0
+						?
 							<NoContent message="No Applicants" />
 						:
 							<PeopleHeader />
@@ -51,7 +51,7 @@ const MainProjectAdmin = props => {
 			)
 			return viewSelected = view
 		}
-		
+
 		if (selectedTabView === mainTabs.projectAdminTabs[1]) {  // Students
 			const view = (
 				<>
@@ -106,10 +106,10 @@ const MainProjectAdmin = props => {
 			return viewSelected = view
 		}
 
-		if (selectedTabView === mainTabs.projectAdminTabs[4]) {   // Metrics
+		if (selectedTabView === mainTabs.projectAdminTabs[4]) {   // Analytics
 			const view = (
-				<div className="metrics">
-					<Metrics tab={mainTabs.selectedMainTab} project={project} />
+				<div className="analytics">
+					<Analytics tab={mainTabs.selectedMainTab} project={project} />
 				</div>
 			)
 			return viewSelected = view
@@ -132,7 +132,7 @@ const MainProjectAdmin = props => {
 		<div className="dashboard-main section">
 			<div className="dashboard-title">
 				<div className="tabs">
-					{mainTabs ? 
+					{mainTabs ?
 						mainTabs.projectAdminTabs.map(tab => (
 							<Tab
 								mainTabs={mainTabs}
@@ -149,7 +149,7 @@ const MainProjectAdmin = props => {
 							<Skeleton count={1} height={25} width={200} />
 						</>
 					)}
-				</div> 
+				</div>
 			</div>
 
 			<hr />
