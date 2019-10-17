@@ -16,13 +16,19 @@ import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner';
 const ApplicationForm = (props) => {
     const [chosenTrade, setChosenTrade] = useState(false)
     const [step, setStep] = useState(1)
+    const [obj, setObj] = useState({})
+    const [errorHandle, setErrorHandle] = useState({
+        trade: false,
+        coverLetter: false,
+        jobExperience: false,
+        eduaction: false,
+        availability: false
+    })
+
     const {loading, error, data} = useQuery(GET_PROJECT_BY_SLUG, {
         variables: {slug: props.match.params.name}
     })
-
     const [apply] = useMutation(APPLY_TO_PROJECT)
-
-    const [obj, setObj] = useState({})
 
     useEffect(() => {
         if(data) {
@@ -40,8 +46,7 @@ const ApplicationForm = (props) => {
     }, [data])
 
 
-    const submit = async (e) => {
-        e.preventDefault()
+    const submit = async () => {
         const applied = await apply({variables: {data: obj}})
 
         console.log('applied',applied)
@@ -57,8 +62,6 @@ const ApplicationForm = (props) => {
 			</>
 		);
     }
-    console.log(data)
-    console.log('obj', obj)
     return(
         <div className='student-application-form-container'>
             <div style={{backgroundImage: `url(${swirly})`}} className='swirly-div'>
@@ -79,13 +82,13 @@ const ApplicationForm = (props) => {
                 <div className='right-div-content'>
                     {step === 1 
                     ?
-                    <Step1 trades={data.projectBySlug.trades} setStep={setStep} chosenTrade={chosenTrade} setChosenTrade={setChosenTrade} obj={obj} setObj={setObj}/>
+                    <Step1 trades={data.projectBySlug.trades} setStep={setStep} chosenTrade={chosenTrade} setChosenTrade={setChosenTrade} obj={obj} setObj={setObj} errorHandle={errorHandle} setErrorHandle={setErrorHandle}/>
                     : step === 2
                     ?
-                    <Step2 setStep={setStep} obj={obj} setObj={setObj} />
+                    <Step2 setStep={setStep} obj={obj} setObj={setObj} errorHandle={errorHandle} setErrorHandle={setErrorHandle} />
                     : step === 3
                     ?
-                    <Step3 setStep={setStep} obj={obj} setObj={setObj} submit={submit} />
+                    <Step3 setStep={setStep} obj={obj} setObj={setObj} submit={submit} errorHandle={errorHandle} setErrorHandle={setErrorHandle} />
                     :
                     null
                     }
