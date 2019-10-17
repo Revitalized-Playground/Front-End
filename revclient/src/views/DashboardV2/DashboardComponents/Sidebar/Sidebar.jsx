@@ -45,6 +45,7 @@ const Sidebar = props => {
             return (
                 <div className="figure">
                     <p className="overlay">{x.name}</p>
+                    <div className="empty"></div>
                     <img src={x.icon} alt={`${x.name} icon`} />
                     {
                         x.count < 31
@@ -119,11 +120,11 @@ const Sidebar = props => {
                                 <p>Email</p>
                                 <span>{user.email}</span>
                             </div>
-                            <Link to="#">
+                            <a href={`mailto: ${user.email}`}>
                                 <div className="sidebar-icon-container">
                                     <FaEnvelope className="sidebar-icon" />
                                 </div>
-                            </Link>
+                            </a>
                         </div>
                         
                         {user.phoneNumber && (
@@ -132,7 +133,7 @@ const Sidebar = props => {
                                     <p>Phone Number</p>
                                     <span>{user.phoneNumber}</span>
                                 </div>
-                                <Link to="#">
+                                <Link to="">
                                     <div className="sidebar-icon-container">
                                         <FaPhone className="sidebar-icon" />
                                     </div>

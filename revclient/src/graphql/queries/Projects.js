@@ -12,6 +12,17 @@ export const GET_PROJECTS = gql`
 	${PROJECT_SUMMARY_FRAG}
 `;
 
+export const GET_PROJECTS_NEAR_ME = gql`
+	query projectsNearMe {
+		projectsNearMe {
+			...ProjectSummary
+		}
+	}
+	${USER_SUMMARY_FRAG}
+	${COMMENTS_FRAG}
+	${PROJECT_SUMMARY_FRAG}
+`;
+
 export const GET_PROJECT_BY_ID = gql`
 	query projectById($id: ID!) {
 		projectById(id: $id) {

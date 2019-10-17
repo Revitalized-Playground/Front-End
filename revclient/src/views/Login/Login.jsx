@@ -4,7 +4,7 @@ import {
 } from "@apollo/react-hooks";
 import {
     LOGIN_USER,
-} from "../../graphql/mutations"; 
+} from "../../graphql/mutations";
 
 import { Link, withRouter } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
@@ -15,8 +15,8 @@ import fbLogo from "../../assets/AuthPages/fb-logo.png";
 
 
 const Login = props => {
-	const [ loginUser ] = useMutation(LOGIN_USER);
-
+	const [ loginUser, { client } ] = useMutation(LOGIN_USER);
+	console.log(client)
     const [state, setState] = useState({
         email:"",
         password:"",
@@ -31,7 +31,8 @@ const Login = props => {
 
     const handleSubmit = async event => {
         event.preventDefault();
-        localStorage.setItem("token", "");
+		localStorage.setItem("token", "");
+		await client.resetStore();
         const created = await loginUser({ variables: { data: state } });
         setState({
             email:"",
@@ -44,13 +45,13 @@ const Login = props => {
 	const goBack = () => {
 		props.history.push("/");
 	}
-	
+
 	return (
 		<>
 			<div className="login-container">
 				<FaArrowLeft onClick={goBack} />
 				<div className="login-container-left">
-	
+
 					<div className="login-form">
 						<div className="login-third-party">
 							<div className="login-welcome">

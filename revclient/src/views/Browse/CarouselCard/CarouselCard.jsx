@@ -1,7 +1,7 @@
 import React from 'react';
 import  { Link } from "react-router-dom";
-import { FaHeart, FaAngleRight } from "react-icons/fa";
-import ReadMoreReact from "read-more-react";
+import { FaHeart, FaRegHeart, FaAngleRight } from "react-icons/fa";
+import Truncate from 'react-truncate';
 import Skeleton from 'react-loading-skeleton';
 
 import ProgressBar from "../../../components/ProgressBar/ProgressBar";
@@ -11,8 +11,8 @@ import { addUpDonations } from "../../../helpers/helpers";
 
 const CarouselCard = props => {
     const { card, view } = props;
-    
-    
+
+
     if (!card && view === "recommended") {
         return (
             <section className="carousel-card-inner __recommended">
@@ -36,7 +36,7 @@ const CarouselCard = props => {
         return (
             <section className="carousel-card-inner __recommended">
                     <div className="carousel-card-image">
-                        <FaHeart />
+                        <FaRegHeart />
                         <img src={card.featuredImage} alt={card.name} />
                     </div>
                     <div className="carousel-card-body">
@@ -45,13 +45,7 @@ const CarouselCard = props => {
                             <Link to={`/project/${card.slug}`}>
                                 <h5>{card.name}</h5>
                             </Link>
-                            <ReadMoreReact
-                                text={card.description}
-                                min={40}
-                                ideal={80}
-                                max={150}
-                                readMoreText="..."
-                            />
+                             <Truncate lines={3} ellipsis={`...`}>{card.description}</Truncate>
                         </div>
                         <div className="carousel-card-body-money" >
                             <ProgressBar startingPoint={card.goalAmount} progress={addUpDonations(card.donations)} />
@@ -73,13 +67,7 @@ const CarouselCard = props => {
                         <Link to={`/project/${card.slug}`}>
                             <h5>{card.name}</h5>
                         </Link>
-                        <ReadMoreReact
-                            text={card.description}
-                            min={60}
-                            ideal={80}
-                            max={150}
-                            readMoreText="..."
-                        />
+                        <Truncate lines={3} ellipsis={`...`}>{card.description}</Truncate>
                     </div>
                     <Link to={`/project/${card.slug}`}>Learn more <FaAngleRight /></Link>
                 </div>

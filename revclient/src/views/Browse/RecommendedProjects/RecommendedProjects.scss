@@ -6,21 +6,22 @@
             height: 360px;
             .carousel-card-image {
                 svg {
-                    color: $ruby-enchantment;
+                    // color: $ruby-enchantment;
+                    color: white;
                     padding: 10px;
                     font-size: 1.8rem;
                 }
                 img {
-                    height: 155px;
+                    height: 181px;
                 }
             }
             .carousel-card-body {
-                height: calc(100% - 155px);
+                height: calc(100% - 181px);
                 .carousel-card-body-descript {
                     h5 {
-                
+
                         &:hover {
-    
+
                         }
                     }
                     .display-text-group {
@@ -37,7 +38,7 @@
                     }
                 }
             }
-        } 
+        }
     }
 }
 
