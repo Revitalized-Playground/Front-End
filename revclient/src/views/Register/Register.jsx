@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import {
     useMutation,
 } from "@apollo/react-hooks";
@@ -107,7 +108,7 @@ const Register = props => {
 							/>
 							<div className="register-mid">
 								<p>
-									Don't have an account? <span>Create One</span>
+									Already have an acount? <Link to='/login' style={{textDecoration: `underline`}}>Log in</Link>
 								</p>
 							</div>
 							<button>Register</button>
