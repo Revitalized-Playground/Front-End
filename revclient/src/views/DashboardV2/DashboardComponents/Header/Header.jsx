@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import { FaPlusCircle, FaBan, FaPlus } from 'react-icons/fa';
+import { FaPlusCircle, FaComments, FaFileInvoice, FaAngleRight, FaAngleDown, FaAngleUp, FaBan, FaPlus, FaLink } from 'react-icons/fa';
 import { GoKebabVertical } from 'react-icons/go';
 
 // Sub components
 import AddTrade from "../AddTrade/AddTrade";
 import AddTask from '../Main/AddTask/AddTask';
-import MemberIcons from "./MemberIcons/MemberIcons";
-import { HeaderSkeleton } from "../Skeleton/HeaderSkeleton";
+import MemberIcons from './MemberIcons/MemberIcons';
+import { HeaderSkeleton } from '../Skeleton/HeaderSkeleton';
 
 // Helper functions
 import { calculateDueDate } from '../../../../helpers/helpers';
@@ -18,40 +18,42 @@ import { CREATE_PROJECT_TRADE } from '../../../../graphql/mutations';
 
 import { useMutation, useQuery } from '@apollo/react-hooks';
 
-import { GET_PROJECT_BY_ID } from "../../../../graphql/queries";
-
-
+import { GET_PROJECT_BY_ID } from '../../../../graphql/queries';
 
 const Header = props => {
 	const { project, setProject, selectedProject, type, possibleDashNavTabs } = props;
 
-	const [ settingsToggle, setSettingsToggle ] = useState({ settingsDropdown: false });
-	const [ addTaskModal, setAddTaskModal ] = useState({ show: false });
-	const [ deleteProject ] = useMutation( DELETE_PROJECT );
-	const [ projectData, setProjectData ] = useState(project);
-	
-	const [ addTradeModal, setAddTradeModal ] = useState({ show: false })
-	const [ addTradeState, setAddTradeState ] = useState({
-        project: projectData.id,
-        name:"",
-        description:""
-	})
-	
+	const [settingsToggle, setSettingsToggle] = useState({ settingsDropdown: false });
+	const [addTaskModal, setAddTaskModal] = useState({ show: false });
+	const [deleteProject] = useMutation(DELETE_PROJECT);
+	const [projectData, setProjectData] = useState(project);
 
-	const [ createProjectTrade ] = useMutation( 
-        CREATE_PROJECT_TRADE,
-        {
-            update(cache, { data: { createProjectTrade } }) {
-				const { projectById } = cache.readQuery({ query: GET_PROJECT_BY_ID, variables: { id: data.projectById.id } });
-				// console.log("Cache inside of mutation  ", cache, "\nprojectById", projectById );
-                cache.writeQuery({
-                    query: GET_PROJECT_BY_ID,
-                    data: { projectById: projectById.trades.concat([createProjectTrade]) },
-                });
-            }
-        }
-	);
-	
+	const [addTradeModal, setAddTradeModal] = useState({ show: false });
+	const [addTradeState, setAddTradeState] = useState({
+		project: projectData.id,
+		name: '',
+		description: '',
+	});
+
+	const [createProjectTrade] = useMutation(CREATE_PROJECT_TRADE, {
+		update(
+			cache,
+			{
+				data: { createProjectTrade },
+			},
+		) {
+			const { projectById } = cache.readQuery({
+				query: GET_PROJECT_BY_ID,
+				variables: { id: data.projectById.id },
+			});
+			// console.log("Cache inside of mutation  ", cache, "\nprojectById", projectById );
+			cache.writeQuery({
+				query: GET_PROJECT_BY_ID,
+				data: { projectById: projectById.trades.concat([createProjectTrade]) },
+			});
+		},
+	});
+
 	const { loading, error, data } = useQuery(GET_PROJECT_BY_ID, {
 		variables: { id: project.id },
 	});
@@ -61,33 +63,25 @@ const Header = props => {
 		data && setProjectData(data.projectById);
 	}, [data]);
 
+	const submitAddTrade = async event => {
+		event.preventDefault();
 
-    const submitAddTrade = async event => {
-        event.preventDefault();
-		
-        const created = await createProjectTrade(
-            { variables: { data: addTradeState }}
-        );
+		const created = await createProjectTrade({ variables: { data: addTradeState } });
 
-        setAddTradeState({ ...addTradeState, project: "", name: "", description: "" })
+		setAddTradeState({ ...addTradeState, project: '', name: '', description: '' });
 		setAddTradeModal({ show: false });
-    };
-
+	};
 
 	const submitDeleteProject = async () => {
-		const deletedProject = await deleteProject({ 
-			variables: { id: projectData.id } 
+		const deletedProject = await deleteProject({
+			variables: { id: projectData.id },
 		});
 		// console.log(`${deletedProject} has been deleted.`)
-		props.history.push("/dashboard");
+		props.history.push('/dashboard');
 	};
-	
-	
+
 	if (loading) return <HeaderSkeleton />;
 	if (error) return <h3>Error</h3>;
-
-
-
 
 	if (addTaskModal.show === true) {
 		return (
@@ -96,24 +90,22 @@ const Header = props => {
 				addTaskModal={addTaskModal} 
 				project={project} 
 
-				tradeId={null}
+				trade={null}
 			/>
 		)
 	}
-	
+
 	if (addTradeModal.show === true) {
 		return (
-			<AddTrade 
+			<AddTrade
 				setAddTradeState={setAddTradeState}
 				addTradeState={addTradeState}
 				submitAddTrade={submitAddTrade}
-
-				setAddTradeModal={setAddTradeModal} 
-				addTradeModal={addTradeModal} 
-				
-				projectData={projectData} 
+				setAddTradeModal={setAddTradeModal}
+				addTradeModal={addTradeModal}
+				projectData={projectData}
 			/>
-		)
+		);
 	}
 
 	// console.log("Header props",props);
@@ -121,20 +113,19 @@ const Header = props => {
 	return (
 		<>
 			<div className="dashboard-header section">
-
 				<div className="header-top">
-
 					<div className="header-status">
 						{type === possibleDashNavTabs[0] ? ( // PROJECT ADMIN
 							<div className="project-status">{possibleDashNavTabs[0]}</div>
 						) : null}
-						{  // IF a Project has tradesMaster, student, and trades, it is considered "LIVE"
-							(projectData.tradeMasters.length > 0) && (projectData.students.length > 0) && (projectData.trades.length > 0) ? ( 
-								<div className="project-status started">In Progress!</div>
-							) : (
-								<div className="project-status not-started">Not Started</div>
-							)
-						}
+						{// IF a Project has tradesMaster, student, and trades, it is considered "LIVE"
+						projectData.tradeMasters.length > 0 &&
+						projectData.students.length > 0 &&
+						projectData.trades.length > 0 ? (
+							<div className="project-status started">In Progress!</div>
+						) : (
+							<div className="project-status not-started">Not Started</div>
+						)}
 					</div>
 
 					<div className="header-top-right">
@@ -142,7 +133,7 @@ const Header = props => {
 							<div className="add-task-title">Add Task</div>
 								{/* // pure SVGs and icons load faster. That's why I switched this over to reacticon */}
 								{/* <img src={plusCircle} alt="plus circle" />     */}
-							<FaPlusCircle className="add-task-button"  onClick={() => setAddTaskModal({ show: true })} />
+								<FaPlusCircle className="add-task-button"  onClick={() => setAddTaskModal({ show: true })} />
 						</div>
 						{(type === possibleDashNavTabs[0]) ? (  // Only PROJECT ADMIN can add trades or delete the project. If we have more items for the kebab, we can adjust this logic
 							<div className="project-settings">
@@ -172,7 +163,6 @@ const Header = props => {
 							</div>
 						) : null }
 					</div>
-
 				</div>
 
 				<div className="header-middle">
@@ -180,13 +170,15 @@ const Header = props => {
 						{projectData.city}, {projectData.state}
 					</div>
 					<div className="header-middle-title">
-						<Link to={`/project/${projectData.slug}`}>{projectData.name}</Link>
+						<Link to={`/project/${projectData.slug}`}>
+							{projectData.name} &nbsp;
+							<FaLink />
+						</Link>
 					</div>
 					<p className="header-middle-description">{projectData.description}</p>
 				</div>
 
 				<div className="header-bottom">
-					
 					<div className="bottom-left">
 						<p className="due-date">Due Date: {calculateDueDate(projectData.startDate, projectData.duration)}</p>
 					</div>
@@ -221,9 +213,9 @@ const Header = props => {
 								Close
 							</p>
 						)}
-						<Link to={`/project/${project.slug}`} className="bottom-button">
+						{/* <Link to={`/project/${project.slug}`} className="bottom-button">
 							View Project
-						</Link>
+						</Link> */}
 					</div>
 
 					<div className="team-members">
@@ -250,14 +242,14 @@ const Header = props => {
 										alt="team member 2"
 										className="dashboard-picture-icons"
 									/>
-									<div className="count">{`${projectData.students ? projectData.students.length : "?"}`}</div>
+									<div className="count">{`${
+										projectData.students ? projectData.students.length : '?'
+									}`}</div>
 								</>
 							)}
 						</div>
 					</div>
-
 				</div>
-
 			</div>
 		</>
 	);

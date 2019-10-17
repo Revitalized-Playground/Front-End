@@ -1,5 +1,4 @@
-@import "../AddTrade/AddTrade.scss";
-
+@import '../AddTrade/AddTrade.scss';
 
 .dashboard .dashboard-body .dashboard-header.section {
 	display: flex;
@@ -78,13 +77,19 @@
 		align-items: center;
 		margin-right: 2rem;
 
+		svg {
+			height: 35px;
+			width: 35px;
+			color: #285fd7;
+			&:hover {
+				cursor: pointer;
+			}
+		}
+
 		.add-task-title {
 			margin-right: 1rem;
 			font-size: 1.6rem;
 			color: $mirage;
-			// line-height: 181.14%;
-			// letter-spacing: 0.06em;
-			// color: rgba(0, 23, 31, 0.8);
 		}
 		.add-task-button {
 			font-size: 2.8rem;
@@ -113,6 +118,12 @@
 			color: $machiavellian;
 			font-size: 3.2rem;
 			margin-bottom: 16px;
+
+			svg {
+				color: $chillFi-purple;
+				font-size: 1rem;
+				margin-left: -1rem;
+			}
 		}
 		.header-middle-description {
 			color: $mirage;
