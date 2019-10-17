@@ -23,6 +23,9 @@ export const COMMENTS_FRAG = gql`
     fragment Comments on ProjectComment {
         id
         comment
+        profile {
+            ...UserSummary
+        }
         likes {
             id
             profile {

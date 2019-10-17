@@ -1,7 +1,15 @@
 import React from 'react'
 
 
-const Step1 = ({chosenTrade, setChosenTrade, setStep, trades, obj, setObj}) => {
+const Step1 = ({chosenTrade, setChosenTrade, setStep, trades, obj, setObj, errorHandle, setErrorHandle}) => {
+
+    const next = e => {
+        if(obj.trade.length === 0) {
+            setErrorHandle({...errorHandle, trade: true})
+        } else {
+            setStep(2)
+        }  
+    }
 
     return (
         <>
@@ -10,10 +18,11 @@ const Step1 = ({chosenTrade, setChosenTrade, setStep, trades, obj, setObj}) => {
                 <div className='welcome-container'>
                     <h2>Hey [will be dynamic]</h2>
                 </div>
-                <select onChange={(e) => {setChosenTrade(true); setObj({...obj, trade: e.target.value})}}>
+                <select onChange={(e) => {setChosenTrade(true); setObj({...obj, trade: e.target.value}); setErrorHandle({...errorHandle, trade: false})}}>
                     <option selected disabled>Choose Your Trade</option>
                     {trades.map(each => <option value={each.id} key={each.id}>{each.name}</option>)}
                 </select>
+                {errorHandle.trade && <p className='application-error'>Please choose your trade.</p>}
             </form>
             {chosenTrade && 
             <div>
@@ -21,14 +30,13 @@ const Step1 = ({chosenTrade, setChosenTrade, setStep, trades, obj, setObj}) => {
                 <form className='radio-form'>
                     <input onClick={() => setObj({...obj, licensed: true})} type='radio' name='choice'/>
                     <label>Yes</label>
-                    <input onClick={() => setObj({...obj, licensed: false})} type='radio' name='choice'/>
+                    <input defaultChecked onClick={() => setObj({...obj, licensed: false})} type='radio' name='choice'/>
                     <label>No</label>
                 </form>
             </div>}
             <div className='button-container'>
-                <button onClick={() => setStep(2)}>Next &rarr;</button>
-            </div>
-            
+                <button onClick={next}>Next &rarr;</button>
+            </div>   
         </>
     )
 }
