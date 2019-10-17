@@ -10,8 +10,10 @@ const MessageUser = props => {
 				<div className="img-container">
 					<img src={image} alt="user" />
 				</div>
-				<p>{name}</p>
-				<p>{message}</p>
+				<div className="message-info">
+					<h3>{name}</h3>
+					<p>{message}</p>
+				</div>
 			</div>
 			<div className="user-right">
 				<h4>Date</h4>
