@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import { FaPlusCircle, FaComments, FaFileInvoice, FaAngleRight, FaAngleDown, FaAngleUp, FaBan, FaPlus, FaLink } from 'react-icons/fa';
+import { FaPlusCircle, FaComments, FaFileInvoice, FaAngleRight, FaAngleDown, FaAngleUp, FaBan, FaPlus, FaLink, FaArrowDown } from 'react-icons/fa';
 import { GoKebabVertical } from 'react-icons/go';
 
-import AddTrade from '../AddTrade/AddTrade';
+// Sub components
+import AddTrade from "../AddTrade/AddTrade";
 import AddTask from '../Main/AddTask/AddTask';
 import MemberIcons from './MemberIcons/MemberIcons';
 import { HeaderSkeleton } from '../Skeleton/HeaderSkeleton';
@@ -20,7 +21,6 @@ import { useMutation, useQuery } from '@apollo/react-hooks';
 import { GET_PROJECT_BY_ID } from '../../../../graphql/queries';
 
 const Header = props => {
-	const { city, state, name, description, startDate, duration } = props.project;
 	const { project, setProject, selectedProject, type, possibleDashNavTabs } = props;
 
 	const [settingsToggle, setSettingsToggle] = useState({ settingsDropdown: false });
@@ -84,7 +84,15 @@ const Header = props => {
 	if (error) return <h3>Error</h3>;
 
 	if (addTaskModal.show === true) {
-		return <AddTask setAddTaskModal={setAddTaskModal} addTaskModal={addTaskModal} projectId={project.id} />;
+		return (
+			<AddTask 
+				setAddTaskModal={setAddTaskModal} 
+				addTaskModal={addTaskModal} 
+				project={project} 
+
+				trade={null}
+			/>
+		)
 	}
 
 	if (addTradeModal.show === true) {
@@ -104,20 +112,21 @@ const Header = props => {
 
 	return (
 		<>
-			<div className="dashboard-header section">
+			<div className={`dashboard-header section ${selectedProject.showMore ? "show-more" : null}`}  >
 				<div className="header-top">
 					<div className="header-status">
-						{type === possibleDashNavTabs[0] ? ( // PROJECT ADMIN
-							<div className="project-status">{possibleDashNavTabs[0]}</div>
-						) : null}
 						{// IF a Project has tradesMaster, student, and trades, it is considered "LIVE"
 						projectData.tradeMasters.length > 0 &&
 						projectData.students.length > 0 &&
 						projectData.trades.length > 0 ? (
 							<div className="project-status started">In Progress!</div>
-						) : (
-							<div className="project-status not-started">Not Started</div>
-						)}
+							) : (
+								<div className="project-status not-started">Not Started</div>
+							)
+						}
+						{type === possibleDashNavTabs[0] ? ( // PROJECT ADMIN
+							<div className="project-status">{possibleDashNavTabs[0]}</div>
+						) : null}
 					</div>
 
 					<div className="header-top-right">
@@ -127,101 +136,99 @@ const Header = props => {
 								{/* <img src={plusCircle} alt="plus circle" />     */}
 								<FaPlusCircle className="add-task-button"  onClick={() => setAddTaskModal({ show: true })} />
 						</div>
-						<div className="project-settings">
-							<GoKebabVertical
-								onClick={() =>
-									setSettingsToggle({ settingsDropdown: !settingsToggle.settingsDropdown })
-								}
-							/>
-							{settingsToggle.settingsDropdown ? (
-								<div className="project-settings-dropdown">
-									<div
-										className="project-settings-dropdown-option add-trade"
-										onClick={() => setAddTradeModal({ show: true })}
-									>
-										<FaPlus />
-										&nbsp; Add Project Trade
+						{(type === possibleDashNavTabs[0]) ? (  // Only PROJECT ADMIN can add trades or delete the project. If we have more items for the kebab, we can adjust this logic
+							<div className="project-settings">
+								<GoKebabVertical
+									onClick={() =>
+										setSettingsToggle({ settingsDropdown: !settingsToggle.settingsDropdown })
+									}
+								/>
+								{(settingsToggle.settingsDropdown && type === possibleDashNavTabs[0]) ? (   // Only PROJECT ADMIN; Rendundant, but built to be added to
+									<div className="project-settings-dropdown">
+										<div
+											className="project-settings-dropdown-option add-trade"
+											onClick={() => setAddTradeModal({ show: true })}
+										>
+											<FaPlus />
+											&nbsp; Add Project Trade
+										</div>
+										<div
+											className="project-settings-dropdown-option delete"
+											onClick={submitDeleteProject}
+										>
+											<FaBan />
+											&nbsp; Delete Project
+										</div>
 									</div>
-									<div
-										className="project-settings-dropdown-option delete"
-										onClick={submitDeleteProject}
-									>
-										<FaBan />
-										&nbsp; Delete Project
-									</div>
-								</div>
-							) : null}
-						</div>
+								) : null}
+							</div>
+						) : null }
 					</div>
 				</div>
 
 				<div className="header-middle">
 					<div className="header-middle-geo">
-						{city}, {state}
+						{projectData.city}, {projectData.state}
 					</div>
 					<div className="header-middle-title">
-						<Link to={`/project/${project.slug}`}>
-							{name} &nbsp;
+						<Link to={`/project/${projectData.slug}`}>
+							{projectData.name} &nbsp;
 							<FaLink />
 						</Link>
 					</div>
-					<p className="header-middle-description">{description}</p>
+					<p className="header-middle-description">{projectData.description}</p>
 				</div>
 
 				<div className="header-bottom">
 					<div className="bottom-left">
-						<p className="due-date">Due Date: {calculateDueDate(startDate, duration)}</p>
+						<p className="due-date">Due Date: {calculateDueDate(projectData.startDate, projectData.duration)}</p>
 					</div>
 
 					<div className="bottom-icons">
 						{!selectedProject.buttonToggle ? (
-							<p
-								className="bottom-button manage"
-								onClick={() =>
-									setProject({
-										project: project,
-										showMore: !selectedProject.showMore,
-										id: selectedProject.id ? null : projectData.id,
-										buttonToggle: !selectedProject.buttonToggle,
-									})
-								}
+
+							<div className="manage-project-button-container"  onClick={() => {
+								setProject({
+									project: project,
+									showMore: !selectedProject.showMore,
+									id: selectedProject.id ? null : projectData.id,
+									buttonToggle: !selectedProject.buttonToggle,
+								})}}
 							>
-								Manage Project
-							</p>
+								<p  className="bottom-button manage" >Manage</p>
+								<FaAngleDown className="bottom-button arrow" />
+							</div>
+
 						) : (
-							<p
-								className="bottom-button close"
-								onClick={() =>
-									setProject({
-										project: null,
-										showMore: !selectedProject.showMore,
-										id: selectedProject.id ? null : projectData.id,
-										buttonToggle: !selectedProject.buttonToggle,
-									})
-								}
+
+							<div className="manage-project-button-container" onClick={() => {
+								setProject({
+									project: null,
+									showMore: !selectedProject.showMore,
+									id: selectedProject.id ? null : projectData.id,
+									buttonToggle: !selectedProject.buttonToggle,
+								})}}
 							>
-								Close
-							</p>
+								<p  className="bottom-button close" >Close</p>
+								<FaAngleUp className="bottom-button arrow" />
+							</div>
 						)}
-						{/* <Link to={`/project/${project.slug}`} className="bottom-button">
-							View Project
-						</Link> */}
 					</div>
 
 					<div className="team-members">
 						<div className="member-icons">
-							<p>Team</p>
-
-							{type === possibleDashNavTabs[0] ||
-							type === possibleDashNavTabs[1] ||
-							type === possibleDashNavTabs[2] ? (
-								<MemberIcons
+							{type === possibleDashNavTabs[0] 
+							|| type === possibleDashNavTabs[1] 
+							|| type === possibleDashNavTabs[2] 
+							? (
+								<MemberIcons 
 									arrayOfUsers={projectData.students} // Should work for student view, but not tested yet
 									// possibleDashNavTabs={possibleDashNavTabs}
 									// type={type}
 								/>
 							) : (
 								<>
+									<p>Team</p>
 									<img
 										src="https://res.cloudinary.com/revitalize/image/upload/v1569861720/user%20dashboard/OliverCut_jsjnmx.png"
 										alt="team member"

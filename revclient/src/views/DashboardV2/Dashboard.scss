@@ -7,14 +7,11 @@
 @import "./DashboardComponents/Skeleton/HeaderSkeleton.scss";
 
 
-.section[class^='dashboard'] {
-    @include skeleton-section;
-    @include bottomBoxShadow;
-    background: $snow-white;
-}
+
 
 .dashboard-container {
-    background-color: scale-color($silver-lining, $alpha: -65%);
+    // background-color: scale-color($silver-lining, $alpha: -65%);
+    background-color: $franks-grey;
     height: 100%;
     .dashboard {
         width: 100%;

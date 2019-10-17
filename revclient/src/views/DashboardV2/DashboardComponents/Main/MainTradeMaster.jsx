@@ -7,15 +7,15 @@ import Tab from './TabComponent/Tab';
 import Task from "./TasksComponent/Task";
 import People from './People/People';
 import PeopleHeader from "./People/PeopleHeader";
-import Trades from "./Trades/Trades";
-import Metrics from "./Metrics/Metrics";
+// import Trades from "./Trades/Trades";
+import Analytics from "./Analytics/Analytics";
 import NoContent from "./NoContent/NoContent";
 
 
 const MainTradeMaster = props => {
 	const { project, mainTabs, setMainTabs } = props;
 	// Moving away from managing any tab information anywhere other than in dashboard.
-	
+
 	useEffect(() => {
 		setMainTabs({
 			...mainTabs,
@@ -28,12 +28,12 @@ const MainTradeMaster = props => {
 
 	const tradeMasterView = selectedTabView => {
 		let viewSelected = "";
-		
-		
+
+
 		if (selectedTabView === mainTabs.tradeMasterTabs[0]) {  // Applicants
 			const view = (
 				<>
-					{project.applicants.length === 0 ? ( 
+					{project.applicants.length === 0 ? (
 						<NoContent message="No Applicants" />
 					) : (
 						<PeopleHeader />
@@ -47,7 +47,7 @@ const MainTradeMaster = props => {
 			)
 			return viewSelected = view
 		}
-		
+
 
 		if (selectedTabView === mainTabs.tradeMasterTabs[1]) {  // Students
 			const view = (
@@ -85,15 +85,15 @@ const MainTradeMaster = props => {
 					}
 				</>
 			)
-		
+
 			return viewSelected = view
 		}
 
 
-		if (selectedTabView === mainTabs.tradeMasterTabs[3]) {   // Metrics
+		if (selectedTabView === mainTabs.tradeMasterTabs[3]) {   // Analytics
 			const view = (
-				<div className="metrics">
-					<Metrics tab={mainTabs.selectedMainTab} project={project} />
+				<div className="analytics">
+					<Analytics tab={mainTabs.selectedMainTab} project={project} />
 				</div>
 			)
 			return viewSelected = view
@@ -113,13 +113,13 @@ const MainTradeMaster = props => {
 			<LoadingSpinner />
 		)
 	}
-	
+
 
 	return (
 		<div className="dashboard-main section">
 			<div className="dashboard-title">
 				<div className="tabs">
-					{mainTabs ? 
+					{mainTabs ?
 						mainTabs.tradeMasterTabs.map(tab => (
 							<Tab
 								mainTabs={mainTabs}
@@ -137,7 +137,7 @@ const MainTradeMaster = props => {
 							</>
 						)
 					}
-				</div> 
+				</div>
 			</div>
 
 			<hr />

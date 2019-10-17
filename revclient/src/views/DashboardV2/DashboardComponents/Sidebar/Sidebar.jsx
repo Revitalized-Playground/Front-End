@@ -169,6 +169,14 @@ const Sidebar = props => {
                                         </p>
                                     </div>
                                 )}
+                                {project.applicants.length > 0 && (
+                                    <div className="text">
+                                        <p>Applicants</p>
+                                        <p className="text-value">
+                                            {project.applicants.length}
+                                        </p>
+                                    </div>
+                                )}
                                 {project.students.length > 0 && (
                                     <div className="text">
                                         <p>Students</p>
@@ -182,6 +190,22 @@ const Sidebar = props => {
                                         <p>Trade Masters</p>
                                         <p className="text-value">
                                             {project.tradeMasters.length}
+                                        </p>
+                                    </div>
+                                )}
+                                {project.trades.length > 0 && (
+                                    <div className="text">
+                                        <p>Trades</p>
+                                        <p className="text-value">
+                                            {project.trades.length}
+                                        </p>
+                                    </div>
+                                )}
+                                {project.tasks.length > 0 && (
+                                    <div className="text">
+                                        <p>Tasks</p>
+                                        <p className="text-value">
+                                            {project.tasks.length}
                                         </p>
                                     </div>
                                 )}
