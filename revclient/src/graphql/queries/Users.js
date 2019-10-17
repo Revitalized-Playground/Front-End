@@ -3,6 +3,7 @@ import {
 	USER_SUMMARY_FRAG,
 	PROJECT_SUMMARY_FRAG,
 	COMMENTS_FRAG,
+
 } from '../fragments';
 
 export const GET_USERS = gql`
@@ -13,6 +14,7 @@ export const GET_USERS = gql`
 	}
 	${USER_SUMMARY_FRAG}
 `;
+
 
 export const GET_USER = gql`
 	query me {
@@ -177,6 +179,7 @@ export const GET_USER_PROFILE = gql`
 	${USER_SUMMARY_FRAG}
 	${PROJECT_SUMMARY_FRAG}
 	${COMMENTS_FRAG}
+
 
 `;
 

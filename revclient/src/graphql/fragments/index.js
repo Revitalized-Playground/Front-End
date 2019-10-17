@@ -31,7 +31,22 @@ export const COMMENTS_FRAG = gql`
         }
     }
     ${USER_SUMMARY_FRAG}
-`
+`;
+
+
+
+export const TASKS_FRAG = gql`
+    fragment Tasks on ProjectTask {
+        id
+        title
+        description
+        priority
+        dueDate
+        budgetHours
+        completed
+    }
+`;
+
 
 export const PROJECT_SUMMARY_FRAG = gql`
     fragment ProjectSummary on Project {
@@ -69,29 +84,12 @@ export const PROJECT_SUMMARY_FRAG = gql`
             id
             imageUrl
         }
-        trades {
-            id
-            name
-            description
-        }
         donations {
             id
             amount
         }
         likes {
             id
-        }
-        comments {
-            id
-            ...Comments
-            profile {
-                ...UserSummary
-            }
-        }
-        trades {
-            id
-            name
-            description
         }
         tradeMasters {
             id
@@ -105,17 +103,24 @@ export const PROJECT_SUMMARY_FRAG = gql`
                 ...UserSummary
             }
         }
-        tasks {
+        trades {
             id
-            title
+            name
             description
-            priority
-            dueDate
-            budgetHours
         }
+        tasks {
+            ...Tasks
+        }
+        # comments {
+        #     id
+        #     ...Comments
+        #     profile {
+        #         ...UserSummary
+        #     }
+        # }
     }
     ${USER_SUMMARY_FRAG}
-    #{COMMENTS_FRAG}
+    ${TASKS_FRAG}
 `
 
 

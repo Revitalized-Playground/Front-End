@@ -4,8 +4,8 @@ import LoadingSpinner from "../../../../components/LoadingSpinner/LoadingSpinner
 
 import Tab from './TabComponent/Tab';
 import Task from "./TasksComponent/Task";
-import People from "./People/People";
-import PeopleHeader from "./People/PeopleHeader";
+import TasksHeader from "./TasksComponent/TasksHeader";
+
 import NoContent from "./NoContent/NoContent";
 
 // import { apprenticeTabs, apprenticeList } from '../../dashboarddummydata';
@@ -29,19 +29,19 @@ const MainStudent = props => {
 		console.log("studentMainView function ", props);
 		let viewSelected="";
 
-		if (selectedTabView === mainTabs.studentTabs[0]) {
+		if (selectedTabView === mainTabs.studentTabs[0]) { // New Tasks
 			const view = (
 				<>
 					{
-						project.students.length === 0 
+						project.tasks.length === 0 
 						? 
-							<NoContent message="No Applicants" />
+							<NoContent message="No Tasks" />
 						:
-							<PeopleHeader />
+							<TasksHeader />
 					}
-					{project.students.map(student => (
-						<div className="list">
-							<People person={student} tab={mainTabs.selectedMainTab} />
+					{project.tasks.map(task => (
+						<div tasks="list">
+							<Task task={task} tab={mainTabs.selectedMainTab} mainTabs={mainTabs} project={project}  />
 						</div>
 					))}
 				</>
@@ -50,19 +50,19 @@ const MainStudent = props => {
 		}
 
 		
-		if (selectedTabView === mainTabs.studentTabs[1]) {
+		if (selectedTabView === mainTabs.studentTabs[1]) { // Tasks in progress
 			const view = (
 				<>
 					{
-						project.tradeMasters.length === 0 
+						project.tasks.length === 0 
 						? 
-							<NoContent message="No Applicants" />
+							<NoContent message="No Tasks in Progress" />
 						:
-							<PeopleHeader />
+							<TasksHeader />
 					}
-					{project.tradeMasters.map(tradeMaster => (
+					{project.tasks.map(task => (
 						<div className="list">
-							<People person={tradeMaster} tab={mainTabs.selectedMainTab} />
+							<Task task={task} tab={mainTabs.selectedMainTab} mainTabs={mainTabs} project={project}  />
 						</div>
 					))}
 				</>
@@ -71,15 +71,26 @@ const MainStudent = props => {
 		}
 
 
-		if (selectedTabView === mainTabs.studentTabs[2]) {
-			const view = project.tasks.map(task => (
-					<div className="list">
-						<Task task={task} tab={mainTabs.selectedMainTab} />
-					</div>
-				) 
+		if (selectedTabView === mainTabs.studentTabs[2]) { // Completed tasks
+			const view = (
+				<>
+					{
+						project.tasks.length === 0 
+						? 
+							<NoContent message="No Completed Tasks" />
+						:
+							<TasksHeader />
+					}
+					{project.tasks.map(task => (
+						<div className="list">
+							<Task task={task} tab={mainTabs.selectedMainTab} mainTabs={mainTabs} project={project}  />
+						</div>
+					))}
+				</>
 			)
 			return viewSelected = view
 		}
+
 
 		return (
 			<>

@@ -1,5 +1,10 @@
 import gql from 'graphql-tag';
-import { PROJECT_SUMMARY_FRAG, USER_SUMMARY_FRAG, COMMENTS_FRAG } from '../fragments';
+import { 
+	PROJECT_SUMMARY_FRAG, 
+	USER_SUMMARY_FRAG, 
+	COMMENTS_FRAG, 
+	TASKS_FRAG, 
+} from '../fragments';
 
 export const GET_PROJECTS = gql`
 	query projects {
@@ -30,6 +35,20 @@ export const GET_PROJECT_BY_ID = gql`
 			profile {
 				...UserSummary
 			}
+			trades {
+            	id
+				name
+				description
+        	}
+			tasks {
+				...Tasks
+				apprentices {
+					id
+					profile {
+						...UserSummary
+					}
+				}
+			}
 			comments {
 				...Comments
 			}
@@ -38,6 +57,7 @@ export const GET_PROJECT_BY_ID = gql`
 	${USER_SUMMARY_FRAG}
 	${COMMENTS_FRAG}
 	${PROJECT_SUMMARY_FRAG}
+	${TASKS_FRAG}
 `;
 
 export const GET_PROJECT_BY_SLUG = gql`
@@ -55,4 +75,12 @@ export const GET_PROJECT_BY_SLUG = gql`
 	${USER_SUMMARY_FRAG}
 	${COMMENTS_FRAG}
 	${PROJECT_SUMMARY_FRAG}
+	${TASKS_FRAG}
 `;
+
+
+// export const GET_TRADES_BY_PROJECT_ID = gql`
+// 	query projectById($id: ID!) {
+		
+// 	}
+// `;
