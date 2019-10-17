@@ -1,16 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import {
-	FaComments,
-	FaFileInvoice,
-	FaAngleRight,
-	FaAngleDown,
-	FaAngleUp,
-	FaBan,
-	FaPlus,
-	FaLink,
-	FaPlusCircle,
-} from 'react-icons/fa';
+import { FaPlusCircle, FaComments, FaFileInvoice, FaAngleRight, FaAngleDown, FaAngleUp, FaBan, FaPlus, FaLink } from 'react-icons/fa';
 import { GoKebabVertical } from 'react-icons/go';
 
 import AddTrade from '../AddTrade/AddTrade';
@@ -133,8 +123,9 @@ const Header = props => {
 					<div className="header-top-right">
 						<div className="add-tasks">
 							<div className="add-task-title">Add Task</div>
-							{/* // pure SVGs and icons load faster. That's why I switched this over to reacticon */}
-							<FaPlusCircle />
+								{/* // pure SVGs and icons load faster. That's why I switched this over to reacticon */}
+								{/* <img src={plusCircle} alt="plus circle" />     */}
+								<FaPlusCircle className="add-task-button"  onClick={() => setAddTaskModal({ show: true })} />
 						</div>
 						<div className="project-settings">
 							<GoKebabVertical
