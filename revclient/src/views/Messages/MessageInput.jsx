@@ -2,8 +2,10 @@ import React from 'react';
 
 const MessageInput = () => {
 	return (
-		<div>
-			<h1>input</h1>
+		<div className="input-container">
+			<form>
+				<input type="text" placeholder="Type a message..." />
+			</form>
 		</div>
 	);
 };

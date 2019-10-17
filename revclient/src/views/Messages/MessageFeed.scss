@@ -2,6 +2,10 @@
 	display: flex;
 	align-items: center;
 
+	&:nth-child(even) {
+		flex-direction: row-reverse;
+	}
+
 	.img-container {
 		display: flex;
 		flex-direction: column;
