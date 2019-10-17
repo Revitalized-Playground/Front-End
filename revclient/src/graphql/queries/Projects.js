@@ -18,7 +18,7 @@ export const GET_PROJECTS = gql`
 `;
 
 export const GET_RECOMMENDED_PROJECTS = gql`
-	query projects {
+	query recommendedProjects {
 		recommendedProjects {
 			...ProjectSummary
 		}

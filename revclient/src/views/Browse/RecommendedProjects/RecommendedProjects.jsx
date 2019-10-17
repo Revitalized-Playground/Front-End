@@ -7,12 +7,12 @@ import { NextArrow, PrevArrow } from "../CarouselCard/Arrows";
 
 // Graphql
 import { useQuery } from '@apollo/react-hooks';
-import { GET_PROJECTS } from '../../../graphql/queries';
+import { GET_RECOMMENDED_PROJECTS } from '../../../graphql/queries';
 
 
 
 const RecommendedProjects = () => {
-        const { loading, error, data } = useQuery(GET_PROJECTS);
+        const { loading, error, data } = useQuery(GET_RECOMMENDED_PROJECTS);
 
         const settings = {
             dots: false,
@@ -67,7 +67,7 @@ const RecommendedProjects = () => {
                 <h4>Recommended Projects</h4>
                 <div className="slider">
                     <Slider {...settings}>
-                        {data.projects ? data.projects.map(recommendedItem => (
+                        {data.recommendedProjects ? data.recommendedProjects.map(recommendedItem => (
                             <CarouselCard key={recommendedItem.id} card={recommendedItem} view="recommended" />
                         )) : (
                             <RecommendedProjectsSkeleton />
