@@ -1,0 +1,17 @@
+@import './MessageFeed.scss';
+@import './MessageUser.scss';
+
+.message-container {
+	display: flex;
+	max-width: 1920px;
+	width: 100%;
+
+	.message-user {
+		width: 40%;
+	}
+
+	.message-feed {
+		outline: 1px solid black;
+		width: 60%;
+	}
+}

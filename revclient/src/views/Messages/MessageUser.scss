@@ -1,0 +1,21 @@
+.user-container {
+	outline: 1px solid red;
+	margin-bottom: 2rem;
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+
+	.user-left {
+		display: flex;
+		.img-container {
+			outline: 1px solid green;
+			width: 100px;
+			height: 100px;
+
+			img {
+				width: 100%;
+				border-radius: 50%;
+			}
+		}
+	}
+}

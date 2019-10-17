@@ -1,0 +1,38 @@
+import React from 'react';
+import MessageUser from './MessageUser';
+import MessageFeed from './MessageFeed';
+
+import jose from '../../assets/AboutPage/jose.png';
+import clark from '../../assets/AboutPage/clark.png';
+
+const Messages = () => {
+	const users = [
+		{
+			image: `${jose}`,
+			name: 'jose',
+			message: 'test',
+		},
+		{
+			image: `${clark}`,
+			name: 'clark',
+			message: 'response',
+		},
+	];
+
+	return (
+		<>
+			{users.map(user => (
+				<div className="message-container">
+					<div className="message-user">
+						<MessageUser user={user} />
+					</div>
+					<div className="message-feed">
+						<MessageFeed user={user} />
+					</div>
+				</div>
+			))}
+		</>
+	);
+};
+
+export default Messages;
