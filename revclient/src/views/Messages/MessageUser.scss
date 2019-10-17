@@ -1,4 +1,6 @@
 .user-container {
+	padding: 1rem;
+
 	border-bottom: 1px solid lightgray;
 	display: flex;
 	justify-content: space-between;
@@ -34,5 +36,10 @@
 				color: darkgray;
 			}
 		}
+	}
+
+	.user-right {
+		display: flex;
+		align-items: center;
 	}
 }
