@@ -5,6 +5,7 @@
 	display: flex;
 	justify-content: space-around;
 	border-bottom: 1px solid $silver-lining;
+	padding-bottom: 2px;
 	margin-bottom: -2px;
 	.tab {
 		font-family: 'Roboto';
@@ -24,6 +25,6 @@
 		color: $snow-white;
 	}
 	.active-tab {
-		border-bottom: 5px solid $snow-white;
+		border-bottom: 5px solid $chillFi-purple;
 	}
 }
