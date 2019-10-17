@@ -30,6 +30,8 @@ const ApplicationForm = (props) => {
     })
     const [apply] = useMutation(APPLY_TO_PROJECT)
 
+
+
     useEffect(() => {
         if(data) {
             setObj({

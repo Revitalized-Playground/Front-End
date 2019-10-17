@@ -13,6 +13,7 @@ import { GET_PROJECTS } from '../../../graphql/queries';
 
 const RecommendedProjects = () => {
         const { loading, error, data } = useQuery(GET_PROJECTS);
+        console.log(data)
 
         const settings = {
             dots: false,
