@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { FaGithub, FaFacebookF, FaLinkedin, FaTwitter } from "react-icons/fa";
 
 const links = [
-	{ path: "#", label: "Learn More" },
+	// { path: "#", label: "Learn More" },
 	{ path: "/about", label: "Team" },
 	{ path: "/createproject", label: "Create Project" },
 	{ path: "/browse", label: "Browse" },
