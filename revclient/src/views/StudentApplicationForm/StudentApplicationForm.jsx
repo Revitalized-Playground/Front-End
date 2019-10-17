@@ -71,8 +71,8 @@ const ApplicationForm = (props) => {
                     <h3 style={{color: step === 1 ? 'white' : null}}>Step 1</h3>
                     <h3 style={{color: step === 2 ? 'white' : null}}>Step 2</h3>
                     <h3 style={{color: step === 3 ? 'white' : null}}>Step 3</h3>
-                    <h3 style={{color: step === 4 ? 'white' : null}}>Step 4</h3>
-                    <h3 style={{color: step === 5 ? 'white' : null}}>Step 5</h3> 
+                    {/* <h3 style={{color: step === 4 ? 'white' : null}}>Step 4</h3>
+                    <h3 style={{color: step === 5 ? 'white' : null}}>Step 5</h3>  */}
                 </div>
                 <div className='student-app-images'>
                     <img src={large} alt='' className='large' />
