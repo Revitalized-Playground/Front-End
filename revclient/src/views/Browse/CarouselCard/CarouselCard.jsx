@@ -10,6 +10,7 @@ import { addUpDonations } from '../../../helpers/helpers';
 
 const CarouselCard = props => {
 	const { card, view } = props;
+	// console.log("card: ", card);
 
 	if (!card && view === 'recommended') {
 		return (
@@ -34,7 +35,12 @@ const CarouselCard = props => {
 		return (
 			<section className="carousel-card-inner __recommended">
 				<div className="carousel-card-image">
-					<FaRegHeart />
+					{props.liked 
+						?
+						<FaHeart fill="#d2405b" />
+						:
+						<FaRegHeart />
+					}
 					<img src={card.featuredImage} alt={card.name} />
 					<div className="after"></div>
 				</div>

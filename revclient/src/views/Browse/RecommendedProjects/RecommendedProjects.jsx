@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Slider from "react-slick";
 
 import RecommendedProjectsSkeleton from './RecommendedProjectsSkeleton';
@@ -58,6 +58,8 @@ const RecommendedProjects = () => {
             ]
         }
 
+	    const [liked, setLiked] = useState(false);
+
         if (loading) return <RecommendedProjectsSkeleton />
 
         if (error) return console.log(error)
@@ -68,7 +70,13 @@ const RecommendedProjects = () => {
                 <div className="slider">
                     <Slider {...settings}>
                         {data.recommendedProjects ? data.recommendedProjects.map(recommendedItem => (
-                            <CarouselCard key={recommendedItem.id} card={recommendedItem} view="recommended" />
+                            <CarouselCard
+                                key={recommendedItem.id}
+                                card={recommendedItem}
+                                view="recommended"
+                                liked={liked}
+                                setLiked={setLiked}
+                            />
                         )) : (
                             <RecommendedProjectsSkeleton />
                         )}

@@ -20,7 +20,7 @@ const SetupProfile = props => {
         lastName: "",
         // email: props.email ? props.email : "",
         email: "",
-        phone: "",
+        // phone: "",
         address: "",
         aptNumber: "",
         city: "",
@@ -133,13 +133,13 @@ const SetupProfile = props => {
                                         value={profileData.email}
                                         onChange={handleChanges}
                                     />
-                                    <input 
+                                    {/* <input 
                                         name="phone"
                                         type="number"
                                         placeholder="Phone"
                                         value={profileData.phone}
                                         onChange={handleChanges}
-                                    />
+                                    /> */}
                                     {props.destination === "settings" ? null : (
                                         <div className="setup-profile-button-container">
                                             <button onClick={formForward}>Next</button>
