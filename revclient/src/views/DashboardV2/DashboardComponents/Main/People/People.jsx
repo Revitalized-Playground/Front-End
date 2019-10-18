@@ -6,9 +6,13 @@ const People = props => {
     const { person, selectedMainTab, mainTabs } = props;
 
     const [ verified, setVerified ] = useState(false);
+    const [ projectApplicantState, setProjectApplicantState ] = useState({
+        project: "", // project Id
+        profile: "", // Profile ID
+        application: "", // Application id?
+    });
 
-    useEffect(() => {
-        // Check verified 
+    useEffect(() => {   // Check verified 
         if (person.profile.verified) return setVerified(true)
         setVerified(false)
     }, [])
@@ -16,6 +20,8 @@ const People = props => {
     if (selectedMainTab === mainTabs.projectAdminTabs[0]) { // Applicants
         console.log("this is an applicant")
     }
+
+    console.log("People props", props, projectApplicantState);
 
     return (
         <>
@@ -48,6 +54,29 @@ const People = props => {
                         <p>{person.profile.city}, {person.profile.state} {person.profile.zip}</p>
                     </div>
                 
+                    {selectedMainTab === mainTabs.projectAdminTabs[0] ? (  // If rendering applicants, allow setting status
+                        <div className="people-profile assign" >
+                            <select
+                                value={projectApplicantState.student}
+                                onChange={(event) => setProjectApplicantState({ ...projectApplicantState, profile: event.target.value })}
+                            >
+                                <option value={""}>Set status</option>
+                                {/* {
+                                    person.status.map(eachStatus => (
+                                        <option 
+                                            name="apprentices"
+                                            value={eachStatus.profile.id}
+                                        >
+
+                                            {eachStatus.profile.firstName} {eachStatus.profile.lastName}
+
+                                        </option>
+                                    ))
+                                } */}
+                            </select>
+                        </div>
+                    ) : null}
+
                     <div className="people-profile verified">
                         <Toggle 
                             defaultChecked={verified}

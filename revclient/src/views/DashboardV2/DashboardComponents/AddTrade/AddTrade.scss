@@ -10,6 +10,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 20;
     .add-trade-card {
         background-color: $snow-white;
         font-size: 1.8rem;
