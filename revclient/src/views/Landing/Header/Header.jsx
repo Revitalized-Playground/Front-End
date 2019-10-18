@@ -7,7 +7,6 @@ import opportunitiesImg from '../../../assets/LandingPage/AO.svg';
 import pathwaysImg from '../../../assets/LandingPage/TradePathways.svg';
 // import greyRectangle from '../../../assets/LandingPage/GreyRectangle.png';
 
-
 const Header = () => {
 	return (
 		<section className="header">
@@ -17,18 +16,19 @@ const Header = () => {
 						A modern approach to <br />
 						building your community
 					</h2>
-					<h2 className="cta-title-tablet">
-						A modern approach to
-						building your community
-					</h2>
+					<h2 className="cta-title-tablet">A modern approach to building your community</h2>
 					<p>
 						Revitalize is a crowdfunding platform <br /> that creates apprenticeship opportunities
 					</p>
-					{localStorage.getItem("token")
-						? <Link to="/browse"><button>Start Your Journey!</button></Link>
-						: <Link to="/register"><button>Start Your Journey!</button></Link>
-					}
-					
+					{localStorage.getItem('token') ? (
+						<Link to="/browse">
+							<button>Start Your Journey!</button>
+						</Link>
+					) : (
+						<Link to="/register">
+							<button>Start Your Journey!</button>
+						</Link>
+					)}
 				</div>
 				<img src={heroImage} alt="Hero" />
 			</div>
@@ -56,30 +56,29 @@ const Header = () => {
 					</div>
 				</div>
 			</div>
-			<div
-				className="what-we-do"
-				style={{
-
-				}}
-			>
+			<div className="what-we-do" style={{}}>
 				<h2>What we do?</h2>
 				<div className="learn-more-container">
 					<div className="crowdFunding">
 						<img src={crowdFundingImg} alt="Apply Now!" />
 						<h3>Crowdfunding platform</h3>
+						{/* <a href="/">Learn More</a> */}
 						<a href="/">Learn More</a>
+						<p className="toolTip">Crowdfunding platform</p>
 					</div>
 
 					<div className="opportunities">
 						<img src={opportunitiesImg} alt="opportunities" />
 						<h3>Apprenticeship opportunities</h3>
 						<a href="/">Learn More</a>
+						<p className="toolTip">Apprenticeship opportunities</p>
 					</div>
 
 					<div className="pathways">
 						<img src={pathwaysImg} alt="trade pathways" />
 						<h3>Trade License Pathways</h3>
 						<a href="/">Learn More</a>
+						<p className="toolTip">License Pathways</p>
 					</div>
 				</div>
 			</div>
