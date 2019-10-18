@@ -110,14 +110,15 @@ const AddTask = props => {
                             
                         </div>
                         
-                        <div className="add-task-input-container" >
+                        <div className="add-task-input-container disabled" >
                             <h5 className="add-task-input-label">Assign Task</h5>
                             <select
+                                disabled
                                 value={addTaskState.apprentices.profile}
                                 onChange={(event) => setAddTaskState({ ...addTaskState, apprentices: { profile: event.target.value } })}
                             >
-                                <option value={null}>Select apprentice</option>
-                                {
+                                <option value={""}>Select apprentice</option>
+                                {/* {
                                     project.students.map(eachStudent => (
                                         <option 
                                             name="apprentices"
@@ -128,7 +129,7 @@ const AddTask = props => {
 
                                         </option>
                                     ))
-                                }
+                                } */}
                             </select>
                         </div>
 

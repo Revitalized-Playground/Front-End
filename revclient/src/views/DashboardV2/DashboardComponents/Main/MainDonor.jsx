@@ -34,19 +34,14 @@ const MainDonor = props => {
 			return viewSelected = view
 		}
 		
-		if (selectedTabView === mainTabs.donationTabs[1]) {
-			const view = (
-				<>
-					<Donations donations={donations} />
-					{/* {project.donations.map(donation => (
-						<section className="list donations" key={donation.profile.id + Date.now()}>
-							<People person={donation} tab={mainTabs.selectedMainTab} />
-						</section>
-					))} */}
-				</>
-			)
-			return viewSelected = view
-		}
+		// if (selectedTabView === mainTabs.donationTabs[1]) {
+		// 	const view = (
+		// 		<>
+		// 			<Donations donations={donations} />
+		// 		</>
+		// 	)
+		// 	return viewSelected = view
+		// }
 
 		return (
 			<>
@@ -62,34 +57,37 @@ const MainDonor = props => {
 	}
 
 	return (
-		<div className="dashboard-main donation section">
-			<div className="dashboard-title">
-				<div className="tabs">
-					{mainTabs ? 
-						mainTabs.donationTabs.map(tab => (
-							<Tab
-								mainTabs={mainTabs}
-								setMainTabs={setMainTabs}
-								tab={tab}
-								key={tab + Date.now()}
-							/>
-						)
-					) : (
-						<>
-							<Skeleton count={1} height={25} width={200} />
-							<Skeleton count={1} height={25} width={200} />
-							<Skeleton count={1} height={25} width={200} />
-							<Skeleton count={1} height={25} width={200} />
-						</>
-					)}
-				</div> 
-			</div>
+		<section className="dashboard-main section  donor ">
+			<div className="dashboard-section-inner-container" >
 
-			<hr />
-			<div className="dashboard-main-body">
-				{projectAdminMainView(mainTabs.selectedMainTab)}
+				<div className="dashboard-title">
+					<div className="tabs">
+						{mainTabs ? 
+							// mainTabs.donationTabs.map(tab => (
+							// 	<Tab
+							// 		mainTabs={mainTabs}
+							// 		setMainTabs={setMainTabs}
+							// 		tab={tab}
+							// 		key={tab + Date.now()}
+							// 	/>
+							// ))
+							null
+						 : (
+							<>
+								<Skeleton count={1} height={25} width={200} />
+							</>
+						)}
+					</div> 
+				</div>
+
+				{/* <hr /> */}
+
+				<div className="dashboard-main-body">
+					{projectAdminMainView(mainTabs.selectedMainTab)}
+				</div>
+
 			</div>
-		</div>
+		</section>
 	);
 };
 

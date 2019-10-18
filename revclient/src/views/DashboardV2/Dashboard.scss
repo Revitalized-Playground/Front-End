@@ -7,6 +7,11 @@
 @import "./DashboardComponents/Skeleton/HeaderSkeleton.scss";
 
 
+// .section[class^='dashboard'] {  // .section.dashboard * selector
+//     @include skeleton-section;
+//     @include bottomBoxShadow;
+//     background: $snow-white;
+// }
 
 
 .dashboard-container {
@@ -18,23 +23,17 @@
         max-width: 1820px;
         margin: 0 auto;
         display: flex;
-        padding-left: 10px;
-        padding-right: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
         margin-bottom: 60px;
         .dashboard-body {
-            width: calc(75% - 40px);
-            .dashboard-header {
-                width: 100%;
-                display: flex;
-                span {
-                    margin-right: 50px;
-                }
-            }
+            width: calc(75% - 20px);
+            margin-left: 20px;
         }
 
-        .dashboard-picture-icons {
+        .dashboard-picture-icons, .team-members .member-icons img {
             width: 40px;
-            margin-left: -2px;
+            margin-left: -6px;
             &:first-of-type {
                 margin-left: 0;
             }
@@ -45,6 +44,18 @@
             height: 40px;
             width: 40px;
             margin-right: -2px;
+        }
+
+        // .section.dashboard * selector
+        .section[class^='dashboard'] {
+            @include subtleBoxShadowDistance;
+            background: $snow-white;
+            position: relative;
+            z-index: 5;
+            .dashboard-section-inner-container {
+                @include skeleton-section;
+                @include bottomBoxShadow;
+            }
         }
     }
 }
@@ -58,7 +69,6 @@
         background-color: $bleached-black;
         .dashboard {
             .section[class^='dashboard'] {
-                // @include skeleton-section;
                 background-color: $darkness;
                 border: none;
                 border-bottom-color: $bleached-black;

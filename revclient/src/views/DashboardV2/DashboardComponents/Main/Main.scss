@@ -6,63 +6,64 @@
 @import "./Analytics/Analytics.scss";
 @import "./AddTask/AddTask.scss";
 
-// .section[class^='dashboard'] {  // .section.dashboard * selector
-//     @include skeleton-section;
-//     @include bottomBoxShadow;
-//     background: $snow-white;
-// }
 
-.section.dashboard-header, .section.dashboard-sidebar {  // .section.dashboard * selector
-    @include skeleton-section;
-    @include bottomBoxShadow;
-	background: $snow-white;
+
+ 
+.dashboard-container .dashboard .tween-container {
 	position: relative;
-	z-index: 5;
-}
+	margin: 0px 10px;
+	z-index: 0;
 
-.section.dashboard-header.show-more {
-	border: none;
-}
-
-.section.dashboard-main  { 
-	@include skeleton-section;
-	@include bottomBoxShadow;
-	@include innerBoxShadow;
-	// background: #f6f6f6;
-	// background-color: $franks-grey;
-	// background-color: $silver-lining;
-    margin: -7px 10px 5px 10px;
-    box-shadow: 0px 4px 3px -3px rgba(10, 10, 10, 0.25);
-	width: 100%;
-    background: linear-gradient(to bottom, rgba($silver-lining, 0.80) 5px, rgba($snow-white, 0.22) 10px);
-
-	.dashboard-main-body {
-		line-height: 3;
-		.list {
-			background-color: $snow-white;
-			display: flex;
-			justify-content: space-between;
-			padding: 30px 15px;
-			box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.12);
-			margin: 20px 0;
-			border-radius: 5px;
+	section.dashboard-main.project-admin, 
+	section.dashboard-main.student, 
+	section.dashboard-main.trade-master, 
+	section.dashboard-main.donor {
+		box-shadow: 0px 4px 3px -3px rgba(10, 10, 10, 0.25);
+		width: 100%;
+		background: linear-gradient(to bottom, rgba($silver-lining, 0.70) 6px, rgba($snow-white, 1.42) 10px);
+		position: relative;
+		z-index: 1;
+		.dashboard-section-inner-container {
+			padding-top: 30px;
+			.dashboard-title {
+				width: 100%;
+				display: flex;
+				justify-content: space-between;
+			}
+		
+			hr {
+				margin-top: -3px;
+				// border-top-color: $static-grey;
+			}
+	
+			.dashboard-main-body {
+				line-height: 3;
+				.list {
+					background-color: $snow-white;
+					display: flex;
+					justify-content: space-between;
+					padding: 30px 15px;
+					box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.12);
+					margin: 20px 0;
+					border-radius: 5px;
+				}
+			}
 		}
 	}
-	hr {
-		margin-top: -3px;
+	section.dashboard-main.donor {
+		background: linear-gradient(to bottom, rgba($snow-white, 1.00) 0px, rgba($snow-white, 0.22) 10px);
 	}
+} 
+
+
+
+
+.section.dashboard-main.donation {  // Alternate colors for donations
+	background: linear-gradient(to bottom, rgba($snow-white, 1.00) 0, rgba($snow-white, 0.22) 10px);
 }
 
-.tween-container {
-	position: relative;
-	z-index: 0;
-}
 
-.dashboard-title {
-	width: 100%;
-	display: flex;
-	justify-content: space-between;
-}
+
 
 .no-content {
 	width: 100%;
