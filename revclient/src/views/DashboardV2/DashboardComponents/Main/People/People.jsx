@@ -56,33 +56,38 @@ const People = props => {
                 
                     {selectedMainTab === mainTabs.projectAdminTabs[0] ? (  // If rendering applicants, allow setting status
                         <div className="people-profile assign" >
-                            <select
-                                value={projectApplicantState.student}
-                                onChange={(event) => setProjectApplicantState({ ...projectApplicantState, profile: event.target.value })}
-                            >
-                                <option value={""}>Set status</option>
-                                {/* {
-                                    person.status.map(eachStatus => (
-                                        <option 
-                                            name="apprentices"
-                                            value={eachStatus.profile.id}
-                                        >
-
-                                            {eachStatus.profile.firstName} {eachStatus.profile.lastName}
-
-                                        </option>
-                                    ))
-                                } */}
-                            </select>
+                            <p>Application status:</p>
+                            {person.status === "PENDING" ? (
+                                <select
+                                    value={person.status}
+                                    onChange={(event) => setProjectApplicantState({ 
+                                        ...projectApplicantState, 
+                                        profile: person.profile.id, 
+                                        project: person.project.id,
+                                        application: person.id
+                                    })}
+                                >
+                                    <option value="PENDING">Pending</option>
+                                    <option value="ACCEPTED">Accept Application</option>
+                                    <option value="DECLINED">Decline Application</option>
+                                </select>
+                            ) : (person.status === "ACCEPTED" || person.status === "DECLINED") && (
+                                <select
+                                    disabled
+                                    value={person.status}
+                                >
+                                    <option>{person.status}</option>
+                                </select>
+                            )}
                         </div>
                     ) : null}
 
-                    <div className="people-profile verified">
+                    {/* <div className="people-profile verified">
                         <Toggle 
                             defaultChecked={verified}
                             onChange={() => setVerified(!verified)}
                         />
-                    </div>
+                    </div> */}
 
                 </div>
 
