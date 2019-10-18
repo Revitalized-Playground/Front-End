@@ -40,8 +40,23 @@
 		@include subtleBoxShadow;
 		.carousel-card-image {
 			width: 100%;
+			position: relative;
 			display: flex;
 			justify-content: flex-end;
+
+			.carousel-card-location {
+				z-index: 1;
+			}
+
+			.after {
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				background-image: linear-gradient(to right, #000, #000, #414141);
+				opacity: 0.6;
+			}
 
 			svg {
 				position: absolute;
@@ -52,17 +67,6 @@
 				height: 150px;
 				object-fit: cover;
 				border-radius: 5px 5px 0 0;
-
-				// &:after {
-				// 	content: '';
-				// 	position: absolute;
-				// 	top: 0;
-				// 	right: 0;
-				// 	bottom: 0;
-				// 	left: 0;
-				// 	background-image: linear-gradient(to right, #000, #000, #414141);
-				// 	opacity: 0.6;
-				// }
 			}
 		}
 		.carousel-card-body {
@@ -71,6 +75,7 @@
 			padding: 10px;
 			height: calc(100% - 150px);
 			justify-content: space-between;
+
 			.carousel-card-body-descript {
 				h5 {
 					margin: 10px 0;
@@ -109,6 +114,7 @@
 		.carousel-card-inner {
 			color: $snow-white;
 			background-color: $darkness;
+
 			.carousel-card-body {
 				.carousel-card-body-money {
 					div {
