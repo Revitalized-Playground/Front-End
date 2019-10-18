@@ -36,6 +36,7 @@ const CarouselCard = props => {
 				<div className="carousel-card-image">
 					<FaRegHeart />
 					<img src={card.featuredImage} alt={card.name} />
+					<div className="after"></div>
 				</div>
 				<div className="carousel-card-body">
 					<div className="carousel-card-body-descript">
@@ -67,6 +68,7 @@ const CarouselCard = props => {
 						{card.city}, {card.state}
 					</i>
 					<img src={card.featuredImage} alt={card.name} />
+					<div className="after"></div>
 				</div>
 				<div className="carousel-card-body">
 					<div className="carousel-card-body-descript">
@@ -92,7 +94,9 @@ const CarouselCard = props => {
 						{card.city}, {card.state}
 					</div>
 					<img src={card.images[0]} alt={card.name} />
+					<div className="after"></div>
 				</div>
+
 				<div className="carousel-card-body">
 					<div className="carousel-card-body-descript">
 						<h4>{card.name}</h4>

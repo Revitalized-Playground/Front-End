@@ -30,7 +30,7 @@ const MainProjectAdmin = props => {
 
 	const projectAdminMainView = selectedTabView => {
 
-		let viewSelected="";
+		let viewSelected = "";
 
 		if (selectedTabView === mainTabs.projectAdminTabs[0]) {  // Applicants
 			const view = (
@@ -129,34 +129,38 @@ const MainProjectAdmin = props => {
 	}
 
 	return (
-		<div className="dashboard-main section">
-			<div className="dashboard-title">
-				<div className="tabs">
-					{mainTabs ?
-						mainTabs.projectAdminTabs.map(tab => (
-							<Tab
-								mainTabs={mainTabs}
-								setMainTabs={setMainTabs}
-								tab={tab}
-								key={tab + Date.now()}
-							/>
-						)
-					) : (
-						<>
-							<Skeleton count={1} height={25} width={200} />
-							<Skeleton count={1} height={25} width={200} />
-							<Skeleton count={1} height={25} width={200} />
-							<Skeleton count={1} height={25} width={200} />
-						</>
-					)}
+		<section className="dashboard-main  section  project-admin ">
+			<div className="dashboard-section-inner-container" >
+				
+				<div className="dashboard-title">
+					<div className="tabs">
+						{mainTabs ?
+							mainTabs.projectAdminTabs.map(tab => (
+								<Tab
+									mainTabs={mainTabs}
+									setMainTabs={setMainTabs}
+									tab={tab}
+									key={tab + Date.now()}
+								/>
+							)
+						) : (
+							<>
+								<Skeleton count={1} height={25} width={200} />
+								<Skeleton count={1} height={25} width={200} />
+								<Skeleton count={1} height={25} width={200} />
+								<Skeleton count={1} height={25} width={200} />
+							</>
+						)}
+					</div>
 				</div>
-			</div>
 
-			<hr />
-			<div className="dashboard-main-body">
-				{projectAdminMainView(mainTabs.selectedMainTab)}
+				<hr />
+				<div className="dashboard-main-body">
+					{projectAdminMainView(mainTabs.selectedMainTab)}
+				</div>
+
 			</div>
-		</div>
+		</section>
 	);
 };
 

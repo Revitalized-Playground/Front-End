@@ -60,6 +60,12 @@ export const formatDate = (date) => {
     return prettyDate;
 }
 
+export const formatDateSmall = (date) => {
+    let prettyDate = moment(date).format("MMMM Do");
+    // console.log(dueDate);
+    return prettyDate;
+}
+
 
 export const formatDateForDateInput = (date) => {
     let prettyDate = moment(date).format("YYYY-MM-DD");

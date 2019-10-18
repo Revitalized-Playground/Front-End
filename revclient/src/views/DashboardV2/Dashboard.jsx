@@ -48,25 +48,7 @@ const Dashboard = () => {
     };
 
 
-    // const cool = () => { // Revisit later. Mutation cache idea
-    //     let jump = {
-    //         update: (proxy, { data: { createTodo } }) => {
-    //             try {
-    //                 const data = proxy.readQuery({
-    //                     query,
-    //                 });
-    //                 data.todos.push(createTodo);
-    //                 proxy.writeQuery({
-    //                     query,
-    //                     data,
-    //                 });
-    //             } catch (error) {
-    //                 console.error(error);
-    //             }
-    //         },
-    //     };
-    // };
-
+    
 
     useEffect(() => {
         refetch();

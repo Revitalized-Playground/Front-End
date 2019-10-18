@@ -1,0 +1,34 @@
+.feed-container {
+	display: flex;
+	align-items: center;
+
+	&:nth-child(even) {
+		flex-direction: row-reverse;
+	}
+
+	.img-container {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		width: 100px;
+		height: 100px;
+
+		img {
+			object-fit: cover;
+
+			width: 80%;
+			height: 80%;
+			border-radius: 50%;
+		}
+	}
+
+	.feed-message {
+		padding: 1rem 2rem;
+		font-size: 1.6rem;
+		background: lightgray;
+		border-radius: 15px;
+		width: 25%;
+		height: 100%;
+	}
+}

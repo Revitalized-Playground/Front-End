@@ -59,176 +59,181 @@ const Sidebar = props => {
     
     return (
         <section className="dashboard-sidebar section">
-            <div className="sidebar-top">
-                <Link to="/settings" origination="userDashboard"><h6>EDIT</h6></Link>
-                {user.profileImage ? (
-                    <img src={user.profileImage} alt="user" className="user-picture" />
-                ) : (
-                    <InitialAvatar 
-                        firstName={user.firstName} 
-                        lastName={user.lastName}
-                        height="164" 
-                        width="164" 
-                        useRandomColor={1}
-                    />
-                )}
-                {user.firstName ? (
-                    <>
-                        <h3>{`${user.firstName} ${user.lastName}`}</h3>
-                    </>
-                ) : (
-                    <Skeleton count={2} />
-                )}
-            </div>
-                       
-            <div className="dashboard-stats">
-                {
-                    
-                    <div className="a-container">
-                    {
-                        totalAchievements === 0
-                        ?
-                            <p>
-                                You currently have no achievements.
-                                Look <NavLink to="/browse">here</NavLink> for projects to join,
-                                or <NavLink to="/createproject">create a project</NavLink>!
-                            </p>
-                        :
-                            countArray.map(y => {
-                                return (
-                                    <React.Fragment key={y.name+Math.random()}>
-                                        {displayCount(y)}
-                                    </React.Fragment>
-                                )
-                            })
-                    }
-                    </div>
-                    ||
-                    <>
-                        <Skeleton count={1} height={25} width={200} />
-                        <Skeleton count={1} height={25} width={125} />
-                        <Skeleton count={1} height={25} width={75} />
-                    </>
-                }
-            </div>
-            <hr/>
-            <div className="info-container">
-                {
-                    <>
-                        <div className="info">
-                            <div className="text">
-                                <p>Email</p>
-                                <span>{user.email}</span>
-                            </div>
-                            <a href={`mailto: ${user.email}`}>
-                                <div className="sidebar-icon-container">
-                                    <FaEnvelope className="sidebar-icon" />
-                                </div>
-                            </a>
-                        </div>
+            <div className="dashboard-section-inner-container " >
+
+                
+                <div className="sidebar-top">
+                    <Link to="/settings" origination="userDashboard"><h6>EDIT</h6></Link>
+                    {user.profileImage ? (
+                        <img src={user.profileImage} alt="user" className="user-picture" />
+                    ) : (
+                        <InitialAvatar 
+                            firstName={user.firstName} 
+                            lastName={user.lastName}
+                            height="164" 
+                            width="164" 
+                            useRandomColor={1}
+                        />
+                    )}
+                    {user.firstName ? (
+                        <>
+                            <h3>{`${user.firstName} ${user.lastName}`}</h3>
+                        </>
+                    ) : (
+                        <Skeleton count={2} />
+                    )}
+                </div>
                         
-                        {user.phoneNumber && (
+                <div className="dashboard-stats">
+                    {
+                        
+                        <div className="a-container">
+                        {
+                            totalAchievements === 0
+                            ?
+                                <p>
+                                    You currently have no achievements.
+                                    Look <NavLink to="/browse">here</NavLink> for projects to join,
+                                    or <NavLink to="/createproject">create a project</NavLink>!
+                                </p>
+                            :
+                                countArray.map(y => {
+                                    return (
+                                        <React.Fragment key={y.name+Math.random()}>
+                                            {displayCount(y)}
+                                        </React.Fragment>
+                                    )
+                                })
+                        }
+                        </div>
+                        ||
+                        <>
+                            <Skeleton count={1} height={25} width={200} />
+                            <Skeleton count={1} height={25} width={125} />
+                            <Skeleton count={1} height={25} width={75} />
+                        </>
+                    }
+                </div>
+                <hr/>
+                <div className="info-container">
+                    {
+                        <>
                             <div className="info">
                                 <div className="text">
-                                    <p>Phone Number</p>
-                                    <span>{user.phoneNumber}</span>
+                                    <p>Email</p>
+                                    <span>{user.email}</span>
                                 </div>
-                                <Link to="">
+                                <a href={`mailto: ${user.email}`}>
                                     <div className="sidebar-icon-container">
-                                        <FaPhone className="sidebar-icon" />
+                                        <FaEnvelope className="sidebar-icon" />
                                     </div>
-                                </Link>
+                                </a>
                             </div>
-                        )}
-
-                        <div className="info">
-                            <div className="text">
-                                <p>Location</p>
-                                <span>{`${user.city}, ${user.state}`}</span>
-                            </div>
-                            <HashLink to="/#search-map">
-                                <div className="sidebar-icon-container">
-                                    <FaLocationArrow className="sidebar-icon" />
-                                </div>
-                            </HashLink>
-                        </div>
-                        {project ? (
-                            <>
-                            <hr/>
-                            <div className="info project-details-container">
-                                <div className="text">
-                                    <Link to={`/project/${project.slug}`} >
-                                        <h4>{project.name}</h4>
+                            
+                            {user.phoneNumber && (
+                                <div className="info">
+                                    <div className="text">
+                                        <p>Phone Number</p>
+                                        <span>{user.phoneNumber}</span>
+                                    </div>
+                                    <Link to="">
+                                        <div className="sidebar-icon-container">
+                                            <FaPhone className="sidebar-icon" />
+                                        </div>
                                     </Link>
                                 </div>
-                                {project.donations.length > 0 && (
-                                    <div className="text">
-                                        <p>Donations</p>
-                                        <p className="text-value">
-                                            {project.donations.length}
-                                        </p>
-                                    </div>
-                                )}
-                                {project.applicants.length > 0 && (
-                                    <div className="text">
-                                        <p>Applicants</p>
-                                        <p className="text-value">
-                                            {project.applicants.length}
-                                        </p>
-                                    </div>
-                                )}
-                                {project.students.length > 0 && (
-                                    <div className="text">
-                                        <p>Students</p>
-                                        <p className="text-value">
-                                            {project.students.length}
-                                        </p>
-                                    </div>
-                                )}
-                                {project.tradeMasters.length > 0 && (
-                                    <div className="text">
-                                        <p>Trade Masters</p>
-                                        <p className="text-value">
-                                            {project.tradeMasters.length}
-                                        </p>
-                                    </div>
-                                )}
-                                {project.trades.length > 0 && (
-                                    <div className="text">
-                                        <p>Trades</p>
-                                        <p className="text-value">
-                                            {project.trades.length}
-                                        </p>
-                                    </div>
-                                )}
-                                {project.tasks.length > 0 && (
-                                    <div className="text">
-                                        <p>Tasks</p>
-                                        <p className="text-value">
-                                            {project.tasks.length}
-                                        </p>
-                                    </div>
-                                )}
+                            )}
+
+                            <div className="info">
                                 <div className="text">
-                                    <p>Percentage Funded</p>
-                                    <p className="text-value">
-                                        {calculatePercentageProgressBar(project.goalAmount, addUpDonations(project.donations))}
-                                    </p>
+                                    <p>Location</p>
+                                    <span>{`${user.city}, ${user.state}`}</span>
                                 </div>
-                                <ProgressBar 
-                                    progress={addUpDonations(project.donations)} 
-                                    startingPoint={project.goalAmount} 
-                                />
+                                <HashLink to="/#search-map">
+                                    <div className="sidebar-icon-container">
+                                        <FaLocationArrow className="sidebar-icon" />
+                                    </div>
+                                </HashLink>
                             </div>
-                            </>
-                        ) : null}
-                        
-                    </>
-                    ||
-                    <SkeletonTheme>
-                        <Skeleton count={5} duration={100} />
-                    </SkeletonTheme>
-                }
+                            {project ? (
+                                <>
+                                <hr/>
+                                <div className="info project-details-container">
+                                    <div className="text">
+                                        <Link to={`/project/${project.slug}`} >
+                                            <h4>{project.name}</h4>
+                                        </Link>
+                                    </div>
+                                    {project.donations.length > 0 && (
+                                        <div className="text">
+                                            <p>Donations</p>
+                                            <p className="text-value">
+                                                {project.donations.length}
+                                            </p>
+                                        </div>
+                                    )}
+                                    {project.applicants.length > 0 && (
+                                        <div className="text">
+                                            <p>Applicants</p>
+                                            <p className="text-value">
+                                                {project.applicants.length}
+                                            </p>
+                                        </div>
+                                    )}
+                                    {project.students.length > 0 && (
+                                        <div className="text">
+                                            <p>Students</p>
+                                            <p className="text-value">
+                                                {project.students.length}
+                                            </p>
+                                        </div>
+                                    )}
+                                    {project.tradeMasters.length > 0 && (
+                                        <div className="text">
+                                            <p>Trade Masters</p>
+                                            <p className="text-value">
+                                                {project.tradeMasters.length}
+                                            </p>
+                                        </div>
+                                    )}
+                                    {project.trades.length > 0 && (
+                                        <div className="text">
+                                            <p>Trades</p>
+                                            <p className="text-value">
+                                                {project.trades.length}
+                                            </p>
+                                        </div>
+                                    )}
+                                    {project.tasks.length > 0 && (
+                                        <div className="text">
+                                            <p>Tasks</p>
+                                            <p className="text-value">
+                                                {project.tasks.length}
+                                            </p>
+                                        </div>
+                                    )}
+                                    <div className="text">
+                                        <p>Percentage Funded</p>
+                                        <p className="text-value">
+                                            {calculatePercentageProgressBar(project.goalAmount, addUpDonations(project.donations))}
+                                        </p>
+                                    </div>
+                                    <ProgressBar 
+                                        progress={addUpDonations(project.donations)} 
+                                        startingPoint={project.goalAmount} 
+                                    />
+                                </div>
+                                </>
+                            ) : null}
+                            
+                        </>
+                        ||
+                        <SkeletonTheme>
+                            <Skeleton count={5} duration={100} />
+                        </SkeletonTheme>
+                    }
+                </div>
+
             </div>
         </section>
     );
