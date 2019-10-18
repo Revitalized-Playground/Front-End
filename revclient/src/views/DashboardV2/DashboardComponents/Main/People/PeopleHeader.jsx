@@ -11,7 +11,7 @@ const PeopleHeader = props => {
                 <div className="name">Name</div>
                 <div className="contact">Contact Info</div>
                 <div className="address">Address</div>
-                <div className="verified">Verified</div>
+                <div className="verified">Status</div>
             </section>
         </>
     );
