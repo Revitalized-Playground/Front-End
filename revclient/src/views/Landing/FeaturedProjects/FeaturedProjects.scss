@@ -3,12 +3,13 @@
 .featured-projects-container {
 	margin: 150px auto 100px auto;
 	width: 95%;
+
 	max-width: 1500px;
 	@media #{$tablet} {
 		margin: 75px auto 75px auto;
 	}
 	@media #{$tablet-small} {
-		text-align:center;
+		text-align: center;
 		margin: 0 auto;
 		margin-top: 45px;
 	}
@@ -27,7 +28,6 @@
 	}
 }
 
-
 .dark-mode {
 	.FPContainer {
 		.card {
@@ -37,4 +37,3 @@
 		}
 	}
 }
-
