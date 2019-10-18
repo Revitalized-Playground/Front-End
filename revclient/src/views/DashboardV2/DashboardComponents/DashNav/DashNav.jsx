@@ -5,7 +5,7 @@ const DashNav = props => {
     const { selectDashNavTab, dashTabs, selectedTab } = props;
 
     return (
-        <section className="dashboard-dash-nav section" onClick={() => selectDashNavTab("")}>
+        <section className="dash-nav  section" onClick={() => selectDashNavTab("")}>
             {dashTabs && dashTabs.map(tab => (
                 <React.Fragment key={tab+Math.random()}>
                     <h5 

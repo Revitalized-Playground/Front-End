@@ -7,7 +7,7 @@ export const HeaderSkeleton = () => {
 
             <section className="header-skeleton">
                 <section className="skeleton-card-inner __skeleton">
-                    <Skeleton count={1} height={300} width={240} />
+                    <Skeleton count={1} height={300} width={900} />
                 </section>
             </section>
             

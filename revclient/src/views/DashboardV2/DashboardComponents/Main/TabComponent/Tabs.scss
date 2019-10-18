@@ -1,25 +1,26 @@
-.tabs {
-	color: $erudite-purple;
-	letter-spacing: 1.08px;
-	width: 100%;
-	display: flex;
-	justify-content: space-around;
-	border-bottom: 1px solid $silver-lining;
-	padding-bottom: 2px;
-	margin-bottom: -2px;
-	.tab {
-		font-family: 'Roboto';
-		font-size: 1.6rem;
-		font-weight: 500;
-		letter-spacing: 1.08px;
-		cursor: pointer;
 
-	}
-	.active-tab {
-		border-bottom: 5px solid $erudite-purple;
-		padding-bottom: 3.5rem;
+.dashboard-title {
+	.tabs {
+		color: $erudite-purple;
+		letter-spacing: 1.08px;
+		width: 100%;
+		display: flex;
+		justify-content: space-around;
+		.tab {
+			font-family: 'Roboto';
+			font-size: 1.6rem;
+			font-weight: 500;
+			letter-spacing: 1.08px;
+			cursor: pointer;
+		}
+		.active-tab {
+			border-bottom: 5px solid $erudite-purple;
+			padding-bottom: 3.5rem;
+		}
 	}
 }
+
+
 .dark-mode {
 	.tabs {
 		color: $snow-white;
