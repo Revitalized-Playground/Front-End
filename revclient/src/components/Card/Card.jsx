@@ -1,8 +1,9 @@
 import React from 'react';
 
-export default function Card({ img, title, description, index }) {
+export default function Card({ img, title, description, index, onClick }) {
 	return (
 		<div className="card" key={index}>
+            
 			<img alt={`${title} cover`} src={img} />
 			<h3>{title}</h3>
 			<p>
