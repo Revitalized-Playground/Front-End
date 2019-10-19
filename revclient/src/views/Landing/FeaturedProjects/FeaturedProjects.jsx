@@ -1,66 +1,52 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Card from '../../../components/Card/Card';
-import tr from '../../../assets/ProjectPage/TR.png';
-import hmq from '../../../assets/ProjectPage/HMQ.png';
-import jpp from '../../../assets/ProjectPage/JPP.png';
-import m1p from '../../../assets/ProjectPage/M1p.png';
-import gp from '../../../assets/ProjectPage/GP.png';
-import clover4 from '../../../assets/ProjectPage/Clover4.png';
 
-const projects = [
-	{
-		title: 'Team Rubicon',
-		description:
-			'Learn next to master trade professionals that are available during the day and after hours.',
-		img: tr,
-	},
-	{
-		title: 'Heavy Metal Queen',
-		description: 'Learn next to master trade professionals that are available during the day and after hours.',
-		img: hmq,
-	},
-	{
-		title: 'Jean Childs Project',
-		description: 'Learn next to master trade professionals that are available during the day and after hours. ',
-		img: jpp,
-	},
-	{
-		title: 'Mission One Project',
-		description: 'Learn next to master trade professionals that are available during the day and after hours.',
-		img: m1p,
-	},
-	{
-		title: 'Guidr Project',
-		description: 'Learn next to master trade professionals that are available during the day and after hours.',
-		img: gp,
-	},
-	{
-		title: 'Clover 4',
-		description: 'Learn next to master trade professionals that are available during the day and after hours.',
-		img: clover4,
-	},
-	{
-		title: 'Project 7',
-		description: 'description 7',
-		img: 'http://cupheadmemes.com/wp-content/uploads/2018/08/Best-Programming-Memes-026.jpg',
-	},
-	{
-		title: 'Project 8',
-		description: 'description 8',
-		img: 'http://cupheadmemes.com/wp-content/uploads/2018/08/Best-Programming-Memes-026.jpg',
-	},
-];
+//gql
+import { useQuery } from '@apollo/react-hooks';
+import { GET_RECOMMENDED_PROJECTS } from '../../../graphql/queries/Projects';
 
 const FeaturedProjects = () => {
-	const [featured] = useState(projects);
+	const { loading, error, data, refetch } = useQuery(GET_RECOMMENDED_PROJECTS);
 
-	if (!projects) return <div>Loading...</div>;
+	const [projectData, setProjectData] = useState();
+
+	useEffect(() => {
+		data && setProjectData(data.recommendedProjects);
+	}, [data]);
+
+	function shuffle(array) {
+		var currentIndex = array.length,
+			temporaryValue,
+			randomIndex;
+
+		// While there remain elements to shuffle...
+		while (0 !== currentIndex) {
+			// Pick a remaining element...
+			randomIndex = Math.floor(Math.random() * currentIndex);
+			currentIndex -= 1;
+
+			// And swap it with the current element.
+			temporaryValue = array[currentIndex];
+			array[currentIndex] = array[randomIndex];
+			array[randomIndex] = temporaryValue;
+		}
+
+		return array;
+	}
+
+	const randomizer = projectData && shuffle(projectData);
+
+	console.log('projectdata is', projectData);
+
+	if (!projectData) return <div>Loading...</div>;
 	return (
 		<section className="featured-projects-container">
 			<h2>Featured Projects</h2>
 			<div className="featured-projects-list">
-				{featured.map(({ img, title, description }, i) =>
-					i < 3 ? <Card className="card" img={img} title={title} description={description} key={i} /> : null,
+				{randomizer.map(({ featuredImage, name, description }, i) =>
+					i < 3 ? (
+						<Card className="card" img={featuredImage} title={name} description={description} key={i} />
+					) : null,
 				)}
 			</div>
 		</section>
