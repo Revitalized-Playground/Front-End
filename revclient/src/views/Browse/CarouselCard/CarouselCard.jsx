@@ -10,7 +10,25 @@ import { addUpDonations } from '../../../helpers/helpers';
 
 const CarouselCard = props => {
 	const { card, view } = props;
-	// console.log("card: ", card);
+	console.log("card: ", card);
+
+	const toggleLiked = () => {
+		props.setLiked(!props.liked)
+	}
+
+	console.log("card.likes: ", card.likes);
+	// card.likes.forEach(l => console.log("l: ", l))
+	// card.likes.map(l => {
+	// 	l.id === props.profileId
+	// 	? console.log("it's working!")
+	// 	: console.log("aww");
+		
+	// })
+	// if(card.likes.includes(props.profileId)) {
+	// 	console.log("it's working!");
+	// } else {
+	// 	console.log("awww");
+	// }
 
 	if (!card && view === 'recommended') {
 		return (
@@ -37,9 +55,9 @@ const CarouselCard = props => {
 				<div className="carousel-card-image">
 					{props.liked 
 						?
-						<FaHeart fill="#d2405b" />
+						<FaHeart fill="#d2405b" onClick={toggleLiked}/>
 						:
-						<FaRegHeart />
+						<FaRegHeart onClick={toggleLiked}/>
 					}
 					<img src={card.featuredImage} alt={card.name} />
 					<div className="after"></div>

@@ -9,10 +9,16 @@ import { NextArrow, PrevArrow } from "../CarouselCard/Arrows";
 import { useQuery } from '@apollo/react-hooks';
 import { GET_RECOMMENDED_PROJECTS } from '../../../graphql/queries';
 
+import { useAuth } from '../../../hooks/useAuth';
 
 
-const RecommendedProjects = () => {
+const RecommendedProjects = ({ history }) => {
         const { loading, error, data } = useQuery(GET_RECOMMENDED_PROJECTS);
+        console.log("data: ", data);
+        const {currentUser} = useAuth(history);
+        console.log("currentUser(): ", currentUser());
+        const pId = currentUser().profileId;
+        console.log("pId: ", pId);
 
         const settings = {
             dots: false,
@@ -64,6 +70,8 @@ const RecommendedProjects = () => {
 
         if (error) return console.log(error)
 
+        console.log("data: ", data);
+
         return (
             <section className="recommened-projects-section">
                 <h4>Recommended Projects</h4>
@@ -76,6 +84,7 @@ const RecommendedProjects = () => {
                                 view="recommended"
                                 liked={liked}
                                 setLiked={setLiked}
+                                profileId={pId}
                             />
                         )) : (
                             <RecommendedProjectsSkeleton />
@@ -85,6 +94,5 @@ const RecommendedProjects = () => {
             </section>
         );
 }
-
 
 export default RecommendedProjects;
