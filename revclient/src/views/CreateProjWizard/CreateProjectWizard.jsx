@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import { withRouter } from 'react-router-dom';
 import moment from 'moment';
 
-
-
 import { useMutation } from '@apollo/react-hooks';
 import { ADD_PROJECT } from '../../graphql/mutations/Project';
 
@@ -33,12 +31,11 @@ const CreateProjectWizard = ({ history }) => {
 		state: '',
 		zip: null,
 		goalAmount: 0.0,
-		donations: '',
 		difficulty: '',
 		images: [],
 	});
-	const [ formPosition, setFormPosition ] = useState(1);
-	const [ addProject ] = useMutation(ADD_PROJECT);
+	const [formPosition, setFormPosition] = useState(2);
+	const [addProject] = useMutation(ADD_PROJECT);
 
 	const handleChanges = event => {
 		if (
