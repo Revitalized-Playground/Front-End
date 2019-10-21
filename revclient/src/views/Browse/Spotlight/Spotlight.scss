@@ -17,17 +17,17 @@
 		max-height: 500px;
 		min-height: 300px;
 
-		&:before {
-			border-radius: 5px;
-			content: '';
-			position: absolute;
-			top: 0;
-			right: 0;
-			bottom: 0;
-			left: 0;
-			background: linear-gradient(133deg, rgba($bleached-black, 1.0),  rgba(#414141, 0.15));
-			opacity: 1;
-		}
+		// &:before {
+		// 	border-radius: 5px;
+		// 	content: '';
+		// 	position: absolute;
+		// 	top: 0;
+		// 	right: 0;
+		// 	bottom: 0;
+		// 	left: 0;
+		// 	background: linear-gradient(133deg, rgba($bleached-black, 1.0),  rgba(#414141, 0.15));
+		// 	opacity: 1;
+		// }
 
 		h2 {
 			text-transform: uppercase;

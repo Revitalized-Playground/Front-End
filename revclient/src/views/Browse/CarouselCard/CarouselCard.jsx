@@ -93,8 +93,7 @@ const CarouselCard = props => {
 					<div className="carousel-card-location">
 						{card.city}, {card.state}
 					</div>
-					<img src={card.images[0]} alt={card.name} />
-					<div className="after"></div>
+					<img src={card.featuredImage} alt={card.name} />
 				</div>
 
 				<div className="carousel-card-body">
@@ -102,7 +101,7 @@ const CarouselCard = props => {
 						<h4>{card.name}</h4>
 						<p>{card.description}</p>
 					</div>
-					<Link to="">
+					<Link to={`/project/${card.slug}`}>
 						Learn more <FaAngleRight />
 					</Link>
 				</div>
