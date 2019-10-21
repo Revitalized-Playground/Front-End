@@ -6,7 +6,7 @@ import  { FaArrowLeft } from "react-icons/fa";
 import Droppy from "../../../components/PhotoUpload/Droppy";
 
 
-const Form3 = ({ setProjectDetails, projectDetails, difficulty, duration, goalAmount, amountFunded, handleChanges, submitForm, setFormPosition, images }) => {
+const Form3 = ({ setProjectDetails, projectDetails, difficulty, duration, goalAmount, handleChanges, submitForm, setFormPosition, images }) => {
 
     const [error, 
         setError

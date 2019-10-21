@@ -1,0 +1,154 @@
+.dashboard-container .dashboard .dashboard-main.section.donor {
+    // padding: 40px 0 15px 0;
+
+    .dashboard-section-inner-container {
+        padding: 30px 15px 15px 15px;
+        
+
+        .dashboard-main-body {
+
+            section.donation-card.section {
+                background-color: $snow-white;
+                width: 100%;
+                padding: 20px 30px;
+                .dashboard-donation-container {
+                    @include cardBoxShadow;
+                    background-color: $franks-grey;
+                    background-size: cover;
+                    background-position-y: center;
+                    background-position-x: left;
+                    background-blend-mode: inherit;
+                    margin: 20px auto;
+                    border: none;
+                    border-radius: 5px;
+                    .donation-container-overlay {
+                        font-size: 1.8rem;
+                        width: 100%;
+                        padding: 0px 30px;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        flex-direction: column;
+                        background: linear-gradient(99deg, rgba($snow-white, 0.9) 10px, rgba($snow-white, 0.9) 57%, rgba($snow-white, 0.999) 80%);
+                        // .donation-image-section {
+                            // width: 15%;
+                            // height: 100%;
+                            // .donation-image-container {
+                            //     width: 100%;
+                            //     height: 100%;
+                            //     display: flex;
+                            //     justify-content: center;
+                            //     align-items: center;
+                            //     img {
+                            //         object-fit: cover;
+                            //         width: 200px;
+                            //         height: 200px;
+                            //         border-radius: 5px;
+                            //     }
+                            // }
+                        // }
+                        .donation-completion {
+                            width: 100%;
+                            display: flex;
+                            justify-content: flex-end;
+                            margin-top: 15px;
+                            // transform: translate(calc(15% + 90px), 0);
+                        }
+                        .donation-completion p {
+                            background-color: $snow-white;
+                            color: $mirage;
+                            font-size: 1.6rem;
+                            padding: 10px 0 10px 15px;
+                            border-radius: 5px;
+                            margin: 10px 0;
+                            top: 10px;
+                            bottom: 10px;
+                            display: inline-block;
+                        }
+                        .donation-details {
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            width: 100%;
+                            margin: -40px 0 15px;
+                            background: radial-gradient(closest-side, $snow-white 12%, transparent 100%);
+                            .donation-details-body {
+                                width: 85%;
+                                display: flex;
+                                justify-content: flex-start;
+                                flex-direction: column;
+                                padding-bottom: 30px;
+                                .donation-details-header {
+                                    display: flex;
+                                    flex-direction: row;
+                                    align-items: center;
+                                    justify-content: space-between;
+                                    margin-bottom: 20px;
+                                    .donation-title {
+                                        font-size: 2.4rem;
+                                    }
+                                    a {
+                                        display: flex;
+                                        flex-direction: row;
+                                        align-items: baseline;
+                                        cursor: pointer;
+                                        svg {
+                                            color: $chillFi-purple;
+                                            font-size: 1rem;
+                                        }
+                                    } 
+                                }
+                                .display-text-group {
+                                    font-size: 1.6rem;
+                                }
+                                // hr {
+                                //     margin: 15px 0;
+                                // }
+                                .donation-progress {
+                                    width: 75%;
+                                    margin: 15px auto 0 0;
+                                    .progress-bar {
+                                        margin: 0 0 10px 0;
+                                        background-color: $snow-white;
+                                    }
+                                    .donation-progress-total {
+                                        font-size: 1.6rem;
+                                    }
+                                }
+                            }
+                            .donation-amount {
+                                width: 15%;
+                                max-width: 150px;
+                                display: flex;
+                                justify-content: flex-end;
+                                flex-direction: column;
+                                align-items: flex-end;
+                                .amount {
+                                    font-size: 2.4rem;
+                                    width: 100%;
+                                    text-align: right;
+                                }
+                                i {
+                                    font-size: 1.2rem;
+                                    text-align: right;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.dark-mode {
+    .dashboard-main.donation.section {
+        section.dashboard-donation-card.section {
+            background-color: $darkness;
+            .dashboard-donation-container {
+                background-color: $bleached-black;
+            }
+        }
+    }
+}
+

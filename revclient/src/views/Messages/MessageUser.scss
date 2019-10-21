@@ -1,0 +1,45 @@
+.user-container {
+	padding: 1rem;
+
+	border-bottom: 1px solid lightgray;
+	display: flex;
+	justify-content: space-between;
+
+	width: 100%;
+
+	.user-left {
+		display: flex;
+
+		.img-container {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 100px;
+			height: 100px;
+
+			img {
+				object-fit: cover;
+
+				width: 80%;
+				height: 80%;
+				border-radius: 50%;
+			}
+		}
+
+		.message-info {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+
+			p {
+				color: darkgray;
+			}
+		}
+	}
+
+	.user-right {
+		display: flex;
+		align-items: center;
+	}
+}

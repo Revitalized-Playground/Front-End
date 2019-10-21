@@ -167,9 +167,9 @@ nav {
 			}
 			button {
 				@include buttonStyler($chillFi-purple, $snow-white, none, auto 10px auto 0);
-				font-size: 2.4rem;
-				height: 60px;
-				width: 200px;
+				font-size: 2.2rem;
+				width: 160px;
+				padding: 11px 14px;
 				vertical-align: center;
 				@include subtleBoxShadow;
 				@media #{$tablet} {
@@ -239,7 +239,10 @@ nav {
 		.right-nav ul .user .dropdown {
 			background-color: $maastricht-blue;
 			.arrow-up {
+				border-left: 15px solid $maastricht-blue;
+				border-right: 15px solid $maastricht-blue;	
 				border-bottom: 15px solid $maastricht-blue;
+				border-top: 15px solid $maastricht-blue;
 			}
 			.dropdown-option {
 				&:hover {

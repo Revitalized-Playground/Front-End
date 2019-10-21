@@ -18,6 +18,7 @@ a {
 	text-decoration: none;
 	color: inherit;
 	user-select: none;
+	cursor: pointer;
 }
 
 i {
@@ -119,4 +120,12 @@ hr {
 	}
 }
 
+a svg {
+	&:hover {
+		color: lighten($chillFi-purple, 20%);
+	}
+	&:focus, &:active {
+		color: darken($chillFi-purple, 20%);
+	}
+}
 

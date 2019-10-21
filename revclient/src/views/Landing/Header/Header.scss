@@ -147,7 +147,7 @@
 					width: calc(100% / 6);
 					letter-spacing: 0.06em;
 					font-size: 1.4rem;
-					padding: 1.2rem .5rem;
+					padding: 1.2rem 0.5rem;
 				}
 				span {
 					font-size: 1.6rem;
@@ -181,7 +181,7 @@
 	}
 	.what-we-do {
 		padding: 30px 0;
-		background-image: url("../assets/LandingPage/GreyRectangle.png");
+		background-image: url('../assets/LandingPage/GreyRectangle.png');
 		background-position: center;
 		background-size: cover;
 		background-repeat: repeat;
@@ -211,7 +211,7 @@
 			display: flex;
 			justify-content: space-evenly;
 			max-width: 1500px;
-    		margin: 58px auto 0 auto;
+			margin: 58px auto 0 auto;
 			@media #{$mobile} {
 				flex-direction: column;
 			}
@@ -238,6 +238,22 @@
 				text-align: center;
 				margin-bottom: 20px;
 
+				p {
+					color: #000;
+				}
+
+				.toolTip {
+					display: none;
+					position: absolute;
+					background-color: $franks-grey;
+					z-index: 100;
+					border: 1px solid $black-void;
+					border-radius: 5px;
+					padding: 7.5px 12.5px;
+					margin-left: 25px;
+					cursor: default;
+				}
+
 				h3 {
 					font-size: 23px;
 					letter-spacing: 0.03em;
@@ -249,6 +265,8 @@
 					}
 				}
 				a {
+					pointer-events: none;
+					cursor: default;
 					font-size: 22px;
 					font-weight: 500;
 					text-decoration: none;
@@ -257,6 +275,13 @@
 						font-size: 17px;
 					}
 				}
+			}
+
+			.crowdFunding:hover .toolTip,
+			.opportunities:hover .toolTip,
+			.pathways:hover .toolTip {
+				cursor: pointer;
+				display: block;
 			}
 
 			div {

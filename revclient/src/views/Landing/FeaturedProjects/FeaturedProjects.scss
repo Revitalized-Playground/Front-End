@@ -2,10 +2,11 @@
 
 .featured-projects-container {
 	margin: 150px auto 100px auto;
-	width: 100%;
+	width: 95%;
+
 	max-width: 1500px;
 	@media #{$tablet} {
-		margin: 75px 30px 75px 30px;
+		margin: 75px auto 75px auto;
 	}
 	@media #{$tablet-small} {
 		text-align: center;

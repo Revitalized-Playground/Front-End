@@ -1,0 +1,41 @@
+
+.analytics {
+	width: 100%;
+
+	&-heading {
+		color: $black-void;
+		opacity: 0.5;
+		margin: 20px 0 20px 10px;
+	}
+
+	&-overview {
+		display: flex;
+		justify-content: space-between;
+
+		.analysis-card {
+			text-align: center;
+			background: $chillFi-purple;
+			margin: 0 5px 0px;
+			border-radius: 5px;
+			padding: 10px 5px;
+			width: 250px;
+			color: $snow-white;
+		}
+	}
+}
+
+.dark-mode {
+	.people {
+		background-color: $bleached-black;
+		.analytics-card-container {
+			.analytics-body {
+				color: inherit;
+			}
+		}
+	}
+	.analytics {
+		&-heading {
+			color: $snow-white;
+		}
+	}
+}
