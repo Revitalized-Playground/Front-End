@@ -22,7 +22,7 @@ const authenticatedLinks = [
 	{ href: '/about', label: 'Team' },
 	{ href: '/dashboard', label: 'Dashboard' },
 	{ href: '/settings', label: 'Settings' },
-	{ href: '/messages', label: 'Messages' },
+	// { href:÷ '/messages', label: 'Messages' },
 	{ href: '#', label: 'Logout' },
 ].map(link => {
 	link.key = `nav-link-${link.href}-${link.label}`;

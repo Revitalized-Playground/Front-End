@@ -8,7 +8,7 @@ import { useQuery } from '@apollo/react-hooks';
 import { GET_RECOMMENDED_PROJECTS } from '../../../graphql/queries/Projects';
 
 const FeaturedProjects = () => {
-	const { loading, error, data, refetch } = useQuery(GET_RECOMMENDED_PROJECTS);
+	const { data } = useQuery(GET_RECOMMENDED_PROJECTS);
 
 	const [projectData, setProjectData] = useState();
 
@@ -37,8 +37,6 @@ const FeaturedProjects = () => {
 	}
 
 	const randomizer = projectData && shuffle(projectData);
-
-	console.log('randomProject', randomizer);
 
 	if (!projectData) return <LoadingSpinner />;
 	return (

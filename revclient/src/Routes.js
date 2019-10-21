@@ -45,11 +45,11 @@ export const Routes = () => {
 				component={Dashboard}
 			/>
 
-			<Route
+			{/* <Route
 				// exact
 				path="/messages"
 				component={Messages}
-			/>
+			/> */}
 
 			{/* <Route
                 // exact
