@@ -2,10 +2,11 @@ import React, {useState, useEffect} from 'react'
 import paypal from '../../../assets/ProjectPage/paypal-logo.png'
 import { withRouter } from 'react-router-dom';
 import CurrencyInput from 'react-currency-input'
-
+import { removeCommas } from "../../../helpers/helpers";
 
 import { injectStripe, CardNumberElement, CardExpiryElement, CardCvcElement } from 'react-stripe-elements';
 
+// GQL
 import { useMutation } from '@apollo/react-hooks';
 import { DONATE_TO_PROJECT } from '../../../graphql/mutations';
 import { GET_PROJECT_BY_SLUG } from '../../../graphql/queries/Projects';
@@ -61,11 +62,15 @@ const DonateModal = ({id, update,donateModal, setDonateModal, donateModalBlur, s
 	async function handleSubmit(e) {
 		e.preventDefault();
         const { token } = await stripe.createToken({ name: 'Name here' }); 
-        const newAmount = amount
-
+        let newAmount = amount
+        newAmount = removeCommas(newAmount)
+        // console.log("newAmount in DonateModal", newAmount);
+        
         if(newAmount < 0.50) {
             window.alert('Can\'t donate less than $0.50')
-        } else {
+        } 
+        else {
+            
             donateToProject({
                 variables: {
                     id: id,
@@ -74,7 +79,7 @@ const DonateModal = ({id, update,donateModal, setDonateModal, donateModalBlur, s
                         amount: parseInt(newAmount, 10),
                     },
                 },
-            });
+            });    
         }
     }
 
