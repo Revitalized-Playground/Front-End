@@ -37,7 +37,7 @@ const CreateProjectWizard = ({ history }) => {
 		difficulty: '',
 		images: [],
 	});
-	const [ formPosition, setFormPosition ] = useState(3);
+	const [ formPosition, setFormPosition ] = useState(1);
 	const [ addProject ] = useMutation(ADD_PROJECT);
 
 	const handleChanges = event => {
