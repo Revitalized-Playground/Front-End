@@ -13,6 +13,8 @@ import { GET_PROJECT_BY_SLUG } from '../../graphql/queries/Projects'
 import { APPLY_TO_PROJECT } from '../../graphql/mutations/Project'
 import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner';
 
+import Nav from '../../components/Layout/Nav'
+
 const ApplicationForm = (props) => {
     const [chosenTrade, setChosenTrade] = useState(false)
     const [step, setStep] = useState(1)
@@ -65,7 +67,11 @@ const ApplicationForm = (props) => {
 		);
     }
     return(
+
+        <>
+        <Nav />
         <div className='student-application-form-container'>
+            
             <div style={{backgroundImage: `url(${swirly})`}} className='swirly-div'>
                 <div  className='student-app-steps'>
                     <h3 style={{color: step === 1 ? 'white' : null}}>Step 1</h3>
@@ -97,6 +103,7 @@ const ApplicationForm = (props) => {
                 </div>
             </div>
         </div>
+        </>
     )
 }
 
