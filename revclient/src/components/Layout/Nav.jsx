@@ -19,10 +19,10 @@ const unauthenticatedLinks = [
 
 const authenticatedLinks = [
 	{ href: '/browse', label: 'Browse' },
-	{ href: '/about', label: 'Team' },
+	// { href: '/about', label: 'Team' },
 	{ href: '/dashboard', label: 'Dashboard' },
-	{ href: '/settings', label: 'Settings' },
 	{ href: '/createproject', label: 'Create Project' },
+	{ href: '/settings', label: 'Settings' },
 	// { href:÷ '/messages', label: 'Messages' },
 	{ href: '#', label: 'Logout' },
 ].map(link => {
@@ -113,15 +113,20 @@ const Nav = props => {
 					{localStorage.getItem('token') ? (
 						<>
 							{authenticatedLinks.map(link =>
-								link.label === 'Logout' ? (
+								link.label === 'Create Project' ? (
+									<Link to={link.href}>
+										<button className="create-project-button">{link.label}</button>
+									</Link>
+								)
+								: link.label === 'Logout' ? (
 									<li className="navLinks logout" onClick={logout} key={link.key}>
 										<Link to={link.href}>{link.label}</Link>
 									</li>
-								) : link.label === 'Settings' || link.label === 'Team' ? null : (
+								) : link.label === 'Settings' ? null : (
 									<li className="navLinks" key={link.key}>
 										<Link to={link.href}>{link.label}</Link>
 									</li>
-								),
+								)
 							)}
 							<div className="user" tabIndex="0" onClick={setActive}>
 								{data.me.firstName !== null ? (
