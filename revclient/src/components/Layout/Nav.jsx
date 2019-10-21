@@ -22,6 +22,7 @@ const authenticatedLinks = [
 	{ href: '/about', label: 'Team' },
 	{ href: '/dashboard', label: 'Dashboard' },
 	{ href: '/settings', label: 'Settings' },
+	{ href: '/createproject', label: 'Create Project' },
 	// { href:÷ '/messages', label: 'Messages' },
 	{ href: '#', label: 'Logout' },
 ].map(link => {
@@ -116,7 +117,7 @@ const Nav = props => {
 									<li className="navLinks logout" onClick={logout} key={link.key}>
 										<Link to={link.href}>{link.label}</Link>
 									</li>
-								) : link.label === 'Settings' || link.label === 'Dashboard' ? null : (
+								) : link.label === 'Settings' || link.label === 'Team' ? null : (
 									<li className="navLinks" key={link.key}>
 										<Link to={link.href}>{link.label}</Link>
 									</li>
@@ -144,10 +145,10 @@ const Nav = props => {
 
 								<div className={`dropdown ${!clicked && 'display-none'}`} name="drop" tabIndex="0">
 									<div className="arrow-up"></div>
-									<Link to="/dashboard" className="dropdown-option">
+									{/* <Link to="/dashboard" className="dropdown-option">
 										<FaUser className="icon" />
 										Dashboard
-									</Link>
+									</Link> */}
 									<Link to="/settings" className="dropdown-option">
 										<FaCog className="icon" /> Settings
 									</Link>
