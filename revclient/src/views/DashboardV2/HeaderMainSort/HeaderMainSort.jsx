@@ -1,4 +1,4 @@
-import React, {  } from "react";
+import React, { useState } from "react";
 import { Tween, Timeline } from 'react-gsap';
 
 // Components
@@ -7,13 +7,32 @@ import MainProjectAdmin from "../DashboardComponents/Main/MainProjectAdmin";
 import MainTradeMaster from "../DashboardComponents/Main/MainTradeMaster";
 import MainStudent from "../DashboardComponents/Main/MainStudent";
 import MainDonor from "../DashboardComponents/Main/MainDonor";
+import AddTask from "../DashboardComponents/AddTask/AddTask";
 // import Donations from "../DashboardComponents/Main/Donations/Donations";
 
 
 export default function HeaderMainSort(props) {
     const { projectArray, selectedProject, setProject, mainTabs, setMainTabs, dashNavTabState, possibleDashNavTabs } = props;
+    const [ addTaskModal, setAddTaskModal ] = useState({ show: false, selectedProject: null });
+
     if (!projectArray) return null;
     let renderedHeaderMain;
+
+    
+    
+        
+    if (addTaskModal.show === true) {
+        return (
+            <AddTask 
+                setAddTaskModal={setAddTaskModal} 
+                addTaskModal={addTaskModal} 
+                project={addTaskModal.selectedProject} 
+
+                trade={null}
+            />
+        )
+    }
+    
 
 
     // Selected tab is PROJECT ADMIN
@@ -50,6 +69,7 @@ export default function HeaderMainSort(props) {
                                 mainTabs={mainTabs}
                                 selectedMainTab={mainTabs.selectedMainTab}
                                 setMainTabs={setMainTabs}
+                                setAddTaskModal={setAddTaskModal}
                             />
                         </div>
                     }>

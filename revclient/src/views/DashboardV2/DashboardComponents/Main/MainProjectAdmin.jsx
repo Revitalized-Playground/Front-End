@@ -17,7 +17,7 @@ import LoadingSpinner from "../../../../components/LoadingSpinner/LoadingSpinner
 
 
 const MainProjectAdmin = props => {
-	const { project, mainTabs, setMainTabs } = props;
+	const { project, mainTabs, setMainTabs, setAddTaskModal } = props;
 	// Moving away from managing any tab information anywhere other than in dashboard.
 
 	useEffect(() => {
@@ -98,7 +98,12 @@ const MainProjectAdmin = props => {
 					)}
 					{project.trades.map(trade => (
 						<div className="list trades" key={trade.id + Date.now()}>
-							<Trades trade={trade} tab={mainTabs.selectedMainTab} project={project}  />
+							<Trades 
+								trade={trade} 
+								tab={mainTabs.selectedMainTab} 
+								project={project} 
+								setAddTaskModal={setAddTaskModal}  
+							/>
 						</div>
 					))}
 				</>

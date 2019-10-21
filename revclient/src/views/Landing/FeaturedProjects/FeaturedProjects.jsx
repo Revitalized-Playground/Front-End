@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Card from '../../../components/Card/Card';
+import LoadingSpinner from '../../../components/LoadingSpinner/LoadingSpinner';
 
 //gql
 import { useQuery } from '@apollo/react-hooks';
@@ -15,7 +17,7 @@ const FeaturedProjects = () => {
 	}, [data]);
 
 	function shuffle(array) {
-		var currentIndex = array.length,
+		let currentIndex = array.length,
 			temporaryValue,
 			randomIndex;
 
@@ -36,16 +38,19 @@ const FeaturedProjects = () => {
 
 	const randomizer = projectData && shuffle(projectData);
 
-	console.log('projectdata is', projectData);
+	console.log('randomProject', randomizer);
 
-	if (!projectData) return <div>Loading...</div>;
+	if (!projectData) return <LoadingSpinner />;
 	return (
 		<section className="featured-projects-container">
 			<h2>Featured Projects</h2>
+
 			<div className="featured-projects-list">
-				{randomizer.map(({ featuredImage, name, description }, i) =>
+				{randomizer.map(({ featuredImage, name, description, slug }, i) =>
 					i < 3 ? (
-						<Card className="card" img={featuredImage} title={name} description={description} key={i} />
+						<Link to={`/project/${slug}`} className="link">
+							<Card className="card" img={featuredImage} title={name} description={description} key={i} />
+						</Link>
 					) : null,
 				)}
 			</div>

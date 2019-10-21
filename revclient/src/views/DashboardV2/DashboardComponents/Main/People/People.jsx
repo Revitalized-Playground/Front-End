@@ -1,11 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import Toggle from "react-toggle";
+// import Toggle from "react-toggle";
+
+// GQL
+import { ACCEPT_PROJECT_APPLICANT, DECLINE_PROJECT_APPLICANT } from "../../../../../graphql/mutations";
+
+import { useMutation } from '@apollo/react-hooks';
 
 
 const People = props => {
     const { person, selectedMainTab, mainTabs } = props;
 
     const [ verified, setVerified ] = useState(false);
+    const [ acceptProjectApplicant ] = useMutation( ACCEPT_PROJECT_APPLICANT );
+    const [ declineProjectApplicant ] = useMutation( DECLINE_PROJECT_APPLICANT );
     const [ projectApplicantState, setProjectApplicantState ] = useState({
         project: "", // project Id
         profile: "", // Profile ID
@@ -15,7 +22,27 @@ const People = props => {
     useEffect(() => {   // Check verified 
         if (person.profile.verified) return setVerified(true)
         setVerified(false)
-    }, [])
+    }, []);
+
+
+    const submitSetStatus = async (event, status) => {
+        event.preventDefault();
+
+        if (status === "ACCEPTED") {
+            await acceptProjectApplicant({ variables: { data: {
+                ...projectApplicantState,
+            } } });
+        }
+        if (status === "DECLINED") {
+            await declineProjectApplicant({ variables: { data: {
+                ...projectApplicantState,
+            } } });
+        }
+
+        setProjectApplicantState({ project: "", profile: "", application: "" });
+    };
+
+
 
     if (selectedMainTab === mainTabs.projectAdminTabs[0]) { // Applicants
         console.log("this is an applicant")
@@ -60,12 +87,20 @@ const People = props => {
                             {person.status === "PENDING" ? (
                                 <select
                                     value={person.status}
-                                    onChange={(event) => setProjectApplicantState({ 
-                                        ...projectApplicantState, 
-                                        profile: person.profile.id, 
-                                        project: person.project.id,
-                                        application: person.id
-                                    })}
+                                    onChange={(event) => {
+                                        setProjectApplicantState({ 
+                                            ...projectApplicantState, 
+                                            profile: person.profile.id, 
+                                            project: person.project.id,
+                                            application: person.id
+                                        })
+                                        if (event.target.value === "ACCEPTED") {
+                                            submitSetStatus("ACCEPTED")
+                                        }
+                                        if (event.target.value === "DECLINED") {
+                                            submitSetStatus("DECLINED")
+                                        }
+                                    }}
                                 >
                                     <option value="PENDING">Pending</option>
                                     <option value="ACCEPTED">Accept Application</option>

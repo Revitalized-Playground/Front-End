@@ -1,0 +1,103 @@
+
+
+
+.project-card-container {
+	background-color: $snow-white;
+	margin: 10px;
+	border-radius: 5px;
+	height: 360px;
+	font-size: 1.2rem;
+	@include subtleBoxShadow;
+	.project-card-image {
+		width: 100%;
+		position: relative;
+		display: flex;
+		justify-content: flex-end;
+		
+		svg {
+			position: absolute;
+			padding: 10px;
+			font-size: 1.6rem;
+			color: $snow-white;
+			z-index: 1;
+		}
+		
+		img {
+			width: 100%;
+			height: 150px;
+			object-fit: cover;
+			border-radius: 5px 5px 0 0;
+		}
+
+		.after {
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			border-radius: 5px 5px 0 0;
+			background: linear-gradient(196deg, rgba($bleached-black, 1.0),  rgba(#414141, 0.15));
+			opacity: 1;
+			&:hover {
+				opacity: 0.5;
+				transition-duration: 1s;
+			}
+		}
+
+	}
+	.project-card-body {
+		display: flex;
+		flex-direction: column;
+		padding: 10px;
+		height: calc(100% - 150px);
+		justify-content: space-between;
+
+		.project-card-body-descript {
+			h5 {
+				margin: 10px 0;
+				width: 100%;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				&:hover {
+					@include text-shadow;
+				}
+			}
+			.display-text-group {
+				margin: 10px 0;
+				font-size: 1.4rem;
+				.displayed-text {
+					margin: 10px 0;
+				}
+			}
+		}
+		.project-card-body-money {
+			p {
+				margin: 10px 0;
+				font-size: 1.4rem;
+				width: 100%;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+		}
+	}
+}
+
+
+.dark-mode {
+	.project-card {
+		.project-card-inner {
+			color: $snow-white;
+			background-color: $darkness;
+
+			.project-card-body {
+				.project-card-body-money {
+					div {
+						background-color: $maastricht-blue;
+					}
+				}
+			}
+		}
+	}
+}

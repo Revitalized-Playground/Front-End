@@ -5,7 +5,7 @@ import { GoKebabVertical } from 'react-icons/go';
 
 // Sub components
 import AddTrade from "../AddTrade/AddTrade";
-import AddTask from '../Main/AddTask/AddTask';
+import AddTask from '../AddTask/AddTask';
 import MemberIcons from './MemberIcons/MemberIcons';
 import { HeaderSkeleton } from '../Skeleton/HeaderSkeleton';
 

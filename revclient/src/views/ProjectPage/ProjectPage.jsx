@@ -79,7 +79,6 @@ const ProjectPage = ({ match }) => {
 			</>
 		);
 	}
-	console.log('donation projectData', projectData.donations)
 
 	return (
 		<>
@@ -120,7 +119,7 @@ const ProjectPage = ({ match }) => {
 						organizer={`${projectData.profile.firstName} ${projectData.profile.lastName}`}
 					/>
 
-					<Donate projectData={projectData} setModal={setModalVal} setDonateModal={setDonateModal} />
+					<Donate applicants={projectData} projectData={projectData} setModal={setModalVal} setDonateModal={setDonateModal} />
 				</div>
 				<div className="detailed-creator">
 					<DetailedDescription
@@ -165,6 +164,8 @@ const ProjectPage = ({ match }) => {
 					setProjectData={setProjectData}
 					id={projectData.id}
 					userId={projectData.profile.id}
+					newBool={setBool}
+					boolState={bool}
 				/>
 			</div>
 			<Footer />
