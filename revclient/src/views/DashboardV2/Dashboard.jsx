@@ -4,6 +4,7 @@ import Nav from '../../components/Layout/Nav';
 import Footer from "../../components/Layout/Footer";
 import Sidebar from './DashboardComponents/Sidebar/Sidebar';
 import DashNav from "./DashboardComponents/DashNav/DashNav";
+import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner'
 
 import BoringUser from "./DashboardComponents/BoringUser/BoringUser";
 
@@ -64,7 +65,7 @@ const Dashboard = () => {
         setAvailableDashNavTabs(availDashTabs, count);
     }, [data]);
 
-    if (loading) return <p>loading....</p>;
+    if (loading) return <LoadingSpinner />;
     if (error) return <p>Error....</p>;
 
 

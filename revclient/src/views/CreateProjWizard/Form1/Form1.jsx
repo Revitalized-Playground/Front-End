@@ -13,7 +13,7 @@ const Form1 = ({ name, description, handleChanges, setFormPosition, startDate })
                 name="name"
                 type="text"
                 className="name"
-                placeholder="Alpha Wolf Squadron"
+                placeholder="Project Name"
                 value={name}
                 onChange={e => handleChanges(e)}
             />

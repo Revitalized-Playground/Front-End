@@ -1,12 +1,13 @@
 .form-2 {
 	.address-details {
 		display: flex;
-		justify-content: space-between;
+		justify-content: flex-start;
 		align-items: flex-start;
 		width: 100%;
 		.address-details-city {
 			margin-right: 30px;
 			width: 80%;
+			max-width: 200px;
 		}
 		// .address-details-state {
 		// 	margin-right: 30px;

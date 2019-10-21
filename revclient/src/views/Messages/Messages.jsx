@@ -11,12 +11,12 @@ const Messages = () => {
 		{
 			image: `${jose}`,
 			name: 'jose',
-			message: 'send',
+			messages: [{ message: 'send' }, { message: 'second' }, { message: 'third' }],
 		},
 		{
 			image: `${clark}`,
 			name: 'clark',
-			message: 'response',
+			messages: [{ message: 'response' }, { message: 'recd' }, { message: 'third' }],
 		},
 	];
 
