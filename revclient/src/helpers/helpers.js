@@ -23,6 +23,12 @@ export function formatMoney(amount, decimalCount = 2, decimal = ".", thousands =
     }
 };
 
+export function removeCommas(stringNumberWithCommas) {
+    const regex = /,/gi;
+    let removedChar = stringNumberWithCommas.replace(regex, "");
+    return removedChar;
+}
+
 
 
 export function donationCount(num) {
