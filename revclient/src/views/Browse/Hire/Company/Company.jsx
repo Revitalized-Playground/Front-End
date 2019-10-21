@@ -1,14 +1,19 @@
 import React from 'react';
 
 const Company = props => {
-	const { image, paintbrush, logo } = props.info;
+	const { image, paintbrush, logo, link } = props.info;
 	return (
-		<div className="companyContainer" style={{ backgroundImage: `url(${image})` }}>
+		<a 
+			className="companyContainer" 
+			style={{ backgroundImage: `url(${image})` }}
+			href={link}
+			target="_blank"
+		>
 			<div className="logoContainer">
 				<img className="logo" src={logo} alt="logo" />
 				<img src={paintbrush} alt="paintbrush" />
 			</div>
-		</div>
+		</a>
 	);
 };
 
