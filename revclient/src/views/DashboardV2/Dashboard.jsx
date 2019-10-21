@@ -33,7 +33,7 @@ const Dashboard = () => {
 
     // This useQuery pulls in tons of data and can pull more! See graphql/queries to adjust what it pulls in
     const { loading, error, data, refetch } = useQuery( GET_USER_PROFILE );
-    console.log("data: ", data);
+    // console.log("data: ", data);
 
     const setCurrentProject = object => setProject(object);
 
