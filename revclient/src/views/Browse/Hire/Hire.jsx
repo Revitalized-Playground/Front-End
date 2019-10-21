@@ -24,18 +24,21 @@ const Hire = () => {
 			image: `${wework}`,
 			logo: `${weworkLogo}`,
 			paintbrush: `${weworkBrush}`,
+			link: 'https://www.wework.com'
 		},
 		{
 			name: 'Habitat for Humanity',
 			image: `${habitat}`,
 			logo: `${habitatLogo}`,
 			paintbrush: `${habitatBrush}`,
+			link: 'https://www.habitat.org'
 		},
 		{
 			name: 'TaskRabbit',
 			image: `${taskrabbit}`,
 			logo: `${taskrabbitLogo}`,
 			paintbrush: `${taskrabbitBrush}`,
+			link: 'https://www.taskrabbit.com'
 		},
 	];
 

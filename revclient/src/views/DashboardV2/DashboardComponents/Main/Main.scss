@@ -78,12 +78,28 @@
 
 
 
-.dark-mode .dashboard-main {
-	width: 100%;
-	.dashboard-main-body {
-		.list {
-			background-color: $bleached-black;
-			color: $snow-white;
+.dark-mode {
+	.dashboard-container .dashboard .tween-container {
+		.dashboard-main {
+			width: 100%;
 		}
+		section.dashboard-main.project-admin, 
+		section.dashboard-main.student, 
+		section.dashboard-main.trade-master, 
+		section.dashboard-main.donor {
+			background: $bleached-black;
+			color: $snow-white;
+			// .dashboard-section-inner-container {
+			// 	background: $bleached-black;
+			// 	color: $snow-white;
+			// }
+			.dashboard-main-body {
+				.list {
+					background-color: $bleached-black;
+					color: $snow-white;
+				}
+			}
+		}
+		
 	}
 }

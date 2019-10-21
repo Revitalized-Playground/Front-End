@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Slider from "react-slick";
 
 import RecommendedProjectsSkeleton from './RecommendedProjectsSkeleton';
@@ -9,10 +9,16 @@ import { NextArrow, PrevArrow } from "../CarouselCard/Arrows";
 import { useQuery } from '@apollo/react-hooks';
 import { GET_RECOMMENDED_PROJECTS } from '../../../graphql/queries';
 
+import { useAuth } from '../../../hooks/useAuth';
 
 
-const RecommendedProjects = () => {
+const RecommendedProjects = ({ history }) => {
         const { loading, error, data } = useQuery(GET_RECOMMENDED_PROJECTS);
+        console.log("data: ", data);
+        const {currentUser} = useAuth(history);
+        console.log("currentUser(): ", currentUser());
+        const pId = currentUser().profileId;
+        console.log("pId: ", pId);
 
         const settings = {
             dots: false,
@@ -58,9 +64,13 @@ const RecommendedProjects = () => {
             ]
         }
 
+	    const [liked, setLiked] = useState(false);
+
         if (loading) return <RecommendedProjectsSkeleton />
 
         if (error) return console.log(error)
+
+        console.log("data: ", data);
 
         return (
             <section className="recommened-projects-section">
@@ -68,7 +78,14 @@ const RecommendedProjects = () => {
                 <div className="slider">
                     <Slider {...settings}>
                         {data.recommendedProjects ? data.recommendedProjects.map(recommendedItem => (
-                            <CarouselCard key={recommendedItem.id} card={recommendedItem} view="recommended" />
+                            <CarouselCard
+                                key={recommendedItem.id}
+                                card={recommendedItem}
+                                view="recommended"
+                                liked={liked}
+                                setLiked={setLiked}
+                                profileId={pId}
+                            />
                         )) : (
                             <RecommendedProjectsSkeleton />
                         )}
@@ -77,6 +94,5 @@ const RecommendedProjects = () => {
             </section>
         );
 }
-
 
 export default RecommendedProjects;

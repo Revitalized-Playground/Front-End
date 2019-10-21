@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useDropzone } from 'react-dropzone';
+import { MdCancel } from "react-icons/md";
 
 
 
-export default function Droppy({images, setProjectDetails, projectDetails}) {
+const Droppy = props => {
+    const { images, setProjectDetails, projectDetails } = props;
     
     const [ imagePreview, setImagePreview ] = useState(images);
     const { getRootProps, getInputProps } = useDropzone({
@@ -14,10 +16,19 @@ export default function Droppy({images, setProjectDetails, projectDetails}) {
             })));
         }
     });
-  
+    
+    const removeThumb = thumbToRemove => {
+        const newImagePreview = imagePreview.filter(image => image.lastModified !== thumbToRemove.lastModified)
+        setImagePreview(newImagePreview)
+    }
+    
     const thumbs = imagePreview.map(image => (
-        <div className="thumb" key={image.name}>
+        <div className="thumb" key={image.lastModified}>
             <div className="thumb-inner" >
+                <MdCancel 
+                    className="thumb-inner-cancel"
+                    onClick={removeThumb(image)}
+                />
                 <img
                     className="thumb-img"
                     src={image.preview}
@@ -26,6 +37,7 @@ export default function Droppy({images, setProjectDetails, projectDetails}) {
             </div>
         </div>
     ));
+    console.log("these are the thumbs in create project wiz", thumbs, imagePreview);
 
     useEffect(() => () => { // Make sure to revoke the data uris to avoid memory leaks
         imagePreview.forEach(file => URL.revokeObjectURL(file.preview));
@@ -53,3 +65,5 @@ export default function Droppy({images, setProjectDetails, projectDetails}) {
         </section>
     );
 }
+
+export default Droppy

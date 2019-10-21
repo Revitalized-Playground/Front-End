@@ -49,7 +49,7 @@ const Form3 = ({ setProjectDetails, projectDetails, difficulty, duration, goalAm
                 value={goalAmount === 0 ? '' : goalAmount}
                 onChange={e => {handleChanges(e); checker(e)}}
             />
-            {!error && <p className='errorText'>Please make sure to enter a correct price</p>}
+            {!error && <p className='errorText'>Please make sure to enter a correct amount</p>}
             <h4>Project Difficulty Level</h4>
             <select
                 required
