@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Top = () => {
     return (
-        <div className="topContainer">
+        <div className="top-container browse-all">
             <h2 className="title">
                 <div>What are your interests?</div>
             </h2>

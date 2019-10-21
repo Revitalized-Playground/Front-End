@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { MdArrowBack, MdClose } from "react-icons/md";
 
 // Helpers
-import { addWeeksDueDate, formatDateForDateInput, formatDateForMutation } from "../../../../../helpers/helpers";
+import { addWeeksDueDate, formatDateForDateInput, formatDateForMutation } from "../../../../helpers/helpers";
 
 // Gql
 import { useMutation } from "@apollo/react-hooks";
-import { CREATE_PROJECT_TASK } from '../../../../../graphql/mutations';
+import { CREATE_PROJECT_TASK } from '../../../../graphql/mutations';
 
 
 const AddTask = props => {

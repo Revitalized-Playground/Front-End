@@ -99,4 +99,18 @@ export const APPLY_TO_PROJECT = gql`
 	}
 `
 
+export const ACCEPT_PROJECT_APPLICANT = gql`
+	mutation($data: AssignProjectApplicant!) {
+		acceptProjectApplicant(data: $data) {
+			id
+		}
+	}
+`
 
+export const DECLINE_PROJECT_APPLICANT = gql`
+	mutation($data: AssignProjectApplicant!) {
+		declineProjectApplicant(data: $data) {
+			id
+		}
+	}
+`

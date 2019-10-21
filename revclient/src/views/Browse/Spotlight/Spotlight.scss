@@ -18,6 +18,7 @@
 		min-height: 300px;
 
 		&:before {
+			border-radius: 5px;
 			content: '';
 			position: absolute;
 			top: 0;
