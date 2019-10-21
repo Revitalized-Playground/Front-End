@@ -19,24 +19,24 @@ const SingleComment = ({ each, editCommentMutation, deleteComment, currentUser, 
 
 		const edited = await editCommentMutation({ variables: { data: editComment } });
 		if (edited) {
-			setComment({ ...each, comment: edited.data.updateProjectComment.comment });
+			setComment(each)
 		}
 	};
 
 	return (
-		<div className="commentFlex" key={comment.id}>
-			{comment.profile.profileImage === undefined ? null : (
-				<img src={comment.profile.profileImage} alt="Profile icon" />
+		<div className="commentFlex" key={each.id}>
+			{each.profile.profileImage === undefined ? null : (
+				<img src={each.profile.profileImage} alt="Profile icon" />
 			)}
 			<div className="comment-inner-container">
 				<div className="commenter-name-flex">
-					<p>{comment.profile.firstName}</p>
-					<p>{comment.profile.lastName}</p>
+					<p>{each.profile.firstName}</p>
+					<p>{each.profile.lastName}</p>
 				</div>
 				<div className="dot-position-div">
 					<div className="each-comment-container">
 						{!editing ? (
-							<p className="comment">{comment.comment}</p>
+							<p className="comment">{each.comment}</p>
 						) : (
 							<div className="lowerCommentSide">
 								<form>
@@ -60,7 +60,7 @@ const SingleComment = ({ each, editCommentMutation, deleteComment, currentUser, 
 							</div>
 						)}
 					</div>
-					{comment.profile.id === currentUser().profileId && (
+					{each.profile.id === currentUser().profileId && (
 					<div className="settings-drop" onClick={() => setSettings(!eachSetting)}>
 						<div className="dot-container">
 							<div onClick={() => setSettings(!eachSetting)} className="dot"></div>
@@ -70,7 +70,7 @@ const SingleComment = ({ each, editCommentMutation, deleteComment, currentUser, 
 						{eachSetting && 
 							<div className="settings-drop-buttons">
 								<button onClick={() => setEditing(true)}>Edit</button>
-								<button onClick={e => deleteComment(e, comment.id)}>Delete</button>
+								<button onClick={e => deleteComment(e, each.id)}>Delete</button>
 							</div>
 						}
 					</div>)

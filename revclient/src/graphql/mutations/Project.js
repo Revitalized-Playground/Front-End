@@ -9,7 +9,23 @@ export const ADD_COMMENT = gql`
 	mutation($data: CreateProjectCommentInput!) {
 		createProjectComment(data: $data) {
 			id
-			comment
+			project {
+				comments {
+					id
+					comment
+					likes {
+						id
+					}
+					profile {
+						id
+						userAccountId
+						email
+						firstName
+						lastName
+						profileImage
+					}
+				}
+			}
 			profile {
 				...UserSummary
 			}
@@ -40,6 +56,19 @@ export const DONATE_TO_PROJECT = gql`
 	mutation($id: ID!, $data: CreateProjectDonationInput!) {
 		createProjectDonation(id: $id, data: $data) {
 			id
+			project {
+				donations {
+					id
+					amount
+					createdAt
+					profile {
+						firstName
+						lastName
+						profileImage
+					}
+
+				}
+			}
 		}
 	}
 `;
@@ -48,6 +77,17 @@ export const REMOVE_COMMENT = gql`
     mutation($id: ID!) {
         deleteProjectComment(id: $id) {
             id
+			project {
+				name
+				# comments {
+				# 	id
+				# 	comment
+				# 	likes {
+				# 		id
+				# 	}
+				# }
+			}
+			comment
         }
     }
 `;
@@ -58,6 +98,23 @@ export const EDIT_COMMENT = gql`
         updateProjectComment(data: $data) {
             id
             comment
+			project {
+				comments {
+					id
+					comment
+					likes {
+						id
+					}
+					profile {
+						id
+						userAccountId
+						email
+						firstName
+						lastName
+						profileImage
+					}
+				}
+			}
         }
     }
 `;

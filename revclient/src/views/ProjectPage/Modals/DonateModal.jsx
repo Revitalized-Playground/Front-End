@@ -8,12 +8,24 @@ import { injectStripe, CardNumberElement, CardExpiryElement, CardCvcElement } fr
 
 import { useMutation } from '@apollo/react-hooks';
 import { DONATE_TO_PROJECT } from '../../../graphql/mutations';
+import { GET_PROJECT_BY_SLUG } from '../../../graphql/queries/Projects';
 
 
 const DonateModal = ({id, update,donateModal, setDonateModal, donateModalBlur, stripe, match}) => {
     const [amount, setAmount] = useState('');
     const [success, setSuccess] = useState(false)
-    const [donateToProject, {data}] = useMutation(DONATE_TO_PROJECT);
+    const [donateToProject, {data}] = useMutation(DONATE_TO_PROJECT, {
+        update(cache, {data: {createProjectDonation}},) {
+            const { projectBySlug } = cache.readQuery({
+                query: GET_PROJECT_BY_SLUG,
+                variables: { slug: match.params.slug }
+            })
+            cache.writeQuery({
+                query: GET_PROJECT_BY_SLUG,
+                data: { projectBySlug: projectBySlug.donations = createProjectDonation.project.donations }
+            })
+        }
+    });
     const [textError, setError] = useState({
         cardNumber: {
             error: '',
@@ -41,7 +53,7 @@ const DonateModal = ({id, update,donateModal, setDonateModal, donateModalBlur, s
         setError({...textError, [e.elementType]: {...textError[e.elementType], blurComeplete: true}})
     }
 
-    const handleChange = (e, value, value2) => {
+    const handleChange = e => {
         setAmount(e.target.value)
     }
 
@@ -54,7 +66,6 @@ const DonateModal = ({id, update,donateModal, setDonateModal, donateModalBlur, s
         if(newAmount < 0.50) {
             window.alert('Can\'t donate less than $0.50')
         } else {
-            
             donateToProject({
                 variables: {
                     id: id,
@@ -64,14 +75,11 @@ const DonateModal = ({id, update,donateModal, setDonateModal, donateModalBlur, s
                     },
                 },
             });
-
-            
         }
     }
 
     useEffect(() => {
         if(data) {
-            update(Number(amount))
             setSuccess(true)
         }
     }, [data])

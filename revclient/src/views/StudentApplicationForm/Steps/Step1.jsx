@@ -1,7 +1,11 @@
 import React from 'react'
+import { GET_USER } from '../../../graphql/queries/Users'
+import { useQuery } from "@apollo/react-hooks";
 
 
 const Step1 = ({chosenTrade, setChosenTrade, setStep, trades, obj, setObj, errorHandle, setErrorHandle}) => {
+
+    const {data} = useQuery(GET_USER)
 
     const next = e => {
         if(obj.trade.length === 0) {
@@ -16,7 +20,7 @@ const Step1 = ({chosenTrade, setChosenTrade, setStep, trades, obj, setObj, error
             <h2 className='title'>Tell Who You Are</h2>
             <form>
                 <div className='welcome-container'>
-                    <h2>Hey [will be dynamic]</h2>
+                    <h2>Hey {!data ? '...' : data.me.firstName}</h2>
                 </div>
                 <select onChange={(e) => {setChosenTrade(true); setObj({...obj, trade: e.target.value}); setErrorHandle({...errorHandle, trade: false})}}>
                     <option selected disabled>Choose Your Trade</option>
