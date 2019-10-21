@@ -22,24 +22,22 @@ const Noteworthy = () => {
 
 	if (error) return console.log(error);
 
-	console.log('project data :', projectData);
-
 	return (
 		<section className="noteworthy-section">
 			<h4>New & Noteworthy</h4>
 			<div className="slider">
 				{projectData
-					? projectData.slice(-2).map((item, index) => (
-							
-							<CarouselCard
-								key={item.id}
-								card={item}
-								view="noteworthy"
-								index={index}
-								name="Note Worthy"
-							/>
-							
-					  ))
+					? projectData
+							.slice(-2)
+							.map((item, index) => (
+								<CarouselCard
+									key={item.id}
+									card={item}
+									view="noteworthy"
+									index={index}
+									name="Note Worthy"
+								/>
+							))
 					: null}
 			</div>
 		</section>
