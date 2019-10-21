@@ -45,7 +45,7 @@ const ProgressBar = props => {
                 background: $erudite-purple;
             }
             100% {
-                width: ${newProgress > startingPoint ? "100" : percent}%;
+                /* width: ${newProgress > startingPoint ? "100" : percent}%; */
             }
         };
         @keyframes progress-bar-stripes {
