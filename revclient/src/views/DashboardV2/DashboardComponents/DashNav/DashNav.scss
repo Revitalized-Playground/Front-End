@@ -1,5 +1,5 @@
-section.dashboard-dash-nav.section {
-    background-color: $silver-lining;
+
+section.dash-nav.section {
     display: flex;
     justify-content: space-around;
     padding: 0;
@@ -7,31 +7,30 @@ section.dashboard-dash-nav.section {
     box-shadow: none;
     border: none;
     border-radius: 5px;
-    margin-bottom: -6px;
+    margin-bottom: 0px;
+    z-index: 6;
+    position: relative;
     .tab {
-        color: $black-void;
+        color: $static-grey;
         padding: 10px 60px;
         @media #{$tablet} {
-            padding: 10px 30px;   
+            padding: 10px 30px;
         }
     }
-    .unavailable-tab.tab {
-        color: $static-grey;
+    .tab.unavailable-tab {
         &:hover {
             cursor: none;
         }
     }
-    .active-tab.tab {
-        color: $chillFi-purple;
+    .tab.active-tab {
+        color: $mirage;
         background-color: $snow-white;
-        // border: 1px solid $static-grey;
-        border-top: 1px solid $static-grey;;
-        border-right: 1px solid $static-grey;;
-        border-left: 1px solid $static-grey;;
-        border-bottom: 1px solid white;
-
+        border-bottom: 1px solid $snow-white;
+        box-shadow: 0px -5px 23px -21px black;
     }
 }
+
+
 .dark-mode {
     section.dashboard-dash-nav.section {
         .tab {

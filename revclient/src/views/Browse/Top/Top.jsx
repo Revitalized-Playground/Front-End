@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from "react-router-dom";
+
 
 const Top = () => {
     return (
@@ -8,26 +10,28 @@ const Top = () => {
             </h2>
             <div className="interests">
                 <div className="interests-left">
-                <div className="interest one">
-                    Electrical 
-                </div>
-                <div className="interest two">
-                    Carpentry
-                </div>
-                <div className="interest three">
-                    Interior Design
-                </div>
+                    <Link to="/browse-all" className="interest one">
+                        <div className="inner-interest">
+                            Electrical 
+                        </div>
+                    </Link>
+                    <div className="interest two">
+                        Carpentry
+                    </div>
+                    <div className="interest three">
+                        Interior Design
+                    </div>
                 </div>
                 <div className="interests-right">
-                <div className="interest four">
-                    HVAC
-                </div>
-                <div className="interest five">
-                    Plumbing
-                </div>
-                <div className="interest six">
-                    Masonry
-                </div>
+                    <div className="interest four">
+                        HVAC
+                    </div>
+                    <div className="interest five">
+                        Plumbing
+                    </div>
+                    <div className="interest six">
+                        Masonry
+                    </div>
                 </div>
             </div>
 

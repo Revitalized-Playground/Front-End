@@ -1,7 +1,9 @@
-import React from 'react';
-import { withRouter } from 'react-router-dom';
+import React, {useState, useEffect} from 'react';
+import { withRouter, Link } from 'react-router-dom';
 import { formatMoney, addUpDonations, donationCount } from "../../../../helpers/helpers";
 import ProgressBar from "../../../../components/ProgressBar/ProgressBar";
+import { useQuery } from "@apollo/react-hooks";
+import { GET_USER } from "../../../../graphql/queries/Users";
 
 const Donate = props => {
     const raised = addUpDonations(props.projectData.donations);
@@ -9,7 +11,19 @@ const Donate = props => {
     const budgetProgressBar = props.projectData.goalAmount;
     const totalDonations = donationCount(props.projectData.donations.length);
     const totalNumberOfDonations = props.projectData.donations ? totalDonations : 0;
+    const [applicationStatus, setApplicationStatus] = useState('notApplied')
 
+    const { client, loading, error, data } = useQuery(GET_USER);
+    
+    useEffect(() => {
+        if(props.projectData.applicants && data) {
+            props.projectData.applicants.map(eachApplicant => {
+                if(eachApplicant.profile.id === data.me.id) {
+                    setApplicationStatus(eachApplicant.status)
+                }
+            })
+        }
+    }, [props.projectData.applicants, data])
 
     return (
         <div className='donateContainer'>
@@ -35,7 +49,19 @@ const Donate = props => {
 					<div className="mid-line"></div>
 				</div>
                 <div className='apply-button'>
-                    <button >Apply to Project</button>
+                    {applicationStatus.toLowerCase() === 'pending' 
+                    ?
+                    <button style={{cursor: 'default'}} disabled={true}>Application Pending...</button>
+                    :
+                    applicationStatus.toLowerCase() === 'accepted' 
+                    ?
+                    <button style={{cursor: 'default'}} disabled={true}>Accepted!</button>
+                    :
+                    <Link to={`/project/${props.match.params.slug}/studentapplicationform`}>
+                        <button >Apply to Project</button>
+                    </Link>  
+                    }
+                    
                 </div>
                 <p className='lastText'>Partner with growing donors who are eager to see the transformation and economical growth of Detroit.</p>
             </div>

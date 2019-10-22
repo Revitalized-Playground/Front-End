@@ -1,8 +1,9 @@
 import React from 'react';
 
 
-const PeopleHeader = () => {
-
+const PeopleHeader = props => {
+    const {} = props;
+    
     return (
         <>
             <section className="people-header" >
@@ -10,7 +11,7 @@ const PeopleHeader = () => {
                 <div className="name">Name</div>
                 <div className="contact">Contact Info</div>
                 <div className="address">Address</div>
-                <div className="verified">Verified</div>
+                <div className="verified">Status</div>
             </section>
         </>
     );

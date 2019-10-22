@@ -1,0 +1,95 @@
+
+
+.trades-header {
+	display: flex;
+	justify-content: space-between;
+	font-size: 1.4rem;
+	font-family: "Roboto";
+	text-transform: uppercase;
+	color: $mirage;
+	text-align: left;
+	margin-top: 20px;
+	padding: 0 15px;
+	.icon {
+		width: 5%;
+		min-width: 140px;
+	} 
+	.description {
+		width: 75%;
+	}
+	.create-task {
+		width: 20%;
+		text-align: right;
+	}
+}
+
+.list.trades {
+	padding: 15px;
+	.trade-card-container {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		.trade-body {
+			width: 100%;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			.trade-icon {
+				width: 10%;
+				display: flex;
+				justify-content: flex-start;
+				align-items: center;
+				svg {
+					color: $snow-white;
+					background-color: $luigi;
+					padding: 20px;
+					border-radius: 5px;
+					font-size: 4rem;
+				}
+			}
+			.trade-detail {
+				display: flex;
+				flex-direction: column;
+				font-size: 1.8rem;
+			}
+			.trade-detail.description {
+				width: 50%;
+				justify-content: flex-start;
+				text-align: left;
+				h3 {
+					margin-bottom: 10px;
+				}
+				p {
+					font-family: "Roboto";
+					font-size: 1.4rem;
+					font-weight: lighter;
+				}
+			}
+			.trade-detail.create-task {
+				width: 40%;
+				padding: 0 20px 0 0;
+				justify-content: flex-end;
+				align-items: center;
+				flex-direction: row;
+				.add-task-button {
+					font-size: 3.6rem;
+					color: $chillFi-purple;
+				}
+			}
+		}
+	}
+}
+
+
+
+
+.dark-mode {
+	.trade {
+		background-color: $bleached-black;
+		.trade-card-container {
+			.trade-body {
+				color: inherit;
+			}
+		}
+	}
+}

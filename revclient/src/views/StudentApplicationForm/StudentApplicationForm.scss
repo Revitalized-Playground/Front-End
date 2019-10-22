@@ -4,14 +4,29 @@
     max-width: 1920px;
     margin: 0 auto;
     display: flex;
+    .button-container {
+        display: flex;
+        justify-content: flex-end;
+
+        button {
+            background: #0B096F;
+            color: $snow-white;
+            border: none;
+            font-size: 2rem;
+            padding: 10px 30px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    }
+    .two {
+        justify-content: space-between;
+    }
     .swirly-div {
-        border: 1px solid blue;
         width: 50%;
         height: 100vh;
         background-repeat: no-repeat;
         background-size: 100% 100%;
         display: flex;
-        // background-image: url('../assets/StudentApplicationWizard/swirly.png');
 
         .student-app-steps {
             display: flex;
@@ -26,15 +41,33 @@
         }
 
         .student-app-images {
-            border: 1px solid yellow;
             width: 50%;
+            display: flex;
+            flex-direction: column;
+
+            .large {
+                width: 70%;
+                margin-left: 30%
+            }
+
+            .med {
+                width: 50%;
+                margin-left: 40%;
+                margin-top: 40px
+            }
+
+            .small {
+                width: 25%;
+                margin-left: 40%;
+                margin-top: 40px
+            }
         }
     }
 
     .right-div {
-        border: 5px solid black;
         width: 50%;
         display: flex;
+        
 
         .right-div-content {
             width: 500px;
@@ -122,14 +155,39 @@
                     
                     position: relative;
                     top: 4px;
-                    }
+                }
                     
-                    input:checked {
-                    border: 6px solid #4840ba;
-                    }
+                input:checked {
+                border: 6px solid #4840ba;
+                }
+            }
+        }
+
+        .right-div-content {
+            .second-page {
+                text-align: start
             }
             
-            
+            .page-two-text-area {
+                resize: none;
+                width: 100%;
+                height: 100px;
+                padding: 10px;
+                box-sizing: border-box;
+            }
+
+            .margin {
+                margin-bottom: 60px;
+            }
+
+            .application-error {
+                color: red;
+                margin-top: 8px
+            }
+
+            .email-text {
+                margin-bottom: 40px
+            }
         }
     }
     

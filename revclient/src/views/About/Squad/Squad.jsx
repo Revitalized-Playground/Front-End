@@ -95,7 +95,7 @@ const Squad = () => {
 			github: 'https://github.com/OmarSalah95',
 			linkedIn: 'https://www.linkedin.com/in/omar-salah-78787a180/',
 			twitter: 'https://twitter.com/BugSquasher9000',
-			site: '',
+			site: 'http://omar-salah-eddine.surge.sh',
 		},
 
 		{
@@ -108,7 +108,7 @@ const Squad = () => {
 			github: 'https://github.com/Fractured2K',
 			linkedIn: 'https://www.linkedin.com/in/skyelar-carroll-7567b217a/',
 			twitter: 'https://twitter.com/Fractured2K',
-			site: '',
+			site: 'https://skyelar.dev',
 		},
 
 		{
@@ -177,38 +177,46 @@ const Squad = () => {
 									<div className="overlay">
 										<div className="text">{person.bio}</div>
 										<div className="social">
-											<a
-												href={person.github}
-												alt="Github"
-												target="_blank"
-												rel="noopener noreferrer"
-											>
-												<i className="fa fa-github"></i>
-											</a>
-											<a
-												href={person.linkedIn}
-												alt="LinkedIn"
-												target="_blank"
-												rel="noopener noreferrer"
-											>
-												<i className="fa fa-linkedin"></i>
-											</a>
-											<a
-												href={person.twitter}
-												alt="Twitter"
-												target="_blank"
-												rel="noopener noreferrer"
-											>
-												<i className="fa fa-twitter"></i>
-											</a>
-											<a
-												href={person.site}
-												alt="Personal Site"
-												target="_blank"
-												rel="noopener noreferrer"
-											>
-												<i className="fa fa-user alt"></i>
-											</a>
+											{person.github &&
+												<a
+													href={person.github}
+													alt="Github"
+													target="_blank"
+													rel="noopener noreferrer"
+												>
+													<i className="fa fa-github"></i>
+												</a>
+											}
+											{person.linkedIn &&
+												<a
+													href={person.linkedIn}
+													alt="LinkedIn"
+													target="_blank"
+													rel="noopener noreferrer"
+												>
+													<i className="fa fa-linkedin"></i>
+												</a>
+											}
+											{person.twitter &&
+												<a
+													href={person.twitter}
+													alt="Twitter"
+													target="_blank"
+													rel="noopener noreferrer"
+												>
+													<i className="fa fa-twitter"></i>
+												</a>
+											}
+											{person.site &&
+												<a
+													href={person.site}
+													alt="Personal Site"
+													target="_blank"
+													rel="noopener noreferrer"
+												>
+													<i className="fa fa-user alt"></i>
+												</a>
+											}
 										</div>
 									</div>
 								</>

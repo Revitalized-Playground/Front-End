@@ -3,7 +3,7 @@
 .browse-container .near-you-section {
     .slider {
         .carousel-card-inner.__near-you {
-            height: 275px;
+            height: 290px;
             .carousel-card-image {
                 justify-content: flex-start;
                 .carousel-card-location {
@@ -15,10 +15,15 @@
             }
             .carousel-card-body {
                 height: calc(100% - 155px);
-                h5 { 
-                    margin: 0 auto;
+                .carousel-card-body-descript {
+                    a {
+                        color: inherit;
+                        h5 {
+                            margin: 0 auto;
+                        }
+                    }
                 }
-                p {
+                .display-text-group {
                     font-size: 1.4rem;
                     margin: 10px auto;
                 }

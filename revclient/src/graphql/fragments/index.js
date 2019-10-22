@@ -22,7 +22,7 @@ export const USER_SUMMARY_FRAG = gql`
 export const COMMENTS_FRAG = gql`
     fragment Comments on ProjectComment {
         id
-        comment
+        comment 
         likes {
             id
             profile {
@@ -31,7 +31,22 @@ export const COMMENTS_FRAG = gql`
         }
     }
     ${USER_SUMMARY_FRAG}
-`
+`;
+
+
+
+export const TASKS_FRAG = gql`
+    fragment Tasks on ProjectTask {
+        id
+        title
+        description
+        priority
+        dueDate
+        budgetHours
+        completed
+    }
+`;
+
 
 export const PROJECT_SUMMARY_FRAG = gql`
     fragment ProjectSummary on Project {
@@ -44,19 +59,30 @@ export const PROJECT_SUMMARY_FRAG = gql`
         zip
         city
         goalAmount
-        amountFunded
         duration
         difficulty
         startDate
         featuredImage
+        applicants {
+            id
+            licensed
+            coverLetter
+            jobExperience
+            education
+            availability
+            status
+            trade {
+                id
+                name
+                description
+            }
+            profile {
+                ...UserSummary
+            }
+        }
         images {
             id
             imageUrl
-        }
-        trades {
-            id
-            name
-            description
         }
         donations {
             id
@@ -64,17 +90,6 @@ export const PROJECT_SUMMARY_FRAG = gql`
         }
         likes {
             id
-        }
-        comments {
-            id
-            ...Comments
-            profile {
-                ...UserSummary
-            }
-        }
-        applicants {
-            id
-            status
         }
         tradeMasters {
             id
@@ -88,16 +103,24 @@ export const PROJECT_SUMMARY_FRAG = gql`
                 ...UserSummary
             }
         }
-        tasks {
+        trades {
             id
+            name
             description
-            priority
-            dueDate
-            budgetHours
         }
+        tasks {
+            ...Tasks
+        }
+        # comments {
+        #     id
+        #     ...Comments
+        #     profile {
+        #         ...UserSummary
+        #     }
+        # }
     }
     ${USER_SUMMARY_FRAG}
-    #{COMMENTS_FRAG}
+    ${TASKS_FRAG}
 `
 
 

@@ -8,14 +8,14 @@ import SetupProfile from './views/SetupProfile/SetupProfile';
 import Login from './views/Login/Login';
 import ProjectsHome from './views/ProjectsHome/ProjectsHome'; // May be deprecated
 
-// import Start from "./views/Start/Start";
 import Browse from './views/Browse/Browse';
-// import DashboardOld from "./views/DashboardOld/Dashboard";
+import BrowseAll from './views/BrowseAll/BrowseAll';
 import Dashboard from './views/DashboardV2/Dashboard';
 import CreateProjectWizard from './views/CreateProjWizard/CreateProjectWizard';
 import ProjectPage from './views/ProjectPage/ProjectPage';
 import ProjectDonationPage from './views/ProjectDonationPage/ProjectDonationPage';
 import About from './views/About/About';
+import Messages from './views/Messages/Messages';
 
 // Utils
 import AuthenticateUser from './utils/AuthenticateUser';
@@ -45,13 +45,11 @@ export const Routes = () => {
 				component={Dashboard}
 			/>
 
-			{/* private routes */}
-
-			<Route
+			{/* <Route
 				// exact
-				path="/dashboard"
-				component={Dashboard}
-			/>
+				path="/messages"
+				component={Messages}
+			/> */}
 
 			{/* <Route
                 // exact
@@ -76,7 +74,13 @@ export const Routes = () => {
 
 			<Route path="/browse" component={Browse} />
 
-			<Route exact path="/studentapplicationform" render={() => <StudentApplicationForm />} />
+			<Route path="/browse-all" component={BrowseAll} />
+
+			<Route
+				exact
+				path="/project/:name/studentapplicationform"
+				render={props => <StudentApplicationForm {...props} />}
+			/>
 		</BrowserRouter>
 	);
 };

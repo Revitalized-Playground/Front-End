@@ -6,7 +6,7 @@ import  { FaArrowLeft } from "react-icons/fa";
 import Droppy from "../../../components/PhotoUpload/Droppy";
 
 
-const Form3 = ({ setProjectDetails, projectDetails, difficulty, duration, goalAmount, amountFunded, handleChanges, submitForm, setFormPosition, images }) => {
+const Form3 = ({ setProjectDetails, projectDetails, difficulty, duration, goalAmount, handleChanges, submitForm, setFormPosition, images }) => {
 
     const [error, 
         setError
@@ -49,7 +49,7 @@ const Form3 = ({ setProjectDetails, projectDetails, difficulty, duration, goalAm
                 value={goalAmount === 0 ? '' : goalAmount}
                 onChange={e => {handleChanges(e); checker(e)}}
             />
-            {!error && <p className='errorText'>Please make sure to enter a correct price</p>}
+            {!error && <p className='errorText'>Please make sure to enter a correct amount</p>}
             <h4>Project Difficulty Level</h4>
             <select
                 required

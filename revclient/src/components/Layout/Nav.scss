@@ -167,14 +167,18 @@ nav {
 			}
 			button {
 				@include buttonStyler($chillFi-purple, $snow-white, none, auto 10px auto 0);
-				font-size: 2.4rem;
-				height: 60px;
-				width: 200px;
+				font-size: 2.2rem;
+				width: 160px;
+				padding: 11px 14px;
 				vertical-align: center;
 				@include subtleBoxShadow;
 				@media #{$tablet} {
 					display: none;
 				}
+			}
+			.create-project-button {
+				margin-right: 55px;
+				transform: scale(0.95);
 			}
 		}
 

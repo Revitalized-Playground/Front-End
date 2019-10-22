@@ -1,15 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
+import { Tween, Timeline } from 'react-gsap';
+
+// Components
 import Header from "../DashboardComponents/Header/Header";
 import MainProjectAdmin from "../DashboardComponents/Main/MainProjectAdmin";
-import MainTradesMaster from "../DashboardComponents/Main/MainTradeMaster";
+import MainTradeMaster from "../DashboardComponents/Main/MainTradeMaster";
 import MainStudent from "../DashboardComponents/Main/MainStudent";
-import Donations from "../DashboardComponents/Main/Donations/Donations";
+import MainDonor from "../DashboardComponents/Main/MainDonor";
+import AddTask from "../DashboardComponents/AddTask/AddTask";
+// import Donations from "../DashboardComponents/Main/Donations/Donations";
 
 
 export default function HeaderMainSort(props) {
     const { projectArray, selectedProject, setProject, mainTabs, setMainTabs, dashNavTabState, possibleDashNavTabs } = props;
+    const [ addTaskModal, setAddTaskModal ] = useState({ show: false, selectedProject: null, trade: null });
+
     if (!projectArray) return null;
     let renderedHeaderMain;
+
+    
+    
+        
+    if (addTaskModal.show === true) {
+        return (
+            <AddTask 
+                setAddTaskModal={setAddTaskModal} 
+                addTaskModal={addTaskModal} 
+                selectedProject={addTaskModal.selectedProject} 
+
+                trade={addTaskModal.trade}
+            />
+        )
+    }
+    
 
 
     // Selected tab is PROJECT ADMIN
@@ -21,27 +44,51 @@ export default function HeaderMainSort(props) {
             <React.Fragment key={project.id} >
                 {!selectedProject.id ? ( // If there is no selected project, render all the headers in this view
                     <Header 
-                        key={project.id} 
+                        type={dashNavTabState.selectedDashNavTab}
+                        possibleDashNavTabs={possibleDashNavTabs}
                         project={project} 
                         setProject={setProject}
                         selectedProject={selectedProject}
+                        setAddTaskModal={setAddTaskModal}
                     />
                 ) : project.id === selectedProject.id ? ( // If there is a selected project, only render that header
                     <Header 
-                        key={project.id} 
+                        type={dashNavTabState.selectedDashNavTab}
+                        possibleDashNavTabs={possibleDashNavTabs}
                         project={project} 
                         setProject={setProject}
                         selectedProject={selectedProject}
+                        setAddTaskModal={setAddTaskModal}
                     />
                 ) : null}
                 
                 {project.id === selectedProject.id ? ( // Render the main tab of the selected header
-                    <MainProjectAdmin
-                        project={project}
-                        mainTabs={mainTabs}
-                        selectedMainTab={mainTabs.selectedMainTab}
-                        setMainTabs={setMainTabs}
-                    />
+                    
+                    <Timeline  target={
+                        <div className="tween-container">
+                            <MainProjectAdmin
+                                project={project}
+                                mainTabs={mainTabs}
+                                selectedMainTab={mainTabs.selectedMainTab}
+                                setMainTabs={setMainTabs}
+                                setAddTaskModal={setAddTaskModal}
+                            />
+                        </div>
+                    }>
+                        <Tween 
+                            from={{ 
+                                opacity: 0,
+                                yPercent: -100
+                            }} 
+                            to={{ 
+                                opacity: 1,
+                                yPercent: 0
+                            }}
+                            duration={0.75}
+                            // ease="Back.easeInOut"
+                        />
+                    </Timeline>
+
                 ) : null}
             </React.Fragment>
         ))
@@ -53,31 +100,52 @@ export default function HeaderMainSort(props) {
         
         console.log("Student header main sort array  ", projectArray);
 
-        return renderedHeaderMain = projectArray.map(project => (
-            <React.Fragment key={project.id} >
+        return renderedHeaderMain = projectArray.map(projectObject => (
+            <React.Fragment key={projectObject.id} >
                 {!selectedProject.id ? (
                     <Header 
-                        key={project.id} 
-                        project={project} 
+                        type={dashNavTabState.selectedDashNavTab}
+                        possibleDashNavTabs={possibleDashNavTabs}
+                        project={projectObject.project} 
                         setProject={setProject}
                         selectedProject={selectedProject}
                     />
-                ) : project.id === selectedProject.id ? (
+                ) : projectObject.project.id === selectedProject.id ? (
                     <Header 
-                        key={project.id} 
-                        project={project} 
+                        type={dashNavTabState.selectedDashNavTab}
+                        possibleDashNavTabs={possibleDashNavTabs}
+                        project={projectObject.project} 
                         setProject={setProject}
                         selectedProject={selectedProject}
                     />
                 ) : null}
                 
-                {project.id === selectedProject.id ? (
-                    <MainStudent
-                        project={project}
-                        mainTabs={mainTabs}
-                        selectedMainTab={mainTabs.selectedMainTab}
-                        setMainTabs={setMainTabs}
-                    />
+                {projectObject.project.id === selectedProject.id ? (
+                    
+                    <Timeline  target={
+                        <div className="tween-container">
+                            <MainStudent
+                                project={projectObject.project}
+                                mainTabs={mainTabs}
+                                selectedMainTab={mainTabs.selectedMainTab}
+                                setMainTabs={setMainTabs}
+                            />
+                        </div>
+                    }>
+                        <Tween 
+                            from={{ 
+                                opacity: 0,
+                                yPercent: -100
+                            }} 
+                            to={{ 
+                                opacity: 1,
+                                yPercent: 0
+                            }}
+                            duration={0.75}
+                            // ease="Back.easeInOut"
+                        />
+                    </Timeline>
+                    
                 ) : null}
             </React.Fragment>
         ))
@@ -89,31 +157,56 @@ export default function HeaderMainSort(props) {
 
         // console.log("Trade Master main sort array  ", projectArray);
 
-        return renderedHeaderMain = projectArray.map(project => (
-            <React.Fragment key={project.id} >
+        return renderedHeaderMain = projectArray.map(projectObject => (
+            <React.Fragment key={projectObject.id} >
                 {!selectedProject.id ? (
                     <Header 
-                        key={project.id} 
-                        project={project} 
+                        type={dashNavTabState.selectedDashNavTab}
+                        possibleDashNavTabs={possibleDashNavTabs}
+                        project={projectObject.project} 
                         setProject={setProject}
                         selectedProject={selectedProject}
+                        setAddTaskModal={setAddTaskModal}
                     />
-                ) : project.id === selectedProject.id ? (
+                ) : projectObject.project.id === selectedProject.id ? (
                     <Header 
-                        key={project.id} 
-                        project={project} 
+                        type={dashNavTabState.selectedDashNavTab}
+                        possibleDashNavTabs={possibleDashNavTabs}
+                        project={projectObject.project} 
                         setProject={setProject}
                         selectedProject={selectedProject}
+                        setAddTaskModal={setAddTaskModal}
                     />
                 ) : null}
+                
 
-                {project.id === selectedProject.id ? (
-                    <MainTradesMaster
-                        project={project}
-                        mainTabs={mainTabs}
-                        selectedMainTab={mainTabs.selectedMainTab}
-                        setMainTabs={setMainTabs}
-                    />
+                {projectObject.project.id === selectedProject.id ? (
+
+                    <Timeline target={
+                        <div className="tween-container">
+                            <MainTradeMaster
+                                project={projectObject.project}
+                                mainTabs={mainTabs}
+                                selectedMainTab={mainTabs.selectedMainTab}
+                                setMainTabs={setMainTabs}
+                            />
+                        </div>
+                    }>
+                        <Tween 
+                            from={{ 
+                                opacity: 0,
+                                yPercent: -100
+                            }} 
+                            to={{ 
+                                opacity: 1,
+                                yPercent: 0
+                            }}
+                            duration={0.75}
+                            // ease="Back.easeInOut"
+                        />
+                        </Timeline>
+
+                        
                 ) : null}
             </React.Fragment>
         ))
@@ -122,51 +215,19 @@ export default function HeaderMainSort(props) {
 
     // Selected tab is DONATIONS
     if (dashNavTabState.selectedDashNavTab === possibleDashNavTabs[3]) { 
-
-        // console.log("Donation main sort array  ", projectArray);
-
-        // return renderedHeaderMain = projectArray.map(donation => (
-        //     <React.Fragment key={donation.id} >
-        //         {!selectedProject.id ? (
-        //             <Header 
-        //                 key={project.project.id}
-        //                 project={project.project} 
-        //                 setProject={setProject}
-        //                 selectedProject={selectedProject}
-        //             />
-        //         ) : project.id === selectedProject.id ? (
-        //             <Header 
-        //                 key={project.project.id} 
-        //                 project={project.project} 
-        //                 setProject={setProject}
-        //                 selectedProject={selectedProject}
-        //             />
-        //         ) : null}
-                
-        //         {donation.id === selectedProject.id ? (
-        //             <Donations 
-        //                 donations={project}
-        //                 project={project}
-        //                 mainTabs={mainTabs.donationTabs}
-        //                 defaultTab={mainTabs.donationTabs[0]}
-        //                 setMainTabs={setMainTabs}
-        //             />
-        //         ) : null}
-        //     </React.Fragment>
-        // ))
         return renderedHeaderMain = (
-            <Donations 
+            <MainDonor 
                 donations={projectArray}
-                mainTabs={mainTabs.donationTabs}
-                defaultTab={mainTabs.donationTabs[0]}
+                mainTabs={mainTabs}
                 setMainTabs={setMainTabs}
+                defaultTab={mainTabs.defaultMainTab}
             />
         )
     }
 
     return (
         <>
-            {() => renderedHeaderMain()}
+                {() => renderedHeaderMain()}
         </>
     )
 }

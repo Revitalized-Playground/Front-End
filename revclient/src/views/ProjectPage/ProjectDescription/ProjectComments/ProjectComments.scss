@@ -18,6 +18,7 @@
         }
         button {
             @include buttonStyler($chillFi-purple, $snow-white, 0, 0);
+            padding: 10px;
             border: none;
             cursor: pointer;
         }
@@ -25,6 +26,8 @@
         textarea {
             resize: none;
             margin: 0 10px 0 0;
+            width: 25%;
+            height: 35px;
         }
     }
 

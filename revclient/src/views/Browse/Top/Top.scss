@@ -37,6 +37,16 @@
                 width: 100%;
             }
          
+            a .interest {
+                width: 31%;
+                background-color: $silver-lining;
+                padding: 10px;
+                border-radius: 0 3px 3px 0;
+                @media #{$tablet} {
+                    padding: 15px;
+                }
+            }
+
             .interest {
                 width: 31%;
                 background-color: $silver-lining;

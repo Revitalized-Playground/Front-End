@@ -1,0 +1,116 @@
+
+.top-container.browse-all {
+    width: 100%;
+    margin-top: 100px;
+    letter-spacing: 0.15rem;
+    font-weight: 500;
+    @media #{$mobile} {
+      display: none;
+    }
+    .title {
+        display: flex;
+        flex-wrap: nowrap;
+        font-size: 3.6rem;
+        line-height: 1;
+        @media #{$tablet} {
+            font-size:2.8rem;
+        }
+    }
+    .interests {
+        display: flex;
+        justify-content: space-around;
+        font-size: 1.8rem;
+        line-height: 1;
+        margin: 1.5rem auto 0 auto;
+        padding: 0.5rem 0;
+        width: 98%;
+        @media #{$tablet} {
+            flex-direction:column;
+            font-size: 1.2rem;
+        }
+        
+        .interests-left {
+            width: 49%;
+            display: flex;
+            justify-content: space-around;
+            @media #{$tablet} {
+                width: 100%;
+            }
+         
+            a .interest {
+                width: 31%;
+                background-color: $silver-lining;
+                padding: 10px;
+                border-radius: 0 3px 3px 0;
+                @media #{$tablet} {
+                    padding: 15px;
+                }
+            }
+
+            .interest {
+                width: 31%;
+                background-color: $silver-lining;
+                padding: 10px;
+                border-radius: 0 3px 3px 0;
+                @media #{$tablet} {
+                    padding: 15px;
+                }
+            }
+        
+            .interest.one {
+                border-left: 10px solid $cerulean;
+            }
+            .interest.two {
+                border-left: 10px solid $pikachu;
+            }
+            .interest.three {
+                border-left: 10px solid $erudite-purple;
+            }
+        }
+        .interests-right{
+            width: 49%;
+            display: flex;
+            justify-content: space-around;
+            @media #{$tablet} {
+                padding-top: 20px;
+                width: 100%;
+            }
+            .interest {
+                width: 31%;
+                background-color: $silver-lining;
+                padding: 10px;
+                border-radius: 0 3px 3px 0;
+                @media #{$tablet} {
+                   padding: 15px;
+                }
+            }
+            .interest.four {
+                border-left: 10px solid $luigi;
+            }
+            .interest.five {
+                border-left: 10px solid $ruby-enchantment;
+            }
+            .interest.six {
+                border-left: 10px solid $mutant-turtle;
+            }
+        }
+    }
+}
+
+.dark-mode {
+
+    .topContainer {
+
+        .interests {
+            .interest {
+                background-color: $darkness;
+                color: $static-grey;
+            }
+
+        }
+    }
+
+}
+
+
+

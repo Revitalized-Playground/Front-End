@@ -1,18 +1,33 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import paypal from '../../../assets/ProjectPage/paypal-logo.png'
 import { withRouter } from 'react-router-dom';
-
+import CurrencyInput from 'react-currency-input'
+import { removeCommas } from "../../../helpers/helpers";
 
 import { injectStripe, CardNumberElement, CardExpiryElement, CardCvcElement } from 'react-stripe-elements';
 
+// GQL
 import { useMutation } from '@apollo/react-hooks';
 import { DONATE_TO_PROJECT } from '../../../graphql/mutations';
+import { GET_PROJECT_BY_SLUG } from '../../../graphql/queries/Projects';
 
 
-const DonateModal = ({update, bool, setBool, donateModal, setDonateModal, donateModalBlur, stripe, match}) => {
-    const [amount, setAmount] = useState('$');
-    const [donateToProject] = useMutation(DONATE_TO_PROJECT);
-    const [error, setError] = useState({
+const DonateModal = ({id, update,donateModal, setDonateModal, donateModalBlur, stripe, match}) => {
+    const [amount, setAmount] = useState('');
+    const [success, setSuccess] = useState(false)
+    const [donateToProject, {data}] = useMutation(DONATE_TO_PROJECT, {
+        update(cache, {data: {createProjectDonation}},) {
+            const { projectBySlug } = cache.readQuery({
+                query: GET_PROJECT_BY_SLUG,
+                variables: { slug: match.params.slug }
+            })
+            cache.writeQuery({
+                query: GET_PROJECT_BY_SLUG,
+                data: { projectBySlug: projectBySlug.donations = createProjectDonation.project.donations }
+            })
+        }
+    });
+    const [textError, setError] = useState({
         cardNumber: {
             error: '',
             complete: false,
@@ -30,57 +45,52 @@ const DonateModal = ({update, bool, setBool, donateModal, setDonateModal, donate
         },
         amount: false
     })
-
+    
     const errorChecker = e => {
-        setError({...error, amount: false, [e.elementType]: {blurComplete: false, error: !e.error ? '' : e.error.message, complete: e.complete}})
+        setError({...textError, amount: false, [e.elementType]: {blurComplete: false, error: !e.error ? '' : e.error.message, complete: e.complete}})
     }
 
     const errorSetter = e => {
-        setError({...error, [e.elementType]: {...error[e.elementType], blurComeplete: true}})
+        setError({...textError, [e.elementType]: {...textError[e.elementType], blurComeplete: true}})
     }
 
     const handleChange = e => {
-        const checker = e.target.value.split(' ')[1]
-        if(e.target.value === '$'){return;} 
-        if(isNaN(Number(checker)) === true && e.target.value.length > 2) {return;}
-        if(amount.length < 2 && isNaN(Number(e.target.value)) === true) {return;} 
-        if(amount === '$' || amount==='') {
-            setAmount('$ ' + e.target.value)
-        } else {
-            setAmount(e.target.value)
-        }
-        
+        setAmount(e.target.value)
     }
 
-    const onBlurFunc = e => {
-        if(e.target.value === '$ ') {
-            setAmount('$')
-        }
-    }
     
 	async function handleSubmit(e) {
 		e.preventDefault();
         const { token } = await stripe.createToken({ name: 'Name here' }); 
-        const newAmount = amount.split(' ')[1]
-
-        if(amount.length < 3) {
-            setError({...error, amount: true})
-        } else {
-            update(newAmount)
+        let newAmount = amount
+        newAmount = removeCommas(newAmount)
+        // console.log("newAmount in DonateModal", newAmount);
+        
+        if(newAmount < 0.50) {
+            window.alert('Can\'t donate less than $0.50')
+        } 
+        else {
+            
             donateToProject({
                 variables: {
-                    id: match.params.id,
+                    id: id,
                     data: {
                         token: token.id,
                         amount: parseInt(newAmount, 10),
                     },
                 },
-            });
+            });    
         }
     }
+
+    useEffect(() => {
+        if(data) {
+            setSuccess(true)
+        }
+    }, [data])
+   
     
     return (
-        
         <div onClick={donateModalBlur} className={donateModal ? 'donate-modal' : 'none'}>
             <div className='exit-button'>
                 <div className="button-div">
@@ -91,47 +101,52 @@ const DonateModal = ({update, bool, setBool, donateModal, setDonateModal, donate
                         </div>
                     </div>
                 <div className='inner-donate-modal'>
+                    
                     <h2>$ Amount</h2>
                     <form className='donate-form'>
-                        <input 
-                          placeholder='$ 5.00'
-                          value={amount === '$' ? '' : amount}
-                          onChange={(e) => {handleChange(e); errorChecker(e)}}
-                          onBlur={onBlurFunc}
-                        />
-                        {error.amount && <p className='card-error'>Please Provide a Donation Amount!</p>}
+                        <div className="flex">
+                            <div className="currency" style={{color: amount.length > 0 ? 'black' : null}}>$</div>
+                            <CurrencyInput 
+                                value={amount}
+                                style={{color: amount.length <= 0 ? 'gray' : null}}
+                                onChangeEvent={(e) => {handleChange(e); errorChecker(e)}}
+                            />
+                        </div>
+                        {textError.amount && <p className='card-error'>Please Provide a Donation Amount!</p>}
                     </form>
+                    
                     <div className="mid-line-container">
                         <div className="mid-line"></div>
                         <p>or</p>
                         <div className="mid-line"></div>
                     </div>
                     <div className='donation-suggestions'>
-                        <button onClick={() => setAmount('$ ' + 5)}>$5</button>
-                        <button onClick={() => setAmount('$ ' + 10)}>$10</button>
-                        <button onClick={() => setAmount('$ ' + 20)}>$20</button>
-                        <button onClick={() => setAmount('$ ' + 50)}>$50</button>
-                        <button onClick={() => setAmount('$ ' + 100)}>$100</button>
+                        <button onClick={() => setAmount('5')}>$5</button>
+                        <button onClick={() => setAmount('10')}>$10</button>
+                        <button onClick={() => setAmount('20')}>$20</button>
+                        <button onClick={() => setAmount('50')}>$50</button>
+                        <button onClick={() => setAmount('100')}>$100</button>
                     </div>
                     <p>Card Number</p>
                     <div style={{marginBottom: '40px'}}>
                         <CardNumberElement onChange={errorChecker} onBlur={errorSetter} style={{base:{fontSize: '20px', margin: '40px'}}} className='stripe-card' />
-                        {!error.cardNumber.blurComplete && <p className='card-error'>{error.cardNumber.error}</p>}
+                        {!textError.cardNumber.blurComplete && <p className='card-error'>{textError.cardNumber.error}</p>}
                     </div>
                     <div className='expiration-cvc-container'>
                         <div className='expiration'>
                             <p>Expiration</p>
                             <CardExpiryElement onChange={errorChecker} style={{base:{fontSize: '20px'}}} className='expiration-input' />
-                            {!error.cardExpiry.blurComplete && <p className='card-error'>{error.cardExpiry.error}</p>}
+                            {!textError.cardExpiry.blurComplete && <p className='card-error'>{textError.cardExpiry.error}</p>}
                         </div>
                         <div className='cvc'>
                             <p>CVC</p>
                             <CardCvcElement onChange={errorChecker} style={{base:{fontSize: '20px'}}} className='cvc-input' />
-                            {!error.cardCvc.blurComplete && <p className='card-error'>{error.cardCvc.error}</p>}
+                            {!textError.cardCvc.blurComplete && <p className='card-error'>{textError.cardCvc.error}</p>}
                         </div>
                         
                     </div>
                     <button onClick={handleSubmit} className='submit-donate'>Donate</button>
+                    {success && <p className='donate-success-text'>Successfully Donated!</p>}
                 </div>
             </div>
         </div>

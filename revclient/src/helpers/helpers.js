@@ -23,6 +23,12 @@ export function formatMoney(amount, decimalCount = 2, decimal = ".", thousands =
     }
 };
 
+export function removeCommas(stringNumberWithCommas) {
+    const regex = /,/gi;
+    let removedChar = stringNumberWithCommas.replace(regex, "");
+    return removedChar;
+}
+
 
 
 export function donationCount(num) {
@@ -32,8 +38,10 @@ export function donationCount(num) {
 
 export const addUpDonations = (donationArray) => {
     let totalDonations = 0
-    donationArray.map(donation => totalDonations = totalDonations + donation.amount);
-    return formatMoney(totalDonations);
+    donationArray.forEach(donation => totalDonations = totalDonations + donation.amount);
+    // console.log(totalDonations, formatMoney(totalDonations))
+    return formatMoney(totalDonations); 
+    // return totalDonations;
 }
 
 
@@ -45,9 +53,41 @@ export const calculateDueDate = (startDate, duration) => {
 }
 
 
+export const addWeeksDueDate = (startDate, duration) => {
+    let dueDate = moment(startDate).clone().add(duration, 'week').format();
+    // console.log(dueDate);
+    return dueDate;
+}
+
+
+export const formatDate = (date) => {
+    let prettyDate = moment(date).format("MMMM Do YYYY");
+    // console.log(dueDate);
+    return prettyDate;
+}
+
+export const formatDateSmall = (date) => {
+    let prettyDate = moment(date).format("MMMM Do");
+    // console.log(dueDate);
+    return prettyDate;
+}
+
+
+export const formatDateForDateInput = (date) => {
+    let prettyDate = moment(date).format("YYYY-MM-DD");
+    return prettyDate;
+}
+
+export const formatDateForMutation = (date) => {
+    let prettyDate = moment(date).format();
+    return prettyDate;
+}
+
+
+
 
 export const inLastWeek = (startDate) => {
     let lastWeek = moment(startDate).clone().subtract(1, 'week').format();
-    console.log(lastWeek);
+    // console.log(lastWeek);
     return lastWeek;
 }

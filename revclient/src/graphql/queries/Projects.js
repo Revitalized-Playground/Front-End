@@ -1,5 +1,10 @@
 import gql from 'graphql-tag';
-import { PROJECT_SUMMARY_FRAG, USER_SUMMARY_FRAG, COMMENTS_FRAG } from '../fragments';
+import {
+	PROJECT_SUMMARY_FRAG,
+	USER_SUMMARY_FRAG,
+	COMMENTS_FRAG,
+	TASKS_FRAG,
+} from '../fragments';
 
 export const GET_PROJECTS = gql`
 	query projects {
@@ -8,9 +13,31 @@ export const GET_PROJECTS = gql`
 		}
 	}
 	${USER_SUMMARY_FRAG}
-	${COMMENTS_FRAG}
 	${PROJECT_SUMMARY_FRAG}
 `;
+
+
+export const GET_RECOMMENDED_PROJECTS = gql`
+	query recommendedProjects {
+		recommendedProjects {
+			...ProjectSummary
+		}
+	}
+	${USER_SUMMARY_FRAG}
+	${PROJECT_SUMMARY_FRAG}
+`;
+
+
+export const GET_PROJECTS_NEAR_ME = gql`
+	query projectsNearMe {
+		projectsNearMe {
+			...ProjectSummary
+		}
+	}
+	${USER_SUMMARY_FRAG}
+	${PROJECT_SUMMARY_FRAG}
+`;
+
 
 export const GET_PROJECT_BY_ID = gql`
 	query projectById($id: ID!) {
@@ -19,14 +46,32 @@ export const GET_PROJECT_BY_ID = gql`
 			profile {
 				...UserSummary
 			}
+			trades {
+            	id
+				name
+				description
+        	}
+			tasks {
+				...Tasks
+				apprentices {
+					id
+					profile {
+						...UserSummary
+					}
+				}
+			}
 			comments {
 				...Comments
+				profile {
+					...UserSummary
+				}
 			}
 		}
 	}
 	${USER_SUMMARY_FRAG}
 	${COMMENTS_FRAG}
 	${PROJECT_SUMMARY_FRAG}
+	${TASKS_FRAG}
 `;
 
 
@@ -39,10 +84,21 @@ export const GET_PROJECT_BY_SLUG = gql`
 			}
 			comments {
 				...Comments
+				profile {
+					...UserSummary
+				}
 			}
 		}
 	}
 	${USER_SUMMARY_FRAG}
 	${COMMENTS_FRAG}
 	${PROJECT_SUMMARY_FRAG}
+	${TASKS_FRAG}
 `;
+
+
+// export const GET_TRADES_BY_PROJECT_ID = gql`
+// 	query projectById($id: ID!) {
+
+// 	}
+// `;

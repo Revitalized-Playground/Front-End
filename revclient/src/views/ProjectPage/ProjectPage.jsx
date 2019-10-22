@@ -35,7 +35,8 @@ const ProjectPage = ({ match }) => {
 	const { loading, error, data, refetch } = useQuery(GET_PROJECT_BY_SLUG, {
 		variables: { slug: match.params.slug },
 	});
-	console.log(projectData)
+
+
 	useEffect(() => {
 		data && setProjectData(data.projectBySlug);
 	}, [data]);
@@ -64,14 +65,11 @@ const ProjectPage = ({ match }) => {
 		setBool(!bool);
 		setProjectData({
 			...projectData,
-			project: {
-				...projectData.project,
-				donations: [...projectData.project.donations, { amount }],
-			},
+			donations: [...projectData.donations, {amount} ]
 		});
 	};
 
-	console.log('data in project page', data);
+
 
 	if (error) return <h2>ERROR! Someone call Elan</h2>;
 	if (loading || !data || !projectData) {
@@ -82,14 +80,12 @@ const ProjectPage = ({ match }) => {
 		);
 	}
 
-	console.log(data, 'newproj data', '\n', projectData);
-
 	return (
 		<>
 			<Nav />
 			<div className="project-page-container">
 				<div className="singleProjectVectorContainer">
-					<div className="singleProjectVector">
+					<div className="singleProjectVector" style={{ backgroundImage: `url(${projectData.featuredImage})`}}>
 						<div className="blueSquare">
 							<h1>{projectData.name}</h1>
 							<div className="blueVector"></div>
@@ -103,6 +99,7 @@ const ProjectPage = ({ match }) => {
 							donateModalBlur={donateModalBlur}
 							donateModal={donateModal}
 							setDonateModal={setDonateModal}
+							id={projectData.id}
 						/>
 					</Elements>
 				</StripeProvider>
@@ -122,7 +119,7 @@ const ProjectPage = ({ match }) => {
 						organizer={`${projectData.profile.firstName} ${projectData.profile.lastName}`}
 					/>
 
-					<Donate projectData={projectData} setModal={setModalVal} setDonateModal={setDonateModal} />
+					<Donate applicants={projectData} projectData={projectData} setModal={setModalVal} setDonateModal={setDonateModal} />
 				</div>
 				<div className="detailed-creator">
 					<DetailedDescription
@@ -167,6 +164,8 @@ const ProjectPage = ({ match }) => {
 					setProjectData={setProjectData}
 					id={projectData.id}
 					userId={projectData.profile.id}
+					newBool={setBool}
+					boolState={bool}
 				/>
 			</div>
 			<Footer />
