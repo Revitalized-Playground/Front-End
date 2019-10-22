@@ -29,17 +29,16 @@ const CreateProjectWizard = ({ history }) => {
 		address: '',
 		city: '',
 		state: '',
-		zip: null,
+		zip: '',
 		goalAmount: 0.0,
 		difficulty: '',
 		images: [],
 	});
-	const [formPosition, setFormPosition] = useState(1);
+	const [formPosition, setFormPosition] = useState(2);
 	const [addProject] = useMutation(ADD_PROJECT);
 
 	const handleChanges = event => {
 		if (
-			event.target.name === 'zip' ||
 			event.target.name === 'goalAmount' ||
 			// event.target.name === 'amountFunded' ||
 			event.target.name === 'duration'

@@ -138,6 +138,11 @@
 						border-radius: 3px;
 						align-self: flex-end;
 					}
+					select,
+					option {
+						font-family: 'Roboto';
+					}
+
 					.form-navigation {
 						display: flex;
 						justify-content: space-between;

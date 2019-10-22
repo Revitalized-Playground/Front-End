@@ -3,48 +3,107 @@ import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
 import states from '../../../assets/CreateProjWizard/stateList';
 
-const Form2 = ({ projOwnerName, address, city, state, zip, handleChanges, setFormPosition }) => {
-	const [err, setErr] = useState(true);
+const Form2 = ({ address, city, state, zip, handleChanges, setFormPosition }) => {
+	const [errors, setErrors] = useState({
+		address: false,
+		city: false,
+		state: false,
+		zip: false,
+	});
 
-	const checker = e => {
-		if (e.target.value.length === 5 || e.target.value.length === 0) {
-			setErr(true);
+	const nextStep = e => {
+		e.preventDefault();
+
+		if (!address.length) {
+			setErrors({
+				...errors,
+				address: true,
+			});
+		} else if (!city.length) {
+			setErrors({
+				...errors,
+				city: true,
+			});
+		} else if (!state.length) {
+			setErrors({
+				...errors,
+				state: true,
+			});
+		} else if (!zip.length || zip.length < 5) {
+			setErrors({
+				...errors,
+				zip: true,
+			});
 		} else {
-			setErr(false);
+			setFormPosition(3);
 		}
 	};
 
-	const checker2 = e => {
-		if (e.target.value.length === 5 || e.target.value.length === 0) {
-			setErr(true);
+	const validateInput = e => {
+		if (!e.target.value.length) {
+			setErrors({
+				...errors,
+				[e.target.name]: true,
+			});
+		} else {
+			setErrors({
+				...errors,
+				[e.target.name]: false,
+			});
 		}
 	};
 
 	return (
-		<form onSubmit={() => setFormPosition(3)} className="form-2">
+		<form onSubmit={nextStep} className="form-2">
 			<h4>Street Address</h4>
-			<input required name="address" type="text" className="" value={address} onChange={e => handleChanges(e)} />
+			<input
+				name="address"
+				type="text"
+				className={`proj-street-address ${errors.address && `errorBorder`}`}
+				value={address}
+				onChange={e => {
+					handleChanges(e);
+					validateInput(e);
+				}}
+				placeholder="Address"
+			/>
+			{errors.address && <p className="errorText">Please enter an address</p>}
 
 			<div className="address-details">
 				<div className="address-details-city">
 					<h4>City</h4>
 					<input
-						required
 						name="city"
 						type="text"
-						className="proj-city"
+						className={`proj-city ${errors.city && `errorBorder`}`}
 						value={city}
-						onChange={e => handleChanges(e)}
+						onChange={e => {
+							handleChanges(e);
+							validateInput(e);
+						}}
+						placeholder="City"
 					/>
+					{errors.city && <p className="errorText">Please enter a city</p>}
 				</div>
 
 				<div className="address-details-state">
 					<h4>State</h4>
-					<select required onChange={event => handleChanges(event)} name="state">
+					<select
+						className={`${errors.state && `errorBorder`}`}
+						onChange={e => {
+							handleChanges(e);
+							validateInput(e);
+						}}
+						name="state"
+					>
 						{states.map((eachState, i) => {
 							if (i === 0) {
 								if (state) {
-									return <option selected>{state}</option>;
+									return (
+										<option className="default-selected" selected>
+											{state}
+										</option>
+									);
 								} else {
 									return <option selected disabled>{`State`}</option>;
 								}
@@ -53,24 +112,23 @@ const Form2 = ({ projOwnerName, address, city, state, zip, handleChanges, setFor
 							return <option>{eachState}</option>;
 						})}
 					</select>
+					{errors.state && <p className="errorText">Please select a state</p>}
 				</div>
 			</div>
 			<div className="address-details-zip">
 				<h4>Zip Code</h4>
 				<input
-					required
-					min="10000"
 					name="zip"
 					type="number"
-					className="proj-zip"
-					value={zip === 0 ? '' : zip}
+					className={`proj-zip ${errors.zip && `errorBorder`}`}
+					value={zip}
 					onChange={e => {
 						handleChanges(e);
-						checker2(e);
+						validateInput(e);
 					}}
-					onBlur={e => checker(e)}
+					placeholder="Zip"
 				/>
-				{!err && <p className="errorText">Malformed</p>}
+				{errors.zip && <p className="errorText">Please enter a valid zip code</p>}
 			</div>
 			<div className="form-navigation">
 				<button type="submit" className="next-step">
