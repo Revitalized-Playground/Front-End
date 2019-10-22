@@ -10,8 +10,10 @@ import small from '../../assets/StudentApplicationWizard/small.svg'
 
 import { useQuery, useMutation } from '@apollo/react-hooks';
 import { GET_PROJECT_BY_SLUG } from '../../graphql/queries/Projects'
-import { APPLY_TO_PROJECT } from '../../graphql/mutations/Project'
+
 import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner';
+
+import {withRouter} from 'react-router-dom'
 
 import Nav from '../../components/Layout/Nav'
 
@@ -19,6 +21,7 @@ const ApplicationForm = (props) => {
     const [chosenTrade, setChosenTrade] = useState(false)
     const [step, setStep] = useState(1)
     const [obj, setObj] = useState({})
+    const [animation, setAnimation] = useState(false)
     const [errorHandle, setErrorHandle] = useState({
         trade: false,
         coverLetter: false,
@@ -27,11 +30,9 @@ const ApplicationForm = (props) => {
         availability: false
     })
 
-    const {loading, error, data} = useQuery(GET_PROJECT_BY_SLUG, {
+    const {loading, error, data, refetch} = useQuery(GET_PROJECT_BY_SLUG, {
         variables: {slug: props.match.params.name}
     })
-    const [apply] = useMutation(APPLY_TO_PROJECT)
-
 
 
     useEffect(() => {
@@ -50,11 +51,7 @@ const ApplicationForm = (props) => {
     }, [data])
 
 
-    const submit = async () => {
-        const applied = await apply({variables: {data: obj}})
-
-        console.log('applied',applied)
-    }
+  
     
 
 
@@ -65,6 +62,14 @@ const ApplicationForm = (props) => {
 				<LoadingSpinner />
 			</>
 		);
+    } else if(animation) {
+        return <lottie-player
+                    autoplay
+                    mode="normal"
+                    src="https://assets8.lottiefiles.com/datafiles/OivQWebdu3tdxIt/data.json"
+                    style={{position: 'fixed', margin: '0 auto', left: '0', top: '0', width: '100%', height: '100vh'}}
+                >
+        </lottie-player>
     }
     return(
 
@@ -96,7 +101,7 @@ const ApplicationForm = (props) => {
                     <Step2 setStep={setStep} obj={obj} setObj={setObj} errorHandle={errorHandle} setErrorHandle={setErrorHandle} />
                     : step === 3
                     ?
-                    <Step3 setStep={setStep} obj={obj} setObj={setObj} submit={submit} errorHandle={errorHandle} setErrorHandle={setErrorHandle} />
+                    <Step3  refetch={refetch} setAnimation={setAnimation} setStep={setStep} obj={obj} setObj={setObj} errorHandle={errorHandle} setErrorHandle={setErrorHandle} />
                     :
                     null
                     }
@@ -107,4 +112,4 @@ const ApplicationForm = (props) => {
     )
 }
 
-export default ApplicationForm
+export default withRouter(ApplicationForm)
