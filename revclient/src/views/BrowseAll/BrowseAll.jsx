@@ -7,6 +7,7 @@ import Top from './Top/Top';
 import ProjectCard from './ProjectCard/ProjectCard';
 import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner';
 
+
 // Graphql
 import { useQuery } from '@apollo/react-hooks';
 import { GET_PROJECTS } from '../../graphql/queries';
@@ -19,7 +20,7 @@ const BrowseAll = () => {
 		data && setProjectState({ projects: data.projects });
 	}, [data]);
 
-	if (loading) return <LoadingSpinner />;
+	if (loading) return <LoadingSpinner />
 	if (error) return <h3>error</h3>;
 
 	return (
