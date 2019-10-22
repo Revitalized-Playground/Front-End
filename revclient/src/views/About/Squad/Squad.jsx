@@ -73,7 +73,7 @@ const Squad = () => {
 			github: 'https://github.com/JoseMarioDev',
 			linkedIn: 'https://www.linkedin.com/in/josemariodev/',
 			twitter: 'https://twitter.com/josemariodev',
-			site: 'https://josemariodev.github.io/',
+			site: 'https://www.josemario.dev/',
 		},
 		{
 			name: 'Elan Riznis',
@@ -119,7 +119,7 @@ const Squad = () => {
 			image: `${clark}`,
 			background: '#0051be',
 			bio:
-				'Clark is a  Front-End Web Developer  24 from Lehi, Utah and loves code. Clark loves sports and history. Clark strongly believes that code can be used to improve lives for people.',
+				'Clark is a  Front-End Web Developer from Lehi, Utah and loves code. Clark loves sports and history. Clark strongly believes that code can be used to improve lives for people.',
 			github: 'https://github.com/Cwill14',
 			linkedIn: 'https://www.linkedin.com/in/clark-williams14/',
 			twitter: 'https://twitter.com/clarktwilliams',
