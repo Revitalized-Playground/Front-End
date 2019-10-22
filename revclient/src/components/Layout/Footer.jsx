@@ -33,7 +33,7 @@ export default function Footer() {
 			</div>
 			
 			<div className="bottom-footer">
-				<div className="copyright">Revitalize</div>
+				<div className="copyright">ReVitalize</div>
 				<i>&copy;2019 All Rights Reserved</i>
 			</div>
 
