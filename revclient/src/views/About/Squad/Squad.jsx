@@ -1,7 +1,7 @@
 import React from 'react';
 
 // images
-import kerry from '../../../assets/AboutPage/kerry-photo.png';
+import kerry from '../../../assets/AboutPage/kerry.png';
 import alex from '../../../assets/AboutPage/alex.png';
 import clark from '../../../assets/AboutPage/clark.png';
 import frank from '../../../assets/AboutPage/frank.png';
@@ -11,6 +11,7 @@ import ruth from '../../../assets/AboutPage/ruth.png';
 import skyelar from '../../../assets/AboutPage/skyelar.png';
 import anthony from '../../../assets/AboutPage/anthony.png';
 import elan from '../../../assets/AboutPage/elan.png';
+import theia from '../../../assets/AboutPage/theia.png';
 
 const Squad = () => {
 	const squad = [
@@ -20,7 +21,7 @@ const Squad = () => {
 			image: `${anthony}`,
 			background: '#ffb588',
 			bio:
-				'Anthony is a team lead, product manager, and full-stack developer from Detroit, MI. Anthony loves playing the piano and has a strong love for philanthropy( hence why Revitalize was created). Anthony strongly believes that everyone should be on an even playing field when it comes to everything in life and wants to empower/inspire people.',
+				'Anthony is a team lead, product manager, and full-stack developer from Detroit, MI. Anthony strongly believes that everyone should be on an even playing field when it comes to everything in life and wants to empower/inspire people.',
 			github: 'https://github.com/adventurini',
 			linkedIn: 'https://www.linkedin.com/in/adventurini/',
 			twitter: 'https://twitter.com/adventurini',
@@ -128,7 +129,7 @@ const Squad = () => {
 			name: 'Frank Martinez',
 			role: 'Full Stack Developer',
 			image: `${frank}`,
-			background: '#82c7b3',
+			background: '#007ea7',
 			bio:
 				'Frank is a Full-Stack Developer from Kelseyville, California and loves code. When not creating awesome projects, Frank likes to play the drums and Magic the Gathering.  He also enjoys a good cup of coffee over morning contemplation. ',
 			github: 'https://github.com/LeTanque',
@@ -137,11 +138,12 @@ const Squad = () => {
 			site: '',
 		},
 		{
-			name: ' ',
-			role: '',
-			image: ``,
-			background: '#007ea7',
-			bio: '',
+			name: 'Theia ',
+			role: 'Our "Go To"',
+			image: `${theia}`,
+			background: '#82c7b3',
+			bio:
+				'Theia was always there for the team providing emotional support.  She loves walks in the park, belly rubs, and of course, treats!',
 			github: '',
 			linkedIn: '',
 			twitter: '',
@@ -168,7 +170,7 @@ const Squad = () => {
 				<div className="squad">
 					{squad.map((person, index) => (
 						<div className={`person index${index}`} style={{ backgroundColor: `${person.background}` }}>
-							{index !== 10 && index !== 11 ? (
+							{index !== 11 ? (
 								<>
 									<h2 className="name"> {person.name}</h2>
 									<h3 className="role"> {person.role}</h3>

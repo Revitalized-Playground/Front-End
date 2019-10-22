@@ -65,11 +65,11 @@
 				'omar          skyelar      clark'
 				'omar          skyelar      clark'
 				' .            skyelar      clark'
-				'blank1           .          clark'
-				'blank1         frank        .  '
-				'blank1        frank      blank2'
-				'blank1        frank      blank2'
-				'  .           frank     blank2'
+				'frank           .          clark'
+				'frank       theia        .  '
+				'frank        theia      blank2'
+				'frank       theia       blank2'
+				'  .         theia       blank2'
 				'  .             .         blank2';
 
 			@media #{$tablet} {
@@ -99,7 +99,11 @@
 					'  elan       clark'
 					'  elan       clark'
 					'  elan       clark'
-					'    .        clark';
+					'    .        clark'
+					'  theia           .'
+					'  theia           .'
+					'  theia           .'
+					'  theia           .';
 			}
 			@media #{$mobile} {
 				display: flex;
@@ -234,13 +238,13 @@
 			grid-area: frank;
 		}
 		.index10 {
-			grid-area: blank1;
-			@media #{$tablet} {
-				display: none;
-			}
-			@media #{$mobile} {
-				display: none;
-			}
+			grid-area: theia;
+			// @media #{$tablet} {
+			// 	display: none;
+			// }
+			// @media #{$mobile} {
+			// 	display: none;
+			// }
 		}
 		.index11 {
 			grid-area: blank2;
