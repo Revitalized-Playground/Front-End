@@ -39,7 +39,7 @@ const Login = props => {
 			password: "",
 		})
 		localStorage.setItem("token", created.data.loginUser.token);
-		props.history.push("/");
+		props.history.push("/browse");
 	};
 
 	const goBack = () => {
