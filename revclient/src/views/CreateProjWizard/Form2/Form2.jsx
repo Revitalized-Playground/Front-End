@@ -29,7 +29,7 @@ const Form2 = ({ address, city, state, zip, handleChanges, setFormPosition }) =>
 				...errors,
 				state: true,
 			});
-		} else if (!zip.length || zip.length < 5) {
+		} else if (!zip.length || zip.length !== 5) {
 			setErrors({
 				...errors,
 				zip: true,
