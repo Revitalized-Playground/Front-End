@@ -53,11 +53,14 @@ const CarouselCard = props => {
 		return (
 			<section className="carousel-card-inner __recommended">
 				<div className="carousel-card-image">
-					{props.liked 
+					{localStorage.getItem('token')
 						?
-						<FaHeart fill="#d2405b" onClick={toggleLiked}/>
-						:
-						<FaRegHeart onClick={toggleLiked}/>
+						props.liked 
+							?
+							<FaHeart fill="#d2405b" onClick={toggleLiked}/>
+							:
+							<FaRegHeart onClick={toggleLiked}/>
+						: null
 					}
 					<img src={card.featuredImage} alt={card.name} />
 					<div className="after"></div>
