@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Nav from '../../components/Layout/Nav';
-import Footer from "../../components/Layout/Footer";
+import Footer from '../../components/Layout/Footer';
 
 import Top from './Top/Top';
 import Spotlight from './Spotlight/Spotlight';
@@ -11,23 +11,22 @@ import CreateProject from './CreateProject/CreateProject';
 import Noteworthy from './Noteworthy/Noteworthy';
 import Hire from './Hire/Hire';
 
-
 const Start = () => {
-    return (
-        <>
-            <Nav />
-                <div className="browse-container">
-                    <Top />
-                    <Spotlight />
-                    <RecommendedProjects />
-                    <NearYou />
-                    <CreateProject />
-                    <Noteworthy />
-                    <Hire />
-                </div>
-            <Footer />
-        </>
-    );
+	return (
+		<>
+			<Nav />
+			<div className="browse-container">
+				<Top />
+				<Spotlight />
+				<RecommendedProjects />
+				<CreateProject />
+				<NearYou />
+				<Noteworthy />
+				<Hire />
+			</div>
+			<Footer />
+		</>
+	);
 };
 
 export default Start;
