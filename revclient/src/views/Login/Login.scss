@@ -68,7 +68,9 @@
 				.errorText {
 					color: red;
 				}
-
+				.error-msg {
+					color: red;
+				}
 				.errorBorder {
 					color: red;
 					border-radius: 5px;
@@ -92,6 +94,12 @@
 					text-decoration: underline;
 					font-style: italic;
 					cursor: pointer;
+				}
+				.login-email {
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+					margin: 30px 0 5px 0;
 				}
 				.login-pass {
 					display: flex;

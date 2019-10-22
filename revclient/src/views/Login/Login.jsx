@@ -22,7 +22,8 @@ const Login = props => {
 		password: "",
 		errors: {
 			email: false,
-			password: false
+			password: false,
+			invalidCreds: false
 		}
 	});
 
@@ -78,20 +79,28 @@ const Login = props => {
 	const handleSubmit = async event => {
 		event.preventDefault();
 		localStorage.setItem("token", "");
+		let created = null
 		await client.resetStore();
-		console.log("store resest")
-		const created = await loginUser({ variables: { data: { email: state.email, password: state.password } } });
-		setState({
-			email: "",
-			password: "",
-			errors: {
-				email: false,
-				password: false
-			}
-		})
-		console.log(created);
-		localStorage.setItem("token", created.data.loginUser.token);
-		props.history.push("/browse");
+		loginUser({ variables: { data: { email: state.email, password: state.password } } })
+			.then(res => {
+				created = res;
+				setState({
+					email: "",
+					password: "",
+					errors: {
+						email: false,
+						password: false
+					}
+				})
+				console.log(created);
+				localStorage.setItem("token", created.data.loginUser.token);
+				props.history.push("/browse");
+			})
+			.catch(() => {
+				setState({ ...state, errors: { ...state.errors, invalidCreds: true } })
+			})
+
+
 	};
 
 	const goBack = () => {
@@ -132,32 +141,33 @@ const Login = props => {
 							<div className="login-line"></div>
 						</div>
 						<form className="login-local" onSubmit={e => handleSubmit(e)}>
-							<p className="login-title">Email</p>
+							<div className="login-email">
+								<p className="login-title">Email</p>
+								{state.errors.invalidCreds && <p className="error-msg">Invalid Input/s</p>}
+							</div>
 							<input
 								name='email'
 								type='email'
 								required
 								placeholder="Email..."
-								className={`${state.errors.email && `errorBorder`}`}
+								className={`${state.errors.email || state.errors.invalidCreds && `errorBorder`}`}
 								value={state.email}
 								onChange={e => {
-									// handleChanges(e);
 									validateInput(e);
 								}}
 							/>
 							<div className="login-pass">
 								<p className="">Password</p>
-								{/* <span className="">Forgot Password?</span> */}
+								{state.errors.invalidCreds && <p className="error-msg">Invalid Input/s</p>}
 							</div>
 							<input
 								name="password"
 								type="password"
 								placeholder="Password..."
 								required
-								className={`${state.errors.password && `errorBorder`}`}
+								className={`${state.errors.password || state.errors.invalidCreds && `errorBorder`}`}
 								value={state.password}
 								onChange={e => {
-									// handleChanges(e);
 									validateInput(e)
 								}}
 							/>
