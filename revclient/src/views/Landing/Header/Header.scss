@@ -277,9 +277,9 @@
 				}
 			}
 
-			.crowdFunding:hover .toolTip,
-			.opportunities:hover .toolTip,
-			.pathways:hover .toolTip {
+			.crowdFunding > p:hover .toolTip,
+			.opportunities > p:hover .toolTip,
+			.pathways > p:hover .toolTip {
 				cursor: pointer;
 				display: block;
 			}

@@ -64,21 +64,27 @@ const Header = () => {
 						<h3>Crowdfunding platform</h3>
 						{/* <a href="/">Learn More</a> */}
 						<a href="/">Learn More</a>
-						<p className="toolTip">Crowdfunding platform</p>
+						<p className="toolTip">
+							Raise money for projects in your community using our crowdfunding platform
+						</p>
 					</div>
 
 					<div className="opportunities">
 						<img src={opportunitiesImg} alt="opportunities" />
 						<h3>Apprenticeship opportunities</h3>
 						<a href="/">Learn More</a>
-						<p className="toolTip">Apprenticeship opportunities</p>
+						<p className="toolTip">
+							Find apprentice opportunities in your community using our local database
+						</p>
 					</div>
 
 					<div className="pathways">
 						<img src={pathwaysImg} alt="trade pathways" />
 						<h3>Trade License Pathways</h3>
 						<a href="/">Learn More</a>
-						<p className="toolTip">License Pathways</p>
+						<p className="toolTip">
+							Learn trades from top trades professionals and earn your trade license
+						</p>
 					</div>
 				</div>
 			</div>
