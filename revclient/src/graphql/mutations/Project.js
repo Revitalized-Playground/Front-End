@@ -35,6 +35,7 @@ export const ADD_PROJECT = gql`
 		createProject(data: $data) {
 			id
 			slug
+			featuredImage
 			images {
 				id
 				imageUrl
@@ -194,6 +195,7 @@ export const UPDATE_PROJECT_TASK = gql`
 			data: $data
 		) {
 			id
+			completed
 		}
 	}
 `
