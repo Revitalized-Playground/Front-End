@@ -178,7 +178,7 @@ export const UPDATE_PROJECT_TASK = gql`
 		$project: ID!
 		$data: UpdateProjectTask!
 		) {
-		updatedProjectTask(
+		updateProjectTask(
 			id: $id
 			project: $project
 			data: $data

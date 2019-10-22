@@ -80,7 +80,7 @@ const MainTradeMaster = props => {
 					) : null }
 					{project.tasks.map(task => (
 							<div className="list tasks">
-								<Task task={task} tab={mainTabs.selectedMainTab} />
+								<Task task={task} tab={mainTabs.selectedMainTab} mainTabs={mainTabs} project={project}  />
 							</div>
 						))
 					}
