@@ -1,94 +1,106 @@
 .browse-container section.create-project-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    margin: 0 auto;
-    @media #{$tablet-small} {
-        flex-direction: column;
-        margin: 60px 0;
-    }
-    .create-project-image-container {
-        width: 50%;
-        display: flex;
-        justify-content: flex-end;
-        margin: 0 30px 0 0;
-        @media #{$tablet-small} {
-            margin: 0 auto;
-            justify-content: center;
-        }
-        img {
-            @media #{$tablet-small} {
-                padding-bottom: 40px;
-            }
-        }
-    }
-    .right {
-        width: 50%;
-        margin: 0 0 0 30px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        color: $black-void;
-        @media #{$tablet-small} {
-            text-align: center;
-            margin: 0 auto;
-            width: 100%;
-        }
-        .create-project-cta-title {
-            line-height: 1;
-            letter-spacing: 0.015rem;
-            width: 100%;
-            margin-bottom: 15px;
-            // @media #{$tablet} {
-            //     width: 100%;
-            // }
-        }
-        a {
-            width: 100%;
-            max-width: 250px;
-            @media #{$tablet-small} {
-                margin: 0 auto;
-            }
-            button {
-                @include buttonStyler($chillFi-purple, $snow-white, none, 0);
-                width: 100%;
-                font-size: 2.2rem;
-                line-height: 1;
-                letter-spacing: 0.06rem;
-                @media #{$tablet-small}{
-                    font-size: 2rem;
-                    // padding: 15px 30px;
-                }
-                @media #{$mobile}{
-                    font-size: 1.8rem;
-                    // padding: 15px 30px;
-                }
-            }
-        }
-    }
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	margin: 0 auto;
+	@media #{$tablet-small} {
+		flex-direction: column;
+		margin: 60px 0;
+	}
+	.create-project-image-container {
+		width: 50%;
+		display: flex;
+		justify-content: flex-end;
+		margin: 0 30px 0 0;
+		@media #{$tablet-small} {
+			margin: 0 auto;
+			justify-content: center;
+		}
+		img {
+			width: 50%;
+			@media #{$tablet} {
+				width: 60%;
+			}
+			@media #{$tablet-small} {
+				width: 80%;
+				padding-bottom: 40px;
+			}
+			@media #{$mobile} {
+				width: 100%;
+				padding-bottom: 40px;
+			}
+		}
+	}
+	.right {
+		// outline: 1px solid blue;
+		padding-top: 5.1%;
+		width: 50%;
+		margin: 0 0 0 30px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		color: $black-void;
+
+		@media #{$tablet-small} {
+			text-align: center;
+			margin: 0 auto;
+			width: 100%;
+		}
+		.create-project-cta-title {
+			font-size: 3.2rem;
+			line-height: 1.1;
+			letter-spacing: 0.015rem;
+			width: 100%;
+			margin-bottom: 5rem;
+			// @media #{$tablet} {
+			//     width: 100%;
+			// }
+		}
+		a {
+			width: 100%;
+			max-width: 250px;
+			@media #{$tablet-small} {
+				margin: 0 auto;
+			}
+			button {
+				@include buttonStyler($chillFi-purple, $snow-white, none, 0);
+				width: 80%;
+				font-size: 2.1rem;
+				line-height: 1;
+				letter-spacing: 0.06rem;
+				@media #{$tablet-small} {
+					font-size: 2rem;
+					// padding: 15px 30px;
+				}
+				@media #{$mobile} {
+					font-size: 1.8rem;
+					// padding: 15px 30px;
+				}
+			}
+		}
+	}
 }
 
 .dark-mode {
-    .browse-container section.create-project-container {
-        background-color: unset;
-        .right {
-            margin: 5% unset;
-            .create-project-cta-title {
-                color: $snow-white;
-            }
-            p {
-                color: $snow-white;
-                margin-bottom: 5%;
-            }
-            button {
-                @include buttonStyler($maastricht-blue, $snow-white, none, 0);
-                width: 100%;
-                font-size: 2.2rem;
-                line-height: 1;
-                letter-spacing: 0.06rem;
-            }
-        }
-    }
+	.browse-container section.create-project-container {
+		background-color: unset;
+		.right {
+			margin: 5% unset;
+			.create-project-cta-title {
+				color: $snow-white;
+			}
+			p {
+				color: $snow-white;
+				margin-bottom: 5%;
+			}
+			button {
+				@include buttonStyler($maastricht-blue, $snow-white, none, 0);
+				width: 100%;
+				font-size: 2.2rem;
+				line-height: 1;
+				letter-spacing: 0.06rem;
+			}
+		}
+	}
 }
-

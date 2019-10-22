@@ -78,7 +78,7 @@ export default function HeaderMainSort(props) {
                         <Tween 
                             from={{ 
                                 opacity: 0,
-                                yPercent: -100
+                                yPercent: -30
                             }} 
                             to={{ 
                                 opacity: 1,
@@ -135,7 +135,7 @@ export default function HeaderMainSort(props) {
                         <Tween 
                             from={{ 
                                 opacity: 0,
-                                yPercent: -100
+                                yPercent: -30
                             }} 
                             to={{ 
                                 opacity: 1,
@@ -195,7 +195,7 @@ export default function HeaderMainSort(props) {
                         <Tween 
                             from={{ 
                                 opacity: 0,
-                                yPercent: -100
+                                yPercent: -30
                             }} 
                             to={{ 
                                 opacity: 1,
