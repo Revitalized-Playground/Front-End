@@ -1,62 +1,47 @@
-import React from 'react'
-import styled from 'styled-components';
-import { Link, withRouter } from 'react-router-dom';
-import { formatMoney, donationCount } from "../../../../helpers/formatMoney";
+import React, {useState, useEffect} from 'react';
+import { withRouter, Link } from 'react-router-dom';
+import { formatMoney, addUpDonations, donationCount } from "../../../../helpers/helpers";
+import ProgressBar from "../../../../components/ProgressBar/ProgressBar";
+import { useQuery } from "@apollo/react-hooks";
+import { GET_USER } from "../../../../graphql/queries/Users";
 
+const Donate = props => {
+    const raised = addUpDonations(props.projectData.donations);
+    const budget = formatMoney(props.projectData.goalAmount);
+    const budgetProgressBar = props.projectData.goalAmount;
+    const totalDonations = donationCount(props.projectData.donations.length);
+    const totalNumberOfDonations = props.projectData.donations ? totalDonations : 0;
+    const [applicationStatus, setApplicationStatus] = useState('notApplied')
 
-const Donate = ({raised, budget, projectData, setModal, match}) => {
-    const percent = Number(raised) / Number(budget) * 100
-    const Box = styled.div`
-        height: 12px;
-        border-radius: 50px;
-        filter: brightness(${percent < 50 ?percent / 100 * 3 : percent >= 100 ? 4 : percent / 100 * 2});
-        transition: 1s ease;
-        @keyframes pulse {
-            0% {
-                width: 0;
-                background: #0B096F;
-            }
-            100% {
-                width: ${raised > budget ? 100 : percent}%;
-            }
-        };
-
-        width: ${raised > budget ? 100 : percent}%;
-        
-        @keyframes progress-bar-stripes {
-            from  { background-position: 40px 0; }
-            to    { background-position: 0 0; }
-        };
-
-        ${percent < 100 ? `background-image: -webkit-linear-gradient(45deg, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
-        background-image: -o-linear-gradient(45deg, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
-        background-image: linear-gradient(45deg, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
-        background-size: 40px 40px;`
-        :
-        `background-size: 40px 40px;`}
-
-        animation: ${percent >= 100 ? '1s ease-out pulse;' : '1s ease-out pulse, progress-bar-stripes 1s linear infinite;'};
-    `
-
-    const totalNumberOfDonations = projectData.project.donations ? donationCount(projectData.project.donations.length) : 0;
+    const { client, loading, error, data } = useQuery(GET_USER);
+    
+    useEffect(() => {
+        if(props.projectData.applicants && data) {
+            props.projectData.applicants.map(eachApplicant => {
+                if(eachApplicant.profile.id === data.me.id) {
+                    setApplicationStatus(eachApplicant.status)
+                }
+            })
+        }
+    }, [props.projectData.applicants, data])
 
     return (
         <div className='donateContainer'>
             <div className='donateInnerDiv'>
                 <p className='donationMoney'>
-                    <span className='large'>${formatMoney(raised)}</span>
-                    <span className='small'>raised out of ${formatMoney(budget)}</span>
+                    <span className='large'>${raised}</span>
+                    <span className='small'>raised out of ${budget}</span>
                 </p>
                 <div className='progress-bar'>
-                    <Box />
+                    <ProgressBar progress={raised} startingPoint={budgetProgressBar} />
                 </div>
                 <p className='donatorCount'>{totalNumberOfDonations}</p>
                 <p className='donorText'>{`${totalNumberOfDonations === 1 ? "Donor" : "Donors"}`}</p>
                 <div className='donationButtons'>
-                    <Link to={`/project/donate/${match.params.id}`}>
-                        <button className="purple">Donate now</button>
-                    </Link>
-                    <button className='white' onClick={() => setModal(true)}>Share</button>
+                    {/* <Link to={`/project/donate/${match.params.id}`}> */}
+                    <button className="purple" onClick={()=> props.setDonateModal(true)}>Donate now</button>
+                    {/* </Link> */}
+                    <button className='white' onClick={() => props.setModal(true)}>Share</button>
                 </div>
                 <div className="mid-line-container">
 					<div className="mid-line"></div>
@@ -64,7 +49,19 @@ const Donate = ({raised, budget, projectData, setModal, match}) => {
 					<div className="mid-line"></div>
 				</div>
                 <div className='apply-button'>
-                    <button >Apply to Project</button>
+                    {applicationStatus.toLowerCase() === 'pending' 
+                    ?
+                    <button style={{cursor: 'default'}} disabled={true}>Application Pending...</button>
+                    :
+                    applicationStatus.toLowerCase() === 'accepted' 
+                    ?
+                    <button style={{cursor: 'default'}} disabled={true}>Accepted!</button>
+                    :
+                    <Link to={`/project/${props.match.params.slug}/studentapplicationform`}>
+                        <button >Apply to Project</button>
+                    </Link>  
+                    }
+                    
                 </div>
                 <p className='lastText'>Partner with growing donors who are eager to see the transformation and economical growth of Detroit.</p>
             </div>

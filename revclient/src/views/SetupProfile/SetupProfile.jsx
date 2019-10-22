@@ -20,6 +20,7 @@ const SetupProfile = props => {
         lastName: "",
         // email: props.email ? props.email : "",
         email: "",
+        // phone: "",
         address: "",
         aptNumber: "",
         city: "",
@@ -65,9 +66,8 @@ const SetupProfile = props => {
     
     if (loading) return <h1>Loading</h1>
     if (!localStorage.getItem("token")) props.history.push("/");
-    if (data) console.log(data, profileData);
-
-    // console.log(props)
+    // if (data) console.log(data, profileData);
+    console.log(data, profileData);
 
     return (
         <>
@@ -133,6 +133,13 @@ const SetupProfile = props => {
                                         value={profileData.email}
                                         onChange={handleChanges}
                                     />
+                                    {/* <input 
+                                        name="phone"
+                                        type="number"
+                                        placeholder="Phone"
+                                        value={profileData.phone}
+                                        onChange={handleChanges}
+                                    /> */}
                                     {props.destination === "settings" ? null : (
                                         <div className="setup-profile-button-container">
                                             <button onClick={formForward}>Next</button>

@@ -1,0 +1,43 @@
+
+section.dash-nav.section {
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+    width: 100%;
+    box-shadow: none;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 0px;
+    z-index: 6;
+    position: relative;
+    .tab {
+        color: $static-grey;
+        padding: 10px 60px;
+        @media #{$tablet} {
+            padding: 10px 30px;
+        }
+    }
+    .tab.unavailable-tab {
+        &:hover {
+            cursor: none;
+        }
+    }
+    .tab.active-tab {
+        color: $mirage;
+        background-color: $snow-white;
+        border-bottom: 1px solid $snow-white;
+        box-shadow: 0px -5px 23px -21px black;
+    }
+}
+
+
+.dark-mode {
+    section.dashboard-dash-nav.section {
+        .tab {
+            color: $snow-white;
+        }
+        .active-tab {
+            color: $black-void;
+        }
+    }
+}

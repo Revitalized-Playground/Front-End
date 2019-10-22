@@ -1,0 +1,335 @@
+
+
+
+// .section.dashboard-header {}
+
+
+.dashboard .dashboard-body .dashboard-header.section {
+	width: 100%;
+	display: flex;
+	margin-bottom: 10px;
+	.dashboard-section-inner-container.show-more {
+		border: none;
+	}
+	.dashboard-section-inner-container {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		span {
+			margin-right: 50px;
+		}
+		.header-top {
+			display: flex;
+			justify-content: space-between;
+			margin-bottom: 16px;
+			.header-status {
+				display: flex;
+				flex-direction: row;
+				justify-content: flex-start;
+				align-items: flex-start;
+				.project-status {
+					background-color: $franks-grey;
+					color: $mirage;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					padding: 0 20px;
+					height: 40px;
+					border-radius: 5px;
+					font-size: 1.8rem;
+					margin-right: 10px;
+				}
+				.project-status.started {
+					color: $live-fg;
+					background-color: $live-bg;
+				}
+				.project-status.not-started {
+					color: $notlive-fg;
+					background-color: $notlive-bg;
+				}
+			}
+			.project-settings {
+				color: $static-grey;
+				display: flex;
+				align-items: center;
+				justify-content: right;
+				font-size: 1.8rem;
+				margin: 0 0 auto 0;
+				.project-settings-dropdown {
+					@include subtleBoxShadow;
+					color: $bleached-black;
+					background-color: $snow-white;
+					position: absolute;
+					transform: translate(-205px, 30px);
+					width: 200px;
+					padding: 10px;
+					display: flex;
+					justify-content: center;
+					align-items: flex-start;
+					flex-direction: column;
+					.project-settings-dropdown-option {
+						display: flex;
+						justify-content: left;
+						align-items: center;
+						text-align: left;
+						margin: 10px 0;
+						padding: 10px 5px;
+						cursor: pointer;
+					}
+					.project-settings-dropdown-option.delete {
+						svg {
+							color: $ruby-enchantment;
+						}
+					}
+				}
+			}
+		}
+	
+		.add-tasks {
+			display: flex;
+			justify-content: flex-end;
+			align-items: center;
+			margin-right: 2rem;
+	
+			svg {
+				height: 35px;
+				width: 35px;
+				color: $chillFi-purple;
+				cursor: pointer;
+				&:hover {
+					transform: translate(0px, 2px);
+					color: lighten($chillFi-purple, 25%);
+					transition-duration: 0.3s;
+				}
+				&:active {
+					transform: translate(0px, 7px);
+					color: lighten($chillFi-purple, 25%);
+					transition-duration: 0.5s;
+				}
+			}
+	
+			.add-task-title {
+				margin-right: 1rem;
+				font-size: 1.6rem;
+				color: $mirage;
+			}
+			.add-task-button {
+				font-size: 2.8rem;
+				color: $chillFi-purple;
+			}
+	
+			img {
+				width: 80%;
+				&:hover {
+					cursor: pointer;
+				}
+			}
+		}
+		.header-top-right {
+			display: flex;
+		}
+	
+		.header-middle {
+			display: flex;
+			flex-direction: column;
+			.header-middle-geo {
+				color: $mirage;
+				font-size: 1.6rem;
+			}
+			.header-middle-title {
+				color: $machiavellian;
+				font-size: 3.2rem;
+				margin-bottom: 16px;
+	
+				svg {
+					color: $chillFi-purple;
+					font-size: 1rem;
+					margin-left: -1rem;
+				}
+			}
+			.header-middle-description {
+				color: $mirage;
+				font-size: 2rem;
+				max-width: 970px;
+				width: 100%;
+				line-height: 1.34;
+				letter-spacing: normal;
+				margin-bottom: 40px;
+			}
+		}
+	
+		.header-bottom {
+			display: flex;
+			justify-content: space-between;
+			.bottom-left {
+				display: flex;
+				justify-content: flex-start;
+				// width: 75%;
+				.due-date {
+					background-color: $franks-grey;
+					color: $machiavellian;
+					font-size: 1.8rem;
+					display: flex;
+					justify-content: left;
+					align-items: center;
+					border-radius: 5px;
+					margin-right: 40px;
+					padding: 10px 15px;
+				}
+			}
+			.bottom-icons {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				.manage-project-button-container {
+					display: flex;
+					flex-direction: column;
+					justify-content: center;
+					align-items: center;
+					margin-bottom: -15px;
+					&:active {
+						transform: translate(0px, 7px);
+						opacity: 0.15;
+						transition-duration: 0.2s;
+					}
+					.bottom-button {
+						cursor: pointer;
+						&:hover {
+							color: lighten($chillFi-purple, 25%);
+							transition-duration: 0.5s;
+						}
+					}
+					.bottom-button.manage, .bottom-button.close {
+						color: $mirage;
+						font-size: 1.2rem;
+						font-family: "Roboto";
+						text-transform: uppercase;
+						padding-top: 10px;
+						line-height: 1;
+						
+					}
+					.bottom-button.arrow {
+						font-size: 3rem;
+						color: $chillFi-purple;
+						margin-top: -1px;
+						&:hover {
+							transform: translate(0px, 2px);
+							color: lighten($chillFi-purple, 25%);
+							transition-duration: 0.5s;
+						}
+						// &:active {
+						// 	// transform: translate(0px, 7px);
+						// 	// opacity: 0.1;
+						// 	// transition-duration: 0.2s;
+						// }
+					}
+				}
+			}
+			.team-members {
+				display: flex;
+				align-items: center;
+				width: 25%;
+				min-width: 250px;
+				.member-icons {
+					display: flex;
+					justify-content: flex-end;
+					width: 100%;
+					.dashboard-picture-icons {
+						border-radius: 100%;
+					}
+					p {
+						color: $machiavellian;
+						font-size: 1.6rem;
+						line-height: 1.55;
+						letter-spacing: 0.96px;
+						width: 100%;
+						text-align: right;
+						margin: auto 16px auto 0;
+					}
+					.count {
+						font-size: 1.8rem;
+						margin: auto 5px;
+					}
+				}
+			}
+		}
+	}
+}
+
+.header-bottom-seemore {
+	font-size: 3.4rem;
+	color: $static-grey;
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+	margin-bottom: 10px;
+	margin-top: -5px;
+	svg {
+		&:hover {
+			color: $mirage;
+			transition-duration: 0.75s;
+		}
+		&:active {
+			margin-bottom: -10px;
+			transition-duration: 0.2s;
+		}
+	}
+	// button {
+	// 	margin: 1rem;
+	// }
+}
+
+.dark-mode {
+	.dashboard .dashboard-body .dashboard-header.section {
+		.header-top {
+			.project-status.started {
+				color: $live-fg;
+				background-color: rgba($live-bg, 0.5);
+			}
+			.project-status.not-started {
+				color: $notlive-fg;
+				background-color: rgba($notlive-bg, 0.5);
+			}
+		}
+
+		.add-tasks {
+			.create-task-button {
+				color: $snow-white;
+			}
+		}
+		.header-middle {
+			.header-middle-geo {
+				color: $static-grey;
+			}
+			.header-middle-title {
+				color: $snow-white;
+			}
+			h2,
+			h3,
+			.header-middle-description {
+				color: $snow-white;
+			}
+		}
+		.header-bottom {
+			.bottom-left {
+				.due-date {
+					background-color: $bleached-black;
+					color: $static-grey;
+				}
+				.bottom-icons {
+					color: $maastricht-blue;
+				}
+			}
+			.team-members {
+				p {
+					color: $snow-white;
+				}
+				.member-icons {
+					.count {
+						color: $snow-white;
+					}
+				}
+			}
+		}
+	}
+}

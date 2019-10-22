@@ -1,0 +1,16 @@
+.start-date {
+	max-width: 200px;
+}
+
+.form-1 {
+	&-field {
+		width: 100%;
+		margin-bottom: 30px;
+
+		input,
+		textarea,
+		select {
+			width: 95%;
+		}
+	}
+}

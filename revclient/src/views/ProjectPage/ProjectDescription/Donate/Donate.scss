@@ -1,244 +1,270 @@
 .donateContainer {
-    position: sticky;
-    top: 500px;
-    max-width: 685px;
-    box-shadow: 0px 0px 8px #EEEDEF;
-    margin: 0 0 auto auto;
-    @media #{$mobile} {
-        margin: 0;
-    }
-    .donateInnerDiv {
-        max-width: 630px;
-        margin-left: 48px;
-
-        .mid-line-container {
-            max-width: 515px;
+	position: sticky;
+	top: 500px;
+	max-width: 800px;
+	// box-shadow: 0px 0px 8px #eeedef;
+	@include subtleBoxShadow;
+	margin: 0 0 auto auto;
+	@media #{$tablet} {
+		position: unset;
+		margin: 0 10% 0 10%;
+		max-width: 800px;
+	}
+	@media #{$mobile} {
+		margin: 0;
+	}
+	.donateInnerDiv {
+		max-width: 1200px;
+		margin-left: 48px;
+		@media #{$tablet} {
+			margin: auto;
+			padding: 0 10% 0 10%;
+			margin: 0 15px;
+		}
+		.mid-line-container {
+			max-width: 515px;
 			display: flex;
 			justify-content: space-between;
-            align-items: center;
+			align-items: center;
 
+			p {
+				font-size: 1.8rem;
+				line-height: 212.81%;
+				letter-spacing: 0.06em;
+				color: $mirage;
+				margin-top: -5px;
+				opacity: 0.5;
+			}
 
-            p {
-                font-size: 1.8rem;
-                line-height: 212.81%;
-                letter-spacing: 0.06em;
-                color: rgba(48, 48, 48, 0.3);
-                margin-top: -5px;
-                opacity: 0.5
-            }
+			.mid-line {
+				border: 1px solid $mirage;
+				transform: rotate(180deg);
+				height: 1px;
+				width: 45%;
+				opacity: 0.3;
+				border-radius: 10px;
+			}
 
-            .mid-line {
-                border: 1px solid rgba(0, 0, 0, 0.3);
-                transform: rotate(180deg);
-                height: 1px;
-                width: 45%;
-                opacity: 0.3;
-                border-radius: 10px;
-            }
+			@media #{$mobile} {
+				width: 93%;
+			}
+		}
 
-            @media #{$mobile} {
-                width: 93%;
-            }
-        }
+		.apply-button {
+			max-width: 515px;
+			margin-bottom: 44px;
+			@media #{$tablet} {
+				width: 93%;
+				margin-bottom: 20px;
+			}
+			@media #{$mobile} {
+				width: 93%;
+				margin-bottom: 20px;
+			}
 
-        .apply-button {
-            max-width: 515px;
-            margin-bottom: 44px;
+			button {
+				font-family: 'futura-pt';
+				font-size: 1.8rem;
+				line-height: 32px;
+				font-family: futura-pt;
+				background: $chillFi-purple;
+				border-radius: 5px;
+				color: $snow-white;
+				letter-spacing: 0.06em;
+				margin: 40px 0 24px 0;
+				border: none;
+				cursor: pointer;
+				width: 100%;
+				padding: 25px 0;
+				@media #{$tablet} {
+					padding: 15px 0;
+					margin: 18px 0 13px 0;
+					font-size: 1.7rem;
+					line-height: 24px;
+					margin-bottom: 30px;
+				}
+				@media #{$mobile} {
+					padding: 15px 0;
+					margin: 18px 0 13px 0;
+					font-size: 1.7rem;
+					line-height: 24px;
+					margin-bottom: 30px;
+				}
+			}
+		}
+		@media #{$tablet} {
+			margin: 0 3% 0 3%;
+		}
+		@media #{$mobile} {
+			margin-left: 5.5%;
+		}
 
+		.donationMoney {
+			margin-bottom: 30px;
+			margin-top: 40px;
+			@media #{$mobile} {
+				width: 90%;
+				margin-top: 17px;
+				margin-bottom: 23px;
+			}
+		}
+		p {
+			color: $erudite-purple;
+			.large {
+				line-height: 4.5rem;
+				font-size: 5.2rem;
+				letter-spacing: 0.06em;
+				margin-right: 20px;
 
-            @media #{$mobile} {
-                width: 93%;
-                margin-bottom: 20px;
-            }
+				@media #{$mobile} {
+					font-size: 2.7rem;
+					line-height: 154.81%;
+					margin-right: 3px;
+					width: 90%;
+				}
+			}
 
-            button {
-                font-family: "futura-pt";
-                font-size: 1.8rem;
-                line-height: 32px;
-                font-family: futura-pt;
-                background:  #285FD7;;
-                border-radius: 5px;
-                color: #FFFFFF;
-                letter-spacing: 0.06em;
-                margin:40px 0 24px 0;
-                border: none;
-                cursor: pointer;
-                width: 100%;
-                padding: 25px 0;
+			.small {
+				font-size: 2.2rem;
 
-                @media #{$mobile} {
-                    padding: 15px 0;
-                    margin: 18px 0 13px 0;
-                    font-size: 1.7rem;
-                    line-height: 24px;
-                    margin-bottom: 30px;
-                }
-            }
+				@media #{$mobile} {
+					font-size: 1.6rem;
+					line-height: 100%;
+				}
+			}
+		}
 
+		.progress-bar {
+			max-width: 515px;
+			height: 14px;
+			background: $elans-grey;
+			border-radius: 50px;
+			margin-bottom: 16px;
+			border: 1px solid $snow-white;
+			@media #{$mobile} {
+				width: 93%;
+				margin-bottom: 10px;
+			}
+		}
 
-        }
-        @media #{$mobile} {
-            margin-left: 5.5%;;
-        }
+		.donatorCount {
+			letter-spacing: 0.06em;
+			line-height: 32px;
+			font-size: 2.7rem;
+			margin-bottom: 6px;
+			@media #{$mobile} {
+				font-size: 1.7rem;
+				line-height: 19px;
+			}
+		}
 
-        .donationMoney {
-            margin-bottom: 30px;
-            margin-top: 40px;
-            @media #{$mobile} {
-                width: 90%;
-                margin-top: 17px;
-                margin-bottom: 23px;
-            }
-        }
-        p {
-            color: #0B096F;
-            .large {
-                line-height: 4.5rem;
-                font-size: 5.2rem;
-                letter-spacing: 0.06em;
-                margin-right: 20px;
+		.donorText {
+			font-size: 2rem;
+			line-height: 24px;
+			letter-spacing: 0.06em;
+			color: $mirage;
 
-                @media #{$mobile} {
-                    font-size: 2.7rem;
-                    line-height: 154.81%;
-                    margin-right: 3px;
-                    width: 90%
-                }
+			@media #{$mobile} {
+				font-size: 1.8rem;
+				line-height: 19px;
+			}
+		}
 
-            }
+		.donationButtons {
+			display: flex;
+			flex-direction: column;
+			max-width: 515px;
+			margin-bottom: 44px;
+			@media #{$mobile} {
+				width: 93%;
+				margin-bottom: 30px;
+			}
 
-            .small {
-                font-size: 2.2rem;
+			.purple {
+				font-family: 'futura-pt';
+				font-size: 1.8rem;
+				line-height: 32px;
+				background: $chillFi-purple;
+				padding: 25px 0;
+				font-family: futura-pt;
+				border-radius: 5px;
+				color: $snow-white;
+				letter-spacing: 0.06em;
+				margin: 40px 0 24px 0;
+				border: none;
+				cursor: pointer;
+				width: 100%;
 
-                @media #{$mobile} {
-                    font-size: 1.6rem;
-                    line-height: 100%;
-                    width: 90%
-                }
-            }
-        }
+				@media #{$mobile} {
+					padding: 15px 0;
+					margin: 18px 0 13px 0;
+					font-size: 1.8rem;
+					line-height: 24px;
+				}
+			}
 
-        .progress-bar {
-            max-width: 515px;
-            height: 14px;
-            background: $elans-grey;
-            border-radius: 50px;
-            margin-bottom: 16px;
-            border: 1px solid $snow-white;
-            @media #{$mobile} {
-                width: 93%;
-                margin-bottom: 10px;
-            }
-            div {
-                background-color: $erudite-purple;
-            }
-        }
+			.white {
+				font-family: 'futura-pt';
+				font-size: 1.8rem;
+				line-height: 32px;
+				background: $snow-white;
+				font-family: futura-pt;
+				padding: 25px 0;
+				border-radius: 5px;
+				color: $chillFi-purple;
+				letter-spacing: 0.06em;
+				border: 1.2px solid $chillFi-purple;
+				cursor: pointer;
 
-        .donatorCount {
-            letter-spacing: 0.06em;
-            line-height: 32px;
-            font-size: 2.7rem;
-            margin-bottom: 6px;
-            @media #{$mobile} {
-                font-size: 1.7rem;
-                line-height: 19px;
-            }
-        }
+				@media #{$mobile} {
+					padding: 15px 0;
+					font-size: 1.7rem;
+					line-height: 24px;
+				}
+			}
+		}
 
-        .donorText {
-            font-size: 2rem;
-            line-height: 24px;
-            letter-spacing: 0.06em;
-            color: #969696;
+		.lastText {
+			max-width: 585px;
+			font-size: 2rem;
+			line-height: 27px;
+			letter-spacing: 0.06em;
+			margin-bottom: 40px;
 
-            @media #{$mobile} {
-                font-size: 1.7rem;
-                line-height: 19px;
-            }
-        }
-
-
-        .donationButtons {
-            display: flex;
-            flex-direction: column;
-            max-width: 515px;
-            margin-bottom: 44px;
-            @media #{$mobile} {
-                width: 93%;
-                margin-bottom: 30px;
-            }
-
-            .purple {
-                font-family: "futura-pt";
-                font-size: 1.8rem;
-                line-height: 32px;
-                background: #544CBE;
-                padding: 25px 0;
-                font-family: futura-pt;
-                border-radius: 5px;
-                color: #FFFFFF;
-                letter-spacing: 0.06em;
-                margin:40px 0 24px 0;
-                border: none;
-                cursor: pointer;
-                width: 100%;
-
-                @media #{$mobile} {
-                    padding: 15px 0;
-                    margin: 18px 0 13px 0;
-                    font-size: 1.7rem;
-                    line-height: 24px;
-                }
-            }
-
-            .white {
-                font-family: "futura-pt";
-                font-size: 1.8rem;
-                line-height: 32px;
-                background: #FFFFFF;
-                font-family: futura-pt;
-                padding: 25px 0;
-                border-radius: 5px;
-                color: #544CBE;
-                letter-spacing: 0.06em;
-                border: 1.2px solid #544CBE;
-                cursor: pointer;
-
-                @media #{$mobile} {
-                    padding: 15px 0;
-                    font-size: 1.7rem;
-                    line-height: 24px;
-                }
-            }
-        }
-
-        .lastText {
-            max-width: 585px;
-            font-size: 2rem;
-            line-height: 27px;
-            letter-spacing: 0.06em;
-            margin-bottom: 40px;
-
-            @media #{$mobile} {
-                display: none
-            }
-        }
-
-    }
-    .progress-bar {
-        background-color: #2196F3;
-        box-shadow:none;
-        &.text-left{
-            text-align: left;
-        span{
-            margin-left: 10px;
-        }
-    }
-    &.text-right{
-        text-align: right;
-        span{
-            margin-right: 10px;
-        }
-    }
-    }
+			@media #{$mobile} {
+				display: none;
+			}
+		}
+	}
+	.progress-bar {
+		background-color: $cerulean;
+		box-shadow: none;
+		&.text-left {
+			text-align: left;
+			span {
+				margin-left: 10px;
+			}
+		}
+		&.text-right {
+			text-align: right;
+			span {
+				margin-right: 10px;
+			}
+		}
+	}
+}
+.dark-mode {
+	.donateContainer {
+		box-shadow: none;
+		.donateInnerDiv {
+			p {
+				color: $snow-white;
+			}
+			.mid-line-container {
+				p {
+					color: $snow-white;
+				}
+			}
+		}
+	}
 }

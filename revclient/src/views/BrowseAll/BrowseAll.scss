@@ -1,0 +1,51 @@
+@import './ProjectCard/ProjectCard.scss';
+@import "./Top/Top.scss";
+
+.browse-all-container {
+    width: 100%;
+    max-width: 1500px; // You want to cap the container size at 1920 or smaller so that content doesn't go crazy wide. -fm
+    margin: 0 auto;
+    padding: 0 35px;
+    section {
+        margin: 40px auto;
+    }
+    .browse-all-project-card-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        grid-gap: 1rem;
+    }
+    .browse-all-project-card-container > section {
+        // padding: 1.5rem;
+        border-radius: 5px;
+    }
+}
+
+.dark-mode {
+    .browse-all-container {
+        color: $snow-white;
+    }
+}
+
+
+// .grid {
+//     display: grid;
+//     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+//     grid-gap: 1rem;
+//   }
+//   .grid > div {
+//     background: #EDE7F6;
+//     padding: 1.5rem;
+//     border-radius: 1rem;
+//   }
+//   body {
+//     margin: 1rem;
+//     font: 12px system-ui;
+//   }
+
+//   .grid {
+//     display: grid;
+//     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+//     grid-template-rows: auto;
+//     grid-template-areas: 
+//         "project-card project-card project-card project-card";
+//   }

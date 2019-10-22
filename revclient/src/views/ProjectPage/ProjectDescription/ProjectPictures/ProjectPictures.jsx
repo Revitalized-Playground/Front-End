@@ -106,7 +106,8 @@ const ProjectPictures = ({ projectPhotos, carouselVal, carVal }) => {
 	if (view > 500) {
 		return (
 			<div className="projectPictureContainer-desktop">
-				<p className="p">Project Photos</p>
+				<h2>Project Photos</h2>
+				{/* <p className="p">Project Photos</p> */}
 
 				<div onClick={carVal} className={carouselVal? 'carousel-large-project' : 'carousel-small-project'}>
 					<Slider {...settings}>
@@ -131,7 +132,7 @@ const ProjectPictures = ({ projectPhotos, carouselVal, carVal }) => {
 	} else {
 		return (
 			<div className="projectPictureContainer">
-				<p className="p">Project Photos</p>
+				<h2>Project Photos</h2>
 
 				<div className="projectImgCarousel" onTouchStart={tchStart} onTouchMove={tchMove} onTouchEnd={tchEnd}>
 					{projectPhotos.map((each, index) => (

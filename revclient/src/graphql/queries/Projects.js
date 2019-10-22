@@ -1,64 +1,104 @@
 import gql from 'graphql-tag';
+import {
+	PROJECT_SUMMARY_FRAG,
+	USER_SUMMARY_FRAG,
+	COMMENTS_FRAG,
+	TASKS_FRAG,
+} from '../fragments';
 
 export const GET_PROJECTS = gql`
 	query projects {
 		projects {
-			id
-			name
-			description
-			address
-			state
-			zip
-			city
-			goalAmount
-			amountFunded
+			...ProjectSummary
 		}
 	}
+	${USER_SUMMARY_FRAG}
+	${PROJECT_SUMMARY_FRAG}
 `;
 
-export const GET_PROJECT = gql`
-	query project($id: ID!) {
-		project(id: $id) {
-			id
-			name
-			startDate
-			description
-			address
-			state
-			zip
-			city
-			goalAmount
-			amountFunded
-			featuredImage
-			difficulty
-			duration
-			donations {
-				id
-				amount
+
+export const GET_RECOMMENDED_PROJECTS = gql`
+	query recommendedProjects {
+		recommendedProjects {
+			...ProjectSummary
+		}
+	}
+	${USER_SUMMARY_FRAG}
+	${PROJECT_SUMMARY_FRAG}
+`;
+
+
+export const GET_PROJECTS_NEAR_ME = gql`
+	query projectsNearMe {
+		projectsNearMe {
+			...ProjectSummary
+		}
+	}
+	${USER_SUMMARY_FRAG}
+	${PROJECT_SUMMARY_FRAG}
+`;
+
+
+export const GET_PROJECT_BY_ID = gql`
+	query projectById($id: ID!) {
+		projectById(id: $id) {
+			...ProjectSummary
+			profile {
+				...UserSummary
 			}
-			comments {
-				id
-				comment
-				profile {
+			trades {
+            	id
+				name
+				description
+        	}
+			tasks {
+				...Tasks
+				apprentices {
 					id
-					profileImage
-					firstName
-					lastName
+					profile {
+						...UserSummary
+					}
 				}
 			}
-			profile {
-				id
-				profileImage
-				firstName
-				lastName
-				email
-				state
-				city
-			}
-			images {
-				id
-				imageUrl
+			comments {
+				...Comments
+				profile {
+					...UserSummary
+				}
 			}
 		}
 	}
+	${USER_SUMMARY_FRAG}
+	${COMMENTS_FRAG}
+	${PROJECT_SUMMARY_FRAG}
+	${TASKS_FRAG}
 `;
+
+
+export const GET_PROJECT_BY_SLUG = gql`
+	query projectById($slug: String!) {
+		projectBySlug(slug: $slug) {
+			...ProjectSummary
+			profile {
+				...UserSummary
+			}
+			comments {
+				...Comments
+				profile {
+					...UserSummary
+				}
+			}
+		}
+	}
+	${USER_SUMMARY_FRAG}
+	${COMMENTS_FRAG}
+	${PROJECT_SUMMARY_FRAG}
+	${TASKS_FRAG}
+`;
+
+
+// export const GET_TRADES_BY_PROJECT_ID = gql`
+// 	query projectById($id: ID!) {
+
+// 	}
+// `;

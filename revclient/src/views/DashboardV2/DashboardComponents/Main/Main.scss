@@ -1,0 +1,106 @@
+@import './TabComponent/List.scss';
+@import './TabComponent/Tabs.scss';
+@import "./TasksComponent/Tasks.scss";
+@import "./People/People.scss";
+@import "./Trades/Trades.scss";
+@import "./Analytics/Analytics.scss";
+
+
+
+
+ 
+.dashboard-container .dashboard .tween-container {
+	position: relative;
+	margin: 0;
+	margin-top: -10px;
+	z-index: 0;
+
+	section.dashboard-main.project-admin, 
+	section.dashboard-main.student, 
+	section.dashboard-main.trade-master, 
+	section.dashboard-main.donor {
+		box-shadow: 0px 4px 3px -3px rgba(10, 10, 10, 0.25);
+		width: 100%;
+		background: linear-gradient(to bottom, rgba($silver-lining, 0.40) 4px, rgba($snow-white, 1.42) 10px);
+		position: relative;
+		z-index: 1;
+		.dashboard-section-inner-container {
+			padding-top: 30px;
+			.dashboard-title {
+				width: 100%;
+				display: flex;
+				justify-content: space-between;
+			}
+		
+			hr {
+				margin-top: -3px;
+				// border-top-color: $static-grey;
+			}
+	
+			.dashboard-main-body {
+				line-height: 3;
+				.list {
+					background-color: $snow-white;
+					display: flex;
+					justify-content: space-between;
+					padding: 30px 15px;
+					box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.12);
+					margin: 20px 0;
+					border-radius: 5px;
+				}
+			}
+		}
+	}
+	section.dashboard-main.donor {
+		background: linear-gradient(to bottom, rgba($snow-white, 1.00) 0px, rgba($snow-white, 0.22) 10px);
+	}
+} 
+
+
+
+
+.section.dashboard-main.donation {  // Alternate colors for donations
+	background: linear-gradient(to bottom, rgba($snow-white, 1.00) 0, rgba($snow-white, 0.22) 10px);
+}
+
+
+
+
+.no-content {
+	width: 100%;
+	height: 200px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	p {
+		font-size: 1.8rem;
+	}
+}
+
+
+
+.dark-mode {
+	.dashboard-container .dashboard .tween-container {
+		.dashboard-main {
+			width: 100%;
+		}
+		section.dashboard-main.project-admin, 
+		section.dashboard-main.student, 
+		section.dashboard-main.trade-master, 
+		section.dashboard-main.donor {
+			background: $bleached-black;
+			color: $snow-white;
+			// .dashboard-section-inner-container {
+			// 	background: $bleached-black;
+			// 	color: $snow-white;
+			// }
+			.dashboard-main-body {
+				.list {
+					background-color: $bleached-black;
+					color: $snow-white;
+				}
+			}
+		}
+		
+	}
+}

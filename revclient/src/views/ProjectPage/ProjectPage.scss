@@ -2,14 +2,16 @@
 @import './ProjectDescription/DetailedDescription/DetailedDescription.scss';
 @import './ProjectDescription/ProjectPictures/ProjectPictures.scss';
 @import './ProjectDescription/ProjectComments/ProjectComments.scss';
+@import './Modals/DonateModal.scss';
 
+@import './ProjectDescription//CreatorProfile/CreatorProfile.scss';
 .project-page-container {
 	max-width: 1920px;
 	padding-left: 6.5%;
 	padding-right: 6.5%;
 	margin: 0 auto 3%;
 
-	@media #{$mobile} {
+	@media #{$tablet} {
 		padding-left: 0;
 		padding-right: 0;
 	}
@@ -18,25 +20,29 @@
 		max-width: 1645px;
 
 		.singleProjectVector {
-			background: url('../assets/SingleProjectPage/vector.jpeg');
 			height: 476px;
 			background-position-x: right;
 			background-position-y: center;
 			background-size: 70%;
 			background-repeat: no-repeat;
 
-			@media #{$mobile} {
+			@media #{$tablet} {
 				background-size: 100%;
 				background-size: cover;
 				background-position-x: 25%;
+				height: 400px;
+			}
+			@media #{$tablet-small} {
+				height: 300px;
+			}
+			@media #{$mobile} {
 				height: 200px;
 			}
-
 			.blueSquare {
 				width: 30%;
 				height: 100%;
 				background: #544cbe;
-				@media #{$mobile} {
+				@media #{$tablet} {
 					display: none;
 				}
 				h1 {
@@ -65,11 +71,33 @@
 		display: flex;
 		max-width: 1645px;
 
+		@media #{$tablet} {
+			display: none;
+		}
+		@media #{$tablet-small} {
+			display: none;
+		}
 		@media #{$mobile} {
+			display: none;
+		}
+	}
+	.tablet {
+		display: flex;
+		max-width: 1645px;
+
+		@media #{$desktop} {
+			display: none;
+		}
+		@media #{$tablet} {
+			display: flex;
 			flex-direction: column;
 		}
 	}
-
+	.detailed-creator {
+		@media #{$tablet} {
+			display: none;
+		}
+	}
 	//Modal
 	.none {
 		display: none;

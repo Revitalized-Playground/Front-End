@@ -1,32 +1,39 @@
 
 
-.near-you-section {
-    .carousel-card-inner.__near-you {
-        height: 275px;
-        .carousel-card-image {
-            justify-content: flex-start;
-            .carousel-card-location {
-                position: absolute;
-                color: $snow-white;
-                padding: 10px;
-                font-size: 1.4rem;
+.browse-container .near-you-section {
+    .slider {
+        .carousel-card-inner.__near-you {
+            height: 290px;
+            .carousel-card-image {
+                justify-content: flex-start;
+                .carousel-card-location {
+                    position: absolute;
+                    color: $snow-white;
+                    padding: 10px;
+                    font-size: 1.4rem;
+                }
             }
-        }
-        .carousel-card-body {
-            height: calc(100% - 155px);
-            h5 { 
-                margin: 0 auto;
+            .carousel-card-body {
+                height: calc(100% - 155px);
+                .carousel-card-body-descript {
+                    a {
+                        color: inherit;
+                        h5 {
+                            margin: 0 auto;
+                        }
+                    }
+                }
+                .display-text-group {
+                    font-size: 1.4rem;
+                    margin: 10px auto;
+                }
             }
-            p {
-                font-size: 1.4rem;
-                margin: 10px auto;
+            a {
+                color: $chillFi-purple;
+                display: flex;
+                align-items: flex-end;
+                font-size: 1.6rem;
             }
-        }
-        a {
-            color: $chillFi-purple;
-            display: flex;
-            align-items: flex-end;
-            font-size: 1.6rem;
         }
     }
 }

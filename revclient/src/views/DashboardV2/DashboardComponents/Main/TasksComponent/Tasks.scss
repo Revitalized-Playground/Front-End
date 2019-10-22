@@ -1,0 +1,135 @@
+
+
+.tasks-header {
+	display: flex;
+	justify-content: space-between;
+	font-size: 1.4rem;
+	font-family: "Roboto";
+	text-transform: uppercase;
+	color: $mirage;
+	text-align: left;
+	margin-top: 20px;
+	padding: 0 15px;
+	.icon {
+		width: calc(5% + 40px);
+		min-width: 140px;
+	}
+	.title {
+		width: 30%;
+	} 
+	.details {
+		width: 30%;
+	}
+	.status {
+		width: 35%;
+		text-align: right;
+	}
+}
+
+.dashboard-container .dashboard .tween-container section.dashboard-main.student .dashboard-section-inner-container .dashboard-main-body .list.tasks,
+.dashboard-container .dashboard .tween-container section.dashboard-main.trade-master .dashboard-section-inner-container .dashboard-main-body .list.tasks {
+	padding: 15px 15px 15px 0;
+}
+
+.list.tasks {	
+	.task-card-indicator.left-bg {
+		width: 10px;
+		height: 80px;
+		vertical-align: middle;
+	}
+	.task-card-indicator.left-bg.low-priority {
+		background-color: $silver-lining;
+	}
+	.task-card-indicator.left-bg.medium-priority {
+		background-color: $chillFi-purple;
+	}
+	.task-card-indicator.left-bg.high-priority {
+		background-color: $ruby-enchantment;
+	}
+	.task-card-container {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		margin-left: 20px;
+		.task-body {
+			width: 100%;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			.task-icon {
+				width: 10%;
+				display: flex;
+				justify-content: flex-start;
+				align-items: center;
+				margin-right: 20px;
+				svg {
+					color: $snow-white;
+					background-color: $luigi;
+					padding: 20px;
+					border-radius: 5px;
+					font-size: 4rem;
+				}
+			}
+			.task-detail {
+				display: flex;
+				flex-direction: column;
+				font-size: 1.8rem;
+			}
+			
+			.task-detail.icon {
+				width: 5%;
+				max-width: 140px;
+			}
+
+			.task-detail.title {
+				width: 30%;
+				justify-content: flex-start;
+				text-align: left;
+				p {
+					font-family: "Roboto";
+					font-size: 1.8rem;
+					font-weight: lighter;
+					line-height: 1;
+				}
+			}
+
+			.task-detail.details {
+				width: 30%;
+				justify-content: flex-start;
+				text-align: left;
+				p {
+					font-family: "Roboto";
+					font-size: 1.8rem;
+					font-weight: lighter;
+					line-height: 1;
+				}
+			}
+			
+			.task-detail.status {
+				width: 35%;
+				padding: 0 20px 0 0;
+				justify-content: flex-end;
+				align-items: center;
+				flex-direction: row;
+				.add-task-button {
+					font-size: 3.6rem;
+					color: $chillFi-purple;
+				}
+			}
+		}
+	}
+}
+
+
+
+
+.dark-mode {
+	.task {
+		background-color: $bleached-black;
+		.task-card-container {
+			.task-body {
+				color: inherit;
+			}
+		}
+	}
+}

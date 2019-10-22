@@ -40,6 +40,7 @@ nav {
 		}
 		.logo {
 			display: flex;
+			align-items: center;
 			margin: 20px;
 
 			span {
@@ -51,6 +52,12 @@ nav {
 				font-size: 2.8rem;
 				letter-spacing: 0.09em;
 				color: $chillFi-purple;
+			}
+			.loading-banner {
+				margin-left: 20px;
+				margin-top: 7px;
+				font-size: 1.6rem;
+				color: $static-grey;
 			}
 		}
 	}
@@ -127,12 +134,15 @@ nav {
 					.arrow-up {
 						width: 0; 
 						height: 0; 
-						border-left: 15px solid transparent;
-						border-right: 15px solid transparent;	
+						border-left: 15px solid $chillFi-purple;
+						border-right: 15px solid $chillFi-purple;	
 						border-bottom: 15px solid $chillFi-purple;
+						border-top: 15px solid $chillFi-purple;
 						position: absolute;
-						top: -15px;
-						right: 15px;
+						top: -12px;
+						right: calc(50% - 15px);
+						transform: rotate(45deg);
+						border-radius: 3.5px;
 					}
 					.dropdown-option {
 						margin: 15px 0;
@@ -157,14 +167,18 @@ nav {
 			}
 			button {
 				@include buttonStyler($chillFi-purple, $snow-white, none, auto 10px auto 0);
-				font-size: 2.4rem;
-				height: 60px;
-				width: 200px;
+				font-size: 2.2rem;
+				width: 160px;
+				padding: 11px 14px;
 				vertical-align: center;
 				@include subtleBoxShadow;
 				@media #{$tablet} {
 					display: none;
 				}
+			}
+			.create-project-button {
+				margin-right: 55px;
+				transform: scale(0.95);
 			}
 		}
 
@@ -187,11 +201,11 @@ nav {
 .dark-mode {
 	nav {
 		.logo {
-			// h2 {
-			// 	color: $maastricht-blue;
-			// }
 			span {
 				color: $snow-white;
+			}
+			.loading-banner {
+				color: $mirage;
 			}
 		}
 		ul {
@@ -229,7 +243,10 @@ nav {
 		.right-nav ul .user .dropdown {
 			background-color: $maastricht-blue;
 			.arrow-up {
+				border-left: 15px solid $maastricht-blue;
+				border-right: 15px solid $maastricht-blue;	
 				border-bottom: 15px solid $maastricht-blue;
+				border-top: 15px solid $maastricht-blue;
 			}
 			.dropdown-option {
 				&:hover {

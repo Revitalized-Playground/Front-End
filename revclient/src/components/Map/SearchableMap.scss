@@ -1,12 +1,20 @@
 
 .searchable-map {
     background-color: $erudite-purple;
-    height: 100%; 
     width: 100%;
-    // min-height: 500px;
+    height: 600px; 
     position: relative;
     display: flex;
     flex-direction: column;
+    @media #{$tablet} {
+        height: 500px;
+    }
+    @media #{$tablet-small} {
+        height: 400px;
+    }
+    @media #{$mobile} {
+        height: 300px;
+    }
     .searchable-map-navigation {
         position: absolute;
         right: 20px;

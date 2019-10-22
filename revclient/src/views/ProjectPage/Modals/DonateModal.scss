@@ -1,0 +1,300 @@
+.none {
+    display: none
+}
+
+.donate-modal {
+    position: fixed;
+    display: flex;
+    z-index: 2;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+
+    .flex {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.donate-success-text {
+    color: green;
+    border: 1px solid red;
+    text-align: center;
+    margin-top: 20px;
+}
+.flex .currency {
+    display: flex;
+    align-items: center;
+    font-size: 3.5rem;
+    padding: 0 10px 0 20px;
+    color: #999;
+    border: 1px solid grey;
+    border-right: 0;
+    border-radius: 7px 0 0 7px;
+    background: white;
+}
+
+    .exit-button {
+        background: $snow-white;
+        align-self: center;
+        width: 35%;
+        margin: 0 auto;
+        background: $snow-white;
+        letter-spacing: 0.06em;
+        z-index: 1;
+        border-radius: 5px;
+        max-width: 600px;
+        
+        .button-div {
+			display: flex;
+			flex-direction: row-reverse;
+
+			.button {
+				cursor: pointer;
+				width: 30px;
+				height: 30px;
+			}
+        }
+        
+    
+			.outer {
+				position: relative;
+				width: 40px;
+				margin-top: 5px;
+				cursor: pointer;
+			}
+
+			.inner {
+				width: inherit;
+				text-align: center;
+			}
+
+			label {
+				font-size: 0.8em;
+				line-height: 4em;
+				text-transform: uppercase;
+				color: black;
+				transition: all 0.3s ease-in;
+				opacity: 0;
+				cursor: pointer;
+			}
+
+			.inner:before,
+			.inner:after {
+				position: absolute;
+				content: '';
+				height: 1px;
+				width: inherit;
+				background: red;
+				left: 0;
+				transition: all 0.3s ease-in;
+			}
+
+			.inner:before {
+				top: 50%;
+				transform: rotate(45deg);
+			}
+
+			.inner:after {
+				bottom: 50%;
+				transform: rotate(-45deg);
+			}
+
+			.outer:hover label {
+				opacity: 1;
+			}
+
+			.outer:hover .inner:before,
+			.outer:hover .inner:after {
+				transform: rotate(0);
+			}
+
+			.outer:hover .inner:before {
+				top: 0;
+			}
+
+			.outer:hover .inner:after {
+				bottom: 0;
+			}
+		
+    }
+    .inner-donate-modal {
+        background: $snow-white;
+        align-self: center;
+        width: 85%;
+        margin: 0 auto;
+        background: $snow-white;
+        letter-spacing: 0.06em;
+        z-index: 1;
+        border-radius: 5px;
+        padding: 70px 5%;
+
+        .stripe-card {
+            border: 1px solid gray;
+            border-radius: 5px;
+            padding: 15px 10px;
+            font-size: 2rem;
+            // margin-bottom: 40px;
+            color: green
+        }
+
+        .card-error {
+            color: red;
+            margin-top: 4px;
+            font-size: 1.3rem
+        }
+        
+        p{
+            margin-bottom: 10px
+        }
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px
+        }
+
+        .InputContainer {
+            border: 1px solid red;
+            display: block;
+        }
+
+        .donate-form {
+            width: 100%;
+            margin-bottom: 15px;
+            user-select: none;
+
+            input {                
+                height: 70px;
+                font-size: 3rem;
+                // width: calc(100% - 20px);
+                width: 100%;
+                padding: 10px;
+                user-select: none;
+                border-left: none;
+                border-top-left-radius: 0;
+                border-bottom-left-radius: 0;
+            }
+            input[type=number]::-webkit-inner-spin-button, 
+            input[type=number]::-webkit-outer-spin-button { 
+            -webkit-appearance: none; 
+            margin: 0; 
+            }
+        }
+
+        .expiration-cvc-container {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            input {
+                width: calc(100% - 20px);
+                padding: 10px;
+                font-size: 2rem;
+                margin-bottom: 40px;
+            }
+
+            .expiration {
+                width: 50%;
+
+                .expiration-input {
+                    border: 1px solid gray;
+                    border-radius: 5px;
+                    padding: 15px 10px;
+                }
+            }
+
+            .cvc {
+                width: 35%;
+
+                .cvc-input{
+                    border: 1px solid gray;
+                    border-radius: 5px;
+                    padding: 15px 10px;
+                }
+            } 
+        }
+        .submit-donate {
+            width: 100%;
+            padding: 15px 0;
+            background: #4840BA;
+            color: $snow-white;
+            font-family: 'futura-pt';
+            font-size: 2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 30px
+        }
+
+        .donation-suggestions {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-bottom: 30px;
+
+            button {
+                width: 80px;
+                border: none;
+                background: #4840BA;
+                border-radius: 3px;
+                color: $snow-white;
+                padding: 15px;
+                cursor: pointer;
+                font-size: 1.6rem
+            }
+        }
+
+        .paypal-donate-button {
+            background: #F8BF37;
+            border-radius: 5px;
+            width: 100%;
+            margin-top: 20px;
+            display: flex;
+            height: 50px;
+            justify-content: center;
+            border: none;
+            cursor: pointer;
+            margin-bottom: 40px;
+
+            p{
+                margin-right: 10px
+            }
+            
+            img {
+                width: 100px
+            }
+        }
+
+        .mid-line-container {
+            max-width: 515px;
+			display: flex;
+			justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+
+
+            p {
+                font-size: 1.8rem;
+                line-height: 212.81%;
+                letter-spacing: 0.06em;
+                color: rgba(48, 48, 48, 0.3);
+                opacity: 0.5;
+                margin-bottom: 5px
+            }
+
+            .mid-line {
+                border: 1px solid rgba(0, 0, 0, 0.3);
+                transform: rotate(180deg);
+                height: 1px;
+                width: 45%;
+                opacity: 0.3;
+                border-radius: 10px;
+            }
+
+            @media #{$mobile} {
+                width: 93%;
+            }
+        }
+    }
+}
