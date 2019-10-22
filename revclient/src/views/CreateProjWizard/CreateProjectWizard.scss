@@ -9,163 +9,166 @@
 	// height: 100vh;
 	// min-height: 1000px;
 	background-color: $franks-grey;
-	display: flex;
-	justify-content: center;
-	align-items: center;
 	height: 100%;
 	margin: 0 auto;
-	padding: 20px 0;
 	.errorText {
 		color: red;
 	}
-
-	.form-plus-quote-container {
-		@include cardBoxShadow;
-		background-color: $chillFi-purple;
+	.create-project {		
 		display: flex;
-		justify-content: space-around;
-		width: 100%;
-		height: 100%;
-		max-width: 1200px;
-		position: relative;
-		z-index: 5;
-		@media #{$tablet} {
-			width: 100%;
-			margin-left: unset;
-		}
-
-		q.quote {
+		justify-content: center;
+		align-items: center;
+		padding: 20px 0;
+		.form-plus-quote-container {
+			@include cardBoxShadow;
+			background-color: $chillFi-purple;
 			display: flex;
-			flex-direction: column;
-			align-items: center;
-			text-align: center;
-			width: 35%;
-			padding: 0 60px;
-			white-space: nowrap;
-			h5 {
-				height: auto;
-				margin: auto 0;
-				text-align: center;
-				letter-spacing: 0.06em;
-				color: $elans-grey;
-			}
-			p {
-				height: auto;
-				padding-bottom: 120px;
-				font-size: 1.8rem;
-				color: $elans-grey;
-			}
-			@media #{$tablet} {
-				display: none;
-			}
-		}
-		.ui-section {
-			background-color: $snow-white;
-			width: 65%;
-
+			justify-content: space-around;
+			width: 100%;
+			height: 100%;
+			max-width: 1200px;
+			position: relative;
+			z-index: 5;
 			@media #{$tablet} {
 				width: 100%;
+				margin-left: unset;
 			}
-			@media #{$mobile} {
-				width: 100%;
-			}
-			.title {
-				display: block;
-				margin: 40px auto 40px 8%;
-			}
-			.progress-tracker {
+	
+			q.quote {
 				display: flex;
 				flex-direction: column;
-				justify-content: space-around;
-				min-width: 100%;
-				.tracker {
-					display: flex;
-					justify-content: space-around;
-					width: 50%;
-					margin: 30px auto 45px 8%;
-					.step {
-						border-radius: 5px;
-						background: #ecebf3;
-						width: 32%;
-						height: 10px;
-					}
-					.active {
-						background-color: $chillFi-purple;
-					}
+				align-items: center;
+				text-align: center;
+				width: 35%;
+				padding: 0 60px;
+				white-space: nowrap;
+				h5 {
+					height: auto;
+					margin: auto 0;
+					text-align: center;
+					letter-spacing: 0.06em;
+					color: $elans-grey;
+				}
+				p {
+					height: auto;
+					padding-bottom: 120px;
+					font-size: 1.8rem;
+					color: $elans-grey;
+				}
+				@media #{$tablet} {
+					display: none;
 				}
 			}
-			form {
-				display: flex;
-				flex-direction: column;
-				margin: 0 8% 0 8%;
-				// height: 500px;
+			.ui-section {
+				background-color: $snow-white;
+				width: 65%;
+	
 				@media #{$tablet} {
-					width: 60%;
+					width: 100%;
 				}
 				@media #{$mobile} {
-					width: 80%;
+					width: 100%;
 				}
-				h2 {
-					// margin: 3% auto auto 0;
-
-					height: auto;
-					// font-size: 18px;
-					line-height: 24px;
-					letter-spacing: 0.06em;
+				.title {
+					display: block;
+					margin: 40px auto 40px 8%;
 				}
-				input {
-					border: 1px solid $mirage;
-					margin: 6px 0 6px 0;
-					margin-bottom: 30px;
-
-					&:focus {
-						color: $chillFi-purple;
-						border: 1px solid $chillFi-purple;
+				.progress-tracker {
+					display: flex;
+					flex-direction: column;
+					justify-content: space-around;
+					min-width: 100%;
+					.tracker {
+						display: flex;
+						justify-content: space-around;
+						width: 50%;
+						margin: 30px auto 45px 8%;
+						.step {
+							border-radius: 5px;
+							background: #ecebf3;
+							width: 32%;
+							height: 10px;
+						}
+						.active {
+							background-color: $chillFi-purple;
+						}
 					}
 				}
-				button {
-					@include buttonStyler($chillFi-purple, $snow-white, none);
-					border-radius: 3px;
-					align-self: flex-end;
-				}
-				.form-navigation {
+				form {
 					display: flex;
-					justify-content: space-between;
-					.prev-step {
-						order: -1;
+					flex-direction: column;
+					margin: 0 8% 0 8%;
+					// height: 500px;
+					@media #{$tablet} {
+						width: 60%;
+					}
+					@media #{$mobile} {
+						width: 80%;
+					}
+					h2 {
+						// margin: 3% auto auto 0;
+	
+						height: auto;
+						// font-size: 18px;
+						line-height: 24px;
+						letter-spacing: 0.06em;
+					}
+					input {
+						border: 1px solid $mirage;
+						margin: 6px 0 6px 0;
+						margin-bottom: 30px;
+	
+						&:focus {
+							color: $chillFi-purple;
+							border: 1px solid $chillFi-purple;
+						}
 					}
 					button {
-						width: unset;
+						@include buttonStyler($chillFi-purple, $snow-white, none);
+						border-radius: 3px;
+						align-self: flex-end;
+					}
+					.form-navigation {
 						display: flex;
-						justify-content: center;
-						align-items: center;
+						justify-content: space-between;
+						.prev-step {
+							order: -1;
+						}
+						button {
+							width: unset;
+							display: flex;
+							justify-content: center;
+							align-items: center;
+						}
+						button.submit {
+							background-color: $mutant-turtle;
+						}
 					}
-					button.submit {
-						background-color: $mutant-turtle;
+					.form-navigation.first-step {
+						justify-content: flex-end;
 					}
-				}
-				.form-navigation.first-step {
-					justify-content: flex-end;
-				}
-				.description {
-					height: 11rem;
-				}
-
-				.start-date {
-					font-family: 'futura-pt';
-				}
-				textarea {
-					border: 1px solid $mirage;
-
-					&:focus {
-						color: $chillFi-purple;
-						border: 1px solid $chillFi-purple;
+					.description {
+						height: 11rem;
+					}
+	
+					.start-date {
+						font-family: 'futura-pt';
+					}
+					textarea {
+						border: 1px solid $mirage;
+	
+						&:focus {
+							color: $chillFi-purple;
+							border: 1px solid $chillFi-purple;
+						}
 					}
 				}
 			}
 		}
 	}
 }
+
+
 .dark-mode {
 	.form-plus-quote-container {
 		.ui-section {
