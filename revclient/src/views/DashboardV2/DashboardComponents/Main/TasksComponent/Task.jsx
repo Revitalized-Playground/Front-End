@@ -52,24 +52,23 @@ const Task = props => {
 	return (
 		<>
 
-
 			<div className={`task-card-indicator left-bg ${task.priority.toLowerCase()}-priority`} ></div>
 			<section className="task-card-container">
-                
-                <div className="task-body">
-                    <div className="task-icon">
-                        <FaWrench />
-                    </div>
-                    
+				
+				<div className="task-body">
+					<div className="task-icon">
+						<FaWrench />
+					</div>
+					
 					<div className="task-detail title">
-                        <h3>{task.title}</h3>
+						<h3>{task.title}</h3>
 						<p>{task.description}</p>
-                    </div>
+					</div>
 
-                    <div className="task-detail details">
-                        <p><b>Due Date:</b> {formatDate(task.dueDate)}</p>
-                        <p><b>Estimated Time:</b> {task.budgetHours} hrs.</p>
-                    </div>
+					<div className="task-detail details">
+						<p><b>Due Date:</b> {formatDate(task.dueDate)}</p>
+						<p><b>Estimated Time:</b> {task.budgetHours} hrs.</p>
+					</div>
 					
 					<div className="task-detail status"   >
 
@@ -103,11 +102,11 @@ const Task = props => {
 
 					</div>
 
-                    
-                    
-                </div>
+					
+					
+				</div>
 
-            </section>
+			</section>
 
 		</>
 	);

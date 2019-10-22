@@ -1,9 +1,5 @@
 import gql from 'graphql-tag';
-import { 
-	USER_SUMMARY_FRAG, 
-	TRADES_FRAG, 
-} from '../fragments';
-
+import { USER_SUMMARY_FRAG, TRADES_FRAG } from '../fragments';
 
 export const ADD_COMMENT = gql`
 	mutation($data: CreateProjectCommentInput!) {
@@ -38,10 +34,14 @@ export const ADD_PROJECT = gql`
 	mutation($data: CreateProjectInput!) {
 		createProject(data: $data) {
 			id
+			slug
+			images {
+				id
+				imageUrl
+			}
 		}
 	}
 `;
-
 
 export const DELETE_PROJECT = gql`
 	mutation($id: ID!) {
@@ -50,7 +50,6 @@ export const DELETE_PROJECT = gql`
 		}
 	}
 `;
-
 
 export const DONATE_TO_PROJECT = gql`
 	mutation($id: ID!, $data: CreateProjectDonationInput!) {
@@ -66,7 +65,6 @@ export const DONATE_TO_PROJECT = gql`
 						lastName
 						profileImage
 					}
-
 				}
 			}
 		}
@@ -74,9 +72,9 @@ export const DONATE_TO_PROJECT = gql`
 `;
 
 export const REMOVE_COMMENT = gql`
-    mutation($id: ID!) {
-        deleteProjectComment(id: $id) {
-            id
+	mutation($id: ID!) {
+		deleteProjectComment(id: $id) {
+			id
 			project {
 				name
 				# comments {
@@ -88,16 +86,15 @@ export const REMOVE_COMMENT = gql`
 				# }
 			}
 			comment
-        }
-    }
+		}
+	}
 `;
 
-
 export const EDIT_COMMENT = gql`
-    mutation($data: UpdateProjectCommentInput!) {
-        updateProjectComment(data: $data) {
-            id
-            comment
+	mutation($data: UpdateProjectCommentInput!) {
+		updateProjectComment(data: $data) {
+			id
+			comment
 			project {
 				comments {
 					id
@@ -115,14 +112,13 @@ export const EDIT_COMMENT = gql`
 					}
 				}
 			}
-        }
-    }
+		}
+	}
 `;
 
-
 export const CREATE_PROJECT_TRADE = gql`
-    mutation($data: CreateProjectTrade!) {
-        createProjectTrade(data: $data) {
+	mutation($data: CreateProjectTrade!) {
+		createProjectTrade(data: $data) {
 			id
 			project {
 				id
@@ -134,27 +130,26 @@ export const CREATE_PROJECT_TRADE = gql`
 			}
 			name
 			description
-        }
-    }
+		}
+	}
 `;
 
-
 export const CREATE_PROJECT_TASK = gql`
-    mutation($data: CreateProjectTask!) {
-        createProjectTask(data: $data) {
-            id
-        }
-    }
+	mutation($data: CreateProjectTask!) {
+		createProjectTask(data: $data) {
+			id
+		}
+	}
 `;
 
 export const APPLY_TO_PROJECT = gql`
-	mutation($data: CreateProjectApplicant!){
+	mutation($data: CreateProjectApplicant!) {
 		createProjectApplicant(data: $data) {
 			id
 			status
 		}
 	}
-`
+`;
 
 export const ACCEPT_PROJECT_APPLICANT = gql`
 	mutation($data: AssignProjectApplicant!) {
@@ -162,7 +157,7 @@ export const ACCEPT_PROJECT_APPLICANT = gql`
 			id
 		}
 	}
-`
+`;
 
 export const DECLINE_PROJECT_APPLICANT = gql`
 	mutation($data: AssignProjectApplicant!) {
