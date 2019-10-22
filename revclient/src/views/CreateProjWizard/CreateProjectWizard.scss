@@ -19,6 +19,15 @@
 		color: red;
 	}
 
+	.errorBorder {
+		border: 1px solid red !important;
+		border-radius: 5px;
+
+		&::placeholder {
+			color: red;
+		}
+	}
+
 	.form-plus-quote-container {
 		@include cardBoxShadow;
 		background-color: $chillFi-purple;
@@ -116,7 +125,6 @@
 				input {
 					border: 1px solid $mirage;
 					margin: 6px 0 6px 0;
-					margin-bottom: 30px;
 
 					&:focus {
 						color: $chillFi-purple;

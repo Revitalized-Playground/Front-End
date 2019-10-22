@@ -34,7 +34,7 @@ const CreateProjectWizard = ({ history }) => {
 		difficulty: '',
 		images: [],
 	});
-	const [formPosition, setFormPosition] = useState(2);
+	const [formPosition, setFormPosition] = useState(1);
 	const [addProject] = useMutation(ADD_PROJECT);
 
 	const handleChanges = event => {
@@ -58,8 +58,8 @@ const CreateProjectWizard = ({ history }) => {
 
 	return (
 		<>
+			<Nav />
 			<div className="create-project-container">
-				<Nav />
 				<div className="form-plus-quote-container">
 					<q className="quote">
 						<h5>
