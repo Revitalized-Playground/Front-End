@@ -20,7 +20,7 @@ const Task = props => {
 	const [ updateProjectTask ] = useMutation( UPDATE_PROJECT_TASK );
 
 	const submitSetTaskCompleted = async (status) => {
-		console.log("submit task completed", taskCompleted.completed, status, props);
+		// console.log("submit task completed", taskCompleted.completed, status, props);
 
 		const updated = await updateProjectTask({ 
 			variables: { 
@@ -31,7 +31,7 @@ const Task = props => {
 				}
 			}
 		});
-		console.log(updated)
+		// console.log(updated)
 		if (status === "completed") {
 			setTaskCompleted({ completed: true })
 		}
@@ -75,21 +75,31 @@ const Task = props => {
 
 						<p>Task status</p>
 
-						<select
-							value={taskCompleted.completed ? "COMPLETE" : "INCOMPLETE"}
-							onChange={(event) => {
-								if (event.target.value === "INCOMPLETE") {
-									submitSetTaskCompleted("incomplete")
-								}
-								if (event.target.value === "COMPLETE") {
-									submitSetTaskCompleted("completed")
-								}
-								
-							}}
-						>
-							<option value="INCOMPLETE">Not finished</option>
-							<option value="COMPLETE" className="completed">Completed</option>
-						</select>
+						{taskCompleted.completed ? (
+							<select
+								disabled
+								value="COMPLETE"
+							>
+								<option value="COMPLETE" className="completed">Completed</option>
+							</select>
+						) : (
+							<select
+								value={taskCompleted.completed ? "COMPLETE" : "INCOMPLETE"}
+								onChange={(event) => {
+									if (event.target.value === "INCOMPLETE") {
+										submitSetTaskCompleted("incomplete")
+									}
+									if (event.target.value === "COMPLETE") {
+										submitSetTaskCompleted("completed")
+									}
+									
+								}}
+							>
+								<option value="INCOMPLETE">Not finished</option>
+								<option value="COMPLETE" className="completed">Completed</option>
+							</select>
+						)}
+
 
 					</div>
 
