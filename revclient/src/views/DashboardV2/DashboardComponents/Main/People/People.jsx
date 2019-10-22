@@ -8,7 +8,7 @@ import { useMutation } from '@apollo/react-hooks';
 
 
 const People = props => {
-    const { person, selectedMainTab, mainTabs } = props;
+    const { project, person, selectedMainTab, mainTabs } = props;
 
     const [ verified, setVerified ] = useState(false);
     const [ acceptProjectApplicant ] = useMutation( ACCEPT_PROJECT_APPLICANT );
@@ -25,17 +25,27 @@ const People = props => {
     }, []);
 
 
-    const submitSetStatus = async (event, status) => {
-        event.preventDefault();
-
+    const submitSetStatus = async (status, statusObject) => {
+        setProjectApplicantState({ 
+            ...projectApplicantState,
+            project: project.id,
+            profile: person.profile.id,
+            application: person.id
+        })
         if (status === "ACCEPTED") {
             await acceptProjectApplicant({ variables: { data: {
                 ...projectApplicantState,
+                project: project.id,
+                profile: person.profile.id,
+                application: person.id
             } } });
         }
         if (status === "DECLINED") {
             await declineProjectApplicant({ variables: { data: {
                 ...projectApplicantState,
+                project: project.id,
+                profile: person.profile.id,
+                application: person.id
             } } });
         }
 
@@ -45,10 +55,10 @@ const People = props => {
 
 
     if (selectedMainTab === mainTabs.projectAdminTabs[0]) { // Applicants
-        console.log("this is an applicant")
+        // console.log("this is an applicant")
     }
 
-    console.log("People props", props, projectApplicantState);
+    // console.log("People props", props, projectApplicantState);
 
     return (
         <>
@@ -81,24 +91,27 @@ const People = props => {
                         <p>{person.profile.city}, {person.profile.state} {person.profile.zip}</p>
                     </div>
                 
-                    {selectedMainTab === mainTabs.projectAdminTabs[0] ? (  // If rendering applicants, allow setting status
+                    {selectedMainTab === mainTabs.projectAdminTabs[0] && props.dashNavTabState.selectedDashNavTab === props.possibleDashNavTabs[0] ? (  // If rendering applicants, allow setting status
                         <div className="people-profile assign" >
+                            {person.trade ? (
+                                <h5>Licensed</h5>
+                            ) : null}
                             <p>Application status:</p>
                             {person.status === "PENDING" ? (
                                 <select
                                     value={person.status}
                                     onChange={(event) => {
-                                        setProjectApplicantState({ 
-                                            ...projectApplicantState, 
-                                            profile: person.profile.id, 
-                                            project: person.project.id,
+                                        let statusObject = {
+                                            ...projectApplicantState,
+                                            project: project.id,
+                                            profile: person.profile.id,
                                             application: person.id
-                                        })
+                                        }
                                         if (event.target.value === "ACCEPTED") {
-                                            submitSetStatus("ACCEPTED")
+                                            submitSetStatus("ACCEPTED", statusObject)
                                         }
                                         if (event.target.value === "DECLINED") {
-                                            submitSetStatus("DECLINED")
+                                            submitSetStatus("DECLINED", statusObject)
                                         }
                                     }}
                                 >

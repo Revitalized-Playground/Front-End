@@ -37,8 +37,8 @@ class SearchableMap extends Component {
 	handleViewportChange = viewportObject => {
 		// This keeps view port and geo location in sync?
 		this.setState({
-			viewport: { 
-				...this.state.viewport, 
+			viewport: {
+				...this.state.viewport,
 				...viewportObject,
 			},
 		});
@@ -79,12 +79,12 @@ class SearchableMap extends Component {
 			selectedProject: gpsObject,
 		});
 	};
-	
+
 	mapRef = React.createRef(); // I suspect this ties into the geo locations + map
 
 	render() {
 		const { viewport, selectedProject, searchResultLayer, sampleGpsArray, showPopup } = this.state;
-		
+
 		return (
 			<div className="searchable-map">
 				<ReactMapGL

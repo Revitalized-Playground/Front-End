@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FaHeart, FaRegHeart, FaAngleRight } from 'react-icons/fa';
 import Truncate from 'react-truncate';
@@ -8,27 +8,59 @@ import ProgressBar from '../../../components/ProgressBar/ProgressBar';
 import { formatMoney } from '../../../helpers/formatMoney';
 import { addUpDonations } from '../../../helpers/helpers';
 
+import { CREATE_PROJECT_LIKE, DELETE_PROJECT_LIKE } from '../../../graphql/mutations';
+import { useMutation } from '@apollo/react-hooks';
+
 const CarouselCard = props => {
-	const { card, view } = props;
+	const { card, view, profileId } = props;
 	console.log("card: ", card);
+	// const [liked, setLiked] = useState(false);
+	const [ createProjectLike ] = useMutation( CREATE_PROJECT_LIKE );
+	const [ deleteProjectLike ] = useMutation( DELETE_PROJECT_LIKE );
+	// let likeId = "";
+	// const [likeId, setLikeId] = useState('');
+	const [ likeState, setLikeState ] = useState({
+		liked: false,
+		likeId: ''
+	})
 
-	const toggleLiked = () => {
-		props.setLiked(!props.liked)
-	}
-
-	console.log("card.likes: ", card.likes);
-	// card.likes.forEach(l => console.log("l: ", l))
-	// card.likes.map(l => {
-	// 	l.id === props.profileId
-	// 	? console.log("it's working!")
-	// 	: console.log("aww");
-		
-	// })
-	// if(card.likes.includes(props.profileId)) {
-	// 	console.log("it's working!");
-	// } else {
-	// 	console.log("awww");
-	// }
+	const toggleLiked = async (e, arg) => {
+		console.log("likeState in toggle: ", likeState);
+		e.preventDefault();
+		if (arg === "unlike") {
+			await deleteProjectLike({ variables: { id: likeState.likeId }})
+			setLikeState({
+				...likeState,
+				liked: false
+			})
+		}
+		if (arg === "like") {
+			await createProjectLike({ variables: { id: card.id }})
+			setLikeState({
+				...likeState,
+				liked: true
+			})
+		}
+	};
+	useEffect(() => {  
+		if (view === 'recommended') {
+			card.likes.forEach(l => {
+				console.log("like :", l);
+				l.profile.id === profileId ?
+				setLikeState({
+					liked: true,
+					likeId: l.id
+				})
+				: setLikeState({
+					...likeState,
+					likeId: l.id
+				})
+				// setLiked(true),
+				// setLikeId(l.id)
+				// console.log("likeId: ", likeId);
+			})
+		}
+    }, []);
 
 	if (!card && view === 'recommended') {
 		return (
@@ -50,14 +82,20 @@ const CarouselCard = props => {
 	}
 
 	if (view === 'recommended') {
+		// card.likes.forEach(l => {
+		// 	l.profile.id === profileId && setLiked(true);
+		// })
 		return (
 			<section className="carousel-card-inner __recommended">
 				<div className="carousel-card-image">
-					{props.liked 
+					{localStorage.getItem('token')
 						?
-						<FaHeart fill="#d2405b" onClick={toggleLiked}/>
-						:
-						<FaRegHeart onClick={toggleLiked}/>
+						likeState.liked 
+							?
+							<FaHeart fill="#d2405b" onClick={(e) => toggleLiked(e, "unlike")}/>
+							:
+							<FaRegHeart onClick={(e) => toggleLiked(e, "like")}/>
+						: null
 					}
 					<img src={card.featuredImage} alt={card.name} />
 					<div className="after"></div>

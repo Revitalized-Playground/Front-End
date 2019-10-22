@@ -234,6 +234,7 @@
 			.crowdFunding,
 			.opportunities,
 			.pathways {
+				position: relative;
 				display: inline-block;
 				text-align: center;
 				margin-bottom: 20px;
@@ -243,14 +244,16 @@
 				}
 
 				.toolTip {
+					margin: 0 auto;
 					display: none;
 					position: absolute;
+					width: 20rem;
 					background-color: $franks-grey;
 					z-index: 100;
 					border: 1px solid $black-void;
 					border-radius: 5px;
 					padding: 7.5px 12.5px;
-					margin-left: 25px;
+					margin-left: 13px;
 					cursor: default;
 				}
 
@@ -275,6 +278,10 @@
 						font-size: 17px;
 					}
 				}
+			}
+
+			.opportunities .toolTip {
+				margin-left: 4rem;
 			}
 
 			.crowdFunding:hover .toolTip,

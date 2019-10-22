@@ -2,22 +2,31 @@
 	.slider > .carousel-card-inner.__noteworthy:first-of-type {
 		margin-right: 10px;
 		width: 40%;
+		@media #{$tablet} {
+			width: 50%;
+		}
 		@media #{$tablet-small} {
 			margin-right: 0;
+			width: 100%;
 		}
 	}
 	.slider > .carousel-card-inner.__noteworthy:nth-of-type(2) {
 		margin-left: 10px;
 		width: 60%;
+		@media #{$tablet} {
+			width: 50%;
+		}
 		@media #{$tablet-small} {
+			width: 100%;
 			margin-left: unset;
 			display: none;
 		}
 	}
 	.slider {
 		margin: 10px 0 0 0;
-		padding: 0 10px;
+		padding: 0;
 		width: 100%;
+
 		display: flex;
 		justify-content: space-between;
 		position: relative;

@@ -165,4 +165,39 @@ export const DECLINE_PROJECT_APPLICANT = gql`
 			id
 		}
 	}
+<<<<<<< HEAD
 `;
+=======
+`
+export const CREATE_PROJECT_LIKE = gql `
+	mutation($id: ID!) {
+		createProjectLike(id: $id) {
+			id
+		}
+	}
+`
+
+export const DELETE_PROJECT_LIKE = gql `
+	mutation($id: ID!) {
+		deleteProjectLike(id: $id) {
+			id
+		}
+	}
+`
+
+export const UPDATE_PROJECT_TASK = gql`
+	mutation(
+		$id: ID!
+		$project: ID!
+		$data: UpdateProjectTask!
+		) {
+		updateProjectTask(
+			id: $id
+			project: $project
+			data: $data
+		) {
+			id
+		}
+	}
+`
+>>>>>>> 1e22a26ba4fcc86445616dbd5fe715294fc5d7ba

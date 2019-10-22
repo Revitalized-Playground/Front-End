@@ -64,7 +64,7 @@ export const Routes = () => {
 			/>
 
 			{/* Project routes */}
-			<Route path="/projects" component={ProjectsHome} />
+			{/* <Route path="/projects" component={ProjectsHome} /> */}
 
 			<Route exact path="/project/:slug" component={ProjectPage} />
 
@@ -72,9 +72,9 @@ export const Routes = () => {
 
 			<Route path="/createproject" component={CreateProjectWizard} />
 
-			<Route path="/browse" component={Browse} />
+			<Route path="/projects" component={Browse} />
 
-			<Route path="/browse-all" component={BrowseAll} />
+			<Route path="/all-projects" component={BrowseAll} />
 
 			<Route
 				exact
