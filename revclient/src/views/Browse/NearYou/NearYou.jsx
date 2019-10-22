@@ -65,7 +65,7 @@ const NearYou = () => {
             <div className="slider">
                 <Slider {...settings}>
                     {data.projectsNearMe ? data.projectsNearMe.map((nearYou) => (
-                        <CarouselCard key={nearYou.id} card={nearYou} view="nearYou"  />
+                        <CarouselCard key={nearYou.id} card={nearYou} view="nearYou" />
                     )) : (
                         <NearYouSkeleton />
                     )}

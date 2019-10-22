@@ -93,7 +93,7 @@ const Sidebar = props => {
                             ?
                                 <p>
                                     You currently have no achievements.
-                                    Look <NavLink to="/browse">here</NavLink> for projects to join,
+                                    Look <NavLink to="/projects">here</NavLink> for projects to join,
                                     or <NavLink to="/createproject">create a project</NavLink>!
                                 </p>
                             :

@@ -90,6 +90,9 @@ export const PROJECT_SUMMARY_FRAG = gql`
         }
         likes {
             id
+            profile {
+                id
+            }
         }
         tradeMasters {
             id

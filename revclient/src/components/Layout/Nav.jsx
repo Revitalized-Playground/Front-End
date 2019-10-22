@@ -9,7 +9,7 @@ import { InitialAvatar } from '../../helpers/InitialAvatar.js';
 import { useWindowHook } from '../../helpers/windowOnClickHook.js';
 
 const unauthenticatedLinks = [
-	{ href: '/browse', label: 'Browse' },
+	{ href: '/projects', label: 'Projects' },
 	{ href: '/about', label: 'Team' },
 	{ href: '/login', label: 'Log In' },
 ].map(link => {
@@ -18,7 +18,7 @@ const unauthenticatedLinks = [
 });
 
 const authenticatedLinks = [
-	{ href: '/browse', label: 'Browse' },
+	{ href: '/projects', label: 'Projects' },
 	// { href: '/about', label: 'Team' },
 	{ href: '/dashboard', label: 'Dashboard' },
 	{ href: '/createproject', label: 'Create Project' },

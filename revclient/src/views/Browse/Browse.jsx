@@ -12,6 +12,7 @@ import Noteworthy from './Noteworthy/Noteworthy';
 import Hire from './Hire/Hire';
 
 const Start = () => {
+
 	return (
 		<>
 			<Nav />

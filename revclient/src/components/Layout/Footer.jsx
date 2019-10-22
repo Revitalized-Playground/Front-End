@@ -6,7 +6,7 @@ const links = [
 	// { path: "#", label: "Learn More" },
 	{ path: "/about", label: "Team" },
 	{ path: "/createproject", label: "Create Project" },
-	{ path: "/browse", label: "Browse" },
+	{ path: "/projects", label: "projects" },
 ].map(link => {
 	link.key = `nav-link-${link.href}-${link.label}`;
 	return link;
