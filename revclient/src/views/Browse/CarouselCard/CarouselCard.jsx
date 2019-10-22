@@ -42,6 +42,7 @@ const CarouselCard = props => {
 	useEffect(() => {  
 		if (view === 'recommended') {
 			card.likes.forEach(l => {
+				console.log("l: ", l, "card.name: ", card.name, "profileId: ", profileId);
 				l.profile.id === profileId ?
 				setLikeState({
 					liked: true,
