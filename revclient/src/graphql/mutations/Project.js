@@ -77,17 +77,6 @@ export const REMOVE_COMMENT = gql`
     mutation($id: ID!) {
         deleteProjectComment(id: $id) {
             id
-			project {
-				name
-				# comments {
-				# 	id
-				# 	comment
-				# 	likes {
-				# 		id
-				# 	}
-				# }
-			}
-			comment
         }
     }
 `;

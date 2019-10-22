@@ -106,9 +106,10 @@ const ProjectPictures = ({ projectPhotos, carouselVal, carVal }) => {
 	if (view > 500) {
 		return (
 			<div className="projectPictureContainer-desktop">
-				<h2>Project Photos</h2>
-				{/* <p className="p">Project Photos</p> */}
+				{projectPhotos.length > 0 && <h2>Project Photos</h2>}
 
+				{projectPhotos.length > 0 
+				&& 
 				<div onClick={carVal} className={carouselVal? 'carousel-large-project' : 'carousel-small-project'}>
 					<Slider {...settings}>
 						{projectPhotos &&
@@ -120,13 +121,14 @@ const ProjectPictures = ({ projectPhotos, carouselVal, carVal }) => {
 								</section>
 							))}
 					</Slider>
-				</div>
-				<div className="dotsContainer">
+					</div> 
+				}
+				{/* <div className="dotsContainer">
 					{projectPhotos &&
 						projectPhotos.map((each, index) => (
 							<span className={index === global.index ? 'dot active' : 'dot'} key={index} />
 						))}
-				</div>
+				</div> */}
 			</div>
 		);
 	} else {

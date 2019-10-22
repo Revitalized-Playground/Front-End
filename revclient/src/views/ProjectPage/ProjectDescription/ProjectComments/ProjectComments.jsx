@@ -6,8 +6,8 @@ import { withRouter } from 'react-router-dom';
 import { GET_PROJECT_BY_SLUG } from '../../../../graphql/queries/Projects';
 import SingleComment from './SingelComment'
 
-const ProjectComments = ({comments, id, setProjectData, projectData, history, match, newBool, boolState}) => {
-    const [commentCount, setCommentCount] = useState(2)
+const ProjectComments = ({comments, refetch, id, history, match, newBool, boolState, deleteBool, setDeleteBool}) => {
+    const [commentCount, setCommentCount] = useState(5)
     const [comment, setComment] = useState({comment: '', id})
     const [settings, setSettings] = useState(false)
     const [bool, setBool] = useState(false)
@@ -30,23 +30,25 @@ const ProjectComments = ({comments, id, setProjectData, projectData, history, ma
         }
     })
 
-    const [removeComment] = useMutation(REMOVE_COMMENT, {
-        update(cache, {data: deleteProjectComment }){
+    const [removeComment] = useMutation(REMOVE_COMMENT
+    //     , {
+    //     update(cache, {data: deleteProjectComment }){
             
-            const { projectBySlug } = cache.readQuery({
-                query: GET_PROJECT_BY_SLUG,
-                variables: { slug: match.params.slug }
-            })
+    //         const { projectBySlug } = cache.readQuery({
+    //             query: GET_PROJECT_BY_SLUG,
+    //             variables: { slug: match.params.slug }
+    //         })
             
-            cache.writeQuery({
-                query: GET_PROJECT_BY_SLUG,
-                data: { projectBySlug: projectBySlug.comments}
-            })
-            console.log('slug',projectBySlug, 'delete',deleteProjectComment)
+    //         cache.writeQuery({
+    //             query: GET_PROJECT_BY_SLUG,
+    //             data: { projectBySlug: projectBySlug.comments}
+    //         })
+    //         console.log('slug',projectBySlug, 'delete',deleteProjectComment)
             
             
-        }
-    })
+    //     }
+    // }
+    )
 
     const [editCommentMutation] = useMutation(EDIT_COMMENT, {
         update(cache, {data: updateProjectComment }){
@@ -74,6 +76,9 @@ const ProjectComments = ({comments, id, setProjectData, projectData, history, ma
 
     const commentHandle = e => {
         setComment({...comment, [e.target.name]: e.target.value})
+        e.target.style.height = "1px";
+        e.target.style.height = (1+e.target.scrollHeight)+"px";
+          
     }
     
 
@@ -94,6 +99,10 @@ const ProjectComments = ({comments, id, setProjectData, projectData, history, ma
         e.preventDefault()
 
         const deleted = await removeComment({variables: {id: com}})
+
+        if(deleted) {
+            refetch()
+        }
     }
 
     if(!comments) return <div>Loading Comments...</div>
@@ -104,16 +113,14 @@ const ProjectComments = ({comments, id, setProjectData, projectData, history, ma
                 localStorage.getItem('token') 
                 && 
                 <form className='comment-form click' onSubmit={submitComment}>
-                    <textarea 
-                        // style={inputClicked ? textAreaFocus : textarea}
+                    <textarea
                         className='click'
-                        placeholder='comment'
                         onChange={commentHandle}
                         value={comment.comment}
                         name='comment'
                         ref={inputRef}
                     />
-                    <button className='click' disabled={comment.comment.length === 0 ? true : false} style={comment.comment.length === 0 ? {color: 'gray', cursor: 'default'} : null}>Submit</button>
+                    <button className='click' disabled={comment.comment.length === 0 ? true : false} style={comment.comment.length === 0 ? {background: '#4840ba', cursor: 'default'} : null}>Submit</button>
                 </form>
             }
             <div>
