@@ -20,14 +20,60 @@ const Login = props => {
 	const [state, setState] = useState({
 		email: "",
 		password: "",
+		errors: {
+			email: false,
+			password: false
+		}
 	});
 
-	const handleChanges = event => {
-		setState({
-			...state,
-			[event.target.name]: event.target.value
-		})
+
+	// const nextStep = e => {
+	// 	e.preventDefault();
+
+	// 	if (!state.email.length) {
+	// 		setState({
+	// 			...state,
+	// 			errors: {
+	// 				...state.errors,
+	// 				email: true,
+	// 			}
+	// 		});
+	// 	} else if (!state.password.length) {
+	// 		setState({
+	// 			...state,
+	// 			errors: {
+	// 				...state.errors,
+	// 				password: true,
+	// 			}
+	// 		});
+	// 	} else {
+	// 		handleSubmit(e);
+	// 	}
+	// };
+
+	const validateInput = e => {
+		if (!e.target.value.length) {
+			setState({
+				...state,
+				[e.target.name]: e.target.value,
+				errors: {
+					...state.errors,
+					[e.target.name]: true,
+				}
+			});
+		} else {
+			setState({
+				...state,
+				[e.target.name]: e.target.value,
+				errors: {
+					...state.errors,
+					[e.target.name]: false,
+				}
+
+			});
+		}
 	};
+
 
 	const handleSubmit = async event => {
 		event.preventDefault();
@@ -45,6 +91,8 @@ const Login = props => {
 	const goBack = () => {
 		props.history.push("/");
 	}
+
+	console.log(state)
 
 	return (
 		<>
@@ -79,14 +127,19 @@ const Login = props => {
 							<p>or</p>
 							<div className="login-line"></div>
 						</div>
-						<form className="login-local" onSubmit={handleSubmit}>
+						<form className="login-local" onSubmit={e => handleSubmit(e)}>
 							<p className="login-title">Email</p>
 							<input
 								name='email'
 								type='email'
+								required
 								placeholder="Email..."
+								className={`${state.errors.email && `errorBorder`}`}
 								value={state.email}
-								onChange={handleChanges}
+								onChange={e => {
+									// handleChanges(e);
+									validateInput(e);
+								}}
 							/>
 							<div className="login-pass">
 								<p className="">Password</p>
@@ -96,8 +149,13 @@ const Login = props => {
 								name="password"
 								type="password"
 								placeholder="Password..."
+								required
+								className={`${state.errors.password && `errorBorder`}`}
 								value={state.password}
-								onChange={handleChanges}
+								onChange={e => {
+									// handleChanges(e);
+									validateInput(e)
+								}}
 							/>
 							<div className="login-mid">
 								<p>
