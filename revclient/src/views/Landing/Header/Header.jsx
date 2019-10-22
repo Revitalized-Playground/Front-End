@@ -21,7 +21,7 @@ const Header = () => {
 						Revitalize is a crowdfunding platform <br /> that creates apprenticeship opportunities
 					</p>
 					{localStorage.getItem('token') ? (
-						<Link to="/browse">
+						<Link to="/projects">
 							<button>Start Your Journey!</button>
 						</Link>
 					) : (

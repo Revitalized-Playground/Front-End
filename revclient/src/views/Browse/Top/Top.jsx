@@ -10,7 +10,7 @@ const Top = () => {
             </h2>
             <div className="interests">
                 <div className="interests-left">
-                    <Link to="/browse-all" className="interest one">
+                    <Link to="/all-projects" className="interest one">
                         <div className="inner-interest">
                             Electrical 
                         </div>

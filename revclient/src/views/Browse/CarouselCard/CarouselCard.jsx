@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FaHeart, FaRegHeart, FaAngleRight } from 'react-icons/fa';
 import Truncate from 'react-truncate';
@@ -9,26 +9,28 @@ import { formatMoney } from '../../../helpers/formatMoney';
 import { addUpDonations } from '../../../helpers/helpers';
 
 const CarouselCard = props => {
-	const { card, view } = props;
+	const { card, view, profileId } = props;
 	console.log("card: ", card);
 
-	const toggleLiked = () => {
-		props.setLiked(!props.liked)
-	}
-
-	console.log("card.likes: ", card.likes);
-	// card.likes.forEach(l => console.log("l: ", l))
-	// card.likes.map(l => {
-	// 	l.id === props.profileId
-	// 	? console.log("it's working!")
-	// 	: console.log("aww");
-		
-	// })
-	// if(card.likes.includes(props.profileId)) {
-	// 	console.log("it's working!");
-	// } else {
-	// 	console.log("awww");
-	// }
+	const [liked, setLiked] = useState(false);
+	const toggleLiked = async (e, arg) => {
+		// e.preventDefault
+		// if(arg === 1) {
+		// 	await mutation
+		// 	setLiked(true)
+		// }
+		// if (arg === 0) {
+		// 	await 
+		// 	setLiked(false)
+		// }
+	};
+	useEffect(() => {  
+		if (view === 'recommended') {
+			card.likes.forEach(l => {
+				l.profile.id === profileId && setLiked(true);
+			})
+		}
+    }, []);
 
 	if (!card && view === 'recommended') {
 		return (
@@ -50,14 +52,20 @@ const CarouselCard = props => {
 	}
 
 	if (view === 'recommended') {
+		// card.likes.forEach(l => {
+		// 	l.profile.id === profileId && setLiked(true);
+		// })
 		return (
 			<section className="carousel-card-inner __recommended">
 				<div className="carousel-card-image">
-					{props.liked 
+					{localStorage.getItem('token')
 						?
-						<FaHeart fill="#d2405b" onClick={toggleLiked}/>
-						:
-						<FaRegHeart onClick={toggleLiked}/>
+						liked 
+							?
+							<FaHeart fill="#d2405b" onClick={(e) => toggleLiked(e, 1)}/>
+							:
+							<FaRegHeart onClick={(e) => toggleLiked(e, 0)}/>
+						: null
 					}
 					<img src={card.featuredImage} alt={card.name} />
 					<div className="after"></div>

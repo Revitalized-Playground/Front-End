@@ -93,7 +93,7 @@ const Login = props => {
 					}
 				})
 				localStorage.setItem("token", created.data.loginUser.token);
-				props.history.push("/");
+				props.history.push("/dashboard");
 			})
 			.catch(() => {
 				setState({ ...state, errors: { ...state.errors, invalidCreds: true } })
