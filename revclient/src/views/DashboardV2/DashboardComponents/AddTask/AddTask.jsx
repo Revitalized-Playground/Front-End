@@ -96,12 +96,11 @@ const AddTask = props => {
                                     {
                                         selectedProject.trades.map(trade => (
                                             <option 
+                                                key={trade.id}
                                                 name="trade"
                                                 value={trade.id}
                                             >
-
                                                 {trade.name}
-
                                             </option>
                                         ))
                                     }

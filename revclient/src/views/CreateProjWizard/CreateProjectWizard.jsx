@@ -59,67 +59,69 @@ const CreateProjectWizard = ({ history }) => {
 	return (
 		<>
 			<Nav />
-			<div className="create-project-container">
-				<div className="form-plus-quote-container">
-					<q className="quote">
-						<h5>
-							“Yesterday I was clever,
-							<br />
-							so I wanted to change the world
-							<br />
-							Today I am wise,
-							<br />
-							so I am changing myself.”
-						</h5>
-						<p>Jalal ad-Din Rumi PERSIAN POET</p>
-					</q>
+			<section className="create-project-container">
+				<div className="create-project">
+					<div className="form-plus-quote-container">
+						<q className="quote">
+							<h5>
+								“Yesterday I was clever,
+								<br />
+								so I wanted to change the world
+								<br />
+								Today I am wise,
+								<br />
+								so I am changing myself.”
+							</h5>
+							<p>Jalal ad-Din Rumi PERSIAN POET</p>
+						</q>
 
-					<div className="ui-section">
-						<div className="progress-tracker">
-							<h1 className="title">Create Project</h1>
-							<div className="tracker">
-								<div className={formPosition >= 1 ? `step active` : `step`}></div>
-								<div className={formPosition >= 2 ? `step active` : `step`}></div>
-								<div className={formPosition >= 3 ? `step active` : `step`}></div>
+						<div className="ui-section">
+							<div className="progress-tracker">
+								<h1 className="title">Create Project</h1>
+								<div className="tracker">
+									<div className={formPosition >= 1 ? `step active` : `step`}></div>
+									<div className={formPosition >= 2 ? `step active` : `step`}></div>
+									<div className={formPosition >= 3 ? `step active` : `step`}></div>
+								</div>
 							</div>
-						</div>
 
-						{formPosition === 1 ? (
-							<Form1
-								setFormPosition={setFormPosition}
-								handleChanges={handleChanges}
-								name={projectDetails.name}
-								startDate={projectDetails.startDate}
-								description={projectDetails.description}
-							/>
-						) : formPosition === 2 ? (
-							<Form2
-								setFormPosition={setFormPosition}
-								handleChanges={handleChanges}
-								address={projectDetails.address}
-								city={projectDetails.city}
-								state={projectDetails.state}
-								zip={projectDetails.zip}
-								// projOwnerName={projectDetails.projOwnerName}
-							/>
-						) : formPosition === 3 ? (
-							<Form3
-								setFormPosition={setFormPosition}
-								handleChanges={handleChanges}
-								submitForm={submitForm}
-								setProjectDetails={setProjectDetails}
-								projectDetails={projectDetails}
-								duration={projectDetails.duration}
-								goalAmount={projectDetails.goalAmount}
-								donations={projectDetails.donations}
-								difficulty={projectDetails.difficulty}
-								images={projectDetails.images}
-								// amountFunded={projectDetails.amountFunded}
-							/>
-						) : null}
+							{formPosition === 1 ? (
+								<Form1
+									setFormPosition={setFormPosition}
+									handleChanges={handleChanges}
+									name={projectDetails.name}
+									startDate={projectDetails.startDate}
+									description={projectDetails.description}
+								/>
+							) : formPosition === 2 ? (
+								<Form2
+									setFormPosition={setFormPosition}
+									handleChanges={handleChanges}
+									address={projectDetails.address}
+									city={projectDetails.city}
+									state={projectDetails.state}
+									zip={projectDetails.zip}
+									// projOwnerName={projectDetails.projOwnerName}
+								/>
+							) : formPosition === 3 ? (
+								<Form3
+									setFormPosition={setFormPosition}
+									handleChanges={handleChanges}
+									submitForm={submitForm}
+									setProjectDetails={setProjectDetails}
+									projectDetails={projectDetails}
+									duration={projectDetails.duration}
+									goalAmount={projectDetails.goalAmount}
+									donations={projectDetails.donations}
+									difficulty={projectDetails.difficulty}
+									images={projectDetails.images}
+									// amountFunded={projectDetails.amountFunded}
+								/>
+							) : null}
+						</div>
 					</div>
 				</div>
-			</div>
+			</section>
 			<Footer />
 		</>
 	);
