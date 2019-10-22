@@ -14,7 +14,7 @@ import NoContent from "./NoContent/NoContent";
 
 
 const MainTradeMaster = props => {
-	const { project, mainTabs, setMainTabs } = props;
+	const { project, mainTabs, setMainTabs, dashNavTabState, possibleDashNavTabs } = props;
 	// Moving away from managing any tab information anywhere other than in dashboard.
 
 	useEffect(() => {
@@ -37,11 +37,11 @@ const MainTradeMaster = props => {
 					{project.applicants.length === 0 ? (
 						<NoContent message="No Applicants" />
 					) : (
-						<PeopleHeader />
+						<PeopleHeader  mainTabs={mainTabs} selectedMainTab={mainTabs.selectedMainTab} dashNavTabState={dashNavTabState} possibleDashNavTabs={possibleDashNavTabs} />
 					)}
 					{project.applicants.map(applicant => (
 						<section className="list applicants" key={applicant.profile.id + Date.now()}>
-							<People person={applicant} mainTabs={mainTabs} selectedMainTab={mainTabs.selectedMainTab}  />
+							<People person={applicant} mainTabs={mainTabs} selectedMainTab={mainTabs.selectedMainTab}  project={project} dashNavTabState={dashNavTabState} possibleDashNavTabs={possibleDashNavTabs} />
 						</section>
 					))}
 				</>
@@ -56,11 +56,11 @@ const MainTradeMaster = props => {
 					{project.students.length === 0 ? (
 						<NoContent message="No Students" />
 					) : (
-						<PeopleHeader />
+						<PeopleHeader  mainTabs={mainTabs} selectedMainTab={mainTabs.selectedMainTab} />
 					)}
 					{project.students.map(student => (
 						<section className="list students" key={student.profile.id + Date.now()}>
-							<People person={student} mainTabs={mainTabs} selectedMainTab={mainTabs.selectedMainTab}  />
+							<People person={student} mainTabs={mainTabs} selectedMainTab={mainTabs.selectedMainTab}  project={project} />
 						</section>
 					))}
 				</>
@@ -80,7 +80,7 @@ const MainTradeMaster = props => {
 					) : null }
 					{project.tasks.map(task => (
 							<div className="list tasks">
-								<Task task={task} tab={mainTabs.selectedMainTab} />
+								<Task task={task} tab={mainTabs.selectedMainTab} mainTabs={mainTabs} project={project}  />
 							</div>
 						))
 					}

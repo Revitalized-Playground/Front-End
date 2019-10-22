@@ -8,7 +8,6 @@ const AddTrade = props => {
         setAddTradeState, 
         addTradeState, 
         submitAddTrade,
-        
         setAddTradeModal, 
 
     } = props;

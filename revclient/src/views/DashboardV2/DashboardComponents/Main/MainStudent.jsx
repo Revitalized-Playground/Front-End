@@ -5,6 +5,8 @@ import LoadingSpinner from "../../../../components/LoadingSpinner/LoadingSpinner
 import Tab from './TabComponent/Tab';
 import Task from "./TasksComponent/Task";
 import TasksHeader from "./TasksComponent/TasksHeader";
+import People from "./People/People";
+import PeopleHeader from "./People/PeopleHeader";
 
 import NoContent from "./NoContent/NoContent";
 
@@ -25,32 +27,12 @@ const MainStudent = props => {
 	
 
 	const studentMainView = selectedTabView => {
-		
 		console.log("studentMainView function ", props);
+
 		let viewSelected="";
 
-		if (selectedTabView === mainTabs.studentTabs[0]) { // New Tasks
-			const view = (
-				<>
-					{
-						project.tasks.length === 0 
-						? 
-							<NoContent message="No Tasks" />
-						:
-							<TasksHeader />
-					}
-					{project.tasks.map(task => (
-						<div tasks="list">
-							<Task task={task} tab={mainTabs.selectedMainTab} mainTabs={mainTabs} project={project}  />
-						</div>
-					))}
-				</>
-			)
-			return viewSelected = view
-		}
-
 		
-		if (selectedTabView === mainTabs.studentTabs[1]) { // Tasks in progress
+		if (selectedTabView === mainTabs.studentTabs[0]) { // Tasks
 			const view = (
 				<>
 					{
@@ -61,35 +43,57 @@ const MainStudent = props => {
 							<TasksHeader />
 					}
 					{project.tasks.map(task => (
-						<div className="list">
+						<section className="list tasks" key={task.id + Date.now()}>
 							<Task task={task} tab={mainTabs.selectedMainTab} mainTabs={mainTabs} project={project}  />
-						</div>
+						</section>
 					))}
 				</>
 			)
 			return viewSelected = view
 		}
 
-
-		if (selectedTabView === mainTabs.studentTabs[2]) { // Completed tasks
+		if (selectedTabView === mainTabs.studentTabs[1]) { // Team
 			const view = (
 				<>
 					{
-						project.tasks.length === 0 
+						project.students.length === 0 
 						? 
-							<NoContent message="No Completed Tasks" />
+							<NoContent message="No Tasks" />
 						:
-							<TasksHeader />
+							<PeopleHeader  mainTabs={mainTabs} selectedMainTab={mainTabs.selectedMainTab} />
 					}
-					{project.tasks.map(task => (
-						<div className="list">
-							<Task task={task} tab={mainTabs.selectedMainTab} mainTabs={mainTabs} project={project}  />
-						</div>
+					{project.students.map(student => (
+						<section className="list students"  key={student.profile.id + Date.now()} >
+							<People person={student} mainTabs={mainTabs} selectedMainTab={mainTabs.selectedMainTab} project={project} />
+						</section>
 					))}
 				</>
 			)
 			return viewSelected = view
 		}
+
+		
+
+
+		// if (selectedTabView === mainTabs.studentTabs[2]) { // Completed tasks
+		// 	const view = (
+		// 		<>
+		// 			{
+		// 				project.tasks.length === 0 
+		// 				? 
+		// 					<NoContent message="No Completed Tasks" />
+		// 				:
+		// 					<TasksHeader />
+		// 			}
+		// 			{project.tasks.map(task => (
+		// 				<div className="list tasks" key={task.id + Date.now()}>
+		// 					<Task task={task} tab={mainTabs.selectedMainTab} mainTabs={mainTabs} project={project}  />
+		// 				</div>
+		// 			))}
+		// 		</>
+		// 	)
+		// 	return viewSelected = view
+		// }
 
 
 		return (

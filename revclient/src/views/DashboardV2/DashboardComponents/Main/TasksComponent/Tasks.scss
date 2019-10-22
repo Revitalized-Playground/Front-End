@@ -1,17 +1,46 @@
 
 
-.dashboard-main .dashboard-main-body .list.tasks {
-	padding-left: 0;
-	align-items: center;
+.tasks-header {
+	display: flex;
+	justify-content: space-between;
+	font-size: 1.4rem;
+	font-family: "Roboto";
+	text-transform: uppercase;
+	color: $mirage;
+	text-align: left;
+	margin-top: 20px;
+	padding: 0 15px;
+	.icon {
+		width: calc(5% + 40px);
+		min-width: 140px;
+	}
+	.title {
+		width: 30%;
+	} 
+	.details {
+		width: 30%;
+	}
+	.status {
+		width: 35%;
+		text-align: right;
+	}
+}
+
+.dashboard-container .dashboard .tween-container section.dashboard-main.student .dashboard-section-inner-container .dashboard-main-body .list.tasks,
+.dashboard-container .dashboard .tween-container section.dashboard-main.trade-master .dashboard-section-inner-container .dashboard-main-body .list.tasks {
+	padding: 15px 15px 15px 0;
+}
+
+.list.tasks {	
+	display: flex;
+    align-items: center;
 	.task-card-indicator.left-bg {
 		width: 10px;
-		margin-right: 20px;
-		height: 70px;
-		margin: -20px 0;
+		height: 80px;
 		vertical-align: middle;
 	}
 	.task-card-indicator.left-bg.low-priority {
-		background-color: $papier-mache;
+		background-color: $silver-lining;
 	}
 	.task-card-indicator.left-bg.medium-priority {
 		background-color: $chillFi-purple;
@@ -19,125 +48,90 @@
 	.task-card-indicator.left-bg.high-priority {
 		background-color: $ruby-enchantment;
 	}
-	.task {
-		// background-color: $franks-grey;
+	.task-card-container {
 		width: 100%;
 		display: flex;
 		justify-content: space-between;
-		// padding: 30px 15px 30px 0;
-		// box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.12);
-		// margin: 20px 0;
-		// border-radius: 5px;
-		.task-card-container {
+		margin-left: 20px;
+		.task-body {
 			width: 100%;
 			display: flex;
 			justify-content: space-between;
-			.task-card-img-container {
+			align-items: center;
+			.task-icon {
+				width: 10%;
 				display: flex;
+				justify-content: flex-start;
 				align-items: center;
-				justify-content: space-between;
-				margin-right: 10px;
-				img {
-					width: 60px;
+				margin-right: 20px;
+				svg {
+					color: $snow-white;
+					background-color: $luigi;
+					padding: 20px;
+					border-radius: 5px;
+					font-size: 4rem;
 				}
 			}
-			.task-card-text {
-				width: 100%;
-				// color: $machiavellian;
+			.task-detail {
 				display: flex;
 				flex-direction: column;
-				padding-right: 20px;
-				h5 {
-					// color: $black-void;
-					margin-bottom: 10px;
-				}
-				.description {
-					font-family: 'Roboto';
-					font-size: 1.3rem;
-					font-style: italic;
-					line-height: 1.34;
-					letter-spacing: 0.78px;
-					margin-bottom: 0;
-				}
-				.comment {
-					font-family: 'Roboto';
-					font-size: 1.3rem;
-					line-height: 1.34;
-					letter-spacing: 0.72px;
-					
+				font-size: 1.8rem;
+			}
+			
+			.task-detail.icon {
+				width: 5%;
+				max-width: 140px;
+			}
+
+			.task-detail.title {
+				width: 30%;
+				justify-content: flex-start;
+				text-align: left;
+				p {
+					font-family: "Roboto";
+					font-size: 1.8rem;
+					font-weight: lighter;
+					line-height: 1;
 				}
 			}
-			.task-card-icon-container {
-				width: 20%;
-				display: flex;
-				align-items: center;
+
+			.task-detail.details {
+				width: 30%;
+				justify-content: flex-start;
+				text-align: left;
+				p {
+					font-family: "Roboto";
+					font-size: 1.8rem;
+					font-weight: lighter;
+					line-height: 1;
+				}
+			}
+			
+			.task-detail.status {
+				width: 35%;
+				padding: 0 20px 0 0;
+				border-radius: 5px;
 				justify-content: flex-end;
-			}	
+				align-items: flex-end;
+				flex-direction: column;
+				.add-task-button {
+					font-size: 3.6rem;
+					color: $chillFi-purple;
+				}
+			}
 		}
 	}
-} 
-	
+}
 
 
-// .list .task.activity {
-// 	padding: 25px 20px;
-// 	.task-activity-container {
-// 		width: 100%;
-// 		.task-activity-category {
-// 			font-size: 1.4rem;
-// 			font-family: "Roboto";
-// 			font-weight: lighter;
-// 			width: 100%;
-// 			text-transform: uppercase;
-// 			margin: 0;
-// 		}
-// 		.task-activity-body {
-// 			width: 100%;
-// 			display: flex;
-// 			justify-content: space-between;
-// 			align-items: center;
-// 			.task-activity-img-container {
-// 				width: 120px;
-// 				margin-right: 15px;
-// 				margin-top: 20px;
-// 				img {
-// 					width: 100%;
-// 					object-fit: cover;
-// 					border-radius: 100%;
-// 				}
-// 			}
-// 			.text {
-// 				width: 85%;
-// 				padding: 0 20px 0 0;
-// 				h5 {
-// 					margin-bottom: 10px;
-// 				}
-// 				p {
-// 					font-family: "Roboto";
-// 					font-size: 1.4rem;
-// 					font-weight: lighter;
-// 				}
-// 			}
-// 			.task-activity-date {
-// 				width: 15%;
-//     			min-width: 130px;
-// 				display: flex;
-// 				justify-content: flex-end;
-// 				text-align: right;
-// 			}
-// 		}
-// 	}
-// }
 
 
 .dark-mode {
-	dashboard-main .dashboard-main-body .list.tasks {
-		.task {
-			background-color: $bleached-black;
-			.task-card-container {
-				.task-card-text {
-					color: $snow-white;
-				}
+	.task {
+		background-color: $bleached-black;
+		.task-card-container {
+			.task-body {
+				color: inherit;
 			}
 		}
 	}

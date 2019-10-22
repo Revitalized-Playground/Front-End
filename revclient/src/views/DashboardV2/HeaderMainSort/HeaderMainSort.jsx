@@ -72,13 +72,15 @@ export default function HeaderMainSort(props) {
                                 selectedMainTab={mainTabs.selectedMainTab}
                                 setMainTabs={setMainTabs}
                                 setAddTaskModal={setAddTaskModal}
+                                dashNavTabState={dashNavTabState}
+                                possibleDashNavTabs={possibleDashNavTabs}
                             />
                         </div>
                     }>
                         <Tween 
                             from={{ 
                                 opacity: 0,
-                                yPercent: -100
+                                yPercent: -30
                             }} 
                             to={{ 
                                 opacity: 1,
@@ -135,7 +137,7 @@ export default function HeaderMainSort(props) {
                         <Tween 
                             from={{ 
                                 opacity: 0,
-                                yPercent: -100
+                                yPercent: -30
                             }} 
                             to={{ 
                                 opacity: 1,
@@ -189,13 +191,15 @@ export default function HeaderMainSort(props) {
                                 mainTabs={mainTabs}
                                 selectedMainTab={mainTabs.selectedMainTab}
                                 setMainTabs={setMainTabs}
+                                dashNavTabState={dashNavTabState}
+                                possibleDashNavTabs={possibleDashNavTabs}
                             />
                         </div>
                     }>
                         <Tween 
                             from={{ 
                                 opacity: 0,
-                                yPercent: -100
+                                yPercent: -30
                             }} 
                             to={{ 
                                 opacity: 1,

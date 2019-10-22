@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import { withRouter } from 'react-router-dom';
 import moment from 'moment';
 
-
-
 import { useMutation } from '@apollo/react-hooks';
 import { ADD_PROJECT } from '../../graphql/mutations/Project';
 
@@ -22,49 +20,58 @@ import Form3 from './Form3/Form3';
 let currentDate = moment().format('YYYY-MM-DD');
 
 const CreateProjectWizard = ({ history }) => {
-	const [projectDetails, setProjectDetails] = useState({
-		name: '',
+	let [projectDetails, setProjectDetails] = useState({
+		name: '23323323232323232323',
 		startDate: currentDate,
-		country: 'USA',
+		country: 'United States',
 		duration: 1,
-		description: '',
-		address: '',
-		city: '',
-		state: '',
-		zip: null,
-		goalAmount: 0.0,
-		donations: '',
-		difficulty: '',
+		description: 'description',
+		address: 'address',
+		city: 'city',
+		state: 'statr',
+		zip: '23',
+		goalAmount: 10.0,
+		difficulty: 'Easy',
 		images: [],
+		featuredImage: '',
 	});
-	const [ formPosition, setFormPosition ] = useState(1);
-	const [ addProject ] = useMutation(ADD_PROJECT);
+	const [formPosition, setFormPosition] = useState(1);
+	const [addProject] = useMutation(ADD_PROJECT);
 
 	const handleChanges = event => {
 		if (
-			event.target.name === 'zip' ||
 			event.target.name === 'goalAmount' ||
 			// event.target.name === 'amountFunded' ||
 			event.target.name === 'duration'
 		) {
 			setProjectDetails({ ...projectDetails, [event.target.name]: Number(event.target.value) });
+		} else if (event.target.name === 'zip') {
+			if (projectDetails.zip.length === 5) {
+				return;
+			} else {
+				setProjectDetails({ ...projectDetails, [event.target.name]: event.target.value });
+			}
 		} else {
 			setProjectDetails({ ...projectDetails, [event.target.name]: event.target.value });
 		}
 	};
 
 	const submitForm = async e => {
-		e.preventDefault();
+		projectDetails = {
+			...projectDetails,
+			zip: parseInt(projectDetails.zip, 10),
+		};
+
+		// SOS FRANK: UPDATE CACHE
 		const addedProj = await addProject({ variables: { data: projectDetails } });
-		history.push(`/project/${addedProj.data.createProject.id}`);
+		history.push(`/project/${addedProj.data.createProject.slug}`);
 	};
 
 	return (
 		<>
+			<Nav />
 			<section className="create-project-container">
-				<Nav />
 				<div className="create-project">
-
 					<div className="form-plus-quote-container">
 						<q className="quote">
 							<h5>
@@ -124,7 +131,6 @@ const CreateProjectWizard = ({ history }) => {
 							) : null}
 						</div>
 					</div>
-
 				</div>
 			</section>
 			<Footer />

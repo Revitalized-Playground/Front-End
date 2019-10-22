@@ -20,18 +20,18 @@ const Main = () => {
 					</p>
 					<p>
 						By eliminating the lack of resources and opportunities problems that people in communities have,
-						Revitalize will give people who are seeking state licenses access to education and employment.
+						ReVitalize will give people who are seeking state licenses access to education and employment.
 					</p>
 					<p>
-						Revitalize uses a model, where students enter contracts with Revitalize, to establish a pathway
+						ReVitalize uses a model, where students enter contracts with ReVitalize, to establish a pathway
 						for them to obtain the resources and time necessary to become a self-sufficient and prospering
 						trades professional. The resources shortfall include not only education and work opportunities
 						created through the application, but also the ability to pay for life's general necessities.
-						Revitalize will be able to take care of some of these resources problems.
+						ReVitalize will be able to take care of some of these resources problems.
 					</p>
 					<p>
 						By creating a platform and business model around providing time and access to join projects and
-						build a professional trades career, Revitalize reduces some of the barriers for their students.
+						build a professional trades career, ReVitalize reduces some of the barriers for their students.
 					</p>
 				</div>
 			</div>

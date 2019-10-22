@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import {
-    useMutation,
+	useMutation,
 } from "@apollo/react-hooks";
 import {
-    LOGIN_USER,
+	LOGIN_USER,
 } from "../../graphql/mutations";
 
 import { Link, withRouter } from "react-router-dom";
@@ -15,31 +15,31 @@ import fbLogo from "../../assets/AuthPages/fb-logo.png";
 
 
 const Login = props => {
-	const [ loginUser, { client } ] = useMutation(LOGIN_USER);
+	const [loginUser, { client }] = useMutation(LOGIN_USER);
 	console.log(client)
-    const [state, setState] = useState({
-        email:"",
-        password:"",
-    });
+	const [state, setState] = useState({
+		email: "",
+		password: "",
+	});
 
-    const handleChanges = event => {
-        setState({
-            ...state,
-            [event.target.name]: event.target.value
-        })
-    };
+	const handleChanges = event => {
+		setState({
+			...state,
+			[event.target.name]: event.target.value
+		})
+	};
 
-    const handleSubmit = async event => {
-        event.preventDefault();
+	const handleSubmit = async event => {
+		event.preventDefault();
 		localStorage.setItem("token", "");
 		await client.resetStore();
-        const created = await loginUser({ variables: { data: state } });
-        setState({
-            email:"",
-            password:"",
+		const created = await loginUser({ variables: { data: state } });
+		setState({
+			email: "",
+			password: "",
 		})
 		localStorage.setItem("token", created.data.loginUser.token);
-		props.history.push("/");
+		props.history.push("/projects");
 	};
 
 	const goBack = () => {
@@ -90,7 +90,7 @@ const Login = props => {
 							/>
 							<div className="login-pass">
 								<p className="">Password</p>
-								<span className="">Forgot Password?</span>
+								{/* <span className="">Forgot Password?</span> */}
 							</div>
 							<input
 								name="password"
@@ -101,7 +101,7 @@ const Login = props => {
 							/>
 							<div className="login-mid">
 								<p>
-									Don't have an account? <Link to='/register' style={{textDecoration: `underline`}}>Create One</Link>
+									Don't have an account? <Link to='/register' style={{ textDecoration: `underline` }}>Create One</Link>
 								</p>
 							</div>
 							<button>Log In</button>

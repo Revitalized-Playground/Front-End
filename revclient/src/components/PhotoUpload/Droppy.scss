@@ -1,49 +1,56 @@
 .droppy-container {
-    margin: 0 0 3% 0;
-    .dropzone {
-        background-color: $silver-lining;
-        color: $static-grey;
-        border-radius: 5px;
-        border: 2px dashed $static-grey;
-        padding: 20px;
-        font-size: 1.6rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        &:active, &:focus {
-            outline: none;
-        }
-    }
+	margin: 6px 0 10px 0;
+	.dropzone {
+		background-color: $silver-lining;
+		color: $static-grey;
+		border-radius: 5px;
+		border: 2px dashed $static-grey;
+		padding: 20px;
+		font-size: 1.6rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		&:active,
+		&:focus {
+			outline: none;
+		}
+	}
 }
-
 
 .thumbs-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin-top: 16px;
-    .thumb {
-        display: inline-flex;
-        border-radius: 2;
-        border: 1px solid $silver-lining;
-        margin-bottom: 8;
-        margin-right: 8;
-        width: 100px;
-        height: 100px;
-        padding: 4;
-        box-sizing: border-box;
-        .thumb-inner {
-            display: flex;
-            min-width: 0;
-            overflow: hidden;
-            .thumb-img {
-                display: block;
-                width: auto;
-                height: 100%;
-            }
-        }
-    }
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	margin-top: 10px;
+
+	.thumb {
+		margin: 8px 13px 8px 0;
+
+		.featuredPreview {
+			border: 2px solid $chillFi-purple;
+		}
+
+		&-delete {
+			color: $snow-white;
+			background: $chillFi-purple;
+			border-radius: 100px;
+			padding: 2px;
+			position: absolute;
+			z-index: 2;
+			margin-left: 137px;
+			margin-top: -8px;
+			width: 20px;
+			height: 20px;
+		}
+
+		&-img {
+			display: block;
+			object-fit: cover;
+			width: 150px;
+			height: 100px;
+			border-radius: 5px;
+			border: 2px solid transparent;
+			@include cardBoxShadow;
+		}
+	}
 }
-
-
-

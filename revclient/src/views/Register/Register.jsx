@@ -82,9 +82,9 @@ const Register = props => {
 							</button>
 						</div>
 						<div className="register-middle">
-							<div className="register-line"></div>
+							<div className="register-Line"></div>
 							<p>or</p>
-							<div className="register-line"></div>
+							<div className="register-Line"></div>
 						</div>
 						<form className="register-local" onSubmit={handleSubmit}>
 							<p className="register-title">Email</p>
