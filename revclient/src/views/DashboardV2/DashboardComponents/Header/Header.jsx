@@ -132,12 +132,12 @@ const Header = props => {
 						</div>
 
 						<div className="header-top-right">
-							<div className="add-tasks">
-								<div className="add-task-title">Add Task</div>
-									{/* // pure SVGs and icons load faster. That's why I switched this over to reacticon */}
-									{/* <img src={plusCircle} alt="plus circle" />     */}
+							{(type === possibleDashNavTabs[1]) ? null : ( // Don't render add task for student
+								<div className="add-tasks">
+									<div className="add-task-title">Add Task</div>
 									<FaPlusCircle className="add-task-button"  onClick={() => setAddTaskModal({ show: true, selectedProject: projectData })} />
-							</div>
+								</div>
+							) }
 							{(type === possibleDashNavTabs[0]) ? (  // Only PROJECT ADMIN can add trades or delete the project. If we have more items for the kebab, we can adjust this logic
 								<div className="project-settings">
 									<GoKebabVertical

@@ -171,3 +171,19 @@ export const DECLINE_PROJECT_APPLICANT = gql`
 		}
 	}
 `
+
+export const UPDATE_PROJECT_TASK = gql`
+	mutation(
+		$id: ID!
+		$project: ID!
+		$data: UpdateProjectTask!
+		) {
+		updatedProjectTask(
+			id: $id
+			project: $project
+			data: $data
+		) {
+			id
+		}
+	}
+`
