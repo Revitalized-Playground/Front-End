@@ -8,26 +8,56 @@ import ProgressBar from '../../../components/ProgressBar/ProgressBar';
 import { formatMoney } from '../../../helpers/formatMoney';
 import { addUpDonations } from '../../../helpers/helpers';
 
+import { CREATE_PROJECT_LIKE, DELETE_PROJECT_LIKE } from '../../../graphql/mutations';
+import { useMutation } from '@apollo/react-hooks';
+
 const CarouselCard = props => {
 	const { card, view, profileId } = props;
 	console.log("card: ", card);
+	// const [liked, setLiked] = useState(false);
+	const [ createProjectLike ] = useMutation( CREATE_PROJECT_LIKE );
+	const [ deleteProjectLike ] = useMutation( DELETE_PROJECT_LIKE );
+	// let likeId = "";
+	// const [likeId, setLikeId] = useState('');
+	const [ likeState, setLikeState ] = useState({
+		liked: false,
+		likeId: ''
+	})
 
-	const [liked, setLiked] = useState(false);
 	const toggleLiked = async (e, arg) => {
-		// e.preventDefault
-		// if(arg === 1) {
-		// 	await mutation
-		// 	setLiked(true)
-		// }
-		// if (arg === 0) {
-		// 	await 
-		// 	setLiked(false)
-		// }
+		console.log("likeState in toggle: ", likeState);
+		e.preventDefault();
+		if (arg === "unlike") {
+			await deleteProjectLike({ variables: { id: likeState.likeId }})
+			setLikeState({
+				...likeState,
+				liked: false
+			})
+		}
+		if (arg === "like") {
+			await createProjectLike({ variables: { id: card.id }})
+			setLikeState({
+				...likeState,
+				liked: true
+			})
+		}
 	};
 	useEffect(() => {  
 		if (view === 'recommended') {
 			card.likes.forEach(l => {
-				l.profile.id === profileId && setLiked(true);
+				console.log("like :", l);
+				l.profile.id === profileId ?
+				setLikeState({
+					liked: true,
+					likeId: l.id
+				})
+				: setLikeState({
+					...likeState,
+					likeId: l.id
+				})
+				// setLiked(true),
+				// setLikeId(l.id)
+				// console.log("likeId: ", likeId);
 			})
 		}
     }, []);
@@ -60,11 +90,11 @@ const CarouselCard = props => {
 				<div className="carousel-card-image">
 					{localStorage.getItem('token')
 						?
-						liked 
+						likeState.liked 
 							?
-							<FaHeart fill="#d2405b" onClick={(e) => toggleLiked(e, 1)}/>
+							<FaHeart fill="#d2405b" onClick={(e) => toggleLiked(e, "unlike")}/>
 							:
-							<FaRegHeart onClick={(e) => toggleLiked(e, 0)}/>
+							<FaRegHeart onClick={(e) => toggleLiked(e, "like")}/>
 						: null
 					}
 					<img src={card.featuredImage} alt={card.name} />
