@@ -92,7 +92,6 @@ const Login = props => {
 						password: false
 					}
 				})
-				console.log(created);
 				localStorage.setItem("token", created.data.loginUser.token);
 				props.history.push("/browse");
 			})
