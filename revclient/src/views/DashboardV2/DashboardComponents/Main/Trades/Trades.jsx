@@ -34,7 +34,7 @@ const ProjectTrades = props => {
         <>
 
 
-            <div className="trade-card-container">
+            <section className="trade-card-container">
                 
                 <div className="trade-body">
                     <div className="trade-icon">
@@ -53,7 +53,7 @@ const ProjectTrades = props => {
                     
                 </div>
 
-            </div>
+            </section>
 
         </>
     )

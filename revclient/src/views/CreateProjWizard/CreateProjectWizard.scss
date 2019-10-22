@@ -14,7 +14,18 @@
 	.errorText {
 		color: red;
 	}
-	.create-project {		
+
+	.errorBorder {
+		color: red;
+		border-radius: 5px;
+		border: 1px solid red !important;
+
+		&::placeholder {
+			color: red;
+		}
+	}
+
+	.create-project {
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -33,7 +44,7 @@
 				width: 100%;
 				margin-left: unset;
 			}
-	
+
 			q.quote {
 				display: flex;
 				flex-direction: column;
@@ -62,7 +73,7 @@
 			.ui-section {
 				background-color: $snow-white;
 				width: 65%;
-	
+
 				@media #{$tablet} {
 					width: 100%;
 				}
@@ -107,7 +118,7 @@
 					}
 					h2 {
 						// margin: 3% auto auto 0;
-	
+
 						height: auto;
 						// font-size: 18px;
 						line-height: 24px;
@@ -116,8 +127,7 @@
 					input {
 						border: 1px solid $mirage;
 						margin: 6px 0 6px 0;
-						margin-bottom: 30px;
-	
+
 						&:focus {
 							color: $chillFi-purple;
 							border: 1px solid $chillFi-purple;
@@ -128,6 +138,11 @@
 						border-radius: 3px;
 						align-self: flex-end;
 					}
+					select,
+					option {
+						font-family: 'Roboto';
+					}
+
 					.form-navigation {
 						display: flex;
 						justify-content: space-between;
@@ -150,13 +165,13 @@
 					.description {
 						height: 11rem;
 					}
-	
+
 					.start-date {
 						font-family: 'futura-pt';
 					}
 					textarea {
 						border: 1px solid $mirage;
-	
+
 						&:focus {
 							color: $chillFi-purple;
 							border: 1px solid $chillFi-purple;
@@ -167,7 +182,6 @@
 		}
 	}
 }
-
 
 .dark-mode {
 	.form-plus-quote-container {

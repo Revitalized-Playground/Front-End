@@ -40,7 +40,7 @@ const MainStudent = props => {
 							<TasksHeader />
 					}
 					{project.tasks.map(task => (
-						<div tasks="list">
+						<div className="list tasks" key={task.id + Date.now()}>
 							<Task task={task} tab={mainTabs.selectedMainTab} mainTabs={mainTabs} project={project}  />
 						</div>
 					))}
@@ -61,7 +61,7 @@ const MainStudent = props => {
 							<TasksHeader />
 					}
 					{project.tasks.map(task => (
-						<div className="list">
+						<div className="list tasks" key={task.id + Date.now()}>
 							<Task task={task} tab={mainTabs.selectedMainTab} mainTabs={mainTabs} project={project}  />
 						</div>
 					))}
@@ -82,7 +82,7 @@ const MainStudent = props => {
 							<TasksHeader />
 					}
 					{project.tasks.map(task => (
-						<div className="list">
+						<div className="list tasks" key={task.id + Date.now()}>
 							<Task task={task} tab={mainTabs.selectedMainTab} mainTabs={mainTabs} project={project}  />
 						</div>
 					))}
