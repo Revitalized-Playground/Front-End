@@ -72,6 +72,8 @@ export default function HeaderMainSort(props) {
                                 selectedMainTab={mainTabs.selectedMainTab}
                                 setMainTabs={setMainTabs}
                                 setAddTaskModal={setAddTaskModal}
+                                dashNavTabState={dashNavTabState}
+                                possibleDashNavTabs={possibleDashNavTabs}
                             />
                         </div>
                     }>
@@ -189,6 +191,8 @@ export default function HeaderMainSort(props) {
                                 mainTabs={mainTabs}
                                 selectedMainTab={mainTabs.selectedMainTab}
                                 setMainTabs={setMainTabs}
+                                dashNavTabState={dashNavTabState}
+                                possibleDashNavTabs={possibleDashNavTabs}
                             />
                         </div>
                     }>

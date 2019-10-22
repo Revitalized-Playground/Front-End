@@ -103,7 +103,7 @@ const Nav = props => {
 			<div className="leftNav">
 				<Link to="/" title="Home">
 					<div className="logo">
-						<span>Revitalize </span>
+						<span>ReVitalize </span>
 					</div>
 				</Link>
 			</div>

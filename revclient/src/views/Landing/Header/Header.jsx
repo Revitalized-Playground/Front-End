@@ -18,7 +18,7 @@ const Header = () => {
 					</h2>
 					<h2 className="cta-title-tablet">A modern approach to building your community</h2>
 					<p>
-						Revitalize is a crowdfunding platform <br /> that creates apprenticeship opportunities
+						ReVitalize is a crowdfunding platform <br /> that creates apprenticeship opportunities
 					</p>
 					{localStorage.getItem('token') ? (
 						<Link to="/projects">

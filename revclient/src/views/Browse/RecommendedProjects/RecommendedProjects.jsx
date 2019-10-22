@@ -16,7 +16,7 @@ const RecommendedProjects = ({ history }) => {
         // console.log("data: ", data);
         const { currentUser } = useAuth(history);
         const profileId = currentUser().profileId;
-        console.log("profileId: ", profileId);
+        // console.log("profileId: ", profileId);
 
         const settings = {
             dots: false,
@@ -66,7 +66,7 @@ const RecommendedProjects = ({ history }) => {
 
         if (error) return console.log(error)
 
-        console.log("data: ", data);
+        // console.log("data: ", data);
 
         return (
             <section className="recommened-projects-section">
