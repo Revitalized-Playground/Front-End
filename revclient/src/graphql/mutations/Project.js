@@ -165,9 +165,6 @@ export const DECLINE_PROJECT_APPLICANT = gql`
 			id
 		}
 	}
-<<<<<<< HEAD
-`;
-=======
 `
 export const CREATE_PROJECT_LIKE = gql `
 	mutation($id: ID!) {
@@ -200,4 +197,3 @@ export const UPDATE_PROJECT_TASK = gql`
 		}
 	}
 `
->>>>>>> 1e22a26ba4fcc86445616dbd5fe715294fc5d7ba
