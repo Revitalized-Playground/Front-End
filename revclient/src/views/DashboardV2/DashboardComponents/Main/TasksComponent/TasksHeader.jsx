@@ -5,10 +5,11 @@ const TradesHeader = () => {
 
     return (
         <>
-            <section className="trades-header" >
+            <section className="tasks-header" >
                 <div className="icon"></div>
-                <div className="description">Name</div>
-                <div className="verified">Create Task</div>
+                <div className="title">Name</div>
+                <div className="details">Details</div>
+                <div className="status">Status</div>
             </section>
         </>
     );
