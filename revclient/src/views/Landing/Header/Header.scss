@@ -238,23 +238,27 @@
 				display: inline-block;
 				text-align: center;
 				margin-bottom: 20px;
+				transition: all 5s ease-in-out;
 
 				p {
 					color: #000;
 				}
 
 				.toolTip {
-					margin: 0 auto;
+					margin: 1rem auto 0 auto;
 					display: none;
 					position: absolute;
 					width: 20rem;
-					background-color: $franks-grey;
+					// background-color: $franks-grey;
+					background-color: $chillFi-purple;
+					color: #fff;
 					z-index: 100;
-					border: 1px solid $black-void;
+					// border: 1px solid $black-void;
 					border-radius: 5px;
 					padding: 7.5px 12.5px;
 					margin-left: 13px;
 					cursor: default;
+					
 				}
 
 				h3 {
