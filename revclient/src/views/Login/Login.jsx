@@ -79,7 +79,8 @@ const Login = props => {
 		event.preventDefault();
 		localStorage.setItem("token", "");
 		await client.resetStore();
-		const created = await loginUser({ variables: { data: state } });
+		console.log("store resest")
+		const created = await loginUser({ variables: { data: { email: state.email, password: state.password } } });
 		setState({
 			email: "",
 			password: "",
@@ -88,6 +89,7 @@ const Login = props => {
 				password: false
 			}
 		})
+		console.log(created);
 		localStorage.setItem("token", created.data.loginUser.token);
 		props.history.push("/browse");
 	};
