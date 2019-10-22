@@ -3,13 +3,14 @@ import Skeleton from 'react-loading-skeleton';
 import LoadingSpinner from "../../../../components/LoadingSpinner/LoadingSpinner";
 // import { inLastWeek } from "../../../../helpers/helpers";
 
+// Components
 import Tab from './TabComponent/Tab';
 import Task from "./TasksComponent/Task";
 import People from './People/People';
 import PeopleHeader from "./People/PeopleHeader";
-// import Trades from "./Trades/Trades";
 import Analytics from "./Analytics/Analytics";
 import NoContent from "./NoContent/NoContent";
+// import Trades from "./Trades/Trades";
 
 
 const MainTradeMaster = props => {

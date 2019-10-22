@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import { FaPlusCircle, FaComments, FaFileInvoice, FaAngleRight, FaAngleDown, FaAngleUp, FaBan, FaPlus, FaLink, FaArrowDown } from 'react-icons/fa';
+import { FaPlusCircle, FaAngleDown, FaAngleUp, FaBan, FaPlus, FaLink } from 'react-icons/fa';
 import { GoKebabVertical } from 'react-icons/go';
 
 // Sub components
@@ -21,10 +21,10 @@ import { useMutation, useQuery } from '@apollo/react-hooks';
 import { GET_PROJECT_BY_ID } from '../../../../graphql/queries';
 
 const Header = props => {
-	const { project, setProject, selectedProject, type, possibleDashNavTabs } = props;
+	const { project, setProject, selectedProject, type, possibleDashNavTabs, setAddTaskModal } = props;
 
 	const [settingsToggle, setSettingsToggle] = useState({ settingsDropdown: false });
-	const [addTaskModal, setAddTaskModal] = useState({ show: false });
+	// const [addTaskModal, setAddTaskModal] = useState({ show: false });
 	const [deleteProject] = useMutation(DELETE_PROJECT);
 	const [projectData, setProjectData] = useState(project);
 
@@ -83,17 +83,17 @@ const Header = props => {
 	if (loading) return <HeaderSkeleton />;
 	if (error) return <h3>Error</h3>;
 
-	if (addTaskModal.show === true) {
-		return (
-			<AddTask 
-				setAddTaskModal={setAddTaskModal} 
-				addTaskModal={addTaskModal} 
-				project={project} 
+	// if (addTaskModal.show === true) {
+	// 	return (
+	// 		<AddTask 
+	// 			setAddTaskModal={setAddTaskModal} 
+	// 			addTaskModal={addTaskModal} 
+	// 			project={project} 
 
-				trade={null}
-			/>
-		)
-	}
+	// 			trade={null}
+	// 		/>
+	// 	)
+	// }
 
 	if (addTradeModal.show === true) {
 		return (
@@ -136,7 +136,7 @@ const Header = props => {
 								<div className="add-task-title">Add Task</div>
 									{/* // pure SVGs and icons load faster. That's why I switched this over to reacticon */}
 									{/* <img src={plusCircle} alt="plus circle" />     */}
-									<FaPlusCircle className="add-task-button"  onClick={() => setAddTaskModal({ show: true })} />
+									<FaPlusCircle className="add-task-button"  onClick={() => setAddTaskModal({ show: true, selectedProject: projectData })} />
 							</div>
 							{(type === possibleDashNavTabs[0]) ? (  // Only PROJECT ADMIN can add trades or delete the project. If we have more items for the kebab, we can adjust this logic
 								<div className="project-settings">

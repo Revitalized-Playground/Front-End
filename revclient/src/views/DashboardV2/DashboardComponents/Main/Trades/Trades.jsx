@@ -46,7 +46,7 @@ const ProjectTrades = props => {
                         <p>{trade.description}</p>
                     </div>
 
-                    <div className="trade-detail create-task"  onClick={() => setAddTaskModal({ show: true, selectedProject: project })}  >
+                    <div className="trade-detail create-task"  onClick={() => setAddTaskModal({ show: true, selectedProject: project, trade: trade })}  >
                         Create task from this trade &nbsp;
                         <FaPlusCircle   className="add-task-button"  />
                     </div>
