@@ -3,11 +3,16 @@
 		display: flex;
 		align-items: baseline;
 		.duration-input {
-			width: 50%;
-			max-width: 40px;
+			max-width: 50px;
 		}
-		span { 
-			font-size: 1.6rem; 
+
+		input {
+			text-align: center;
+			padding: 10px;
+		}
+
+		span {
+			font-size: 1.6rem;
 		}
 	}
 	select {
@@ -18,5 +23,4 @@
 		margin-bottom: 20px;
 		width: 100%;
 	}
-	
 }

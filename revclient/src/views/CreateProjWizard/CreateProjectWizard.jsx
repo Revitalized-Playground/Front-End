@@ -20,21 +20,22 @@ import Form3 from './Form3/Form3';
 let currentDate = moment().format('YYYY-MM-DD');
 
 const CreateProjectWizard = ({ history }) => {
-	const [projectDetails, setProjectDetails] = useState({
-		name: '',
+	let [projectDetails, setProjectDetails] = useState({
+		name: 'Palmdale233233232233223323223232332323323233323233',
 		startDate: currentDate,
-		country: 'USA',
+		country: 'United States',
 		duration: 1,
-		description: '',
-		address: '',
-		city: '',
-		state: '',
-		zip: '',
-		goalAmount: 0.0,
-		difficulty: '',
+		description: 'description',
+		address: 'address',
+		city: 'city',
+		state: 'statr',
+		zip: '23',
+		goalAmount: 10.0,
+		difficulty: 'Easy',
 		images: [],
+		featuredImage: '',
 	});
-	const [formPosition, setFormPosition] = useState(2);
+	const [formPosition, setFormPosition] = useState(3);
 	const [addProject] = useMutation(ADD_PROJECT);
 
 	const handleChanges = event => {
@@ -44,15 +45,24 @@ const CreateProjectWizard = ({ history }) => {
 			event.target.name === 'duration'
 		) {
 			setProjectDetails({ ...projectDetails, [event.target.name]: Number(event.target.value) });
+		} else if (event.target.name === 'zip') {
+			if (projectDetails.zip.length === 5) {
+				return;
+			} else {
+				setProjectDetails({ ...projectDetails, [event.target.name]: event.target.value });
+			}
 		} else {
 			setProjectDetails({ ...projectDetails, [event.target.name]: event.target.value });
 		}
 	};
 
 	const submitForm = async e => {
-		e.preventDefault();
+		projectDetails = {
+			...projectDetails,
+			zip: parseInt(projectDetails.zip, 10),
+		};
 		const addedProj = await addProject({ variables: { data: projectDetails } });
-		history.push(`/project/${addedProj.data.createProject.id}`);
+		history.push(`/project/${addedProj.data.createProject.slug}`);
 	};
 
 	return (
