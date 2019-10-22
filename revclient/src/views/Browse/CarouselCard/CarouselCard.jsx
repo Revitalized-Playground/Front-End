@@ -10,13 +10,13 @@ import { addUpDonations } from '../../../helpers/helpers';
 
 const CarouselCard = props => {
 	const { card, view } = props;
-	console.log("card: ", card);
+	// console.log("card: ", card);
 
 	const toggleLiked = () => {
 		props.setLiked(!props.liked)
 	}
 
-	console.log("card.likes: ", card.likes);
+	// console.log("card.likes: ", card.likes);
 	// card.likes.forEach(l => console.log("l: ", l))
 	// card.likes.map(l => {
 	// 	l.id === props.profileId

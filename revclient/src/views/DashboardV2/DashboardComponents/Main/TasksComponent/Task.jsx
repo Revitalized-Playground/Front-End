@@ -1,16 +1,52 @@
-import React from 'react';
-import { FaWrench, FaPlusCircle } from "react-icons/fa";
+import React, { useState, useEffect } from 'react';
+import { FaWrench } from "react-icons/fa";
 import { formatDate } from "../../../../../helpers/helpers";
 // import { FaLightbulb, FaFire, FaWrench, FaCheck, FaRegClipboard } from "react-icons/fa";
 // import { IoIosWater } from "react-icons/io";
 
 
+// Gql
+import { useMutation } from "@apollo/react-hooks";
+import { UPDATE_PROJECT_TASK } from "../../../../../graphql/mutations";
+
+
+
 
 const Task = props => {
 	const { task, tab, mainTabs, project, } = props;
+	
+	const [ taskCompleted, setTaskCompleted ] = useState({ completed: false });
+	
+	const [ updateProjectTask ] = useMutation( UPDATE_PROJECT_TASK );
+
+	const submitSetTaskCompleted = async (status) => {
+		// event.preventDefault();
+		await updateProjectTask({ 
+			variables: { 
+				id: project.profile.id,
+				project: project.id,
+				data: {
+					completed: taskCompleted.completed
+				} 
+			} 
+		});
+		console.log(taskCompleted.completed);
+		if (status.completed = true) {
+			setTaskCompleted({ completed: true })
+		}
+		if (status.completed = false) {
+			setTaskCompleted({ completed: false })
+		}
+	}
 
 
-console.log("Props in the task sub component",props)
+    useEffect(() => {   // Check verified 
+        if (task.completed) return setTaskCompleted({ completed: true })
+        setTaskCompleted({ completed: false })
+    }, [task]);
+
+	console.log("Props in the task sub component",props)
+
 	return (
 		<>
 
@@ -32,14 +68,31 @@ console.log("Props in the task sub component",props)
                         <p><b>Due Date:</b> {formatDate(task.dueDate)}</p>
                         <p><b>Estimated Time:</b> {task.budgetHours} hrs.</p>
                     </div>
+					
+					<div className="task-detail status"   >
 
-                    <div className="task-detail status"   >
-						{task.completed ? (
-							<p>Completed</p>
-						) : (
-							<p>Not completed</p>
-						)}
-                    </div>
+						<p>Task status</p>
+
+						<select
+							value={taskCompleted.completed}
+							onChange={(event) => {
+								if (event.target.value === false) {
+									submitSetTaskCompleted({ completed: false })
+								}
+								if (event.target.value === true) {
+									submitSetTaskCompleted({ completed: true })
+								}
+								
+							}}
+						>
+							<option value="">Task Status</option>
+							<option value={false}>Not finished</option>
+							<option value={true} className="completed">Completed</option>
+						</select>
+
+					</div>
+
+                    
                     
                 </div>
 
