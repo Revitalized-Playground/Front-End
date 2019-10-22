@@ -32,6 +32,8 @@
 }
 
 .list.tasks {	
+	display: flex;
+    align-items: center;
 	.task-card-indicator.left-bg {
 		width: 10px;
 		height: 80px;
@@ -108,9 +110,10 @@
 			.task-detail.status {
 				width: 35%;
 				padding: 0 20px 0 0;
+				border-radius: 5px;
 				justify-content: flex-end;
-				align-items: center;
-				flex-direction: row;
+				align-items: flex-end;
+				flex-direction: column;
 				.add-task-button {
 					font-size: 3.6rem;
 					color: $chillFi-purple;

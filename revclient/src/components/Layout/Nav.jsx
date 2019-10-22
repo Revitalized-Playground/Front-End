@@ -9,7 +9,7 @@ import { InitialAvatar } from '../../helpers/InitialAvatar.js';
 import { useWindowHook } from '../../helpers/windowOnClickHook.js';
 
 const unauthenticatedLinks = [
-	{ href: '/browse', label: 'Browse' },
+	{ href: '/projects', label: 'Projects' },
 	{ href: '/about', label: 'Team' },
 	{ href: '/login', label: 'Log In' },
 ].map(link => {
@@ -18,7 +18,7 @@ const unauthenticatedLinks = [
 });
 
 const authenticatedLinks = [
-	{ href: '/browse', label: 'Browse' },
+	{ href: '/projects', label: 'Projects' },
 	// { href: '/about', label: 'Team' },
 	{ href: '/dashboard', label: 'Dashboard' },
 	{ href: '/createproject', label: 'Create Project' },
@@ -103,7 +103,7 @@ const Nav = props => {
 			<div className="leftNav">
 				<Link to="/" title="Home">
 					<div className="logo">
-						<span>Revitalize </span>
+						<span>ReVitalize </span>
 					</div>
 				</Link>
 			</div>

@@ -1,9 +1,5 @@
 import gql from 'graphql-tag';
-import { 
-	USER_SUMMARY_FRAG, 
-	TRADES_FRAG, 
-} from '../fragments';
-
+import { USER_SUMMARY_FRAG, TRADES_FRAG } from '../fragments';
 
 export const ADD_COMMENT = gql`
 	mutation($data: CreateProjectCommentInput!) {
@@ -38,10 +34,15 @@ export const ADD_PROJECT = gql`
 	mutation($data: CreateProjectInput!) {
 		createProject(data: $data) {
 			id
+			slug
+			featuredImage
+			images {
+				id
+				imageUrl
+			}
 		}
 	}
 `;
-
 
 export const DELETE_PROJECT = gql`
 	mutation($id: ID!) {
@@ -50,7 +51,6 @@ export const DELETE_PROJECT = gql`
 		}
 	}
 `;
-
 
 export const DONATE_TO_PROJECT = gql`
 	mutation($id: ID!, $data: CreateProjectDonationInput!) {
@@ -66,7 +66,6 @@ export const DONATE_TO_PROJECT = gql`
 						lastName
 						profileImage
 					}
-
 				}
 			}
 		}
@@ -81,12 +80,11 @@ export const REMOVE_COMMENT = gql`
     }
 `;
 
-
 export const EDIT_COMMENT = gql`
-    mutation($data: UpdateProjectCommentInput!) {
-        updateProjectComment(data: $data) {
-            id
-            comment
+	mutation($data: UpdateProjectCommentInput!) {
+		updateProjectComment(data: $data) {
+			id
+			comment
 			project {
 				comments {
 					id
@@ -104,14 +102,13 @@ export const EDIT_COMMENT = gql`
 					}
 				}
 			}
-        }
-    }
+		}
+	}
 `;
 
-
 export const CREATE_PROJECT_TRADE = gql`
-    mutation($data: CreateProjectTrade!) {
-        createProjectTrade(data: $data) {
+	mutation($data: CreateProjectTrade!) {
+		createProjectTrade(data: $data) {
 			id
 			project {
 				id
@@ -123,27 +120,26 @@ export const CREATE_PROJECT_TRADE = gql`
 			}
 			name
 			description
-        }
-    }
+		}
+	}
 `;
 
-
 export const CREATE_PROJECT_TASK = gql`
-    mutation($data: CreateProjectTask!) {
-        createProjectTask(data: $data) {
-            id
-        }
-    }
+	mutation($data: CreateProjectTask!) {
+		createProjectTask(data: $data) {
+			id
+		}
+	}
 `;
 
 export const APPLY_TO_PROJECT = gql`
-	mutation($data: CreateProjectApplicant!){
+	mutation($data: CreateProjectApplicant!) {
 		createProjectApplicant(data: $data) {
 			id
 			status
 		}
 	}
-`
+`;
 
 export const ACCEPT_PROJECT_APPLICANT = gql`
 	mutation($data: AssignProjectApplicant!) {
@@ -151,12 +147,44 @@ export const ACCEPT_PROJECT_APPLICANT = gql`
 			id
 		}
 	}
-`
+`;
 
 export const DECLINE_PROJECT_APPLICANT = gql`
 	mutation($data: AssignProjectApplicant!) {
 		declineProjectApplicant(data: $data) {
 			id
+		}
+	}
+`
+export const CREATE_PROJECT_LIKE = gql `
+	mutation($id: ID!) {
+		createProjectLike(id: $id) {
+			id
+		}
+	}
+`
+
+export const DELETE_PROJECT_LIKE = gql `
+	mutation($id: ID!) {
+		deleteProjectLike(id: $id) {
+			id
+		}
+	}
+`
+
+export const UPDATE_PROJECT_TASK = gql`
+	mutation(
+		$id: ID!
+		$project: ID!
+		$data: UpdateProjectTask!
+		) {
+		updateProjectTask(
+			id: $id
+			project: $project
+			data: $data
+		) {
+			id
+			completed
 		}
 	}
 `

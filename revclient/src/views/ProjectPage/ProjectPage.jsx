@@ -40,7 +40,6 @@ const ProjectPage = ({ match }) => {
 		variables: { slug: match.params.slug },
 	});
 
-
 	useEffect(() => {
 		data && setProjectData(data.projectBySlug);
 	}, [data]);
@@ -67,7 +66,6 @@ const ProjectPage = ({ match }) => {
 	};
 
 
-
 	if (error) return <h2>ERROR! Someone call Elan</h2>;
 	if (loading || !data || !projectData) {
 		return (
@@ -82,7 +80,10 @@ const ProjectPage = ({ match }) => {
 			<Nav />
 			<div className="project-page-container">
 				<div className="singleProjectVectorContainer">
-					<div className="singleProjectVector" style={{ backgroundImage: `url(${projectData.featuredImage})`}}>
+					<div
+						className="singleProjectVector"
+						style={{ backgroundImage: `url(${projectData.featuredImage})` }}
+					>
 						<div className="blueSquare">
 							<h1>{projectData.name}</h1>
 							<div className="blueVector"></div>

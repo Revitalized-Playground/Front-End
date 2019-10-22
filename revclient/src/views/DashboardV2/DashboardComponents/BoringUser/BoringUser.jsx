@@ -7,9 +7,9 @@ const BoringUser = () => {
     return (
         <section className="boring-user">
             <div>Check out some projects!</div>
-            <Link to="/browse">
+            <Link to="/projects">
                 <button>
-                    Browse
+                    Projects
                 </button>
             </Link>
         </section>

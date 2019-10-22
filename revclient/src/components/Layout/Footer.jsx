@@ -6,7 +6,7 @@ const links = [
 	// { path: "#", label: "Learn More" },
 	{ path: "/about", label: "Team" },
 	{ path: "/createproject", label: "Create Project" },
-	{ path: "/browse", label: "Browse" },
+	{ path: "/projects", label: "Projects" },
 ].map(link => {
 	link.key = `nav-link-${link.href}-${link.label}`;
 	return link;
@@ -33,7 +33,7 @@ export default function Footer() {
 			</div>
 			
 			<div className="bottom-footer">
-				<div className="copyright">Revitalize</div>
+				<div className="copyright">ReVitalize</div>
 				<i>&copy;2019 All Rights Reserved</i>
 			</div>
 

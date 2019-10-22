@@ -29,7 +29,7 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		padding: 20px 0;
+		padding: 60px 0;
 		.form-plus-quote-container {
 			@include cardBoxShadow;
 			background-color: $chillFi-purple;
@@ -141,6 +141,14 @@
 					select,
 					option {
 						font-family: 'Roboto';
+						padding: 0 15px;
+						width: 200px;
+
+						&:focus {
+							border: 1px solid $chillFi-purple;
+							color: $chillFi-purple;
+							outline: none;
+						}
 					}
 
 					.form-navigation {
@@ -171,6 +179,7 @@
 					}
 					textarea {
 						border: 1px solid $mirage;
+						max-width: 95%;
 
 						&:focus {
 							color: $chillFi-purple;

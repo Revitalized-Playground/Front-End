@@ -234,23 +234,33 @@
 			.crowdFunding,
 			.opportunities,
 			.pathways {
+				// outline: 1px solid red;
+
+				position: relative;
 				display: inline-block;
 				text-align: center;
 				margin-bottom: 20px;
+				transition: all 5s ease-in-out;
 
 				p {
 					color: #000;
 				}
 
 				.toolTip {
+					margin: 1rem auto 0 auto;
 					display: none;
 					position: absolute;
-					background-color: $franks-grey;
+					width: 27rem;
+					text-align: left;
+					// background-color: $franks-grey;
+					background-color: $chillFi-purple;
+					color: #fff;
 					z-index: 100;
-					border: 1px solid $black-void;
+					// border: 1px solid $black-void;
 					border-radius: 5px;
+					margin-left: -2.5rem;
 					padding: 7.5px 12.5px;
-					margin-left: 25px;
+
 					cursor: default;
 				}
 
@@ -275,6 +285,10 @@
 						font-size: 17px;
 					}
 				}
+			}
+
+			.opportunities .toolTip {
+				margin-left: 0.35rem;
 			}
 
 			.crowdFunding:hover .toolTip,

@@ -29,7 +29,7 @@ const Form2 = ({ address, city, state, zip, handleChanges, setFormPosition }) =>
 				...errors,
 				state: true,
 			});
-		} else if (!zip.length || zip.length < 5) {
+		} else if (!zip.length || zip.length !== 5) {
 			setErrors({
 				...errors,
 				zip: true,
@@ -100,12 +100,12 @@ const Form2 = ({ address, city, state, zip, handleChanges, setFormPosition }) =>
 							if (i === 0) {
 								if (state) {
 									return (
-										<option className="default-selected" selected>
+										<option className="default-selected" defaultValue>
 											{state}
 										</option>
 									);
 								} else {
-									return <option selected disabled>{`State`}</option>;
+									return <option defaultValue disabled>{`State`}</option>;
 								}
 							}
 
