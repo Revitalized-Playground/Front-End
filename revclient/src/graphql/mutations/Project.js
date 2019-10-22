@@ -35,6 +35,10 @@ export const ADD_PROJECT = gql`
 		createProject(data: $data) {
 			id
 			slug
+			images {
+				id
+				imageUrl
+			}
 		}
 	}
 `;

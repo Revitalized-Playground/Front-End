@@ -21,7 +21,7 @@ let currentDate = moment().format('YYYY-MM-DD');
 
 const CreateProjectWizard = ({ history }) => {
 	let [projectDetails, setProjectDetails] = useState({
-		name: 'Palmdale233233232233223323223232332323323233323233',
+		name: '23323323232323232323',
 		startDate: currentDate,
 		country: 'United States',
 		duration: 1,
@@ -61,6 +61,8 @@ const CreateProjectWizard = ({ history }) => {
 			...projectDetails,
 			zip: parseInt(projectDetails.zip, 10),
 		};
+
+		// SOS FRANK: UPDATE CACHE
 		const addedProj = await addProject({ variables: { data: projectDetails } });
 		history.push(`/project/${addedProj.data.createProject.slug}`);
 	};

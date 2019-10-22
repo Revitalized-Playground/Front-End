@@ -1,10 +1,8 @@
-import React, {
-	useState,
-	// useEffect
-} from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaArrowLeft } from 'react-icons/fa';
 
 import Droppy from '../../../components/PhotoUpload/Droppy';
+import { isObject } from 'util';
 
 const Form3 = ({
 	setProjectDetails,
@@ -21,8 +19,10 @@ const Form3 = ({
 		duration: false,
 		goalAmount: false,
 		difficulty: false,
+		images: false,
+		featuredImage: false,
 	});
-	console.log(projectDetails);
+
 	const nextStep = e => {
 		e.preventDefault();
 
@@ -40,6 +40,16 @@ const Form3 = ({
 			setErrors({
 				...errors,
 				difficulty: true,
+			});
+		} else if (images.length === 0 || images.length > 5) {
+			setErrors({
+				...errors,
+				images: true,
+			});
+		} else if (!projectDetails.featuredImage) {
+			setErrors({
+				...errors,
+				featuredImage: true,
 			});
 		} else {
 			submitForm(e);
@@ -74,7 +84,7 @@ const Form3 = ({
 						required
 						name="duration"
 						type="number"
-						className="duration-input"
+						className={`duration-input ${errors.duration && `errorBorder`}`}
 						placeholder="Number of months"
 						value={duration}
 						onChange={e => {
@@ -94,7 +104,7 @@ const Form3 = ({
 					step="0.10"
 					name="goalAmount"
 					type="number"
-					className="proj-budget"
+					className={`proj-budget ${errors.goalAmount && `errorBorder`}`}
 					placeholder="How much money needs to be raised"
 					value={goalAmount === 0 ? '' : goalAmount}
 					onChange={e => {
@@ -124,6 +134,14 @@ const Form3 = ({
 
 			<h4>Project Photos</h4>
 			<Droppy images={images} setProjectDetails={setProjectDetails} projectDetails={projectDetails} />
+			{errors.images && images.length <= 0 && <p className="errorText">Please upload photos of your project</p>}
+			{errors.images && images.length > 5 && (
+				<p className="errorText">Sorry, but you only upload 5 photos or less</p>
+			)}
+
+			{errors.featuredImage && !projectDetails.featuredImage && (
+				<p className="errorText">Please select a photo to be featured</p>
+			)}
 
 			<div className="form-navigation">
 				<button className="prev-step" onClick={() => setFormPosition(2)}>

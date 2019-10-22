@@ -36,7 +36,6 @@ const ProjectPage = ({ match }) => {
 		variables: { slug: match.params.slug },
 	});
 
-
 	useEffect(() => {
 		data && setProjectData(data.projectBySlug);
 	}, [data]);
@@ -65,11 +64,9 @@ const ProjectPage = ({ match }) => {
 		setBool(!bool);
 		setProjectData({
 			...projectData,
-			donations: [...projectData.donations, {amount} ]
+			donations: [...projectData.donations, { amount }],
 		});
 	};
-
-
 
 	if (error) return <h2>ERROR! Someone call Elan</h2>;
 	if (loading || !data || !projectData) {
@@ -85,7 +82,10 @@ const ProjectPage = ({ match }) => {
 			<Nav />
 			<div className="project-page-container">
 				<div className="singleProjectVectorContainer">
-					<div className="singleProjectVector" style={{ backgroundImage: `url(${projectData.featuredImage})`}}>
+					<div
+						className="singleProjectVector"
+						style={{ backgroundImage: `url(${projectData.featuredImage})` }}
+					>
 						<div className="blueSquare">
 							<h1>{projectData.name}</h1>
 							<div className="blueVector"></div>
@@ -119,7 +119,12 @@ const ProjectPage = ({ match }) => {
 						organizer={`${projectData.profile.firstName} ${projectData.profile.lastName}`}
 					/>
 
-					<Donate applicants={projectData} projectData={projectData} setModal={setModalVal} setDonateModal={setDonateModal} />
+					<Donate
+						applicants={projectData}
+						projectData={projectData}
+						setModal={setModalVal}
+						setDonateModal={setDonateModal}
+					/>
 				</div>
 				<div className="detailed-creator">
 					<DetailedDescription

@@ -27,10 +27,8 @@ const Droppy = props => {
 		setImagePreview(newImagePreview);
 	};
 
-	console.log(imagePreview);
 	const setFeaturedImagePreview = i => {
 		setFeaturedImage(i + 1);
-		console.log(imagePreview[i].filename);
 		setProjectDetails({ ...projectDetails, featuredImage: imagePreview[i].name });
 	};
 
