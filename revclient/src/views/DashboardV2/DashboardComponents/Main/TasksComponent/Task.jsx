@@ -1,16 +1,54 @@
-import React from 'react';
-import { FaWrench, FaPlusCircle } from "react-icons/fa";
+import React, { useState, useEffect } from 'react';
+import { FaWrench } from "react-icons/fa";
 import { formatDate } from "../../../../../helpers/helpers";
 // import { FaLightbulb, FaFire, FaWrench, FaCheck, FaRegClipboard } from "react-icons/fa";
 // import { IoIosWater } from "react-icons/io";
 
 
+// Gql
+import { useMutation } from "@apollo/react-hooks";
+import { UPDATE_PROJECT_TASK } from "../../../../../graphql/mutations";
+
+
+
 
 const Task = props => {
-	const { task, tab, mainTabs, project, } = props;
+	const { task, tab, mainTabs, project } = props;
+	
+	const [ taskCompleted, setTaskCompleted ] = useState({ completed: false });
+	
+	const [ updateProjectTask ] = useMutation( UPDATE_PROJECT_TASK );
+
+	const submitSetTaskCompleted = async (status) => {
+		// console.log("submit task completed", taskCompleted.completed, status, props);
+
+		const updated = await updateProjectTask({ 
+			variables: { 
+				id: task.id,
+				project: project.id,
+				data: {
+					completed: status === "completed" ? true : false
+				}
+			}
+		});
+		// console.log(updated)
+		if (status === "completed") {
+			setTaskCompleted({ completed: true })
+		}
+		if (status === "incomplete") {
+			setTaskCompleted({ completed: false })
+		}
+
+	}
 
 
-console.log("Props in the task sub component",props)
+    useEffect(() => {   // Check verified 
+        if (task.completed) return setTaskCompleted({ completed: true })
+        setTaskCompleted({ completed: false })
+    }, [task]);
+
+	// console.log("Props in the task sub component",props)
+
 	return (
 		<>
 
@@ -32,37 +70,44 @@ console.log("Props in the task sub component",props)
                         <p><b>Due Date:</b> {formatDate(task.dueDate)}</p>
                         <p><b>Estimated Time:</b> {task.budgetHours} hrs.</p>
                     </div>
+					
+					<div className="task-detail status"   >
 
-                    <div className="task-detail status"   >
-						{task.completed ? (
-							<p>Completed</p>
+						<p>Task status</p>
+
+						{taskCompleted.completed ? (
+							<select
+								disabled
+								value="COMPLETE"
+							>
+								<option value="COMPLETE" className="completed">Completed</option>
+							</select>
 						) : (
-							<p>Not completed</p>
+							<select
+								value={taskCompleted.completed ? "COMPLETE" : "INCOMPLETE"}
+								onChange={(event) => {
+									if (event.target.value === "INCOMPLETE") {
+										submitSetTaskCompleted("incomplete")
+									}
+									if (event.target.value === "COMPLETE") {
+										submitSetTaskCompleted("completed")
+									}
+									
+								}}
+							>
+								<option value="INCOMPLETE">Not finished</option>
+								<option value="COMPLETE" className="completed">Completed</option>
+							</select>
 						)}
-                    </div>
+
+
+					</div>
+
+                    
                     
                 </div>
 
             </section>
-
-
-			{/* <div className={`task-card-indicator left-bg ${task.priority.toLowerCase()}-priority`} ></div>
-
-			<div className="task" key={task.id + Date.now()}>
-
-				<div className="task-card-container" >
-					<div className="task-card-img-container" >
-						<img src={task.image} alt="" />
-					</div>
-					<div className="task-card-text">
-						<h5>{task.priority}</h5>
-						<p className="description">{task.description}</p>
-					</div>
-					<div className="task-card-icon-container">
-						<div className="no-picture"></div>
-					</div>
-				</div>
-			</div> */}
 
 		</>
 	);

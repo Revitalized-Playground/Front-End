@@ -186,3 +186,19 @@ export const DELETE_PROJECT_LIKE = gql `
 		}
 	}
 `
+
+export const UPDATE_PROJECT_TASK = gql`
+	mutation(
+		$id: ID!
+		$project: ID!
+		$data: UpdateProjectTask!
+		) {
+		updateProjectTask(
+			id: $id
+			project: $project
+			data: $data
+		) {
+			id
+		}
+	}
+`
