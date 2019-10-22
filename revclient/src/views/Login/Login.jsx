@@ -143,7 +143,7 @@ const Login = props => {
 						<form className="login-local" onSubmit={e => handleSubmit(e)}>
 							<div className="login-email">
 								<p className="login-title">Email</p>
-								{state.errors.invalidCreds && <p className="error-msg">Invalid Input/s</p>}
+								{state.errors.invalidCreds && <p className="error-msg">Invalid Email and/or Password</p>}
 							</div>
 							<input
 								name='email'
@@ -158,7 +158,6 @@ const Login = props => {
 							/>
 							<div className="login-pass">
 								<p className="">Password</p>
-								{state.errors.invalidCreds && <p className="error-msg">Invalid Input/s</p>}
 							</div>
 							<input
 								name="password"
