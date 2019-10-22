@@ -13,7 +13,7 @@ import AddTask from "../DashboardComponents/AddTask/AddTask";
 
 export default function HeaderMainSort(props) {
     const { projectArray, selectedProject, setProject, mainTabs, setMainTabs, dashNavTabState, possibleDashNavTabs } = props;
-    const [ addTaskModal, setAddTaskModal ] = useState({ show: false, selectedProject: null });
+    const [ addTaskModal, setAddTaskModal ] = useState({ show: false, selectedProject: null, trade: null });
 
     if (!projectArray) return null;
     let renderedHeaderMain;
@@ -26,9 +26,9 @@ export default function HeaderMainSort(props) {
             <AddTask 
                 setAddTaskModal={setAddTaskModal} 
                 addTaskModal={addTaskModal} 
-                project={addTaskModal.selectedProject} 
+                selectedProject={addTaskModal.selectedProject} 
 
-                trade={null}
+                trade={addTaskModal.trade}
             />
         )
     }
@@ -49,6 +49,7 @@ export default function HeaderMainSort(props) {
                         project={project} 
                         setProject={setProject}
                         selectedProject={selectedProject}
+                        setAddTaskModal={setAddTaskModal}
                     />
                 ) : project.id === selectedProject.id ? ( // If there is a selected project, only render that header
                     <Header 
@@ -57,6 +58,7 @@ export default function HeaderMainSort(props) {
                         project={project} 
                         setProject={setProject}
                         selectedProject={selectedProject}
+                        setAddTaskModal={setAddTaskModal}
                     />
                 ) : null}
                 
@@ -164,6 +166,7 @@ export default function HeaderMainSort(props) {
                         project={projectObject.project} 
                         setProject={setProject}
                         selectedProject={selectedProject}
+                        setAddTaskModal={setAddTaskModal}
                     />
                 ) : projectObject.project.id === selectedProject.id ? (
                     <Header 
@@ -172,6 +175,7 @@ export default function HeaderMainSort(props) {
                         project={projectObject.project} 
                         setProject={setProject}
                         selectedProject={selectedProject}
+                        setAddTaskModal={setAddTaskModal}
                     />
                 ) : null}
                 

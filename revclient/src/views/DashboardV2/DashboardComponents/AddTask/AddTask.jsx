@@ -13,22 +13,22 @@ const AddTask = props => {
     const {
         setAddTaskModal,
         // addTaskModal,
-        project,
-        trade 
+        selectedProject,
+        trade
     } = props;
 
     const [ createProjectTask ] = useMutation( CREATE_PROJECT_TASK );
     const [ addTaskState, setAddTaskState ] = useState({
-        project: project.id,
+        project: selectedProject ? selectedProject.id : null,
         trade: trade ? trade.id : "",
         title: "",
         description: "",
         priority: "",
         dueDate: formatDateForDateInput(Date.now()),
         budgetHours: "",
-        apprentices: {
-            profile: "",
-        },
+        // apprentices: {
+        //     profile: "",
+        // },
     })
 
 
@@ -45,7 +45,7 @@ const AddTask = props => {
 		setAddTaskModal({ show: false });
     };
 
-    console.log("add task props ",  props, addTaskState, "\nDue Date", "\naddTaskState", addTaskState);
+    // console.log("add task props ",  props, addTaskState, "\nDue Date", "\naddTaskState", addTaskState);
 
     return (
         <>
@@ -94,14 +94,13 @@ const AddTask = props => {
                                 >
                                     <option value="0">Select trade</option>
                                     {
-                                        project.trades.map(trade => (
+                                        selectedProject.trades.map(trade => (
                                             <option 
+                                                key={trade.id}
                                                 name="trade"
                                                 value={trade.id}
                                             >
-
                                                 {trade.name}
-
                                             </option>
                                         ))
                                     }
@@ -114,12 +113,13 @@ const AddTask = props => {
                             <h5 className="add-task-input-label">Assign Task</h5>
                             <select
                                 disabled
-                                value={addTaskState.apprentices.profile}
+                                // value={addTaskState.apprentices.profile}
+                                value="Coming Soon"
                                 onChange={(event) => setAddTaskState({ ...addTaskState, apprentices: { profile: event.target.value } })}
                             >
                                 <option value={""}>Select apprentice</option>
                                 {/* {
-                                    project.students.map(eachStudent => (
+                                    selectedProject.students.map(eachStudent => (
                                         <option 
                                             name="apprentices"
                                             value={eachStudent.profile.id}
