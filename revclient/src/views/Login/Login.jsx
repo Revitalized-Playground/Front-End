@@ -16,7 +16,7 @@ import fbLogo from "../../assets/AuthPages/fb-logo.png";
 
 const Login = props => {
 	const [loginUser, { client }] = useMutation(LOGIN_USER);
-	console.log(client)
+	// console.log(client)
 	const [state, setState] = useState({
 		email: "",
 		password: "",
@@ -83,16 +83,18 @@ const Login = props => {
 		setState({
 			email: "",
 			password: "",
+			errors: {
+				email: false,
+				password: false
+			}
 		})
 		localStorage.setItem("token", created.data.loginUser.token);
 		props.history.push("/browse");
 	};
 
 	const goBack = () => {
-		props.history.push("/");
+		props.history.push(props.history[-1] || "/");
 	}
-
-	console.log(state)
 
 	return (
 		<>
