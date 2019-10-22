@@ -23,14 +23,7 @@ const Form2 = ({ projOwnerName, address, city, state, zip, handleChanges, setFor
 	return (
 		<form onSubmit={() => setFormPosition(3)} className="form-2">
 			<h4>Street Address</h4>
-			<input
-				required
-				name="address"
-				type="text"
-				className="proj-street-address"
-				value={address}
-				onChange={e => handleChanges(e)}
-			/>
+			<input required name="address" type="text" className="" value={address} onChange={e => handleChanges(e)} />
 
 			<div className="address-details">
 				<div className="address-details-city">
