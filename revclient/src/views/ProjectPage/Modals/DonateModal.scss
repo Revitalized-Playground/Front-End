@@ -21,7 +21,7 @@
 
 .donate-success-text {
     color: green;
-    border: 1px solid red;
+    // border: 1px solid red;
     text-align: center;
     margin-top: 20px;
 }
@@ -80,6 +80,16 @@
 				transition: all 0.3s ease-in;
 				opacity: 0;
 				cursor: pointer;
+            }
+            .label {
+				color: $chillFi-purple;
+				border-radius: 100px;
+				padding: 2px;
+				z-index: 2;
+				margin: 8px;
+				width: 30px;
+				height: 30px;
+				cursor:pointer;
 			}
 
 			.inner:before,

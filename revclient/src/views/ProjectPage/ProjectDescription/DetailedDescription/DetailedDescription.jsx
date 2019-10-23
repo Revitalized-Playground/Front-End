@@ -2,17 +2,9 @@ import React from 'react';
 // import BasicDetails from './BasicDescription/BasicDescription.jsx'
 import email from '../../../../assets/SingleProjectPage/email.png';
 
-const DetailedDescription = ({
-	startDate,
-	duration,
-	difficulty,
-	organizer,
-	location,
-	projDescription,
-	projectCreator,
-}) => {
+const DetailedDescription = ({location, projDescription, isProjectCreator}) => {
 	return (
-		<div className="detailedDescriptionContainer">
+		<div style={{marginTop: isProjectCreator ? '-250px' : '-550px'}} className="detailedDescriptionContainer">
 			{projDescription.length > 1100 ? (
 				<p className="detailedDescription">
 					{' '}

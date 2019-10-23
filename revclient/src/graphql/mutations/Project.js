@@ -35,6 +35,7 @@ export const ADD_PROJECT = gql`
 		createProject(data: $data) {
 			id
 			slug
+			featuredImage
 			images {
 				id
 				imageUrl
@@ -72,22 +73,11 @@ export const DONATE_TO_PROJECT = gql`
 `;
 
 export const REMOVE_COMMENT = gql`
-	mutation($id: ID!) {
-		deleteProjectComment(id: $id) {
-			id
-			project {
-				name
-				# comments {
-				# 	id
-				# 	comment
-				# 	likes {
-				# 		id
-				# 	}
-				# }
-			}
-			comment
-		}
-	}
+    mutation($id: ID!) {
+        deleteProjectComment(id: $id) {
+            id
+        }
+    }
 `;
 
 export const EDIT_COMMENT = gql`
@@ -194,6 +184,7 @@ export const UPDATE_PROJECT_TASK = gql`
 			data: $data
 		) {
 			id
+			completed
 		}
 	}
 `

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FaRegEdit } from 'react-icons/fa';
+import InitialAvatar from '../../../../components/InitialAvatar/InitialAvatar'
 
 const SingleComment = ({ each, editCommentMutation, deleteComment, currentUser, settings, settingsBlur, bool }) => {
 	const [comment, setComment] = useState(each);
@@ -25,7 +26,14 @@ const SingleComment = ({ each, editCommentMutation, deleteComment, currentUser, 
 
 	return (
 		<div className="commentFlex" key={each.id}>
-			{each.profile.profileImage === undefined ? null : (
+			{!each.profile.profileImage ? <InitialAvatar
+										height={40}
+										width={40}
+										className="user-icon"
+										firstName={each.profile.firstName}
+										lastName={each.profile.lastName}
+										useRandomColor={1}
+									/> : (
 				<img src={each.profile.profileImage} alt="Profile icon" />
 			)}
 			<div className="comment-inner-container">
