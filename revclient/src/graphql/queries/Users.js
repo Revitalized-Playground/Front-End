@@ -39,9 +39,9 @@ export const GET_USER_PROFILE = gql`
 				project {
 					...ProjectSummary
 				}
-				profile {
-					...UserSummary
-				}
+				# profile {
+				# 	...UserSummary
+				# }
         	}
 
 			# This is an array with items if the user has created a project
@@ -70,34 +70,40 @@ export const GET_USER_PROFILE = gql`
 			likedProjects {
 				id
 				project {
-					...ProjectSummary
-				}
-				profile {
-					...UserSummary
+					id
+					name
+					featuredImage
 				}
 			}
 
 			# This is an array with items if the user has left comments
-			comments {
-				...Comments
-				project {
-					...ProjectSummary
-				}
-			}
+			# comments {
+			# 	...Comments
+			# 	project {
+			# 		id
+			# 		students {
+			# 			id
+			# 			profile {
+			# 				id
+			# 				profileImage
+			# 			}
+			# 		}
+			# 	}
+			# }
 
 			# This is an array with items if the user has liked comments
-			likedComments {
-				id
-				comment {
-					...Comments
-					profile {
-						...UserSummary
-					}
-					project {
-						...ProjectSummary
-					}
-				}
-			}
+			# likedComments {
+			# 	id
+			# 	comment {
+			# 		...Comments
+			# 		profile {
+			# 			...UserSummary
+			# 		}
+			# 		project {
+			# 			...ProjectSummary
+			# 		}
+			# 	}
+			# }
 
 			# This is an array with items if the user has submitted an application to join a project
 			applications {
@@ -158,9 +164,9 @@ export const GET_USER_PROFILE = gql`
 				project {
 					...ProjectSummary
 				}
-				profile {
-					...UserSummary
-				}
+				# profile {
+				# 	...UserSummary
+				# }
 
 				### Redundant. This query returns the projects the user is a trademaster on.
 				### No need to return the profile we already have
@@ -178,7 +184,6 @@ export const GET_USER_PROFILE = gql`
 	}
 	${USER_SUMMARY_FRAG}
 	${PROJECT_SUMMARY_FRAG}
-	${COMMENTS_FRAG}
 
 
 `;

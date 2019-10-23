@@ -60,6 +60,12 @@ export const GET_PROJECT_BY_ID = gql`
 					}
 				}
 			}
+			tradeMasters {
+            	id
+				profile {
+					...UserSummary
+				}
+        	}
 			comments {
 				...Comments
 				profile {
@@ -97,8 +103,12 @@ export const GET_PROJECT_BY_SLUG = gql`
 `;
 
 
-// export const GET_TRADES_BY_PROJECT_ID = gql`
-// 	query projectById($id: ID!) {
-
-// 	}
-// `;
+export const QUERY_PROJECTS = gql`
+	query projects($query: String!) {
+		projects(query: $query) {
+			...ProjectSummary
+		}
+	}
+	${USER_SUMMARY_FRAG}
+	${PROJECT_SUMMARY_FRAG}
+`

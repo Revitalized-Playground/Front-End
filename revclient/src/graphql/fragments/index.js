@@ -63,23 +63,6 @@ export const PROJECT_SUMMARY_FRAG = gql`
         difficulty
         startDate
         featuredImage
-        applicants {
-            id
-            licensed
-            coverLetter
-            jobExperience
-            education
-            availability
-            status
-            trade {
-                id
-                name
-                description
-            }
-            profile {
-                ...UserSummary
-            }
-        }
         images {
             id
             imageUrl
@@ -91,15 +74,10 @@ export const PROJECT_SUMMARY_FRAG = gql`
         likes {
             id
             profile {
-                id
-            }
-        }
-        tradeMasters {
-            id
-            profile {
                 ...UserSummary
             }
         }
+
         students {
             id
             profile {
@@ -111,16 +89,23 @@ export const PROJECT_SUMMARY_FRAG = gql`
             name
             description
         }
+        tradeMasters {
+            id
+            profile {
+                id
+                profileImage
+                firstName
+                lastName
+                email
+                address
+                city
+                state
+                zip                
+            }
+        }
         tasks {
             ...Tasks
         }
-        # comments {
-        #     id
-        #     ...Comments
-        #     profile {
-        #         ...UserSummary
-        #     }
-        # }
     }
     ${USER_SUMMARY_FRAG}
     ${TASKS_FRAG}
