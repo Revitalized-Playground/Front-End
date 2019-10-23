@@ -2,12 +2,24 @@ import React from 'react';
 import { Link } from "react-router-dom";
 
 
-const Top = () => {
+const Top = props => {
+    const { queryFormState, submitQuery, setQueryFormState } = props;
+
     return (
         <div className="top-container browse-all">
             <h2 className="title">
-                <div>What are your interests?</div>
+                <div>Filter Projects</div>
             </h2>
+            <form onSubmit={submitQuery}>
+                <input 
+                    name='query'
+                    type='text'
+                    placeholder='What you are looking for...'
+                    value={queryFormState.query}
+                    onChange={(event) => {setQueryFormState({ query: event.target.value })}}
+                />
+                <button onClick={submitQuery} >Submit</button>
+            </form>
             <div className="interests">
                 <div className="interests-left">
                     <Link to="/all-projects" className="interest one">

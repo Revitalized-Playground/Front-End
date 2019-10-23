@@ -26,11 +26,22 @@ export const COMMENTS_FRAG = gql`
         likes {
             id
             profile {
-                ...UserSummary
+                id
+                verified
+                email
+                firstName
+                lastName
+                profileImage
+                country
+                state
+                city
+                zip
+                phone
+                address
+                aptNumber
             }
         }
     }
-    ${USER_SUMMARY_FRAG}
 `;
 
 
@@ -63,23 +74,6 @@ export const PROJECT_SUMMARY_FRAG = gql`
         difficulty
         startDate
         featuredImage
-        applicants {
-            id
-            licensed
-            coverLetter
-            jobExperience
-            education
-            availability
-            status
-            trade {
-                id
-                name
-                description
-            }
-            profile {
-                ...UserSummary
-            }
-        }
         images {
             id
             imageUrl
@@ -92,18 +86,37 @@ export const PROJECT_SUMMARY_FRAG = gql`
             id
             profile {
                 id
+                verified
+                email
+                firstName
+                lastName
+                profileImage
+                country
+                state
+                city
+                zip
+                phone
+                address
+                aptNumber
             }
         }
-        tradeMasters {
-            id
-            profile {
-                ...UserSummary
-            }
-        }
+
         students {
             id
             profile {
-                ...UserSummary
+                id
+                verified
+                email
+                firstName
+                lastName
+                profileImage
+                country
+                state
+                city
+                zip
+                phone
+                address
+                aptNumber
             }
         }
         trades {
@@ -111,19 +124,30 @@ export const PROJECT_SUMMARY_FRAG = gql`
             name
             description
         }
-        tasks {
-            ...Tasks
+        tradeMasters {
+            id
+            profile {
+                id
+                profileImage
+                firstName
+                lastName
+                email
+                address
+                city
+                state
+                zip                
+            }
         }
-        # comments {
-        #     id
-        #     ...Comments
-        #     profile {
-        #         ...UserSummary
-        #     }
-        # }
+        tasks {
+            id
+            title
+            description
+            priority
+            dueDate
+            budgetHours
+            completed
+        }
     }
-    ${USER_SUMMARY_FRAG}
-    ${TASKS_FRAG}
 `
 
 

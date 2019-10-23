@@ -5,7 +5,7 @@ import ProgressBar from "../../../../components/ProgressBar/ProgressBar";
 import { useQuery } from "@apollo/react-hooks";
 import { GET_USER } from "../../../../graphql/queries/Users";
 
-// import '@lottiefiles/lottie-player'; // WTH is this?
+import '@lottiefiles/lottie-player'; 
 
 const Donate = props => {
     const raised = addUpDonations(props.projectData.donations);
@@ -18,8 +18,6 @@ const Donate = props => {
 
     const { client, loading, error, data } = useQuery(GET_USER);
 
-    console.log(props)
-    
     useEffect(() => {
         if(props.projectData.applicants && data) {
             props.projectData.applicants.map(eachApplicant => {
