@@ -13,19 +13,16 @@ import { useMutation } from '@apollo/react-hooks';
 
 const CarouselCard = props => {
 	const { card, view, profileId } = props;
-	console.log("card: ", card);
-	// const [liked, setLiked] = useState(false);
+
 	const [ createProjectLike ] = useMutation( CREATE_PROJECT_LIKE );
 	const [ deleteProjectLike ] = useMutation( DELETE_PROJECT_LIKE );
-	// let likeId = "";
-	// const [likeId, setLikeId] = useState('');
+
 	const [ likeState, setLikeState ] = useState({
 		liked: false,
 		likeId: ''
 	})
 
 	const toggleLiked = async (e, arg) => {
-		console.log("likeState in toggle: ", likeState);
 		e.preventDefault();
 		if (arg === "unlike") {
 			await deleteProjectLike({ variables: { id: likeState.likeId }})
@@ -45,7 +42,7 @@ const CarouselCard = props => {
 	useEffect(() => {  
 		if (view === 'recommended') {
 			card.likes.forEach(l => {
-				console.log("like :", l);
+				console.log("l: ", l, "card.name: ", card.name, "profileId: ", profileId);
 				l.profile.id === profileId ?
 				setLikeState({
 					liked: true,
@@ -55,9 +52,6 @@ const CarouselCard = props => {
 					...likeState,
 					likeId: l.id
 				})
-				// setLiked(true),
-				// setLikeId(l.id)
-				// console.log("likeId: ", likeId);
 			})
 		}
     }, []);
@@ -82,9 +76,6 @@ const CarouselCard = props => {
 	}
 
 	if (view === 'recommended') {
-		// card.likes.forEach(l => {
-		// 	l.profile.id === profileId && setLiked(true);
-		// })
 		return (
 			<section className="carousel-card-inner __recommended">
 				<div className="carousel-card-image">

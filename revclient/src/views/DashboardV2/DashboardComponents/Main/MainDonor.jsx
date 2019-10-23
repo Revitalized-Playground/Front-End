@@ -3,7 +3,7 @@ import Skeleton from 'react-loading-skeleton';
 import LoadingSpinner from "../../../../components/LoadingSpinner/LoadingSpinner";
 // import { inLastWeek } from "../../../../helpers/helpers";
 
-import Tab from './TabComponent/Tab';
+// import Tab from './TabComponent/Tab';
 import Donations from "./Donations/Donations";
 // import NoContent from "./NoContent/NoContent";
 
@@ -14,41 +14,41 @@ const MainDonor = props => {
 	const { donations, mainTabs, setMainTabs } = props;
 	// Moving away from managing any tab information anywhere other than in dashboard.
 	
-	useEffect(() => {
-		setMainTabs({
-			...mainTabs,
-			selectedMainTab: mainTabs.donationTabs[0]
-		})
-	}, []);
+	// useEffect(() => {
+	// 	setMainTabs({
+	// 		...mainTabs,
+	// 		selectedMainTab: mainTabs.donationTabs[0]
+	// 	})
+	// }, []);
 
-	const projectAdminMainView = selectedTabView => {
+	// const projectAdminMainView = selectedTabView => {
 		
-		let viewSelected="";
+	// 	let viewSelected="";
 
-		if (selectedTabView === mainTabs.donationTabs[0]) {
-			const view = (
-				<>
-					<Donations donations={donations} />
-				</>
-			)
-			return viewSelected = view
-		}
+	// 	if (selectedTabView === mainTabs.donationTabs[0]) {
+	// 		const view = (
+	// 			<>
+	// 				<Donations donations={donations} />
+	// 			</>
+	// 		)
+	// 		return viewSelected = view
+	// 	}
 		
-		// if (selectedTabView === mainTabs.donationTabs[1]) {
-		// 	const view = (
-		// 		<>
-		// 			<Donations donations={donations} />
-		// 		</>
-		// 	)
-		// 	return viewSelected = view
-		// }
+	// 	// if (selectedTabView === mainTabs.donationTabs[1]) {
+	// 	// 	const view = (
+	// 	// 		<>
+	// 	// 			<Donations donations={donations} />
+	// 	// 		</>
+	// 	// 	)
+	// 	// 	return viewSelected = view
+	// 	// }
 
-		return (
-			<>
-				{viewSelected}
-			</>
-		)
-	}
+	// 	return (
+	// 		<>
+	// 			<Donations donations={donations} />
+	// 		</>
+	// 	)
+	// }
 
 	if (!mainTabs) {
 		return (
@@ -62,7 +62,7 @@ const MainDonor = props => {
 
 				<div className="dashboard-title">
 					<div className="tabs">
-						{mainTabs ? 
+						{/* {mainTabs ? 
 							// mainTabs.donationTabs.map(tab => (
 							// 	<Tab
 							// 		mainTabs={mainTabs}
@@ -76,14 +76,14 @@ const MainDonor = props => {
 							<>
 								<Skeleton count={1} height={25} width={200} />
 							</>
-						)}
+						)} */}
 					</div> 
 				</div>
 
 				{/* <hr /> */}
 
 				<div className="dashboard-main-body">
-					{projectAdminMainView(mainTabs.selectedMainTab)}
+					<Donations donations={donations} />
 				</div>
 
 			</div>

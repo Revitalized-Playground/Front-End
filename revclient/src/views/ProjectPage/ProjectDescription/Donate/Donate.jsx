@@ -5,7 +5,7 @@ import ProgressBar from "../../../../components/ProgressBar/ProgressBar";
 import { useQuery } from "@apollo/react-hooks";
 import { GET_USER } from "../../../../graphql/queries/Users";
 
-import '@lottiefiles/lottie-player';
+// import '@lottiefiles/lottie-player'; // WTH is this?
 
 const Donate = props => {
     const raised = addUpDonations(props.projectData.donations);
