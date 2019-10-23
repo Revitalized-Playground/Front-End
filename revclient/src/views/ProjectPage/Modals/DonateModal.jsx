@@ -9,12 +9,24 @@ import { useMutation } from '@apollo/react-hooks';
 import { DONATE_TO_PROJECT } from '../../../graphql/mutations';
 import { GET_PROJECT_BY_SLUG } from '../../../graphql/queries/Projects';
 import '@lottiefiles/lottie-player';
-const DonateModal = (props) => {
-    const { id, setInnerModalDisplay, setModalDisplay, innerModalDisplay, modalDisplay, donateModal, setDonateModal, donateModalBlur, stripe, match } = props;
 
+
+const DonateModal = ({id, setInnerModalDisplay, setModalDisplay,innerModalDisplay, modalDisplay, donateModal, setDonateModal, donateModalBlur, stripe, match}) => {
     const [amount, setAmount] = useState('');
     const [success, setSuccess] = useState(false)
     const [animationSuccess, setAnimationSuccess] = useState(false)
+    const [donateToProject, {data, loading, error}] = useMutation(DONATE_TO_PROJECT, {
+        update(cache, {data: {createProjectDonation}},) {
+            const { projectBySlug } = cache.readQuery({
+                query: GET_PROJECT_BY_SLUG,
+                variables: { slug: match.params.slug }
+            })
+            cache.writeQuery({
+                query: GET_PROJECT_BY_SLUG,
+                data: { projectBySlug: projectBySlug.donations = createProjectDonation.project.donations }
+            })
+        }
+    });
     const [textError, setError] = useState({
         cardNumber: {
             error: '',
@@ -33,20 +45,6 @@ const DonateModal = (props) => {
         },
         amount: false
     })
-
-    const [donateToProject, {data, loading, error}] = useMutation(DONATE_TO_PROJECT, {
-        update(cache, {data: {createProjectDonation}},) {
-            const { projectBySlug } = cache.readQuery({
-                query: GET_PROJECT_BY_SLUG,
-                variables: { slug: match.params.slug }
-            })
-            cache.writeQuery({
-                query: GET_PROJECT_BY_SLUG,
-                data: { projectBySlug: projectBySlug.donations = createProjectDonation.project.donations }
-            })
-        }
-    });
-    
     const errorChecker = e => {
         setError({...textError, amount: false, [e.elementType]: {blurComplete: false, error: !e.error ? '' : e.error.message, complete: e.complete}})
     }
@@ -56,19 +54,16 @@ const DonateModal = (props) => {
     const handleChange = e => {
         setAmount(e.target.value)
     }
-    
     async function handleSubmit(e) {
         e.preventDefault();
-        const { token } = await stripe.createToken({ name: 'Name here' }); 
+        const { token } = await stripe.createToken({ name: 'Name here' });
         let newAmount = amount
         newAmount = removeCommas(newAmount)
         // console.log("newAmount in DonateModal", newAmount);
-        
         if(newAmount < 0.50) {
             window.alert('Can\'t donate less than $0.50')
-        } 
+        }
         else {
-            console.log(props);
             donateToProject({
                 variables: {
                     id: id,
@@ -77,10 +72,9 @@ const DonateModal = (props) => {
                         amount: parseInt(newAmount, 10),
                     },
                 },
-            });    
+            });
         }
-    };
-
+    }
     useEffect(() => {
         if(data) {
             setSuccess(true)
@@ -89,13 +83,7 @@ const DonateModal = (props) => {
             setInnerModalDisplay('none')
             setTimeout(() => {setAnimationSuccess(false); setDonateModal(false)}, 2500)
         }
-    }, [data]);
-
-    useEffect(() => {
-        setSuccess(false)
-    }, [donateModal]);
-   
-    
+    }, [data])
     return (
         <div onClick={donateModalBlur} className={donateModal ? 'donate-modal' : 'none'}>
             <div className='exit-button'>
@@ -107,13 +95,12 @@ const DonateModal = (props) => {
                             </div>
                         </div> */}
                     </div>
-                <div style={{display: innerModalDisplay}} className='inner-donate-modal'>
-                    
+                <div className='inner-donate-modal'>
                     <h2>$ Amount</h2>
                     <form className='donate-form'>
                         <div className="flex">
                             <div className="currency" style={{color: amount.length > 0 ? 'black' : null}}>$</div>
-                            <CurrencyInput 
+                            <CurrencyInput
                                 value={amount}
                                 style={{color: amount.length <= 0 ? 'gray' : null}}
                                 onChangeEvent={(e) => {handleChange(e); errorChecker(e)}}
@@ -121,7 +108,6 @@ const DonateModal = (props) => {
                         </div>
                         {textError.amount && <p className='card-error'>Please Provide a Donation Amount!</p>}
                     </form>
-                    
                     <div className="mid-line-container">
                         <div className="mid-line"></div>
                         <p>or</p>
@@ -136,7 +122,7 @@ const DonateModal = (props) => {
                     </div>
                     <p>Card Number</p>
                     <div style={{marginBottom: '40px'}}>
-                        <CardNumberElement onChange={errorChecker} onBlur={errorSetter} style={{base:{fontSize: '20px', margin: '40px'}}} className='stripe-card' />
+                        <CardNumberElement onChange={errorChecker} onBlur={errorSetter} style={{base:{fontSize: '20px', margin: '40px'}}} className='stripe-card'/>
                         {!textError.cardNumber.blurComplete && <p className='card-error'>{textError.cardNumber.error}</p>}
                     </div>
                     <div className='expiration-cvc-container'>
@@ -150,7 +136,6 @@ const DonateModal = (props) => {
                             <CardCvcElement onChange={errorChecker} style={{base:{fontSize: '20px'}}} className='cvc-input' />
                             {!textError.cardCvc.blurComplete && <p className='card-error'>{textError.cardCvc.error}</p>}
                         </div>
-                        
                     </div>
                     <button onClick={handleSubmit} className='submit-donate'>Donate</button>
                     {success && <p className='donate-success-text'>Successfully Donated!</p>}
@@ -170,4 +155,5 @@ const DonateModal = (props) => {
         </div>
     )
 }
+
 export default withRouter(injectStripe(DonateModal))

@@ -74,6 +74,9 @@ export const PROJECT_SUMMARY_FRAG = gql`
         difficulty
         startDate
         featuredImage
+        likes {
+            id
+        }
         applicants {
             id
             project {
@@ -140,7 +143,6 @@ export const PROJECT_SUMMARY_FRAG = gql`
                 aptNumber
             }
         }
-
         students {
             id
             profile {

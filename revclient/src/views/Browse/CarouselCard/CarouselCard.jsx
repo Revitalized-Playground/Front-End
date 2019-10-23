@@ -7,19 +7,46 @@ import Skeleton from 'react-loading-skeleton';
 import ProgressBar from '../../../components/ProgressBar/ProgressBar';
 import { formatMoney } from '../../../helpers/formatMoney';
 import { addUpDonations } from '../../../helpers/helpers';
+import { GET_RECOMMENDED_PROJECTS } from '../../../graphql/queries';
+import { GET_USER } from '../../../graphql/queries/Users';
 
 import { CREATE_PROJECT_LIKE, DELETE_PROJECT_LIKE } from '../../../graphql/mutations';
-import { useMutation } from '@apollo/react-hooks';
+import { useMutation, useQuery } from '@apollo/react-hooks';
 
 const CarouselCard = props => {
-	const { card, view, profileId } = props;
+	const { card, view, profileId, refetch } = props;
 
-	// const [liked, setLiked] = useState(false);
-	const [createProjectLike] = useMutation(CREATE_PROJECT_LIKE);
-	const [deleteProjectLike] = useMutation(DELETE_PROJECT_LIKE);
-	// let likeId = "";
-	// const [likeId, setLikeId] = useState('');
-	const [likeState, setLikeState] = useState({
+	const { client, loading, error, data } = useQuery(GET_USER);
+
+	const [ createProjectLike ] = useMutation( CREATE_PROJECT_LIKE, {
+		update(cache, {data: createProjectLike}) {
+			const {recommendedProjects} = cache.readQuery({
+				query: GET_RECOMMENDED_PROJECTS
+			})
+			const recom = recommendedProjects.map(eachProject => {
+				if(eachProject.id === createProjectLike.createProjectLike.project.id) {
+					eachProject.likes = createProjectLike.createProjectLike.project.likes
+				} else {
+					return eachProject.likes
+				}
+			})
+			cache.writeQuery({
+				query: GET_RECOMMENDED_PROJECTS,
+				data: {recommendedProjects: recommendedProjects.likes = recom}
+			})
+		}
+	});
+	const [ deleteProjectLike ] = useMutation( DELETE_PROJECT_LIKE, {
+		update(cache, {data: deleteProjectLike}) {
+			const {recommendedProjects} = cache.readQuery({
+				query: GET_RECOMMENDED_PROJECTS
+			})
+
+			console.log('deleteProjectLike', deleteProjectLike )
+		}
+	});
+
+	const [ likeState, setLikeState ] = useState({
 		liked: false,
 		likeId: '',
 	});
@@ -27,39 +54,29 @@ const CarouselCard = props => {
 	const toggleLiked = async (e, arg) => {
 		// console.log('likeState in toggle: ', likeState);
 		e.preventDefault();
-		if (arg === 'unlike') {
-			await deleteProjectLike({ variables: { id: likeState.likeId } });
-			setLikeState({
-				...likeState,
-				liked: false,
-			});
+		if (arg === "unlike") {
+			const newDeleted = await deleteProjectLike({ variables: { id: likeState.likeId }})
 		}
-		if (arg === 'like') {
-			await createProjectLike({ variables: { id: card.id } });
-			setLikeState({
-				...likeState,
-				liked: true,
-			});
+		if (arg === "like") {
+			const newLiked = await createProjectLike({ variables: { id: card.id }})
+			// if(newLiked) {
+			// 	refetch()
+			// }
 		}
 	};
-	useEffect(() => {
-		if (view === 'recommended') {
-			card.likes.forEach(l => {
-				l.profile.id === profileId
-					? setLikeState({
-							liked: true,
-							likeId: l.id,
-					  })
-					: setLikeState({
-							...likeState,
-							likeId: l.id,
-					  });
-				// setLiked(true),
-				// setLikeId(l.id)
-				// console.log("likeId: ", likeId);
-			});
+
+	console.log('card', card)
+	useEffect(() => {  
+		if(card.likes && data.me) {
+			card.likes.map(eachLike => {
+				if(eachLike.profile.id === data.me.id) {
+					setLikeState({liked: true, likeId: eachLike.id})
+				} else {
+					setLikeState({...likeState, liked: false})
+				}
+			})
 		}
-	}, []);
+    }, [card, data]);
 
 	if (!card && view === 'recommended') {
 		return (

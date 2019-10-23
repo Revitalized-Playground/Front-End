@@ -162,6 +162,16 @@ export const CREATE_PROJECT_LIKE = gql`
 	mutation($id: ID!) {
 		createProjectLike(id: $id) {
 			id
+			project {
+				id
+				likes {
+				id
+				profile {
+					id
+				}
+				}
+			}
+			
 		}
 	}
 `;
@@ -169,7 +179,14 @@ export const CREATE_PROJECT_LIKE = gql`
 export const DELETE_PROJECT_LIKE = gql`
 	mutation($id: ID!) {
 		deleteProjectLike(id: $id) {
-			id
+			project {
+				likes {
+					id
+					profile {
+						id
+					}
+				}
+			}
 		}
 	}
 `;
