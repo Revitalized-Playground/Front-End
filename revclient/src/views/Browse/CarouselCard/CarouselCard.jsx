@@ -65,9 +65,9 @@ const CarouselCard = props => {
 		}
 	};
 
-	console.log('card', card)
+	console.log('card', data)
 	useEffect(() => {  
-		if(card.likes && data.me) {
+		if(card.likes && data) {
 			card.likes.map(eachLike => {
 				if(eachLike.profile.id === data.me.id) {
 					setLikeState({liked: true, likeId: eachLike.id})
