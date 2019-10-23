@@ -2,10 +2,10 @@
 @import './DashboardComponents/Header/Header.scss';
 @import './DashboardComponents/Main/Main.scss';
 @import './DashboardComponents/DashNav/DashNav.scss';
-@import "./DashboardComponents/Main/Donations/Donation.scss";
-@import "./DashboardComponents/BoringUser/BoringUser.scss";
-@import "./DashboardComponents/Skeleton/HeaderSkeleton.scss";
-@import "./DashboardComponents/AddTask/AddTask.scss";
+@import './DashboardComponents/Main/Donations/Donation.scss';
+@import './DashboardComponents/BoringUser/BoringUser.scss';
+@import './DashboardComponents/Skeleton/HeaderSkeleton.scss';
+@import './DashboardComponents/AddTask/AddTask.scss';
 @import './DashboardComponents/AddTrade/AddTrade.scss';
 
 // .section[class^='dashboard'] {  // .section.dashboard * selector
@@ -14,72 +14,77 @@
 //     background: $snow-white;
 // }
 
-
 .dashboard-container {
-    // background-color: scale-color($silver-lining, $alpha: -65%);
-    background-color: $franks-grey;
-    height: 100%;
-    .dashboard {
-        width: 100%;
-        max-width: 1820px;
-        margin: 0 auto;
-        display: flex;
-        padding-left: 20px;
-        padding-right: 20px;
-        margin-bottom: 60px;
-        .dashboard-body {
-            width: calc(75% - 20px);
-            margin-left: 20px;
-        }
+	// background-color: scale-color($silver-lining, $alpha: -65%);
+	background-color: $franks-grey;
+	height: 100%;
+	.dashboard {
+		width: 100%;
+		max-width: 1820px;
+		margin: 0 auto;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding-left: 20px;
+		padding-right: 20px;
+		margin-bottom: 60px;
+		@media #{$tablet} {
+			flex-direction: column;
+		}
 
-        .dashboard-picture-icons, .team-members .member-icons img {
-            width: 40px;
-            margin-left: -6px;
-            &:first-of-type {
-                margin-left: 0;
-            }
-        }
-        .no-picture {
-            background-color: $silver-lining;
-            border-radius: 100%;
-            height: 40px;
-            width: 40px;
-            margin-right: -2px;
-        }
+		.dashboard-body {
+			width: calc(75% - 20px);
+			margin-left: 20px;
 
-        // .section.dashboard * selector
-        .section[class^='dashboard'] {
-            @include subtleBoxShadowDistance;
-            background: $snow-white;
-            position: relative;
-            z-index: 5;
-            .dashboard-section-inner-container {
-                @include skeleton-section;
-                @include bottomBoxShadow;
-            }
-        }
-    }
+			@media #{$tablet-small} {
+				display: none;
+			}
+		}
+
+		.dashboard-picture-icons,
+		.team-members .member-icons img {
+			width: 40px;
+			margin-left: -6px;
+			&:first-of-type {
+				margin-left: 0;
+			}
+		}
+		.no-picture {
+			background-color: $silver-lining;
+			border-radius: 100%;
+			height: 40px;
+			width: 40px;
+			margin-right: -2px;
+		}
+
+		// .section.dashboard * selector
+		.section[class^='dashboard'] {
+			@include subtleBoxShadowDistance;
+			background: $snow-white;
+			position: relative;
+			z-index: 5;
+			.dashboard-section-inner-container {
+				@include skeleton-section;
+				@include bottomBoxShadow;
+			}
+		}
+	}
 }
-
-
-
-
 
 .dark-mode {
-    .dashboard-container {
-        background-color: $bleached-black;
-        .dashboard {
-            .section[class^='dashboard'] {
-                background-color: $darkness;
-                border: none;
-                border-bottom-color: $bleached-black;
-                border-bottom-style: solid;
-                border-bottom-width: 3px;
-            }
-            hr {
-                border-top-color: rgba(255, 255, 255, 0.18);
-            }
-        }
-    }
+	.dashboard-container {
+		background-color: $bleached-black;
+		.dashboard {
+			.section[class^='dashboard'] {
+				background-color: $darkness;
+				border: none;
+				border-bottom-color: $bleached-black;
+				border-bottom-style: solid;
+				border-bottom-width: 3px;
+			}
+			hr {
+				border-top-color: rgba(255, 255, 255, 0.18);
+			}
+		}
+	}
 }
-
