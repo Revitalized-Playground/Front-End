@@ -4,7 +4,9 @@
   <a href="./license" target="_blank">
     <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
   </a>
-  https://github.com/Revitalized-Playground
+    <a href="https://github.com/frinyvonnick/gitmoji-changelog">
+    <img src="https://img.shields.io/badge/changelog-gitmoji-brightgreen.svg" alt="gitmoji-changelog">
+  </a>
 </p>
 
 # 🏠 [ReVitalize](https://revitalize.community/)
