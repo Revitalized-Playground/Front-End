@@ -8,7 +8,7 @@
 
 # 🏠 [ReVitalize](https://revitalize.community/)
 
-### ✨ [Unstable Demo Version](https://revitalize.netlify.com/)
+### ✨ [Unstable Release (v2.1)](https://revitalize.netlify.com/)
 
 > ReVitalize is a platform designed to help connect all the people needed to help revitalize communities.
 
