@@ -176,5 +176,3 @@ In the project directory, you can run:
 ### `npm run build` : this is the command issued to generate a production optimized build file into the client root
 
 ### `npm run eject` : Eject the Reacts internal bundled Node Modules to the package JSON incase more surgical configurations are needed. _*This Can Not Be Un-Done!*_
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
