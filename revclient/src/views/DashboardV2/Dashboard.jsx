@@ -10,8 +10,12 @@ import BoringUser from "./DashboardComponents/BoringUser/BoringUser";
 
 import HeaderMainSort from "./HeaderMainSort/HeaderMainSort";
 
+// GQL
 import { useQuery } from '@apollo/react-hooks';
 import { GET_USER_PROFILE } from '../../graphql/queries/Users';
+import { toIdValue } from 'apollo-utilities';
+import { InMemoryCache } from 'apollo-cache-inmemory';
+
 
 
 const Dashboard = () => {
@@ -35,6 +39,16 @@ const Dashboard = () => {
     // This useQuery pulls in tons of data and can pull more! See graphql/queries to adjust what it pulls in
     const { loading, error, data, refetch } = useQuery( GET_USER_PROFILE );
     // console.log("data: ", data);
+
+
+
+    const cache = new InMemoryCache({
+        cacheRedirects: {
+            Query: {
+                me: (_, args) => toIdValue(cache.config.dataIdFromObject({ __typename: 'me', id: args.id })),
+            },
+        },
+    });
 
     const setCurrentProject = object => setProject(object);
 

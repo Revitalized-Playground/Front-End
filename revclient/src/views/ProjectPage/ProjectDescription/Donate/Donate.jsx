@@ -18,8 +18,6 @@ const Donate = props => {
 
     const { client, loading, error, data } = useQuery(GET_USER);
 
-    console.log(props)
-    
     useEffect(() => {
         if(props.projectData.applicants && data) {
             props.projectData.applicants.map(eachApplicant => {
