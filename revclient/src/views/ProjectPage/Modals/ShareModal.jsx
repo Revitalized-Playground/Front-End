@@ -5,6 +5,7 @@ import twtr from '../../../assets/AuthPages/twitter.png';
 import email from '../../../assets/ProjectPage/email.svg';
 import linked from '../../../assets/ProjectPage/linked.png';
 import slack from '../../../assets/ProjectPage/slack.png';
+import { FaTimes } from 'react-icons/fa';
 
 
 
@@ -15,33 +16,35 @@ const ShareModal = ({val, setModalVal, copied, setCopied, modalVal}) => {
         <div onClick={val} className={!modalVal ? 'none' : 'modal'}>
                 <div className="inner-modal">
                     <div className="button-div">
-                        <div className="outer" onClick={() => setModalVal(false)}>
+                    <FaTimes onClick={() => {setModalVal(false); setCopied(false)}} className='label'/>
+                        {/* <div className="outer" onClick={() => setModalVal(false)}>
                             <div className="inner" onClick={() => setModalVal(false)}>
                                 <label onClick={() => setModalVal(false)}>Back</label>
+                                
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                     <h2>Share with Family, Friends, Communities, & More</h2>
                     <h4>Fundraise on social networks, email, and more!</h4>
                     <div className="lines"></div>
                     <div className="logos">
-                        <div>
+                        <div className='img-container'>
                             <img src={fb} alt="Facebook Logo" />
                             <p>Facebook</p>
                         </div>
-                        <div>
+                        <div className='img-container'>
                             <img src={twtr} alt="Twitter Logo" />
                             <p>Twitter</p>
                         </div>
-                        <div>
+                        <div className='img-container'>
                             <img src={linked} alt="LinkedIn Logo" />
                             <p>LinkedIn</p>
                         </div>
-                        <div>
-                            <img src={email} alt="Email Logo" />
+                        <div className='img-container'>
+                            <img className='email' src={email} alt="Email Logo" />
                             <p>Email</p>
                         </div>
-                        <div>
+                        <div className='img-container'>
                             <img src={slack} alt="Slack Logo" />
                             <p>Slack</p>
                         </div>

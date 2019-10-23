@@ -32,6 +32,10 @@ const ProjectPage = ({ match }) => {
 	const [bool, setBool] = useState(false);
 	const [projectData, setProjectData] = useState();
 	const [modalVal, setModalVal, carouselVal, setCarouselVal] = useWindowHook();
+	const [isProjectCreator, setIsProjectCreator] = useState(false)
+	const [modalDisplay, setModalDisplay] = useState('flex')
+	const [innerModalDisplay, setInnerModalDisplay] = useState('')
+	const [deleteBool, setDeleteBool] = useState(false)
 	const { loading, error, data, refetch } = useQuery(GET_PROJECT_BY_SLUG, {
 		variables: { slug: match.params.slug },
 	});
@@ -43,6 +47,7 @@ const ProjectPage = ({ match }) => {
 	const val = e => {
 		if (e.target.className === 'modal') {
 			setModalVal(false);
+			setCopied(false)
 		}
 	};
 
@@ -60,13 +65,6 @@ const ProjectPage = ({ match }) => {
 		}
 	};
 
-	const update = amount => {
-		setBool(!bool);
-		setProjectData({
-			...projectData,
-			donations: [...projectData.donations, { amount }],
-		});
-	};
 
 	if (error) return <h2>ERROR! Someone call Elan</h2>;
 	if (loading || !data || !projectData) {
@@ -95,11 +93,14 @@ const ProjectPage = ({ match }) => {
 				<StripeProvider apiKey={process.env.REACT_APP_STRIPE_PUBLIC_KEY}>
 					<Elements>
 						<DonateModal
-							update={update}
 							donateModalBlur={donateModalBlur}
 							donateModal={donateModal}
 							setDonateModal={setDonateModal}
 							id={projectData.id}
+							modalDisplay={modalDisplay}
+							setModalDisplay={setModalDisplay}
+							innerModalDisplay={innerModalDisplay}
+							setInnerModalDisplay={setInnerModalDisplay}
 						/>
 					</Elements>
 				</StripeProvider>
@@ -119,11 +120,15 @@ const ProjectPage = ({ match }) => {
 						organizer={`${projectData.profile.firstName} ${projectData.profile.lastName}`}
 					/>
 
-					<Donate
-						applicants={projectData}
-						projectData={projectData}
-						setModal={setModalVal}
-						setDonateModal={setDonateModal}
+					<Donate 
+						setModalDisplay={setModalDisplay} 
+						setInnerModalDisplay={setInnerModalDisplay} 
+						setIsProjectCreator={setIsProjectCreator} 
+						isProjectCreator={isProjectCreator} 
+						applicants={projectData} 
+						projectData={projectData} 
+						setModal={setModalVal} 
+						setDonateModal={setDonateModal} 
 					/>
 				</div>
 				<div className="detailed-creator">
@@ -134,6 +139,7 @@ const ProjectPage = ({ match }) => {
 						organizer={`${projectData.profile.firstName} ${projectData.profile.lastName}`}
 						location={`${projectData.city}, ${projectData.state}`}
 						projDescription={projectData.description}
+						isProjectCreator={isProjectCreator}
 					/>
 
 					<CreatorProfile projectCreator={projectData.profile} />
@@ -171,6 +177,9 @@ const ProjectPage = ({ match }) => {
 					userId={projectData.profile.id}
 					newBool={setBool}
 					boolState={bool}
+					deleteBool={deleteBool}
+					setDeleteBool={setDeleteBool}
+					refetch={refetch}
 				/>
 			</div>
 			<Footer />
