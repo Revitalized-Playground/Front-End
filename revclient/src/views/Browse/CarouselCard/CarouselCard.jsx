@@ -7,14 +7,18 @@ import Skeleton from 'react-loading-skeleton';
 import ProgressBar from '../../../components/ProgressBar/ProgressBar';
 import { formatMoney } from '../../../helpers/formatMoney';
 import { addUpDonations } from '../../../helpers/helpers';
+import { GET_RECOMMENDED_PROJECTS } from '../../../graphql/queries';
+import { GET_USER } from '../../../graphql/queries/Users';
 
 import { CREATE_PROJECT_LIKE, DELETE_PROJECT_LIKE } from '../../../graphql/mutations';
-import { useMutation } from '@apollo/react-hooks';
+import { useMutation, useQuery } from '@apollo/react-hooks';
 
 const CarouselCard = props => {
-	const { card, view, profileId } = props;
+	const { card, view, profileId, refetch } = props;
 
-	const [ createProjectLike ] = useMutation( CREATE_PROJECT_LIKE );
+	const { client, loading, error, data } = useQuery(GET_USER);
+
+	const [ createProjectLike ] = useMutation( CREATE_PROJECT_LIKE);
 	const [ deleteProjectLike ] = useMutation( DELETE_PROJECT_LIKE );
 
 	const [ likeState, setLikeState ] = useState({
@@ -25,36 +29,29 @@ const CarouselCard = props => {
 	const toggleLiked = async (e, arg) => {
 		e.preventDefault();
 		if (arg === "unlike") {
-			await deleteProjectLike({ variables: { id: likeState.likeId }})
-			setLikeState({
-				...likeState,
-				liked: false
-			})
+			const newDeleted = await deleteProjectLike({ variables: { id: likeState.likeId }})
+			if(newDeleted) {
+				refetch()
+			}
 		}
 		if (arg === "like") {
-			await createProjectLike({ variables: { id: card.id }})
-			setLikeState({
-				...likeState,
-				liked: true
-			})
+			const newLiked = await createProjectLike({ variables: { id: card.id }})
+			if(newLiked) {
+				refetch()
+			}
 		}
 	};
 	useEffect(() => {  
-		if (view === 'recommended') {
-			card.likes.forEach(l => {
-				console.log("l: ", l, "card.name: ", card.name, "profileId: ", profileId);
-				l.profile.id === profileId ?
-				setLikeState({
-					liked: true,
-					likeId: l.id
-				})
-				: setLikeState({
-					...likeState,
-					likeId: l.id
-				})
+		if(card.likes && data.me) {
+			card.likes.map(eachLike => {
+				if(eachLike.profile.id === data.me.id) {
+					setLikeState({liked: true, likeId: eachLike.id})
+				} else {
+					setLikeState({...likeState, liked: false})
+				}
 			})
 		}
-    }, []);
+    }, [card, data]);
 
 	if (!card && view === 'recommended') {
 		return (
@@ -81,7 +78,7 @@ const CarouselCard = props => {
 				<div className="carousel-card-image">
 					{localStorage.getItem('token')
 						?
-						likeState.liked 
+						likeState.liked  
 							?
 							<FaHeart fill="#d2405b" onClick={(e) => toggleLiked(e, "unlike")}/>
 							:

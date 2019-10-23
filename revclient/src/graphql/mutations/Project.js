@@ -160,6 +160,14 @@ export const CREATE_PROJECT_LIKE = gql `
 	mutation($id: ID!) {
 		createProjectLike(id: $id) {
 			id
+			# likes {
+			# 	id
+			# 	# profile{
+			# 	# 	id
+			# 	# 	userAccountId
+			# 	# 	firstName
+			# 	# }
+			# }
 		}
 	}
 `
