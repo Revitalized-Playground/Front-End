@@ -1,8 +1,3 @@
-/**
- * * Description of component
- * TODO: things to do
- * @props description
- */
 import React from 'react';
 
 import Nav from '../../components/Layout/Nav';
