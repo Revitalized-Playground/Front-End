@@ -5,6 +5,7 @@ import CurrencyInput from 'react-currency-input'
 import { removeCommas } from "../../../helpers/helpers";
 
 import { injectStripe, CardNumberElement, CardExpiryElement, CardCvcElement } from 'react-stripe-elements';
+import { FaTimes } from 'react-icons/fa';
 
 // GQL
 import { useMutation } from '@apollo/react-hooks';
@@ -12,10 +13,11 @@ import { DONATE_TO_PROJECT } from '../../../graphql/mutations';
 import { GET_PROJECT_BY_SLUG } from '../../../graphql/queries/Projects';
 
 
-const DonateModal = ({id, update,donateModal, setDonateModal, donateModalBlur, stripe, match}) => {
+const DonateModal = ({id, setInnerModalDisplay, setModalDisplay,innerModalDisplay, modalDisplay, donateModal, setDonateModal, donateModalBlur, stripe, match}) => {
     const [amount, setAmount] = useState('');
     const [success, setSuccess] = useState(false)
-    const [donateToProject, {data}] = useMutation(DONATE_TO_PROJECT, {
+    const [animationSuccess, setAnimationSuccess] = useState(false)
+    const [donateToProject, {data, loading, error}] = useMutation(DONATE_TO_PROJECT, {
         update(cache, {data: {createProjectDonation}},) {
             const { projectBySlug } = cache.readQuery({
                 query: GET_PROJECT_BY_SLUG,
@@ -27,6 +29,7 @@ const DonateModal = ({id, update,donateModal, setDonateModal, donateModalBlur, s
             })
         }
     });
+
     const [textError, setError] = useState({
         cardNumber: {
             error: '',
@@ -86,21 +89,30 @@ const DonateModal = ({id, update,donateModal, setDonateModal, donateModalBlur, s
     useEffect(() => {
         if(data) {
             setSuccess(true)
+            setAnimationSuccess(true)
+            setModalDisplay('none')
+            setInnerModalDisplay('none')
+            setTimeout(() => {setAnimationSuccess(false); setDonateModal(false)}, 2500)
         }
     }, [data])
+
+    useEffect(() => {
+        setSuccess(false)
+    }, [donateModal])
    
     
     return (
         <div onClick={donateModalBlur} className={donateModal ? 'donate-modal' : 'none'}>
             <div className='exit-button'>
-                <div className="button-div">
-                        <div className="outer" onClick={() => setDonateModal(false)}>
+                <div style={{display: modalDisplay}} className="button-div">
+                <FaTimes onClick={() => setDonateModal(false)} className='label'/>
+                        {/* <div className="outer" onClick={() => setDonateModal(false)}>
                             <div className="inner" onClick={() => setDonateModal(false)}>
                                 <label onClick={() => setDonateModal(false)}>Back</label>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
-                <div className='inner-donate-modal'>
+                <div style={{display: innerModalDisplay}} className='inner-donate-modal'>
                     
                     <h2>$ Amount</h2>
                     <form className='donate-form'>
@@ -147,7 +159,18 @@ const DonateModal = ({id, update,donateModal, setDonateModal, donateModalBlur, s
                     </div>
                     <button onClick={handleSubmit} className='submit-donate'>Donate</button>
                     {success && <p className='donate-success-text'>Successfully Donated!</p>}
+                    
+                    {loading && <p style={{color: 'black'}} className='donate-success-text'>Processing your request...</p>}
                 </div>
+                {animationSuccess &&
+                <lottie-player
+                        autoplay
+                        mode="normal"
+                        src="https://assets8.lottiefiles.com/datafiles/OivQWebdu3tdxIt/data.json"
+                        style={{position: 'fixed', margin: '0 auto', left: '0', top: '0', width: '100%', height: '100vh'}}
+                    >
+                </lottie-player>
+                }
             </div>
         </div>
     )

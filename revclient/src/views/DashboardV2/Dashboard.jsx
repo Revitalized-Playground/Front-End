@@ -44,6 +44,7 @@ const Dashboard = () => {
     const setAvailableDashNavTabs = (newAvailTabArray, howMany) => {
         setDashNavTab({ ...dashNavTabState, selectedDashNavTab: newAvailTabArray[0], dashTabs: newAvailTabArray, dashTabCount: howMany })
     };
+    
     const selectDashNavTab = userSelectedTab => {
         setMainTabs({ ...mainTabs, selectedMainTab: "" });
         setProject({ project: null, id: null, showMore: false, buttonToggle: false });

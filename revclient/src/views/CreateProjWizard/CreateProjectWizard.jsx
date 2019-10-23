@@ -20,21 +20,22 @@ import Form3 from './Form3/Form3';
 let currentDate = moment().format('YYYY-MM-DD');
 
 const CreateProjectWizard = ({ history }) => {
-	const [projectDetails, setProjectDetails] = useState({
-		name: '',
+	let [projectDetails, setProjectDetails] = useState({
+		name: "",
 		startDate: currentDate,
-		country: 'USA',
+		country: "",
 		duration: 1,
-		description: '',
-		address: '',
-		city: '',
-		state: '',
-		zip: '',
-		goalAmount: 0.0,
-		difficulty: '',
+		description: "",
+		address: "",
+		city: "",
+		state: "",
+		zip: "",
+		goalAmount: 100.00,
+		difficulty: "",
 		images: [],
+		featuredImage: "",
 	});
-	const [formPosition, setFormPosition] = useState(2);
+	const [formPosition, setFormPosition] = useState(1);
 	const [addProject] = useMutation(ADD_PROJECT);
 
 	const handleChanges = event => {
@@ -44,15 +45,28 @@ const CreateProjectWizard = ({ history }) => {
 			event.target.name === 'duration'
 		) {
 			setProjectDetails({ ...projectDetails, [event.target.name]: Number(event.target.value) });
+		} else if (event.target.name === 'zip') {
+			if (projectDetails.zip.length === 5) {
+				return;
+			} else {
+				setProjectDetails({ ...projectDetails, [event.target.name]: event.target.value });
+			}
 		} else {
 			setProjectDetails({ ...projectDetails, [event.target.name]: event.target.value });
 		}
 	};
 
 	const submitForm = async e => {
-		e.preventDefault();
+		projectDetails = {
+			...projectDetails,
+			zip: parseInt(projectDetails.zip, 10),
+		};
+
+		// SOS FRANK: UPDATE CACHE
 		const addedProj = await addProject({ variables: { data: projectDetails } });
-		history.push(`/project/${addedProj.data.createProject.id}`);
+		console.log("added project in crw", addedProj);
+
+		history.push(`/project/${addedProj.data.createProject.slug}`);
 	};
 
 	return (

@@ -93,7 +93,7 @@ const Squad = () => {
 			image: `${omar}`,
 			background: '#d2405b',
 			bio:
-				"Omar is a great developer from Los Angeles, Ca. Always ready to lend a helping hand he is Genuinely curious and follows that curiosity down to the minute details. He loves to learn regardless of what the new technology is or where it fits into the stack. He is also Skyelar's neighbor ",
+				'Omar is a great developer from Los Angeles, Ca. Always ready to lend a helping hand he is Genuinely curious and follows that curiosity down to the minute details. He loves to learn regardless of what the new technology is or where it fits into the stack.  ',
 			github: 'https://github.com/OmarSalah95',
 			linkedIn: 'https://www.linkedin.com/in/omar-salah-78787a180/',
 			twitter: 'https://twitter.com/BugSquasher9000',

@@ -9,9 +9,16 @@
         padding: 0 5.5% 0 5.5%;
     }
 
+    .user-icon {
+        margin: 0;
+        margin-right: 3px
+    }
+
     .comment-form {
         display: flex;
+        flex-direction: column;
         margin-bottom: 30px;
+        width: 30%;
         
         *:focus {
             outline: none;
@@ -21,13 +28,14 @@
             padding: 10px;
             border: none;
             cursor: pointer;
+            margin-top: 8px;
+            align-self: flex-end;
         }
 
         textarea {
             resize: none;
-            margin: 0 10px 0 0;
-            width: 25%;
-            height: 35px;
+            margin: 0;
+            height:inherit
         }
     }
 

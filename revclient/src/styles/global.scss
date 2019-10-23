@@ -124,8 +124,17 @@ a svg {
 	&:hover {
 		color: lighten($chillFi-purple, 20%);
 	}
-	&:focus, &:active {
+	&:focus,
+	&:active {
 		color: darken($chillFi-purple, 20%);
 	}
 }
 
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+input[type='number'] {
+	-moz-appearance: textfield;
+}

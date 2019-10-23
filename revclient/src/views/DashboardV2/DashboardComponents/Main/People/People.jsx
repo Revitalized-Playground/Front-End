@@ -55,10 +55,10 @@ const People = props => {
 
 
     if (selectedMainTab === mainTabs.projectAdminTabs[0]) { // Applicants
-        console.log("this is an applicant")
+        // console.log("this is an applicant")
     }
 
-    console.log("People props", props, projectApplicantState);
+    // console.log("People props", props, projectApplicantState);
 
     return (
         <>
