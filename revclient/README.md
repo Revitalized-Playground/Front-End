@@ -115,7 +115,7 @@ IF the app looks clean, the changes are good, and your ready to deploy the updat
 
 | Symbol | Definition |
 | ------ | :--------: |
-| `I_`   |   Folder   |
+| `l_`   |   Folder   |
 | `-`    |    File    |
 
     |_ Front-End
