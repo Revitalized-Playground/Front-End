@@ -18,35 +18,35 @@ const CarouselCard = props => {
 
 	const { client, loading, error, data } = useQuery(GET_USER);
 
-	const [ createProjectLike ] = useMutation( CREATE_PROJECT_LIKE, {
-		update(cache, {data: createProjectLike}) {
-			const {recommendedProjects} = cache.readQuery({
-				query: GET_RECOMMENDED_PROJECTS
-			})
+	const [createProjectLike] = useMutation(CREATE_PROJECT_LIKE, {
+		update(cache, { data: createProjectLike }) {
+			const { recommendedProjects } = cache.readQuery({
+				query: GET_RECOMMENDED_PROJECTS,
+			});
 			const recom = recommendedProjects.map(eachProject => {
-				if(eachProject.id === createProjectLike.createProjectLike.project.id) {
-					eachProject.likes = createProjectLike.createProjectLike.project.likes
+				if (eachProject.id === createProjectLike.createProjectLike.project.id) {
+					eachProject.likes = createProjectLike.createProjectLike.project.likes;
 				} else {
-					return eachProject.likes
+					return eachProject.likes;
 				}
-			})
+			});
 			cache.writeQuery({
 				query: GET_RECOMMENDED_PROJECTS,
-				data: {recommendedProjects: recommendedProjects.likes = recom}
-			})
-		}
+				data: { recommendedProjects: (recommendedProjects.likes = recom) },
+			});
+		},
 	});
-	const [ deleteProjectLike ] = useMutation( DELETE_PROJECT_LIKE, {
-		update(cache, {data: deleteProjectLike}) {
-			const {recommendedProjects} = cache.readQuery({
-				query: GET_RECOMMENDED_PROJECTS
-			})
+	const [deleteProjectLike] = useMutation(DELETE_PROJECT_LIKE, {
+		update(cache, { data: deleteProjectLike }) {
+			const { recommendedProjects } = cache.readQuery({
+				query: GET_RECOMMENDED_PROJECTS,
+			});
 
-			console.log('deleteProjectLike', deleteProjectLike )
-		}
+			console.log('deleteProjectLike', deleteProjectLike);
+		},
 	});
 
-	const [ likeState, setLikeState ] = useState({
+	const [likeState, setLikeState] = useState({
 		liked: false,
 		likeId: '',
 	});
@@ -54,29 +54,29 @@ const CarouselCard = props => {
 	const toggleLiked = async (e, arg) => {
 		// console.log('likeState in toggle: ', likeState);
 		e.preventDefault();
-		if (arg === "unlike") {
-			const newDeleted = await deleteProjectLike({ variables: { id: likeState.likeId }})
+		if (arg === 'unlike') {
+			const newDeleted = await deleteProjectLike({ variables: { id: likeState.likeId } });
 		}
-		if (arg === "like") {
-			const newLiked = await createProjectLike({ variables: { id: card.id }})
+		if (arg === 'like') {
+			const newLiked = await createProjectLike({ variables: { id: card.id } });
 			// if(newLiked) {
 			// 	refetch()
 			// }
 		}
 	};
 
-	console.log('card', data)
-	useEffect(() => {  
-		if(card.likes && data) {
+	console.log('card', data);
+	useEffect(() => {
+		if (card.likes && data) {
 			card.likes.map(eachLike => {
-				if(eachLike.profile.id === data.me.id) {
-					setLikeState({liked: true, likeId: eachLike.id})
+				if (eachLike.profile.id === data.me.id) {
+					setLikeState({ liked: true, likeId: eachLike.id });
 				} else {
-					setLikeState({...likeState, liked: false})
+					setLikeState({ ...likeState, liked: false });
 				}
-			})
+			});
 		}
-    }, [card, data]);
+	}, [card, data]);
 
 	if (!card && view === 'recommended') {
 		return (

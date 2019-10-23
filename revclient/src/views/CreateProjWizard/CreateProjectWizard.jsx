@@ -56,15 +56,19 @@ const CreateProjectWizard = ({ history }) => {
 		}
 	};
 
-	const submitForm = async e => {
-		projectDetails = {
+	const submitForm = async () => {
+		let newProjectDetails = {
 			...projectDetails,
+			country: "United States",
 			zip: parseInt(projectDetails.zip, 10),
 		};
+		
+		console.log("added project in crw  1", newProjectDetails);
 
 		// SOS FRANK: UPDATE CACHE
-		const addedProj = await addProject({ variables: { data: projectDetails } });
-		console.log("added project in crw", addedProj);
+		const addedProj = await addProject({ variables: { data: newProjectDetails } });
+		
+		console.log("added project in crw  after await", addedProj);
 
 		history.push(`/project/${addedProj.data.createProject.slug}`);
 	};

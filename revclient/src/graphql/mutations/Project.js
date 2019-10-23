@@ -75,11 +75,11 @@ export const DONATE_TO_PROJECT = gql`
 `;
 
 export const REMOVE_COMMENT = gql`
-    mutation($id: ID!) {
-        deleteProjectComment(id: $id) {
-            id
-        }
-    }
+	mutation($id: ID!) {
+		deleteProjectComment(id: $id) {
+			id
+		}
+	}
 `;
 
 export const EDIT_COMMENT = gql`
