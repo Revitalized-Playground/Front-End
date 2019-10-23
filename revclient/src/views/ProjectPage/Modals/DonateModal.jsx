@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react'
-import paypal from '../../../assets/ProjectPage/paypal-logo.png'
 import { withRouter } from 'react-router-dom';
 import CurrencyInput from 'react-currency-input'
 import { removeCommas } from "../../../helpers/helpers";
@@ -11,6 +10,7 @@ import { FaTimes } from 'react-icons/fa';
 import { useMutation } from '@apollo/react-hooks';
 import { DONATE_TO_PROJECT } from '../../../graphql/mutations';
 import { GET_PROJECT_BY_SLUG } from '../../../graphql/queries/Projects';
+import '@lottiefiles/lottie-player';
 
 
 const DonateModal = ({id, setInnerModalDisplay, setModalDisplay,innerModalDisplay, modalDisplay, donateModal, setDonateModal, donateModalBlur, stripe, match}) => {
