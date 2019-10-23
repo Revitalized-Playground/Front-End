@@ -24,34 +24,47 @@ const CarouselCard = props => {
 
 	const toggleLiked = async (e, arg) => {
 		e.preventDefault();
+		// console.log("likeState.likeId: ", likeState.likeId);
 		if (arg === "unlike") {
 			await deleteProjectLike({ variables: { id: likeState.likeId }})
 			setLikeState({
 				...likeState,
 				liked: false
 			})
+			console.log("card.name: ", card.name);
+			console.log("card.likes after unlike: ", card.likes);
+			console.log("profileId: ", profileId);
 		}
 		if (arg === "like") {
-			await createProjectLike({ variables: { id: card.id }})
+			let response = await createProjectLike({ variables: { id: card.id }});
 			setLikeState({
-				...likeState,
-				liked: true
+				liked: true,
+				likeId: response.data.createProjectLike.id
 			})
+			console.log("card.name: ", card.name);
+			console.log("card.likes after like: ", card.likes);
+			console.log("profileId: ", profileId);
 		}
 	};
 	useEffect(() => {  
 		if (view === 'recommended') {
 			card.likes.forEach(l => {
-				console.log("l: ", l, "card.name: ", card.name, "profileId: ", profileId);
-				l.profile.id === profileId ?
+				// console.log({
+				// 	"card.name ": card.name,
+				// 	"card.id ": card.id,
+				// 	"l.id ": l.id,
+				// 	"l.profile.id ": l.profile.id,
+				// 	"profileId ": profileId
+				// });
+				l.profile.id === profileId &&
 				setLikeState({
 					liked: true,
 					likeId: l.id
 				})
-				: setLikeState({
-					...likeState,
-					likeId: l.id
-				})
+				// : setLikeState({
+				// 	...likeState,
+				// 	likeId: l.id
+				// })
 			})
 		}
     }, []);
