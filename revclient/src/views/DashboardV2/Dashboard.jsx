@@ -10,8 +10,12 @@ import BoringUser from "./DashboardComponents/BoringUser/BoringUser";
 
 import HeaderMainSort from "./HeaderMainSort/HeaderMainSort";
 
+// GQL
 import { useQuery } from '@apollo/react-hooks';
 import { GET_USER_PROFILE } from '../../graphql/queries/Users';
+import { toIdValue } from 'apollo-utilities';
+import { InMemoryCache } from 'apollo-cache-inmemory';
+
 
 
 const Dashboard = () => {
@@ -36,6 +40,16 @@ const Dashboard = () => {
     const { loading, error, data, refetch } = useQuery( GET_USER_PROFILE );
     // console.log("data: ", data);
 
+
+
+    const cache = new InMemoryCache({
+        cacheRedirects: {
+            Query: {
+                me: (_, args) => toIdValue(cache.config.dataIdFromObject({ __typename: 'me', id: args.id })),
+            },
+        },
+    });
+
     const setCurrentProject = object => setProject(object);
 
     // The following 2 functions and useEffect deal with determining what dash nav options should be shown based
@@ -44,6 +58,7 @@ const Dashboard = () => {
     const setAvailableDashNavTabs = (newAvailTabArray, howMany) => {
         setDashNavTab({ ...dashNavTabState, selectedDashNavTab: newAvailTabArray[0], dashTabs: newAvailTabArray, dashTabCount: howMany })
     };
+    
     const selectDashNavTab = userSelectedTab => {
         setMainTabs({ ...mainTabs, selectedMainTab: "" });
         setProject({ project: null, id: null, showMore: false, buttonToggle: false });

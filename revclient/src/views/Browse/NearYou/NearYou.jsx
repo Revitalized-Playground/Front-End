@@ -48,6 +48,7 @@ const NearYou = () => {
 			},
 		],
 	};
+	// console.log(data, "project data")
 
 	if (loading) return <NearYouSkeleton />;
 

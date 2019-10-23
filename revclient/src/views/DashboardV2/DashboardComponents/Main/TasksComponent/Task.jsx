@@ -46,57 +46,58 @@ const Task = props => {
 
 	return (
 		<>
-			<div className={`task-card-indicator left-bg ${task.priority.toLowerCase()}-priority`}></div>
-			<section className="task-card-container">
-				<div className="task-body">
-					<div className="task-icon">
-						<FaWrench />
-					</div>
+			<div className={`task-card-indicator left-bg ${task.priority.toLowerCase()}-priority`}>
+				<section className="task-card-container">
+					<div className="task-body">
+						<div className="task-icon">
+							<FaWrench />
+						</div>
 
-					<div className="task-detail title">
-						<h3>{task.title}</h3>
-						<p>{task.description}</p>
-					</div>
+						<div className="task-detail title">
+							<h3>{task.title}</h3>
+							<p>{task.description}</p>
+						</div>
 
-					<div className="task-detail details">
-						<p>
-							<b>Due Date:</b> {formatDate(task.dueDate)}
-						</p>
-						<p>
-							<b>Estimated Time:</b> {task.budgetHours} hrs.
-						</p>
-					</div>
+						<div className="task-detail details">
+							<p>
+								<b>Due Date:</b> {formatDate(task.dueDate)}
+							</p>
+							<p>
+								<b>Estimated Time:</b> {task.budgetHours} hrs.
+							</p>
+						</div>
 
-					<div className="task-detail status">
-						<p>Task status</p>
+						<div className="task-detail status">
+							<p>Task status</p>
 
-						{taskCompleted.completed ? (
-							<select disabled value="COMPLETE">
-								<option value="COMPLETE" className="completed">
-									Completed
-								</option>
-							</select>
-						) : (
-							<select
-								value={taskCompleted.completed ? 'COMPLETE' : 'INCOMPLETE'}
-								onChange={event => {
-									if (event.target.value === 'INCOMPLETE') {
-										submitSetTaskCompleted('incomplete');
-									}
-									if (event.target.value === 'COMPLETE') {
-										submitSetTaskCompleted('completed');
-									}
-								}}
-							>
-								<option value="INCOMPLETE">Not finished</option>
-								<option value="COMPLETE" className="completed">
-									Completed
-								</option>
-							</select>
-						)}
+							{taskCompleted.completed ? (
+								<select disabled value="COMPLETE">
+									<option value="COMPLETE" className="completed">
+										Completed
+									</option>
+								</select>
+							) : (
+								<select
+									value={taskCompleted.completed ? 'COMPLETE' : 'INCOMPLETE'}
+									onChange={event => {
+										if (event.target.value === 'INCOMPLETE') {
+											submitSetTaskCompleted('incomplete');
+										}
+										if (event.target.value === 'COMPLETE') {
+											submitSetTaskCompleted('completed');
+										}
+									}}
+								>
+									<option value="INCOMPLETE">Not finished</option>
+									<option value="COMPLETE" className="completed">
+										Completed
+									</option>
+								</select>
+							)}
+						</div>
 					</div>
-				</div>
-			</section>
+				</section>
+			</div>
 		</>
 	);
 };

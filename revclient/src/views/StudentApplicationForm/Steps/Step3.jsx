@@ -1,7 +1,33 @@
-import React from 'react'
+import React,{useState, useEffect} from 'react'
+import { withRouter } from 'react-router-dom'
+
+import { APPLY_TO_PROJECT } from '../../../graphql/mutations/Project'
+import { useMutation, useQuery } from '@apollo/react-hooks';
+
+// import { GET_PROJECT_BY_SLUG } from '../../../graphql/queries/Projects';
 
 
-const Step3 = ({setStep, obj, setObj, submit, errorHandle, setErrorHandle}) => {
+const Step3 = ({refetch, setStep, obj, setObj, errorHandle, setErrorHandle, setAnimation, history, match}) => {
+
+    
+
+    const [apply, {data}] = useMutation(APPLY_TO_PROJECT)
+    
+    const submit = async () => {
+        const applied = await apply({variables: {data: obj}})
+        if(applied.data.createProjectApplicant.id) {
+            refetch()
+        }
+    }
+
+    useEffect(() => {
+        if(data) {
+            setAnimation(true)
+            setTimeout(() => history.push(`/project/${match.params.name}`), 2500)
+        }
+    }, [data])
+
+    
 
     const next = (e) => {
         e.preventDefault()
@@ -56,4 +82,4 @@ const Step3 = ({setStep, obj, setObj, submit, errorHandle, setErrorHandle}) => {
     )
 }
 
-export default Step3
+export default withRouter(Step3)

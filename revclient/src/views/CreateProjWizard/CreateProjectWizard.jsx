@@ -21,21 +21,21 @@ let currentDate = moment().format('YYYY-MM-DD');
 
 const CreateProjectWizard = ({ history }) => {
 	let [projectDetails, setProjectDetails] = useState({
-		name: '23323323232323232323',
+		name: "",
 		startDate: currentDate,
-		country: 'United States',
+		country: "",
 		duration: 1,
-		description: 'description',
-		address: 'address',
-		city: 'city',
-		state: 'statr',
-		zip: '23',
-		goalAmount: 10.0,
-		difficulty: 'Easy',
+		description: "",
+		address: "",
+		city: "",
+		state: "",
+		zip: "",
+		goalAmount: 100.00,
+		difficulty: "",
 		images: [],
-		featuredImage: '',
+		featuredImage: "",
 	});
-	const [formPosition, setFormPosition] = useState(3);
+	const [formPosition, setFormPosition] = useState(1);
 	const [addProject] = useMutation(ADD_PROJECT);
 
 	const handleChanges = event => {
@@ -64,6 +64,8 @@ const CreateProjectWizard = ({ history }) => {
 
 		// SOS FRANK: UPDATE CACHE
 		const addedProj = await addProject({ variables: { data: projectDetails } });
+		console.log("added project in crw", addedProj);
+
 		history.push(`/project/${addedProj.data.createProject.slug}`);
 	};
 

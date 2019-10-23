@@ -135,7 +135,7 @@ const Form3 = ({
 			<Droppy images={images} setProjectDetails={setProjectDetails} projectDetails={projectDetails} />
 			{errors.images && images.length <= 0 && <p className="errorText">Please upload photos of your project</p>}
 			{errors.images && images.length > 5 && (
-				<p className="errorText">Sorry, but you only upload 5 photos or less</p>
+				<p className="errorText">Sorry, but you can only upload 5 photos or less</p>
 			)}
 
 			{errors.featuredImage && !projectDetails.featuredImage && (
