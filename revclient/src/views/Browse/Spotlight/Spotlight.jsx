@@ -13,21 +13,18 @@ const Spotlight = () => {
 	if (loading) return <SpotlightSkeleton />;
 
 	if (error) return console.log(error);
+	const shifty = data.projectsNearMe.shift();
 
 	return (
 		<div className="spotlight-container">
-			{data.projectsNearMe
-				? data.projectsNearMe.slice(0, 1).map(spotlight => (
-						<div className="spotlight-card" style={{ backgroundImage: `url(${spotlight.featuredImage})` }}>
-							<h2>SPOTLIGHT</h2>
-							<h3>{spotlight.name}</h3>
-							<p>{spotlight.description}</p>
-							<Link to={`/project/${spotlight.slug}`}>
-								Learn more <FaAngleRight />
-							</Link>
-						</div>
-				  ))
-				: null}
+			<div className="spotlight-card" style={{ backgroundImage: `url(${shifty.featuredImage})` }}>
+				<h2>SPOTLIGHT</h2>
+				<h3>{shifty.name}</h3>
+				<p>{shifty.description}</p>
+				<Link to={`/project/${shifty.slug}`}>
+					Learn more <FaAngleRight />
+				</Link>
+			</div>
 		</div>
 	);
 };
