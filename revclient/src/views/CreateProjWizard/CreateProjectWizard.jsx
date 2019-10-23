@@ -66,7 +66,7 @@ const CreateProjectWizard = ({ history }) => {
 		console.log("added project in crw  1", newProjectDetails);
 
 		// SOS FRANK: UPDATE CACHE
-		const addedProj = await addProject({ variables: { data: projectDetails } });
+		const addedProj = await addProject({ variables: { data: newProjectDetails } });
 
 		console.log("added project in crw", addedProj);
 
