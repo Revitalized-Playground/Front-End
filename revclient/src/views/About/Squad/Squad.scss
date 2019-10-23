@@ -67,10 +67,10 @@
 				' .            skyelar      clark'
 				'frank           .          clark'
 				'frank       theia        .  '
-				'frank        theia      blank2'
-				'frank       theia       blank2'
-				'  .         theia       blank2'
-				'  .             .         blank2';
+				'frank        theia      Lucy'
+				'frank       theia       Lucy'
+				'  .         theia       Lucy'
+				'  .             .         Lucy';
 
 			@media #{$tablet} {
 				grid-template-columns: repeat(2, 1fr);
@@ -101,9 +101,10 @@
 					'  elan       clark'
 					'    .        clark'
 					'  theia           .'
-					'  theia           .'
-					'  theia           .'
-					'  theia           .';
+					'  theia       Lucy'
+					'  theia       Lucy'
+					'  theia       Lucy'
+					'    . 		   Lucy';
 			}
 			@media #{$mobile} {
 				display: flex;
@@ -199,7 +200,7 @@
 			}
 			.person:hover .overlay {
 				cursor: pointer;
-				height: 50%;
+				height: 70%;
 			}
 		}
 
@@ -247,14 +248,7 @@
 			// }
 		}
 		.index11 {
-			grid-area: blank2;
-
-			@media #{$tablet} {
-				display: none;
-			}
-			@media #{$mobile} {
-				display: none;
-			}
+			grid-area: Lucy;
 		}
 	}
 }

@@ -12,7 +12,7 @@ import skyelar from '../../../assets/AboutPage/skyelar.png';
 import anthony from '../../../assets/AboutPage/anthony.png';
 import elan from '../../../assets/AboutPage/elan.png';
 import theia from '../../../assets/AboutPage/theia.png';
-
+import Lucy from '../../../assets/AboutPage/Lucy.png';
 const Squad = () => {
 	const squad = [
 		{
@@ -150,11 +150,12 @@ const Squad = () => {
 			site: '',
 		},
 		{
-			name: '',
-			role: '',
-			image: ``,
+			name: 'Lucy',
+			role: 'The Equalizer',
+			image: `${Lucy}`,
 			background: '#007ea7',
-			bio: '',
+			bio:
+				'Lucy created balance and added sass to our team. She resides in Los Angeles, California and enjoys lounging in the sun, being in your personal space, and chasing after neighborhood kids. ',
 			github: '',
 			linkedIn: '',
 			twitter: '',
@@ -170,7 +171,7 @@ const Squad = () => {
 				<div className="squad">
 					{squad.map((person, index) => (
 						<div className={`person index${index}`} style={{ backgroundColor: `${person.background}` }}>
-							{index !== 11 ? (
+							{index !== 13 ? (
 								<>
 									<h2 className="name"> {person.name}</h2>
 									<h3 className="role"> {person.role}</h3>
