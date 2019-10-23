@@ -4,7 +4,8 @@ import React from 'react';
 const DashNav = props => {
     const { selectDashNavTab, dashTabs, selectedTab } = props;
 
-    console.log("selectedTab in dashnav ", selectedTab)
+    // console.log("selectedTab in dashnav ", selectedTab)
+    
     return (
         <section className="dash-nav  section" >
             {dashTabs && dashTabs.map(tab => (

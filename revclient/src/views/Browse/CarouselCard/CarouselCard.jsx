@@ -4,19 +4,26 @@ import { FaHeart, FaRegHeart, FaAngleRight } from 'react-icons/fa';
 import Truncate from 'react-truncate';
 import Skeleton from 'react-loading-skeleton';
 
+import LoadingSpinner from "../../../components/LoadingSpinner/LoadingSpinner";
 import ProgressBar from '../../../components/ProgressBar/ProgressBar';
 import { formatMoney } from '../../../helpers/formatMoney';
 import { addUpDonations } from '../../../helpers/helpers';
-import { GET_RECOMMENDED_PROJECTS } from '../../../graphql/queries';
-import { GET_USER } from '../../../graphql/queries/Users';
 
+// Graphql
+import { GET_RECOMMENDED_PROJECTS } from '../../../graphql/queries';
 import { CREATE_PROJECT_LIKE, DELETE_PROJECT_LIKE } from '../../../graphql/mutations';
+import { GET_USER } from '../../../graphql/queries/Users';
 import { useMutation, useQuery } from '@apollo/react-hooks';
 
 const CarouselCard = props => {
-	const { card, view, profileId, refetch } = props;
+	const { card, view, 
+		// profileId, 
+		// refetch,
+	} = props;
 
-	const { client, loading, error, data } = useQuery(GET_USER);
+	const { 
+		// client, 
+		loading, error, data } = useQuery(GET_USER);
 
 	const [createProjectLike] = useMutation(CREATE_PROJECT_LIKE, {
 		update(cache, { data: createProjectLike }) {
@@ -56,16 +63,19 @@ const CarouselCard = props => {
 		e.preventDefault();
 		if (arg === 'unlike') {
 			const newDeleted = await deleteProjectLike({ variables: { id: likeState.likeId } });
+			console.log(newDeleted);
 		}
 		if (arg === 'like') {
 			const newLiked = await createProjectLike({ variables: { id: card.id } });
 			// if(newLiked) {
 			// 	refetch()
 			// }
+			console.log(newLiked);
 		}
 	};
 
-	console.log('card', data);
+	// console.log('card', data);
+
 	useEffect(() => {
 		if (card.likes && data) {
 			card.likes.map(eachLike => {
@@ -95,6 +105,13 @@ const CarouselCard = props => {
 	if (!card.featuredImage) {
 		card.featuredImage =
 			'https://res.cloudinary.com/revitalize/image/upload/v1569451117/start%20page/Camp_Crystal_Lake_jqewaz.jpg';
+	}
+
+	if (loading) return <LoadingSpinner />;
+	
+	if (error) {
+		console.log(error);
+		return <LoadingSpinner />
 	}
 
 	if (view === 'recommended') {

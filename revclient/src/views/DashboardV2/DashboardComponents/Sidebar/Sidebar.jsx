@@ -158,7 +158,6 @@ const Sidebar = props => {
                             {project ? (
                                 <>
                                     <hr/>
-                                    {console.log(project)}
                                     <div className="info project-details-container">
                                         <div className="text">
                                             <Link to={`/project/${project.slug}`} >
