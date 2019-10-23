@@ -11,6 +11,8 @@ import { FaTimes } from 'react-icons/fa';
 
 const ShareModal = ({val, setModalVal, copied, setCopied, modalVal}) => {
 
+    fb.
+
     return (
 
         <div onClick={val} className={!modalVal ? 'none' : 'modal'}>
@@ -31,10 +33,12 @@ const ShareModal = ({val, setModalVal, copied, setCopied, modalVal}) => {
                         <div className='img-container'>
                             <img src={fb} alt="Facebook Logo" />
                             <p>Facebook</p>
+                            
                         </div>
                         <div className='img-container'>
                             <img src={twtr} alt="Twitter Logo" />
                             <p>Twitter</p>
+                            <a target='_blank' href={`https://twitter.com/share?ref_src=twsrc%5Etfw`} class="twitter-share-button" data-show-count="true">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                         </div>
                         <div className='img-container'>
                             <img src={linked} alt="LinkedIn Logo" />
