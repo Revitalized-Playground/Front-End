@@ -32,18 +32,16 @@ export const GET_USER_PROFILE = gql`
 	query me {
 		me {
 			...UserSummary
-
 			donations {
 				id
 				amount
 				project {
 					...ProjectSummary
 				}
-				profile {
-					...UserSummary
-				}
+				# profile {
+				# 	...UserSummary
+				# }
         	}
-
 			# This is an array with items if the user has created a project
 			projects {
 				...ProjectSummary
@@ -65,40 +63,42 @@ export const GET_USER_PROFILE = gql`
 					}
 				}
 			}
-
 			# Projects the user has liked
 			likedProjects {
 				id
 				project {
-					...ProjectSummary
-				}
-				profile {
-					...UserSummary
+					id
+					name
+					featuredImage
 				}
 			}
-
 			# This is an array with items if the user has left comments
-			comments {
-				...Comments
-				project {
-					...ProjectSummary
-				}
-			}
-
+			# comments {
+			# 	...Comments
+			# 	project {
+			# 		id
+			# 		students {
+			# 			id
+			# 			profile {
+			# 				id
+			# 				profileImage
+			# 			}
+			# 		}
+			# 	}
+			# }
 			# This is an array with items if the user has liked comments
-			likedComments {
-				id
-				comment {
-					...Comments
-					profile {
-						...UserSummary
-					}
-					project {
-						...ProjectSummary
-					}
-				}
-			}
-
+			# likedComments {
+			# 	id
+			# 	comment {
+			# 		...Comments
+			# 		profile {
+			# 			...UserSummary
+			# 		}
+			# 		project {
+			# 			...ProjectSummary
+			# 		}
+			# 	}
+			# }
 			# This is an array with items if the user has submitted an application to join a project
 			applications {
 				id
@@ -113,7 +113,6 @@ export const GET_USER_PROFILE = gql`
 				coverLetter
 				status
 			}
-
 			# This is an array with items if the user is a student
 			studentProjects {
 				id
@@ -121,7 +120,6 @@ export const GET_USER_PROFILE = gql`
 					...ProjectSummary
 				}
 			}
-
 			# This is an array with items if the user has tasks
 			tasks {
 				id
@@ -151,17 +149,15 @@ export const GET_USER_PROFILE = gql`
 					...UserSummary
 				}
 			}
-
 			# This is an array with items if the user is a trades master
 			tradeMasterProjects {
 				id
 				project {
 					...ProjectSummary
 				}
-				profile {
-					...UserSummary
-				}
-
+				# profile {
+				# 	...UserSummary
+				# }
 				### Redundant. This query returns the projects the user is a trademaster on.
 				### No need to return the profile we already have
 				# profile {
@@ -171,17 +167,10 @@ export const GET_USER_PROFILE = gql`
 				# 	}
 				# }
 			}
-
-
-
 		}
 	}
 	${USER_SUMMARY_FRAG}
 	${PROJECT_SUMMARY_FRAG}
-	${COMMENTS_FRAG}
 
 
 `;
-
-
-

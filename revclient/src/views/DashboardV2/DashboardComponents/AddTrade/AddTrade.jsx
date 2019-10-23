@@ -12,7 +12,7 @@ const AddTrade = props => {
 
     } = props;
 
-
+    console.log("Props in addtrade", props)
     return (
         <>
             <section 

@@ -12,7 +12,9 @@ import { GET_RECOMMENDED_PROJECTS } from '../../../graphql/queries';
 import { useAuth } from '../../../hooks/useAuth';
 
 const RecommendedProjects = ({ history }) => {
-        const { loading, error, data } = useQuery(GET_RECOMMENDED_PROJECTS);
+        const { loading, error, data, refetch } = useQuery(GET_RECOMMENDED_PROJECTS);
+
+        console.log(data)
 
         const { currentUser } = useAuth(history);
         const profileId = currentUser().profileId;
@@ -72,6 +74,7 @@ const RecommendedProjects = ({ history }) => {
                     <Slider {...settings}>
                         {data.recommendedProjects ? data.recommendedProjects.map(recommendedItem => (
                             <CarouselCard
+                            refetch={refetch}
                                 key={recommendedItem.id}
                                 card={recommendedItem}
                                 view="recommended"

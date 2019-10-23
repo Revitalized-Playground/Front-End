@@ -23,7 +23,7 @@ const CreateProjectWizard = ({ history }) => {
 	let [projectDetails, setProjectDetails] = useState({
 		name: "",
 		startDate: currentDate,
-		country: "",
+		country: "United States",
 		duration: 1,
 		description: "",
 		address: "",
@@ -31,7 +31,7 @@ const CreateProjectWizard = ({ history }) => {
 		state: "",
 		zip: "",
 		goalAmount: 100.00,
-		difficulty: "",
+		difficulty: "Easy",
 		images: [],
 		featuredImage: "",
 	});
@@ -56,14 +56,18 @@ const CreateProjectWizard = ({ history }) => {
 		}
 	};
 
-	const submitForm = async e => {
-		projectDetails = {
+	const submitForm = async () => {
+		let newProjectDetails = {
 			...projectDetails,
+			country: "United States",
 			zip: parseInt(projectDetails.zip, 10),
 		};
+		
+		console.log("added project in crw  1", newProjectDetails);
 
 		// SOS FRANK: UPDATE CACHE
 		const addedProj = await addProject({ variables: { data: projectDetails } });
+
 		console.log("added project in crw", addedProj);
 
 		history.push(`/project/${addedProj.data.createProject.slug}`);
@@ -72,7 +76,7 @@ const CreateProjectWizard = ({ history }) => {
 	return (
 		<>
 			<Nav />
-			<section className="create-project-container">
+			<section className="create-project-wizard-container">
 				<div className="create-project">
 					<div className="form-plus-quote-container">
 						<q className="quote">

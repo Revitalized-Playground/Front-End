@@ -57,11 +57,13 @@ export const DONATE_TO_PROJECT = gql`
 		createProjectDonation(id: $id, data: $data) {
 			id
 			project {
+				id
 				donations {
 					id
 					amount
 					createdAt
 					profile {
+						id
 						firstName
 						lastName
 						profileImage
@@ -73,11 +75,11 @@ export const DONATE_TO_PROJECT = gql`
 `;
 
 export const REMOVE_COMMENT = gql`
-    mutation($id: ID!) {
-        deleteProjectComment(id: $id) {
-            id
-        }
-    }
+	mutation($id: ID!) {
+		deleteProjectComment(id: $id) {
+			id
+		}
+	}
 `;
 
 export const EDIT_COMMENT = gql`
@@ -155,36 +157,45 @@ export const DECLINE_PROJECT_APPLICANT = gql`
 			id
 		}
 	}
-`
-export const CREATE_PROJECT_LIKE = gql `
+`;
+export const CREATE_PROJECT_LIKE = gql`
 	mutation($id: ID!) {
 		createProjectLike(id: $id) {
 			id
+			project {
+				id
+				likes {
+				id
+				profile {
+					id
+				}
+				}
+			}
+			
 		}
 	}
-`
+`;
 
-export const DELETE_PROJECT_LIKE = gql `
+export const DELETE_PROJECT_LIKE = gql`
 	mutation($id: ID!) {
 		deleteProjectLike(id: $id) {
-			id
+			project {
+				likes {
+					id
+					profile {
+						id
+					}
+				}
+			}
 		}
 	}
-`
+`;
 
 export const UPDATE_PROJECT_TASK = gql`
-	mutation(
-		$id: ID!
-		$project: ID!
-		$data: UpdateProjectTask!
-		) {
-		updateProjectTask(
-			id: $id
-			project: $project
-			data: $data
-		) {
+	mutation($id: ID!, $project: ID!, $data: UpdateProjectTask!) {
+		updateProjectTask(id: $id, project: $project, data: $data) {
 			id
 			completed
 		}
 	}
-`
+`;

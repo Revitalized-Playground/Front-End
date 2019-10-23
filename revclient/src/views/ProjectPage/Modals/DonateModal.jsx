@@ -11,6 +11,7 @@ import { FaTimes } from 'react-icons/fa';
 import { useMutation } from '@apollo/react-hooks';
 import { DONATE_TO_PROJECT } from '../../../graphql/mutations';
 import { GET_PROJECT_BY_SLUG } from '../../../graphql/queries/Projects';
+import '@lottiefiles/lottie-player';
 
 
 const DonateModal = ({id, setInnerModalDisplay, setModalDisplay,innerModalDisplay, modalDisplay, donateModal, setDonateModal, donateModalBlur, stripe, match}) => {
@@ -99,8 +100,8 @@ const DonateModal = ({id, setInnerModalDisplay, setModalDisplay,innerModalDispla
     useEffect(() => {
         setSuccess(false)
     }, [donateModal])
-   
-    
+
+
     return (
         <div onClick={donateModalBlur} className={donateModal ? 'donate-modal' : 'none'}>
             <div className='exit-button'>
@@ -113,7 +114,6 @@ const DonateModal = ({id, setInnerModalDisplay, setModalDisplay,innerModalDispla
                         </div> */}
                     </div>
                 <div style={{display: innerModalDisplay}} className='inner-donate-modal'>
-                    
                     <h2>$ Amount</h2>
                     <form className='donate-form'>
                         <div className="flex">
@@ -159,7 +159,7 @@ const DonateModal = ({id, setInnerModalDisplay, setModalDisplay,innerModalDispla
                     </div>
                     <button onClick={handleSubmit} className='submit-donate'>Donate</button>
                     {success && <p className='donate-success-text'>Successfully Donated!</p>}
-                    
+
                     {loading && <p style={{color: 'black'}} className='donate-success-text'>Processing your request...</p>}
                 </div>
                 {animationSuccess &&

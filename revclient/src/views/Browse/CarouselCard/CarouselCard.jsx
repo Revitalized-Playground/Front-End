@@ -7,54 +7,76 @@ import Skeleton from 'react-loading-skeleton';
 import ProgressBar from '../../../components/ProgressBar/ProgressBar';
 import { formatMoney } from '../../../helpers/formatMoney';
 import { addUpDonations } from '../../../helpers/helpers';
+import { GET_RECOMMENDED_PROJECTS } from '../../../graphql/queries';
+import { GET_USER } from '../../../graphql/queries/Users';
 
 import { CREATE_PROJECT_LIKE, DELETE_PROJECT_LIKE } from '../../../graphql/mutations';
-import { useMutation } from '@apollo/react-hooks';
+import { useMutation, useQuery } from '@apollo/react-hooks';
 
 const CarouselCard = props => {
-	const { card, view, profileId } = props;
+	const { card, view, profileId, refetch } = props;
 
-	const [ createProjectLike ] = useMutation( CREATE_PROJECT_LIKE );
-	const [ deleteProjectLike ] = useMutation( DELETE_PROJECT_LIKE );
+	const { client, loading, error, data } = useQuery(GET_USER);
 
-	const [ likeState, setLikeState ] = useState({
+	const [createProjectLike] = useMutation(CREATE_PROJECT_LIKE, {
+		update(cache, { data: createProjectLike }) {
+			const { recommendedProjects } = cache.readQuery({
+				query: GET_RECOMMENDED_PROJECTS,
+			});
+			const recom = recommendedProjects.map(eachProject => {
+				if (eachProject.id === createProjectLike.createProjectLike.project.id) {
+					eachProject.likes = createProjectLike.createProjectLike.project.likes;
+				} else {
+					return eachProject.likes;
+				}
+			});
+			cache.writeQuery({
+				query: GET_RECOMMENDED_PROJECTS,
+				data: { recommendedProjects: (recommendedProjects.likes = recom) },
+			});
+		},
+	});
+	const [deleteProjectLike] = useMutation(DELETE_PROJECT_LIKE, {
+		update(cache, { data: deleteProjectLike }) {
+			const { recommendedProjects } = cache.readQuery({
+				query: GET_RECOMMENDED_PROJECTS,
+			});
+
+			console.log('deleteProjectLike', deleteProjectLike);
+		},
+	});
+
+	const [likeState, setLikeState] = useState({
 		liked: false,
-		likeId: ''
-	})
+		likeId: '',
+	});
 
 	const toggleLiked = async (e, arg) => {
+		// console.log('likeState in toggle: ', likeState);
 		e.preventDefault();
-		if (arg === "unlike") {
-			await deleteProjectLike({ variables: { id: likeState.likeId }})
-			setLikeState({
-				...likeState,
-				liked: false
-			})
+		if (arg === 'unlike') {
+			const newDeleted = await deleteProjectLike({ variables: { id: likeState.likeId } });
 		}
-		if (arg === "like") {
-			await createProjectLike({ variables: { id: card.id }})
-			setLikeState({
-				...likeState,
-				liked: true
-			})
+		if (arg === 'like') {
+			const newLiked = await createProjectLike({ variables: { id: card.id } });
+			// if(newLiked) {
+			// 	refetch()
+			// }
 		}
 	};
-	useEffect(() => {  
-		if (view === 'recommended') {
-			card.likes.forEach(l => {
-				console.log("l: ", l, "card.name: ", card.name, "profileId: ", profileId);
-				l.profile.id === profileId ?
-				setLikeState({
-					liked: true,
-					likeId: l.id
-				})
-				: setLikeState({
-					...likeState,
-					likeId: l.id
-				})
-			})
+
+	console.log('card', data);
+	useEffect(() => {
+		if (card.likes && data) {
+			card.likes.map(eachLike => {
+				if (eachLike.profile.id === data.me.id) {
+					setLikeState({ liked: true, likeId: eachLike.id });
+				} else {
+					setLikeState({ ...likeState, liked: false });
+				}
+			});
 		}
-    }, []);
+	}, [card, data]);
 
 	if (!card && view === 'recommended') {
 		return (
@@ -79,15 +101,13 @@ const CarouselCard = props => {
 		return (
 			<section className="carousel-card-inner __recommended">
 				<div className="carousel-card-image">
-					{localStorage.getItem('token')
-						?
-						likeState.liked 
-							?
-							<FaHeart fill="#d2405b" onClick={(e) => toggleLiked(e, "unlike")}/>
-							:
-							<FaRegHeart onClick={(e) => toggleLiked(e, "like")}/>
-						: null
-					}
+					{localStorage.getItem('token') ? (
+						likeState.liked ? (
+							<FaHeart fill="#d2405b" onClick={e => toggleLiked(e, 'unlike')} />
+						) : (
+							<FaRegHeart onClick={e => toggleLiked(e, 'like')} />
+						)
+					) : null}
 					<img src={card.featuredImage} alt={card.name} />
 					<div className="after"></div>
 				</div>

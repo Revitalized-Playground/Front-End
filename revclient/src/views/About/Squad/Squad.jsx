@@ -21,7 +21,7 @@ const Squad = () => {
 			image: `${anthony}`,
 			background: '#ffb588',
 			bio:
-				'Anthony is a team lead, product manager, and full-stack developer from Detroit, MI. Anthony strongly believes that everyone should be on an even playing field when it comes to everything in life and wants to empower/inspire people.',
+				'Anthony is a team lead, aspiring product manager, and full-stack developer from San Francisco, CA. Anthony loves problem solving and finding solutions to complex issues.',
 			github: 'https://github.com/adventurini',
 			linkedIn: 'https://www.linkedin.com/in/adventurini/',
 			twitter: 'https://twitter.com/adventurini',

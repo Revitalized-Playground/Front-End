@@ -1,4 +1,8 @@
 import React, { useState } from "react";
+import { Link, withRouter } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa";
+
+// GQL
 import {
 	useMutation,
 } from "@apollo/react-hooks";
@@ -6,9 +10,7 @@ import {
 	LOGIN_USER,
 } from "../../graphql/mutations";
 
-import { Link, withRouter } from "react-router-dom";
-import { FaArrowLeft } from "react-icons/fa";
-
+// Images
 import googleLogo from "../../assets/AuthPages/Google.png";
 import fbLogo from "../../assets/AuthPages/fb-logo.png";
 
@@ -16,7 +18,7 @@ import fbLogo from "../../assets/AuthPages/fb-logo.png";
 
 const Login = props => {
 	const [loginUser, { client }] = useMutation(LOGIN_USER);
-	console.log(client)
+	// console.log(client)
 	const [state, setState] = useState({
 		email: "",
 		password: "",
@@ -81,7 +83,7 @@ const Login = props => {
 						</div>
 						<form className="login-local" onSubmit={handleSubmit}>
 							<p className="login-title">Email</p>
-							<input
+							<input 
 								name='email'
 								type='email'
 								placeholder="Email..."
