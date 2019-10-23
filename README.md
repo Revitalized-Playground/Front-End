@@ -1,9 +1,10 @@
 <h1 align="center">Welcome to Revitalize 👋</h1>
-<p>
+<p align="center" >
   <img alt="Version" src="https://img.shields.io/badge/version-2.0-blue.svg?cacheSeconds=2592000" />
-  <a href="../license" target="_blank">
+  <a href="./license" target="_blank">
     <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
   </a>
+  https://github.com/Revitalized-Playground
 </p>
 
 # 🏠 [ReVitalize](https://revitalize.community/)
