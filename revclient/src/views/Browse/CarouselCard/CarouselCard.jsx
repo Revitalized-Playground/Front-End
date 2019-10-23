@@ -26,10 +26,14 @@ const CarouselCard = props => {
 		e.preventDefault();
 		// console.log("likeState.likeId: ", likeState.likeId);
 		if (arg === "unlike") {
-			await deleteProjectLike({ variables: { id: likeState.likeId }})
+			console.log("card.likes before unlike: ", card.likes);
+			await deleteProjectLike({ variables: { id: likeState.likeId }}).then(res => {
+				console.log("res: ", res);
+			})
+			.catch(err => console.log("err: ", err))
 			setLikeState({
-				...likeState,
-				liked: false
+				liked: false,
+				likeId: ''
 			})
 			console.log("card.name: ", card.name);
 			console.log("card.likes after unlike: ", card.likes);
