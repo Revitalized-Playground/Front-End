@@ -14,7 +14,7 @@ import Footer from "../../components/Layout/Footer";
 
 const SetupProfile = props => {
     const [ updateUserProfile ] = useMutation(UPDATE_USER_PROFILE);
-    const [ getUser, { loading, data } ] = useLazyQuery(GET_USER);
+    const [ , { loading, data } ] = useLazyQuery(GET_USER);
     const [ profileData, setProfileData ] = useState({
         firstName: "",
         lastName: "",
@@ -29,7 +29,7 @@ const SetupProfile = props => {
         country: "USA",
     });
     const [darkModeState, setDarkMode] = useState(false);
-    
+
     const handleChanges = event => {
         if (event.target.name === 'zip' || event.target.name === 'goalAmount') {
 			setProfileData({ ...profileData, [event.target.name]: Number(event.target.value) });
@@ -37,11 +37,11 @@ const SetupProfile = props => {
 			setProfileData({ ...profileData, [event.target.name]: event.target.value });
 		}
     };
-    
+
     const [page, setPageNumber] = useState(1);
     const formBack = () => setPageNumber(1);
     const formForward = () => setPageNumber(2);
-    
+
     const formSubmit = async event => {
         event.preventDefault();
         const updated = await updateUserProfile({ variables: { data: profileData } });
@@ -55,7 +55,7 @@ const SetupProfile = props => {
 		setDarkMode(!darkModeState);
 		localStorage.setItem('dark-mode', !darkModeState);
     };
-    
+
     useEffect(() => {
 		if (JSON.parse(localStorage.getItem('dark-mode')) === true) {
 			document.querySelector('body').classList.add('dark-mode');
@@ -63,7 +63,7 @@ const SetupProfile = props => {
 			document.querySelector('body').classList.remove('dark-mode');
 		}
 	}, [darkModeState]);
-    
+
     if (loading) return <h1>Loading</h1>
     if (!localStorage.getItem("token")) props.history.push("/");
     // if (data) console.log(data, profileData);
@@ -74,14 +74,14 @@ const SetupProfile = props => {
             {props.destination === "settings" ? (
                 <Nav />
             ) : null}
-                
-            <section 
-                className={`setup-profile-container ${props.destination === "settings" ? "settings-view" : ""}`} 
+
+            <section
+                className={`setup-profile-container ${props.destination === "settings" ? "settings-view" : ""}`}
             >
                 <div className="setup-profile-container-card">
-                    
+
                     <div className="setup-profile-interaction-overlay">
-                        
+
                         {page === 2 ? (
                             <MdArrowBack onClick={formBack} />
                         ) : null}
@@ -104,7 +104,7 @@ const SetupProfile = props => {
                                             <FaMoon />&nbsp; Toggle Dark Mode
                                         </div>
                                         <div className="setting-toggle">
-                                            <Toggle 
+                                            <Toggle
                                                 defaultChecked={darkModeState}
                                                 onChange={toggleDarkMode}
                                             />
@@ -112,28 +112,28 @@ const SetupProfile = props => {
                                     </div>
                                 ) : null}
                                 <form onSubmit={formForward}>
-                                    <input 
+                                    <input
                                         name="firstName"
                                         type="text"
                                         placeholder="First Name"
                                         value={profileData.firstName}
                                         onChange={handleChanges}
                                     />
-                                    <input 
+                                    <input
                                         name="lastName"
                                         type="text"
                                         placeholder="Last Name"
                                         value={profileData.lastName}
                                         onChange={handleChanges}
                                     />
-                                    <input 
+                                    <input
                                         name="email"
                                         type="text"
                                         placeholder="Email"
                                         value={profileData.email}
                                         onChange={handleChanges}
                                     />
-                                    {/* <input 
+                                    {/* <input
                                         name="phone"
                                         type="number"
                                         placeholder="Phone"
@@ -159,14 +159,14 @@ const SetupProfile = props => {
                                 </div>
                             )}
                                 <form onSubmit={formSubmit}>
-                                    <input 
+                                    <input
                                         name="address"
                                         type="text"
                                         placeholder="Address"
                                         value={profileData.address}
                                         onChange={handleChanges}
                                     />
-                                    <input 
+                                    <input
                                         name="city"
                                         type="text"
                                         placeholder="City"
@@ -174,21 +174,21 @@ const SetupProfile = props => {
                                         onChange={handleChanges}
                                     />
                                     <div className="setup-profile-statezip">
-                                        <input 
+                                        <input
                                             name="state"
                                             type="text"
                                             placeholder="State"
                                             value={profileData.state}
                                             onChange={handleChanges}
                                         />
-                                        <input 
+                                        <input
                                             name="zip"
                                             type="text"
                                             placeholder="Zip"
                                             value={profileData.zip === 0 ? '' : profileData.zip}
-                                            step="1" 
+                                            step="1"
                                             pattern="\d+"
-                                            maxLength="5" 
+                                            maxLength="5"
                                             onChange={handleChanges}
                                         />
                                     </div>

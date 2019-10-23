@@ -13,8 +13,8 @@ import HeaderMainSort from "./HeaderMainSort/HeaderMainSort";
 // GQL
 import { useQuery } from '@apollo/react-hooks';
 import { GET_USER_PROFILE } from '../../graphql/queries/Users';
-import { toIdValue } from 'apollo-utilities';
-import { InMemoryCache } from 'apollo-cache-inmemory';
+// import { toIdValue } from 'apollo-utilities';
+// import { InMemoryCache } from 'apollo-cache-inmemory';
 
 
 
@@ -42,13 +42,13 @@ const Dashboard = () => {
 
 
 
-    const cache = new InMemoryCache({
-        cacheRedirects: {
-            Query: {
-                me: (_, args) => toIdValue(cache.config.dataIdFromObject({ __typename: 'me', id: args.id })),
-            },
-        },
-    });
+    // const cache = new InMemoryCache({
+    //     cacheRedirects: {
+    //         Query: {
+    //             me: (_, args) => toIdValue(cache.config.dataIdFromObject({ __typename: 'me', id: args.id })),
+    //         },
+    //     },
+    // });
 
     const setCurrentProject = object => setProject(object);
 
@@ -69,7 +69,7 @@ const Dashboard = () => {
     
 
     useEffect(() => {
-        refetch();
+        // refetch();
         let availDashTabs = [];
         let count = "";
         count = data ? data.me.projects.length > 0 ? availDashTabs.push(possibleDashNavTabs[0]) : null : null;

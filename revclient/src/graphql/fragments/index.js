@@ -74,6 +74,46 @@ export const PROJECT_SUMMARY_FRAG = gql`
         difficulty
         startDate
         featuredImage
+        applicants {
+            id
+            project {
+                id
+                slug
+                name
+                description
+                goalAmount
+                duration
+                difficulty
+                startDate
+                featuredImage
+            }
+            profile {
+                id
+                verified
+                email
+                firstName
+                lastName
+                profileImage
+                country
+                state
+                city
+                zip
+                phone
+                address
+                aptNumber
+            }
+            trade {
+                id
+                name
+                description
+            }
+            licensed
+            coverLetter
+            jobExperience
+            education
+            availability
+            status
+        }
         images {
             id
             imageUrl
@@ -136,6 +176,21 @@ export const PROJECT_SUMMARY_FRAG = gql`
                 city
                 state
                 zip                
+            }
+            project {
+                id
+                slug
+                name
+                description
+                address
+                state
+                zip
+                city
+                goalAmount
+                duration
+                difficulty
+                startDate
+                featuredImage
             }
         }
         tasks {
