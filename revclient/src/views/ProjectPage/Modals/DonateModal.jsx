@@ -84,6 +84,8 @@ const DonateModal = ({id, setInnerModalDisplay, setModalDisplay,innerModalDispla
             setTimeout(() => {setAnimationSuccess(false); setDonateModal(false)}, 2500)
         }
     }, [data])
+
+    console.log(innerModalDisplay, modalDisplay)
     return (
         <div onClick={donateModalBlur} className={donateModal ? 'donate-modal' : 'none'}>
             <div className='exit-button'>
