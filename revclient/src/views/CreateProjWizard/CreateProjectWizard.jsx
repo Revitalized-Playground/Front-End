@@ -72,7 +72,7 @@ const CreateProjectWizard = ({ history }) => {
 	return (
 		<>
 			<Nav />
-			<section className="create-project-container">
+			<section className="create-project-wizard-container">
 				<div className="create-project">
 					<div className="form-plus-quote-container">
 						<q className="quote">

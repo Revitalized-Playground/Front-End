@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
-import { MdArrowBack, MdClose } from "react-icons/md";
+import React, { useState, useEffect } from 'react';
+import { MdClose } from "react-icons/md";
 
 // Helpers
 import { addWeeksDueDate, formatDateForDateInput, formatDateForMutation } from "../../../../helpers/helpers";
 
 // Gql
-import { useMutation } from "@apollo/react-hooks";
+import { useMutation, useQuery } from '@apollo/react-hooks';
 import { CREATE_PROJECT_TASK } from '../../../../graphql/mutations';
+import { GET_PROJECT_BY_ID } from "../../../../graphql/queries";
+import LoadingSpinner from '../../../../components/LoadingSpinner/LoadingSpinner';
 
 
 const AddTask = props => {
@@ -16,20 +18,44 @@ const AddTask = props => {
         selectedProject,
         trade
     } = props;
-
-    const [ createProjectTask ] = useMutation( CREATE_PROJECT_TASK );
+    
     const [ addTaskState, setAddTaskState ] = useState({
-        project: selectedProject ? selectedProject.id : null,
+        project: "",
         trade: trade ? trade.id : "",
         title: "",
         description: "",
         priority: "",
         dueDate: formatDateForDateInput(Date.now()),
         budgetHours: "",
-        // apprentices: {
-        //     profile: "",
-        // },
-    })
+    });
+    
+    const { loading, error, data } = useQuery(GET_PROJECT_BY_ID, {
+		variables: { id: selectedProject.id },
+    });
+    
+    const [ createProjectTask ] = useMutation( CREATE_PROJECT_TASK,  {
+		update(
+			cache,
+			{
+				data: { createProjectTask },
+			},
+		) {
+			const { projectById } = cache.readQuery({
+				query: GET_PROJECT_BY_ID,
+				variables: { id: data.projectById.id },
+			});
+			// console.log("Cache inside of mutation  ", cache, "\nprojectById", projectById );
+			cache.writeQuery({
+				query: GET_PROJECT_BY_ID,
+				data: { projectById: projectById.tasks.concat([createProjectTask]) },
+			});
+		},
+    });
+    
+
+    useEffect(() => {
+        selectedProject && setAddTaskState({ ...addTaskState, project: selectedProject.id });
+    }, [selectedProject]);
 
 
     const submitAddTask = async event => {
@@ -45,8 +71,17 @@ const AddTask = props => {
 		setAddTaskModal({ show: false });
     };
 
-    // console.log("add task props ",  props, addTaskState, "\nDue Date", "\naddTaskState", addTaskState);
-
+    
+    if (loading) return <LoadingSpinner />
+    if (error) {
+        console.log(error)
+        return (
+            <LoadingSpinner />
+        )
+    }
+    
+    console.log("add task props ",  props, addTaskState, "\nDue Date", "\naddTaskState", addTaskState, data);
+    
     return (
         <>
             <section   className="add-task-container"  >

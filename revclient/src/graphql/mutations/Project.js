@@ -57,11 +57,13 @@ export const DONATE_TO_PROJECT = gql`
 		createProjectDonation(id: $id, data: $data) {
 			id
 			project {
+				id
 				donations {
 					id
 					amount
 					createdAt
 					profile {
+						id
 						firstName
 						lastName
 						profileImage
