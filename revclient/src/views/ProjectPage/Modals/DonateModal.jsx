@@ -11,6 +11,7 @@ import { FaTimes } from 'react-icons/fa';
 import { useMutation } from '@apollo/react-hooks';
 import { DONATE_TO_PROJECT } from '../../../graphql/mutations';
 import { GET_PROJECT_BY_SLUG } from '../../../graphql/queries/Projects';
+import '@lottiefiles/lottie-player';
 
 
 const DonateModal = ({id, setInnerModalDisplay, setModalDisplay,innerModalDisplay, modalDisplay, donateModal, setDonateModal, donateModalBlur, stripe, match}) => {
