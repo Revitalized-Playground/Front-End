@@ -23,7 +23,7 @@ const CreateProjectWizard = ({ history }) => {
 	let [projectDetails, setProjectDetails] = useState({
 		name: "",
 		startDate: currentDate,
-		country: "",
+		country: "United States",
 		duration: 1,
 		description: "",
 		address: "",
@@ -31,7 +31,7 @@ const CreateProjectWizard = ({ history }) => {
 		state: "",
 		zip: "",
 		goalAmount: 100.00,
-		difficulty: "",
+		difficulty: "Easy",
 		images: [],
 		featuredImage: "",
 	});
@@ -66,9 +66,9 @@ const CreateProjectWizard = ({ history }) => {
 		console.log("added project in crw  1", newProjectDetails);
 
 		// SOS FRANK: UPDATE CACHE
-		const addedProj = await addProject({ variables: { data: newProjectDetails } });
-		
-		console.log("added project in crw  after await", addedProj);
+		const addedProj = await addProject({ variables: { data: projectDetails } });
+
+		console.log("added project in crw", addedProj);
 
 		history.push(`/project/${addedProj.data.createProject.slug}`);
 	};
