@@ -1,4 +1,8 @@
 import React, { useState } from "react";
+import { Link, withRouter } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa";
+
+// GQL
 import {
 	useMutation,
 } from "@apollo/react-hooks";
@@ -6,9 +10,7 @@ import {
 	LOGIN_USER,
 } from "../../graphql/mutations";
 
-import { Link, withRouter } from "react-router-dom";
-import { FaArrowLeft } from "react-icons/fa";
-
+// Images
 import googleLogo from "../../assets/AuthPages/Google.png";
 import fbLogo from "../../assets/AuthPages/fb-logo.png";
 
