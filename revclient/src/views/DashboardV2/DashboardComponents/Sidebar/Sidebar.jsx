@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 
@@ -21,17 +21,17 @@ const Sidebar = props => {
         name: "Admin Projects",
         count: user.projects.length,
         icon: adminIcon
-    }, 
+    },
     {
         name: "Student Projects",
         count: user.studentProjects.length,
         icon: apprenticeIcon
-    }, 
+    },
     {
         name: "Master Projects",
         count: user.tradeMasterProjects.length,
         icon: masterIcon
-    }, 
+    },
     {
         name: "Donations",
         count: user.donations.length,
@@ -52,26 +52,26 @@ const Sidebar = props => {
                         ? <p className="count">{x.count}</p>
                         : <p className="count">30+</p>
                     }
-                </div> 
-            )    
+                </div>
+            )
         }
     }
-    
+
     return (
         <section className="dashboard-sidebar section">
             <div className="dashboard-section-inner-container " >
 
-                
+
                 <div className="sidebar-top">
                     <Link to="/settings" origination="userDashboard"><h6>EDIT</h6></Link>
                     {user.profileImage ? (
                         <img src={user.profileImage} alt="user" className="user-picture" />
                     ) : (
-                        <InitialAvatar 
-                            firstName={user.firstName} 
+                        <InitialAvatar
+                            firstName={user.firstName}
                             lastName={user.lastName}
-                            height="164" 
-                            width="164" 
+                            height="164"
+                            width="164"
                             useRandomColor={1}
                         />
                     )}
@@ -83,10 +83,10 @@ const Sidebar = props => {
                         <Skeleton count={2} />
                     )}
                 </div>
-                        
+
                 <div className="dashboard-stats">
                     {
-                        
+
                         <div className="a-container">
                         {
                             totalAchievements === 0
@@ -129,7 +129,7 @@ const Sidebar = props => {
                                     </div>
                                 </a>
                             </div>
-                            
+
                             {user.phoneNumber && (
                                 <div className="info">
                                     <div className="text">
@@ -218,14 +218,14 @@ const Sidebar = props => {
                                             {calculatePercentageProgressBar(project.goalAmount, addUpDonations(project.donations))}
                                         </p>
                                     </div>
-                                    <ProgressBar 
-                                        progress={addUpDonations(project.donations)} 
-                                        startingPoint={project.goalAmount} 
+                                    <ProgressBar
+                                        progress={addUpDonations(project.donations)}
+                                        startingPoint={project.goalAmount}
                                     />
                                 </div>
                                 </>
                             ) : null}
-                            
+
                         </>
                         ||
                         <SkeletonTheme>

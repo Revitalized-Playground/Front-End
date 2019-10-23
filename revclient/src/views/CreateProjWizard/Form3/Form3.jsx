@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { FaArrowLeft } from 'react-icons/fa';
 
 import Droppy from '../../../components/PhotoUpload/Droppy';
-import { isObject } from 'util';
 
 const Form3 = ({
 	setProjectDetails,
