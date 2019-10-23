@@ -11,8 +11,6 @@ import { FaTimes } from 'react-icons/fa';
 
 const ShareModal = ({val, setModalVal, copied, setCopied, modalVal}) => {
 
-    fb.
-
     return (
 
         <div onClick={val} className={!modalVal ? 'none' : 'modal'}>
