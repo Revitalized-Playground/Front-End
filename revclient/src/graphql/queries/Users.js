@@ -171,4 +171,6 @@ export const GET_USER_PROFILE = gql`
 	}
 	${USER_SUMMARY_FRAG}
 	${PROJECT_SUMMARY_FRAG}
+
+
 `;

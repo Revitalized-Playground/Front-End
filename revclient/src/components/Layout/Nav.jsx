@@ -65,8 +65,8 @@ const Nav = props => {
 	const { client, loading, error, data } = useQuery(GET_USER);
 
 	const logout = () => {
-		localStorage.removeItem('token');
 		client.resetStore();
+		localStorage.removeItem('token');
 		props.history.push('/login');
 	};
 
@@ -114,11 +114,10 @@ const Nav = props => {
 						<>
 							{authenticatedLinks.map(link =>
 								link.label === 'Create Project' ? (
-									<Link to={link.href}>
+									<Link to={link.href} key={link.key}>
 										<button className="create-project-button">{link.label}</button>
 									</Link>
-								)
-								: link.label === 'Logout' ? (
+								) : link.label === 'Logout' ? (
 									<li className="navLinks logout" onClick={logout} key={link.key}>
 										<Link to={link.href}>{link.label}</Link>
 									</li>
@@ -126,7 +125,7 @@ const Nav = props => {
 									<li className="navLinks" key={link.key}>
 										<Link to={link.href}>{link.label}</Link>
 									</li>
-								)
+								),
 							)}
 							<div className="user" tabIndex="0" onClick={setActive}>
 								{data.me.firstName !== null ? (

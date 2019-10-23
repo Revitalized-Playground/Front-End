@@ -18,29 +18,54 @@ const CarouselCard = props => {
 
 	const { client, loading, error, data } = useQuery(GET_USER);
 
-	const [ createProjectLike ] = useMutation( CREATE_PROJECT_LIKE);
-	const [ deleteProjectLike ] = useMutation( DELETE_PROJECT_LIKE );
+	const [ createProjectLike ] = useMutation( CREATE_PROJECT_LIKE, {
+		update(cache, {data: createProjectLike}) {
+			const {recommendedProjects} = cache.readQuery({
+				query: GET_RECOMMENDED_PROJECTS
+			})
+			const recom = recommendedProjects.map(eachProject => {
+				if(eachProject.id === createProjectLike.createProjectLike.project.id) {
+					eachProject.likes = createProjectLike.createProjectLike.project.likes
+				} else {
+					return eachProject.likes
+				}
+			})
+			cache.writeQuery({
+				query: GET_RECOMMENDED_PROJECTS,
+				data: {recommendedProjects: recommendedProjects.likes = recom}
+			})
+		}
+	});
+	const [ deleteProjectLike ] = useMutation( DELETE_PROJECT_LIKE, {
+		update(cache, {data: deleteProjectLike}) {
+			const {recommendedProjects} = cache.readQuery({
+				query: GET_RECOMMENDED_PROJECTS
+			})
+
+			console.log('deleteProjectLike', deleteProjectLike )
+		}
+	});
 
 	const [ likeState, setLikeState ] = useState({
 		liked: false,
-		likeId: ''
-	})
+		likeId: '',
+	});
 
 	const toggleLiked = async (e, arg) => {
+		// console.log('likeState in toggle: ', likeState);
 		e.preventDefault();
 		if (arg === "unlike") {
 			const newDeleted = await deleteProjectLike({ variables: { id: likeState.likeId }})
-			if(newDeleted) {
-				refetch()
-			}
 		}
 		if (arg === "like") {
 			const newLiked = await createProjectLike({ variables: { id: card.id }})
-			if(newLiked) {
-				refetch()
-			}
+			// if(newLiked) {
+			// 	refetch()
+			// }
 		}
 	};
+
+	console.log('card', card)
 	useEffect(() => {  
 		if(card.likes && data.me) {
 			card.likes.map(eachLike => {
@@ -76,15 +101,13 @@ const CarouselCard = props => {
 		return (
 			<section className="carousel-card-inner __recommended">
 				<div className="carousel-card-image">
-					{localStorage.getItem('token')
-						?
-						likeState.liked  
-							?
-							<FaHeart fill="#d2405b" onClick={(e) => toggleLiked(e, "unlike")}/>
-							:
-							<FaRegHeart onClick={(e) => toggleLiked(e, "like")}/>
-						: null
-					}
+					{localStorage.getItem('token') ? (
+						likeState.liked ? (
+							<FaHeart fill="#d2405b" onClick={e => toggleLiked(e, 'unlike')} />
+						) : (
+							<FaRegHeart onClick={e => toggleLiked(e, 'like')} />
+						)
+					) : null}
 					<img src={card.featuredImage} alt={card.name} />
 					<div className="after"></div>
 				</div>

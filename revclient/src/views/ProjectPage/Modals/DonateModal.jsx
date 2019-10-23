@@ -48,7 +48,7 @@ const DonateModal = ({id, setInnerModalDisplay, setModalDisplay,innerModalDispla
         },
         amount: false
     })
-    
+
     const errorChecker = e => {
         setError({...textError, amount: false, [e.elementType]: {blurComplete: false, error: !e.error ? '' : e.error.message, complete: e.complete}})
     }
@@ -61,19 +61,19 @@ const DonateModal = ({id, setInnerModalDisplay, setModalDisplay,innerModalDispla
         setAmount(e.target.value)
     }
 
-    
+
 	async function handleSubmit(e) {
 		e.preventDefault();
-        const { token } = await stripe.createToken({ name: 'Name here' }); 
+        const { token } = await stripe.createToken({ name: 'Name here' });
         let newAmount = amount
         newAmount = removeCommas(newAmount)
         // console.log("newAmount in DonateModal", newAmount);
-        
+
         if(newAmount < 0.50) {
             window.alert('Can\'t donate less than $0.50')
-        } 
+        }
         else {
-            
+
             donateToProject({
                 variables: {
                     id: id,
@@ -82,7 +82,7 @@ const DonateModal = ({id, setInnerModalDisplay, setModalDisplay,innerModalDispla
                         amount: parseInt(newAmount, 10),
                     },
                 },
-            });    
+            });
         }
     }
 
@@ -96,11 +96,6 @@ const DonateModal = ({id, setInnerModalDisplay, setModalDisplay,innerModalDispla
         }
     }, [data])
 
-    useEffect(() => {
-        setSuccess(false)
-    }, [donateModal])
-   
-    
     return (
         <div onClick={donateModalBlur} className={donateModal ? 'donate-modal' : 'none'}>
             <div className='exit-button'>
@@ -112,13 +107,13 @@ const DonateModal = ({id, setInnerModalDisplay, setModalDisplay,innerModalDispla
                             </div>
                         </div> */}
                     </div>
-                <div style={{display: innerModalDisplay}} className='inner-donate-modal'>
-                    
+                <div className='inner-donate-modal'>
+
                     <h2>$ Amount</h2>
                     <form className='donate-form'>
                         <div className="flex">
                             <div className="currency" style={{color: amount.length > 0 ? 'black' : null}}>$</div>
-                            <CurrencyInput 
+                            <CurrencyInput
                                 value={amount}
                                 style={{color: amount.length <= 0 ? 'gray' : null}}
                                 onChangeEvent={(e) => {handleChange(e); errorChecker(e)}}
@@ -126,7 +121,7 @@ const DonateModal = ({id, setInnerModalDisplay, setModalDisplay,innerModalDispla
                         </div>
                         {textError.amount && <p className='card-error'>Please Provide a Donation Amount!</p>}
                     </form>
-                    
+
                     <div className="mid-line-container">
                         <div className="mid-line"></div>
                         <p>or</p>
@@ -141,7 +136,7 @@ const DonateModal = ({id, setInnerModalDisplay, setModalDisplay,innerModalDispla
                     </div>
                     <p>Card Number</p>
                     <div style={{marginBottom: '40px'}}>
-                        <CardNumberElement onChange={errorChecker} onBlur={errorSetter} style={{base:{fontSize: '20px', margin: '40px'}}} className='stripe-card' />
+                        <CardNumberElement onChange={errorChecker} onBlur={errorSetter} style={{base:{fontSize: '20px', margin: '40px'}}} className='stripe-card'/>
                         {!textError.cardNumber.blurComplete && <p className='card-error'>{textError.cardNumber.error}</p>}
                     </div>
                     <div className='expiration-cvc-container'>
@@ -155,7 +150,7 @@ const DonateModal = ({id, setInnerModalDisplay, setModalDisplay,innerModalDispla
                             <CardCvcElement onChange={errorChecker} style={{base:{fontSize: '20px'}}} className='cvc-input' />
                             {!textError.cardCvc.blurComplete && <p className='card-error'>{textError.cardCvc.error}</p>}
                         </div>
-                        
+
                     </div>
                     <button onClick={handleSubmit} className='submit-donate'>Donate</button>
                     {success && <p className='donate-success-text'>Successfully Donated!</p>}
