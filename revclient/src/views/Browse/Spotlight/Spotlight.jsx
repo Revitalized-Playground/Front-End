@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FaAngleRight } from 'react-icons/fa';
-import LoadingSpinner from '../../../components/LoadingSpinner/LoadingSpinner';
+import SpotlightSkeleton from './SpotlightSkeleton';
 
 // Graphql
 import { useQuery } from '@apollo/react-hooks';
@@ -10,17 +10,10 @@ import { GET_PROJECTS_NEAR_ME } from '../../../graphql/queries';
 const Spotlight = () => {
 	const { loading, error, data } = useQuery(GET_PROJECTS_NEAR_ME);
 
-	// const [projectData, setProjectData] = useState();
-
-	// useEffect(() => {
-	// 	data && setProjectData(data.projects);
-	// }, [data]);
-
-	if (loading) return <LoadingSpinner />;
+	if (loading) return <SpotlightSkeleton />;
 
 	if (error) return console.log(error);
 
-	console.log('projectData: ', data);
 	return (
 		<div className="spotlight-container">
 			{data.projectsNearMe
