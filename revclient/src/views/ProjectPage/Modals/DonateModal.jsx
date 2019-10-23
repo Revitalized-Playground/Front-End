@@ -11,6 +11,7 @@ import { FaTimes } from 'react-icons/fa';
 import { useMutation } from '@apollo/react-hooks';
 import { DONATE_TO_PROJECT } from '../../../graphql/mutations';
 import { GET_PROJECT_BY_SLUG } from '../../../graphql/queries/Projects';
+import '@lottiefiles/lottie-player';
 
 
 const DonateModal = ({id, setInnerModalDisplay, setModalDisplay,innerModalDisplay, modalDisplay, donateModal, setDonateModal, donateModalBlur, stripe, match}) => {
@@ -141,7 +142,7 @@ const DonateModal = ({id, setInnerModalDisplay, setModalDisplay,innerModalDispla
                     </div>
                     <p>Card Number</p>
                     <div style={{marginBottom: '40px'}}>
-                        <CardNumberElement onChange={errorChecker} onBlur={errorSetter} style={{base:{fontSize: '20px', margin: '40px'}}} className='stripe-card'/>
+                        <CardNumberElement onChange={errorChecker} onBlur={errorSetter} style={{base:{fontSize: '20px', margin: '40px'}}} className='stripe-card' />
                         {!textError.cardNumber.blurComplete && <p className='card-error'>{textError.cardNumber.error}</p>}
                     </div>
                     <div className='expiration-cvc-container'>

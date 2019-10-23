@@ -65,8 +65,8 @@ const Nav = props => {
 	const { client, loading, error, data } = useQuery(GET_USER);
 
 	const logout = () => {
-		localStorage.removeItem('token');
 		client.resetStore();
+		localStorage.removeItem('token');
 		props.history.push('/login');
 	};
 

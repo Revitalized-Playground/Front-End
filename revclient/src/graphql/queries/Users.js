@@ -32,7 +32,6 @@ export const GET_USER_PROFILE = gql`
 	query me {
 		me {
 			...UserSummary
-
 			donations {
 				id
 				amount
@@ -43,7 +42,6 @@ export const GET_USER_PROFILE = gql`
 				# 	...UserSummary
 				# }
         	}
-
 			# This is an array with items if the user has created a project
 			projects {
 				...ProjectSummary
@@ -65,7 +63,6 @@ export const GET_USER_PROFILE = gql`
 					}
 				}
 			}
-
 			# Projects the user has liked
 			likedProjects {
 				id
@@ -75,7 +72,6 @@ export const GET_USER_PROFILE = gql`
 					featuredImage
 				}
 			}
-
 			# This is an array with items if the user has left comments
 			# comments {
 			# 	...Comments
@@ -90,7 +86,6 @@ export const GET_USER_PROFILE = gql`
 			# 		}
 			# 	}
 			# }
-
 			# This is an array with items if the user has liked comments
 			# likedComments {
 			# 	id
@@ -104,7 +99,6 @@ export const GET_USER_PROFILE = gql`
 			# 		}
 			# 	}
 			# }
-
 			# This is an array with items if the user has submitted an application to join a project
 			applications {
 				id
@@ -119,7 +113,6 @@ export const GET_USER_PROFILE = gql`
 				coverLetter
 				status
 			}
-
 			# This is an array with items if the user is a student
 			studentProjects {
 				id
@@ -127,7 +120,6 @@ export const GET_USER_PROFILE = gql`
 					...ProjectSummary
 				}
 			}
-
 			# This is an array with items if the user has tasks
 			tasks {
 				id
@@ -157,7 +149,6 @@ export const GET_USER_PROFILE = gql`
 					...UserSummary
 				}
 			}
-
 			# This is an array with items if the user is a trades master
 			tradeMasterProjects {
 				id
@@ -167,7 +158,6 @@ export const GET_USER_PROFILE = gql`
 				# profile {
 				# 	...UserSummary
 				# }
-
 				### Redundant. This query returns the projects the user is a trademaster on.
 				### No need to return the profile we already have
 				# profile {
@@ -177,9 +167,6 @@ export const GET_USER_PROFILE = gql`
 				# 	}
 				# }
 			}
-
-
-
 		}
 	}
 	${USER_SUMMARY_FRAG}
@@ -187,6 +174,3 @@ export const GET_USER_PROFILE = gql`
 
 
 `;
-
-
-

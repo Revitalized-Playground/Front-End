@@ -83,7 +83,7 @@ const Login = props => {
 						</div>
 						<form className="login-local" onSubmit={handleSubmit}>
 							<p className="login-title">Email</p>
-							<input
+							<input 
 								name='email'
 								type='email'
 								placeholder="Email..."

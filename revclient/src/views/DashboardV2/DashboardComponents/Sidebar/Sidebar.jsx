@@ -157,72 +157,73 @@ const Sidebar = props => {
                             </div>
                             {project ? (
                                 <>
-                                <hr/>
-                                <div className="info project-details-container">
-                                    <div className="text">
-                                        <Link to={`/project/${project.slug}`} >
-                                            <h4>{project.name}</h4>
-                                        </Link>
+                                    <hr/>
+                                    {console.log(project)}
+                                    <div className="info project-details-container">
+                                        <div className="text">
+                                            <Link to={`/project/${project.slug}`} >
+                                                <h4>{project.name}</h4>
+                                            </Link>
+                                        </div>
+                                        {project.donations && (
+                                            <div className="text">
+                                                <p>Donations</p>
+                                                <p className="text-value">
+                                                    {project.donations.length}
+                                                </p>
+                                            </div>
+                                        )}
+                                        {project.applicants && (
+                                            <div className="text">
+                                                <p>Applicants</p>
+                                                <p className="text-value">
+                                                    {project.applicants.length}
+                                                </p>
+                                            </div>
+                                        )}
+                                        {project.students && (
+                                            <div className="text">
+                                                <p>Students</p>
+                                                <p className="text-value">
+                                                    {project.students.length}
+                                                </p>
+                                            </div>
+                                        )}
+                                        {project.tradeMasters && (
+                                            <div className="text">
+                                                <p>Trade Masters</p>
+                                                <p className="text-value">
+                                                    {project.tradeMasters.length}
+                                                </p>
+                                            </div>
+                                        )}
+                                        {project.trades && (
+                                            <div className="text">
+                                                <p>Trades</p>
+                                                <p className="text-value">
+                                                    {project.trades.length}
+                                                </p>
+                                            </div>
+                                        )}
+                                        {project.tasks && (
+                                            <div className="text">
+                                                <p>Tasks</p>
+                                                <p className="text-value">
+                                                    {project.tasks.length}
+                                                </p>
+                                            </div>
+                                        )}
+                                        <div className="text">
+                                            <p>Percentage Funded</p>
+                                            <p className="text-value">
+                                                {calculatePercentageProgressBar(project.goalAmount, addUpDonations(project.donations))}
+                                            </p>
+                                        </div>
+                                        <ProgressBar
+                                            progress={addUpDonations(project.donations)}
+                                            startingPoint={project.goalAmount}
+                                        />
                                     </div>
-                                    {project.donations.length > 0 && (
-                                        <div className="text">
-                                            <p>Donations</p>
-                                            <p className="text-value">
-                                                {project.donations.length}
-                                            </p>
-                                        </div>
-                                    )}
-                                    {project.applicants.length > 0 && (
-                                        <div className="text">
-                                            <p>Applicants</p>
-                                            <p className="text-value">
-                                                {project.applicants.length}
-                                            </p>
-                                        </div>
-                                    )}
-                                    {project.students.length > 0 && (
-                                        <div className="text">
-                                            <p>Students</p>
-                                            <p className="text-value">
-                                                {project.students.length}
-                                            </p>
-                                        </div>
-                                    )}
-                                    {project.tradeMasters.length > 0 && (
-                                        <div className="text">
-                                            <p>Trade Masters</p>
-                                            <p className="text-value">
-                                                {project.tradeMasters.length}
-                                            </p>
-                                        </div>
-                                    )}
-                                    {project.trades.length > 0 && (
-                                        <div className="text">
-                                            <p>Trades</p>
-                                            <p className="text-value">
-                                                {project.trades.length}
-                                            </p>
-                                        </div>
-                                    )}
-                                    {project.tasks.length > 0 && (
-                                        <div className="text">
-                                            <p>Tasks</p>
-                                            <p className="text-value">
-                                                {project.tasks.length}
-                                            </p>
-                                        </div>
-                                    )}
-                                    <div className="text">
-                                        <p>Percentage Funded</p>
-                                        <p className="text-value">
-                                            {calculatePercentageProgressBar(project.goalAmount, addUpDonations(project.donations))}
-                                        </p>
-                                    </div>
-                                    <ProgressBar
-                                        progress={addUpDonations(project.donations)}
-                                        startingPoint={project.goalAmount}
-                                    />
-                                </div>
                                 </>
                             ) : null}
 

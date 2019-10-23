@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
-import Slider from 'react-slick';
+// import Slider from 'react-slick';
 
 import CarouselCard from '../CarouselCard/CarouselCard';
 import NoteworthySkeleton from './NoteworthySkeleton';
