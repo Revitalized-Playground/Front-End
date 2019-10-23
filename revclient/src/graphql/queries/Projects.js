@@ -12,7 +12,6 @@ export const GET_PROJECTS = gql`
 			...ProjectSummary
 		}
 	}
-	${USER_SUMMARY_FRAG}
 	${PROJECT_SUMMARY_FRAG}
 `;
 
@@ -23,7 +22,6 @@ export const GET_RECOMMENDED_PROJECTS = gql`
 			...ProjectSummary
 		}
 	}
-	${USER_SUMMARY_FRAG}
 	${PROJECT_SUMMARY_FRAG}
 `;
 
@@ -31,11 +29,19 @@ export const GET_RECOMMENDED_PROJECTS = gql`
 export const GET_PROJECTS_NEAR_ME = gql`
 	query projectsNearMe {
 		projectsNearMe {
-			...ProjectSummary
+			id
+			slug
+			name
+			description
+			address
+			city
+			state
+			zip
+			goalAmount
+			duration
+			featuredImage
 		}
 	}
-	${USER_SUMMARY_FRAG}
-	${PROJECT_SUMMARY_FRAG}
 `;
 
 
@@ -99,7 +105,6 @@ export const GET_PROJECT_BY_SLUG = gql`
 	${USER_SUMMARY_FRAG}
 	${COMMENTS_FRAG}
 	${PROJECT_SUMMARY_FRAG}
-	${TASKS_FRAG}
 `;
 
 
@@ -109,6 +114,5 @@ export const QUERY_PROJECTS = gql`
 			...ProjectSummary
 		}
 	}
-	${USER_SUMMARY_FRAG}
 	${PROJECT_SUMMARY_FRAG}
 `

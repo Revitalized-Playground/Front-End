@@ -26,11 +26,22 @@ export const COMMENTS_FRAG = gql`
         likes {
             id
             profile {
-                ...UserSummary
+                id
+                verified
+                email
+                firstName
+                lastName
+                profileImage
+                country
+                state
+                city
+                zip
+                phone
+                address
+                aptNumber
             }
         }
     }
-    ${USER_SUMMARY_FRAG}
 `;
 
 
@@ -74,14 +85,38 @@ export const PROJECT_SUMMARY_FRAG = gql`
         likes {
             id
             profile {
-                ...UserSummary
+                id
+                verified
+                email
+                firstName
+                lastName
+                profileImage
+                country
+                state
+                city
+                zip
+                phone
+                address
+                aptNumber
             }
         }
 
         students {
             id
             profile {
-                ...UserSummary
+                id
+                verified
+                email
+                firstName
+                lastName
+                profileImage
+                country
+                state
+                city
+                zip
+                phone
+                address
+                aptNumber
             }
         }
         trades {
@@ -104,11 +139,15 @@ export const PROJECT_SUMMARY_FRAG = gql`
             }
         }
         tasks {
-            ...Tasks
+            id
+            title
+            description
+            priority
+            dueDate
+            budgetHours
+            completed
         }
     }
-    ${USER_SUMMARY_FRAG}
-    ${TASKS_FRAG}
 `
 
 
