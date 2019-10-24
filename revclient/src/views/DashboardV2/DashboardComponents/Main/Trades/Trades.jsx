@@ -47,4 +47,7 @@ const ProjectTrades = props => {
 	);
 };
 
+// 	const [state, setState] = useState(false);
+// 	const [addTaskModal, setAddTaskModal] = useState({ show: false });
+// };
 export default ProjectTrades;
