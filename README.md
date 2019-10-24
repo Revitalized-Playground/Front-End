@@ -38,7 +38,7 @@
 
     - [Anthony Venturini](https://github.com/adventurini)
     - [Kerry Mcphearson](https://dribbble.com/kerrybtone) ( UX4 )
-    - [Ruth Philips]() ( UX4 )
+    - [Ruth Philips](https://dribbble.com/rphilips0816) ( UX4 )
 
   - Development Team:
     - [Alexander Piroumian](https://github.com/AlexxanderP) ( Web17 -> SL UX4 -> Labs16 )
