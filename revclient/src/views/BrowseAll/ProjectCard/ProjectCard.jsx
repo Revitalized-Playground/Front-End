@@ -1,8 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaHeart, FaRegHeart, FaAngleRight } from 'react-icons/fa';
+import { FaRegHeart  } from 'react-icons/fa';
 import Truncate from 'react-truncate';
-import Skeleton from 'react-loading-skeleton';
 
 import ProgressBar from '../../../components/ProgressBar/ProgressBar';
 import { formatMoney } from '../../../helpers/formatMoney';

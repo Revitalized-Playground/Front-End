@@ -116,3 +116,67 @@ export const QUERY_PROJECTS = gql`
 	}
 	${PROJECT_SUMMARY_FRAG}
 `
+
+export const GET_ALL_PROJECTS = gql `
+	query getProjectsView {
+		getProjectsView {
+			spotlight{
+				id
+				name
+				slug
+				description
+				featuredImage
+			}
+
+			projectsNearYou {
+				id
+				slug
+				name
+				description
+				state
+				city
+				featuredImage
+			}
+
+			recommendedProjects {
+				id
+				slug
+				name
+				description
+				country
+				state
+				city
+				zip
+				address
+				goalAmount
+				duration
+				featuredImage
+				donations {
+					id
+					amount
+				}
+				likes {
+					id
+					profile {
+						id
+						firstName
+						lastName
+					}
+					project {
+						id
+					}
+				}
+			}
+
+			newAndNoteworthyProjects {
+				id
+				city
+				state
+				name
+				featuredImage
+				description
+				slug
+			}
+		}
+	}
+`

@@ -8,7 +8,7 @@ import large from '../../assets/StudentApplicationWizard/large.svg'
 import med from '../../assets/StudentApplicationWizard/med.svg'
 import small from '../../assets/StudentApplicationWizard/small.svg'
 
-import { useQuery, useMutation } from '@apollo/react-hooks';
+import { useQuery } from '@apollo/react-hooks';
 import { GET_PROJECT_BY_SLUG } from '../../graphql/queries/Projects'
 
 import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner';
@@ -30,7 +30,7 @@ const ApplicationForm = (props) => {
         availability: false
     })
 
-    const {loading, error, data, refetch} = useQuery(GET_PROJECT_BY_SLUG, {
+    const {loading, data, refetch} = useQuery(GET_PROJECT_BY_SLUG, {
         variables: {slug: props.match.params.name}
     })
 

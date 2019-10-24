@@ -46,7 +46,7 @@ const FeaturedProjects = () => {
 			<div className="featured-projects-list">
 				{randomizer.map(({ featuredImage, name, description, slug }, i) =>
 					i < 3 ? (
-						<Link to={`/project/${slug}`} className="link">
+						<Link to={`/project/${slug}`} className="link" key={i}>
 							<Card className="card" img={featuredImage} title={name} description={description} key={i} />
 						</Link>
 					) : null,

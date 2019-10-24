@@ -9,8 +9,8 @@ import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner';
 
 
 // Graphql
-import { useQuery, useLazyQuery } from '@apollo/react-hooks';
-import { GET_PROJECTS, QUERY_PROJECTS } from '../../graphql/queries';
+import { useLazyQuery } from '@apollo/react-hooks';
+import { QUERY_PROJECTS } from '../../graphql/queries';
 
 const BrowseAll = () => {
 	const [ projectState, setProjectState ] = useState();
