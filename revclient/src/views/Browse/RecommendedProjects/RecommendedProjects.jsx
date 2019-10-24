@@ -7,7 +7,9 @@ import { NextArrow, PrevArrow } from "../CarouselCard/Arrows";
 
 import { useAuth } from '../../../hooks/useAuth';
 
-const RecommendedProjects = ({ history, loading, error, data, refetch }) => {
+const RecommendedProjects = ({ history, loading, error, data, refetch, setToggleState, toggleState }) => {
+
+    // console.log(data)
 
         const { currentUser } = useAuth(history);
         const profileId = currentUser().profileId;
@@ -68,6 +70,8 @@ const RecommendedProjects = ({ history, loading, error, data, refetch }) => {
                         {data ? data.map(recommendedItem => (
                             <CarouselCard
                                 refetch={refetch}
+                                setToggleState={setToggleState}
+                                toggleState={toggleState}
                                 key={recommendedItem.id}
                                 card={recommendedItem}
                                 view="recommended"

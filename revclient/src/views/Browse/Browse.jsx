@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import Nav from '../../components/Layout/Nav';
 import Footer from '../../components/Layout/Footer';
@@ -16,6 +16,13 @@ import { useQuery } from '@apollo/react-hooks';
 
 const Start = () => {
 	const {loading, error, data, refetch} = useQuery(GET_ALL_PROJECTS)
+	const [toggleState, setToggleState] = useState(false)
+
+
+	// if(data) {
+	// 	console.log('recommended', data.getProjectsView.recommendedProjects)
+	// }
+	
 
 	return (
 		<>
@@ -32,6 +39,8 @@ const Start = () => {
 					error={error}
 					data={data && data.getProjectsView.recommendedProjects}
 					refetch={refetch}
+					toggleState={toggleState}
+					setToggleState={setToggleState}
 				/>
 				<CreateProject />
 				<NearYou 

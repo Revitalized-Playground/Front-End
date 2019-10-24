@@ -36,12 +36,14 @@ const ProjectPage = ({ match }) => {
 	const [modalDisplay, setModalDisplay] = useState('flex');
 	const [innerModalDisplay, setInnerModalDisplay] = useState('');
 	const [deleteBool, setDeleteBool] = useState(false);
-	const { loading, error, data, refetch } = useQuery(GET_PROJECT_BY_SLUG, {
+	const { loading, error, data } = useQuery(GET_PROJECT_BY_SLUG, {
 		variables: { slug: match.params.slug },
 	});
+	
 
 	useEffect(() => {
-		data && setProjectData(data.projectBySlug);
+		data && setProjectData(data.projectBySlug)
+		data && setProjectData({...data.projectBySlug, comments: data.projectBySlug.comments})
 	}, [data]);
 
 	const val = e => {
@@ -169,16 +171,13 @@ const ProjectPage = ({ match }) => {
 				</div>
 				<ProjectPictures projectPhotos={projectData.images} carouselVal={carouselVal} carVal={carVal} />
 				<ProjectComments
-					comments={projectData.comments}
-					projectData={projectData}
-					setProjectData={setProjectData}
 					id={projectData.id}
 					userId={projectData.profile.id}
 					newBool={setBool}
 					boolState={bool}
 					deleteBool={deleteBool}
 					setDeleteBool={setDeleteBool}
-					refetch={refetch}
+					commentsData={data.projectBySlug.comments}
 				/>
 			</div>
 			<Footer />
