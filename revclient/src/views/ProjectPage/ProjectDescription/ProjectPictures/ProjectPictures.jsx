@@ -108,21 +108,25 @@ const ProjectPictures = ({ projectPhotos, carouselVal, carVal }) => {
 			<div className="projectPictureContainer-desktop">
 				{projectPhotos.length > 0 && <h2>Project Photos</h2>}
 
-				{projectPhotos.length > 0 
-				&& 
-				<div onClick={carVal} className={carouselVal? 'carousel-large-project' : 'carousel-small-project'}>
-					<Slider {...settings}>
-						{projectPhotos &&
-							projectPhotos.map(image => (
-								<section className="carousel-card-inner-project" key={image.id}>
-									<div className="carousel-card-image">
-										<img className='car-pic' src={image.imageUrl} alt={image.id} onClick={carVal} />
-									</div>
-								</section>
-							))}
-					</Slider>
-					</div> 
-				}
+				{projectPhotos.length > 0 && (
+					<div onClick={carVal} className={carouselVal ? 'carousel-large-project' : 'carousel-small-project'}>
+						<Slider {...settings}>
+							{projectPhotos &&
+								projectPhotos.map(image => (
+									<section className="carousel-card-inner-project" key={image.id}>
+										<div className="carousel-card-image">
+											<img
+												className="car-pic"
+												src={image.imageUrl}
+												alt={image.id}
+												onClick={carVal}
+											/>
+										</div>
+									</section>
+								))}
+						</Slider>
+					</div>
+				)}
 				{/* <div className="dotsContainer">
 					{projectPhotos &&
 						projectPhotos.map((each, index) => (
@@ -134,7 +138,7 @@ const ProjectPictures = ({ projectPhotos, carouselVal, carVal }) => {
 	} else {
 		return (
 			<div className="projectPictureContainer">
-				<h2>Project Photos</h2>
+				{projectPhotos.length > 0 && <h2>Project Photos</h2>}
 
 				<div className="projectImgCarousel" onTouchStart={tchStart} onTouchMove={tchMove} onTouchEnd={tchEnd}>
 					{projectPhotos.map((each, index) => (
