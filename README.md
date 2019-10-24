@@ -11,7 +11,11 @@
 
 # 🏠 [ReVitalize](https://revitalize.community/)
 
-> There’s a problem for people who are looking to get their trade license have time constraints and access to quality training that prevent them from a path to state licensure. This problem is highlighted in urban communities where they tend to work longer hours and juggle multiple responsibilities at home.
+> As [Lambda School](https://lambdaschool.com) students, SLs, TLs, and TAs we have all really benefitted by the ISA model and the mission of Lambda to make a high quality education accessible to more of those who seek one.
+>
+> As we headed into labs we began to talk about how we think that model can be iterated on and just what it would take to take this model out of the strictly virtual domain, and bring it to the real world at scale with trades.
+>
+> We found that there’s a problem for people who are looking to get their trade license have time constraints and access to quality training that prevent them from a path to state licensure. This problem is highlighted in urban communities where they tend to work longer hours and juggle multiple responsibilities at home.
 >
 > By eliminating the lack of resources and opportunities problems that people in communities have, ReVitalize will give people who are seeking state licenses access to education and employment.
 >
@@ -19,7 +23,7 @@
 >
 > By creating a platform and business model around providing time and access to join projects and build a professional trades career, ReVitalize reduces some of the barriers for their students.
 
-### ✨ [Unstable Release (v2.1)](https://revitalize.netlify.com/)
+##### ✨ [Unstable Release (v2.1)](https://revitalize.netlify.com/)
 
 ## Author
 
