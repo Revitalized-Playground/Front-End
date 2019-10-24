@@ -13,12 +13,16 @@
 	}
 
 	@media (max-width: 1199px) {
-		width: 75%;
+		width: 40%;
 		margin: 0 auto;
 	}
+
+	@media #{$tablet-small} {
+		width: 70%;
+	}
+
 	@media #{$mobile} {
 		width: 100%;
-		margin: 0 auto;
 	}
 
 	.sidebar-top {
@@ -131,6 +135,7 @@
 	flex-flow: row wrap;
 	justify-content: space-evenly;
 	margin-bottom: 6%;
+
 	a {
 		color: $blue-valentine;
 		font-size: 1.6rem;
