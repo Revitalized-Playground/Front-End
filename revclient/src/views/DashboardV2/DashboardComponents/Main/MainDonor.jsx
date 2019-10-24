@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react';
-import Skeleton from 'react-loading-skeleton';
+import React from 'react';
 import LoadingSpinner from "../../../../components/LoadingSpinner/LoadingSpinner";
 // import { inLastWeek } from "../../../../helpers/helpers";
 
@@ -11,7 +10,7 @@ import Donations from "./Donations/Donations";
 // import { apprenticeTabs, apprenticeList } from '../../dashboarddummydata';
 
 const MainDonor = props => {
-	const { donations, mainTabs, setMainTabs } = props;
+	const { donations, mainTabs } = props;
 	// Moving away from managing any tab information anywhere other than in dashboard.
 	
 	// useEffect(() => {

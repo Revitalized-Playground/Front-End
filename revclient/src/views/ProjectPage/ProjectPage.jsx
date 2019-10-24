@@ -159,7 +159,12 @@ const ProjectPage = ({ match }) => {
 						location={`${projectData.city}, ${projectData.state}`}
 						projDescription={projectData.description}
 					/>
-
+					{/* <Donate
+						raised={projectData.donations.reduce((acc, each) => Number(each.amount) + acc, 0)}
+						budget={projectData.goalAmount}
+						projectData={projectData}
+						setModal={setModalVal}
+					/> */}
 					<CreatorProfile projectCreator={projectData.profile} />
 				</div>
 				<ProjectPictures projectPhotos={projectData.images} carouselVal={carouselVal} carVal={carVal} />
