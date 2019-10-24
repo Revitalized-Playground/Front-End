@@ -1,9 +1,9 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { withRouter, Link } from 'react-router-dom';
-import { formatMoney, addUpDonations, donationCount } from "../../../../helpers/helpers";
-import ProgressBar from "../../../../components/ProgressBar/ProgressBar";
-import { useQuery } from "@apollo/react-hooks";
-import { GET_USER } from "../../../../graphql/queries/Users";
+import { formatMoney, addUpDonations, donationCount } from '../../../../helpers/helpers';
+import ProgressBar from '../../../../components/ProgressBar/ProgressBar';
+import { useQuery } from '@apollo/react-hooks';
+import { GET_USER } from '../../../../graphql/queries/Users';
 
 // import '@lottiefiles/lottie-player'; // WTH is this?
 
@@ -16,7 +16,9 @@ const Donate = props => {
 	const [applicationStatus, setApplicationStatus] = useState('notApplied');
 	// const [isProjectCreator, setIsProjectCreator] = useState(false);
 
-    const { data } = useQuery(GET_USER);
+	console.log('props', props);
+
+	const { data } = useQuery(GET_USER);
 
 	useEffect(() => {
 		if (props.projectData.applicants && data) {

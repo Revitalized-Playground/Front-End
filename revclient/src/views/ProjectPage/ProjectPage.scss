@@ -137,7 +137,6 @@
 			z-index: 1;
 			border-radius: 5px;
 			max-width: 1300px;
-			
 
 			h2 {
 				font-size: 3rem;
@@ -182,27 +181,27 @@
 						height: 70%;
 
 						@media (max-width: 2200px) {
-							height: 65%
+							height: 65%;
 						}
 
 						@media (max-width: 1900px) {
-							height: 60%
+							height: 60%;
 						}
 
 						@media (max-width: 1900px) {
-							height: 59%
+							height: 59%;
 						}
 						@media (max-width: 1250px) {
-							height: 50%
+							height: 50%;
 						}
 						@media (max-width: 950px) {
-							height: 45%
+							height: 45%;
 						}
 						@media (max-width: 850px) {
-							height: 40%
+							height: 40%;
 						}
 						@media (max-width: 700px) {
-							height: 35%
+							height: 35%;
 						}
 					}
 				}
@@ -236,7 +235,7 @@
 					border: 1px solid gray;
 					cursor: pointer;
 					margin-right: 10px;
-					padding-right: 0
+					padding-right: 0;
 				}
 				button {
 					width: 20%;
@@ -381,7 +380,7 @@
 				margin: 8px;
 				width: 30px;
 				height: 30px;
-				cursor:pointer;
+				cursor: pointer;
 			}
 
 			.inner:before,
