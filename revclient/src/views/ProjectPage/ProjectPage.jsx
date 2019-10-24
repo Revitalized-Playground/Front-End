@@ -32,10 +32,10 @@ const ProjectPage = ({ match }) => {
 	const [bool, setBool] = useState(false);
 	const [projectData, setProjectData] = useState();
 	const [modalVal, setModalVal, carouselVal, setCarouselVal] = useWindowHook();
-	const [isProjectCreator, setIsProjectCreator] = useState(false)
-	const [modalDisplay, setModalDisplay] = useState('flex')
-	const [innerModalDisplay, setInnerModalDisplay] = useState('')
-	const [deleteBool, setDeleteBool] = useState(false)
+	const [isProjectCreator, setIsProjectCreator] = useState(false);
+	const [modalDisplay, setModalDisplay] = useState('flex');
+	const [innerModalDisplay, setInnerModalDisplay] = useState('');
+	const [deleteBool, setDeleteBool] = useState(false);
 	const { loading, error, data, refetch } = useQuery(GET_PROJECT_BY_SLUG, {
 		variables: { slug: match.params.slug },
 	});
@@ -47,7 +47,7 @@ const ProjectPage = ({ match }) => {
 	const val = e => {
 		if (e.target.className === 'modal') {
 			setModalVal(false);
-			setCopied(false)
+			setCopied(false);
 		}
 	};
 
@@ -64,7 +64,6 @@ const ProjectPage = ({ match }) => {
 			setDonateModal(false);
 		}
 	};
-
 
 	if (error) return <h2>ERROR! Someone call Elan</h2>;
 	if (loading || !data || !projectData) {
@@ -120,15 +119,15 @@ const ProjectPage = ({ match }) => {
 						organizer={`${projectData.profile.firstName} ${projectData.profile.lastName}`}
 					/>
 
-					<Donate 
-						setModalDisplay={setModalDisplay} 
-						setInnerModalDisplay={setInnerModalDisplay} 
-						setIsProjectCreator={setIsProjectCreator} 
-						isProjectCreator={isProjectCreator} 
-						applicants={projectData} 
-						projectData={projectData} 
-						setModal={setModalVal} 
-						setDonateModal={setDonateModal} 
+					<Donate
+						setModalDisplay={setModalDisplay}
+						setInnerModalDisplay={setInnerModalDisplay}
+						setIsProjectCreator={setIsProjectCreator}
+						isProjectCreator={isProjectCreator}
+						applicants={projectData}
+						projectData={projectData}
+						setModal={setModalVal}
+						setDonateModal={setDonateModal}
 					/>
 				</div>
 				<div className="detailed-creator">
@@ -160,12 +159,7 @@ const ProjectPage = ({ match }) => {
 						location={`${projectData.city}, ${projectData.state}`}
 						projDescription={projectData.description}
 					/>
-					<Donate
-						raised={projectData.donations.reduce((acc, each) => Number(each.amount) + acc, 0)}
-						budget={projectData.goalAmount}
-						projectData={projectData}
-						setModal={setModalVal}
-					/>
+
 					<CreatorProfile projectCreator={projectData.profile} />
 				</div>
 				<ProjectPictures projectPhotos={projectData.images} carouselVal={carouselVal} carVal={carVal} />

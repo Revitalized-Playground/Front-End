@@ -14,7 +14,7 @@ import { useAuth } from '../../../hooks/useAuth';
 const RecommendedProjects = ({ history }) => {
         const { loading, error, data, refetch } = useQuery(GET_RECOMMENDED_PROJECTS);
 
-        console.log(data)
+        // console.log(data);
 
         const { currentUser } = useAuth(history);
         const profileId = currentUser().profileId;
@@ -65,7 +65,7 @@ const RecommendedProjects = ({ history }) => {
 
         if (loading) return <RecommendedProjectsSkeleton />
 
-        if (error) return console.log(error)
+        if (error) return console.log(error);
 
         return (
             <section className="recommened-projects-section">

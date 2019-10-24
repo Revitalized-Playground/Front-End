@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState } from 'react';
 import jwt from 'jsonwebtoken';
 
 export const useAuth = history => {

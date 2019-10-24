@@ -1,4 +1,8 @@
 import React, { useState } from "react";
+import { Link, withRouter } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa";
+
+// GQL
 import {
 	useMutation,
 } from "@apollo/react-hooks";
@@ -6,9 +10,7 @@ import {
 	LOGIN_USER,
 } from "../../graphql/mutations";
 
-import { Link, withRouter } from "react-router-dom";
-import { FaArrowLeft } from "react-icons/fa";
-
+// Images
 import googleLogo from "../../assets/AuthPages/Google.png";
 import fbLogo from "../../assets/AuthPages/fb-logo.png";
 
@@ -16,34 +18,94 @@ import fbLogo from "../../assets/AuthPages/fb-logo.png";
 
 const Login = props => {
 	const [loginUser, { client }] = useMutation(LOGIN_USER);
-	console.log(client)
+	// console.log(client)
 	const [state, setState] = useState({
 		email: "",
 		password: "",
+		errors: {
+			email: false,
+			password: false,
+			invalidCreds: false
+		}
 	});
 
-	const handleChanges = event => {
-		setState({
-			...state,
-			[event.target.name]: event.target.value
-		})
+
+	// const nextStep = e => {
+	// 	e.preventDefault();
+
+	// 	if (!state.email.length) {
+	// 		setState({
+	// 			...state,
+	// 			errors: {
+	// 				...state.errors,
+	// 				email: true,
+	// 			}
+	// 		});
+	// 	} else if (!state.password.length) {
+	// 		setState({
+	// 			...state,
+	// 			errors: {
+	// 				...state.errors,
+	// 				password: true,
+	// 			}
+	// 		});
+	// 	} else {
+	// 		handleSubmit(e);
+	// 	}
+	// };
+
+	const validateInput = e => {
+		if (!e.target.value.length) {
+			setState({
+				...state,
+				[e.target.name]: e.target.value,
+				errors: {
+					...state.errors,
+					[e.target.name]: true,
+				}
+			});
+		} else {
+			setState({
+				...state,
+				[e.target.name]: e.target.value,
+				errors: {
+					...state.errors,
+					[e.target.name]: false,
+				}
+
+			});
+		}
 	};
+
 
 	const handleSubmit = async event => {
 		event.preventDefault();
 		localStorage.setItem("token", "");
+		let created = null
 		await client.resetStore();
-		const created = await loginUser({ variables: { data: state } });
-		setState({
-			email: "",
-			password: "",
-		})
-		localStorage.setItem("token", created.data.loginUser.token);
-		props.history.push("/projects");
+		loginUser({ variables: { data: { email: state.email, password: state.password } } })
+			.then(res => {
+				created = res;
+				setState({
+					email: "",
+					password: "",
+					errors: {
+						email: false,
+						password: false
+					}
+				})
+				localStorage.setItem("token", created.data.loginUser.token);
+				props.history.push("/dashboard");
+			})
+			.catch(() => {
+				setState({ ...state, errors: { ...state.errors, invalidCreds: true } })
+			})
+
+
 	};
 
 	const goBack = () => {
-		props.history.push("/");
+		props.history.push(props.history[-1] || "/");
 	}
 
 	return (
@@ -79,25 +141,35 @@ const Login = props => {
 							<p>or</p>
 							<div className="login-line"></div>
 						</div>
-						<form className="login-local" onSubmit={handleSubmit}>
-							<p className="login-title">Email</p>
+						<form className="login-local" onSubmit={e => handleSubmit(e)}>
+							<div className="login-email">
+								<p className="login-title">Email</p>
+								{state.errors.invalidCreds && <p className="errorText">Invalid Email and/or Password</p>}
+							</div>
 							<input
 								name='email'
 								type='email'
+								required
 								placeholder="Email..."
+								className={`${(state.errors.email || state.errors.invalidCreds) && `errorBorder`}`}
 								value={state.email}
-								onChange={handleChanges}
+								onChange={e => {
+									validateInput(e);
+								}}
 							/>
 							<div className="login-pass">
 								<p className="">Password</p>
-								{/* <span className="">Forgot Password?</span> */}
 							</div>
 							<input
 								name="password"
 								type="password"
 								placeholder="Password..."
+								required
+								className={`${(state.errors.password || state.errors.invalidCreds) && `errorBorder`}`}
 								value={state.password}
-								onChange={handleChanges}
+								onChange={e => {
+									validateInput(e)
+								}}
 							/>
 							<div className="login-mid">
 								<p>

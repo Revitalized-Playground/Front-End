@@ -1,5 +1,3 @@
-
-
 .register-container {
 	background: $erudite-purple;
 	color: $snow-white;
@@ -12,6 +10,21 @@
 		font-size: 4rem;
 		position: fixed;
 		margin: 20px;
+	}
+	.errorText {
+		color: red;
+		font-style: italic;
+		font-size: 1.5rem;
+	}
+
+	.errorBorder {
+		color: red;
+		border-radius: 5px;
+		border: 2px solid red !important;
+
+		&::placeholder {
+			color: red;
+		}
 	}
 	.register-container-left {
 		min-height: 100vh;
@@ -85,9 +98,8 @@
 					cursor: pointer;
 				}
 
-
-
-				.register-pass {
+				.register-pass,
+				.email-lable-container {
 					display: flex;
 					align-items: center;
 					justify-content: space-between;
