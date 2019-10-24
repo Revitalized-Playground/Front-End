@@ -36,7 +36,7 @@
     -   Design Team:
 
         -   [Anthony Venturini](https://github.com/adventurini)
-        -   [Kerry Mcphearson]() ( UX4 )
+        -   [Kerry Mcphearson](https://dribbble.com/kerrybtone) ( UX4 )
         -   [Ruth Philips]() ( UX4 )
 
     -   Development Team:
