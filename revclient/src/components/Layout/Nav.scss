@@ -17,6 +17,7 @@ nav {
 		top: 0;
 		background: $chillFi-purple;
 		height: 90px;
+		z-index: 998;
 	}
 	@media #{$mobile} {
 		background: $chillFi-purple;
@@ -132,10 +133,10 @@ nav {
 						display: none;
 					}
 					.arrow-up {
-						width: 0; 
-						height: 0; 
+						width: 0;
+						height: 0;
 						border-left: 15px solid $chillFi-purple;
-						border-right: 15px solid $chillFi-purple;	
+						border-right: 15px solid $chillFi-purple;
 						border-bottom: 15px solid $chillFi-purple;
 						border-top: 15px solid $chillFi-purple;
 						position: absolute;
@@ -244,7 +245,7 @@ nav {
 			background-color: $maastricht-blue;
 			.arrow-up {
 				border-left: 15px solid $maastricht-blue;
-				border-right: 15px solid $maastricht-blue;	
+				border-right: 15px solid $maastricht-blue;
 				border-bottom: 15px solid $maastricht-blue;
 				border-top: 15px solid $maastricht-blue;
 			}
