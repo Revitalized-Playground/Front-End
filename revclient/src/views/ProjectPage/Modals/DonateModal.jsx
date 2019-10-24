@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react'
-import paypal from '../../../assets/ProjectPage/paypal-logo.png'
 import { withRouter } from 'react-router-dom';
 import CurrencyInput from 'react-currency-input'
 import { removeCommas } from "../../../helpers/helpers";
@@ -18,7 +17,7 @@ const DonateModal = ({id, setInnerModalDisplay, setModalDisplay,innerModalDispla
     const [amount, setAmount] = useState('');
     const [success, setSuccess] = useState(false)
     const [animationSuccess, setAnimationSuccess] = useState(false)
-    const [donateToProject, {data, loading, error}] = useMutation(DONATE_TO_PROJECT, {
+    const [donateToProject, {data, loading }] = useMutation(DONATE_TO_PROJECT, {
         update(cache, {data: {createProjectDonation}},) {
             const { projectBySlug } = cache.readQuery({
                 query: GET_PROJECT_BY_SLUG,

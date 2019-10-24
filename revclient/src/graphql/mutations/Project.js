@@ -1,5 +1,5 @@
 import gql from 'graphql-tag';
-import { USER_SUMMARY_FRAG, TRADES_FRAG } from '../fragments';
+import { USER_SUMMARY_FRAG } from '../fragments';
 
 export const ADD_COMMENT = gql`
 	mutation($data: CreateProjectCommentInput!) {
@@ -179,14 +179,7 @@ export const CREATE_PROJECT_LIKE = gql`
 export const DELETE_PROJECT_LIKE = gql`
 	mutation($id: ID!) {
 		deleteProjectLike(id: $id) {
-			project {
-				likes {
-					id
-					profile {
-						id
-					}
-				}
-			}
+			id
 		}
 	}
 `;
