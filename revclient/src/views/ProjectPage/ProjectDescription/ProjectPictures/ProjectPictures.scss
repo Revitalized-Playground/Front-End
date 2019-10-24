@@ -3,6 +3,11 @@
     margin-top: 80px;
     overflow: hidden;
     // display: none;
+    
+
+    @media #{$mobile} {
+        padding: 0 5.5% 0 5.5%;
+    }
 
     .projectImgCarousel {
         display: flex;

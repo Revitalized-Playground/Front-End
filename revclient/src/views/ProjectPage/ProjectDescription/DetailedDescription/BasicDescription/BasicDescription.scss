@@ -20,9 +20,18 @@
 		margin-bottom: 0;
 		margin-top: 0;
 	}
+
+	
 	.last {
 		display: flex;
 		align-items: center;
+		
+		p {
+			@media #{$mobile} {
+				font-size: 1.6rem
+			}
+		}
+		
 	}
 	.descriptionInnerDiv {
 		padding: 28px 0 0 30px;
@@ -34,6 +43,7 @@
 			line-height: 19px;
 			letter-spacing: 0.06em;
 		}
+		
 
 		.projectStart {
 			color: #0b096f;
@@ -62,6 +72,10 @@
 				p {
 					text-align: center;
 					margin-right: 5%;
+
+					@media #{$mobile} {
+						font-size: 1.6rem
+					}
 				}
 			}
 		}

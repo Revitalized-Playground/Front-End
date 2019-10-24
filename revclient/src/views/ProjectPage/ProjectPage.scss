@@ -70,16 +70,19 @@
 	.project-page-flex {
 		display: flex;
 		max-width: 1645px;
-
-		@media #{$tablet} {
-			display: none;
-		}
-		@media #{$tablet-small} {
-			display: none;
-		}
 		@media #{$mobile} {
-			display: none;
+			flex-direction: column
 		}
+
+		// @media #{$tablet} {
+		// 	display: none;
+		// }
+		// @media #{$tablet-small} {
+		// 	display: none;
+		// }
+		// @media #{$mobile} {
+		// 	display: none;
+		// }
 	}
 	.tablet {
 		display: flex;

@@ -22,6 +22,10 @@
 			margin: 0 auto;
 			width: 90%;
 		}
+
+		@media #{$mobile} {
+			padding: 20px 0%
+		}
 		.profilePic {
 			width: 120px;
 			border-radius: 50%;
@@ -30,7 +34,12 @@
 			@media #{$tablet} {
 				width: 35%;
 				max-width: 150px;
-				margin: 25px 25px 25px 0;
+				margin: 25px 0 25px 0;
+				
+			}
+
+			@media (max-width: 350px) {
+				height: 100px
 			}
 		}
 		.creator-profile-image {

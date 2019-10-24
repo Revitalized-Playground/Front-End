@@ -7,6 +7,7 @@
 
     @media #{$mobile} {
         padding: 0 5.5% 0 5.5%;
+        margin-bottom: 50px
     }
 
     .user-icon {
@@ -30,12 +31,20 @@
             cursor: pointer;
             margin-top: 8px;
             align-self: flex-end;
+
+            @media #{$mobile} {
+                align-self: center;
+            }
         }
 
         textarea {
             resize: none;
             margin: 0;
             height:inherit
+        }
+
+        @media #{$mobile} {
+            width: 100%
         }
     }
 

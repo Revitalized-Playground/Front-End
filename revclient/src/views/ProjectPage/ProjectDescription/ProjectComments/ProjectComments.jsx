@@ -6,7 +6,7 @@ import { withRouter } from 'react-router-dom';
 import { GET_PROJECT_BY_SLUG } from '../../../../graphql/queries/Projects';
 import SingleComment from './SingelComment'
 
-const ProjectComments = ({id, history, match, newBool, boolState, commentsData}) => {
+const ProjectComments = ({id, history, match, newBool, boolState, commentsData, pics}) => {
     const [commentCount, setCommentCount] = useState(5)
     const [comment, setComment] = useState({comment: '', id})
     const [settings, setSettings] = useState(false)
@@ -104,7 +104,7 @@ const ProjectComments = ({id, history, match, newBool, boolState, commentsData})
 
     if(!commentsData) return <div>Loading Comments...</div>
     return (
-        <div onClick={(e) => settingsBlur(e)} className='projectCommentsContainer'>
+        <div style={{marginTop: pics.length === 0 ? '-65px' : null}} onClick={(e) => settingsBlur(e)} className='projectCommentsContainer'>
             <h2 className='commentsTitle'>Comments</h2>
             {
                 localStorage.getItem('token') 
@@ -120,7 +120,7 @@ const ProjectComments = ({id, history, match, newBool, boolState, commentsData})
                     <button className='click' disabled={comment.comment.length === 0 ? true : false} style={comment.comment.length === 0 ? {background: '#4840ba', cursor: 'default'} : null}>Submit</button>
                 </form>
             }
-            <div>
+            <div >
                 {commentsData ? commentsData.map((each, index) => {
                     
                 

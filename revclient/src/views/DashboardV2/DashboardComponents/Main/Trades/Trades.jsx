@@ -1,25 +1,8 @@
 import React from 'react';
 import { FaWrench, FaPlusCircle } from 'react-icons/fa';
 
-// import { FaLightbulb, FaFire, FaTasks FaWrench, FaCheck, FaRegClipboard } from "react-icons/fa";
-// import Toggle from "react-toggle";
-// import AddTask from "../../AddTask/AddTask";
-// import AddTrade from "../../AddTrade/AddTrade";
-
 const ProjectTrades = props => {
 	const { trade, project, setAddTaskModal } = props;
-
-	// const [ addTaskModal, setAddTaskModal ] = useState({ show: false });
-	// if (addTaskModal.show === true) {
-	// 	return (
-	// 		<AddTask
-	// 			setAddTaskModal={setAddTaskModal}
-	// 			// addTaskModal={addTaskModal}
-	//             project={project}
-	//             trade={trade}
-	// 		/>
-	// 	)
-	// }
 
 	return (
 		<>
@@ -47,7 +30,4 @@ const ProjectTrades = props => {
 	);
 };
 
-// 	const [state, setState] = useState(false);
-// 	const [addTaskModal, setAddTaskModal] = useState({ show: false });
-// };
 export default ProjectTrades;

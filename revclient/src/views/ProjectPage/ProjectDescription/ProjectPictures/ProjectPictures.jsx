@@ -139,20 +139,19 @@ const ProjectPictures = ({ projectPhotos, carouselVal, carVal }) => {
 		return (
 			<div className="projectPictureContainer">
 				{projectPhotos.length > 0 && <h2>Project Photos</h2>}
-
-				<div className="projectImgCarousel" onTouchStart={tchStart} onTouchMove={tchMove} onTouchEnd={tchEnd}>
+				{projectPhotos.length > 0 && <div className="projectImgCarousel" onTouchStart={tchStart} onTouchMove={tchMove} onTouchEnd={tchEnd}>
 					{projectPhotos.map((each, index) => (
 						<img src={each} key={index} alt="slideshow" className="imgSlide" />
 					))}
-				</div>
+				</div>}
 
-				<div className="dotsContainer">
+				{/* <div className="dotsContainer">
 					{projectPhotos.map((each, index) => {
 						const cls = index === global.index ? 'dot active' : 'dot';
 
 						return <span className={cls} key={index} />;
 					})}
-				</div>
+				</div> */}
 			</div>
 		);
 	}

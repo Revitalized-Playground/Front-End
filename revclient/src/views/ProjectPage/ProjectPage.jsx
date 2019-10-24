@@ -120,7 +120,6 @@ const ProjectPage = ({ match }) => {
 						difficulty={projectData.difficulty}
 						organizer={`${projectData.profile.firstName} ${projectData.profile.lastName}`}
 					/>
-
 					<Donate
 						setModalDisplay={setModalDisplay}
 						setInnerModalDisplay={setInnerModalDisplay}
@@ -146,12 +145,12 @@ const ProjectPage = ({ match }) => {
 					<CreatorProfile projectCreator={projectData.profile} />
 				</div>
 				<div className="tablet">
-					<BasicDescription
+					{/* <BasicDescription
 						startDate={projectData.startDate}
 						duration={projectData.duration}
 						difficulty={projectData.difficulty}
 						organizer={`${projectData.profile.firstName} ${projectData.profile.lastName}`}
-					/>
+					/> */}
 
 					<DetailedDescription
 						startDate={projectData.projStartDate}
@@ -178,6 +177,7 @@ const ProjectPage = ({ match }) => {
 					deleteBool={deleteBool}
 					setDeleteBool={setDeleteBool}
 					commentsData={data.projectBySlug.comments}
+					pics={projectData.images}
 				/>
 			</div>
 			<Footer />
