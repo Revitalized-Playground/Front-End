@@ -63,14 +63,17 @@ const CreateProjectWizard = ({ history }) => {
 			zip: parseInt(projectDetails.zip, 10),
 		};
 		
-		console.log("added project in crw  1", newProjectDetails);
+		// console.log("added project in crw  1", newProjectDetails);
 
 		// SOS FRANK: UPDATE CACHE
 		const addedProj = await addProject({ variables: { data: newProjectDetails } });
 
-		console.log("added project in crw", addedProj);
+		// console.log("added project in crw", addedProj);
+		if(addedProj) {
+			history.push(`/dashboard`);
+		}
 
-		history.push(`/project/${addedProj.data.createProject.slug}`);
+		
 	};
 
 	return (
