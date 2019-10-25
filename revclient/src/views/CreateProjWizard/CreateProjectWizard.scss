@@ -2,15 +2,17 @@
 @import './Form2/Form2.scss';
 @import './Form3/Form3.scss';
 
-.create-project-container {
+.create-project-wizard-container {
 	// background-image: url('../assets/CreateProjWizard/RocketManGradient.png');
 	// background-size: cover;
 	// background-repeat: no-repeat;
 	// height: 100vh;
 	// min-height: 1000px;
-	background-color: $franks-grey;
+	// background-color: $franks-grey;
 	height: 100%;
 	margin: 0 auto;
+
+	padding: 20px 20px;
 	.errorText {
 		color: red;
 	}

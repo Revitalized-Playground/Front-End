@@ -1,16 +1,13 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { withRouter } from 'react-router-dom';
-import { useAuth } from '../../hooks/useAuth';
 
 import { StripeProvider, Elements } from 'react-stripe-elements';
 import CheckoutForm from './CheckoutForm/CheckoutForm';
-import { injectStripe, CardElement, CardNumberElement, CardExpiryElement, CardCvcElement } from 'react-stripe-elements';
 
 // import { useMutation } from '@apollo/react-hooks';
 // import { DONATE_TO_PROJECT } from '../../../graphql/mutations';
 
-
-const ProjectDonationPage = props => {
+const ProjectDonationPage = () => {
 	return (
 		<StripeProvider apiKey={process.env.REACT_APP_STRIPE_PUBLIC_KEY}>
 			<Elements>
