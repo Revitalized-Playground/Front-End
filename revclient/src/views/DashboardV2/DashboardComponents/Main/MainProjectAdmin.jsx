@@ -5,7 +5,7 @@ import Skeleton from 'react-loading-skeleton';
 import Tab from './TabComponent/Tab';
 // import Task from "./TasksComponent/Task";
 import People from "./People/People";
-import PeopleHeader from "./People/PeopleHeader";
+// import PeopleHeader from "./People/PeopleHeader";
 import Trades from "./Trades/Trades";
 import TradesHeader from "./Trades/TradesHeader";
 import Analytics from "./Analytics/Analytics";
@@ -35,16 +35,29 @@ const MainProjectAdmin = props => {
 		if (selectedTabView === mainTabs.projectAdminTabs[0]) {  // Applicants
 			const view = (
 				<>
-					{
-						project.applicants.length === 0
-						?
-							<NoContent message="No Applicants" />
-						:
-							<PeopleHeader  mainTabs={mainTabs} selectedMainTab={mainTabs.selectedMainTab} dashNavTabState={dashNavTabState} possibleDashNavTabs={possibleDashNavTabs}  />
-					}
+					
+					{project.applicants.length === 0 ? (
+						<NoContent message="No Applicants" />
+					) : (
+						null
+						// <PeopleHeader 
+						// 	mainTabs={mainTabs}
+						// 	selectedMainTab={mainTabs.selectedMainTab}
+						// 	dashNavTabState={dashNavTabState}
+						// 	possibleDashNavTabs={possibleDashNavTabs}  
+						// />
+					)}
+
 					{project.applicants.map(applicant => (
 						<section className="list applicants" key={applicant.profile.id + Date.now()}>
-							<People person={applicant} mainTabs={mainTabs} selectedMainTab={mainTabs.selectedMainTab} project={project} dashNavTabState={dashNavTabState} possibleDashNavTabs={possibleDashNavTabs}  />
+							<People
+								person={applicant}
+								mainTabs={mainTabs}
+								selectedMainTab={mainTabs.selectedMainTab}
+								project={project}
+								dashNavTabState={dashNavTabState}
+								possibleDashNavTabs={possibleDashNavTabs}  
+							/>
 						</section>
 					))}
 				</>
@@ -59,11 +72,23 @@ const MainProjectAdmin = props => {
 						<NoContent message="No Students" />
 					) : (
 						null
-						// <PeopleHeader  mainTabs={mainTabs} selectedMainTab={mainTabs.selectedMainTab} dashNavTabState={dashNavTabState} possibleDashNavTabs={possibleDashNavTabs}  />
+						// <PeopleHeader 
+						// 	mainTabs={mainTabs}
+						// 	selectedMainTab={mainTabs.selectedMainTab}
+						// 	dashNavTabState={dashNavTabState}
+						// 	possibleDashNavTabs={possibleDashNavTabs}
+						// />
 					)}
 					{project.students.map(student => (
 						<section className="list students" key={student.profile.id + Date.now()}>
-							<People person={student} mainTabs={mainTabs} selectedMainTab={mainTabs.selectedMainTab} project={project} dashNavTabState={dashNavTabState} possibleDashNavTabs={possibleDashNavTabs}  />
+							<People
+								person={student}
+								mainTabs={mainTabs}
+								selectedMainTab={mainTabs.selectedMainTab}
+								project={project}
+								dashNavTabState={dashNavTabState}
+								possibleDashNavTabs={possibleDashNavTabs}
+							 />
 						</section>
 					))}
 				</>
@@ -77,11 +102,24 @@ const MainProjectAdmin = props => {
 					{project.tradeMasters.length === 0 ? (
 						<NoContent message="No Trade Masters" />
 					) : (
-						<PeopleHeader  mainTabs={mainTabs} selectedMainTab={mainTabs.selectedMainTab} dashNavTabState={dashNavTabState} possibleDashNavTabs={possibleDashNavTabs}  />
+						null
+						// <PeopleHeader 
+						// 	mainTabs={mainTabs}
+						// 	selectedMainTab={mainTabs.selectedMainTab}
+						// 	dashNavTabState={dashNavTabState}
+						// 	possibleDashNavTabs={possibleDashNavTabs}
+						// />
 					)}
 					{project.tradeMasters.map(trademaster => (
 						<section className="list trade-masters"  key={trademaster.profile.id + Date.now()} >
-							<People person={trademaster} mainTabs={mainTabs} selectedMainTab={mainTabs.selectedMainTab} project={project} dashNavTabState={dashNavTabState} possibleDashNavTabs={possibleDashNavTabs}  />
+							<People
+								person={trademaster}
+								mainTabs={mainTabs}
+								selectedMainTab={mainTabs.selectedMainTab}
+								project={project}
+								dashNavTabState={dashNavTabState}
+								possibleDashNavTabs={possibleDashNavTabs}  
+							/>
 						</section>
 					))}
 				</>
@@ -115,7 +153,10 @@ const MainProjectAdmin = props => {
 		if (selectedTabView === mainTabs.projectAdminTabs[4]) {   // Analytics
 			const view = (
 				<div className="analytics">
-					<Analytics tab={mainTabs.selectedMainTab} project={project} />
+					<Analytics
+						tab={mainTabs.selectedMainTab}
+						project={project} 
+					/>
 				</div>
 			)
 			return viewSelected = view

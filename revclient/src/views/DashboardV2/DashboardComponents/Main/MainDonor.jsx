@@ -12,42 +12,6 @@ import Donations from "./Donations/Donations";
 const MainDonor = props => {
 	const { donations, mainTabs } = props;
 	// Moving away from managing any tab information anywhere other than in dashboard.
-	
-	// useEffect(() => {
-	// 	setMainTabs({
-	// 		...mainTabs,
-	// 		selectedMainTab: mainTabs.donationTabs[0]
-	// 	})
-	// }, []);
-
-	// const projectAdminMainView = selectedTabView => {
-		
-	// 	let viewSelected="";
-
-	// 	if (selectedTabView === mainTabs.donationTabs[0]) {
-	// 		const view = (
-	// 			<>
-	// 				<Donations donations={donations} />
-	// 			</>
-	// 		)
-	// 		return viewSelected = view
-	// 	}
-		
-	// 	// if (selectedTabView === mainTabs.donationTabs[1]) {
-	// 	// 	const view = (
-	// 	// 		<>
-	// 	// 			<Donations donations={donations} />
-	// 	// 		</>
-	// 	// 	)
-	// 	// 	return viewSelected = view
-	// 	// }
-
-	// 	return (
-	// 		<>
-	// 			<Donations donations={donations} />
-	// 		</>
-	// 	)
-	// }
 
 	if (!mainTabs) {
 		return (

@@ -13,12 +13,12 @@ import { HeaderSkeleton } from '../Skeleton/HeaderSkeleton';
 import { calculateDueDate } from '../../../../helpers/helpers';
 
 // GQL
-import { DELETE_PROJECT } from '../../../../graphql/mutations';
-import { CREATE_PROJECT_TRADE } from '../../../../graphql/mutations';
-
 import { useMutation, useQuery } from '@apollo/react-hooks';
 
+import { DELETE_PROJECT } from '../../../../graphql/mutations';
+import { CREATE_PROJECT_TRADE } from '../../../../graphql/mutations';
 import { GET_PROJECT_BY_ID } from '../../../../graphql/queries';
+
 
 const Header = props => {
 	const { project, setProject, selectedProject, type, possibleDashNavTabs, setAddTaskModal } = props;
