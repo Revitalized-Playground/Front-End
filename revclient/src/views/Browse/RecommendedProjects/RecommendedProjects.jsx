@@ -5,16 +5,11 @@ import RecommendedProjectsSkeleton from './RecommendedProjectsSkeleton';
 import CarouselCard from '../CarouselCard/CarouselCard';
 import { NextArrow, PrevArrow } from "../CarouselCard/Arrows";
 
-// Graphql
-import { useQuery } from '@apollo/react-hooks';
-import { GET_RECOMMENDED_PROJECTS } from '../../../graphql/queries';
-
 import { useAuth } from '../../../hooks/useAuth';
 
-const RecommendedProjects = ({ history }) => {
-        const { loading, error, data, refetch } = useQuery(GET_RECOMMENDED_PROJECTS);
+const RecommendedProjects = ({ history, loading, error, data, refetch, setToggleState, toggleState }) => {
 
-        // console.log(data);
+    // console.log(data)
 
         const { currentUser } = useAuth(history);
         const profileId = currentUser().profileId;
@@ -72,9 +67,11 @@ const RecommendedProjects = ({ history }) => {
                 <h4>Recommended Projects</h4>
                 <div className="slider">
                     <Slider {...settings}>
-                        {data.recommendedProjects ? data.recommendedProjects.map(recommendedItem => (
+                        {data ? data.map(recommendedItem => (
                             <CarouselCard
-                            refetch={refetch}
+                                refetch={refetch}
+                                setToggleState={setToggleState}
+                                toggleState={toggleState}
                                 key={recommendedItem.id}
                                 card={recommendedItem}
                                 view="recommended"

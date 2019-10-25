@@ -258,8 +258,16 @@
 					border-radius: 5px;
 					margin-left: -2.5rem;
 					padding: 7.5px 12.5px;
-
 					cursor: default;
+
+					@media #{$tablet-small} {
+						width: 20rem;
+						font-size: 1.55rem;
+						margin-left: -1rem;
+					}
+					@media #{$mobile} {
+						margin-left: 14rem;
+					}
 				}
 
 				h3 {
@@ -287,6 +295,12 @@
 
 			.opportunities .toolTip {
 				margin-left: 0.35rem;
+				@media #{$tablet-small} {
+					margin-left: 0.9rem;
+				}
+				@media #{$mobile} {
+					margin-left: 14rem;
+				}
 			}
 
 			.crowdFunding:hover .toolTip,

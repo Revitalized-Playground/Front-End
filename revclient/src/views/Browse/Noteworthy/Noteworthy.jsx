@@ -1,22 +1,8 @@
-import React, { useState, useEffect } from 'react';
-// import { Link } from 'react-router-dom';
-
-// import Slider from 'react-slick';
-
+import React from 'react';
 import CarouselCard from '../CarouselCard/CarouselCard';
 import NoteworthySkeleton from './NoteworthySkeleton';
 
-// Graphql
-import { useQuery } from '@apollo/react-hooks';
-import { GET_PROJECTS } from '../../../graphql/queries';
-
-const Noteworthy = () => {
-	const { loading, error, data } = useQuery(GET_PROJECTS);
-	const [projectData, setProjectData] = useState();
-
-	useEffect(() => {
-		data && setProjectData(data.projects);
-	}, [data]);
+const Noteworthy = ({loading, error, data}) => {
 
 	if (loading) return <NoteworthySkeleton />;
 
@@ -26,8 +12,8 @@ const Noteworthy = () => {
 		<section className="noteworthy-section">
 			<h4>New & Noteworthy</h4>
 			<div className="slider">
-				{projectData
-					? projectData
+				{data
+					? data
 							.slice(-2)
 							.map((item, index) => (
 								<CarouselCard

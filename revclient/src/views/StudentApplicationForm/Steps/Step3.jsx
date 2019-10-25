@@ -1,8 +1,8 @@
-import React,{useState, useEffect} from 'react'
+import React,{ useEffect} from 'react'
 import { withRouter } from 'react-router-dom'
 
 import { APPLY_TO_PROJECT } from '../../../graphql/mutations/Project'
-import { useMutation, useQuery } from '@apollo/react-hooks';
+import { useMutation } from '@apollo/react-hooks';
 
 // import { GET_PROJECT_BY_SLUG } from '../../../graphql/queries/Projects';
 

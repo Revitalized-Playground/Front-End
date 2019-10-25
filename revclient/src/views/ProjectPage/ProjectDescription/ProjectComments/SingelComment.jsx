@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { FaRegEdit } from 'react-icons/fa';
 import InitialAvatar from '../../../../components/InitialAvatar/InitialAvatar'
 
 const SingleComment = ({ each, editCommentMutation, deleteComment, currentUser, settings, settingsBlur, bool }) => {

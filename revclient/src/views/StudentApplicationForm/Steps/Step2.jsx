@@ -1,5 +1,4 @@
 import React from 'react'
-import { id } from 'postcss-selector-parser'
 
 
 const Step2 = ({setStep, obj, setObj, errorHandle, setErrorHandle}) => {

@@ -16,7 +16,7 @@ const Donate = props => {
 	const [applicationStatus, setApplicationStatus] = useState('notApplied');
 	// const [isProjectCreator, setIsProjectCreator] = useState(false);
 
-	const { client, loading, error, data } = useQuery(GET_USER);
+    const { data } = useQuery(GET_USER);
 
 	useEffect(() => {
 		if (props.projectData.applicants && data) {
