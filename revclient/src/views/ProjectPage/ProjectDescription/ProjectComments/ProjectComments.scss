@@ -5,6 +5,10 @@
     max-width: 1645px;
     margin-top: 80px;
 
+    @media #{$tablet} {
+        padding-left: 3.5%;
+    }
+
     @media #{$mobile} {
         padding: 0 5.5% 0 5.5%;
         margin-bottom: 50px
@@ -20,6 +24,10 @@
         flex-direction: column;
         margin-bottom: 30px;
         width: 30%;
+
+        @media #{$tablet} {
+            width: 50%
+        }
         
         *:focus {
             outline: none;
@@ -31,6 +39,11 @@
             cursor: pointer;
             margin-top: 8px;
             align-self: flex-end;
+
+            @media #{$tablet} {
+                padding-left: 3.5%;
+                width: 130px
+            }
 
             @media #{$mobile} {
                 align-self: center;

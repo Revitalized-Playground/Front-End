@@ -167,7 +167,7 @@ const ProjectPage = ({ match }) => {
 						setModal={setModalVal}
 					/> */}
 
-					<Donate
+					{/* <Donate
 						setModalDisplay={setModalDisplay}
 						setInnerModalDisplay={setInnerModalDisplay}
 						setIsProjectCreator={setIsProjectCreator}
@@ -176,7 +176,7 @@ const ProjectPage = ({ match }) => {
 						projectData={projectData}
 						setModal={setModalVal}
 						setDonateModal={setDonateModal}
-					/>
+					/> */}
 					<CreatorProfile projectCreator={projectData.profile} />
 				</div>
 				<ProjectPictures projectPhotos={projectData.images} carouselVal={carouselVal} carVal={carVal} />

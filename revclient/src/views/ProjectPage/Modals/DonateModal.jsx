@@ -132,11 +132,11 @@ const DonateModal = ({id, setInnerModalDisplay, setModalDisplay,innerModalDispla
                         <div className="mid-line"></div>
                     </div>
                     <div className='donation-suggestions'>
-                        <button onClick={() => setAmount('5')}>$5</button>
-                        <button onClick={() => setAmount('10')}>$10</button>
-                        <button onClick={() => setAmount('20')}>$20</button>
-                        <button onClick={() => setAmount('50')}>$50</button>
-                        <button onClick={() => setAmount('100')}>$100</button>
+                            <button onClick={() => setAmount('5')}>$5</button>
+                            <button onClick={() => setAmount('10')}>$10</button>
+                            <button onClick={() => setAmount('20')}>$20</button>
+                            <button onClick={() => setAmount('50')}>$50</button>
+                            <button onClick={() => setAmount('100')}>$100</button>
                     </div>
                     <p>Card Number</p>
                     <div style={{marginBottom: '40px'}}>

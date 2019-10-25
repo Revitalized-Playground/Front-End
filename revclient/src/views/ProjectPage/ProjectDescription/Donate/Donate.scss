@@ -10,11 +10,13 @@
 		position: unset;
 		margin: 0 10% 0 10%;
 		max-width: 800px;
+		z-index: 2;
+		min-width: 0;
 	}
 	@media #{$mobile} {
 		margin: 0;
-		min-width: 0;
-		z-index: 2
+		
+		
 	}
 	.donateInnerDiv {
 		max-width: 1200px;
@@ -33,6 +35,9 @@
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
+			@media #{$tablet} {
+				max-width: 100%
+			}
 
 			p {
 				font-size: 1.8rem;
@@ -61,7 +66,7 @@
 			max-width: 515px;
 			margin-bottom: 44px;
 			@media #{$tablet} {
-				width: 93%;
+				max-width: 100%;
 				margin-bottom: 20px;
 			}
 			@media #{$mobile} {
@@ -84,7 +89,7 @@
 				width: 100%;
 				padding: 25px 0;
 				@media #{$tablet} {
-					padding: 15px 0;
+					padding: 25px 0;
 					margin: 18px 0 13px 0;
 					font-size: 1.7rem;
 					line-height: 24px;
@@ -109,6 +114,9 @@
 		.donationMoney {
 			margin-bottom: 30px;
 			margin-top: 40px;
+			@media #{$tablet} {
+				width: 100%
+			}
 			@media #{$mobile} {
 				width: 90%;
 				margin-top: 17px;
@@ -148,6 +156,10 @@
 			border-radius: 50px;
 			margin-bottom: 16px;
 			border: 1px solid $snow-white;
+			@media #{$tablet} {
+				width: 100%;
+				max-width: 100%;
+			}
 			@media #{$mobile} {
 				width: 93%;
 				margin-bottom: 10px;
@@ -182,6 +194,9 @@
 			flex-direction: column;
 			max-width: 515px;
 			margin-bottom: 44px;
+			@media #{$tablet} {
+				max-width: 100%;
+			}
 			@media #{$mobile} {
 				width: 93%;
 				margin-bottom: 30px;

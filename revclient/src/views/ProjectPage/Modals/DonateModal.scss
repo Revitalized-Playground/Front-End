@@ -59,6 +59,22 @@
 		@media (max-width: 1024px) {
 			width: 45%;
 		}
+
+		@media (max-width: 950px) {
+			width: 55%
+		}
+
+		@media (max-width: 750px) {
+			width: 65%
+		}
+
+		@media (max-width: 650px) {
+			width: 80%
+		}
+
+		@media #{$mobile} {
+			width: 90%
+		}
 		.button-div {
 			display: flex;
 			flex-direction: row-reverse;
@@ -148,7 +164,6 @@
 		background: $snow-white;
 		letter-spacing: 0.06em;
 		z-index: 1;
-
 		border-radius: 5px;
 		padding: 70px 5%;
 
@@ -157,13 +172,17 @@
 			z-index: 999;
 		}
 
+		@media #{$mobile} {
+			padding: 0px 5% 30px 5%; 
+		}
+
 		.stripe-card {
 			border: 1px solid gray;
 			border-radius: 5px;
 			padding: 15px 10px;
 			font-size: 2rem;
-			// margin-bottom: 40px;
 			color: green;
+			
 		}
 
 		.card-error {
@@ -178,6 +197,10 @@
 		h2 {
 			font-size: 2.5rem;
 			margin-bottom: 15px;
+
+			@media #{$mobile} {
+				font-size: 1.8rem
+			}
 		}
 
 		.InputContainer {
@@ -200,6 +223,11 @@
 				border-left: none;
 				border-top-left-radius: 0;
 				border-bottom-left-radius: 0;
+
+				@media #{$mobile} {
+					font-size: 2rem;
+					height: 40px
+				}
 			}
 			input[type='number']::-webkit-inner-spin-button,
 			input[type='number']::-webkit-outer-spin-button {
@@ -231,7 +259,6 @@
 
 			.cvc {
 				width: 35%;
-
 				.cvc-input {
 					border: 1px solid gray;
 					border-radius: 5px;
@@ -274,6 +301,17 @@
 					justify-content: center;
 					align-items: center;
 				}
+
+				@media #{$mobile} {
+					font-size: 1.3rem;
+					padding: 10px;
+					// margin: 0 20px
+					// flex-wrap: nowrap;
+				}
+			}
+
+			@media #{$mobile} {
+				display: none
 			}
 		}
 
@@ -324,7 +362,7 @@
 			}
 
 			@media #{$mobile} {
-				width: 93%;
+				display: none
 			}
 		}
 	}

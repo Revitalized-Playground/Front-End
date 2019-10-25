@@ -70,7 +70,7 @@
 	.project-page-flex {
 		display: flex;
 		max-width: 1645px;
-		@media #{$mobile} {
+		@media #{$tablet} {
 			flex-direction: column
 		}
 
