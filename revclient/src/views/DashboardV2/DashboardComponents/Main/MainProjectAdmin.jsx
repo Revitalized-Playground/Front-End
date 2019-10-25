@@ -58,7 +58,8 @@ const MainProjectAdmin = props => {
 					{project.students.length === 0 ? (
 						<NoContent message="No Students" />
 					) : (
-						<PeopleHeader  mainTabs={mainTabs} selectedMainTab={mainTabs.selectedMainTab} dashNavTabState={dashNavTabState} possibleDashNavTabs={possibleDashNavTabs}  />
+						null
+						// <PeopleHeader  mainTabs={mainTabs} selectedMainTab={mainTabs.selectedMainTab} dashNavTabState={dashNavTabState} possibleDashNavTabs={possibleDashNavTabs}  />
 					)}
 					{project.students.map(student => (
 						<section className="list students" key={student.profile.id + Date.now()}>

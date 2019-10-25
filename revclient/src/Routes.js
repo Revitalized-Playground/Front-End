@@ -9,7 +9,7 @@ import Login from './views/Login/Login';
 import ProjectsHome from './views/ProjectsHome/ProjectsHome'; // May be deprecated
 
 import Browse from './views/Browse/Browse';
-import BrowseAll from './views/BrowseAll/BrowseAll';
+import AllProjects from './views/AllProjects/AllProjects';
 import Dashboard from './views/DashboardV2/Dashboard';
 import CreateProjectWizard from './views/CreateProjWizard/CreateProjectWizard';
 import ProjectPage from './views/ProjectPage/ProjectPage';
@@ -74,7 +74,7 @@ export const Routes = () => {
 
 			<Route path="/projects" component={Browse} />
 
-			<Route path="/all-projects" component={BrowseAll} />
+			<Route path="/all-projects" component={AllProjects} />
 
 			<Route
 				exact
