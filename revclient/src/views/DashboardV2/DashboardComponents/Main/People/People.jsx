@@ -64,7 +64,7 @@ const People = props => {
 		// console.log("this is an applicant")
 	}
 
-	// console.log("People props", props, projectApplicantState);
+	console.log("People props", props, projectApplicantState);
 
 	return (
 		<>
@@ -100,7 +100,7 @@ const People = props => {
 					{selectedMainTab === mainTabs.projectAdminTabs[0] &&
 					props.dashNavTabState.selectedDashNavTab === props.possibleDashNavTabs[0] ? ( // If rendering applicants, allow setting status
 						<div className="people-profile assign">
-							{person.trade ? <h5>Licensed</h5> : null}
+							{person.licensed ? <h5>Licensed</h5> : <h5>Student</h5>}
 							<p>Application status:</p>
 							{person.status === 'PENDING' ? (
 								<select

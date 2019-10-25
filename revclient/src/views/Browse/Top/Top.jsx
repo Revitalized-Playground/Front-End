@@ -2,35 +2,38 @@ import React from 'react';
 import { Link } from "react-router-dom";
 
 
-const Top = () => {
+const Top = props => {
+    const { setShowMore, possibleInterest, showMore, 
+        // setPossibleInterest, 
+    } = props;
+
+
     return (
         <div className="topContainer">
             <h2 className="title">
-                <div>What are your interests?</div>
+                <div>What field are you interested in?</div>
             </h2>
             <div className="interests">
                 <div className="interests-left">
-                    <Link to="/all-projects" className="interest one">
-                        <div className="inner-interest">
-                            Electrical 
-                        </div>
-                    </Link>
-                    <div className="interest two">
-                        Carpentry
+                    <div className="interest one inner-interest" onClick={() => setShowMore({ allProjects:  !showMore.allProjects, interest: possibleInterest[0] })}  >
+                        {possibleInterest[0]} 
                     </div>
-                    <div className="interest three">
-                        Interior Design
+                    <div className="interest two"  onClick={() => setShowMore({ allProjects:  !showMore.allProjects, interest: possibleInterest[1] })} >
+                        {possibleInterest[1]} 
+                    </div>
+                    <div className="interest three"  onClick={() => setShowMore({ allProjects:  !showMore.allProjects, interest: possibleInterest[2] })} >
+                        {possibleInterest[2]} 
                     </div>
                 </div>
                 <div className="interests-right">
-                    <div className="interest four">
-                        HVAC
+                    <div className="interest four"  onClick={() => setShowMore({ allProjects:  !showMore.allProjects, interest: possibleInterest[3] })} >
+                        {possibleInterest[3]} 
                     </div>
-                    <div className="interest five">
-                        Plumbing
+                    <div className="interest five"  onClick={() => setShowMore({ allProjects:  !showMore.allProjects, interest: possibleInterest[4] })} >
+                        {possibleInterest[4]} 
                     </div>
-                    <div className="interest six">
-                        Masonry
+                    <div className="interest six"  onClick={() => setShowMore({ allProjects:  !showMore.allProjects, interest: possibleInterest[5] })} >
+                        {possibleInterest[5]} 
                     </div>
                 </div>
             </div>

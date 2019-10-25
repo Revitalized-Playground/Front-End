@@ -144,7 +144,7 @@ const AddTask = props => {
                             
                         </div>
                         
-                        <div className="add-task-input-container disabled" >
+                        {/* <div className="add-task-input-container disabled" >
                             <h5 className="add-task-input-label">Assign Task</h5>
                             <select
                                 disabled
@@ -152,7 +152,7 @@ const AddTask = props => {
                                 value="Coming Soon"
                                 onChange={(event) => setAddTaskState({ ...addTaskState, apprentices: { profile: event.target.value } })}
                             >
-                                <option value={""}>Select apprentice</option>
+                                <option value={""}>Select apprentice</option> */}
                                 {/* {
                                     selectedProject.students.map(eachStudent => (
                                         <option 
@@ -165,8 +165,8 @@ const AddTask = props => {
                                         </option>
                                     ))
                                 } */}
-                            </select>
-                        </div>
+                            {/* </select>
+                        </div> */}
 
                         <div className="add-task-input-container" >
                             <h5 className="add-task-input-label">Priority Level</h5>
