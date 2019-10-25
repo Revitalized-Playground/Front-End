@@ -23,28 +23,6 @@ const MainDonor = props => {
 		<section className="dashboard-main section  donor ">
 			<div className="dashboard-section-inner-container" >
 
-				<div className="dashboard-title">
-					<div className="tabs">
-						{/* {mainTabs ? 
-							// mainTabs.donationTabs.map(tab => (
-							// 	<Tab
-							// 		mainTabs={mainTabs}
-							// 		setMainTabs={setMainTabs}
-							// 		tab={tab}
-							// 		key={tab + Date.now()}
-							// 	/>
-							// ))
-							null
-						 : (
-							<>
-								<Skeleton count={1} height={25} width={200} />
-							</>
-						)} */}
-					</div> 
-				</div>
-
-				{/* <hr /> */}
-
 				<div className="dashboard-main-body">
 					<Donations donations={donations} />
 				</div>
