@@ -1,0 +1,145 @@
+.setup-profile-container {
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	position: fixed;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 1;
+	.errorText {
+		color: red;
+		font-style: italic;
+		font-size: 1.5rem;
+	}
+	.errorBorder {
+		color: red;
+		border-radius: 5px;
+		border: 2px solid red !important;
+
+		&::placeholder {
+			color: red;
+		}
+	}
+	.setup-profile-container-card {
+		background-color: $chillFi-purple;
+		color: $snow-white;
+		box-shadow: 0px 0px 40px -10px rgba(0, 0, 0, 0.75);
+		height: 60%;
+		min-height: 600px;
+		max-height: 850px;
+		width: 100%;
+		// min-width: 500px;
+		max-width: 750px;
+		margin: 0 20px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		border-radius: 5px;
+		z-index: 2;
+		.setup-profile-interaction-overlay {
+			color: $snow-white;
+			font-size: 3.6rem;
+			position: sticky;
+			width: 100%;
+			padding: 0 0 0 20px;
+			// top: -50px;
+			transform: translate(0px, -50px);
+			svg {
+				cursor: pointer;
+			}
+		}
+		.setup-profile-form {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+			padding: 0 20px;
+			width: 100%;
+			z-index: 100; // The form needs to be indexed higher than the back button box
+			.setup-profile-heading-container {
+				margin-bottom: 30px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-direction: column;
+				.setup-profile-heading {
+					font-size: 4rem;
+				}
+			}
+			.setup-profile-settings-options {
+				width: 75%;
+				max-width: 450px;
+				display: flex;
+				justify-content: space-between;
+				align-self: center;
+				.setting-label {
+					font-size: 1.6rem;
+					display: flex;
+					align-items: center;
+				}
+			}
+			form {
+				width: 80%;
+				max-width: 450px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-direction: column;
+				@media #{$mobile} {
+				}
+				input {
+					background-color: rgba($erudite-purple, 0.75);
+					color: $snow-white;
+					padding: 10px 15px;
+					margin: 10px 0;
+					border: none;
+					width: 100%;
+					&::placeholder {
+						color: $static-grey;
+					}
+				}
+				.setup-profile-button-container {
+					margin-top: 30px;
+					button {
+						@include buttonStyler($cerulean, $snow-white, none, 0);
+						font-size: 2.4rem;
+					}
+				}
+				.setup-profile-statezip {
+					width: 100%;
+					display: flex;
+					flex-direction: row;
+					justify-content: space-between;
+				}
+			}
+		}
+	}
+}
+
+.setup-profile-container.settings-view {
+	background-color: unset;
+	position: relative;
+	margin: 20px auto 10%;
+	.setup-profile-container-card {
+		max-width: 900px;
+		justify-content: flex-start;
+		padding: 60px 0;
+	}
+}
+
+.dark-mode {
+	.setup-profile-container.settings-view {
+		.setup-profile-container-card {
+			background-color: $darkness;
+			box-shadow: unset;
+			.setup-profile-form {
+				form input {
+					background-color: rgba($machiavellian, 0.75);
+					background-color: $bleached-black;
+				}
+			}
+		}
+	}
+}

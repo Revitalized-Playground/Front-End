@@ -16,7 +16,7 @@ import donorIcon from "../../../../assets/SidebarIcons/donorIcon.png";
 
 const Sidebar = props => {
     const { user, project } = props;
-    const countArray = [
+    const achievementCountArray = [
     {
         name: "Admin Projects",
         count: user.projects.length,
@@ -38,18 +38,21 @@ const Sidebar = props => {
         icon: donorIcon
     }]
 
-    let totalAchievements = countArray[0].count+countArray[1].count+countArray[2].count+countArray[3].count;
+    let totalAchievements = achievementCountArray[0].count 
+        + achievementCountArray[1].count 
+        + achievementCountArray[2].count 
+        + achievementCountArray[3].count;
 
-    const displayCount = x => {
-        if(x.count > 0) {
+    const displayAchievementIfAvailable = eachAchievementFromArray => {
+        if (eachAchievementFromArray.count > 0) {
             return (
                 <div className="figure">
-                    <p className="overlay">{x.name}</p>
+                    <p className="overlay">{eachAchievementFromArray.name}</p>
                     <div className="empty"></div>
-                    <img src={x.icon} alt={`${x.name} icon`} />
+                    <img src={eachAchievementFromArray.icon} alt={`${eachAchievementFromArray.name} icon`} />
                     {
-                        x.count < 31
-                        ? <p className="count">{x.count}</p>
+                        eachAchievementFromArray.count < 31
+                        ? <p className="count">{eachAchievementFromArray.count}</p>
                         : <p className="count">30+</p>
                     }
                 </div>
@@ -64,55 +67,41 @@ const Sidebar = props => {
 
                 <div className="sidebar-top">
                     <Link to="/settings" origination="userDashboard"><h6>EDIT</h6></Link>
-                    {user.profileImage ? (
-                        <img src={user.profileImage} alt="user" className="user-picture" />
-                    ) : (
-                        <InitialAvatar
-                            firstName={user.firstName}
-                            lastName={user.lastName}
-                            height="164"
-                            width="164"
-                            useRandomColor={1}
-                        />
-                    )}
-                    {user.firstName ? (
-                        <>
-                            <h3>{`${user.firstName} ${user.lastName}`}</h3>
-                        </>
-                    ) : (
-                        <Skeleton count={2} />
-                    )}
+                        {user.profileImage ? (
+                            <img src={user.profileImage} alt="user" className="user-picture" />
+                        ) : (
+                            <InitialAvatar
+                                firstName={user.firstName}
+                                lastName={user.lastName}
+                                height="164"
+                                width="164"
+                                useRandomColor={1}
+                            />
+                        )}
+                        {user.firstName ? (
+                            <>
+                                <h3>{`${user.firstName} ${user.lastName}`}</h3>
+                            </>
+                        ) : (
+                            <Skeleton count={2} />
+                        )}
                 </div>
 
                 <div className="dashboard-stats">
-                    {
-
-                        <div className="a-container">
-                        {
-                            totalAchievements === 0
-                            ?
+                    <div className="achievement-container">
+                        {totalAchievements === 0 ? (
                                 <p>
                                     You currently have no achievements.
                                     Look <NavLink to="/projects">here</NavLink> for projects to join,
                                     or <NavLink to="/createproject">create a project</NavLink>!
                                 </p>
-                            :
-                                countArray.map(y => {
-                                    return (
-                                        <React.Fragment key={y.name+Math.random()}>
-                                            {displayCount(y)}
-                                        </React.Fragment>
-                                    )
-                                })
-                        }
-                        </div>
-                        ||
-                        <>
-                            <Skeleton count={1} height={25} width={200} />
-                            <Skeleton count={1} height={25} width={125} />
-                            <Skeleton count={1} height={25} width={75} />
-                        </>
-                    }
+                        ) : achievementCountArray.map(eachAchievement => (
+                                <React.Fragment key={eachAchievement.name + Math.random()}>
+                                    {displayAchievementIfAvailable(eachAchievement)}
+                                </React.Fragment>
+                            )
+                        )}
+                    </div>
                 </div>
                 <hr/>
                 <div className="info-container">
@@ -136,11 +125,11 @@ const Sidebar = props => {
                                         <p>Phone Number</p>
                                         <span>{user.phoneNumber}</span>
                                     </div>
-                                    <Link to="">
-                                        <div className="sidebar-icon-container">
+                                    <div className="sidebar-icon-container">
+                                        <a href={`tel:+${user.phoneNumber}`} >
                                             <FaPhone className="sidebar-icon" />
-                                        </div>
-                                    </Link>
+                                        </a>
+                                    </div>
                                 </div>
                             )}
 

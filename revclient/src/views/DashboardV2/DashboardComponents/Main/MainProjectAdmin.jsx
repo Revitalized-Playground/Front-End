@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Skeleton from 'react-loading-skeleton';
 
 // Components
@@ -15,18 +15,92 @@ import NoContent from "./NoContent/NoContent";
 // import { inLastWeek } from "../../../../helpers/helpers";
 import LoadingSpinner from "../../../../components/LoadingSpinner/LoadingSpinner";
 
+// GQL
+import { useQuery } from '@apollo/react-hooks';
+import { useMutation } from '@apollo/react-hooks';
+
+import { GET_PROJECT_BY_ID } from '../../../../graphql/queries';
+
+import { ACCEPT_PROJECT_APPLICANT } from '../../../../graphql/mutations';
 
 const MainProjectAdmin = props => {
 	const { project, mainTabs, setMainTabs, setAddTaskModal, dashNavTabState, possibleDashNavTabs } = props;
-	// Moving away from managing any tab information anywhere other than in dashboard.
+	
+	const [ projectData, setProjectData ] = useState({ project: project })
+	
+	const { loading, error, data } = useQuery(GET_PROJECT_BY_ID, {
+		variables: { id: project.id },
+	});
+
+	const [ acceptProjectApplicant ] = useMutation(ACCEPT_PROJECT_APPLICANT, {
+		update(
+			cache,
+			{
+				data: { acceptProjectApplicant },
+			},
+			) {
+				const { projectById } = cache.readQuery({
+					query: GET_PROJECT_BY_ID,
+					variables: { id: data.projectById.id },
+				});
+				// console.log("Cache inside of mutation  ", cache, "\nprojectById", projectById );
+				cache.writeQuery({
+					query: GET_PROJECT_BY_ID,
+					data: { projectById: projectById.trades.concat([acceptProjectApplicant]) },
+				});
+			},
+		}
+	);
+		
+	const [ projectApplicantState, setProjectApplicantState ] = useState({
+		project: '', // project Id
+		profile: '', // Profile ID
+		application: '', // Application id?
+	});
+
+
 
 	useEffect(() => {
 		setMainTabs({
 			...mainTabs,
 			selectedMainTab: mainTabs.projectAdminTabs[0]
 		})
-	}, []);
+		data && setProjectData({ project: data.projectById })
+	}, [data]);
 	
+
+	const submitSetStatus = async (status, statusObject) => {
+		if (status === 'ACCEPTED') {
+			await acceptProjectApplicant({
+				variables: {
+					data: {
+						...projectApplicantState,
+					},
+				},
+			});
+		}
+		// if (status === 'DECLINED') {
+		// 	await declineProjectApplicant({
+		// 		variables: {
+		// 			data: {
+		// 				...projectApplicantState,
+		// 				project: project.id,
+		// 				profile: person.profile.id,
+		// 				application: person.id,
+		// 			},
+		// 		},
+		// 	});
+		// }
+		setProjectApplicantState({ project: '', profile: '', application: '' });
+	};
+
+
+
+
+	if (loading) return <LoadingSpinner />;
+	if (error) return <h3>Error</h3>;
+
+
 
 	const projectAdminMainView = selectedTabView => {
 
@@ -56,7 +130,9 @@ const MainProjectAdmin = props => {
 								selectedMainTab={mainTabs.selectedMainTab}
 								project={project}
 								dashNavTabState={dashNavTabState}
-								possibleDashNavTabs={possibleDashNavTabs}  
+								possibleDashNavTabs={possibleDashNavTabs}
+								submitSetStatus={submitSetStatus}
+								projectApplicantState={projectApplicantState}
 							/>
 						</section>
 					))}

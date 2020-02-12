@@ -4,27 +4,9 @@
 	width: 25%;
 	height: 100%;
 	text-align: center;
-	@media (max-width: 1400px) {
-		width: 28%;
-	}
-
 	@media #{$tablet} {
-		width: 30%;
-	}
-
-	@media (max-width: 1199px) {
-		width: 40%;
-		margin: 0 auto;
-	}
-
-	@media #{$tablet-small} {
-		width: 70%;
-	}
-
-	@media #{$mobile} {
 		width: 100%;
 	}
-
 	.sidebar-top {
 		.user-picture {
 			width: 164px;
@@ -35,7 +17,7 @@
 		h3 {
 			color: $machiavellian;
 			font-weight: 500;
-			line-height: 1.61;
+			line-height: 1.5;
 			letter-spacing: 1.44px;
 		}
 		h6 {
@@ -46,25 +28,25 @@
 			color: $machiavellian;
 			font-size: 1.8rem;
 			font-weight: 500;
-			line-height: 1.61;
+			line-height: 1.5;
 			letter-spacing: 1.08px;
 		}
 	}
 	.info-container {
-		margin: 5% 0;
+		margin: 20px 0;
 		font-family: 'Roboto';
 		p {
 			color: $mirage;
 			font-size: 1.6rem;
 			font-weight: 500;
-			line-height: 1.61;
+			line-height: 1.5;
 			letter-spacing: 0.96px;
 		}
 		span {
 			font-size: 1.8rem;
 			font-weight: 500;
 			color: $machiavellian;
-			line-height: 1.61;
+			line-height: 1.5;
 			letter-spacing: 1.08px;
 		}
 		.info {
@@ -124,13 +106,13 @@
 		h5 {
 			color: $machiavellian;
 			font-weight: 500;
-			line-height: 1.61;
+			line-height: 1.5;
 			letter-spacing: 1.2px;
 			margin-bottom: 5%;
 		}
 	}
 }
-.a-container {
+.achievement-container {
 	display: flex;
 	flex-flow: row wrap;
 	justify-content: space-evenly;
@@ -182,6 +164,8 @@
 		font-size: 1.5rem;
 	}
 }
+
+
 .dark-mode {
 	.sidebar-top {
 		h3,
@@ -192,7 +176,7 @@
 	}
 	.dashboard-stats {
 		color: $snow-white;
-		.a-container {
+		.achievement-container {
 			p {
 				color: $black-void;
 			}
@@ -217,7 +201,7 @@
 			background-color: $snow-white;
 			color: $black-void;
 		}
-		.a-container {
+		.achievement-container {
 			.count {
 				color: $black-void;
 			}

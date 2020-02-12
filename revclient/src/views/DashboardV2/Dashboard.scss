@@ -26,19 +26,15 @@
 		padding-left: 20px;
 		padding-right: 20px;
 		margin-bottom: 60px;
+		@media #{$tablet} {
+			flex-direction: column;
+		}
 		.dashboard-body {
 			width: calc(75% - 20px);
 			margin-left: 20px;
-
-			@media (max-width: 1400px) {
-				width: calc(72% - 20px);
-			}
 			@media #{$tablet} {
-				width: calc(70% - 20px);
-			}
-
-			@media (max-width: 1199px) {
-				display: none;
+				width: 100%;
+				margin: 20px 0;
 			}
 		}
 

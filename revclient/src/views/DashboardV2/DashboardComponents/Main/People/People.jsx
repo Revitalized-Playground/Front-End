@@ -1,68 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, {  } from 'react';
 // import Toggle from "react-toggle";
 
-// GQL
-import { ACCEPT_PROJECT_APPLICANT, DECLINE_PROJECT_APPLICANT } from '../../../../../graphql/mutations';
-
-import { useMutation } from '@apollo/react-hooks';
 
 const People = props => {
-	const { project, person, selectedMainTab, mainTabs } = props;
+	const { project, person, selectedMainTab, mainTabs, submitSetStatus, projectApplicantState } = props;
 
-	const [, setVerified] = useState(false);
-	const [acceptProjectApplicant] = useMutation(ACCEPT_PROJECT_APPLICANT);
-	const [declineProjectApplicant] = useMutation(DECLINE_PROJECT_APPLICANT);
-	const [projectApplicantState, setProjectApplicantState] = useState({
-		project: '', // project Id
-		profile: '', // Profile ID
-		application: '', // Application id?
-	});
 
-	useEffect(() => {
-		// Check verified
-		if (person.profile.verified) return setVerified(true);
-		setVerified(false);
-	}, []);
+	
 
-	const submitSetStatus = async (status, statusObject) => {
-		setProjectApplicantState({
-			...projectApplicantState,
-			project: project.id,
-			profile: person.profile.id,
-			application: person.id,
-		});
-		if (status === 'ACCEPTED') {
-			await acceptProjectApplicant({
-				variables: {
-					data: {
-						...projectApplicantState,
-						project: project.id,
-						profile: person.profile.id,
-						application: person.id,
-					},
-				},
-			});
-		}
-		if (status === 'DECLINED') {
-			await declineProjectApplicant({
-				variables: {
-					data: {
-						...projectApplicantState,
-						project: project.id,
-						profile: person.profile.id,
-						application: person.id,
-					},
-				},
-			});
-		}
+	
 
-		setProjectApplicantState({ project: '', profile: '', application: '' });
-	};
-
-	if (selectedMainTab === mainTabs.projectAdminTabs[0]) {
-		// Applicants
-		// console.log("this is an applicant")
-	}
 
 	console.log("People props", props, projectApplicantState);
 
@@ -85,8 +32,12 @@ const People = props => {
 					</div>
 
 					<div className="people-profile contact">
-						<p className="email">{person.profile.email}</p>
-						<p className="phone">{person.profile.phone}</p>
+						{person.profile.email && (
+							<p className="email">{person.profile.email}</p>
+						)}
+						{person.profile.phone && (
+							<p className="phone">{person.profile.phone}</p>
+						)}
 					</div>
 
 					<div className="people-profile address">
@@ -101,7 +52,7 @@ const People = props => {
 					props.dashNavTabState.selectedDashNavTab === props.possibleDashNavTabs[0] ? ( // If rendering applicants, allow setting status
 						<div className="people-profile assign">
 							{person.licensed ? <h5>Licensed</h5> : <h5>Student</h5>}
-							<p>Application status:</p>
+							<p>Status:</p>
 							{person.status === 'PENDING' ? (
 								<select
 									value={person.status}
@@ -134,12 +85,6 @@ const People = props => {
 						</div>
 					) : null}
 
-					{/* <div className="people-profile verified">
-                        <Toggle
-                            defaultChecked={verified}
-                            onChange={() => setVerified(!verified)}
-                        />
-                    </div> */}
 				</div>
 			</div>
 		</>

@@ -13,8 +13,20 @@ section.dash-nav.section {
     .tab {
         color: $static-grey;
         padding: 10px 60px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
         @media #{$tablet} {
             padding: 10px 30px;
+            font-size: 1.8rem;
+        }
+        @media #{$tablet-small} {
+            padding: 10px 20px;
+            font-size: 1.6rem;
+        }
+        @media #{$mobile} {
+            padding: 10px 10px;
+            font-size: 1.4rem;
         }
     }
     .tab.unavailable-tab {

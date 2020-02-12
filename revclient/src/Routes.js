@@ -6,7 +6,6 @@ import LandingPage from './views/Landing/LandingPage';
 import Register from './views/Register/Register';
 import SetupProfile from './views/SetupProfile/SetupProfile';
 import Login from './views/Login/Login';
-import ProjectsHome from './views/ProjectsHome/ProjectsHome'; // May be deprecated
 
 import Browse from './views/Browse/Browse';
 import AllProjects from './views/AllProjects/AllProjects';
@@ -15,7 +14,8 @@ import CreateProjectWizard from './views/CreateProjWizard/CreateProjectWizard';
 import ProjectPage from './views/ProjectPage/ProjectPage';
 import ProjectDonationPage from './views/ProjectDonationPage/ProjectDonationPage';
 import About from './views/About/About';
-import Messages from './views/Messages/Messages';
+import Settings from "./views/Settings/Settings";
+// import Messages from './views/Messages/Messages';  // Coming soon
 
 // Utils
 import AuthenticateUser from './utils/AuthenticateUser';
@@ -45,26 +45,19 @@ export const Routes = () => {
 				component={Dashboard}
 			/>
 
-			{/* <Route
-				// exact
-				path="/messages"
-				component={Messages}
-			/> */}
-
-			{/* <Route
-                // exact
-                path="/profile/setup"
-                component={SetupProfile }
-            /> */}
-
 			<Route
 				// exact
 				path="/settings"
+				render={() => <Settings destination="settings" />}
+			/>
+
+			<Route
+				// exact
+				path="/setup-profile"
 				render={() => <SetupProfile destination="settings" />}
 			/>
 
 			{/* Project routes */}
-			{/* <Route path="/projects" component={ProjectsHome} /> */}
 
 			<Route exact path="/project/:slug" component={ProjectPage} />
 
