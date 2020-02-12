@@ -10,7 +10,6 @@ import PeopleHeader from "./People/PeopleHeader";
 
 import NoContent from "./NoContent/NoContent";
 
-// import { apprenticeTabs, apprenticeList } from '../../dashboarddummydata';
 
 const MainStudent = props => {
 	const { project, mainTabs, setMainTabs } = props;
@@ -23,13 +22,8 @@ const MainStudent = props => {
 		})
 	}, []);
 
-
-	
-
 	const studentMainView = selectedTabView => {
-		console.log("studentMainView function ", props);
-
-		let viewSelected="";
+		let viewSelected = "";
 
 		
 		if (selectedTabView === mainTabs.studentTabs[0]) { // Tasks
@@ -71,30 +65,6 @@ const MainStudent = props => {
 			)
 			return viewSelected = view
 		}
-
-		
-
-
-		// if (selectedTabView === mainTabs.studentTabs[2]) { // Completed tasks
-		// 	const view = (
-		// 		<>
-		// 			{
-		// 				project.tasks.length === 0 
-		// 				? 
-		// 					<NoContent message="No Completed Tasks" />
-		// 				:
-		// 					<TasksHeader />
-		// 			}
-		// 			{project.tasks.map(task => (
-		// 				<div className="list tasks" key={task.id + Date.now()}>
-		// 					<Task task={task} tab={mainTabs.selectedMainTab} mainTabs={mainTabs} project={project}  />
-		// 				</div>
-		// 			))}
-		// 		</>
-		// 	)
-		// 	return viewSelected = view
-		// }
-
 
 		return (
 			<>

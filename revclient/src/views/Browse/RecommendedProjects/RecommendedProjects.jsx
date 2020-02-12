@@ -14,8 +14,6 @@ import { useAuth } from '../../../hooks/useAuth';
 const RecommendedProjects = ({ history }) => {
         const { loading, error, data, refetch } = useQuery(GET_RECOMMENDED_PROJECTS);
 
-        console.log(data)
-
         const { currentUser } = useAuth(history);
         const profileId = currentUser().profileId;
 

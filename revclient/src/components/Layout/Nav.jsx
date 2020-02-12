@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 // import Skeleton from "react-loading-skeleton";
-import { FaMoon, FaCog, FaUser, FaWindowClose } from 'react-icons/fa';
+import { FaMoon, FaCog, FaWindowClose } from 'react-icons/fa';
 import { useQuery } from '@apollo/react-hooks';
 import { GET_USER } from '../../graphql/queries/Users';
 
@@ -19,11 +19,9 @@ const unauthenticatedLinks = [
 
 const authenticatedLinks = [
 	{ href: '/projects', label: 'Projects' },
-	// { href: '/about', label: 'Team' },
 	{ href: '/dashboard', label: 'Dashboard' },
 	{ href: '/createproject', label: 'Create Project' },
 	{ href: '/settings', label: 'Settings' },
-	// { href:÷ '/messages', label: 'Messages' },
 	{ href: '#', label: 'Logout' },
 ].map(link => {
 	link.key = `nav-link-${link.href}-${link.label}`;
@@ -78,7 +76,6 @@ const Nav = props => {
 						<Link to="/" title="Home">
 							<div className="logo">
 								<span>Revitalize </span>
-								{/* <p className="loading-banner">loading....</p> */}
 							</div>
 						</Link>
 					</div>
@@ -149,10 +146,6 @@ const Nav = props => {
 
 								<div className={`dropdown ${!clicked && 'display-none'}`} name="drop" tabIndex="0">
 									<div className="arrow-up"></div>
-									{/* <Link to="/dashboard" className="dropdown-option">
-										<FaUser className="icon" />
-										Dashboard
-									</Link> */}
 									<Link to="/settings" className="dropdown-option">
 										<FaCog className="icon" /> Settings
 									</Link>

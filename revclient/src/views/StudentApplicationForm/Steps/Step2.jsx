@@ -1,5 +1,4 @@
-import React from 'react'
-import { id } from 'postcss-selector-parser'
+import React from 'react';
 
 
 const Step2 = ({setStep, obj, setObj, errorHandle, setErrorHandle}) => {
@@ -26,7 +25,7 @@ const Step2 = ({setStep, obj, setObj, errorHandle, setErrorHandle}) => {
         <div className='second-page'>
             <h2 className='title'>Getting to know you more</h2>
             <form>
-                <h4>Please explain why you are seeking this apprenticeship.</h4>
+                <h4>Please why you would be the perfect fit for this apprenticeship.</h4>
                 <textarea 
                     style={{marginBottom: !errorHandle.coverLetter && '60px'}}
                     value={obj.coverLetter} 
@@ -35,8 +34,8 @@ const Step2 = ({setStep, obj, setObj, errorHandle, setErrorHandle}) => {
                     name='coverLetter' 
                     className='page-two-text-area'>    
                 </textarea>
-                {errorHandle.coverLetter && <p className='application-error margin'>Please provide information.</p>}
-                <h4>Please list below any prior job experience(s).</h4>
+                {errorHandle.coverLetter && <p className='application-error margin'>Please tell us why you would like this apprenticeship.</p>}
+                <h4>Please list any prior job experience(s).</h4>
                 <textarea 
                     value={obj.jobExperience} 
                     onClick={() => setErrorHandle({...errorHandle, jobExperience: false})} 
@@ -44,7 +43,7 @@ const Step2 = ({setStep, obj, setObj, errorHandle, setErrorHandle}) => {
                     name='jobExperience'  
                     className='page-two-text-area'>    
                 </textarea>
-                {errorHandle.jobExperience && <p className='application-error'>This field cannot be empty.</p>}
+                {errorHandle.jobExperience && <p className='application-error'>Please list experience. Put none if you have no experience.</p>}
             </form>
             <div className='button-container two'>
                 <button onClick={() => setStep(1)}>&larr; Back</button>
@@ -52,7 +51,7 @@ const Step2 = ({setStep, obj, setObj, errorHandle, setErrorHandle}) => {
             </div>
         </div>
     )
-}
+};
 
 
-export default Step2
+export default Step2;

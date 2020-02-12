@@ -23,7 +23,10 @@ const Step1 = ({chosenTrade, setChosenTrade, setStep, trades, obj, setObj, error
                     <h2>Hey {!data ? '...' : data.me.firstName}</h2>
                 </div>
                 <select onChange={(e) => {setChosenTrade(true); setObj({...obj, trade: e.target.value}); setErrorHandle({...errorHandle, trade: false})}}>
-                    <option selected disabled>Choose Your Trade</option>
+                    <option 
+                        selected
+                        disabled
+                    >Choose Your Trade</option>
                     {trades.map(each => <option value={each.id} key={each.id}>{each.name}</option>)}
                 </select>
                 {errorHandle.trade && <p className='application-error'>Please choose your trade.</p>}

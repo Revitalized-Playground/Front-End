@@ -57,7 +57,7 @@ const ProgressBar = props => {
     
 
     return (
-        <div className={percent < 100 ? "progress-bar" : percent === NaN ? "progress-bar empty" : "progress-bar full"} >
+        <div className={percent < 100 ? "progress-bar" : isNaN(percent) ? "progress-bar empty" : "progress-bar full"} >
             <Box />
         </div> 
     );

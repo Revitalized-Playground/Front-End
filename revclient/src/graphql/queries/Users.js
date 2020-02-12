@@ -2,8 +2,6 @@ import gql from 'graphql-tag';
 import {
 	USER_SUMMARY_FRAG,
 	PROJECT_SUMMARY_FRAG,
-	COMMENTS_FRAG,
-
 } from '../fragments';
 
 export const GET_USERS = gql`

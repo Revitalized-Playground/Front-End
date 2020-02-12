@@ -5,8 +5,6 @@ import ProgressBar from "../../../../components/ProgressBar/ProgressBar";
 import { useQuery } from "@apollo/react-hooks";
 import { GET_USER } from "../../../../graphql/queries/Users";
 
-// import '@lottiefiles/lottie-player'; // WTH is this?
-
 const Donate = props => {
 	const raised = addUpDonations(props.projectData.donations);
 	const budget = formatMoney(props.projectData.goalAmount);
@@ -14,16 +12,15 @@ const Donate = props => {
 	const totalDonations = donationCount(props.projectData.donations.length);
 	const totalNumberOfDonations = props.projectData.donations ? totalDonations : 0;
 	const [applicationStatus, setApplicationStatus] = useState('notApplied');
-	// const [isProjectCreator, setIsProjectCreator] = useState(false);
 
-	const { client, loading, error, data } = useQuery(GET_USER);
+	const { data } = useQuery(GET_USER);
 
 	useEffect(() => {
 		if (props.projectData.applicants && data) {
 			props.projectData.applicants.map(eachApplicant => {
 				if (eachApplicant.profile.id === data.me.id) {
-					setApplicationStatus(eachApplicant.status);
-				}
+					return setApplicationStatus(eachApplicant.status);
+				} else return null;
 			});
 
 			if (props.projectData.profile.id === data.me.id) {
@@ -45,7 +42,6 @@ const Donate = props => {
 				<p className="donatorCount">{totalNumberOfDonations}</p>
 				<p className="donorText">{`${totalNumberOfDonations === 1 ? 'Donor' : 'Donors'}`}</p>
 				<div className="donationButtons">
-					{/* <Link to={`/project/donate/${match.params.id}`}> */}
 					{props.isProjectCreator ? (
 						<Link to="/dashboard">
 							<button className="purple">Dashboard</button>

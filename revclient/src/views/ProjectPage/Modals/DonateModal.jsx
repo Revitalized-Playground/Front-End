@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react'
-import paypal from '../../../assets/ProjectPage/paypal-logo.png'
 import { withRouter } from 'react-router-dom';
 import CurrencyInput from 'react-currency-input'
 import { removeCommas } from "../../../helpers/helpers";
@@ -18,7 +17,7 @@ const DonateModal = ({id, setInnerModalDisplay, setModalDisplay,innerModalDispla
     const [amount, setAmount] = useState('');
     const [success, setSuccess] = useState(false)
     const [animationSuccess, setAnimationSuccess] = useState(false)
-    const [donateToProject, {data, loading, error}] = useMutation(DONATE_TO_PROJECT, {
+    const [ donateToProject, { data, loading } ] = useMutation(DONATE_TO_PROJECT, {
         update(cache, {data: {createProjectDonation}},) {
             const { projectBySlug } = cache.readQuery({
                 query: GET_PROJECT_BY_SLUG,
@@ -68,7 +67,6 @@ const DonateModal = ({id, setInnerModalDisplay, setModalDisplay,innerModalDispla
         const { token } = await stripe.createToken({ name: 'Name here' }); 
         let newAmount = amount
         newAmount = removeCommas(newAmount)
-        // console.log("newAmount in DonateModal", newAmount);
         
         if(newAmount < 0.50) {
             window.alert('Can\'t donate less than $0.50')
@@ -106,13 +104,8 @@ const DonateModal = ({id, setInnerModalDisplay, setModalDisplay,innerModalDispla
         <div onClick={donateModalBlur} className={donateModal ? 'donate-modal' : 'none'}>
             <div className='exit-button'>
                 <div style={{display: modalDisplay}} className="button-div">
-                <FaTimes onClick={() => setDonateModal(false)} className='label'/>
-                        {/* <div className="outer" onClick={() => setDonateModal(false)}>
-                            <div className="inner" onClick={() => setDonateModal(false)}>
-                                <label onClick={() => setDonateModal(false)}>Back</label>
-                            </div>
-                        </div> */}
-                    </div>
+                    <FaTimes onClick={() => setDonateModal(false)} className='label'/>
+                </div>
                 <div style={{display: innerModalDisplay}} className='inner-donate-modal'>
                     <h2>$ Amount</h2>
                     <form className='donate-form'>
@@ -163,13 +156,13 @@ const DonateModal = ({id, setInnerModalDisplay, setModalDisplay,innerModalDispla
                     {loading && <p style={{color: 'black'}} className='donate-success-text'>Processing your request...</p>}
                 </div>
                 {animationSuccess &&
-                <lottie-player
+                    <lottie-player
                         autoplay
                         mode="normal"
                         src="https://assets8.lottiefiles.com/datafiles/OivQWebdu3tdxIt/data.json"
-                        style={{position: 'fixed', margin: '0 auto', left: '0', top: '0', width: '100%', height: '100vh'}}
+                        style={{ position: 'fixed', margin: '0 auto', left: '0', top: '0', width: '100%', height: '100vh' }}
                     >
-                </lottie-player>
+                    </lottie-player>
                 }
             </div>
         </div>

@@ -4,7 +4,7 @@ import { ADD_COMMENT, REMOVE_COMMENT, EDIT_COMMENT } from '../../../../graphql/m
 import { useAuth } from '../../../../hooks/useAuth';
 import { withRouter } from 'react-router-dom';
 import { GET_PROJECT_BY_SLUG } from '../../../../graphql/queries/Projects';
-import SingleComment from './SingelComment'
+import SingleComment from './SingleComment'
 
 const ProjectComments = ({comments, refetch, id, history, match, newBool, boolState, deleteBool, setDeleteBool}) => {
     const [commentCount, setCommentCount] = useState(5)
@@ -30,25 +30,7 @@ const ProjectComments = ({comments, refetch, id, history, match, newBool, boolSt
         }
     })
 
-    const [removeComment] = useMutation(REMOVE_COMMENT
-    //     , {
-    //     update(cache, {data: deleteProjectComment }){
-            
-    //         const { projectBySlug } = cache.readQuery({
-    //             query: GET_PROJECT_BY_SLUG,
-    //             variables: { slug: match.params.slug }
-    //         })
-            
-    //         cache.writeQuery({
-    //             query: GET_PROJECT_BY_SLUG,
-    //             data: { projectBySlug: projectBySlug.comments}
-    //         })
-    //         console.log('slug',projectBySlug, 'delete',deleteProjectComment)
-            
-            
-    //     }
-    // }
-    )
+    const [removeComment] = useMutation( REMOVE_COMMENT )
 
     const [editCommentMutation] = useMutation(EDIT_COMMENT, {
         update(cache, {data: updateProjectComment }){
@@ -85,7 +67,7 @@ const ProjectComments = ({comments, refetch, id, history, match, newBool, boolSt
     const submitComment = async e => {
         e.preventDefault()
 
-        const newComment = await addComment({variables: {data: comment}})
+        await addComment({variables: {data: comment}})
 
         setComment({...comment, comment: ''})
         inputRef.current.blur()

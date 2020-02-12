@@ -1,10 +1,8 @@
-import React,{useState, useEffect} from 'react'
+import React,{ useEffect } from 'react'
 import { withRouter } from 'react-router-dom'
 
 import { APPLY_TO_PROJECT } from '../../../graphql/mutations/Project'
-import { useMutation, useQuery } from '@apollo/react-hooks';
-
-// import { GET_PROJECT_BY_SLUG } from '../../../graphql/queries/Projects';
+import { useMutation } from '@apollo/react-hooks';
 
 
 const Step3 = ({refetch, setStep, obj, setObj, errorHandle, setErrorHandle, setAnimation, history, match}) => {
@@ -52,7 +50,7 @@ const Step3 = ({refetch, setStep, obj, setObj, errorHandle, setErrorHandle, setA
         <div className='second-page'>
             <h2 className='title'>Getting to know you more</h2>
             <form>
-                <h4>Please list below your education.</h4>
+                <h4>What kind of education do you have?</h4>
                 <textarea 
                     style={{marginBottom: errorHandle.education && '0'}}
                     onChange={changeHandler} 
@@ -61,7 +59,7 @@ const Step3 = ({refetch, setStep, obj, setObj, errorHandle, setErrorHandle, setA
                     className='page-two-text-area margin' 
                     onClick={() => setErrorHandle({...errorHandle, education: false})}
                 />
-                {errorHandle.education && <p className='application-error margin'>Please provide information.</p>}
+                {errorHandle.education && <p className='application-error margin'>If you have no prior education, that's okay. Just say "n/a".</p>}
                 <h4>Availability is critical to successfully completing apprenticeship. Would you be available for more than 90% of the time dedicated to project(s)? If not, please provide any dates you would need time off.</h4>
                 <textarea 
                     onClick={() => setErrorHandle({...errorHandle, availability: false})}

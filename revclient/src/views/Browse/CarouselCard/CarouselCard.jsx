@@ -14,9 +14,9 @@ import { CREATE_PROJECT_LIKE, DELETE_PROJECT_LIKE } from '../../../graphql/mutat
 import { useMutation, useQuery } from '@apollo/react-hooks';
 
 const CarouselCard = props => {
-	const { card, view, profileId, refetch } = props;
+	const { card, view } = props;
 
-	const { client, loading, error, data } = useQuery(GET_USER);
+	const { data } = useQuery(GET_USER);
 
 	const [createProjectLike] = useMutation(CREATE_PROJECT_LIKE, {
 		update(cache, { data: createProjectLike }) {
@@ -41,8 +41,17 @@ const CarouselCard = props => {
 			const { recommendedProjects } = cache.readQuery({
 				query: GET_RECOMMENDED_PROJECTS,
 			});
-
-			console.log('deleteProjectLike', deleteProjectLike);
+			// const recom = recommendedProjects.map(project => {
+			// 	if (project.id === createProjectLike.createProjectLike.project.id) {
+			// 		project.likes = createProjectLike.createProjectLike.project.likes;
+			// 	} else {
+			// 		return project.likes;
+			// 	}
+			// });
+			// cache.writeQuery({
+			// 	query: GET_RECOMMENDED_PROJECTS,
+			// 	data: { recommendedProjects: (recommendedProjects.likes = recom) },
+			// });
 		},
 	});
 
@@ -52,20 +61,15 @@ const CarouselCard = props => {
 	});
 
 	const toggleLiked = async (e, arg) => {
-		// console.log('likeState in toggle: ', likeState);
 		e.preventDefault();
 		if (arg === 'unlike') {
-			const newDeleted = await deleteProjectLike({ variables: { id: likeState.likeId } });
+			await deleteProjectLike({ variables: { id: likeState.likeId } });
 		}
 		if (arg === 'like') {
-			const newLiked = await createProjectLike({ variables: { id: card.id } });
-			// if(newLiked) {
-			// 	refetch()
-			// }
+			await createProjectLike({ variables: { id: card.id } });
 		}
 	};
 
-	console.log('card', data);
 	useEffect(() => {
 		if (card.likes && data) {
 			card.likes.map(eachLike => {

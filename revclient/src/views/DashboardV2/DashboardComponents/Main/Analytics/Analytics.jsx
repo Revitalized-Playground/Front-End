@@ -2,7 +2,7 @@ import React from 'react';
 
 
 const Analytics = props => {
-    const { applicants, donations, likes, students, tasks, tradeMasters, trades } = props.project;
+    const { applicants, donations, likes, students, tasks } = props.project;
     return (
         <>
             <div className="analytics">

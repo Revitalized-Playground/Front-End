@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { FaRegEdit } from 'react-icons/fa';
 import InitialAvatar from '../../../../components/InitialAvatar/InitialAvatar'
 
-const SingleComment = ({ each, editCommentMutation, deleteComment, currentUser, settings, settingsBlur, bool }) => {
+const SingleComment = props => {
+	const { each, editCommentMutation, deleteComment, currentUser, settings, bool } = props;
+
 	const [comment, setComment] = useState(each);
 	const [editComment, setEditComment] = useState({ comment: comment.comment, id: comment.id });
 	const [eachSetting, setSettings] = useState(settings);
@@ -26,14 +27,16 @@ const SingleComment = ({ each, editCommentMutation, deleteComment, currentUser, 
 
 	return (
 		<div className="commentFlex" key={each.id}>
-			{!each.profile.profileImage ? <InitialAvatar
-										height={40}
-										width={40}
-										className="user-icon"
-										firstName={each.profile.firstName}
-										lastName={each.profile.lastName}
-										useRandomColor={1}
-									/> : (
+			{!each.profile.profileImage ? (
+				<InitialAvatar
+					height={40}
+					width={40}
+					className="user-icon"
+					firstName={each.profile.firstName}
+					lastName={each.profile.lastName}
+					useRandomColor={1}
+				/>
+			) : (
 				<img src={each.profile.profileImage} alt="Profile icon" />
 			)}
 			<div className="comment-inner-container">
@@ -69,21 +72,20 @@ const SingleComment = ({ each, editCommentMutation, deleteComment, currentUser, 
 						)}
 					</div>
 					{each.profile.id === currentUser().profileId && (
-					<div className="settings-drop" onClick={() => setSettings(!eachSetting)}>
-						<div className="dot-container">
-							<div onClick={() => setSettings(!eachSetting)} className="dot"></div>
-							<div className="dot"></div>
-							<div className="dot"></div>
-						</div>
-						{eachSetting && 
-							<div className="settings-drop-buttons">
-								<button onClick={() => setEditing(true)}>Edit</button>
-								<button onClick={e => deleteComment(e, each.id)}>Delete</button>
+						<div className="settings-drop" onClick={() => setSettings(!eachSetting)}>
+							<div className="dot-container">
+								<div onClick={() => setSettings(!eachSetting)} className="dot"></div>
+								<div className="dot"></div>
+								<div className="dot"></div>
 							</div>
-						}
-					</div>)
-					}
-					{/* <FaRegEdit onClick={submitEditComment} style={{fontSize: '2rem', color:'red'}}/> */}
+							{eachSetting && 
+								<div className="settings-drop-buttons">
+									<button onClick={() => setEditing(true)}>Edit</button>
+									<button onClick={e => deleteComment(e, each.id)}>Delete</button>
+								</div>
+							}
+						</div>
+					)}
 				</div>
 			</div>
 		</div>

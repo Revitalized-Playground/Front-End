@@ -35,20 +35,8 @@ const Dashboard = () => {
     const [ selectedProject, setProject ] = useState({ project: null, id: null, showMore: false, buttonToggle: false });
 
     
-
     // This useQuery pulls in tons of data and can pull more! See graphql/queries to adjust what it pulls in
-    const { loading, error, data, refetch } = useQuery( GET_USER_PROFILE );
-    // console.log("data: ", data);
-
-
-
-    // const cache = new InMemoryCache({
-    //     cacheRedirects: {
-    //         Query: {
-    //             me: (_, args) => toIdValue(cache.config.dataIdFromObject({ __typename: 'me', id: args.id })),
-    //         },
-    //     },
-    // });
+    const { loading, error, data } = useQuery( GET_USER_PROFILE );
 
     const setCurrentProject = object => setProject(object);
 

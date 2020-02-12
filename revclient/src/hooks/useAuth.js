@@ -2,7 +2,7 @@ import { useState } from 'react';
 import jwt from 'jsonwebtoken';
 
 export const useAuth = history => {
-	let [token, setStoken] = useState(localStorage.getItem('token'));
+	const [token] = useState(localStorage.getItem('token'));
 
 	function authenticateUser() {
 		try {

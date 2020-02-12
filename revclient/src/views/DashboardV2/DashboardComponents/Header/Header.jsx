@@ -5,7 +5,6 @@ import { GoKebabVertical } from 'react-icons/go';
 
 // Sub components
 import AddTrade from "../AddTrade/AddTrade";
-import AddTask from '../AddTask/AddTask';
 import MemberIcons from './MemberIcons/MemberIcons';
 import { HeaderSkeleton } from '../Skeleton/HeaderSkeleton';
 
@@ -24,7 +23,6 @@ const Header = props => {
 	const { project, setProject, selectedProject, type, possibleDashNavTabs, setAddTaskModal } = props;
 
 	const [settingsToggle, setSettingsToggle] = useState({ settingsDropdown: false });
-	// const [addTaskModal, setAddTaskModal] = useState({ show: false });
 	const [deleteProject] = useMutation(DELETE_PROJECT);
 	const [projectData, setProjectData] = useState(project);
 
@@ -46,7 +44,6 @@ const Header = props => {
 				query: GET_PROJECT_BY_ID,
 				variables: { id: data.projectById.id },
 			});
-			// console.log("Cache inside of mutation  ", cache, "\nprojectById", projectById );
 			cache.writeQuery({
 				query: GET_PROJECT_BY_ID,
 				data: { projectById: projectById.trades.concat([createProjectTrade]) },
@@ -59,42 +56,27 @@ const Header = props => {
 	});
 
 	useEffect(() => {
-		// data && console.log(data);
 		data && setProjectData(data.projectById);
 	}, [data]);
 
 	const submitAddTrade = async event => {
 		event.preventDefault();
 
-		const created = await createProjectTrade({ variables: { data: addTradeState } });
+		await createProjectTrade({ variables: { data: addTradeState } });
 
 		setAddTradeState({ ...addTradeState, project: '', name: '', description: '' });
 		setAddTradeModal({ show: false });
 	};
 
 	const submitDeleteProject = async () => {
-		const deletedProject = await deleteProject({
+		await deleteProject({
 			variables: { id: projectData.id },
 		});
-		// console.log(`${deletedProject} has been deleted.`)
 		props.history.push('/dashboard');
 	};
 
 	if (loading) return <HeaderSkeleton />;
 	if (error) return <h3>Error</h3>;
-
-	// if (addTaskModal.show === true) {
-	// 	return (
-	// 		<AddTask 
-	// 			setAddTaskModal={setAddTaskModal} 
-	// 			addTaskModal={addTaskModal} 
-	// 			project={project} 
-
-	// 			trade={null}
-	// 		/>
-	// 	)
-	// }
-
 	if (addTradeModal.show === true) {
 		return (
 			<AddTrade
@@ -107,8 +89,6 @@ const Header = props => {
 			/>
 		);
 	}
-
-	// console.log("Header props",props);
 
 	return (
 		<>
@@ -225,8 +205,6 @@ const Header = props => {
 								? (
 									<MemberIcons 
 										arrayOfUsers={projectData.students} // Should work for student view, but not tested yet
-										// possibleDashNavTabs={possibleDashNavTabs}
-										// type={type}
 									/>
 								) : (
 									<>

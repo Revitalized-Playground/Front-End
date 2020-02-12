@@ -14,7 +14,6 @@ import LoadingSpinner from '../../../../components/LoadingSpinner/LoadingSpinner
 const AddTask = props => {
     const {
         setAddTaskModal,
-        // addTaskModal,
         selectedProject,
         trade
     } = props;
@@ -44,7 +43,6 @@ const AddTask = props => {
 				query: GET_PROJECT_BY_ID,
 				variables: { id: data.projectById.id },
 			});
-			// console.log("Cache inside of mutation  ", cache, "\nprojectById", projectById );
 			cache.writeQuery({
 				query: GET_PROJECT_BY_ID,
 				data: { projectById: projectById.tasks.concat([createProjectTask]) },
@@ -174,13 +172,11 @@ const AddTask = props => {
                             <select
                                 value={addTaskState.priority}
                                 onChange={(event) => {
-                                    {
-                                        (event.target.value === "LOW") ? setAddTaskState({ ...addTaskState, priority: event.target.value, dueDate: formatDateForDateInput(addWeeksDueDate(Date.now(), 4)) })
-                                        :
-                                        (event.target.value === "MEDIUM") ? setAddTaskState({ ...addTaskState, priority: event.target.value, dueDate: formatDateForDateInput(addWeeksDueDate(Date.now(), 2)) })
-                                        :
-                                        (event.target.value === "HIGH") && setAddTaskState({ ...addTaskState, priority: event.target.value, dueDate: formatDateForDateInput(addWeeksDueDate(Date.now(), 1)) })
-                                    }
+                                    (event.target.value === "LOW") ? setAddTaskState({ ...addTaskState, priority: event.target.value, dueDate: formatDateForDateInput(addWeeksDueDate(Date.now(), 4)) })
+                                    :
+                                    (event.target.value === "MEDIUM") ? setAddTaskState({ ...addTaskState, priority: event.target.value, dueDate: formatDateForDateInput(addWeeksDueDate(Date.now(), 2)) })
+                                    :
+                                    (event.target.value === "HIGH") && setAddTaskState({ ...addTaskState, priority: event.target.value, dueDate: formatDateForDateInput(addWeeksDueDate(Date.now(), 1)) })
                                 }}
                             >
                                 <option value="0">Select priority</option>

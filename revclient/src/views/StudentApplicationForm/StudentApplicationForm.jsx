@@ -8,7 +8,7 @@ import large from '../../assets/StudentApplicationWizard/large.svg'
 import med from '../../assets/StudentApplicationWizard/med.svg'
 import small from '../../assets/StudentApplicationWizard/small.svg'
 
-import { useQuery, useMutation } from '@apollo/react-hooks';
+import { useQuery } from '@apollo/react-hooks';
 import { GET_PROJECT_BY_SLUG } from '../../graphql/queries/Projects'
 
 import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner';
@@ -34,7 +34,6 @@ const ApplicationForm = (props) => {
         variables: {slug: props.match.params.name}
     })
 
-
     useEffect(() => {
         if(data) {
             setObj({
@@ -49,12 +48,6 @@ const ApplicationForm = (props) => {
         }
 
     }, [data])
-
-
-  
-    
-
-
 
     if (loading || !data) {
 		return (
@@ -71,6 +64,9 @@ const ApplicationForm = (props) => {
                 >
         </lottie-player>
     }
+
+    if (error) console.log('error --> ', error);
+
     return(
 
         <>

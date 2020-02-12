@@ -1,8 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaHeart, FaRegHeart, FaAngleRight } from 'react-icons/fa';
+import { FaRegHeart } from 'react-icons/fa';
 import Truncate from 'react-truncate';
-import Skeleton from 'react-loading-skeleton';
 
 import ProgressBar from '../../../components/ProgressBar/ProgressBar';
 import { formatMoney } from '../../../helpers/formatMoney';
@@ -11,22 +10,11 @@ import { addUpDonations } from '../../../helpers/helpers';
 const CarouselCard = props => {
 	const { project } = props;
 
-	// if (!card && view === 'recommended') {
-	// 	return (
-	// 		<section className="project-card-inner __recommended">
-	// 			<Skeleton count={1} height={360} width={240} />
-	// 		</section>
-	// 	);
-	// }
-
 
 	if (!project.featuredImage) {
 		project.featuredImage =
 			'https://res.cloudinary.com/revitalize/image/upload/v1569451117/start%20page/Camp_Crystal_Lake_jqewaz.jpg';
 	}
-
-
-	// console.log("ProjectCard props", props);
 
 	return (
 		<section className="project-card-container __browse-all">
